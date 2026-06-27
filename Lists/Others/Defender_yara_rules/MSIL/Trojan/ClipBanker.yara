@@ -4772,6 +4772,29 @@ rule Trojan_MSIL_ClipBanker_ARR_2147967867_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {2b 21 06 08 8f ?? ?? 00 01 25 71 ?? ?? 00 01 7e ?? ?? 00 04 08 1a 58 91 5a d2 81 ?? ?? ?? ?? 08 17 58 0c 08 06 8e 69 32 d9}  //weight: 7, accuracy: Low
+        $x_3_2 = {13 05 09 11 05 d2 6e 1e 11 04 5a 1f 3f 5f 62 60 0d 11 04 17 58 13 04 11 04 1e 32 de}  //weight: 3, accuracy: High
+        $x_10_3 = "$8431891b-5f8f-4dd4-9c71-14cecc338e3e" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ClipBanker_ARR_2147967867_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.ARR!MTB"
+        threat_id = "2147967867"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_10_1 = "$de344385-3a4d-45b2-a2a7-8722135f484d" ascii //weight: 10

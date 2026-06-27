@@ -2682,6 +2682,32 @@ rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ARR!MTB"
+        threat_id = "2147961505"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 0f b6 0b 41 8b c2 49 ff c3 48 33 c8 c1 e8 ?? 0f b6 d1 44 8b 14 96 44 33 d0 48 83 eb}  //weight: 5, accuracy: Low
+        $x_6_2 = "cmd ::= CREATE STREAM not_exists_opt stream_name stream_options INTO" ascii //weight: 6
+        $x_4_3 = "vgId:%d, suid:%llu failed to add to uid list cache, due to payload length %d greater than threshold %d" ascii //weight: 4
+        $x_3_4 = "tdb/btree-encode-cell: encode payload failed with ret: %d." ascii //weight: 3
+        $x_2_5 = "tdb/btree-decode-payload: leaf page with non-null pVal" ascii //weight: 2
+        $x_8_6 = "CTG:%p db is dropping, dbId:0x%llx" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ShellcodeRunner_NSG_2147961601_0
 {
     meta:

@@ -739,3 +739,26 @@ rule Trojan_MSIL_WebShell_ARR_2147967870_1
         )
 }
 
+rule Trojan_MSIL_WebShell_AHB_2147972506_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AHB!MTB"
+        threat_id = "2147972506"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "var folder = prompt(\"Create New Folder\", \"\");" ascii //weight: 30
+        $x_20_2 = "var f = prompt(\"rename file:\", file);" ascii //weight: 20
+        $x_10_3 = "fpath = url.concat(file.concat(checked[i]));" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

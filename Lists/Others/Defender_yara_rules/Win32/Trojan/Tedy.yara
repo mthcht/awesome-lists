@@ -818,6 +818,28 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {48 8b 45 f8 8b 40 04 83 c8 ?? 48 8b 4d f8 89 41 04 e9}  //weight: 11, accuracy: Low
+        $x_9_2 = {48 8b 44 24 20 48 33 44 24 20 48 89 44 24 20 eb}  //weight: 9, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_ARR_2147954236_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
@@ -829,7 +851,29 @@ rule Trojan_Win32_Tedy_ARR_2147954236_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_1
+rule Trojan_Win32_Tedy_ARR_2147954236_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_9_1 = {33 c0 8a 04 1f 03 c6 99 e8 ?? ?? ?? ?? 8b f0 8a 04 1f 8a 14 37 88 14 1f 88 04 37 33 c0 8a 04 1f 33 d2 8a 14 37 03 c2}  //weight: 9, accuracy: Low
+        $x_11_2 = {8b ca 33 d2 f7 f1 8a 04 17 88 45 f3 8d 45 e0 8b 55 fc 8b 4d f4 8a 54 0a ff 8a 4d f3 32 d1 e8}  //weight: 11, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_ARR_2147954236_3
 {
     meta:
         author = "defender2yara"
@@ -854,7 +898,7 @@ rule Trojan_Win32_Tedy_ARR_2147954236_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_2
+rule Trojan_Win32_Tedy_ARR_2147954236_4
 {
     meta:
         author = "defender2yara"
@@ -877,7 +921,7 @@ rule Trojan_Win32_Tedy_ARR_2147954236_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_3
+rule Trojan_Win32_Tedy_ARR_2147954236_5
 {
     meta:
         author = "defender2yara"
@@ -900,7 +944,7 @@ rule Trojan_Win32_Tedy_ARR_2147954236_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_ARR_2147954236_4
+rule Trojan_Win32_Tedy_ARR_2147954236_6
 {
     meta:
         author = "defender2yara"
@@ -1300,6 +1344,33 @@ rule Trojan_Win32_Tedy_LRH_2147968423_0
         $x_3_3 = "echo start C:\\b\\win.js>C:\\Windows\\BD\\Error.bat" ascii //weight: 3
         $x_4_4 = "taskkill /im HipsMain.exe /f" ascii //weight: 4
         $x_5_5 = "taskkill /im regedit.exe /f" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_LRH_2147968423_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.LRH!MTB"
+        threat_id = "2147968423"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Microsoft.ServiceHub.exe" ascii //weight: 1
+        $x_2_2 = "/keyautch/activate_key.php" ascii //weight: 2
+        $x_3_3 = "iccup-killer.online" ascii //weight: 3
+        $x_4_4 = "] Telegram bot: @iCCup_killeR_bot" ascii //weight: 4
+        $x_5_5 = "Software\\Blizzard Entertainment\\Warcraft III\\String" ascii //weight: 5
+        $x_6_6 = "HWID (SID)." ascii //weight: 6
+        $x_7_7 = "] Connecting to the Telegram bot" ascii //weight: 7
     condition:
         (filesize < 20MB) and
         (all of ($x*))

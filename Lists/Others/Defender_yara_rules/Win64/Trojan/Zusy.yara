@@ -4032,3 +4032,48 @@ rule Trojan_Win64_Zusy_LRJ_2147972300_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXV_2147972505_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXV!MTB"
+        threat_id = "2147972505"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 89 45 d8 c7 45 48 05 00 00 00 49 bd ?? ?? ?? ?? ?? ?? ?? ?? 4c 89 6d e8 4c 8d 7d 38 4c 89 7d f0 49 8b 1f 49 33 dd 48 89 5d e0 4d 89 27 41 8b cc bf 03 00 00 00}  //weight: 30, accuracy: Low
+        $x_10_2 = {49 33 dd 49 89 1f 4c 89 6d e8 4c 8d 7d 38 4c 89 7d f0 49 33 dd 48 89 5d e0 4d 89 27 41 8b cc}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AHS_2147972508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHS!MTB"
+        threat_id = "2147972508"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[*] Phase 1: SysInfo, Browsers, Discord, Telegram" ascii //weight: 30
+        $x_20_2 = "[*] Phase 2: Wallets, Sessions, Screenshots, Credentials, etc." ascii //weight: 20
+        $x_10_3 = "[*] Phase 3: File collection, Gaming, VPN, Password managers" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -286,3 +286,28 @@ rule Trojan_Win32_Ulise_GTD_2147959366_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Ulise_AHB_2147972507_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Ulise.AHB!MTB"
+        threat_id = "2147972507"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {00 68 00 74 00 74 00 70 00 3a 00 2f 00 2f [0-32] 00 3a [0-8] 00 2f 00 6d 00 6f 00 64 00 75 00 6c 00 6f 00 6c 00 6d 00 2e 00 7a 00 69 00 70}  //weight: 50, accuracy: Low
+        $x_40_2 = "J#O#YC#E#AR#MS" ascii //weight: 40
+        $x_30_3 = "#x#i#d#0#3#6#46" ascii //weight: 30
+        $x_20_4 = "#D#E#S#K#-#7#9FR#93#A#2#2Y" ascii //weight: 20
+        $x_10_5 = "#F#RA#N#CE#S#GOM" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
