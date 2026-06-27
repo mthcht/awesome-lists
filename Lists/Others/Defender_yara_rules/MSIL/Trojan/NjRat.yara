@@ -3966,3 +3966,26 @@ rule Trojan_MSIL_NjRat_ADSB_2147964734_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_PAR_2147972484_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.PAR!MTB"
+        threat_id = "2147972484"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 00 0a 00 07 17 6f ?? 00 00 0a 00 07 18 6f ?? 00 00 0a 00 07 6f ?? 00 00 0a 0c 00 73 ?? 00 00 0a 0d 00 09 08 17 73 ?? 00 00 0a 13 04 11 04 02 16 02 8e 69 6f ?? 00 00 0a 00 11 04 6f ?? 00 00 0a 00 09 6f}  //weight: 4, accuracy: Low
+        $x_2_2 = {00 73 39 00 00 0a 0d 08 09 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 0a}  //weight: 2, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

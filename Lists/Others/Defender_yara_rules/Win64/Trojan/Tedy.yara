@@ -6914,3 +6914,47 @@ rule Trojan_Win64_Tedy_CAL_2147972399_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_LVD_2147972485_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LVD!MTB"
+        threat_id = "2147972485"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {34 14 88 84 15 ?? ?? 00 00 48 ff c2 48 83 ef 01 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LVD_2147972485_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LVD!MTB"
+        threat_id = "2147972485"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b 45 10 01 d8 31 ca 88 10 83 45 f0 01 8b 45 f0 3b 45 14}  //weight: 10, accuracy: High
+        $x_10_2 = "VirtualAlloc" ascii //weight: 10
+        $x_10_3 = "VirtualProtect" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

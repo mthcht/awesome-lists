@@ -3430,6 +3430,28 @@ rule Trojan_Win64_ShellcodeRunner_AZSR_2147971025_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_CAT_2147971621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.CAT!MTB"
+        threat_id = "2147971621"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = ".exe /namespace:\\\\root\\Microsoft\\Windows\\Defender path MSFT_MpPreference call Add ExclusionPath=" ascii //weight: 5
+        $x_5_2 = "ksii33-56503.portmap.host" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ShellcodeRunner_ARAX_2147971865_0
 {
     meta:

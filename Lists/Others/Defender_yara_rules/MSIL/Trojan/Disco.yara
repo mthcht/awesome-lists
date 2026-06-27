@@ -427,3 +427,24 @@ rule Trojan_MSIL_Disco_KKA_2147970440_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_CAT_2147971309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.CAT!MTB"
+        threat_id = "2147971309"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 06 11 07 91 13 05 11 04 1e 64 06 11 04 11 05 61 20 ff 00 00 00 5f e0 95 61 13 04 11 07 17 58 13 07 11 07 11 06 8e 69 32 d6}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

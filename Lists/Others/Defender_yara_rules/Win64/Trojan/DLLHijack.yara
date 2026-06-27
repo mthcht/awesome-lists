@@ -404,3 +404,24 @@ rule Trojan_Win64_DLLHijack_PAA_2147972437_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_GPKE_2147972483_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.GPKE!MTB"
+        threat_id = "2147972483"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {76 2d d7 7b 32 4c b9 28 32 4c b9 28 32 4c b9 28 3b 34 2a 28 3e 4c b9 28 27 33 bd 29 3a 4c b9 28 27 33 ba 29 36 4c b9 28 27 33 bc 29 2c 4c b9 28}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
