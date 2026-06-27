@@ -64,27 +64,6 @@ rule Trojan_Win32_Neoreklami_MBYR_2147915221_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreklami_EC_2147922680_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Neoreklami.EC!MTB"
-        threat_id = "2147922680"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Neoreklami"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_7_1 = {2b 1e c1 fb 02 8b c3 d1 e8 2b d0 3b d3 73 04 33 db eb 02 03 d8 3b d9 0f 42 d9}  //weight: 7, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Neoreklami_MBWD_2147927705_0
 {
     meta:
