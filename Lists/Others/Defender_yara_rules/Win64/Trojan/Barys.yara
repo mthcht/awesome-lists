@@ -839,3 +839,32 @@ rule Trojan_Win64_Barys_AHB_2147970008_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_KP_2147972554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.KP!MTB"
+        threat_id = "2147972554"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "mason_locate" ascii //weight: 1
+        $x_1_2 = "mason_audio.wav" ascii //weight: 1
+        $x_2_3 = "mason_wallpaper.jpg" ascii //weight: 2
+        $x_1_4 = "CredEnumerateA" ascii //weight: 1
+        $x_1_5 = "Domain Password" ascii //weight: 1
+        $x_1_6 = "Domain Certificate" ascii //weight: 1
+        $x_1_7 = "elevation_service.exe" ascii //weight: 1
+        $x_1_8 = "Microsoft\\Edge\\User Data\\Default" ascii //weight: 1
+        $x_1_9 = "Google\\Chrome\\User Data\\Default" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

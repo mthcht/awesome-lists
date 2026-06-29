@@ -432,3 +432,24 @@ rule Trojan_Win64_Donut_PAB_2147967984_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Donut_DX_2147971763_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Donut.DX!MTB"
+        threat_id = "2147971763"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Donut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8d 4e ff 83 e1 1e 0f b6 94 0d a0 50 05 00 89 f1 83 e1 1f 0f b6 8c 0d a0 50 05 00 32 54 35 cf 32 4c 35 d0 88 54 30 ff 88 0c 30 48 83 c6 02}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

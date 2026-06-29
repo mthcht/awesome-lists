@@ -3204,3 +3204,24 @@ rule Trojan_Win32_Lazy_PGLl_2147971918_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_KWX_2147972555_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.KWX!MTB"
+        threat_id = "2147972555"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f ac df 0d c1 eb 0d 0f a4 f2 07 31 da c1 e6 07 31 fe}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

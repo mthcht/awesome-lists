@@ -1724,3 +1724,24 @@ rule Trojan_Win32_Formbook_LR_2147972217_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Formbook_KMX_2147972553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Formbook.KMX!MTB"
+        threat_id = "2147972553"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Formbook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {35 7c ed 54 a7 8b 4d fc 3b 81 8d 04 00 00 75 24 c7 85 30 ff ff ff 00 00 00 00 e8 00 00 00 00 8f 85 30 ff ff ff 8b 55 fc 8b 85 30 ff ff ff 89 82 7a 01 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
