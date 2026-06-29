@@ -376,3 +376,28 @@ rule Trojan_MSIL_SpyAgent_F_2147964798_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyAgent_G_2147972532_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.G!AMTB"
+        threat_id = "2147972532"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "FetchPublicIP" ascii //weight: 1
+        $x_1_2 = "_keysSinceLastEmail" ascii //weight: 1
+        $x_1_3 = "\\Ketylogger\\obj\\Debug\\Ketylogger.pdb" ascii //weight: 1
+        $x_1_4 = "UltraFastKeyLogger" ascii //weight: 1
+        $x_1_5 = "C:\\Windows\\Temp\\keylog_crash_" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
