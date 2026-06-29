@@ -186,59 +186,6 @@ rule Trojan_MSIL_RemLoader_2147760285_4
         threshold = "33"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "IsDebuggerPresent" ascii //weight: 1
-        $x_1_2 = "OutputDebugString" ascii //weight: 1
-        $x_1_3 = "VirtualProtect" ascii //weight: 1
-        $x_1_4 = "System.Threading" ascii //weight: 1
-        $x_1_5 = "CheckRemoteDebuggerPresent" ascii //weight: 1
-        $x_1_6 = "NtQueryInformationProcess" ascii //weight: 1
-        $x_1_7 = "CreateProcess" ascii //weight: 1
-        $x_1_8 = "GetThreadContext" ascii //weight: 1
-        $x_1_9 = "SetThreadContext" ascii //weight: 1
-        $x_1_10 = "ReadProcessMemory" ascii //weight: 1
-        $x_1_11 = "WriteProcessMemory" ascii //weight: 1
-        $x_1_12 = "ProcessWindowStyle" ascii //weight: 1
-        $x_1_13 = "WebClient" ascii //weight: 1
-        $x_1_14 = "RegistryKeyPermissionCheck" ascii //weight: 1
-        $x_1_15 = "get_ProcessName" ascii //weight: 1
-        $x_1_16 = "get_CurrentThread" ascii //weight: 1
-        $x_1_17 = "get_IsAttached" ascii //weight: 1
-        $x_1_18 = "IsLogging" ascii //weight: 1
-        $x_1_19 = "AppDomain" ascii //weight: 1
-        $x_1_20 = "get_CurrentDomain" ascii //weight: 1
-        $x_1_21 = "GetProcessById" ascii //weight: 1
-        $x_1_22 = "CreateSubKey" ascii //weight: 1
-        $x_1_23 = "SetValue" ascii //weight: 1
-        $x_1_24 = "set_FileName" ascii //weight: 1
-        $x_1_25 = "set_Arguments" ascii //weight: 1
-        $x_1_26 = "set_UseShellExecute" ascii //weight: 1
-        $x_1_27 = "set_RedirectStandardOutput" ascii //weight: 1
-        $x_1_28 = "set_CreateNoWindow" ascii //weight: 1
-        $x_1_29 = "set_StartInfo" ascii //weight: 1
-        $x_1_30 = "get_StandardOutput" ascii //weight: 1
-        $x_1_31 = "ReadLine" ascii //weight: 1
-        $x_1_32 = "get_EndOfStream" ascii //weight: 1
-        $x_1_33 = "get_Assembly" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_RemLoader_2147760285_5
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/RemLoader!MTB"
-        threat_id = "2147760285"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "RemLoader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "33"
-        strings_accuracy = "High"
-    strings:
         $x_1_1 = "<Module>" ascii //weight: 1
         $x_1_2 = "IsDebuggerPresent" ascii //weight: 1
         $x_1_3 = "VirtualProtect" ascii //weight: 1
@@ -277,7 +224,7 @@ rule Trojan_MSIL_RemLoader_2147760285_5
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RemLoader_2147760285_6
+rule Trojan_MSIL_RemLoader_2147760285_5
 {
     meta:
         author = "defender2yara"
@@ -324,7 +271,7 @@ rule Trojan_MSIL_RemLoader_2147760285_6
         )
 }
 
-rule Trojan_MSIL_RemLoader_2147760285_7
+rule Trojan_MSIL_RemLoader_2147760285_6
 {
     meta:
         author = "defender2yara"

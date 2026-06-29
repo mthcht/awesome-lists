@@ -2952,3 +2952,29 @@ rule Trojan_Win64_Vidar_NXF_2147972480_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_NXH_2147972574_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NXH!MTB"
+        threat_id = "2147972574"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "f00ilzEXspc2F7KXzeiyl4oXspcyF7KXcheylzIX" ascii //weight: 2
+        $x_2_2 = "kSfty3dljht1941vIcGr+dFheylzIX" ascii //weight: 2
+        $x_2_3 = "MpyxrjcoF4YyGD1xNxeyHDE" ascii //weight: 2
+        $x_1_4 = "2mSk1blTeYcLU3mHRxzwHHbcvq523L7" ascii //weight: 1
+        $x_1_5 = "AppPolicyGetProcessTerminationMethod" ascii //weight: 1
+        $x_1_6 = "WzToSzWithAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
