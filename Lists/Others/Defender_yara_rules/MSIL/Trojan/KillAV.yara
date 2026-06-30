@@ -91,3 +91,29 @@ rule Trojan_MSIL_KillAV_MKB_2147967848_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillAV_SX_2147972617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillAV.SX!MTB"
+        threat_id = "2147972617"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Set-MpPreference -CloudBlockLevel 0 -Force" ascii //weight: 20
+        $x_10_2 = "config WinDefend start= disabled" ascii //weight: 10
+        $x_10_3 = "config EsetService start= disabled" ascii //weight: 10
+        $x_10_4 = "config BDProtect start= disabled" ascii //weight: 10
+        $x_5_5 = "config wuauserv start= disabled" ascii //weight: 5
+        $x_5_6 = "config MpsSvc start= disabled" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

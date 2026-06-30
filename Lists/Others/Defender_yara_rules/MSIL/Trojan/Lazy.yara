@@ -4195,3 +4195,28 @@ rule Trojan_MSIL_Lazy_LRH_2147972502_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_SX_2147972618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.SX!MTB"
+        threat_id = "2147972618"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "75"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "StealWallet" ascii //weight: 30
+        $x_20_2 = "StealSteam" ascii //weight: 20
+        $x_10_3 = "StealDiscord" ascii //weight: 10
+        $x_10_4 = "StealTelegram" ascii //weight: 10
+        $x_5_5 = "KillBrowserProcesses" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
