@@ -523,3 +523,30 @@ rule Trojan_Win64_ValleyRat_SPKA_2147968503_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_AX_2147972652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AX!MTB"
+        threat_id = "2147972652"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ZhuDongFangYu.exe" ascii //weight: 1
+        $x_1_2 = "Antivirus software conflict" ascii //weight: 1
+        $x_1_3 = "HipsDaemon.exe" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\PolicyManager\\default\\Defender\\AllowBehaviorMonitoring" ascii //weight: 1
+        $x_1_5 = "[OK] No sandbox detecte" ascii //weight: 1
+        $x_1_6 = "[!!] DEBUGGER DETECTED" ascii //weight: 1
+        $x_1_7 = "[ACTION] Hostile environment detected. Aborting" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
