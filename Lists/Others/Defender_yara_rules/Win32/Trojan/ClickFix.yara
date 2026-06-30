@@ -14909,3 +14909,29 @@ rule Trojan_Win32_ClickFix_ABZ_2147972026_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_MUE_2147972607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MUE!MTB"
+        threat_id = "2147972607"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "=@('" wide //weight: 1
+        $x_1_3 = "-join($_" wide //weight: 1
+        $x_1_4 = "_.ToCharArray(" wide //weight: 1
+        $x_1_5 = ".IndexOf($_" wide //weight: 1
+        $x_1_6 = "[Convert]::FromBase64String($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
