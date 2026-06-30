@@ -501,6 +501,29 @@ rule Trojan_Win64_Midie_KK_2147948776_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_KK_2147948776_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.KK!MTB"
+        threat_id = "2147948776"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b c2 48 8d 4d b0 48 03 c8 ff c2 83 e0 03 42 8a 04 28 30 01 80 7c 15 b0 00}  //weight: 20, accuracy: High
+        $x_10_2 = {4b 8d 14 0a 49 ff c2 0f be 02 41 03 c0 69 c8 01 04 00 00 44 8b c1 41 c1 e8 06 44 33 c1 80 7a 01 00}  //weight: 10, accuracy: High
+        $x_5_3 = "powershell -Command \"$c='Add-'+'MpPref'+'erence';$h=@{ExclusionPath=@('" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Midie_GVA_2147949149_0
 {
     meta:

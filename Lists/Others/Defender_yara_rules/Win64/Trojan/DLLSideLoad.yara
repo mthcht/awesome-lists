@@ -46,6 +46,28 @@ rule Trojan_Win64_DLLSideLoad_MKR_2147968420_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLSideLoad_AYWB_2147971935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.AYWB!MTB"
+        threat_id = "2147971935"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b6 44 24 44 32 04 1e 88 44 24 44 48 ff c3 48 81 fb 94 a6 04 00 72}  //weight: 5, accuracy: High
+        $x_2_2 = {4c 8b cb 49 c1 e9 0c 49 8b c6 49 f7 e1 48 c1 ea 03 48 8d 04 d2 4c 2b c8 44 8b c7 0f b6 14 1e 0f b6 cb e8 29 f4 ff ff 88 04 1e 48 ff c3 48 81 fb 94 a6 04 00 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_DLLSideLoad_GVB_2147971943_0
 {
     meta:

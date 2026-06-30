@@ -1069,6 +1069,31 @@ rule Ransom_Win64_FileCoder_KK_2147948345_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_KK_2147948345_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.KK!MTB"
+        threat_id = "2147948345"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "All your files are encrypted and stolen" ascii //weight: 5
+        $x_4_2 = "Files.EncryptFileName" ascii //weight: 4
+        $x_3_3 = "Wallpaper.ChangeDesktopWallpaper" ascii //weight: 3
+        $x_2_4 = "Log.DiscordLogMessage" ascii //weight: 2
+        $x_1_5 = "Global\\Shalom" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_Win64_FileCoder_BA_2147952372_0
 {
     meta:

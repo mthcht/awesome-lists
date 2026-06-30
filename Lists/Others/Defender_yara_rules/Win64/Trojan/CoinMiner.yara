@@ -1197,3 +1197,34 @@ rule Trojan_Win64_CoinMiner_MCT_2147966860_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_NXD_2147972586_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.NXD!MTB"
+        threat_id = "2147972586"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SELECT SerialNumber FROM Win32_BaseBoard" ascii //weight: 2
+        $x_1_2 = "WinRing0x64.sys" ascii //weight: 1
+        $x_1_3 = "Kaspersky" ascii //weight: 1
+        $x_1_4 = "Bitdefender" ascii //weight: 1
+        $x_1_5 = "Add-MpPreference -ExclusionPath" ascii //weight: 1
+        $x_1_6 = "CPU miner process" ascii //weight: 1
+        $x_1_7 = "Payload written successfully" ascii //weight: 1
+        $x_1_8 = "WinHttpReadData" ascii //weight: 1
+        $x_1_9 = "GMiner pool_speed" ascii //weight: 1
+        $x_1_10 = "encryptedData" ascii //weight: 1
+        $x_1_11 = "wallet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

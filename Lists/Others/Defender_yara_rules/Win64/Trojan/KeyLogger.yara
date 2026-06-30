@@ -218,3 +218,28 @@ rule Trojan_Win64_KeyLogger_KK_2147970441_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KeyLogger_KK_2147970441_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.KK!MTB"
+        threat_id = "2147970441"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "%sKeystroke: %s (0x%x)%s" ascii //weight: 5
+        $x_4_2 = "%c%c%c%c%c%c%c%c.exe" ascii //weight: 4
+        $x_3_3 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce" ascii //weight: 3
+        $x_2_4 = "GetAsyncKeyState" ascii //weight: 2
+        $x_1_5 = "Runtime Broker" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

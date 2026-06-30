@@ -186,6 +186,27 @@ rule Trojan_Linux_Mirai_M_2147757324_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_Z_2147759064_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.Z!MTB"
+        threat_id = "2147759064"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {d0 4d e2 0c c0 9d e5 0c 30 4c e2 02 00 53 e3 14 30 8d e2 00 30 8d e5 10 30 9d e5 0c 10 a0 e1 03 20 a0 e1 01 00 00 8a 0f 00 00 eb 0a 00 00 ea 03 20 a0 e1 0c 10 a0 e1 37 00 90 ef 01 0a 70 e3 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Linux_Mirai_YB_2147761399_0
 {
     meta:

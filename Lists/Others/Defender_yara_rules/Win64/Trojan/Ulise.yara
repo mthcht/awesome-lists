@@ -551,3 +551,25 @@ rule Trojan_Win64_Ulise_AHA_2147972001_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_KK_2147972590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.KK!MTB"
+        threat_id = "2147972590"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f b6 d0 41 80 e8 41 8d 42 20 0f b6 c8 41 80 f8 19 0f 47 ca 48 0f be c9 48 69 db 93 01 00 01 48 33 d9 45 0f b6 03 4d 8d 5b 01 45 84 c0}  //weight: 20, accuracy: High
+        $x_10_2 = "C:\\Users\\Public\\venwin.lock" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

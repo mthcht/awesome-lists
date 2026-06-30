@@ -1001,3 +1001,33 @@ rule Trojan_Win64_StealC_DA_2147969949_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_StealC_GVVA_2147972582_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.GVVA!MTB"
+        threat_id = "2147972582"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 8b 44 dc 50 48 8d 15 d4 54 01 00 48 8d 4d a0 ff 15 12 da 00 00 48 8d 55 a0 48 c7 c1 02 00 00 80 ff 15 f9 d6 00 00 48 ff c3 48 83 fb 07 75 d0}  //weight: 1, accuracy: High
+        $x_1_2 = "BypassUAC-master\\WinDefenderKiller-main\\CombinedWindowsDefKiller\\x64\\Release\\CombinedWindowsDefKiller.pdb" ascii //weight: 1
+        $x_1_3 = "Compiled\\x64\\Release\\ProcessMonitorDriver.pdb" ascii //weight: 1
+        $x_1_4 = "ProcessMonitorDriver.sys" ascii //weight: 1
+        $x_1_5 = "Windows Defender\\Real-Time Protection" wide //weight: 1
+        $x_1_6 = "Device\\STProcessMonitorDriver" wide //weight: 1
+        $x_1_7 = "360safebox.exe" wide //weight: 1
+        $x_1_8 = "zhudongfangyu.exe" wide //weight: 1
+        $x_1_9 = "360entclient.exe" wide //weight: 1
+        $x_1_10 = "QHActiveCheck.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

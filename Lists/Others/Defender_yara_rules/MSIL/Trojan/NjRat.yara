@@ -3989,3 +3989,49 @@ rule Trojan_MSIL_NjRat_PAR_2147972484_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_PR_2147972587_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.PR!MTB"
+        threat_id = "2147972587"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 00 0a 00 07 04 6f ?? 00 00 0a 00 00 73 ?? ?? 00 0a 0c 00 08 07 6f ?? 00 00 0a 17 73 ?? ?? 00 0a 0d 09 02 16 02 8e 69 6f ?? 00 00 0a 00 09 6f 3d 00 00 0a 00}  //weight: 5, accuracy: Low
+        $x_3_2 = {00 73 39 00 00 0a 0d 08 09 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 0a}  //weight: 3, accuracy: Low
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRat_PU_2147972588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.PU!MTB"
+        threat_id = "2147972588"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 00 0a 00 07 6f ?? 00 00 0a 0c 00 73 ?? 00 00 0a 0d 00 09 08 17 73 ?? 00 00 0a 13 04 11 04 02 16 02 8e 69 6f ?? 00 00 0a 00 11 04 6f ?? 00 00 0a 00 09 6f ?? 00 00 0a 0a}  //weight: 4, accuracy: Low
+        $x_2_2 = "$1131fc1b-81d6-4a65-9b0d-327a01fa1398" ascii //weight: 2
+        $x_1_3 = "servidor.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

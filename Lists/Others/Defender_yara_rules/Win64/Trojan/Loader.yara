@@ -118,3 +118,31 @@ rule Trojan_Win64_Loader_AHA_2147967544_0
         )
 }
 
+rule Trojan_Win64_Loader_KK_2147972591_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Loader.KK!MTB"
+        threat_id = "2147972591"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b 45 f8 0f b6 00 32 45 20 89 c2 48 8b 45 f8 88 10 48 83 45 f8 01}  //weight: 20, accuracy: High
+        $x_20_2 = {8b 45 fc 48 63 d0 48 8b 45 f0 48 01 d0 0f b6 00 8b 55 fc 48 63 ca 48 8b 55 f0 48 01 ca 32 45 20 88 02 83 45 fc 01}  //weight: 20, accuracy: High
+        $x_10_3 = "C:\\Windows\\Temp\\drop.tmp" ascii //weight: 10
+        $x_5_4 = "inject.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

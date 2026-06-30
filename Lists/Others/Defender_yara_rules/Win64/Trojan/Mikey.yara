@@ -1652,6 +1652,28 @@ rule Trojan_Win64_Mikey_ARR_2147957636_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_9_1 = {0f 57 c2 48 8d 04 0e 0f 57 ca f3 0f 7f 41 b0 f3 0f 6f 44 0f d0 f3 0f 7f 49 c0 0f 57 c2 f3 0f 6f 4c 0f}  //weight: 9, accuracy: High
+        $x_11_2 = {41 0f b6 c9 41 32 0c 02 88 08 48 8d 40 ?? 48 83 ea 01 75}  //weight: 11, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_ARR_2147957636_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.ARR!MTB"
+        threat_id = "2147957636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_2_1 = {40 8a cf 0f b6 c1 48 8d 0c c0 0f b6 43 ?? 48 03 c8 83 e1}  //weight: 2, accuracy: Low
         $x_8_2 = "%s\\event_fetcher.exe" wide //weight: 8
         $x_10_3 = "del /f /q \"%s\\*.exe\"" wide //weight: 10
