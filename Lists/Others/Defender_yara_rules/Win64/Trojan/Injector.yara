@@ -857,3 +857,27 @@ rule Trojan_Win64_Injector_LR_2147972219_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_SXP_2147972663_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXP!MTB"
+        threat_id = "2147972663"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[success] Injected via BlackBone at %p" ascii //weight: 30
+        $x_20_2 = "[success] Injected" ascii //weight: 20
+        $x_5_3 = "[info] Read token from file '%s': len=%zu" ascii //weight: 5
+        $x_5_4 = "[info] Attached to %s (PID: %lu)" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

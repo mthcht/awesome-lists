@@ -10950,3 +10950,26 @@ rule Trojan_MSIL_Heracles_BAY_2147972552_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AX_2147972660_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AX!MTB"
+        threat_id = "2147972660"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Birnamiqo.dll" ascii //weight: 1
+        $x_1_2 = "large-scale bakeries and food manufacturers to coordinate mixing" ascii //weight: 1
+        $x_1_3 = "baking processes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4560,6 +4560,30 @@ rule Trojan_MSIL_Zusy_ARR_2147959550_7
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_ARR_2147959550_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.ARR!MTB"
+        threat_id = "2147959550"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "$strLogPath = $strUserFolder+\"\\\"+$CurrentUser+\"_\"+$StrDateTime+\".log\"" ascii //weight: 4
+        $x_6_2 = "Write-Host-Padded \"Proceeding with the mapping of the drives...\" -ForegroundColor Green" ascii //weight: 6
+        $x_2_3 = "$strAnswer = Read-Host" ascii //weight: 2
+        $x_8_4 = "if ($PSCmdlet.ShouldProcess($Path, \"Delete registry key and all subkeys recursively\"))" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_AYF_2147960076_0
 {
     meta:

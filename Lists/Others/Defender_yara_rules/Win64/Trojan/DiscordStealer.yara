@@ -285,3 +285,28 @@ rule Trojan_Win64_DiscordStealer_AHA_2147971379_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_SXB_2147972662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.SXB!MTB"
+        threat_id = "2147972662"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "70"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "OurVaultStealer" ascii //weight: 30
+        $x_20_2 = "Stealer.exe" ascii //weight: 20
+        $x_10_3 = "kill.bat" ascii //weight: 10
+        $x_5_4 = "discord" ascii //weight: 5
+        $x_5_5 = "[\\w-]{24,26}\\.[\\w-]{6}\\.[\\w-]{25,110}" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
