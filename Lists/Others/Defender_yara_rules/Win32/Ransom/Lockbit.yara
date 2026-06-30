@@ -273,3 +273,25 @@ rule Ransom_Win32_Lockbit_AMTB_2147966331_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Lockbit_YSN_2147972601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Lockbit.YSN!MTB"
+        threat_id = "2147972601"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 0f 1f 84 00 00 00 00 00 e8 82 fb ff ff 0f 1f 40 00 e8 15 cf fe ff}  //weight: 1, accuracy: High
+        $x_3_2 = {81 ec 7c 03 00 00 53 56 57 8d 9d 84 fc ff ff b9 00 c2 eb 0b e2 fe}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
