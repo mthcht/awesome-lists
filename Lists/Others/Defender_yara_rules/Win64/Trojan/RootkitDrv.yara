@@ -79,3 +79,25 @@ rule Trojan_Win64_RootkitDrv_ARD_2147972623_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RootkitDrv_ARK_2147972632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RootkitDrv.ARK!MTB"
+        threat_id = "2147972632"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RootkitDrv"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b d9 48 8d 15 e0 03 00 00 48 8d 0d 39 55 0c 00 ff 15 ?? ?? ?? ?? 48 8d 15 ec 03 00 00 48 8d 4c 24 40 ff 15 ?? ?? ?? ?? 48 8d 44 24 70 41 b9 22 00 00 00 48 89 44 24 30 4c 8d 44 24 40 c6 44 24 28 00 33 d2 83 64 24 20 00 48 8b cb}  //weight: 2, accuracy: Low
+        $x_1_2 = "Device\\Guru8906" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
