@@ -938,6 +938,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Linux Logs - auditd](https://packages.debian.org/sid/auditd)
 - [Linux Logs - SysmonForLinux](https://github.com/microsoft/SysmonForLinux)
 - [Linux Logs - kunai](https://github.com/kunai-project/kunai)
+- [CTI - AdversaryGraph](https://github.com/anpa1200/adversarygraph)
 - [CTI - OpenCTI](https://github.com/OpenCTI-Platform/opencti)
 - [CTI - MISP](https://github.com/MISP/MISP)
 - [Code analysis](https://github.com/semgrep/semgrep)
