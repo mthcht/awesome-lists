@@ -1053,6 +1053,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.50.236.0/24,ap-southeast-1,AMAZON,ap-southeast-1
 35.96.1.0/24,us-west-2,AMAZON,us-west-2
 35.96.41.0/24,eu-central-2,AMAZON,eu-central-2
+35.98.176.0/20,eu-west-3,AMAZON,eu-west-3
 51.204.0.0/15,me-west-1,AMAZON,me-west-1
 52.93.33.231/32,ap-southeast-2,AMAZON,ap-southeast-2
 52.93.61.0/24,us-east-1,AMAZON,us-east-1
@@ -3387,6 +3388,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 108.166.244.36/32,us-east-2,AMAZON,us-east-2
 150.222.42.192/26,ap-southeast-1,AMAZON,ap-southeast-1
 176.32.64.0/19,ap-northeast-1,AMAZON,ap-northeast-1
+5.60.48.0/20,us-south-1,AMAZON,us-south-1
 13.54.0.0/15,ap-southeast-2,AMAZON,ap-southeast-2
 13.200.0.0/15,ap-south-1,AMAZON,ap-south-1
 13.248.48.0/21,ap-east-1,AMAZON,ap-east-1
@@ -3802,7 +3804,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 69.107.7.96/29,us-east-1,AMAZON,us-east-1
 76.223.170.0/28,ca-west-1,AMAZON,ca-west-1
 150.222.102.0/24,us-west-2,AMAZON,us-west-2
-1.178.86.0/24,ap-southeast-3,AMAZON,ap-southeast-3
 1.178.172.0/23,GLOBAL,AMAZON,GLOBAL
 3.4.12.2/32,ap-southeast-2,AMAZON,ap-southeast-2
 3.4.12.5/32,us-east-1,AMAZON,us-east-1
@@ -7970,6 +7971,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 64.252.104.0/24,ap-southeast-1,EC2,ap-southeast-1
 99.77.55.53/32,eu-south-2,EC2,eu-south-2
 176.32.64.0/19,ap-northeast-1,EC2,ap-northeast-1
+5.60.48.0/20,us-south-1,EC2,us-south-1
 13.54.0.0/15,ap-southeast-2,EC2,ap-southeast-2
 13.200.0.0/15,ap-south-1,EC2,ap-south-1
 15.177.106.0/24,me-west-1,EC2,me-west-1
@@ -8125,7 +8127,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 51.74.128.0/18,eusc-de-east-1,EC2,eusc-de-east-1
 54.194.0.0/15,eu-west-1,EC2,eu-west-1
 63.249.192.0/24,ap-southeast-1,EC2,ap-southeast-1
-1.178.86.0/24,ap-southeast-3,EC2,ap-southeast-3
 15.129.80.0/22,eu-west-1,EC2,eu-west-1
 35.50.232.0/24,ap-south-1,EC2,ap-south-1
 35.96.5.0/24,us-west-2,EC2,us-west-2
