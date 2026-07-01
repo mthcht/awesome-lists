@@ -114,3 +114,26 @@ rule Trojan_Win64_UACBypass_AHB_2147970007_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UACBypass_AHA_2147972706_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UACBypass.AHA!MTB"
+        threat_id = "2147972706"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "main.setupAutoStartup" ascii //weight: 30
+        $x_20_2 = "main.autoStealAndSend" ascii //weight: 20
+        $x_10_3 = "main.sendStealerData" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

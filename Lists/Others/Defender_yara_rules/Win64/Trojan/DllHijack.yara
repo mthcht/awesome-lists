@@ -946,3 +946,28 @@ rule Trojan_Win64_DllHijack_AD_2147972695_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_AE_2147972713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.AE!MTB"
+        threat_id = "2147972713"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 7c 24 70 03 7c 24 60 03 bc 24 80 00 00 00 39 fe 7d 26 48 8b 0b 48 83 f9 ff 74 36 48 63 d6 41 89 f8 45 31 c9 4c 01 e2 41 29 f0 ff 15 ?? ?? 06 00 85 c0 7e 1d 01 c6 eb d6}  //weight: 2, accuracy: Low
+        $x_1_2 = "luaopen_lldb" ascii //weight: 1
+        $x_1_3 = "libepsbase.dll" ascii //weight: 1
+        $x_1_4 = "Sleep" ascii //weight: 1
+        $x_1_5 = "VirtualProtect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
