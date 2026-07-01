@@ -480,6 +480,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
 - [Elastic Rules](https://github.com/elastic/detection-rules)
+- [Clankerusecase](https://clankerusecase.com)
 - [DFIR-Report Sigma-Rules](https://github.com/The-DFIR-Report/Sigma-Rules)
 - [JoeSecurity Sigma-Rules](https://github.com/joesecurity/sigma-rules/tree/master/rules)
 - [mdecrevoisier Sigma-Rules](https://github.com/mdecrevoisier/SIGMA-detection-rules)
