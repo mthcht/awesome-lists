@@ -14987,3 +14987,26 @@ rule Trojan_MSIL_Remcos_RVJ_2147971799_0
         )
 }
 
+rule Trojan_MSIL_Remcos_RVK_2147972702_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVK!MTB"
+        threat_id = "2147972702"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 5d a2 09 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 7a 00 00 00 21 00 00 00 78 00 00 00 d6 00 00 00 9f 00 00 00 3d 01 00 00 0a 00 00 00 d0 00 00 00 01 00 00 00 1e 00 00 00 10 00 00 00 46 00 00 00 79 00 00 00 3e 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 08 00 00 00 10 00 00 00 18}  //weight: 2, accuracy: High
+        $x_1_2 = "get_PSI" ascii //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
