@@ -388,3 +388,25 @@ rule Trojan_Win64_Khalesi_MKB_2147972121_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Khalesi_LR_2147972689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Khalesi.LR!MTB"
+        threat_id = "2147972689"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Khalesi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 44 0d d0 48 8d 49 01 34 aa 88 84 0d af 00 00 00 48 83 ea 01}  //weight: 20, accuracy: High
+        $x_10_2 = {8d 42 79 ff c2 30 01 48 8d 49 01 41 3b d4}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

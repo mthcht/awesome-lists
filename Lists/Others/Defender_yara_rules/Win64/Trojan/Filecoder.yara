@@ -355,3 +355,32 @@ rule Trojan_Win64_Filecoder_SXH_2147961819_0
         )
 }
 
+rule Trojan_Win64_Filecoder_LRB_2147972690_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.LRB!MTB"
+        threat_id = "2147972690"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_README!!!.txt" ascii //weight: 1
+        $x_2_2 = ": tianqiong@proton.me" ascii //weight: 2
+        $x_3_3 = "_AllowAll\" dir=in action=allow enable=yes profile=any" ascii //weight: 3
+        $x_4_4 = "_SystemCore\" /xml \"%s\" /f" ascii //weight: 4
+        $x_5_5 = "tianqiong_bg.bmp" ascii //weight: 5
+        $x_6_6 = "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f" ascii //weight: 6
+        $x_7_7 = "delete shadows /all /quiet" ascii //weight: 7
+        $x_8_8 = "advfirewall firewall add rule name=\"" ascii //weight: 8
+        $x_9_9 = "explorer.exe, cmd.exe /c start /b \"\" \"%s\"" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
