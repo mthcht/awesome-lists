@@ -923,3 +923,26 @@ rule Trojan_Win64_DllHijack_AC_2147972653_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_AD_2147972695_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.AD!MTB"
+        threat_id = "2147972695"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {44 8b 44 24 ?? 45 85 c0 74 3d 31 c0 4c 8d 4c 24 ?? 48 8d 94 24 80 00 00 00 48 89 e9 48 89 44 24 20 ff 15 ?? ec 00 00 4c 8d 4c 24 ?? 41 b8 00 10 00 00 48 8d 94 24 80 00 00 00 48 89 f9 ff 15 ?? ed 00 00 85 c0 75 b9}  //weight: 2, accuracy: Low
+        $x_1_2 = "snake.dll" ascii //weight: 1
+        $x_1_3 = "-NoProfile -ExecutionPolicy Bypass -File \"%s" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
