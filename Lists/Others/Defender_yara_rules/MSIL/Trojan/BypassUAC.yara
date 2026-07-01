@@ -384,3 +384,28 @@ rule Trojan_MSIL_BypassUAC_MKC_2147969957_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_MKD_2147972687_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.MKD!MTB"
+        threat_id = "2147972687"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "GorilCam" ascii //weight: 15
+        $x_10_2 = "record gorilmic" ascii //weight: 10
+        $x_5_3 = "Keylogger started (logging to" ascii //weight: 5
+        $x_3_4 = "GorilRMM-RDP" ascii //weight: 3
+        $x_2_5 = "'GorilAgent.Program+<RegisterAgent>d__13" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

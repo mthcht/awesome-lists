@@ -5080,6 +5080,7 @@ rule Trojan_Win32_ClickFix_DAD_2147943081_0
         $x_100_18 = ".today" wide //weight: 100
         $x_100_19 = ".cyou" wide //weight: 100
         $n_200_20 = "--property=app.muleApi.port:8081" wide //weight: -200
+        $n_100_21 = "C:\\Workspace\\codex\\tools" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -8586,8 +8587,10 @@ rule Trojan_Win32_ClickFix_EEI_2147945790_0
         $x_10_2 = "[guid]::NewGuid()" wide //weight: 10
         $x_10_3 = "$env:TEMP" wide //weight: 10
         $x_10_4 = "start-process powershell -argumentlist '-w h'" wide //weight: 10
+        $n_100_5 = "AnimGraphNode" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_100_*) and 2 of ($x_10_*))) or
             (all of ($x*))
