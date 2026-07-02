@@ -89,3 +89,28 @@ rule Ransom_Win32_Beast_KA_2147966657_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Beast_AYA_2147972776_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Beast.AYA!MTB"
+        threat_id = "2147972776"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Beast"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "BEAST CLASS" ascii //weight: 5
+        $x_2_2 = "YOUR FILES ARE ENCRYPTED" ascii //weight: 2
+        $x_1_3 = "Your files, documents, photos, databases and other important files are encrypted." ascii //weight: 1
+        $x_1_4 = "Do not try to decrypt your data using third party software, it may cause permanent data loss." ascii //weight: 1
+        $x_1_5 = "README.TXT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

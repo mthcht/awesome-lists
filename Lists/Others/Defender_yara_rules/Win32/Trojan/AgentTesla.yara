@@ -2354,3 +2354,30 @@ rule Trojan_Win32_AgentTesla_YBG_2147949669_0
         )
 }
 
+rule Trojan_Win32_AgentTesla_SNL_2147972780_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla.SNL!MTB"
+        threat_id = "2147972780"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "\\Opsummerende\\knorhmn" ascii //weight: 4
+        $x_1_2 = "squarefree\\glasje.zip" ascii //weight: 1
+        $x_1_3 = "Phosphatise59.skr" ascii //weight: 1
+        $x_1_4 = "Shortheaded145.opr" ascii //weight: 1
+        $x_1_5 = "cartulary.bip" ascii //weight: 1
+        $x_1_6 = "\\Cartman.lnk" ascii //weight: 1
+        $x_1_7 = "\\Kolonialvarernes\\Phonocardiogrammes.jpg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
