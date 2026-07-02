@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,francetravail.fr,185.215.64.79,,smtp1.francetravail.fr,dns1.pole-emploi.fr
+*original,francetravail.fr,185.215.64.79,,mx1.hc1819-26.eu.iphmx.com,dns1.pole-emploi.fr
 addition,francetravail0.fr,,,,
 addition,francetravail1.fr,,,,
 addition,francetravail2.fr,,,,
@@ -987,11 +987,11 @@ subdomain,fr.ancetravail.fr,,,,
 subdomain,fra.ncetravail.fr,,,,
 subdomain,fran.cetravail.fr,,,,
 subdomain,franc.etravail.fr,,,,
-subdomain,france.travail.fr,,,,
+subdomain,france.travail.fr,64.190.63.222,,localhost,ns1.sedoparking.com
 subdomain,francet.ravail.fr,,,,
 subdomain,francetr.avail.fr,,,,
 subdomain,francetra.vail.fr,,,,
-subdomain,francetrav.ail.fr,,,,
+subdomain,francetrav.ail.fr,64.190.63.222,,localhost,ns1.sedoparking.com
 subdomain,francetrava.il.fr,94.143.220.218,,mx3.mail.ovh.net,dns20.ovh.net
 transposition,farncetravail.fr,,,,
 transposition,fracnetravail.fr,,,,
