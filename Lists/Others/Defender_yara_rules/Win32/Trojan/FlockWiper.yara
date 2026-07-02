@@ -22,3 +22,30 @@ rule Trojan_Win32_FlockWiper_A_2147944437_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FlockWiper_H_2147972758_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FlockWiper.H!MTB"
+        threat_id = "2147972758"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FlockWiper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "E:\\files\\new\\GRAT\\CWipe\\Release\\CWipe.pdb" ascii //weight: 10
+        $x_1_2 = "--- Working on" ascii //weight: 1
+        $x_1_3 = "\\\\.\\PhysicalDrive" ascii //weight: 1
+        $x_1_4 = "Partitions removed successfully." ascii //weight: 1
+        $x_1_5 = "Pass Time took:" ascii //weight: 1
+        $x_1_6 = "Buffer size:" ascii //weight: 1
+        $x_1_7 = "Drive size:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

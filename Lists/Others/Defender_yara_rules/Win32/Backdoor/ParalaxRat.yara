@@ -134,25 +134,3 @@ rule Backdoor_Win32_ParalaxRat_DM_2147786459_0
         (all of ($x*))
 }
 
-rule Backdoor_Win32_ParalaxRat_Q_2147812254_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Backdoor:Win32/ParalaxRat.Q!MTB"
-        threat_id = "2147812254"
-        type = "Backdoor"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ParalaxRat"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "10"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = {0f b6 c8 33 c0 01 4e 04 40 c7 44 96 0c 02 00 00 00}  //weight: 5, accuracy: High
-        $x_5_2 = {8b 55 08 33 c0 8b 4d 0c c7 44 8a 0c 02 00 00 00 ff 42 04 40 89 44 8a 0c}  //weight: 5, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
