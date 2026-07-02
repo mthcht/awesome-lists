@@ -3543,3 +3543,26 @@ rule Trojan_Win64_ShellcodeRunner_LRH_2147972420_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SXQ_2147972730_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SXQ!MTB"
+        threat_id = "2147972730"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Shellcode is loaded successfully: %p" ascii //weight: 30
+        $x_20_2 = "[*] Shellcode execution completed." ascii //weight: 20
+        $x_5_3 = "[-] VirtualAlloc Failed, Error Code: %lu" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

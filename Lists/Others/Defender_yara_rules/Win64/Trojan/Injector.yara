@@ -881,3 +881,29 @@ rule Trojan_Win64_Injector_SXP_2147972663_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_MKA_2147972731_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.MKA!MTB"
+        threat_id = "2147972731"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f b6 07 41 0f b6 4f 01 c1 e0 10 c1 e1 08 09 c8 41 0f b6 4f 02 09 c8 49 83 fd 04}  //weight: 20, accuracy: High
+        $x_15_2 = {43 0f b6 44 17 fe 47 0f b6 44 17 ff c1 e0 10 41 c1 e0 08 44 09 c0 47 0f b6 04 17 49 83 c2 03 44 09 c0 4c 8d 41 04 4d 39 e8}  //weight: 15, accuracy: High
+        $x_5_3 = "{\"agent_id\":\"%s\",\"filename\":\"screenshot.bmp\",\"content_b64\":\"%s\"}" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_15_*))) or
+            (all of ($x*))
+        )
+}
+
