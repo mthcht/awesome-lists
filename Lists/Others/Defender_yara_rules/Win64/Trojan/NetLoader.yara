@@ -144,3 +144,25 @@ rule Trojan_Win64_NetLoader_ARA_2147966521_0
         )
 }
 
+rule Trojan_Win64_NetLoader_AB_2147972785_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NetLoader.AB!MTB"
+        threat_id = "2147972785"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NetLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {b9 e9 00 00 00 ff 15 8c 0f 01 00 45 33 c9 4c 89 64 24 20 4c 8b c3 48 ?? ?? ?? ?? 01 00 33 c9 ff 15 4a 12 01 00 85 c0}  //weight: 6, accuracy: Low
+        $x_2_2 = "cmd /c sc start MixedSvc" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

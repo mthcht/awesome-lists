@@ -5763,3 +5763,25 @@ rule Trojan_MSIL_XWorm_AMXZ_2147972429_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAV_2147972794_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAV!MTB"
+        threat_id = "2147972794"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 88 00 00 0a 1c 28 55 00 00 06 02 28 1f 00 00 0a 28 89 00 00 0a 0a 06 28 23 00 00 0a 03 28 c9 00 00 0a 20 f4 01 00 00 28 22 00 00 0a 02 ?? ?? 00 00 0a 72 37 07 00 70 ?? ?? 00 00 0a 2c 3b 72 41 07 00 70 73 cb 00 00 0a 0c 08 17 ?? ?? 00 00 0a 08 72 5f 07 00 70 06 28 61 00 00 0a 72 9f 07 00 70 28 61 00 00 0a 28 23 00 00 0a ?? ?? 00 00 0a 08 28 ce 00 00 0a 0b 2b 4d}  //weight: 2, accuracy: Low
+        $x_1_2 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

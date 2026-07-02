@@ -1618,3 +1618,26 @@ rule Trojan_MSIL_DarkCloud_RVE_2147970298_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_RVF_2147972793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.RVF!MTB"
+        threat_id = "2147972793"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 df a2 ff 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 86 00 00 00 22 00 00 00 c3 00 00 00 23 02 00 00 ?? 00 00 00 05 00 00 00 1e 01 00 00 02 00 00 00 13 01 00 00 01 00 00 00 01 00 00 00 2f 00 00 00 12 00 00 00 5a 00 00 00 a0 00 00 00 07 00 00 00 01 00 00 00 15 00 00 00 01 00 00 00 01 00 00 00 0e 00 00 00 ?? 00 00 00 02 00 00 00 07 00 00 00 04}  //weight: 2, accuracy: Low
+        $x_1_2 = "get_Giga" ascii //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
