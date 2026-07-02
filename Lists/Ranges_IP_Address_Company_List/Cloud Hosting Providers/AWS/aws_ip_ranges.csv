@@ -1380,6 +1380,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 15.230.72.192/26,af-south-1,AMAZON,af-south-1
 15.230.111.0/24,eu-central-1,AMAZON,eu-central-1
 18.60.0.0/15,ap-south-2,AMAZON,ap-south-2
+35.71.92.0/24,me-west-1,AMAZON,me-west-1
 52.57.0.0/16,eu-central-1,AMAZON,eu-central-1
 52.93.126.123/32,us-east-1,AMAZON,us-east-1
 52.94.124.0/22,us-east-1,AMAZON,us-east-1
@@ -3804,7 +3805,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 69.107.7.96/29,us-east-1,AMAZON,us-east-1
 76.223.170.0/28,ca-west-1,AMAZON,ca-west-1
 150.222.102.0/24,us-west-2,AMAZON,us-west-2
-1.178.86.0/24,ap-southeast-3,AMAZON,ap-southeast-3
 1.178.172.0/23,GLOBAL,AMAZON,GLOBAL
 3.4.12.2/32,ap-southeast-2,AMAZON,ap-southeast-2
 3.4.12.5/32,us-east-1,AMAZON,us-east-1
@@ -7250,6 +7250,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 208.78.135.0/24,eu-west-2,EC2,eu-west-2
 15.181.254.0/24,us-east-1,EC2,us-east-1-mia-1
 18.60.0.0/15,ap-south-2,EC2,ap-south-2
+35.71.92.0/24,me-west-1,EC2,me-west-1
 52.57.0.0/16,eu-central-1,EC2,eu-central-1
 63.249.142.0/24,ap-southeast-3,EC2,ap-southeast-3
 63.249.195.0/24,il-central-1,EC2,il-central-1
@@ -8128,7 +8129,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 51.74.128.0/18,eusc-de-east-1,EC2,eusc-de-east-1
 54.194.0.0/15,eu-west-1,EC2,eu-west-1
 63.249.192.0/24,ap-southeast-1,EC2,ap-southeast-1
-1.178.86.0/24,ap-southeast-3,EC2,ap-southeast-3
 15.129.80.0/22,eu-west-1,EC2,eu-west-1
 35.50.232.0/24,ap-south-1,EC2,ap-south-1
 35.96.5.0/24,us-west-2,EC2,us-west-2
@@ -10556,6 +10556,8 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 13.248.81.0/24,sa-west-1,DYNAMODB,sa-west-1
 35.71.96.0/24,ap-southeast-3,DYNAMODB,ap-southeast-3
 13.248.71.0/24,ap-southeast-3,DYNAMODB,ap-southeast-3
+35.71.92.0/24,me-west-1,DYNAMODB,me-west-1
+13.248.80.0/24,me-west-1,DYNAMODB,me-west-1
 35.71.123.0/24,ca-west-1,DYNAMODB,ca-west-1
 13.248.73.0/24,ca-west-1,DYNAMODB,ca-west-1
 35.71.113.0/24,eu-south-1,DYNAMODB,eu-south-1
@@ -10589,7 +10591,6 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 35.71.106.0/24,sa-east-1,DYNAMODB,sa-east-1
 35.71.125.0/24,mx-central-1,DYNAMODB,mx-central-1
 13.248.76.0/24,mx-central-1,DYNAMODB,mx-central-1
-13.248.80.0/24,me-west-1,DYNAMODB,me-west-1
 52.82.187.0/24,cn-northwest-1,DYNAMODB,cn-northwest-1
 43.193.64.0/24,cn-northwest-1,DYNAMODB,cn-northwest-1
 13.248.64.0/24,ap-south-2,DYNAMODB,ap-south-2
