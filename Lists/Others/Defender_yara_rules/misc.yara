@@ -37647,6 +37647,22 @@ rule __do_exhaustivehstr_64bit_rescan_28
         detection_name = "!#do_exhaustivehstr_64bit_rescan"
         threat_id = "1879049400"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "G:\\Dev\\sumatrapdf-3.5.2\\ext\\libdjvu\\GContainer.h" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule __do_exhaustivehstr_64bit_rescan_29
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "!#do_exhaustivehstr_64bit_rescan"
+        threat_id = "1879049400"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
@@ -37658,7 +37674,7 @@ rule __do_exhaustivehstr_64bit_rescan_28
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_29
+rule __do_exhaustivehstr_64bit_rescan_30
 {
     meta:
         author = "defender2yara"
@@ -37676,7 +37692,7 @@ rule __do_exhaustivehstr_64bit_rescan_29
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_30
+rule __do_exhaustivehstr_64bit_rescan_31
 {
     meta:
         author = "defender2yara"
@@ -37692,7 +37708,7 @@ rule __do_exhaustivehstr_64bit_rescan_30
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_31
+rule __do_exhaustivehstr_64bit_rescan_32
 {
     meta:
         author = "defender2yara"
@@ -37710,7 +37726,7 @@ rule __do_exhaustivehstr_64bit_rescan_31
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_32
+rule __do_exhaustivehstr_64bit_rescan_33
 {
     meta:
         author = "defender2yara"
@@ -37726,7 +37742,7 @@ rule __do_exhaustivehstr_64bit_rescan_32
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_33
+rule __do_exhaustivehstr_64bit_rescan_34
 {
     meta:
         author = "defender2yara"
@@ -37743,7 +37759,7 @@ rule __do_exhaustivehstr_64bit_rescan_33
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_34
+rule __do_exhaustivehstr_64bit_rescan_35
 {
     meta:
         author = "defender2yara"
@@ -37760,7 +37776,7 @@ rule __do_exhaustivehstr_64bit_rescan_34
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_35
+rule __do_exhaustivehstr_64bit_rescan_36
 {
     meta:
         author = "defender2yara"
@@ -37777,7 +37793,7 @@ rule __do_exhaustivehstr_64bit_rescan_35
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_36
+rule __do_exhaustivehstr_64bit_rescan_37
 {
     meta:
         author = "defender2yara"
@@ -37795,7 +37811,7 @@ rule __do_exhaustivehstr_64bit_rescan_36
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_37
+rule __do_exhaustivehstr_64bit_rescan_38
 {
     meta:
         author = "defender2yara"
@@ -37814,7 +37830,7 @@ rule __do_exhaustivehstr_64bit_rescan_37
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_38
+rule __do_exhaustivehstr_64bit_rescan_39
 {
     meta:
         author = "defender2yara"
@@ -37831,7 +37847,7 @@ rule __do_exhaustivehstr_64bit_rescan_38
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_39
+rule __do_exhaustivehstr_64bit_rescan_40
 {
     meta:
         author = "defender2yara"
@@ -37853,7 +37869,7 @@ rule __do_exhaustivehstr_64bit_rescan_39
         )
 }
 
-rule __do_exhaustivehstr_64bit_rescan_40
+rule __do_exhaustivehstr_64bit_rescan_41
 {
     meta:
         author = "defender2yara"
@@ -37869,7 +37885,7 @@ rule __do_exhaustivehstr_64bit_rescan_40
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_41
+rule __do_exhaustivehstr_64bit_rescan_42
 {
     meta:
         author = "defender2yara"
@@ -37888,7 +37904,7 @@ rule __do_exhaustivehstr_64bit_rescan_41
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_42
+rule __do_exhaustivehstr_64bit_rescan_43
 {
     meta:
         author = "defender2yara"
@@ -37905,7 +37921,7 @@ rule __do_exhaustivehstr_64bit_rescan_42
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_43
+rule __do_exhaustivehstr_64bit_rescan_44
 {
     meta:
         author = "defender2yara"
@@ -37923,7 +37939,7 @@ rule __do_exhaustivehstr_64bit_rescan_43
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_44
+rule __do_exhaustivehstr_64bit_rescan_45
 {
     meta:
         author = "defender2yara"
@@ -37939,7 +37955,7 @@ rule __do_exhaustivehstr_64bit_rescan_44
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_45
+rule __do_exhaustivehstr_64bit_rescan_46
 {
     meta:
         author = "defender2yara"
@@ -37958,7 +37974,7 @@ rule __do_exhaustivehstr_64bit_rescan_45
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_46
+rule __do_exhaustivehstr_64bit_rescan_47
 {
     meta:
         author = "defender2yara"
@@ -37975,7 +37991,7 @@ rule __do_exhaustivehstr_64bit_rescan_46
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_47
+rule __do_exhaustivehstr_64bit_rescan_48
 {
     meta:
         author = "defender2yara"
@@ -37994,7 +38010,7 @@ rule __do_exhaustivehstr_64bit_rescan_47
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_48
+rule __do_exhaustivehstr_64bit_rescan_49
 {
     meta:
         author = "defender2yara"
@@ -38011,7 +38027,7 @@ rule __do_exhaustivehstr_64bit_rescan_48
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_49
+rule __do_exhaustivehstr_64bit_rescan_50
 {
     meta:
         author = "defender2yara"
@@ -38029,7 +38045,7 @@ rule __do_exhaustivehstr_64bit_rescan_49
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_50
+rule __do_exhaustivehstr_64bit_rescan_51
 {
     meta:
         author = "defender2yara"
@@ -38045,7 +38061,7 @@ rule __do_exhaustivehstr_64bit_rescan_50
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_51
+rule __do_exhaustivehstr_64bit_rescan_52
 {
     meta:
         author = "defender2yara"
@@ -38063,7 +38079,7 @@ rule __do_exhaustivehstr_64bit_rescan_51
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_52
+rule __do_exhaustivehstr_64bit_rescan_53
 {
     meta:
         author = "defender2yara"
@@ -38086,7 +38102,7 @@ rule __do_exhaustivehstr_64bit_rescan_52
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_53
+rule __do_exhaustivehstr_64bit_rescan_54
 {
     meta:
         author = "defender2yara"
@@ -38103,7 +38119,7 @@ rule __do_exhaustivehstr_64bit_rescan_53
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_54
+rule __do_exhaustivehstr_64bit_rescan_55
 {
     meta:
         author = "defender2yara"
@@ -38121,7 +38137,7 @@ rule __do_exhaustivehstr_64bit_rescan_54
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_55
+rule __do_exhaustivehstr_64bit_rescan_56
 {
     meta:
         author = "defender2yara"
@@ -38140,7 +38156,7 @@ rule __do_exhaustivehstr_64bit_rescan_55
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_56
+rule __do_exhaustivehstr_64bit_rescan_57
 {
     meta:
         author = "defender2yara"
@@ -38159,7 +38175,7 @@ rule __do_exhaustivehstr_64bit_rescan_56
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_57
+rule __do_exhaustivehstr_64bit_rescan_58
 {
     meta:
         author = "defender2yara"
@@ -38175,7 +38191,7 @@ rule __do_exhaustivehstr_64bit_rescan_57
         (all of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_58
+rule __do_exhaustivehstr_64bit_rescan_59
 {
     meta:
         author = "defender2yara"
@@ -38193,7 +38209,7 @@ rule __do_exhaustivehstr_64bit_rescan_58
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_59
+rule __do_exhaustivehstr_64bit_rescan_60
 {
     meta:
         author = "defender2yara"
@@ -38214,7 +38230,7 @@ rule __do_exhaustivehstr_64bit_rescan_59
         (3 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_60
+rule __do_exhaustivehstr_64bit_rescan_61
 {
     meta:
         author = "defender2yara"
@@ -38235,7 +38251,7 @@ rule __do_exhaustivehstr_64bit_rescan_60
         (1 of ($x*))
 }
 
-rule __do_exhaustivehstr_64bit_rescan_61
+rule __do_exhaustivehstr_64bit_rescan_62
 {
     meta:
         author = "defender2yara"
@@ -38272,7 +38288,7 @@ rule __do_exhaustivehstr_64bit_rescan_61
         )
 }
 
-rule __do_exhaustivehstr_64bit_rescan_62
+rule __do_exhaustivehstr_64bit_rescan_63
 {
     meta:
         author = "defender2yara"
