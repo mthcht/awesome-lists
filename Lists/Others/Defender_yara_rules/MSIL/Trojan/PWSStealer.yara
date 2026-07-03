@@ -59,3 +59,31 @@ rule Trojan_MSIL_PWSStealer_B_2147960757_0
         )
 }
 
+rule Trojan_MSIL_PWSStealer_AAA_2147972883_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PWSStealer.AAA!AMTB"
+        threat_id = "2147972883"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PWSStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "C:\\Users\\bxskn\\proj\\obj\\Debug\\proj.pdb" ascii //weight: 10
+        $x_2_2 = "<ExtractTokensFromBrowserCache>" ascii //weight: 2
+        $x_2_3 = "ExtractTokensFromDiscordFolder" ascii //weight: 2
+        $x_2_4 = "GetSavedWifiPasswords" ascii //weight: 2
+        $x_2_5 = ":password|pass|sifre|parola)\\s*[:=]\\s*[\"']" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

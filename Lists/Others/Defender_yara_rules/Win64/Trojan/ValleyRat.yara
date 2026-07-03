@@ -550,3 +550,57 @@ rule Trojan_Win64_ValleyRat_AX_2147972652_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_AAB_2147972884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AAB!AMTB"
+        threat_id = "2147972884"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "%s\\Drivers\\%s.sys" wide //weight: 2
+        $x_2_2 = "[KeyboardRecord] Failed to enable offline keyboard" wide //weight: 2
+        $x_2_3 = "\\DisplaySessionContainers.log" wide //weight: 2
+        $x_2_4 = "shutdown /s /f /t 0" ascii //weight: 2
+        $x_2_5 = "%s %s HTTP/%d.%d%s" ascii //weight: 2
+        $x_2_6 = ".?AVKeyboardRecord@@" ascii //weight: 2
+        $x_2_7 = "GetKeyState" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (6 of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_AAC_2147972885_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AAC!AMTB"
+        threat_id = "2147972885"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$currentUserName = [Environment]::UserName; $principal = New-ScheduledTaskPrincipal -UserId $currentUserName -LogonType" wide //weight: 2
+        $x_2_2 = "POWersHElL.exe -NoProfile -Command \"$taskName = 'MicrosoftEdgeUpdateHelpUpdates'; $programPath = '" wide //weight: 2
+        $x_2_3 = "POWersHElL.exe -ComMand \"Add-MpPreference -ExclusionPath 'C:\\Windows\\en-US'\"" wide //weight: 2
+        $x_2_4 = "\\Windows Update Service.lnk" wide //weight: 2
+        $x_2_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 2
+        $x_2_6 = "C:\\Users\\Public\\Pictures\\Client.exe" wide //weight: 2
+        $x_2_7 = "TT5767pcD6GW4txHYtNzP1iwNKdgcGgsJt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

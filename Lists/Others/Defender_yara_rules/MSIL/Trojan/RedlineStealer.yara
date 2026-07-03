@@ -808,3 +808,29 @@ rule Trojan_MSIL_RedlineStealer_AHB_2147971619_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RedlineStealer_AAA_2147972890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RedlineStealer.AAA!AMTB"
+        threat_id = "2147972890"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RedlineStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\uAll\\uProject\\TOOLSET\\uNoteDevInit\\uNoteDevInit\\obj\\Release\\uNoteDevInit.pdb" ascii //weight: 10
+        $x_1_2 = "Set-MpPreference -DisableRealtimeMonitoring $true" wide //weight: 1
+        $x_1_3 = "Set-MpPreference -DisableBehaviorMonitoring $true" wide //weight: 1
+        $x_1_4 = "DisableAntiSpyware" wide //weight: 1
+        $x_1_5 = "DisableWD.bat" wide //weight: 1
+        $x_1_6 = "\\2.KMS_Suite.v8.5.EN.cmd" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

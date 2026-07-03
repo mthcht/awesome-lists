@@ -65,3 +65,33 @@ rule Trojan_Win64_PasswordStealer_ARA_2147929880_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PasswordStealer_AAA_2147972886_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PasswordStealer.AAA!AMTB"
+        threat_id = "2147972886"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PasswordStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\pluriguttulate\\scanningly\\moorball\\winceys.pdb" ascii //weight: 10
+        $x_10_2 = "\\typeout\\seminasally\\inhame\\homologising\\lv.pdb" ascii //weight: 10
+        $x_10_3 = "\\impressionalist\\traditionize\\pixieish\\atle.pdb" ascii //weight: 10
+        $x_10_4 = "\\yoick\\favoured\\sleepland\\compressed\\fulldo.pdb" ascii //weight: 10
+        $x_2_5 = "cleanmgr.exe" wide //weight: 2
+        $x_2_6 = "BCryptDestroyKey" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
