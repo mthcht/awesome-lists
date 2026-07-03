@@ -57,6 +57,33 @@ rule Trojan_Win32_MustangPanda_AMP_2147971331_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "ZohoUsingUpdataAnyssAll_RunOnece" ascii //weight: 3
+        $x_4_2 = "readata.dat" ascii //weight: 4
+        $x_1_3 = "Zoho Client/1.0" ascii //weight: 1
+        $x_2_4 = "Zoho-C-Uploader/2.0" ascii //weight: 2
+        $x_1_5 = "Zoho-C-Downloader/1.1" ascii //weight: 1
+        $x_1_6 = "Zoho Download Agent/1.1" ascii //weight: 1
+        $x_5_7 = "qwuieyoquihwidgqiuwhediqwieqw" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_MustangPanda_AMP_2147971331_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/MustangPanda.AMP!MTB"
+        threat_id = "2147971331"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "MustangPanda"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "High"
     strings:

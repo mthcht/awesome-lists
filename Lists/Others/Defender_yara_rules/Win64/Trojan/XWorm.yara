@@ -295,6 +295,29 @@ rule Trojan_Win64_XWorm_BAA_2147956285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_BAA_2147956285_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.BAA!MTB"
+        threat_id = "2147956285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {31 d2 45 31 c9 41 b8 01 00 00 00 48 89 54 24 30 48 8d 8c 24 4c 01 00 00 ba 00 00 00 40 c7 44 24 28 80 00 00 00 c7 44 24 20 04 00 00 00 ff 15 ?? ?? ?? ?? 48 83 f8 ff 48 89 c3 74}  //weight: 8, accuracy: Low
+        $x_1_2 = "GetTempPathA" ascii //weight: 1
+        $x_1_3 = "DeleteFileA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_XWorm_SXA_2147959145_0
 {
     meta:

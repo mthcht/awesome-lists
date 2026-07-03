@@ -1132,3 +1132,24 @@ rule Trojan_Win64_Stealer_BAC_2147972342_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_BAB_2147972964_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.BAB!MTB"
+        threat_id = "2147972964"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b 04 24 4c 03 c1 4c 03 c2 41 80 e8 0f 44 88 44 04 10 48 8b 04 24 48 ff c0 48 89 04 24 48 8b 04 24 48 83 f8 1d 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8921,6 +8921,30 @@ rule Trojan_Win32_Zusy_MKD_2147957470_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_MKD_2147957470_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.MKD!MTB"
+        threat_id = "2147957470"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[KEYLOG] ON" ascii //weight: 10
+        $x_5_2 = "[SHELL] ON" ascii //weight: 5
+        $x_3_3 = "[KEY] capture thread start" ascii //weight: 3
+        $x_2_4 = "[AUDIO] microphone capture started" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_JT_2147957530_0
 {
     meta:

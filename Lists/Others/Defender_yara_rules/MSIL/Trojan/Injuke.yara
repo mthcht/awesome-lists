@@ -3761,3 +3761,25 @@ rule Trojan_MSIL_Injuke_BAC_2147971808_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_AEXB_2147972951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.AEXB!MTB"
+        threat_id = "2147972951"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 13 11 1b 11 12 11 1b 91 7e ?? 00 00 04 11 1b 7e ?? 00 00 04 8e 69 5d 91 61 d2 9c 00 11 1b 17 58 13 1b 11 1b 11 12 8e 69 fe 04 13 1c 11 1c 2d ce}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

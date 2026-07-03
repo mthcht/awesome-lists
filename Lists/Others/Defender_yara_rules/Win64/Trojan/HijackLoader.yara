@@ -126,3 +126,25 @@ rule Trojan_Win64_HijackLoader_ARAF_2147969502_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_HijackLoader_AB_2147972952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/HijackLoader.AB!MTB"
+        threat_id = "2147972952"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "HijackLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {85 c0 74 20 83 bd 38 07 00 00 02 75 17 80 bd 30 07 00 00 4d 75 0e 80 bd 31 07 00 00 5a 75 05 41 8b df eb 02 33 db 48 8b cf ff 15 d8 25 00 00 85 db 74 5a bb 70 00}  //weight: 6, accuracy: High
+        $x_6_2 = {48 8d 05 d5 f7 ff ff 89 5c 24 70 48 89 45 80 48 8d 4c 24 70 48 8d 45 50 44 89 7c 24 74 48 89 45 88 48 8d 85 60 01 00 00 48 89 45 98 48 8d 05 b5 f7 ff ff 48 89 45 b8 44 89 7d a0 ff 15 f7 25 00 00 e9 a3}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
