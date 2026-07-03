@@ -19,3 +19,27 @@ rule Trojan_Win64_DiscoStealer_MK_2147964950_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscoStealer_MKA_2147972808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscoStealer.MKA!MTB"
+        threat_id = "2147972808"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ZeroStealer" ascii //weight: 10
+        $x_5_2 = "InjectDiscord: JS payload loaded. Size:" ascii //weight: 5
+        $x_3_3 = "InjectDiscord: Injected successfully. Terminating Discord to apply changes..." ascii //weight: 3
+        $x_2_4 = "Injection Summary" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

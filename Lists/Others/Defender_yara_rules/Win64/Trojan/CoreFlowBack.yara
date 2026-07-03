@@ -460,3 +460,24 @@ rule Trojan_Win64_CoreFlowBack_V_2147972329_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoreFlowBack_W_2147972876_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoreFlowBack.W"
+        threat_id = "2147972876"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoreFlowBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {75 70 64 61 74 65 53 77 61 72 6d 4e 6f 64 65 73 46 6f 72 50 75 62 6b 65 79 22 42 [0-66] 41}  //weight: 1, accuracy: Low
+        $x_1_2 = "05084f9b14b02f4ffa97795a60ab1fafaf5128e3259c75459aaaeaebc80c14da78" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

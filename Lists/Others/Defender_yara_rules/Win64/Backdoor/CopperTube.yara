@@ -10,15 +10,19 @@ rule Backdoor_Win64_CopperTube_A_2147971908_0
         severity = "Critical"
         info = "dha: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
+        threshold = "40"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "/c start /b powershell -c \"%s\"" ascii //weight: 1
-        $x_1_2 = "About SopraVPN" ascii //weight: 1
-        $x_1_3 = "Software\\WireGuard" ascii //weight: 1
-        $x_1_4 = "main.checkForAdminDesktop" ascii //weight: 1
+        $x_10_1 = "/c start /b powershell -c \"%s\"" ascii //weight: 10
+        $x_10_2 = "About SopraVPN" ascii //weight: 10
+        $x_10_3 = "Software\\WireGuard" ascii //weight: 10
+        $x_10_4 = "main.checkForAdminDesktop" ascii //weight: 10
+        $x_1_5 = "main.openPipeFromHandleString" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((4 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 

@@ -438,3 +438,23 @@ rule Trojan_Win64_CoreFlowMain_V_2147972327_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoreFlowMain_W_2147972874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoreFlowMain.W"
+        threat_id = "2147972874"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoreFlowMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_primaryDevicePubKey{\"id\":\"primaryDevicePubKey\",\"value\":\"05084f9b14b02f4ffa97795a60ab1fafaf5128e3259c75459aaaeaebc80c14da78\"}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
