@@ -80,6 +80,7 @@ rule Trojan_Win32_Ceprolad_A_2147726914_1
         $n_50_28 = "http://10.254.106.53" wide //weight: -50
         $n_50_29 = "http://localhost/briarootca.crl" wide //weight: -50
         $n_50_30 = "http://localhost/BRIndustrialAutomationCodeSigningCA.crl" wide //weight: -50
+        $n_50_31 = "https://www.python.org/ftp/python" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -137,6 +138,7 @@ rule Trojan_Win32_Ceprolad_A_2147726914_2
         $n_50_31 = "http://10.254.106.53" wide //weight: -50
         $n_50_32 = "http://localhost/briarootca.crl" wide //weight: -50
         $n_50_33 = "http://localhost/BRIndustrialAutomationCodeSigningCA.crl" wide //weight: -50
+        $n_50_34 = "https://www.python.org/ftp/python" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
