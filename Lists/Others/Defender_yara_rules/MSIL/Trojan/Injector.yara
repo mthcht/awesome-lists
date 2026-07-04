@@ -2308,3 +2308,28 @@ rule Trojan_MSIL_Injector_SXJ_2147972120_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_BAV_2147972970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.BAV!MTB"
+        threat_id = "2147972970"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 36 11 12 ?? ?? 00 00 0a 13 13 11 13 ?? ?? 00 00 0a 13 37 2b 68 11 37 ?? ?? 00 00 0a 13 14 72 91 0f 00 70 13 15 11 14 72 1f 10 00 70 ?? ?? 00 00 0a 2c 18 11 14 72 1f 10 00 70 ?? ?? 00 00 0a ?? ?? 00 00 0a ?? ?? 00 00 0a 13 15 11 15 72 b9 0f 00 70 ?? ?? 00 00 0a 2d 1c 11 15 72 39 10 00 70}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateRemoteThread" ascii //weight: 1
+        $x_1_3 = "OpenProcess" ascii //weight: 1
+        $x_1_4 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_5 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
