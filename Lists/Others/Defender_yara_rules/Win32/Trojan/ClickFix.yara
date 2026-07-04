@@ -5080,7 +5080,8 @@ rule Trojan_Win32_ClickFix_DAD_2147943081_0
         $x_100_18 = ".today" wide //weight: 100
         $x_100_19 = ".cyou" wide //weight: 100
         $n_200_20 = "--property=app.muleApi.port:8081" wide //weight: -200
-        $n_100_21 = "C:\\Workspace\\codex\\tools" wide //weight: -100
+        $n_800_21 = "C:\\Workspace\\codex\\tools" wide //weight: -800
+        $n_800_22 = "[Console]::OutputEncoding" wide //weight: -800
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -8587,7 +8588,8 @@ rule Trojan_Win32_ClickFix_EEI_2147945790_0
         $x_10_2 = "[guid]::NewGuid()" wide //weight: 10
         $x_10_3 = "$env:TEMP" wide //weight: 10
         $x_10_4 = "start-process powershell -argumentlist '-w h'" wide //weight: 10
-        $n_100_5 = "AnimGraphNode" wide //weight: -100
+        $n_800_5 = "AnimGraphNode" wide //weight: -800
+        $n_800_6 = "[Console]::OutputEncoding" wide //weight: -800
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -14962,5 +14964,61 @@ rule Trojan_Win32_ClickFix_ADZ_2147972746_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AEZ_2147972981_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AEZ!MTB"
+        threat_id = "2147972981"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/v:on" wide //weight: 1
+        $x_1_2 = "&p!p!" wide //weight: 1
+        $x_1_3 = "@SSL\\" wide //weight: 1
+        $x_1_4 = "r!r!" wide //weight: 1
+        $x_1_5 = ".ch,#" wide //weight: 1
+        $x_1_6 = "p!o!" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_AFZ_2147972982_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AFZ!MTB"
+        threat_id = "2147972982"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "c*u*r*l" wide //weight: 3
+        $x_1_2 = "('!aa!'" wide //weight: 1
+        $x_1_3 = "('!A1!'" wide //weight: 1
+        $x_1_4 = "'!bb!'" wide //weight: 1
+        $x_1_5 = "('!B2!'" wide //weight: 1
+        $x_3_6 = "h^t^t^p^s^" wide //weight: 3
+        $x_3_7 = "c*d.e?e" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

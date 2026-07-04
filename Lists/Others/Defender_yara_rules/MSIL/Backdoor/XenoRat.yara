@@ -76,3 +76,26 @@ rule Backdoor_MSIL_XenoRat_HB_2147949988_0
         (all of ($x*))
 }
 
+rule Backdoor_MSIL_XenoRat_MCT_2147972978_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:MSIL/XenoRat.MCT!MTB"
+        threat_id = "2147972978"
+        type = "Backdoor"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {1b 6a 59 1a 6a 59 13 06 07 06 11 05 11 06}  //weight: 1, accuracy: High
+        $x_1_2 = {57 9f a2 3f 09 0e 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 8d 00 00 00 4c 00 00 00 41 01 00 00 25 02 00 00 b7}  //weight: 1, accuracy: High
+        $x_1_3 = "ConfusedByAttribute" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
