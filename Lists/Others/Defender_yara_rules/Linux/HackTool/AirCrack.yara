@@ -71,3 +71,29 @@ rule HackTool_Linux_AirCrack_B_2147807679_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_AirCrack_AMTB_2147972992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/AirCrack!AMTB"
+        threat_id = "2147972992"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "AirCrack"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Quitting aircrack-ng" ascii //weight: 2
+        $x_2_2 = "usage: aircrack-ng [options]" ascii //weight: 2
+        $x_2_3 = "Attack will be restarted every %d captured ivs" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
