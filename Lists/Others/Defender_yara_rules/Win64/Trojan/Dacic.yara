@@ -851,3 +851,25 @@ rule Trojan_Win64_Dacic_YBG_2147971934_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_ARAX_2147973011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.ARAX!MTB"
+        threat_id = "2147973011"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {8b 4c 24 08 8b 44 24 08 81 f1 ?? ?? ?? ?? c1 f9 07 c1 e0 0d 33 c8 8b 44 24 08 33 c8 89 4c 24 08 83 ea 01 75 db}  //weight: 8, accuracy: Low
+        $x_2_2 = "SetPayloadModule" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
