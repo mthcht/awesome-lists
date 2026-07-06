@@ -20,3 +20,25 @@ rule Trojan_Win64_Crysan_ACR_2147954541_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Crysan_GMF_2147973025_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Crysan.GMF!MTB"
+        threat_id = "2147973025"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {42 0f b6 84 31 ?? ?? ?? ?? 41 33 c3 33 c3 89 84 8c ?? ?? ?? ?? 48 03 ce 48 83 f9 04}  //weight: 5, accuracy: Low
+        $x_5_2 = {bb 04 00 00 00 41 8a c0 41 32 03 30 02 0f b6 02}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

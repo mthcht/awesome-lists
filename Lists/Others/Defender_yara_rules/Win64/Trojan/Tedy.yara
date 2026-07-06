@@ -7024,3 +7024,24 @@ rule Trojan_Win64_Tedy_ABTY_2147972953_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GMF_2147973024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GMF!MTB"
+        threat_id = "2147973024"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 63 d0 48 8b 45 e8 48 01 d0 0f b6 00 88 45 de 0f b6 45 de 32 45 ff 88 45 dd 8b 45 f8 48 63 d0 48 8b 45 e0 48 01 c2 0f b6 45 dd 88 02 0f b6 45 ff 83 e0 01 88 45 dc 0f b6 45 ff d1 f8 88 45 ff 80 7d dc 01 ?? ?? 0f b6 45 df 30 45 ff 0f b6 45 de 30 45 ff 83 45 f8 01 8b 45 f8 3b 45 10 0f 8c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7510,3 +7510,25 @@ rule Trojan_MSIL_DarkTortilla_ZCA_2147972162_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_AYA_2147973035_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.AYA!MTB"
+        threat_id = "2147973035"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {df 3a ea 37 1d e5 49 82 10 7e 12 48 df 58 a4 53 d4 cf 5d fa fa 6d ef 14 c5 f8 2d ed b7 d1 9d a6 2f be 1e 17 83 bc 2d 81 0d 4d 4c 6b 76 2e b8 ea 2e ab f3 d6 15 b4 c3 cd be 4d 59 08 7d f1 28 7a ca cc cc 34 2a 52 dc 5b 7b 98 16 ee 53 c8 04 c2 a6 10 3c ac 83 c3 d7 a7 a6 5d 6a e2 90 2a c5 63 8a 24 1f 13 69 58 1d d5 c4 00 ae 10 0c 47 34 14 4d f2 21 9f 6b 6f}  //weight: 5, accuracy: High
+        $x_3_2 = {47 5a 84 0d 94 b6 69 33 7d 2f fa f0 98 92 bf 6a 3a 3b 57 1c 60 1a 3c a3 c6 66 78 70 32 a4 c7 21 cd 6a 88 0a 44 78 17 bc 2e c9 9b 91 7d 32 ac 89 56 8d 82 5f 79 ab 62 68 21 d3 26 19 7a 15 3a be fa 33 04 f2 1f 91 2c 51 24 64 e6 e5 6d f7 b9 a3 71 fe 4d 6d a1 6e 19 fd 9a 67 4f 59 31 17 0e 79 10 b6 9d b2 18 e7 d5 3b ec 9d 48 57 d8 83 3b 0c fb 45 ea bf f7 4d}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -467,3 +467,49 @@ rule Trojan_Win64_DonutLoader_AHB_2147972998_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_GMF_2147973026_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.GMF!MTB"
+        threat_id = "2147973026"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {31 c2 c1 e8 07 31 d0 31 c5 81 f5 ?? ?? ?? ?? 89 6c 24 ?? 31 44 24}  //weight: 5, accuracy: Low
+        $x_5_2 = {48 89 02 8b 44 24 ?? 83 e0 01 88 03 8b 44 24 ?? 4c 31 e0 49 89 06 44 8b 7c 24 ?? f6 c1 01}  //weight: 5, accuracy: Low
+        $x_1_3 = "VigorOnlineRPC_BootstrapPowerOn" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_GMX_2147973028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.GMX!MTB"
+        threat_id = "2147973028"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 03 49 8b 36 4d 89 f5 49 89 de 4c 89 d3 4d 89 fb 49 89 ff 48 8b bc 24 ?? ?? ?? ?? 4d 89 e2 41 89 ec 0f b6 2c 07 40 c0 c5 04 40 80 f5 5a 48 8b bc 24 a0 00 00 00 48 8b 3f 40 88 2c 37 44 89 e5 4d 89 d4 4c 89 ff 4d 89 df 49 89 da 4c 89 f3 4d 89 ee 4c 8b 2c 24 48 ff c6 49 89 33 48 ff c0 49 89 01 49 8b 04 24 c7 00 bd 44 66 53}  //weight: 10, accuracy: Low
+        $x_1_2 = "VigorOnline_StartAndConnect" ascii //weight: 1
+        $x_1_3 = "libfabric.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

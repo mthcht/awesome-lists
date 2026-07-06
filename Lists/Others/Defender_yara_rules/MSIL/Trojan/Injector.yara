@@ -2333,3 +2333,49 @@ rule Trojan_MSIL_Injector_BAV_2147972970_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AYB_2147973034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AYB!MTB"
+        threat_id = "2147973034"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 06 11 05 8e 69 2f 2a 11 05 11 06 07 6f 30 00 00 0a 11 09 11 06 06 8e 69 5d 58 47 61 d2 9c 11 06 17 58 13 06 11 0c 17 58 13 0c 11 0c 08 19 5a 32 ce}  //weight: 5, accuracy: High
+        $x_2_2 = "XOR_Loader.pdb" ascii //weight: 2
+        $x_1_3 = "DecryptSafe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_AYC_2147973036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AYC!MTB"
+        threat_id = "2147973036"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 08 8f 53 00 00 01 25 47 07 08 07 8e 69 5d 91 61 d2 52 08 17 58 0c 08 06 8e 69 32 e3}  //weight: 5, accuracy: High
+        $x_2_2 = "SELECT TotalPhysicalMemory FROM Win32_ComputerSystem" wide //weight: 2
+        $x_1_3 = "WindowStyle Hidden -NonInteractive -Command Add-MpPreference -ExclusionPath" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

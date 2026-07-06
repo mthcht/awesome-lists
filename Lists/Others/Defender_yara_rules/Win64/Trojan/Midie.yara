@@ -1273,3 +1273,31 @@ rule Trojan_Win64_Midie_MKC_2147972422_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_VD_2147973038_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.VD!MTB"
+        threat_id = "2147973038"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://discord.com/api/webhooks/1344304271847329914/22AJMkvKozLWosF5OGkMrhAa0YXi9qUgnavxpENt4kKPXqKC4y2wVpjj6NZrRyaYWK11" ascii //weight: 2
+        $x_2_2 = "Set-MpPreference -DisableRealtimeMonitoring $true -Force" wide //weight: 2
+        $x_2_3 = "SkillProtect Cheat Checker" wide //weight: 2
+        $x_1_4 = "/Forking92/OpinionPovesPaster/releases/download/Beta/Hidfnvyx.exe" ascii //weight: 1
+        $x_1_5 = "/Forking92/OpinionPovesPaster/releases/download/Beta/Nalulyx.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

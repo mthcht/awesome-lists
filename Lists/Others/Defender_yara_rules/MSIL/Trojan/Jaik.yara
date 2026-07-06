@@ -41,3 +41,25 @@ rule Trojan_MSIL_Jaik_VDD_2147970990_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jaik_VDC_2147973039_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jaik.VDC!MTB"
+        threat_id = "2147973039"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {7e 01 00 00 04 11 1b 7e 01 00 00 04 8e 69 5d 91 61 d2 9c 00 11 1b 17 58 13 1b}  //weight: 5, accuracy: High
+        $x_1_2 = "BypassAllAntivirus" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

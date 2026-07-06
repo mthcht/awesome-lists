@@ -4891,3 +4891,29 @@ rule Trojan_MSIL_Bladabindi_ARA_2147970660_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_VDA_2147973037_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.VDA!MTB"
+        threat_id = "2147973037"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {02 7b 13 00 00 04 11 03 9a 00 72 18 0b 00 70 28 98 00 00 0a 28 a7 00 00 0a 2c 34 02 7b 13 00 00 04 11 03 9a 00 72 cd 08 00 70 28 98 00 00 0a 13 04 00 72 1e 0b 00 70 11 04 00 72 36 0b 00 70 11 00 28 a8 00 00 0a 16 16 15 28 a9 00 00 0a 26 11 03 17 d6 13 03 11 03 11 0a 31 a5}  //weight: 5, accuracy: High
+        $x_1_2 = "Account.Interpreter" wide //weight: 1
+        $x_1_3 = "$94f8b4df-52e7-4f92-b2e2-ccad5968d634" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

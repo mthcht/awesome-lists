@@ -3783,3 +3783,28 @@ rule Trojan_MSIL_Injuke_AEXB_2147972951_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_AYA_2147973033_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.AYA!MTB"
+        threat_id = "2147973033"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "tmpfiles.org/dl/10700323/fixclient.bin" wide //weight: 5
+        $x_2_2 = "$708169ff-d3e2-4a46-8fe3-5f5ecdb90ebf" ascii //weight: 2
+        $x_1_3 = "DownloadShellCode" ascii //weight: 1
+        $x_1_4 = "encryptedShellCode" ascii //weight: 1
+        $x_1_5 = "Failed to decrypt shellcode" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

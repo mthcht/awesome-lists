@@ -40,3 +40,26 @@ rule Trojan_Win64_GenCBL_ARA_2147897645_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_GenCBL_GMF_2147973027_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GenCBL.GMF!MTB"
+        threat_id = "2147973027"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GenCBL"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {44 89 e1 32 0c 07 88 4d db 44 0f b6 4d db 44 0f b6 55 db 45 0f b6 d2 41 c1 fa 04 41 c1 e1 04 45 09 d1 44 88 4d db 0f b6 55 db f7 d2 88 55 db 88 0c 06 48 83 c0 01 39 c3 7f c6}  //weight: 10, accuracy: High
+        $x_1_2 = "sub_nybo_7" ascii //weight: 1
+        $x_1_3 = "sub_nu95_0" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
