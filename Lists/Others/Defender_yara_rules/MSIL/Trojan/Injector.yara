@@ -2379,3 +2379,34 @@ rule Trojan_MSIL_Injector_AYC_2147973036_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_NYA_2147973043_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.NYA!MTB"
+        threat_id = "2147973043"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 56 00 49 00 43 00 54 00 4f 00 52 00 5c 00 44 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00 73 00 5c 00 43 00 72 00 79 00 70 00 74 00 6f 00 4f 00 62 00 66 00 75 00 73 00 63 00 61 00 74 00 6f 00 72 00 5f 00 4f 00 75 00 74 00 70 00 75 00 74 00 5c 00 [0-31] 2e 00 70 00 64 00 62 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {43 3a 5c 55 73 65 72 73 5c 56 49 43 54 4f 52 5c 44 6f 63 75 6d 65 6e 74 73 5c 43 72 79 70 74 6f 4f 62 66 75 73 63 61 74 6f 72 5f 4f 75 74 70 75 74 5c [0-31] 2e 70 64 62}  //weight: 2, accuracy: Low
+        $x_1_3 = "GetProcAddress" ascii //weight: 1
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+        $x_1_5 = "baseAddress" ascii //weight: 1
+        $x_1_6 = "3D9B94A98B-76A8-4810-B1A0-4BE7C4F9C98DA2#" ascii //weight: 1
+        $x_1_7 = "DESCryptoServiceProvider" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

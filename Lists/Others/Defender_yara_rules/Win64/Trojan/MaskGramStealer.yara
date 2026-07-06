@@ -61,3 +61,24 @@ rule Trojan_Win64_MaskGramStealer_MK_2147965414_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_MaskGramStealer_AMG_2147973046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MaskGramStealer.AMG!MTB"
+        threat_id = "2147973046"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MaskGramStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 c8 43 8d 2c 09 0f af c6 41 02 04 0b 44 8d 65 01 48 63 ed 8d 50 ab 44 89 c8 4d 63 e4 41 ff c1 0f af c7 83 c0 3c 42 32 04 23 32 04 2b 29 c2 c0 c2 04 41 88 14 0a 41 83 f9 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

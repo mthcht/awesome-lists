@@ -18394,3 +18394,25 @@ rule Trojan_MSIL_FormBook_AFXB_2147973012_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_ABFK_2147973044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.ABFK!MTB"
+        threat_id = "2147973044"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {18 58 19 5b 28 ?? 00 00 0a 13 15 16 11 15 28 ?? 00 00 0a 06 fe ?? ?? 02 00 06 73 ?? 00 00 0a 28 ?? 00 00 2b 13 16 16 11 15 28 ?? 00 00 0a 7e ?? 00 00 04 25 2d 17 26 7e ?? 00 00 04 fe ?? ?? 02 00 06 73 ?? 00 00 0a 25 80 ?? 00 00 04 28 ?? 00 00 2b 13 17 11 16 11 17}  //weight: 4, accuracy: Low
+        $x_1_2 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
