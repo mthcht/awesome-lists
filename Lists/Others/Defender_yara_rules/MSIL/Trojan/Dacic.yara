@@ -203,3 +203,26 @@ rule Trojan_MSIL_Dacic_VD_2147967549_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dacic_AHB_2147973000_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dacic.AHB!MTB"
+        threat_id = "2147973000"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Suki.Exfil.DiscordExfil+<SendAsync>" ascii //weight: 30
+        $x_20_2 = "Suki.Exfil.TelegramExfil+<SendAsync>" ascii //weight: 20
+        $x_10_3 = "Suki.Exfil.Uploader+<UploadZipAsync>" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

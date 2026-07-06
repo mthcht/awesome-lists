@@ -8847,3 +8847,29 @@ rule Trojan_Win32_GuLoader_RFF_2147972460_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFG_2147972996_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFG!MTB"
+        threat_id = "2147972996"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "\\oversublime\\Knapning" ascii //weight: 5
+        $x_1_2 = "landingspunkt nydere scandal" ascii //weight: 1
+        $x_1_3 = "fortrdelsernes sammensparendes" ascii //weight: 1
+        $x_1_4 = "fremprovokerer" ascii //weight: 1
+        $x_1_5 = "unrestrictedness omgrdedes" ascii //weight: 1
+        $x_1_6 = "beskikkelsernes thoke.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

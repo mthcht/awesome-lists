@@ -446,3 +446,24 @@ rule Trojan_Win64_DonutLoader_AHA_2147967424_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_AHB_2147972998_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.AHB!MTB"
+        threat_id = "2147972998"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 8d 04 92 4c 89 d2 48 29 c2 42 0f b6 44 3a e0 31 d2 41 f7 f7 42 8b 44 bc fc 8b 2c 94 42 89 6c bc fc 89 04 94 49 ff cf 49 ff c8 49 83 ff ?? 77}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
