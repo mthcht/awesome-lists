@@ -19588,3 +19588,24 @@ rule Trojan_Win64_CobaltStrike_SX_2147972619_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_DVR_2147973137_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.DVR!MTB"
+        threat_id = "2147973137"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 c1 88 c2 8d 4a 33 30 8c 04 70 05 00 00 48 89 c1 48 ff c1 48 89 c8 48 83 f9 18 75 e3}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -15047,3 +15047,30 @@ rule Trojan_Win32_ClickFix_GVVA_2147973057_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_MUG_2147973066_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MUG!MTB"
+        threat_id = "2147973066"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $n_10_1 = "agent-turn-complete" wide //weight: -10
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = "iex(irm '" wide //weight: 1
+        $x_1_4 = "-UseBasicParsing)" wide //weight: 1
+        $x_1_5 = "exit <#" wide //weight: 1
+        $x_1_6 = "Verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

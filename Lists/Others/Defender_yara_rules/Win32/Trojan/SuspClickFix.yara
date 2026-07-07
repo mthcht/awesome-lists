@@ -1099,7 +1099,7 @@ rule Trojan_Win32_SuspClickFix_Z4_2147971224_0
     strings:
         $x_1_1 = " --headless " wide //weight: 1
         $x_1_2 = "cmd /v:on /" wide //weight: 1
-        $x_1_3 = "@SSL\\" wide //weight: 1
+        $x_1_3 = "@SSL" wide //weight: 1
         $x_1_4 = ",#1" wide //weight: 1
     condition:
         (filesize < 20MB) and
@@ -1144,7 +1144,7 @@ rule Trojan_Win32_SuspClickFix_Z5_2147971420_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = "cmd /v:on /" wide //weight: 5
-        $x_1_2 = {26 00 73 00 65 00 74 00 20 00 2b 08 08 00 3d 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {26 00 73 00 65 00 74 00 20 00 2f 08 08 00 3d 00}  //weight: 1, accuracy: Low
         $x_1_3 = "=mshta" wide //weight: 1
         $x_1_4 = "=where" wide //weight: 1
         $x_1_5 = "=pushd" wide //weight: 1

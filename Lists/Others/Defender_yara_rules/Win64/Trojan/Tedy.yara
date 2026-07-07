@@ -7045,3 +7045,51 @@ rule Trojan_Win64_Tedy_GMF_2147973024_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SNM_2147973136_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SNM!MTB"
+        threat_id = "2147973136"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "@[*] aQRvLfyOdoswgISCYCGeKTXm resumed thread successfully." ascii //weight: 5
+        $x_1_2 = "@[*] DuFExZjQFMHcmXcnPprTqeKv added routine to APC queue successfully." ascii //weight: 1
+        $x_1_3 = "@[*] aqyaphZoKcXQbTwaTkKSwXTx modified permissions successfully." ascii //weight: 1
+        $x_1_4 = "@[*] cnJwqoacCWIxvPRKjaMymfCG wrote decoded payload to allocated memory successfully." ascii //weight: 1
+        $x_1_5 = "@[*] IFlxkiCPNeBVMUUtHdOllsuz allocated memory in the created process sucessfully." ascii //weight: 1
+        $x_1_6 = "@[*] Running sandbox checks..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AHV_2147973143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AHV!MTB"
+        threat_id = "2147973143"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 0f 60 c2 66 0f 6e da f2 0f 70 db 00 66 0f eb c3 66 0f ?? ?? ?? ?? 00 00 66 0f ?? ?? ?? ?? ?? 00 66 0f 60 ca 66 0f eb cb}  //weight: 30, accuracy: Low
+        $x_20_2 = {ea c6 85 07 ?? ?? ?? ?? 0f b6 8d 07 ?? ?? ?? 0f b6 c9 89 ca ?? f2 [0-4] c1 e2 ?? 66 0f 6e c9 ?? f1 [0-4] 09 d1 48 c7 85 d8 01}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

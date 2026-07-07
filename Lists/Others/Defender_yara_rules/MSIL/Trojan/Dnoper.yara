@@ -614,3 +614,33 @@ rule Trojan_MSIL_Dnoper_AMJA_2147937049_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Dnoper_A_2147973140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dnoper.A!AMTB"
+        threat_id = "2147973140"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dnoper"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {24 00 75 00 72 00 6c 00 20 00 3d 00 20 00 22 00 68 00 74 74 70 00 [0-1] 3a 00 2f 00 2f 00 65 00 67 00 67 00 79 00 2e 00 63 00 6f 00 6f 00 6c 00 2f 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00 2f 00 5a 00 6f 00 6f 00 6d 00 2e 00 62 00 69 00 6e 00 2e 00 73 00 67 00 6e 00 22 00}  //weight: 3, accuracy: Low
+        $x_3_2 = {24 75 72 6c 20 3d 20 22 68 74 74 70 [0-1] 3a 2f 2f 65 67 67 79 2e 63 6f 6f 6c 2f 64 6f 77 6e 6c 6f 61 64 2f 5a 6f 6f 6d 2e 62 69 6e 2e 73 67 6e 22}  //weight: 3, accuracy: Low
+        $x_2_3 = "Invoke-WebRequest -Uri $url -UseBasicParsing" ascii //weight: 2
+        $x_1_4 = "$addr = [Win32]::VirtualAlloc" ascii //weight: 1
+        $x_1_5 = "= [Win32]::CreateThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

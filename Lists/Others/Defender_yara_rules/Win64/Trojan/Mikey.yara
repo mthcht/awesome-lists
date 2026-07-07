@@ -2466,6 +2466,28 @@ rule Trojan_Win64_Mikey_LRK_2147970064_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 c1 ee 03 48 8b e9 0f 31 48 c1 e2 20 48 8b cf 48 0b c2 4c 33 f8 0f b6 44 24 20 0f b6 94 24 9f 00 00 00 32 d0 88 54 24 60}  //weight: 20, accuracy: High
+        $x_10_2 = {89 84 24 80 01 00 00 0f b6 84 24 c0 00 00 00 0f b6 8c 24 5f 01 00 00 32 c8 88 8c 24 10 01 00 00 48 8b cb 8b 84 24 80 01 00 00 0f b6 84 24 c0 00 00 00 fe c0 88 84 24 c0 00 00 00 0f b6 84 24 b7 00 00 00 34 27}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_LRK_2147970064_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LRK!MTB"
+        threat_id = "2147970064"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "28"
         strings_accuracy = "High"
     strings:

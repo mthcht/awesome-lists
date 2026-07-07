@@ -61,3 +61,25 @@ rule Trojan_Win64_Asyncrat_KK_2147959013_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Asyncrat_LR_2147973144_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Asyncrat.LR!MTB"
+        threat_id = "2147973144"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Asyncrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 8b ca c1 e9 18 32 d1 41 8b ca c1 e9 10 32 d1 41 8b ca c1 e9 08 32 d1 41 32 14 1b 41 32 d0 41 32 d2 41 88 14 03 49 ff c3 49 83 fb 0d}  //weight: 20, accuracy: High
+        $x_10_2 = {41 69 cb 4d 7a 29 b5 81 f1 a6 e6 84 24 8b d1 c1 e2 0d 33 d1 44 8b c2 41 c1 e8 11 44 33 c2 41 8b c8 c1 e1 05 41 33 c8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

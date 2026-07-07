@@ -2714,3 +2714,28 @@ rule Trojan_MSIL_Zilla_ARR_2147972509_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_SXG_2147973150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.SXG!MTB"
+        threat_id = "2147973150"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Messengers/Discord Tokens.txt" ascii //weight: 20
+        $x_20_2 = "Messengers/Telegram/" ascii //weight: 20
+        $x_10_3 = "CreditCards.txt" ascii //weight: 10
+        $x_5_4 = "<ParsePasswords>" ascii //weight: 5
+        $x_5_5 = "<KillDebuggers>" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -96,3 +96,25 @@ rule Trojan_MSIL_AmsiBypass_CCHZ_2147910221_0
         )
 }
 
+rule Trojan_MSIL_AmsiBypass_LRB_2147973145_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AmsiBypass.LRB!MTB"
+        threat_id = "2147973145"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AmsiBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {02 28 17 00 00 0a 0a d0 19 00 00 01 28 18 00 00 0a 28 19 00 00 0a 0b 07 72 01 00 00 70 28 1a 00 00 0a 14 d0 02 00 00 1b 28 18 00 00 0a 28 1b 00 00 0a 0c 72 17 00 00 70 14 18 8d 25 00 00 01 25 16 06 28 1c 00 00 0a a2 25 17 08 a2 28 1d 00 00 0a 17 8d 1a 00 00 01 25 16 07 a2 28 02 00 00 2b 6f 1f 00 00 0a 06 6f 20 00 00 0a}  //weight: 20, accuracy: High
+        $x_10_2 = {12 00 28 14 00 00 0a 7d 06 00 00 04 12 00 02 7d 07 00 00 04 12 00 03 7d 08 00 00 04 12 00 04 7d 09 00 00 04 12 00 15 7d 05 00 00 04 12 00 7c 06 00 00 04 12 00 28 01 00 00 2b 12 00 7c 06 00 00 04 28 16 00 00 0a 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

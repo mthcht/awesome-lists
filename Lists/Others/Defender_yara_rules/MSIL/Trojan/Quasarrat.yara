@@ -74,3 +74,26 @@ rule Trojan_MSIL_Quasarrat_PQ_2147959949_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasarrat_PUR_2147973138_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasarrat.PUR!MTB"
+        threat_id = "2147973138"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasarrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {00 00 0a 0c 08 16 73 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 00 09 11 04 6f ?? 00 00 0a 00 28 ?? 00 00 0a 11 04 6f ?? 00 00 0a 6f ?? 00 00 0a 13 05}  //weight: 3, accuracy: Low
+        $x_5_2 = "COM.VNETOP.ByPass.Properties.Resources.resources" ascii //weight: 5
+        $x_3_3 = "$2d0399a4-dc28-4e5e-9945-577b8c060fa9" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

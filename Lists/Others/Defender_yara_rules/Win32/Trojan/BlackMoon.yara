@@ -698,34 +698,6 @@ rule Trojan_Win32_BlackMoon_AT_2147919690_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_BlackMoon_DA_2147920315_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/BlackMoon.DA!MTB"
-        threat_id = "2147920315"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "BlackMoon"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "102"
-        strings_accuracy = "High"
-    strings:
-        $x_100_1 = "//vip.123pan.cn/" ascii //weight: 100
-        $x_1_2 = "cmd /c del %Temp%" ascii //weight: 1
-        $x_1_3 = ".Net.WebClient).D" ascii //weight: 1
-        $x_1_4 = "ShellExecuteExW" ascii //weight: 1
-        $x_1_5 = "CryptDestroyHash" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_100_*) and 2 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_BlackMoon_NG_2147920700_0
 {
     meta:

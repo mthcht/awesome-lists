@@ -284,3 +284,47 @@ rule Trojan_Win64_Rootkit_AMTB_2147967914_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rootkit_KK_2147973147_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rootkit.KK!MTB"
+        threat_id = "2147973147"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 0f b7 c0 66 45 03 ?? 48 8d 14 80 41 8b 74 ?? ?? 41 8b 7c ?? ?? 49 03 f6 41 8b 4c ?? ?? 48 03 fd f3 a4 66 44 3b 43 06}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f b7 c3 41 0f be 0c 03 80 f9 61 8b d1 8d 41 e0 0f 4d d0 41 c1 c9 0d 44 03 ca 66 03 dd 66 41 3b 58 48}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rootkit_KKA_2147973148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rootkit.KKA!MTB"
+        threat_id = "2147973148"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 0f b7 c0 66 45 03 ?? 48 8d 14 80 41 8b 74 ?? ?? 41 8b 7c ?? ?? 49 03 f6 41 8b 4c ?? ?? 48 03 fd f3 a4 66 44 3b 43 06}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f be 03 48 ff c3 c1 ca 0d 03 d0 80 3b 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2410,3 +2410,24 @@ rule Trojan_MSIL_Injector_NYA_2147973043_0
         )
 }
 
+rule Trojan_MSIL_Injector_LRB_2147973146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.LRB!MTB"
+        threat_id = "2147973146"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {00 20 00 0c 00 00 28 20 00 00 0a 00 73 21 00 00 0a 0a 06 6f 22 00 00 0a 72 01 00 00 70 72 1b 00 00 70 6f 23 00 00 0a 00 06 72 3d 00 00 70 1f 09 8d 16 00 00 01 0b 07 16 72 7b 00 00 70 a2 07 17 1f 22 8c 0a 00 00 01 a2 07 18 72 7f 00 00 70 a2 07 19 1f 22 8c 0a 00 00 01 a2 07 1a 72 8b 00 00 70 a2 07 1b 1f 22 8c 0a 00 00 01 a2 07 1c 02 a2 07 1d 1f 22 8c 0a 00 00 01 a2 07 1e 72 8f 00 00 70 a2 07 28 24 00 00 0a 6f 25 00 00 0a 26 00 de 05 26 00 00 de 00 00 2a}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
