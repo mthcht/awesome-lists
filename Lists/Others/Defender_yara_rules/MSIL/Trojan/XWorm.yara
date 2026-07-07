@@ -1552,6 +1552,30 @@ rule Trojan_MSIL_XWorm_BAB_2147935403_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BAB_2147935403_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAB!MTB"
+        threat_id = "2147935403"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 17 13 05 16 13 06 2b 21 00 07 11 04 11 06 58 91 08 11 06 91 fe 01 13 0e 11 0e 2d 06 00 16 13 05 2b 12 00 11 06 17 58 13 06 11 06 1a fe 04 13 0e 11 0e 2d d4}  //weight: 2, accuracy: High
+        $x_1_2 = "CreateInstance" ascii //weight: 1
+        $x_1_3 = "GetParameters" ascii //weight: 1
+        $x_1_4 = "Invoke" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_NIT_2147935436_0
 {
     meta:

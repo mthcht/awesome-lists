@@ -9783,12 +9783,12 @@ rule Trojan_Win32_Zusy_LRL_2147972216_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_MKE_2147973153_0
+rule Trojan_Win32_Zusy_MKE_2147973162_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Zusy.MKE!MTB"
-        threat_id = "2147973153"
+        threat_id = "2147973162"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Zusy"

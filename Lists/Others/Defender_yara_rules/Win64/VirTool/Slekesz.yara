@@ -26,3 +26,24 @@ rule VirTool_Win64_Slekesz_A_2147907205_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Slekesz_A_2147973142_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Slekesz.A"
+        threat_id = "2147973142"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Slekesz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 4c 24 58 48 89 44 24 60 48 8b 44 24 38 48 83 c0 18 48 89 44 24 40 48 8b [0-25] bf 16 00 00 00 ?? ?? ?? ?? ?? 41 b8 01 00 00 00 4d 89 c1 e8}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 8b 44 24 40 48 8b 00 48 83 c0 20 48 8b 00 48 8b 00 48 8b 00 48 83 c0 20 48 8b 00 44 0f 11 7c 24 48 e8 [0-17] 48 89}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

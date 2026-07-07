@@ -2410,12 +2410,12 @@ rule Trojan_MSIL_Injector_NYA_2147973043_0
         )
 }
 
-rule Trojan_MSIL_Injector_LRB_2147973146_0
+rule Trojan_MSIL_Injector_LRB_2147973155_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Injector.LRB!MTB"
-        threat_id = "2147973146"
+        threat_id = "2147973155"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Injector"

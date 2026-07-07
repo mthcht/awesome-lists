@@ -4222,6 +4222,30 @@ rule Trojan_Win64_Lazy_ARR_2147954234_5
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_ARR_2147954234_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ARR!MTB"
+        threat_id = "2147954234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 03 d1 0f b6 c2 0f b6 8c ?? ?? ?? ?? ?? 41 30 08 4d 8d 40 01 49 83 e9}  //weight: 10, accuracy: Low
+        $x_5_2 = "InstanceModificationEvent WITHIN 60 WHERE TargetInstance ISA \"__Win32_LocalTime\" AND TargetInstance.Second=0" ascii //weight: 5
+        $x_3_3 = "Write-Output($r['origin_url']+'|'+$r['username_value']+'|'+[Text.Encoding]::UTF8.GetString($dec))}" ascii //weight: 3
+        $x_2_4 = "while($r.Read()){ $enc=[byte[]]$r['password_value']" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_MKD_2147954245_0
 {
     meta:
@@ -6574,12 +6598,12 @@ rule Trojan_Win64_Lazy_PGLQ_2147972939_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_MKV_2147973152_0
+rule Trojan_Win64_Lazy_MKV_2147973161_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.MKV!MTB"
-        threat_id = "2147973152"
+        threat_id = "2147973161"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"

@@ -489,6 +489,28 @@ rule Trojan_Win64_ReverseShell_ARR_2147970034_0
         threshold = "20"
         strings_accuracy = "High"
     strings:
+        $x_15_1 = {c7 44 24 70 68 00 00 00 48 8d 44 24 78 48 8b f8 33 c0 b9 60 00 00 00 f3 aa c7 84 24 ac 00 00 00 01 01 00 00 48 8b 84 24 20 01 00 00 48 89 84 24 c0 00 00 00 48 8b 84 24 20 01 00 00 48 89 84 24 c8 00 00 00 48 8b 84 24 20 01 00 00 48 89 84 24 d0 00 00 00 48 8d 44 24}  //weight: 15, accuracy: High
+        $x_5_2 = {48 83 ec 48 c7 44 24 28 00 00 00 00 c7 44 24 20 00 00 00 00 45 33 c9 41 b8 06 00 00 00 ba 01 00 00 00 b9 02 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_ARR_2147970034_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.ARR!MTB"
+        threat_id = "2147970034"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
         $x_10_1 = "Start a reverse shell with the default shell (cmd):" ascii //weight: 10
         $x_8_2 = "RustPotato.exe <cmdline> OR -h <host> -p <port> [-c <cmd>]" ascii //weight: 8
         $x_2_3 = "[+] RPC HOOK - START" ascii //weight: 2
