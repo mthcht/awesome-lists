@@ -15022,3 +15022,28 @@ rule Trojan_Win32_ClickFix_AFZ_2147972982_0
         )
 }
 
+rule Trojan_Win32_ClickFix_GVVA_2147973057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GVVA!MTB"
+        threat_id = "2147973057"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "p=ushd" wide //weight: 10
+        $x_10_2 = "r=undll32" wide //weight: 10
+        $x_10_3 = "o=opd" wide //weight: 10
+        $x_10_4 = "@SSL" wide //weight: 10
+        $x_10_5 = ".ch,#" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

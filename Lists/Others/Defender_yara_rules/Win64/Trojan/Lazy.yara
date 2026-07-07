@@ -5978,6 +5978,39 @@ rule Trojan_Win64_Lazy_LRK_2147968425_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LRK_2147968425_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LRK!MTB"
+        threat_id = "2147968425"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a ca 80 e1 03 c0 e1 03 b8 b3 ad ac de d3 e8 48 8d 0d 04 73 0f 00 32 04 0a 88 44 15 b7 48 ff c2 48 83 fa 14}  //weight: 20, accuracy: High
+        $x_1_2 = "Decrypted Browser Passwords" ascii //weight: 1
+        $x_2_3 = "password_value" ascii //weight: 2
+        $x_3_4 = "DARKAGE_C2_URL" ascii //weight: 3
+        $x_4_5 = "DARKAGE_EXFIL_TOKEN" ascii //weight: 4
+        $x_5_6 = "DARKAGE_BOT_ID" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Lazy_AHA_2147968634_0
 {
     meta:
