@@ -4919,32 +4919,6 @@ rule Trojan_Win32_ClickFix_DDA_2147942899_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_ZZH_2147942983_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.ZZH!MTB"
-        threat_id = "2147942983"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = "[IO.File]::ReadAllBytes($" wide //weight: 1
-        $x_1_2 = "ForEach-Object { $_.ToString" wide //weight: 1
-        $x_1_3 = "-join" wide //weight: 1
-        $n_10_4 = {44 00 3a 00 5c 00 72 00 65 00 70 00 6f 00 73 00 5c 00 4d 00 6f 00 64 00 65 00 6c 00 54 00 65 00 73 00 74 00 5c 00 2e 00 63 00 6f 00 6d 00 70 00 61 00 6e 00 79 00 5c 00 73 00 65 00 63 00 72 00 65 00 74 00 61 00 72 00 79 00 5c 00 74 00 6f 00 64 00 6f 00 73 00 5c 00 [0-15] 2e 00 6d 00 64 00}  //weight: -10, accuracy: Low
-        $n_10_5 = {47 00 65 00 74 00 2d 00 43 00 68 00 69 00 6c 00 64 00 49 00 74 00 65 00 6d 00 20 00 2e 00 5c 00 61 00 69 00 6b 00 69 00 64 00 6f 00 20 00 2d 00 46 00 69 00 6c 00 65 00 20 00 2d 00 46 00 69 00 6c 00 74 00 65 00 72 00 20 00 2a 00 2e 00 70 00 68 00 70 00}  //weight: -10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_ZZI_2147942984_0
 {
     meta:
