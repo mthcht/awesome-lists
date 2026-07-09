@@ -253,3 +253,29 @@ rule Trojan_Win64_XMRig_AMTB_2147967913_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XMRig_AB_2147973250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XMRig.AB!MTB"
+        threat_id = "2147973250"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XMRig"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "@$&%17\\temp\\ChromiumTemp31396_681646437\\AnyDesk.exe" ascii //weight: 1
+        $x_1_2 = "/c echo>>@$&%17\\temp\\ChromiumTemp31396_681646437\\mat-debug-680.txt" ascii //weight: 1
+        $x_1_3 = "\\driver.exe" ascii //weight: 1
+        $x_1_4 = "HideWhenExecuted" ascii //weight: 1
+        $x_1_5 = "x -r -ep2 -hplimpid29033" ascii //weight: 1
+        $x_1_6 = {42 61 63 6b 67 72 6f 75 6e 64 44 6f 77 6e 6c 6f 61 64 5f [0-32] 2e 72 61 72}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

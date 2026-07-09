@@ -284,12 +284,12 @@ rule Trojan_Win64_Rootkit_AMTB_2147967914_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rootkit_KK_2147973237_0
+rule Trojan_Win64_Rootkit_KK_2147973259_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Rootkit.KK!MTB"
-        threat_id = "2147973237"
+        threat_id = "2147973259"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Rootkit"
@@ -306,12 +306,12 @@ rule Trojan_Win64_Rootkit_KK_2147973237_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Rootkit_KKA_2147973238_0
+rule Trojan_Win64_Rootkit_KKA_2147973260_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Rootkit.KKA!MTB"
-        threat_id = "2147973238"
+        threat_id = "2147973260"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Rootkit"

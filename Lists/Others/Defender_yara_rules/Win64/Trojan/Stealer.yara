@@ -1153,3 +1153,27 @@ rule Trojan_Win64_Stealer_BAB_2147972964_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NYA_2147973237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NYA!MTB"
+        threat_id = "2147973237"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetClipboardData" ascii //weight: 1
+        $x_1_2 = "OpenClipboard" ascii //weight: 1
+        $x_1_3 = {d1 e8 41 83 e0 01 41 f7 d8 41 21 d0 41 31 c0 44 89 c0 d1 e8 41 83 e0 01 41 f7 d8}  //weight: 1, accuracy: High
+        $x_2_4 = {41 81 e1 b1 79 37 9e 0d b1 79 37 9e 41 0f af c1 41 81 f1 b1 79 37 1e}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

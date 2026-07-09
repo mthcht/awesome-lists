@@ -723,3 +723,26 @@ rule Trojan_MSIL_Agenttesla_PALA_2147956567_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_MCT_2147973213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MCT!MTB"
+        threat_id = "2147973213"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SentinelStealer.Resources.resource" ascii //weight: 1
+        $x_1_2 = "ChromiumDecryptor" ascii //weight: 1
+        $x_1_3 = "e79485a730c1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

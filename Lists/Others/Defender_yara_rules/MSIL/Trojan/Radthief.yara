@@ -62,12 +62,12 @@ rule Trojan_MSIL_Radthief_NPA_2147953657_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Radthief_ARR_2147973247_0
+rule Trojan_MSIL_Radthief_ARR_2147973269_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Radthief.ARR!MTB"
-        threat_id = "2147973247"
+        threat_id = "2147973269"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Radthief"

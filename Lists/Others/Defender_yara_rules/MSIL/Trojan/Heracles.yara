@@ -11019,12 +11019,12 @@ rule Trojan_MSIL_Heracles_CZ_2147972670_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMP_2147973210_0
+rule Trojan_MSIL_Heracles_DMP_2147973225_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMP!MTB"
-        threat_id = "2147973210"
+        threat_id = "2147973225"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11037,6 +11037,76 @@ rule Trojan_MSIL_Heracles_DMP_2147973210_0
         $x_1_1 = "Gelonari.dll" ascii //weight: 1
         $x_1_2 = "Commercial mushroom farms to manage substrate" ascii //weight: 1
         $x_1_3 = "Bengio" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_DMV_2147973226_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.DMV!MTB"
+        threat_id = "2147973226"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Windows Health Optimizer Plus.dll" ascii //weight: 1
+        $x_1_2 = "Intelligent system health diagnostics and repair suite" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_DMK_2147973227_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.DMK!MTB"
+        threat_id = "2147973227"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "PerfGuard.dll" ascii //weight: 1
+        $x_1_2 = "SentinelTech Solution" ascii //weight: 1
+        $x_1_3 = "Real-time performance surveillance and autonomous remediation engine" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_NYA_2147973238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.NYA!MTB"
+        threat_id = "2147973238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Home\\Desktop\\Projects\\CookieMonster-master\\CookieMonster\\obj\\Release\\CookieMonster.pdb" ascii //weight: 2
+        $x_2_2 = "e60b1f2b-623a-4be7-a27e-3f8c6e5e3964" ascii //weight: 2
+        $x_1_3 = "Chrome\\User Data\\Default\\Network\\Cookies" ascii //weight: 1
+        $x_1_4 = "Extract browser saved credentials" ascii //weight: 1
+        $x_1_5 = "SELECT path,name,encrypted_value,expires_utc,host_key" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
