@@ -680,12 +680,12 @@ rule Trojan_MSIL_Noon_ABXW_2147972533_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Noon_ABFK_2147973196_0
+rule Trojan_MSIL_Noon_ABFK_2147973206_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Noon.ABFK!MTB"
-        threat_id = "2147973196"
+        threat_id = "2147973206"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Noon"

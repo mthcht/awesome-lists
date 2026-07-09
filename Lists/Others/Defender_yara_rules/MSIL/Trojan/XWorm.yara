@@ -5809,12 +5809,12 @@ rule Trojan_MSIL_XWorm_BAV_2147972794_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ZUA_2147973179_0
+rule Trojan_MSIL_XWorm_ZUA_2147973188_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ZUA!MTB"
-        threat_id = "2147973179"
+        threat_id = "2147973188"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
