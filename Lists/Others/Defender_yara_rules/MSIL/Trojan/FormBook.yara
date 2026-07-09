@@ -18416,3 +18416,24 @@ rule Trojan_MSIL_FormBook_ABFK_2147973044_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_PGFL_2147973203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.PGFL!MTB"
+        threat_id = "2147973203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {5b 03 02 7b ?? 00 00 04 5d 6f ?? 00 00 0a 0a 19 02 7b ?? 00 00 04 02 7b ?? 00 00 04 59 28 ?? 00 00 0a 0b 02 02 7b ?? 00 00 04 07 58 7d ?? 00 00 04 07 8d ?? 00 00 01 0c 07 16 fe 02 13 05 11 05 2c 0a 08 16 12 00 28 ?? 00 00 0a 9c 07 17 fe 02 13 06 11 06 2c 0a 08 17 12 00 28 ?? 00 00 0a 9c 07 18 fe 02 13 07 11 07 2c 0a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

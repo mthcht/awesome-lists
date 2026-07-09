@@ -384,3 +384,24 @@ rule Trojan_Win64_Filecoder_LRB_2147972690_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Filecoder_PGFR_2147973202_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Filecoder.PGFR!MTB"
+        threat_id = "2147973202"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {d6 06 f9 b8 ae 34 44 26 79 fe 03 cf 1b 0a f9 4d cb 67 9c d1 bf 8c 37 8a 4f cb 0b f3 e5 45 4e c6 e0 23 a9 68 a0 d6 75 89 9e 25 65 ae cf 46 b4 42 dd 63 6c 3f e4 cd ca a4 ed 94 6b 59 58 8e b2 6c ac 8d 2d c7 5b e6 45 0e cd 6f c3 04 3f 36 06 ef d6 4d 4b 73 79 94}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
