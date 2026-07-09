@@ -1301,3 +1301,25 @@ rule Trojan_Win64_Midie_VD_2147973038_0
         )
 }
 
+rule Trojan_Win64_Midie_SXO_2147973268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.SXO!MTB"
+        threat_id = "2147973268"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {45 8b c1 b8 b3 cf 21 35 41 f7 e1 41 8b c1 2b c2 d1 e8 03 c2 c1 e8 05 0f b7 c0 6b c8 35 41 0f b7 c1 66 2b c1 66 83 c0 3a 66 42 31 44 44 50 41 ff c1 41 83 f9 10 7c c9}  //weight: 30, accuracy: High
+        $x_10_2 = {c7 44 24 50 53 00 70 00 66 83 74 24 54 3c 66 83 74 24 56 3d 66 83 74 24 58 3e}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
