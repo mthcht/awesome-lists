@@ -4143,12 +4143,12 @@ rule Trojan_Win64_Zusy_AHV_2147972999_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZU_2147973207_0
+rule Trojan_Win64_Zusy_AZU_2147973211_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZU!MTB"
-        threat_id = "2147973207"
+        threat_id = "2147973211"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
