@@ -226,3 +226,27 @@ rule Trojan_Win64_Lotok_PAGR_2147954819_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lotok_AHB_2147973233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lotok.AHB!MTB"
+        threat_id = "2147973233"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lotok"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "Global\\WmiDataSync_" ascii //weight: 40
+        $x_30_2 = "ASRRules=DISABLED" ascii //weight: 30
+        $x_20_3 = "ExclusionPaths=WRITTEN" ascii //weight: 20
+        $x_10_4 = "TamperProtection=DISABLED" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1671,6 +1671,27 @@ rule Trojan_Win64_Mikey_ARR_2147957636_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f b6 c9 41 32 0c 02 88 08 48 8d 40 01 48 83 ea}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_ARR_2147957636_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.ARR!MTB"
+        threat_id = "2147957636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "Low"
     strings:
         $x_9_1 = {0f 57 c2 48 8d 04 0e 0f 57 ca f3 0f 7f 41 b0 f3 0f 6f 44 0f d0 f3 0f 7f 49 c0 0f 57 c2 f3 0f 6f 4c 0f}  //weight: 9, accuracy: High
@@ -1680,7 +1701,7 @@ rule Trojan_Win64_Mikey_ARR_2147957636_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Mikey_ARR_2147957636_1
+rule Trojan_Win64_Mikey_ARR_2147957636_2
 {
     meta:
         author = "defender2yara"

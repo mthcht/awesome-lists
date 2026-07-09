@@ -243,3 +243,25 @@ rule Trojan_Win64_KeyLogger_KK_2147970441_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_KeyLogger_AC_2147973228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.AC!MTB"
+        threat_id = "2147973228"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {4c 8b c0 48 8d 15 b7 f5 ff ff b9 0d 00 00 00 ff 15 ?? d5 01 00 ba 01 00 00 00 41 b9 39 00 00 00 41 b8 03 00 00 00 33 c9 48 8b d8 ff 15 ?? d5 01 00 45 33 c9 48 8d 4c 24 20 45 33 c0 33 d2 ff 15 ?? ?? 01 00 85 c0 74 40 66 0f 1f 84 00 00 00 00 00 81 7c 24 28 12 03 00 00 74 2d 48 8d 4c 24 20}  //weight: 6, accuracy: Low
+        $x_6_2 = {b9 a3 00 00 00 ff 15 ?? df 01 00 66 85 c0 79 36 83 ff 43 75 16 48 8d 0d ?? 65 02 00 e8 15 fd ff ff e8 f0 fd ff ff e9 e6 00 00 00 83 ff 56 75 16 48 8d 0d ?? 65 02 00 e8}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

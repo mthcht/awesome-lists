@@ -7045,12 +7045,37 @@ rule Trojan_Win64_Tedy_GMF_2147973024_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_SNM_2147973185_0
+rule Trojan_Win64_Tedy_YDQ_2147973204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.YDQ!MTB"
+        threat_id = "2147973204"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 c7 48 c7 40 10 00 bc 0d 00 ff 15 ?? ?? ?? ?? 48 b9 cf 3a d5 ab 85 f3 01 b8 48 31 c1 48 89 4f 08 48 31 f1 48 89 0f}  //weight: 1, accuracy: Low
+        $x_1_2 = {48 89 c7 48 c7 40 10 00 bc 0d 00 ff 15 ?? ?? ?? ?? 48 b9 7a ef f3 9a 17 98 df 37 48 31 c1 48 89 4f 08 48 31 f1 48 89 0f}  //weight: 1, accuracy: Low
+        $x_1_3 = {48 89 c7 48 c7 40 10 00 bc 0d 00 ff 15 ?? ?? ?? ?? 48 b9 ae d6 90 8d 39 20 7e d6 48 31 c1 48 89 4f 08 48 31 f1 48 89 0f}  //weight: 1, accuracy: Low
+        $x_1_4 = {48 89 c7 48 c7 40 10 00 bc 0d 00 ff 15 ?? ?? ?? ?? 48 b9 96 d5 32 6f 72 30 f5 60 48 31 c1 48 89 4f 08 48 31 f1 48 89 0f}  //weight: 1, accuracy: Low
+        $x_1_5 = {48 89 c7 48 c7 40 10 00 bc 0d 00 ff 15 ?? ?? ?? ?? 48 b9 97 ee 47 74 6e 28 62 3d 48 31 c1 48 89 4f 08 48 31 f1 48 89 0f}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SNM_2147973205_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.SNM!MTB"
-        threat_id = "2147973185"
+        threat_id = "2147973205"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7071,12 +7096,12 @@ rule Trojan_Win64_Tedy_SNM_2147973185_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_AHV_2147973205_0
+rule Trojan_Win64_Tedy_AHV_2147973230_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.AHV!MTB"
-        threat_id = "2147973205"
+        threat_id = "2147973230"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"

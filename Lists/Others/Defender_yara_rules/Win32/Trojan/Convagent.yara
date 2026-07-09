@@ -2072,6 +2072,31 @@ rule Trojan_Win32_Convagent_ARR_2147956042_5
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {8a 4c 15 d8 8a c1 80 f1 ?? 34 ?? 88 4c 15 e8 88 44 15 c8 42 3b d6 72}  //weight: 12, accuracy: Low
+        $x_6_2 = "dispenser_NO_TOKEN.exe" ascii //weight: 6
+        $x_5_3 = "money not taken" ascii //weight: 5
+        $x_3_4 = "Success, transporting now. Raw response" ascii //weight: 3
+        $x_4_5 = "locking failed" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_ARR_2147956042_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.ARR!MTB"
+        threat_id = "2147956042"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "38"
         strings_accuracy = "High"
     strings:

@@ -62,3 +62,25 @@ rule Trojan_MSIL_Radthief_NPA_2147953657_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Radthief_ARR_2147973247_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Radthief.ARR!MTB"
+        threat_id = "2147973247"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Radthief"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {0b 06 07 8e 69 6a 28 ?? 00 00 0a 7e ?? ?? 00 04 12 02 28 ?? ?? ?? ?? 26 07 16 06 07 8e 69}  //weight: 11, accuracy: Low
+        $x_9_2 = {04 1f 40 80 ?? 00 00 04 72 ?? 00 00 70 72 ?? 00 00 70 72 ?? 00 00 70 6f}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

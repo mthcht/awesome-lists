@@ -657,3 +657,26 @@ rule Trojan_Win64_Cerbu_ARR_2147970581_1
         )
 }
 
+rule Trojan_Win64_Cerbu_AHM_2147973231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AHM!MTB"
+        threat_id = "2147973231"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {6d 61 69 6e 2e 28 2a [0-16] 29 2e 53 65 6e 64 43 6c 69 70 4e 6f 74 69 66 69 63 61 74 69 6f 6e}  //weight: 30, accuracy: Low
+        $x_20_2 = {6d 61 69 6e 2e 28 2a [0-16] 29 2e 53 65 6e 64 53 65 65 64 4e 6f 74 69 66 69 63 61 74 69 6f 6e}  //weight: 20, accuracy: Low
+        $x_10_3 = {6d 61 69 6e 2e 28 2a [0-16] 29 2e 53 65 6e 64 43 68 65 63 6b 4e 6f 74 69 66 69 63 61 74 69 6f 6e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

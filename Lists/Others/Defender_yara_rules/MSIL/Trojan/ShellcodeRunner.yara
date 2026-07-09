@@ -408,12 +408,12 @@ rule Trojan_MSIL_ShellcodeRunner_SVPO_2147969840_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ShellcodeRunner_ARR_2147973218_0
+rule Trojan_MSIL_ShellcodeRunner_ARR_2147973246_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/ShellcodeRunner.ARR!MTB"
-        threat_id = "2147973218"
+        threat_id = "2147973246"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "ShellcodeRunner"

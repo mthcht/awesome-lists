@@ -265,6 +265,28 @@ rule Trojan_Win64_Ulise_ARAX_2147956093_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = {8a 54 24 57 30 14 06 48 ff c0 39 c1 7d f2}  //weight: 8, accuracy: High
+        $x_2_2 = {41 8a 14 00 32 14 01 48 ff c0 88 54 18 ff 48 83 f8 20 75 ec}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Ulise_ARAX_2147956093_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.ARAX!MTB"
+        threat_id = "2147956093"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
