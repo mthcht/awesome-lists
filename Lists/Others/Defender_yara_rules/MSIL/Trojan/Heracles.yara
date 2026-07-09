@@ -11019,3 +11019,26 @@ rule Trojan_MSIL_Heracles_CZ_2147972670_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_DMP_2147973171_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.DMP!MTB"
+        threat_id = "2147973171"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Gelonari.dll" ascii //weight: 1
+        $x_1_2 = "Commercial mushroom farms to manage substrate" ascii //weight: 1
+        $x_1_3 = "Bengio" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

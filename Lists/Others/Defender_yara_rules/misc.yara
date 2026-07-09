@@ -28813,6 +28813,28 @@ rule __PUA_Block_FRProxy_0
         detection_name = "!#PUA:Block:FRProxy"
         threat_id = "1879049018"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "github.com/fatedier/frp/cmd/frpc/sub.NewProxyCommand" ascii //weight: 1
+        $x_1_2 = "fatedier/frp/cmd/frpc" ascii //weight: 1
+        $x_1_3 = "go-proxyproto" ascii //weight: 1
+        $x_1_4 = "GetComputerName" ascii //weight: 1
+        $x_1_5 = "GetEnvironmentStringsW" ascii //weight: 1
+        $x_1_6 = "GetConsoleMode" ascii //weight: 1
+        $x_1_7 = "toml.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule __PUA_Block_FRProxy_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "!#PUA:Block:FRProxy"
+        threat_id = "1879049018"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
