@@ -158,9 +158,9 @@ dest_ip,dest_nt_domain,dest_port
 193.32.127.84,ch-zrh-wg-006.relays.mullvad.net,51820
 2a03:1b20:a:f011::f601,ch-zrh-wg-006.relays.mullvad.net,51820
 179.43.189.66,ch-zrh-wg-201.relays.mullvad.net,51820
-2a02:29b8:dc01:1832::a1f,ch-zrh-wg-201.relays.mullvad.net,51820
+2a02:29b8:dc01:1832::f001,ch-zrh-wg-201.relays.mullvad.net,51820
 46.19.136.226,ch-zrh-wg-202.relays.mullvad.net,51820
-2a02:29b8:dc01:1831::f002,ch-zrh-wg-202.relays.mullvad.net,51820
+2a02:29b8:dc01:1831::f101,ch-zrh-wg-202.relays.mullvad.net,51820
 138.199.6.194,ch-zrh-wg-401.relays.mullvad.net,51820
 2a02:6ea0:d406:1::a18f,ch-zrh-wg-401.relays.mullvad.net,51820
 138.199.6.207,ch-zrh-wg-402.relays.mullvad.net,51820
@@ -202,9 +202,9 @@ dest_ip,dest_nt_domain,dest_port
 193.32.248.68,de-ber-wg-003.relays.mullvad.net,51820
 2a03:1b20:b:f011::a03f,de-ber-wg-003.relays.mullvad.net,51820
 193.32.248.69,de-ber-wg-004.relays.mullvad.net,51820
-2a03:1b20:b:f011::a04f,de-ber-wg-004.relays.mullvad.net,51820
+2a03:1b20:b:f011::f301,de-ber-wg-004.relays.mullvad.net,51820
 193.32.248.70,de-ber-wg-005.relays.mullvad.net,51820
-2a03:1b20:b:f011::a05f,de-ber-wg-005.relays.mullvad.net,51820
+2a03:1b20:b:f011::f401,de-ber-wg-005.relays.mullvad.net,51820
 193.32.248.71,de-ber-wg-006.relays.mullvad.net,51820
 2a03:1b20:b:f011::a06f,de-ber-wg-006.relays.mullvad.net,51820
 193.32.248.75,de-ber-wg-007.relays.mullvad.net,51820
@@ -336,7 +336,7 @@ dest_ip,dest_nt_domain,dest_port
 193.32.126.70,fr-par-wg-005.relays.mullvad.net,51820
 2a03:1b20:9:f011::f401,fr-par-wg-005.relays.mullvad.net,51820
 193.32.126.84,fr-par-wg-006.relays.mullvad.net,51820
-2a03:1b20:9:f011::f001,fr-par-wg-006.relays.mullvad.net,51820
+2a03:1b20:9:f011::f501,fr-par-wg-006.relays.mullvad.net,51820
 193.32.126.83,fr-par-wg-007.relays.mullvad.net,51820
 2a03:1b20:9:f011::3f,fr-par-wg-007.relays.mullvad.net,51820
 146.70.184.2,fr-par-wg-101.relays.mullvad.net,51820
@@ -594,7 +594,7 @@ dest_ip,dest_nt_domain,dest_port
 185.213.154.70,se-got-wg-101.relays.mullvad.net,51820
 2a03:1b20:5:f011::aaaf,se-got-wg-101.relays.mullvad.net,51820
 193.138.218.220,se-mma-wg-001.relays.mullvad.net,51820
-2a03:1b20:1:f410::a01f,se-mma-wg-001.relays.mullvad.net,51820
+2a03:1b20:1:f410::fa01,se-mma-wg-001.relays.mullvad.net,51820
 193.138.218.80,se-mma-wg-002.relays.mullvad.net,51820
 2a03:1b20:1:f410::a15f,se-mma-wg-002.relays.mullvad.net,51820
 193.138.218.83,se-mma-wg-003.relays.mullvad.net,51820
