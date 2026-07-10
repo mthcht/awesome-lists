@@ -477,12 +477,12 @@ rule Trojan_Win64_DLLHijack_MCX_2147972812_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DV_2147973246_0
+rule Trojan_Win64_DLLHijack_DV_2147973249_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DV!MTB"
-        threat_id = "2147973246"
+        threat_id = "2147973249"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -501,12 +501,12 @@ rule Trojan_Win64_DLLHijack_DV_2147973246_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DW_2147973247_0
+rule Trojan_Win64_DLLHijack_DW_2147973250_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DW!MTB"
-        threat_id = "2147973247"
+        threat_id = "2147973250"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -517,6 +517,33 @@ rule Trojan_Win64_DLLHijack_DW_2147973247_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = "cmd /c sc create MixedSvc binPath= \"C:\\Program Files\\Windows Media Player\\Mixed Reality.exe\" start= auto displayname= \"Windows Mixed Reality Service\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_AGXB_2147973268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.AGXB!MTB"
+        threat_id = "2147973268"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 8d 0c 11 0f b6 c9 0f b6 84 0c ?? ?? ?? ?? 41 01 c0 45 0f b6 d8 42 0f b6 bc 1c ?? ?? ?? ?? 40 88 bc 0c ?? ?? ?? ?? 42 88 84 1c ?? ?? ?? ?? 02 84 0c ?? ?? ?? ?? 0f b6 c0 0f b6 84 04 ?? ?? ?? ?? 30 02 48 83 c2 01 49 39 d2 75 b4}  //weight: 5, accuracy: Low
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "powershell.exe -w hidden -nop -c" ascii //weight: 1
+        $x_1_4 = "Get-Partition -DriveLetter" ascii //weight: 1
+        $x_1_5 = "(Get-DiskImage -DevicePath $" ascii //weight: 1
+        $x_1_6 = ".DriveLetter -eq" ascii //weight: 1
+        $x_1_7 = ".InvokeVerb(" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

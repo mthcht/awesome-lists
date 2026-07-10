@@ -657,12 +657,12 @@ rule Trojan_Win64_Cerbu_ARR_2147970581_1
         )
 }
 
-rule Trojan_Win64_Cerbu_AHM_2147973303_0
+rule Trojan_Win64_Cerbu_AHM_2147973308_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Cerbu.AHM!MTB"
-        threat_id = "2147973303"
+        threat_id = "2147973308"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Cerbu"

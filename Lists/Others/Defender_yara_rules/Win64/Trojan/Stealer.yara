@@ -1153,12 +1153,12 @@ rule Trojan_Win64_Stealer_BAB_2147972964_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Stealer_NYA_2147973282_0
+rule Trojan_Win64_Stealer_NYA_2147973287_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Stealer.NYA!MTB"
-        threat_id = "2147973282"
+        threat_id = "2147973287"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Stealer"
