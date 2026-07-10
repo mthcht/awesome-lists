@@ -24,12 +24,12 @@ rule Trojan_Win64_Infostealer_NA_2147924596_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Infostealer_ABD_2147973343_0
+rule Trojan_Win64_Infostealer_ABD_2147973346_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Infostealer.ABD!MTB"
-        threat_id = "2147973343"
+        threat_id = "2147973346"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Infostealer"

@@ -1,9 +1,9 @@
-rule Trojan_Win32_ShardLoader_KVX_2147973344_0
+rule Trojan_Win32_ShardLoader_KVX_2147973347_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ShardLoader.KVX!MTB"
-        threat_id = "2147973344"
+        threat_id = "2147973347"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ShardLoader"

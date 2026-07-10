@@ -680,12 +680,12 @@ rule Trojan_MSIL_Noon_ABXW_2147972533_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Noon_BAD_2147973296_0
+rule Trojan_MSIL_Noon_BAD_2147973299_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Noon.BAD!MTB"
-        threat_id = "2147973296"
+        threat_id = "2147973299"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Noon"
@@ -702,12 +702,12 @@ rule Trojan_MSIL_Noon_BAD_2147973296_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Noon_ABFK_2147973338_0
+rule Trojan_MSIL_Noon_ABFK_2147973341_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Noon.ABFK!MTB"
-        threat_id = "2147973338"
+        threat_id = "2147973341"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Noon"

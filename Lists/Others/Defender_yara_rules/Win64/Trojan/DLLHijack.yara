@@ -477,12 +477,12 @@ rule Trojan_Win64_DLLHijack_MCX_2147972812_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DV_2147973249_0
+rule Trojan_Win64_DLLHijack_DV_2147973252_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DV!MTB"
-        threat_id = "2147973249"
+        threat_id = "2147973252"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -501,12 +501,12 @@ rule Trojan_Win64_DLLHijack_DV_2147973249_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DW_2147973250_0
+rule Trojan_Win64_DLLHijack_DW_2147973253_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DW!MTB"
-        threat_id = "2147973250"
+        threat_id = "2147973253"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -522,12 +522,12 @@ rule Trojan_Win64_DLLHijack_DW_2147973250_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_AGXB_2147973268_0
+rule Trojan_Win64_DLLHijack_AGXB_2147973271_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.AGXB!MTB"
-        threat_id = "2147973268"
+        threat_id = "2147973271"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
