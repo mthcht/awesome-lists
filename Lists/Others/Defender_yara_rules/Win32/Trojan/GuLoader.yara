@@ -8873,3 +8873,30 @@ rule Trojan_Win32_GuLoader_RFG_2147972996_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SNP_2147973257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SNP!MTB"
+        threat_id = "2147973257"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "\\tagrygningernes\\anthropomorphizing.ini" ascii //weight: 4
+        $x_1_2 = "\\filibusterer\\nondeafly.ini" ascii //weight: 1
+        $x_1_3 = "\\initialers.ini" ascii //weight: 1
+        $x_1_4 = "Archhypocrisy147.ini" ascii //weight: 1
+        $x_1_5 = "Reformisterne231.jpg" ascii //weight: 1
+        $x_1_6 = "stiftsfrkeners.txt" ascii //weight: 1
+        $x_1_7 = "\\serigraferne\\nglestillings.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

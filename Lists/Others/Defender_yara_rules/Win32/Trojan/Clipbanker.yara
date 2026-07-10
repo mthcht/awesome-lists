@@ -352,3 +352,28 @@ rule Trojan_Win32_Clipbanker_AMAG_2147919822_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Clipbanker_LRG_2147973306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Clipbanker.LRG!MTB"
+        threat_id = "2147973306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 45 c8 29 21 40 23 c7 45 cc 24 25 5e 26 66 c7 45 d0 2a 28 0f b6 44 1d 98 50}  //weight: 20, accuracy: High
+        $x_1_2 = "%smain_entry_crash_%04u%02u%02u_%02u%02u%02u_%lu_%lu.dmp" ascii //weight: 1
+        $x_2_3 = "{\"round\":%u,\"host\":\"%s\",\"port\":%u}" ascii //weight: 2
+        $x_3_4 = "28 handshake TIMEOUT (%u ms, no OnConnect) -> reconnect" ascii //weight: 3
+        $x_4_5 = "28 graceful BYE sent=%d" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
