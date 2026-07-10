@@ -15048,3 +15048,54 @@ rule Trojan_Win32_ClickFix_MUG_2147973066_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_AHZ_2147973305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AHZ!MTB"
+        threat_id = "2147973305"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-w h -c" wide //weight: 1
+        $x_1_3 = "iex(irm" wide //weight: 1
+        $x_1_4 = ".beer/" wide //weight: 1
+        $x_1_5 = "#Verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_TCZ_2147973306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.TCZ!MTB"
+        threat_id = "2147973306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "$env:TMP" wide //weight: 1
+        $x_1_3 = "-ExecutionPolicy Bypass" wide //weight: 1
+        $x_1_4 = "\\Downloads\\tmp" wide //weight: 1
+        $x_1_5 = "I am not a robot reCAPTCHA" wide //weight: 1
+        $x_1_6 = "Verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

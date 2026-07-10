@@ -6598,12 +6598,12 @@ rule Trojan_Win64_Lazy_PGLQ_2147972939_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_MKV_2147973274_0
+rule Trojan_Win64_Lazy_MKV_2147973294_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.MKV!MTB"
-        threat_id = "2147973274"
+        threat_id = "2147973294"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"

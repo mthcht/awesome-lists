@@ -132,3 +132,28 @@ rule Ransom_Win32_Embargo_HA_2147966658_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Embargo_C_2147973263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Embargo.C"
+        threat_id = "2147973263"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Embargo"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Failed to parse config:" ascii //weight: 1
+        $x_1_2 = "embargo::platform::windows::encrypt" ascii //weight: 1
+        $x_1_3 = "Failed empty recyclebin:" ascii //weight: 1
+        $x_1_4 = "Found partial encrypted file:" ascii //weight: 1
+        $x_1_5 = "Failed second attempt to open file" ascii //weight: 1
+        $x_1_6 = "Fail encbytes section" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

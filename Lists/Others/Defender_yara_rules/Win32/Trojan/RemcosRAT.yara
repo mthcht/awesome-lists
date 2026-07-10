@@ -490,3 +490,29 @@ rule Trojan_Win32_RemcosRAT_RVA_2147963364_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemcosRAT_RTT_2147973304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT.RTT!MTB"
+        threat_id = "2147973304"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c REG ADD" wide //weight: 1
+        $x_1_2 = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_3 = "REG_EXPAND_SZ /d" wide //weight: 1
+        $x_1_4 = "-windowstyle 2" wide //weight: 1
+        $x_1_5 = "HKCU:\\Software\\Weaverbird\\" wide //weight: 1
+        $x_1_6 = "Pardonnerer" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
