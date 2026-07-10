@@ -208,3 +208,25 @@ rule Ransom_Win32_Babuk_KK_2147946089_0
         )
 }
 
+rule Ransom_Win32_Babuk_SN_2147973345_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Babuk.SN!MTB"
+        threat_id = "2147973345"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babuk"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "We stole all your file servers and databases while persisting on your network." ascii //weight: 2
+        $x_2_2 = "If you don't reply, we will use destructive software next time." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

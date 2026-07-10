@@ -77,3 +77,26 @@ rule Ransom_Win32_Crilock_B_2147683592_0
         (3 of ($x*))
 }
 
+rule Ransom_Win32_Crilock_SN_2147973341_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Crilock.SN!MTB"
+        threat_id = "2147973341"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crilock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your personal files are encrypted!" wide //weight: 2
+        $x_2_2 = "Search and recovery of encrypted files!" wide //weight: 2
+        $x_2_3 = "This software will be deleted after files decryption, make sure that all important files are decrypted!" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

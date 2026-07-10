@@ -104,3 +104,27 @@ rule Ransom_Win32_Qilin_AMTB_2147968462_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Qilin_SN_2147973340_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Qilin.SN!MTB"
+        threat_id = "2147973340"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Qilin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Your network/system was encrypted. Encrypted files have new extension." ascii //weight: 2
+        $x_2_2 = "Self deleting..." ascii //weight: 2
+        $x_2_3 = "We have downloaded compromising and sensitive data from you system/network" ascii //weight: 2
+        $x_2_4 = "File received for encryption" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

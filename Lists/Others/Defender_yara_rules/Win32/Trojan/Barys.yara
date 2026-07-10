@@ -491,3 +491,28 @@ rule Trojan_Win32_Barys_PGBR_2147971684_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Barys_SN_2147973346_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Barys.SN!MTB"
+        threat_id = "2147973346"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cleanup.bat" wide //weight: 2
+        $x_2_2 = "cmd.exe /c ping -n 4 127.0.0.1 >nul 2>nul" wide //weight: 2
+        $x_2_3 = "powershell.exe -NoProfile -NoLogo -NoExit -ExecutionPolicy Bypass" wide //weight: 2
+        $x_2_4 = "Delete all Volume Shadow Copies" ascii //weight: 2
+        $x_2_5 = "Self-delete implant" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

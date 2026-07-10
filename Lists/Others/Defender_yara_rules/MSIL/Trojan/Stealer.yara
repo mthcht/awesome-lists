@@ -1243,6 +1243,28 @@ rule Trojan_MSIL_Stealer_SN_2147901245_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_SN_2147901245_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.SN!MTB"
+        threat_id = "2147901245"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "http://77.239.107.133/" wide //weight: 5
+        $x_2_2 = "b1cc0f24-cf23-4602-b06b-d8a5bcd96f73" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Stealer_CJAA_2147901549_0
 {
     meta:

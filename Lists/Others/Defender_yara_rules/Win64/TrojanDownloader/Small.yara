@@ -84,3 +84,25 @@ rule TrojanDownloader_Win64_Small_ARA_2147912986_1
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Small_PAHW_2147973264_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Small.PAHW!MTB"
+        threat_id = "2147973264"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {44 0f b6 0f 41 80 f1 aa 48 8b 4b 10 48 8b 53 18 48 3b ca 73 ?? 48 8d 41 01 48 89 43 10 48 8b c3}  //weight: 3, accuracy: Low
+        $x_2_2 = "Set-MpPreference -DisableRealtimeMonitoring $true" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

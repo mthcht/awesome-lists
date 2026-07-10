@@ -41,3 +41,28 @@ rule Trojan_MSIL_Sdum_NU_2147949050_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Sdum_SN_2147973343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Sdum.SN!MTB"
+        threat_id = "2147973343"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Sdum"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Add-MpPreference -ExclusionPath " ascii //weight: 2
+        $x_2_2 = "Add-MpPreference -ExclusionProcess " ascii //weight: 2
+        $x_2_3 = "-ErrorAction SilentlyContinue" ascii //weight: 2
+        $x_2_4 = "Copy-Item \"$chrome\\Login Data\" \"$tempDir\\c_l\" -Force -ErrorAction SilentlyContinue" ascii //weight: 2
+        $x_2_5 = "Copy-Item \"$chrome\\Cookies\" \"$tempDir\\c_c\" -Force -ErrorAction SilentlyContinue" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
