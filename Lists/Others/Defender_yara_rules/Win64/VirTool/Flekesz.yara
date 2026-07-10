@@ -1,9 +1,9 @@
-rule VirTool_Win64_Flekesz_A_2147973250_0
+rule VirTool_Win64_Flekesz_A_2147973255_0
 {
     meta:
         author = "defender2yara"
         detection_name = "VirTool:Win64/Flekesz.A"
-        threat_id = "2147973250"
+        threat_id = "2147973255"
         type = "VirTool"
         platform = "Win64: Windows 64-bit platform"
         family = "Flekesz"

@@ -477,3 +477,48 @@ rule Trojan_Win64_DLLHijack_MCX_2147972812_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_DV_2147973234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DV!MTB"
+        threat_id = "2147973234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e4 84 dc 83 a0 e5 7a 84 dc 83 a0 e6 84 dc 83 a0 e8 84 dc 83 a0 55 e9 84 dc 83 a0 ea 84 dc 83 a0 eb 84 dc 0c 83 a0 ed 84 dc 83 a0 ee 84 dc 83 a0 ef 7a 84 dc 83 a0 f1 84 dc 83 a0 f5 84 dc 83 a0}  //weight: 1, accuracy: High
+        $x_1_2 = {a2 af eb 2a ac 9d 4f be e0 9e 70 bf 9e a4 64 60 a0 f2 4c 8a a1 a2 cf b8 81 d6 2a 13 c3 d7 e7 2a a5 1b 1f cc 8f d1 e0 fd 62 58 a6 aa 91 aa 4f a4 2f d8 e4 cf df 29 98 a7 2a a4 24 8f a2 24 5f 1e}  //weight: 1, accuracy: High
+        $x_1_3 = {8d 1d c2 80 ff ff 74 34 c6 03 0d eb 2c c6 03 0d 4c 8d 1d b1 80 ff ff eb 20 4f 8b 84 fb 00 de 01 00 4b 8d 14 f6 41 8a 44 d0 38 a8 40 75 09 0c 02 41 88 44 d0 38 eb 05 88 0b 49 03 dd 2b df 75 07}  //weight: 1, accuracy: High
+        $x_1_4 = {78 00 74 62 4c 8d 1d 16 81 ff ff 4b 8b 84 fb 00 de 01 00 f6 44 f0 38 48 74 1f 8a 4c 24 70 80 f9 0a 75 05 c6 03 0a eb 6a c6 03 0d 4b 8b 84 fb 00 de 01 00 88 4c f0 3a eb 59 80 7c 24 70 0a 75 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_DW_2147973235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DW!MTB"
+        threat_id = "2147973235"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd /c sc create MixedSvc binPath= \"C:\\Program Files\\Windows Media Player\\Mixed Reality.exe\" start= auto displayname= \"Windows Mixed Reality Service\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

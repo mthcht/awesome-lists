@@ -1,9 +1,9 @@
-rule Trojan_Win64_Ousaban_GVD_2147973264_0
+rule Trojan_Win64_Ousaban_GVD_2147973269_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Ousaban.GVD!MTB"
-        threat_id = "2147973264"
+        threat_id = "2147973269"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Ousaban"

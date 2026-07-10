@@ -434,3 +434,26 @@ rule Trojan_Win64_Doina_PAHP_2147971126_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_AHC_2147973285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHC!MTB"
+        threat_id = "2147973285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[*] Decrypting all browser data..." ascii //weight: 30
+        $x_20_2 = "all_browsers_data.zip" ascii //weight: 20
+        $x_10_3 = "[-] No browser data extracted from any profile" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

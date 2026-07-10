@@ -1301,12 +1301,12 @@ rule Trojan_Win64_Midie_VD_2147973038_0
         )
 }
 
-rule Trojan_Win64_Midie_SXO_2147973288_0
+rule Trojan_Win64_Midie_SXO_2147973299_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Midie.SXO!MTB"
-        threat_id = "2147973288"
+        threat_id = "2147973299"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Midie"

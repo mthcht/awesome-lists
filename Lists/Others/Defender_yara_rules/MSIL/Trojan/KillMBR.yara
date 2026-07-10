@@ -1284,3 +1284,25 @@ rule Trojan_MSIL_KillMBR_SX_2147970813_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_AVN_2147973287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.AVN!MTB"
+        threat_id = "2147973287"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 07 11 08 11 08 11 08 1f ?? 63 61 11 08 5a 1f ?? 63 d2 9c 11 08 17 58 13 08 11 08 11 07 8e 69 fe 04 13 09 11 09 2d d8}  //weight: 10, accuracy: Low
+        $x_10_2 = "Are you sure?" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
