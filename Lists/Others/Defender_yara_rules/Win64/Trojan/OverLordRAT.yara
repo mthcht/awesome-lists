@@ -1,9 +1,9 @@
-rule Trojan_Win64_OverLordRAT_SX_2147973301_0
+rule Trojan_Win64_OverLordRAT_SX_2147973305_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/OverLordRAT.SX!MTB"
-        threat_id = "2147973301"
+        threat_id = "2147973305"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "OverLordRAT"
