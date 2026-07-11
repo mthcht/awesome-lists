@@ -10,7 +10,6 @@ domain,port,metadata_comment,ip
 2008.ink,8443,Possible PiKVM Domain (Unverified),113.66.160.197
 235128847.box.freepro.com,4443,Possible PiKVM Domain (Unverified),212.114.31.56
 357.i234.me,5280,Possible GLKVM Domain (Unverified),36.97.175.95
-3keycloud.com,3972,Possible PiKVM Domain (Unverified),68.33.53.133
 573432.xyz,4343,Possible PiKVM Domain (Unverified),171.113.252.118
 67979bb109e7.u.channelsdvr.net,10001,Possible GLKVM Domain (Unverified),148.74.144.237
 845.ddns.net,1443,Possible PiKVM Domain (Unverified),68.129.100.100
@@ -50,7 +49,6 @@ artxaos.213.141.128.31.nip.io,15343,Possible NanoKVM Domain (Unverified),213.141
 artxaos.213.141.128.31.nip.io,15380,Possible NanoKVM Domain (Unverified),213.141.128.31
 asd234fsdffg.asuscomm.com,9876,Possible PiKVM Domain (Unverified),159.196.243.28
 assholesinc.link,1380,Possible NanoKVM Domain (Unverified),24.141.29.13
-asterisk.barab.uk,12345,Possible NanoKVM Domain (Unverified),90.188.237.178
 asusin.ru,50443,Possible PiKVM Domain (Unverified),217.25.229.181
 auth.cokll.cn,89,Possible PiKVM Domain (Unverified),101.204.204.123
 auth.mckanses.cloud,8888,Possible NanoKVM Domain (Unverified),84.113.106.124
@@ -62,6 +60,7 @@ balsa.dedyn.io,51275,Possible PiKVM Domain (Unverified),101.188.42.95
 bardov.ru,63848,Possible GLKVM Domain (Unverified),92.255.207.11
 becomen.synology.me,8091,Possible PiKVM Domain (Unverified),94.224.57.106
 benzhang.synology.me,5443,Possible NanoKVM Domain (Unverified),116.237.26.179
+bird.watcha.live,11225,Possible NanoKVM Domain (Unverified),138.97.201.116
 bluegumcreations.net,443,Possible TinyPilot KVM Domain (Unverified),173.231.206.16
 bluegumcreations.net,80,Possible TinyPilot KVM Domain (Unverified),173.231.206.16
 bluff.hjpos.us,8000,Possible NanoKVM Domain (Unverified),199.247.7.53
@@ -83,6 +82,7 @@ c2f0243a071aac7cef406e4a.keenetic.name,4430,Possible NanoKVM Domain (Unverified)
 c98c0ced78c1976a9aedbbf6.keenetic.name,44341,Possible PiKVM Domain (Unverified),78.30.132.13
 cal.phongit.duckdns.org,9443,Possible PiKVM Domain (Unverified),171.247.69.27
 call.65-studio.com,8888,Possible NanoKVM Domain (Unverified),188.233.254.37
+caydenm.com,2443,Possible PiKVM Domain (Unverified),103.85.39.205
 chat.prositronic.eu,4443,Possible PiKVM Domain (Unverified),130.180.220.15
 chebtrade.netcraze.link,8353,Possible NanoKVM Domain (Unverified),109.195.250.137
 chicagoartdealers.org,443,Possible GLKVM Domain (Unverified),38.91.101.210
@@ -110,15 +110,15 @@ dashboard.nm.103-198-18-25.nip.io,443,Possible GLKVM Domain (Unverified),103.198
 ddffdd.top,8011,Possible NanoKVM Domain (Unverified),219.128.39.232
 deadatdawn.crazedns.ru,8745,Possible GLKVM Domain (Unverified),194.28.29.99
 debilausau.re,1200,Possible NanoKVM Domain (Unverified),90.109.191.130
-deepblueii.duckdns.org,7115,Possible NanoKVM Domain (Unverified),65.188.37.248
 derp.taigelinganxian.asia,8443,Possible PiKVM Domain (Unverified),8.210.124.104
-device-059d3148-bc64-425a-917a-2710c80412d7.remotewd.com,443,Possible NanoKVM Domain (Unverified),82.207.30.195
 device-05a0108e-33c5-411e-bc4c-612968c81d00.remotewd.com,8443,Possible PiKVM Domain (Unverified),95.31.214.45
 device-3234ddd7-5a1f-4de6-b73a-1da38ab9259d.remotewd.com,445,Possible GLKVM Domain (Unverified),162.191.89.154
 device-54dd3771-f51e-479c-9762-3061ae6456bb.remotewd.com,443,Possible TinyPilot KVM Domain (Unverified),76.135.48.232
 device-54dd3771-f51e-479c-9762-3061ae6456bb.remotewd.com,8899,Possible TinyPilot KVM Domain (Unverified),76.135.48.232
 device-9400b69c-b2ab-4430-9d04-f6861e26ace2.remotewd.com,9000,Possible NanoKVM Domain (Unverified),31.18.219.242
 device-d9342516-e77d-4460-80da-45d6e4d107b4.remotewd.com,7443,Possible PiKVM Domain (Unverified),180.165.6.29
+diasporaforlebanon.com,48888,Possible PiKVM Domain (Unverified),47.180.83.69
+diasporaforlebanon.com,4889,Possible PiKVM Domain (Unverified),47.180.83.69
 diskstation-radam.synology.me,6245,Possible PiKVM Domain (Unverified),91.66.30.244
 dlchamb.ckinf.com,4443,Possible GLKVM Domain (Unverified),176.149.234.91
 dome.zhypro.cn,51111,Possible GLKVM Domain (Unverified),120.237.162.124
@@ -132,7 +132,6 @@ emby.psgt.fr,4443,Possible PiKVM Domain (Unverified),82.67.210.202
 ertug4055.direct.quickconnect.to,5810,Possible PiKVM Domain (Unverified),91.184.173.188
 ev03023.math.uregina.ca,2249,Possible TinyPilot KVM Domain (Unverified),142.3.219.94
 fbxxx.xevel.ru,2280,Possible NanoKVM Domain (Unverified),85.234.24.182
-file.093363.xyz,18443,Possible PiKVM Domain (Unverified),119.29.217.214
 file.dyatbit.ru,8008,Possible NanoKVM Domain (Unverified),77.37.168.213
 files.groundlift.ru,808,Possible NanoKVM Domain (Unverified),31.211.44.227
 firewall.trinityturbine.com,62969,Possible PiKVM Domain (Unverified),50.205.90.234
@@ -148,9 +147,12 @@ frid.synology.me,4343,Possible NanoKVM Domain (Unverified),37.204.54.154
 frp.helicfd.tech,5603,Possible NanoKVM Domain (Unverified),47.101.223.187
 fs.winter.com.de,5830,Possible PiKVM Domain (Unverified),87.148.49.146
 ft.soosin.com,3333,Possible NanoKVM Domain (Unverified),221.154.199.48
+funkwhale.brnklmr.com,18443,Possible NanoKVM Domain (Unverified),77.37.180.210
 furry.i234.me,33333,Possible GLKVM Domain (Unverified),119.98.153.58
 fw.fbifbi.com,443,Possible TinyPilot KVM Domain (Unverified),46.232.148.119
 g.diosmile.com,6003,Possible PiKVM Domain (Unverified),115.28.106.74
+g.diosmile.com,9601,Possible PiKVM Domain (Unverified),115.28.106.74
+giorgos-synology.direct.quickconnect.to,8080,Possible GLKVM Domain (Unverified),207.38.245.104
 git.koterpillar.com,5199,Possible NanoKVM Domain (Unverified),103.252.195.101
 gitlab.devops-labs.ru,9044,Possible NanoKVM Domain (Unverified),45.155.147.137
 gitlab.itpours.com,3662,Possible PiKVM Domain (Unverified),171.35.84.45
@@ -181,7 +183,7 @@ hlabbe.synology.me,443,Possible GLKVM Domain (Unverified),76.102.11.72
 home-fnv.yandex5.ru,9090,Possible NanoKVM Domain (Unverified),188.32.193.72
 home-jamb.duckdns.org,60443,Possible PiKVM Domain (Unverified),46.149.84.98
 home.65-studio.com,8889,Possible NanoKVM Domain (Unverified),188.233.254.37
-home.dronology.pl,8084,Possible GLKVM Domain (Unverified),193.218.203.8
+home.chiguayu.cn,3443,Possible PiKVM Domain (Unverified),119.138.226.15
 home.hertz-eichenrode.net,443,Possible GLKVM Domain (Unverified),31.16.114.99
 home.patben8.net,911,Possible NanoKVM Domain (Unverified),83.83.58.28
 home.stefano-baldi.com,40443,Possible GLKVM Domain (Unverified),195.231.108.173
@@ -190,6 +192,7 @@ home.yyystephen.top,2443,Possible PiKVM Domain (Unverified),220.203.225.174
 homeassistant.cabin.williamweilep.com,5020,Possible NanoKVM Domain (Unverified),209.23.71.120
 horrocrux.myqnapcloud.com,444,Possible PiKVM Domain (Unverified),186.19.17.134
 hsinterresearch.synology.me,5040,Possible GLKVM Domain (Unverified),75.40.52.208
+huangzn.familyds.com,11111,Possible NanoKVM Domain (Unverified),114.221.51.2
 hyperperceptron.synology.me,3512,Possible PiKVM Domain (Unverified),123.192.65.137
 hyperperceptron.synology.me,4512,Possible PiKVM Domain (Unverified),123.192.65.137
 hytecinter-tokyo.direct.quickconnect.to,3888,Possible NanoKVM Domain (Unverified),118.238.205.14
@@ -199,9 +202,7 @@ icpsco.net,80,Possible GLKVM Domain (Unverified),24.229.127.67
 id.euroident.de,4433,Possible GLKVM Domain (Unverified),87.140.5.121
 idired.synology.me,12345,Possible NanoKVM Domain (Unverified),79.112.5.133
 iex.synology.me,17171,Possible PiKVM Domain (Unverified),185.143.146.25
-img.jd-tcc.com,8003,Possible PiKVM Domain (Unverified),47.97.165.76
 img.jd-tcc.com,8009,Possible PiKVM Domain (Unverified),47.97.165.76
-img.jd-tcc.com,8014,Possible PiKVM Domain (Unverified),47.97.165.76
 immch.topmser.ddnsgeek.com,4445,Possible PiKVM Domain (Unverified),210.6.96.136
 immich.gh4l.org,2096,Possible PiKVM Domain (Unverified),24.101.18.231
 immich.tartarus6.com,12345,Possible NanoKVM Domain (Unverified),96.234.148.166
@@ -228,13 +229,12 @@ kavita.wen-he.icu,65020,Possible NanoKVM Domain (Unverified),120.244.82.194
 kclauts873.myqnapcloud.com,62443,Possible PiKVM Domain (Unverified),124.244.236.243
 kcs2092fin.duckdns.org,40005,Possible NanoKVM Domain (Unverified),123.213.37.9
 keenetic-alexey.keenetic.link,33333,Possible NanoKVM Domain (Unverified),78.107.238.174
+kennyb3653.direct.quickconnect.to,10142,Possible GLKVM Domain (Unverified),68.186.201.237
 kiddo.homeofangel.duckdns.org,7443,Possible NanoKVM Domain (Unverified),58.124.115.239
 kkim.top,18443,Possible GLKVM Domain (Unverified),123.235.20.198
-klinker-cabin.computer,8081,Possible PiKVM Domain (Unverified),38.75.214.203
 klinker.computer,8081,Possible PiKVM Domain (Unverified),73.243.94.224
 knzw.org,8866,Possible GLKVM Domain (Unverified),104.56.117.144
 kotakichi.synology.me,64976,Possible NanoKVM Domain (Unverified),106.73.126.225
-kroki-excalidraw.lainey.ovh,21280,Possible NanoKVM Domain (Unverified),82.64.188.157
 kvm-oob.parisremotehands.fr,1443,Possible GLKVM Domain (Unverified),82.26.68.211
 kvm-oob.parisremotehands.fr,443,Possible GLKVM Domain (Unverified),82.26.68.211
 kvm.asi.nyc,443,Possible GLKVM Domain (Unverified),198.199.69.31
@@ -248,7 +248,6 @@ lesj0610.duckdns.org,7443,Possible PiKVM Domain (Unverified),175.115.64.71
 lesj0610.duckdns.org,9443,Possible PiKVM Domain (Unverified),175.115.64.71
 lfire.asuscomm.com,9066,Possible NanoKVM Domain (Unverified),188.226.4.190
 lionmimarlik.com,8000,Possible NanoKVM Domain (Unverified),195.137.223.194
-live.inftdes.com,7777,Possible GLKVM Domain (Unverified),144.6.122.144
 localracc.argyll.live,80,Possible GLKVM Domain (Unverified),77.103.109.134
 login.netcraze.pro,443,Possible NanoKVM Domain (Unverified),46.138.246.156
 losroques.duckdns.org,443,Possible GLKVM Domain (Unverified),82.65.53.121
@@ -267,7 +266,6 @@ martadronology.myqnapcloud.com,8085,Possible PiKVM Domain (Unverified),193.218.2
 matheo.cloud,2999,Possible NanoKVM Domain (Unverified),88.186.39.23
 matyspc.pl,8888,Possible GLKVM Domain (Unverified),109.173.160.252
 mcnallwa.com,20443,Possible PiKVM Domain (Unverified),172.92.254.98
-mcrena-lgk.netcraze.pro,8081,Possible NanoKVM Domain (Unverified),195.128.97.113
 media.hocine.me,15000,Possible GLKVM Domain (Unverified),82.65.26.34
 mesh.clinic-msk-ah.ru,84,Possible NanoKVM Domain (Unverified),85.30.215.156
 messenger.agata.rip,7755,Possible NanoKVM Domain (Unverified),5.20.29.106
@@ -288,7 +286,6 @@ nas.aaaaaa.tech,1443,Possible PiKVM Domain (Unverified),8.155.25.193
 nas.mochulsky.ru,100,Possible NanoKVM Domain (Unverified),185.244.46.172
 nas.nekrylov.com,2323,Possible NanoKVM Domain (Unverified),176.123.217.148
 nas.soveren-service.ru,4443,Possible NanoKVM Domain (Unverified),78.29.17.54
-nas.tooni.kr,8055,Possible NanoKVM Domain (Unverified),1.252.129.83
 nathanberan.com,25001,Possible GLKVM Domain (Unverified),216.177.187.113
 nathanberan.com,25002,Possible GLKVM Domain (Unverified),216.177.187.113
 naturalnrg.myqnapcloud.com,8888,Possible PiKVM Domain (Unverified),92.84.40.96
@@ -304,13 +301,11 @@ nono-bure.myfritz.link,143,Possible NanoKVM Domain (Unverified),178.38.229.69
 note-system.homelab.arakchi.net,58081,Possible NanoKVM Domain (Unverified),37.153.46.134
 ns5010499.ip-51-161-198.net,443,Possible GLKVM Domain (Unverified),51.161.198.71
 nsrkeenetic.keenetic.link,8085,Possible PiKVM Domain (Unverified),46.39.239.117
-obluchatel.netcraze.club,9443,Possible PiKVM Domain (Unverified),176.99.166.251
 ocaldk.direct.quickconnect.to,8443,Possible GLKVM Domain (Unverified),91.226.145.67
 oestrup.dk,6311,Possible NanoKVM Domain (Unverified),5.103.215.195
 office.iron-rock.synology.me,44001,Possible GLKVM Domain (Unverified),107.221.55.208
 office.iron-rock.synology.me,44021,Possible GLKVM Domain (Unverified),107.221.55.208
 ojmotnas01.direct.quickconnect.to,4430,Possible GLKVM Domain (Unverified),73.59.23.135
-okeydj.tech,5002,Possible NanoKVM Domain (Unverified),46.138.250.117
 omvoid.direct.quickconnect.to,53467,Possible GLKVM Domain (Unverified),95.31.158.66
 onuadmin.xcloud.in.ua,5443,Possible PiKVM Domain (Unverified),82.193.110.127
 open-webui.home.floheberg.xyz,8088,Possible NanoKVM Domain (Unverified),82.64.37.152
@@ -320,7 +315,6 @@ outlaw.synology.me,999,Possible GLKVM Domain (Unverified),31.208.183.71
 page.elizabethrg.ca,42069,Possible PiKVM Domain (Unverified),70.83.11.30
 papap.myasustor.com,4431,Possible GLKVM Domain (Unverified),70.181.70.35
 passbolt.basschouten.com,27893,Possible PiKVM Domain (Unverified),82.163.41.149
-paultalloen.familyds.net,3003,Possible GLKVM Domain (Unverified),91.176.252.139
 pavelrosario.direct.quickconnect.to,8443,Possible NanoKVM Domain (Unverified),108.35.97.148
 pcj8110.direct.quickconnect.to,8082,Possible NanoKVM Domain (Unverified),112.168.75.177
 pcj8110.direct.quickconnect.to,8121,Possible NanoKVM Domain (Unverified),112.168.75.177
@@ -349,7 +343,6 @@ pcj8110.synology.me,8814,Possible NanoKVM Domain (Unverified),112.168.75.177
 pcj8110.synology.me,8853,Possible NanoKVM Domain (Unverified),112.168.75.177
 pcj8110.synology.me,8872,Possible NanoKVM Domain (Unverified),112.168.75.177
 pcj8110.synology.me,9100,Possible NanoKVM Domain (Unverified),112.168.75.177
-pearlab.dedyn.io,50245,Possible PiKVM Domain (Unverified),62.182.225.233
 perov3a.signum.video,8088,Possible NanoKVM Domain (Unverified),94.41.141.69
 photo.dongdongkc.top,10082,Possible PiKVM Domain (Unverified),119.186.197.24
 pikvm.cogo.ovh,8443,Possible PiKVM Domain (Unverified),82.65.3.131
@@ -361,7 +354,6 @@ pnz-cdn.ru,10001,Possible NanoKVM Domain (Unverified),109.194.141.174
 pnz-cdn.ru,10058,Possible NanoKVM Domain (Unverified),109.194.141.174
 portainer.alexserv.xyz,8282,Possible PiKVM Domain (Unverified),82.77.117.180
 povedenie.erudit23.ru,8049,Possible NanoKVM Domain (Unverified),193.242.148.251
-povedenie.erudit23.ru,8050,Possible NanoKVM Domain (Unverified),193.242.148.251
 pramgut.direct.quickconnect.to,88,Possible NanoKVM Domain (Unverified),79.117.26.140
 pramgut.direct.quickconnect.to,89,Possible NanoKVM Domain (Unverified),79.117.26.140
 pramgut.direct.quickconnect.to,90,Possible NanoKVM Domain (Unverified),79.117.26.140
@@ -369,7 +361,6 @@ profibiz.synology.me,10443,Possible TinyPilot KVM Domain (Unverified),184.145.14
 profibiz.synology.me,20443,Possible TinyPilot KVM Domain (Unverified),184.145.144.36
 proxmox.clinic-msk-ah.ru,83,Possible NanoKVM Domain (Unverified),85.30.215.156
 proxy.detraya.com,4430,Possible PiKVM Domain (Unverified),97.87.98.243
-proxy.kotel-volna.ru,1234,Possible NanoKVM Domain (Unverified),195.239.175.143
 proxy.prizmed.ru,17213,Possible NanoKVM Domain (Unverified),93.179.84.229
 puter-app-icons.site.os.bezrabotnyi.com,21100,Possible NanoKVM Domain (Unverified),95.165.165.65
 r1-cam-guangzhou-dev.glkvm.cn,443,Possible GLKVM Domain (Unverified),14.215.162.195
@@ -382,10 +373,8 @@ r13.glkvm.com,443,Possible GLKVM Domain (Unverified),164.52.6.38
 r25-guangzhou-test.glkvm.cn,443,Possible GLKVM Domain (Unverified),14.215.162.120
 r3.glkvm.cn,443,Possible GLKVM Domain (Unverified),203.2.119.124
 r3.glkvm.top,443,Possible GLKVM Domain (Unverified),172.99.188.182
-r4.glkvm.cn,443,Possible GLKVM Domain (Unverified),14.22.113.179
 r4.glkvm.com,443,Possible GLKVM Domain (Unverified),67.220.73.86
 r5.glkvm.cn,443,Possible GLKVM Domain (Unverified),110.188.24.21
-r5.glkvm.top,443,Possible GLKVM Domain (Unverified),23.150.248.245
 r6.glkvm.top,443,Possible GLKVM Domain (Unverified),193.108.119.147
 r67-guangzhou-test.glkvm.cn,443,Possible GLKVM Domain (Unverified),107.173.152.173
 r7.glkvm.top,443,Possible GLKVM Domain (Unverified),38.114.120.171
@@ -397,6 +386,7 @@ rds.picasso-lab.ru,62280,Possible NanoKVM Domain (Unverified),93.91.14.200
 remote.gera.builder.softosource.com,9999,Possible NanoKVM Domain (Unverified),109.237.101.54
 renebucherag.3cx.ch,7020,Possible PiKVM Domain (Unverified),81.63.137.17
 ricany916.direct.quickconnect.to,1444,Possible GLKVM Domain (Unverified),5.181.95.180
+router.uberudder.net,248,Possible PiKVM Domain (Unverified),204.111.53.236
 ryantam.direct.quickconnect.to,3145,Possible NanoKVM Domain (Unverified),98.45.157.84
 ryantam.direct.quickconnect.to,3155,Possible NanoKVM Domain (Unverified),98.45.157.84
 ryantam.direct.quickconnect.to,3165,Possible NanoKVM Domain (Unverified),98.45.157.84
@@ -407,7 +397,6 @@ rystenko.keenetic.link,9993,Possible NanoKVM Domain (Unverified),185.13.46.2
 rystenko.keenetic.link,9994,Possible NanoKVM Domain (Unverified),185.13.46.2
 samir715.direct.quickconnect.to,7909,Possible PiKVM Domain (Unverified),102.214.253.6
 samson168.top,1880,Possible NanoKVM Domain (Unverified),125.59.150.58
-samurai.cartelblanche.name,8810,Possible NanoKVM Domain (Unverified),178.140.2.194
 sandbox.pad.38c.it,18443,Possible PiKVM Domain (Unverified),79.1.99.147
 sandernf.xyz,82,Possible NanoKVM Domain (Unverified),51.175.234.24
 sbdsala.nettrans.sk,65511,Possible NanoKVM Domain (Unverified),213.81.201.84
@@ -428,15 +417,12 @@ slapps.fr,44300,Possible GLKVM Domain (Unverified),176.186.89.89
 sm1c.yaykiso.su,443,Possible TinyPilot KVM Domain (Unverified),91.244.197.48
 sm1c.yaykiso.su,80,Possible TinyPilot KVM Domain (Unverified),91.244.197.48
 smaali.freeboxos.fr,33333,Possible PiKVM Domain (Unverified),91.172.231.201
-smallensky.direct.quickconnect.to,64133,Possible NanoKVM Domain (Unverified),178.205.135.127
 smart-prog.pl,8443,Possible GLKVM Domain (Unverified),212.180.189.27
-sniferblack.direct.quickconnect.to,4443,Possible PiKVM Domain (Unverified),128.0.188.62
 soviettion.direct.quickconnect.to,443,Possible NanoKVM Domain (Unverified),197.51.115.153
 speed.zhypro.cn,51111,Possible GLKVM Domain (Unverified),117.133.114.28
 spoon78.freeboxos.fr,445,Possible GLKVM Domain (Unverified),82.65.110.61
 srvb.ddns.net,80,Possible NanoKVM Domain (Unverified),82.65.130.242
 sslvpn.the-nova.com,4433,Possible TinyPilot KVM Domain (Unverified),210.3.78.2
-sstp.it-service18.ru,112,Possible NanoKVM Domain (Unverified),78.85.32.59
 starman.dev,9039,Possible NanoKVM Domain (Unverified),59.18.168.107
 sterfry1988.direct.quickconnect.to,8001,Possible GLKVM Domain (Unverified),104.15.131.52
 striker-homlab.netcraze.pro,1337,Possible PiKVM Domain (Unverified),80.245.122.84
@@ -483,13 +469,10 @@ us.ai-moe.com,80,Possible GLKVM Domain (Unverified),154.21.87.116
 v-group.direct.quickconnect.to,443,Possible NanoKVM Domain (Unverified),41.34.95.242
 v1128f0o4crq6nkk.myfritz.net,40080,Possible NanoKVM Domain (Unverified),84.44.206.52
 vault.sa.design,8848,Possible NanoKVM Domain (Unverified),46.44.2.176
-vazor.asuscomm.com,8009,Possible NanoKVM Domain (Unverified),134.249.77.40
-vernid.net,131,Possible NanoKVM Domain (Unverified),71.61.163.95
 vf.duckdns.org,2125,Possible PiKVM Domain (Unverified),66.31.141.13
 vibhu.direct.quickconnect.to,80,Possible TinyPilot KVM Domain (Unverified),73.189.84.73
 view.florahub.fr,443,Possible NanoKVM Domain (Unverified),82.67.208.241
 vm-lit-01.anonymousvps.net,4430,Possible PiKVM Domain (Unverified),193.31.6.72
-vpn.arbrit.duckdns.org,10000,Possible PiKVM Domain (Unverified),70.112.90.12
 vpn.fifi.fr,40000,Possible NanoKVM Domain (Unverified),176.132.100.12
 vpnuk.grayzr.com,443,Possible GLKVM Domain (Unverified),95.179.237.179
 vpnuk.grayzr.com,80,Possible GLKVM Domain (Unverified),95.179.237.179
@@ -511,6 +494,7 @@ www.africanratingagency.com,3104,Possible TinyPilot KVM Domain (Unverified),45.1
 www.bktv.us,2652,Possible PiKVM Domain (Unverified),159.118.224.230
 www.brigplus.ru,5557,Possible NanoKVM Domain (Unverified),81.30.214.67
 www.ci4i15e.r1.glkvm.com,443,Possible GLKVM Domain (Unverified),54.165.89.19
+www.ci4i15e.r2.glkvm.com,443,Possible GLKVM Domain (Unverified),34.194.92.217
 www.ekaterina-nikityuk.ru,33444,Possible NanoKVM Domain (Unverified),77.239.233.165
 www.innotron.nl,443,Possible NanoKVM Domain (Unverified),82.170.243.66
 www.isg.ovh,443,Possible GLKVM Domain (Unverified),93.90.203.244
@@ -533,6 +517,7 @@ xjtsczz.xjzytc.com,7009,Possible PiKVM Domain (Unverified),47.92.149.73
 xn--um8h.d07yx58.net,60443,Possible GLKVM Domain (Unverified),84.203.115.61
 xpbs.reskinol.com.ua,8089,Possible NanoKVM Domain (Unverified),178.151.225.227
 xpi64.duckdns.org,80,Possible PiKVM Domain (Unverified),92.74.151.126
+xs4frank.ddns.net,9443,Possible PiKVM Domain (Unverified),86.88.182.6
 xt-hass.ddnsfree.com,8443,Possible NanoKVM Domain (Unverified),118.71.235.190
 xt-kvm.ddnsfree.com,8080,Possible NanoKVM Domain (Unverified),118.71.235.190
 xzqskt.cn,60443,Possible PiKVM Domain (Unverified),114.234.138.103
@@ -544,7 +529,6 @@ zal.kkcc-5.com,8080,Possible NanoKVM Domain (Unverified),46.188.44.62
 zeon.kotel-volna.ru,4321,Possible NanoKVM Domain (Unverified),195.239.175.143
 zhihang.asia,11003,Possible PiKVM Domain (Unverified),112.103.62.109
 zizino.ru,81,Possible NanoKVM Domain (Unverified),84.42.22.118
-zjctjj.dpdns.org,9099,Possible PiKVM Domain (Unverified),125.75.119.14
 zmchamb.ckinf.com,5443,Possible GLKVM Domain (Unverified),176.149.234.91
 zodiac3539.direct.quickconnect.to,60606,Possible NanoKVM Domain (Unverified),67.254.191.143
 zsyq.hxlab.tech,6666,Possible PiKVM Domain (Unverified),218.23.112.68
