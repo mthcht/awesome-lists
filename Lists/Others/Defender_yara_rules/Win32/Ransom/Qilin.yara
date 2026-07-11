@@ -104,12 +104,12 @@ rule Ransom_Win32_Qilin_AMTB_2147968462_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_Qilin_SN_2147973407_0
+rule Ransom_Win32_Qilin_SN_2147973408_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/Qilin.SN!MTB"
-        threat_id = "2147973407"
+        threat_id = "2147973408"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "Qilin"

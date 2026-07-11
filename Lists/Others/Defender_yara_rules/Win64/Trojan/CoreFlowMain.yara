@@ -458,12 +458,12 @@ rule Trojan_Win64_CoreFlowMain_W_2147972874_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_X_2147973415_0
+rule Trojan_Win64_CoreFlowMain_X_2147973416_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.X"
-        threat_id = "2147973415"
+        threat_id = "2147973416"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -478,12 +478,12 @@ rule Trojan_Win64_CoreFlowMain_X_2147973415_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_Y_2147973419_0
+rule Trojan_Win64_CoreFlowMain_Y_2147973420_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.Y"
-        threat_id = "2147973419"
+        threat_id = "2147973420"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -498,12 +498,12 @@ rule Trojan_Win64_CoreFlowMain_Y_2147973419_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_Z_2147973423_0
+rule Trojan_Win64_CoreFlowMain_Z_2147973424_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.Z"
-        threat_id = "2147973423"
+        threat_id = "2147973424"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -518,12 +518,12 @@ rule Trojan_Win64_CoreFlowMain_Z_2147973423_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AA_2147973427_0
+rule Trojan_Win64_CoreFlowMain_AA_2147973428_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AA"
-        threat_id = "2147973427"
+        threat_id = "2147973428"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -538,12 +538,12 @@ rule Trojan_Win64_CoreFlowMain_AA_2147973427_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AB_2147973431_0
+rule Trojan_Win64_CoreFlowMain_AB_2147973432_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AB"
-        threat_id = "2147973431"
+        threat_id = "2147973432"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -558,12 +558,12 @@ rule Trojan_Win64_CoreFlowMain_AB_2147973431_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AC_2147973435_0
+rule Trojan_Win64_CoreFlowMain_AC_2147973436_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AC"
-        threat_id = "2147973435"
+        threat_id = "2147973436"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -578,12 +578,12 @@ rule Trojan_Win64_CoreFlowMain_AC_2147973435_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AD_2147973439_0
+rule Trojan_Win64_CoreFlowMain_AD_2147973440_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AD"
-        threat_id = "2147973439"
+        threat_id = "2147973440"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -598,12 +598,12 @@ rule Trojan_Win64_CoreFlowMain_AD_2147973439_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AE_2147973443_0
+rule Trojan_Win64_CoreFlowMain_AE_2147973444_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AE"
-        threat_id = "2147973443"
+        threat_id = "2147973444"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -618,12 +618,12 @@ rule Trojan_Win64_CoreFlowMain_AE_2147973443_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AF_2147973447_0
+rule Trojan_Win64_CoreFlowMain_AF_2147973448_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AF"
-        threat_id = "2147973447"
+        threat_id = "2147973448"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -638,12 +638,12 @@ rule Trojan_Win64_CoreFlowMain_AF_2147973447_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AG_2147973451_0
+rule Trojan_Win64_CoreFlowMain_AG_2147973452_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AG"
-        threat_id = "2147973451"
+        threat_id = "2147973452"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -658,12 +658,12 @@ rule Trojan_Win64_CoreFlowMain_AG_2147973451_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AH_2147973455_0
+rule Trojan_Win64_CoreFlowMain_AH_2147973456_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AH"
-        threat_id = "2147973455"
+        threat_id = "2147973456"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -678,12 +678,12 @@ rule Trojan_Win64_CoreFlowMain_AH_2147973455_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AI_2147973459_0
+rule Trojan_Win64_CoreFlowMain_AI_2147973460_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AI"
-        threat_id = "2147973459"
+        threat_id = "2147973460"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -698,12 +698,12 @@ rule Trojan_Win64_CoreFlowMain_AI_2147973459_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AJ_2147973463_0
+rule Trojan_Win64_CoreFlowMain_AJ_2147973464_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AJ"
-        threat_id = "2147973463"
+        threat_id = "2147973464"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -718,12 +718,12 @@ rule Trojan_Win64_CoreFlowMain_AJ_2147973463_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AK_2147973467_0
+rule Trojan_Win64_CoreFlowMain_AK_2147973468_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AK"
-        threat_id = "2147973467"
+        threat_id = "2147973468"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -738,12 +738,12 @@ rule Trojan_Win64_CoreFlowMain_AK_2147973467_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AL_2147973471_0
+rule Trojan_Win64_CoreFlowMain_AL_2147973472_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AL"
-        threat_id = "2147973471"
+        threat_id = "2147973472"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -758,12 +758,12 @@ rule Trojan_Win64_CoreFlowMain_AL_2147973471_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AM_2147973475_0
+rule Trojan_Win64_CoreFlowMain_AM_2147973476_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AM"
-        threat_id = "2147973475"
+        threat_id = "2147973476"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -778,12 +778,12 @@ rule Trojan_Win64_CoreFlowMain_AM_2147973475_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AN_2147973479_0
+rule Trojan_Win64_CoreFlowMain_AN_2147973480_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AN"
-        threat_id = "2147973479"
+        threat_id = "2147973480"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -798,12 +798,12 @@ rule Trojan_Win64_CoreFlowMain_AN_2147973479_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AO_2147973483_0
+rule Trojan_Win64_CoreFlowMain_AO_2147973484_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AO"
-        threat_id = "2147973483"
+        threat_id = "2147973484"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -818,12 +818,12 @@ rule Trojan_Win64_CoreFlowMain_AO_2147973483_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AP_2147973487_0
+rule Trojan_Win64_CoreFlowMain_AP_2147973488_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AP"
-        threat_id = "2147973487"
+        threat_id = "2147973488"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -838,12 +838,12 @@ rule Trojan_Win64_CoreFlowMain_AP_2147973487_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AQ_2147973491_0
+rule Trojan_Win64_CoreFlowMain_AQ_2147973492_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AQ"
-        threat_id = "2147973491"
+        threat_id = "2147973492"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -858,12 +858,12 @@ rule Trojan_Win64_CoreFlowMain_AQ_2147973491_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AR_2147973495_0
+rule Trojan_Win64_CoreFlowMain_AR_2147973496_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AR"
-        threat_id = "2147973495"
+        threat_id = "2147973496"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -878,12 +878,12 @@ rule Trojan_Win64_CoreFlowMain_AR_2147973495_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AS_2147973499_0
+rule Trojan_Win64_CoreFlowMain_AS_2147973500_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AS"
-        threat_id = "2147973499"
+        threat_id = "2147973500"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"
@@ -898,12 +898,12 @@ rule Trojan_Win64_CoreFlowMain_AS_2147973499_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CoreFlowMain_AT_2147973503_0
+rule Trojan_Win64_CoreFlowMain_AT_2147973504_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CoreFlowMain.AT"
-        threat_id = "2147973503"
+        threat_id = "2147973504"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CoreFlowMain"

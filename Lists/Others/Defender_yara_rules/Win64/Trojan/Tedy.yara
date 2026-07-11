@@ -7376,12 +7376,12 @@ rule Trojan_Win64_Tedy_ARS_2147973393_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_AE_2147973405_0
+rule Trojan_Win64_Tedy_AE_2147973406_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.AE!AMTB"
-        threat_id = "2147973405"
+        threat_id = "2147973406"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"

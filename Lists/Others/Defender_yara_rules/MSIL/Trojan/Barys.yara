@@ -1676,12 +1676,12 @@ rule Trojan_MSIL_Barys_CZ_2147971484_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Barys_SN_2147973414_0
+rule Trojan_MSIL_Barys_SN_2147973415_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Barys.SN!MTB"
-        threat_id = "2147973414"
+        threat_id = "2147973415"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Barys"
