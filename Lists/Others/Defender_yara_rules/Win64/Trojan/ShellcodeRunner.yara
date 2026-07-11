@@ -3587,12 +3587,12 @@ rule Trojan_Win64_ShellcodeRunner_PAHT_2147972980_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellcodeRunner_KKA_2147973355_0
+rule Trojan_Win64_ShellcodeRunner_KKA_2147973372_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ShellcodeRunner.KKA!MTB"
-        threat_id = "2147973355"
+        threat_id = "2147973372"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ShellcodeRunner"

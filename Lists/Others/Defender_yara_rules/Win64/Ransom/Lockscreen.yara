@@ -1,9 +1,9 @@
-rule Ransom_Win64_Lockscreen_SN_2147973390_0
+rule Ransom_Win64_Lockscreen_SN_2147973411_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win64/Lockscreen.SN!MTB"
-        threat_id = "2147973390"
+        threat_id = "2147973411"
         type = "Ransom"
         platform = "Win64: Windows 64-bit platform"
         family = "Lockscreen"

@@ -298,3 +298,35 @@ rule Trojan_Linux_CoinMiner_AMTB_2147960269_0
         )
 }
 
+rule Trojan_Linux_CoinMiner_A_2147973403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/CoinMiner.A!AMTB"
+        threat_id = "2147973403"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "bashircsolr.sh*miner**xmrig*crontabforce" ascii //weight: 3
+        $x_3_2 = "-rf \"nanopool*monero*pastebinphpguardsysguard/lambsysAdding" ascii //weight: 3
+        $x_3_3 = "/var/tmp/init_rmount" ascii //weight: 3
+        $x_2_4 = "chattr -i \"libioset.so" ascii //weight: 2
+        $x_2_5 = "sysctl kernel.nmi_watchdog=0" ascii //weight: 2
+        $x_2_6 = "userdel akay" ascii //weight: 2
+        $x_2_7 = "userdel vfinder" ascii //weight: 2
+        $x_1_8 = "%cat /tmp/.X11-unix/11|xargs -I % kill -9 %cat /tmp/.X11-unix/22|xargs -I % kill -9" ascii //weight: 1
+        $x_1_9 = "pkill -9 -f *kdevtmpfsi*" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_3_*) and 4 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -1369,3 +1369,28 @@ rule Ransom_MSIL_HiddenTear_F_2147972527_0
         )
 }
 
+rule Ransom_MSIL_HiddenTear_G_2147973304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.G!AMTB"
+        threat_id = "2147973304"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "AutoEncrypt" ascii //weight: 1
+        $x_1_2 = ".LOCKED" ascii //weight: 1
+        $x_1_3 = "!!!READ_ME_DECRYPT!!!.txt" ascii //weight: 1
+        $x_1_4 = "All your documents, photos, and videos are now locked." ascii //weight: 1
+        $x_1_5 = "C:\\Users\\DELLPC\\Desktop\\hphp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

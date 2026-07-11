@@ -2397,12 +2397,12 @@ rule Trojan_Win32_Convagent_SPCK_2147970790_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Convagent_LRG_2147973350_0
+rule Trojan_Win32_Convagent_LRG_2147973367_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Convagent.LRG!MTB"
-        threat_id = "2147973350"
+        threat_id = "2147973367"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Convagent"

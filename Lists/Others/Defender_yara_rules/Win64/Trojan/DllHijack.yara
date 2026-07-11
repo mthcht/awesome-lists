@@ -971,12 +971,12 @@ rule Trojan_Win64_DllHijack_AE_2147972713_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_Z_2147973278_0
+rule Trojan_Win64_DllHijack_Z_2147973282_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DllHijack.Z!MTB"
-        threat_id = "2147973278"
+        threat_id = "2147973282"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DllHijack"
@@ -987,6 +987,48 @@ rule Trojan_Win64_DllHijack_Z_2147973278_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {13 fe e8 2c a3 a8 e3 2a f7 b7 e4 24 7a 13 f1 e3 2a df bf 2a 17 bb 2a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_ZE_2147973285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.ZE!MTB"
+        threat_id = "2147973285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 c4 28 c3 8b 05 ce 81 00 00 85 c0 75 62 8b 05 c4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_ZD_2147973286_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.ZD!MTB"
+        threat_id = "2147973286"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 8d 04 1c 40 88 f1 8a 10 49 8d 44 1d 00 31 d1 88 08 40 0f b6 c6 d1 f8 88 c1 83 f1 b8 40 80 e6 01 40 88 ce 0f 44 f0 48 ff c3 31 d6 eb 83}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -644,3 +644,26 @@ rule Trojan_Win32_ValleyRat_AVR_2147969428_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_C_2147973303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.C!AMTB"
+        threat_id = "2147973303"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C:\\Users\\Public\\Downloads\\pocket.exe" ascii //weight: 2
+        $x_1_2 = "\\CSS\\Release\\CSS.pdb" ascii //weight: 1
+        $x_2_3 = "http://198.176.60.32/" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

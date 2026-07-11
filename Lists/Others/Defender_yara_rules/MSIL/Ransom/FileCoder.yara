@@ -2134,3 +2134,32 @@ rule Ransom_MSIL_FileCoder_MKA_2147968553_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_F_2147973302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.F!AMTB"
+        threat_id = "2147973302"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Ransom.Ransom+<GenerateAndSendKeyAsync>" ascii //weight: 2
+        $x_1_2 = "win_graphics_mgr.exe" ascii //weight: 1
+        $x_2_3 = "Ransom.Ransom+<>c+<<Main>" ascii //weight: 2
+        $x_1_4 = "DX.pdb" ascii //weight: 1
+        $x_1_5 = "ALL YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

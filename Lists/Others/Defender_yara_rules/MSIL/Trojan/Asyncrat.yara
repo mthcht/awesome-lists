@@ -126,6 +126,33 @@ rule Trojan_MSIL_Asyncrat_PGR_2147947942_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Asyncrat_AMTB_2147957125_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Asyncrat!AMTB"
+        threat_id = "2147957125"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Asyncrat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "BacteriaGrabber" ascii //weight: 4
+        $x_1_2 = "GetWifiKeys" ascii //weight: 1
+        $x_1_3 = "@BacteriaGroup" ascii //weight: 1
+        $x_1_4 = "SendDiscordWebhookWithFile" ascii //weight: 1
+        $x_1_5 = "Classes.Discord+<GetGifts>" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MSIL_Asyncrat_AYQB_2147963467_0
 {
     meta:

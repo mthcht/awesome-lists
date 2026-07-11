@@ -11040,12 +11040,12 @@ rule Trojan_MSIL_Heracles_CZ_2147972670_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMP_2147973300_0
+rule Trojan_MSIL_Heracles_DMP_2147973309_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMP!MTB"
-        threat_id = "2147973300"
+        threat_id = "2147973309"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11063,12 +11063,12 @@ rule Trojan_MSIL_Heracles_DMP_2147973300_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMV_2147973301_0
+rule Trojan_MSIL_Heracles_DMV_2147973310_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMV!MTB"
-        threat_id = "2147973301"
+        threat_id = "2147973310"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11085,12 +11085,12 @@ rule Trojan_MSIL_Heracles_DMV_2147973301_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMK_2147973302_0
+rule Trojan_MSIL_Heracles_DMK_2147973311_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMK!MTB"
-        threat_id = "2147973302"
+        threat_id = "2147973311"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11108,12 +11108,12 @@ rule Trojan_MSIL_Heracles_DMK_2147973302_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_NYA_2147973314_0
+rule Trojan_MSIL_Heracles_NYA_2147973331_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.NYA!MTB"
-        threat_id = "2147973314"
+        threat_id = "2147973331"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11133,12 +11133,12 @@ rule Trojan_MSIL_Heracles_NYA_2147973314_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AVN_2147973342_0
+rule Trojan_MSIL_Heracles_AVN_2147973359_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.AVN!MTB"
-        threat_id = "2147973342"
+        threat_id = "2147973359"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11156,12 +11156,12 @@ rule Trojan_MSIL_Heracles_AVN_2147973342_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AVN_2147973342_1
+rule Trojan_MSIL_Heracles_AVN_2147973359_1
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.AVN!MTB"
-        threat_id = "2147973342"
+        threat_id = "2147973359"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11178,12 +11178,12 @@ rule Trojan_MSIL_Heracles_AVN_2147973342_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_SXI_2147973363_0
+rule Trojan_MSIL_Heracles_SXI_2147973380_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.SXI!MTB"
-        threat_id = "2147973363"
+        threat_id = "2147973380"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11195,6 +11195,35 @@ rule Trojan_MSIL_Heracles_SXI_2147973363_0
     strings:
         $x_30_1 = {70 06 28 09 00 00 0a 6f 0a 00 00 0a 0c 28 0b 00 00 0a 72 ?? ?? 00 70 28 09 00 00 0a 0d}  //weight: 30, accuracy: Low
         $x_20_2 = {11 05 28 10 00 00 0a 13 06 11 04 28 11 00 00 0a 13 07 11 06 11 07 6f 12 00 00 0a 00 de 14}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_A_2147973404_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.A!AMTB"
+        threat_id = "2147973404"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "SELECT MACAddress FROM Win32_NetworkAdapterConfiguration WHERE IPEnabled=True" ascii //weight: 3
+        $x_3_2 = "vmtoolsd" ascii //weight: 3
+        $x_3_3 = "vboxservice" ascii //weight: 3
+        $x_3_4 = "00:0c:29" ascii //weight: 3
+        $x_3_5 = "00:50:56" ascii //weight: 3
+        $x_3_6 = "08:00:27" ascii //weight: 3
+        $x_2_7 = "C:\\Users\\Administrator\\Desktop\\084049\\osk\\osk\\obj\\Release\\osk.pdb" ascii //weight: 2
+        $x_2_8 = "YUhSMGNITTZMeTl6ZEc5eVlXZGxMbWR2YjJkc1pXRndhWE11WTI5dEwzTnVZWEJ6YUc5MGFHVnNjR1Z5TDJobExuUjRkQT09" ascii //weight: 2
+        $x_1_9 = "osk.Properties.Resources.resources" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

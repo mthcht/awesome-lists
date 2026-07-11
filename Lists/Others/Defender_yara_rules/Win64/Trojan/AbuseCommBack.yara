@@ -9173,3 +9173,47 @@ rule Trojan_Win64_AbuseCommBack_PA_2147972872_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_AbuseCommBack_PB_2147973322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.PB"
+        threat_id = "2147973322"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>3A378FF83F3D131331FE89D54CB217457B0424180444E0F1CE1FDB760FBBE068</p>" wide //weight: 1
+        $x_1_2 = {33 41 33 37 38 46 46 38 33 46 33 44 31 33 31 33 33 31 46 45 38 39 44 35 34 43 42 32 31 37 34 35 37 42 30 34 32 34 31 38 30 34 34 34 45 30 46 31 43 45 31 46 44 42 37 36 30 46 42 42 45 30 36 38 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid3A378FF83F3D131331FE89D54CB217457B0424180444E0F1CE1FDB760FBBE068id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_AbuseCommBack_PC_2147973326_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AbuseCommBack.PC"
+        threat_id = "2147973326"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AbuseCommBack"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<p>7489B640FC9DB5D998140542D2BD881C7A6330AA17BB6F2D49DB9FE55279A326</p>" wide //weight: 1
+        $x_1_2 = {37 34 38 39 42 36 34 30 46 43 39 44 42 35 44 39 39 38 31 34 30 35 34 32 44 32 42 44 38 38 31 43 37 41 36 33 33 30 41 41 31 37 42 42 36 46 32 44 34 39 44 42 39 46 45 35 35 32 37 39 41 33 32 36 00 00 00 00 00 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = "tableid7489B640FC9DB5D998140542D2BD881C7A6330AA17BB6F2D49DB9FE55279A326id" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
