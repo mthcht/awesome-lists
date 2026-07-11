@@ -237,6 +237,7 @@ rule Trojan_Win32_Dexphot_CB_2147735854_0
         $n_10_22 = "powershell" ascii //weight: -10
         $n_10_23 = "cisco" ascii //weight: -10
         $n_10_24 = "w3wp.exe" ascii //weight: -10
+        $n_10_25 = "Vajasoft.Inventory.exe" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

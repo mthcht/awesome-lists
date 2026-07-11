@@ -7329,3 +7329,25 @@ rule Trojan_MSIL_AsyncRAT_SXC_2147971318_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_SXD_2147973364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.SXD!MTB"
+        threat_id = "2147973364"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {28 01 00 00 06 15 17 6f ?? 00 00 0a 26 28 03 00 00 06 11 ?? 16 11 ?? 6f ?? 00 00 0a [0-1] 28 03 00 00 06 6f ?? 00 00 0a}  //weight: 30, accuracy: Low
+        $x_10_2 = {06 8e 69 6f ?? 00 00 0a 26 02 06 73 ?? 00 00 0a 28 ?? 00 00 0a 74 ?? 00 00 01 7d 1c 00 00 04 02 7b 1c 00 00 04}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4148,6 +4148,27 @@ rule Trojan_MSIL_Lazy_BGU_2147971902_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_PGLM_2147972298_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.PGLM!MTB"
+        threat_id = "2147972298"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 0b 72 75 00 00 70 72 ?? ?? 00 70 6f ?? 00 00 0a 25 2d 06 26 72 ?? 16 00 70}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_MKC_2147972406_0
 {
     meta:

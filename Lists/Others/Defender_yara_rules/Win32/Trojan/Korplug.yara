@@ -283,3 +283,24 @@ rule Trojan_Win32_Korplug_AKL_2147973062_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_PGKO_2147973323_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.PGKO!MTB"
+        threat_id = "2147973323"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {30 d9 20 f9 08 ca 8b 4c 24 ?? 88 d6 30 de 00 f9 20 ce 30 d9 20 d1 08 f1 88 4c 3c 0c}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

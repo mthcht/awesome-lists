@@ -181,12 +181,12 @@ rule Trojan_Win64_AgentB_AHF_2147972214_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_AgentB_AHG_2147973309_0
+rule Trojan_Win64_AgentB_AHG_2147973336_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/AgentB.AHG!MTB"
-        threat_id = "2147973309"
+        threat_id = "2147973336"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "AgentB"

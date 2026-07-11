@@ -11040,12 +11040,12 @@ rule Trojan_MSIL_Heracles_CZ_2147972670_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMP_2147973277_0
+rule Trojan_MSIL_Heracles_DMP_2147973300_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMP!MTB"
-        threat_id = "2147973277"
+        threat_id = "2147973300"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11063,12 +11063,12 @@ rule Trojan_MSIL_Heracles_DMP_2147973277_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMV_2147973278_0
+rule Trojan_MSIL_Heracles_DMV_2147973301_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMV!MTB"
-        threat_id = "2147973278"
+        threat_id = "2147973301"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11085,12 +11085,12 @@ rule Trojan_MSIL_Heracles_DMV_2147973278_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_DMK_2147973279_0
+rule Trojan_MSIL_Heracles_DMK_2147973302_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.DMK!MTB"
-        threat_id = "2147973279"
+        threat_id = "2147973302"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11108,12 +11108,12 @@ rule Trojan_MSIL_Heracles_DMK_2147973279_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_NYA_2147973291_0
+rule Trojan_MSIL_Heracles_NYA_2147973314_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.NYA!MTB"
-        threat_id = "2147973291"
+        threat_id = "2147973314"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11133,12 +11133,12 @@ rule Trojan_MSIL_Heracles_NYA_2147973291_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AVN_2147973315_0
+rule Trojan_MSIL_Heracles_AVN_2147973342_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.AVN!MTB"
-        threat_id = "2147973315"
+        threat_id = "2147973342"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11156,12 +11156,12 @@ rule Trojan_MSIL_Heracles_AVN_2147973315_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_AVN_2147973315_1
+rule Trojan_MSIL_Heracles_AVN_2147973342_1
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Heracles.AVN!MTB"
-        threat_id = "2147973315"
+        threat_id = "2147973342"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Heracles"
@@ -11173,6 +11173,28 @@ rule Trojan_MSIL_Heracles_AVN_2147973315_1
     strings:
         $x_10_1 = {11 17 11 14 8f 05 00 00 01 25 47 7e 08 00 00 04 19 11 14 5f 19 62 ?? ?? 5f 63 d2 61 d2 52 11 14 17 58 13 14 11 14 11 17 8e 69 33 d4}  //weight: 10, accuracy: Low
         $x_10_2 = {1e 11 0d 6f ?? 00 00 0a 13 24 11 0c 11 24 11 10 59 61 13 0c 11 10 19 11 0c 58 1e 63 59 13 10 11 0d 6f ?? 00 00 06 2d d9}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_SXI_2147973363_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SXI!MTB"
+        threat_id = "2147973363"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {70 06 28 09 00 00 0a 6f 0a 00 00 0a 0c 28 0b 00 00 0a 72 ?? ?? 00 70 28 09 00 00 0a 0d}  //weight: 30, accuracy: Low
+        $x_20_2 = {11 05 28 10 00 00 0a 13 06 11 04 28 11 00 00 0a 13 07 11 06 11 07 6f 12 00 00 0a 00 de 14}  //weight: 20, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

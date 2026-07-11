@@ -6598,12 +6598,36 @@ rule Trojan_Win64_Lazy_PGLQ_2147972939_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_AHV_2147973308_0
+rule Trojan_Win64_Lazy_PGLS_2147973325_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.PGLS!MTB"
+        threat_id = "2147973325"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {66 8b 30 48 83 c0 02 8d 96 ?? ?? ?? ?? 66 81 e2 ff 00 66 89 50 fe 48 39 c1 75}  //weight: 5, accuracy: Low
+        $x_5_2 = "?%DVH1DPHG2EMHFWV?VN\\ULP" ascii //weight: 5
+        $x_5_3 = {43 00 3e 00 50 00 55 00 4b 00 56 00 5e 00 5a 00 37 00 56 00 5e 00 4c 00 59 00 3a 00 4f 00 4c 00 53 00 53 00 43 00 5d 00 [0-6] 43 00 57 00 56 00 5e 00 4c 00 59 00 5a 00 4f 00 4c 00 53 00 53 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {43 3e 50 55 4b 56 5e 5a 37 56 5e 4c 59 3a 4f 4c 53 53 43 5d [0-6] 43 57 56 5e 4c 59 5a 4f 4c 53 53}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AHV_2147973335_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.AHV!MTB"
-        threat_id = "2147973308"
+        threat_id = "2147973335"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"
@@ -6619,12 +6643,12 @@ rule Trojan_Win64_Lazy_AHV_2147973308_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_MKV_2147973336_0
+rule Trojan_Win64_Lazy_MKV_2147973367_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.MKV!MTB"
-        threat_id = "2147973336"
+        threat_id = "2147973367"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"

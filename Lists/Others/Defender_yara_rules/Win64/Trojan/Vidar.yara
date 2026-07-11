@@ -3089,12 +3089,12 @@ rule Trojan_Win64_Vidar_NXL_2147972647_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_PB_2147973248_0
+rule Trojan_Win64_Vidar_PB_2147973267_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.PB!MTB"
-        threat_id = "2147973248"
+        threat_id = "2147973267"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3110,12 +3110,12 @@ rule Trojan_Win64_Vidar_PB_2147973248_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_GLG_2147973275_0
+rule Trojan_Win64_Vidar_GLG_2147973298_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.GLG!MTB"
-        threat_id = "2147973275"
+        threat_id = "2147973298"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3131,12 +3131,34 @@ rule Trojan_Win64_Vidar_GLG_2147973275_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_AC_2147973303_0
+rule Trojan_Win64_Vidar_PGVH_2147973324_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.PGVH!MTB"
+        threat_id = "2147973324"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {0f b6 0b 48 c7 84 24 30 01 00 00 67 3d 98 36 48 8b 84 24 30 01 00 00 48 c1 e9 07 48 33 c1 48 89 84 24 30 01 00 00 48 8b 84 24 30 01 00 00 48 83 c3 01 75}  //weight: 5, accuracy: High
+        $x_5_2 = {2e 72 64 61 74 61 00 00 34 63 00 00 00 e0 0f 00 00 64 00 00 00 ca 0f 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61 00 00 00 b0 ba 11 00 00 50 10 00 00 12 00 00 00 2e 10 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 72 65 6c 6f 63}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_AC_2147973330_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.AC!MTB"
-        threat_id = "2147973303"
+        threat_id = "2147973330"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3152,12 +3174,12 @@ rule Trojan_Win64_Vidar_AC_2147973303_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_LVD_2147973318_0
+rule Trojan_Win64_Vidar_LVD_2147973345_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.LVD!MTB"
-        threat_id = "2147973318"
+        threat_id = "2147973345"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3173,12 +3195,12 @@ rule Trojan_Win64_Vidar_LVD_2147973318_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_LVD_2147973318_1
+rule Trojan_Win64_Vidar_LVD_2147973345_1
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.LVD!MTB"
-        threat_id = "2147973318"
+        threat_id = "2147973345"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3189,6 +3211,28 @@ rule Trojan_Win64_Vidar_LVD_2147973318_1
         strings_accuracy = "High"
     strings:
         $x_10_1 = {32 d1 41 0f b6 c9 41 32 4c 03 ff 88 48 ff}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_AAVD_2147973380_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AAVD!MTB"
+        threat_id = "2147973380"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 ca ff c2 0f af c8 02 0d ?? ?? ?? ?? 30 4f ?? 3b d6 72}  //weight: 5, accuracy: Low
+        $x_5_2 = {0f b6 0c 38 80 f1 ?? 0f b6 c9 66 89 8c 45 ?? ?? ?? ?? 48 ff c0 48 83 f8 0c 7c}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

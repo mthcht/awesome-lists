@@ -20,3 +20,24 @@ rule Trojan_Win64_OxLoader_GVA_2147972748_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_OxLoader_AOXL_2147973383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/OxLoader.AOXL!MTB"
+        threat_id = "2147973383"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "OxLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4d 0f a3 c0 c9 2a 23 05 0e e6 d8 3b a2 05 53 64 cb 97 51 93 00 44 30 14 0a 44 02 14 0a e2 f6 58 ab}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

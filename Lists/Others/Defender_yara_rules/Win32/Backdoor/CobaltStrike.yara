@@ -156,3 +156,29 @@ rule Backdoor_Win32_CobaltStrike_BW_2147815894_0
         (all of ($x*))
 }
 
+rule Backdoor_Win32_CobaltStrike_MK_2147973370_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win32/CobaltStrike.MK!MTB"
+        threat_id = "2147973370"
+        type = "Backdoor"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "HD_GetModule" ascii //weight: 20
+        $x_15_2 = "HD_GetProcAddress" ascii //weight: 15
+        $x_10_3 = "HD_AllocateMemory" ascii //weight: 10
+        $x_5_4 = "HD_WriteMemory" ascii //weight: 5
+        $x_3_5 = "HD_VirtualProtect" ascii //weight: 3
+        $x_2_6 = "HD_BuildProcess" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

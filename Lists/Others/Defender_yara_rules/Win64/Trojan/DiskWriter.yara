@@ -91,3 +91,27 @@ rule Trojan_Win64_DiskWriter_AHA_2147971380_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiskWriter_MK_2147973369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiskWriter.MK!MTB"
+        threat_id = "2147973369"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiskWriter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "MBR berhasil ditulis!" ascii //weight: 10
+        $x_5_2 = "Gagal membuka handle drive. Pastikan Anda sudah Administrator." ascii //weight: 5
+        $x_3_3 = "Gagal menulis ke MBR. Error: %lu" ascii //weight: 3
+        $x_2_4 = "\\\\.\\PhysicalDrive0" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

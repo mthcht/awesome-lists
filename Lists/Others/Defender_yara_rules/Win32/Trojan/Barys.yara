@@ -491,12 +491,12 @@ rule Trojan_Win32_Barys_PGBR_2147971684_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_Barys_SN_2147973354_0
+rule Trojan_Win32_Barys_SN_2147973392_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Barys.SN!MTB"
-        threat_id = "2147973354"
+        threat_id = "2147973392"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Barys"

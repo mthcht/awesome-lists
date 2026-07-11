@@ -126,3 +126,25 @@ rule Trojan_Win64_RemusStealer_MJ_2147972205_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RemusStealer_MK_2147973371_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.MK!MTB"
+        threat_id = "2147973371"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 44 24 30 ff 44 24 30 8b 44 24 30 69 ?? ?? ?? ?? ?? 31 c2 8b 44 24 30}  //weight: 20, accuracy: Low
+        $x_15_2 = {41 0f af c9 41 81 ?? ?? ?? ?? ?? 44 0f af ca 44 01 c9 41 31 c8 8b 4c 24 30 85 c9}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

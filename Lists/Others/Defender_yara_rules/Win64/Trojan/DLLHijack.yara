@@ -477,12 +477,12 @@ rule Trojan_Win64_DLLHijack_MCX_2147972812_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DV_2147973252_0
+rule Trojan_Win64_DLLHijack_DV_2147973271_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DV!MTB"
-        threat_id = "2147973252"
+        threat_id = "2147973271"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -501,12 +501,12 @@ rule Trojan_Win64_DLLHijack_DV_2147973252_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DW_2147973253_0
+rule Trojan_Win64_DLLHijack_DW_2147973272_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DW!MTB"
-        threat_id = "2147973253"
+        threat_id = "2147973272"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -522,12 +522,34 @@ rule Trojan_Win64_DLLHijack_DW_2147973253_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_AGXB_2147973271_0
+rule Trojan_Win64_DLLHijack_DX_2147973275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DX!MTB"
+        threat_id = "2147973275"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 77 02 26 04 78 02 27 04 79 02 28 04 7a 02 29 04 7b 02 7c 02 2a 04 7d 02 7e 02 2b 04 7f 02 80 02 2c 04 81 02 82 02 2d 04 83 02 84 02 2e 04 85 02 86 02 2f 04 87 02 88 02 30 04 89 02 8a 02 31 04 8b 02 8c 02 32 04 8d 02 8e 02 33 04 8f 02 90 02 34 04 91 02}  //weight: 1, accuracy: High
+        $x_1_2 = {01 b5 01 b6 01 b7 01 b8 01 ea 03 b9 01 eb 03 ba 01 ec 03 bb 01 ed 03 bc 01 ee 03 bd 01 be 01 ef 03 bf 01 f0 03 c0 01 f1 03 c1 01 f2 03 c2 01 f3 03 c3 01 f4 03 c4 01 c5 01 f5 03 c6 01 f6 03 c7 01 f7 03 c8 01 f8 03 c9 01 f9 03 ca 01 cb 01 cc 01 fa 03 cd 01 fb 03 ce 01 cf 01 d0 01 d1 01 fc 03 d2 01 d3 01 fd 03 d4 01 d5 01 fe 03 d6 01 d7 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_AGXB_2147973294_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.AGXB!MTB"
-        threat_id = "2147973271"
+        threat_id = "2147973294"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"

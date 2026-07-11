@@ -2397,3 +2397,28 @@ rule Trojan_Win32_Convagent_SPCK_2147970790_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_LRG_2147973350_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.LRG!MTB"
+        threat_id = "2147973350"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 2b f3 48 d1 fe 4c 89 65 98 48 c7 45 a0 0f 00 00 00 49 3b f5}  //weight: 20, accuracy: High
+        $x_1_2 = "2.exe\" /SC ONLOGON /RL HIGHEST /F" ascii //weight: 1
+        $x_2_3 = "powershell -Command \"Add-MpPreference -ExclusionProcess 'powershell.exe'\"" ascii //weight: 2
+        $x_3_4 = "powershell -Command \"Add-MpPreference -ExclusionProcess 'cmd.exe'" ascii //weight: 3
+        $x_4_5 = "Add-MpPreference -ExclusionPath 'C:\\'\"" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

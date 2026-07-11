@@ -420,6 +420,32 @@ rule Trojan_Win64_DonutLoader_ADL_2147963235_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_ADL_2147963235_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.ADL!MTB"
+        threat_id = "2147963235"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8d 0d 1b 67 03 00 ff 15 ?? ?? ?? ?? 48 8d 15 1e 67 03 00 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b d8 48 8d 0d fb 66 03 00 ff 15 ?? ?? ?? ?? 48 8d 15 0e 67 03 00 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b f8 48 8d 0d db 66 03 00 ff 15 ?? ?? ?? ?? 48 8d 15 fe 66 03 00 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b f0 48 8b 54 24 48 48 2b 54 24 40 33 c9 41 b9 04 00 00 00 41 b8 00 10 00 00 ff d3 48 8b d8}  //weight: 2, accuracy: Low
+        $x_1_2 = "JunkClient/1.0" wide //weight: 1
+        $x_1_3 = "JunkWindow" ascii //weight: 1
+        $x_1_4 = "ipconfig /flushdns > nul 2>&1" ascii //weight: 1
+        $x_1_5 = "chkdsk /f /r > nul 2>&1" ascii //weight: 1
+        $x_1_6 = "powershell.exe -Command Get-Process" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_DonutLoader_AHA_2147967424_0
 {
     meta:

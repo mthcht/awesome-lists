@@ -18416,12 +18416,12 @@ rule Trojan_MSIL_FormBook_ABFK_2147973044_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_RSK_2147973265_0
+rule Trojan_MSIL_FormBook_RSK_2147973288_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.RSK!MTB"
-        threat_id = "2147973265"
+        threat_id = "2147973288"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"
@@ -18438,12 +18438,12 @@ rule Trojan_MSIL_FormBook_RSK_2147973265_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_PGFL_2147973302_0
+rule Trojan_MSIL_FormBook_PGFL_2147973328_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.PGFL!MTB"
-        threat_id = "2147973302"
+        threat_id = "2147973328"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"
