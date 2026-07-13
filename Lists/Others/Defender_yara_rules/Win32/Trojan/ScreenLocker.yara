@@ -1,9 +1,9 @@
-rule Trojan_Win32_ScreenLocker_AMTB_2147973463_0
+rule Trojan_Win32_ScreenLocker_AMTB_2147973482_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ScreenLocker!AMTB"
-        threat_id = "2147973463"
+        threat_id = "2147973482"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ScreenLocker"

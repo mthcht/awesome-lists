@@ -1336,6 +1336,28 @@ rule Trojan_Win32_Tedy_LRH_2147968423_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 0c 06 80 f1 5b 88 08 40 4f}  //weight: 10, accuracy: High
+        $x_20_2 = {8b 30 83 c0 04 33 f2 49 89 70 fc 75 ?? 8b 45 3c 8b 94 24 34 10 00 00 c6 45 00 4d c6 45 01 5a c6 04 28 50 8b 4d 3c b8 01 00 00 00 c6 44 29 01 45 89 3a}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_LRH_2147968423_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.LRH!MTB"
+        threat_id = "2147968423"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "High"
     strings:
@@ -1349,7 +1371,7 @@ rule Trojan_Win32_Tedy_LRH_2147968423_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_LRH_2147968423_1
+rule Trojan_Win32_Tedy_LRH_2147968423_2
 {
     meta:
         author = "defender2yara"
@@ -1481,6 +1503,31 @@ rule Trojan_Win32_Tedy_MKC_2147972686_0
     strings:
         $x_20_1 = {89 44 24 40 c7 44 24 0c 43 00 65 61 c7 44 24 10 00 65 00 68 c6 44 24 18 00 c7 44 24 14 72 65 61 64 c6 44 24 0d 72 c6 44 24 10 74}  //weight: 20, accuracy: High
         $x_15_2 = {c7 44 24 1c 56 69 00 74 c7 44 24 20 75 61 6c 00 c7 44 24 24 6c 6c 00 63 c6 44 24 28 00 c6 44 24 1e 72 c6 44 24 23 41}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_KPN_2147972991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.KPN!MTB"
+        threat_id = "2147972991"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {0f b6 f8 8a 94 3d ac fe ff ff 0f b6 c2 03 c1 0f b6 c8 89 4d b4 0f b6 84 0d ac fe ff ff 88 84 3d ac fe ff ff 88 94 0d ac fe ff ff 0f b6 8c 3d ac fe ff ff 0f b6 c2 03 c8 0f b6 c1 8b 4d b4 0f b6 84 05 ac fe ff ff 30 04 1e 46}  //weight: 4, accuracy: High
+        $x_1_2 = "GetSPApp" ascii //weight: 1
+        $x_1_3 = "SolidPDFCreator.dll" ascii //weight: 1
+        $x_1_4 = "SolidPDFPcl2Bmp" ascii //weight: 1
+        $x_1_5 = "Pcl2BmpDailyTrigger" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

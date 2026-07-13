@@ -4135,3 +4135,26 @@ rule Trojan_MSIL_Jalapeno_SPOT_2147970003_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_SX_2147973458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.SX!MTB"
+        threat_id = "2147973458"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8e 69 6f 45 00 00 0a 7e 08 00 00 04 6f ?? 00 00 0a dd 21 00 00 00 6f ?? 00 00 0a 28 ?? 00 00 0a 28 ?? 00 00 06 dd 0d 00 00 00}  //weight: 30, accuracy: Low
+        $x_10_2 = "-NoProfile -ExecutionPolicy Bypass -Command \"(Invoke-WebRequest -Uri '" ascii //weight: 10
+        $x_10_3 = "XD.exe" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

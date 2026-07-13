@@ -4164,12 +4164,41 @@ rule Trojan_Win64_Zusy_AHV_2147972999_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_SXX_2147973436_0
+rule Trojan_Win64_Zusy_LRM_2147973445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LRM!MTB"
+        threat_id = "2147973445"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Global\\StormC2ClientMutex_8b2k" ascii //weight: 1
+        $x_2_2 = "--headless=new --no-first-run --no-default-browser-check --disable-sync" ascii //weight: 2
+        $x_3_3 = ",\"method\":\"Page.navigate\",\"params\":{\"url\":\"https://" ascii //weight: 3
+        $x_4_4 = "You Can't Stop It" ascii //weight: 4
+        $x_5_5 = "not hidden path, launching copy and exit" ascii //weight: 5
+        $x_6_6 = "hidden copy running, entering c2_loop" ascii //weight: 6
+        $x_7_7 = "\\sc2client.log" ascii //weight: 7
+        $x_8_8 = "watchdog: runkey restored" ascii //weight: 8
+        $x_9_9 = "vm/sandbox detected, exiting" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_SXX_2147973451_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.SXX!MTB"
-        threat_id = "2147973436"
+        threat_id = "2147973451"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4185,12 +4214,12 @@ rule Trojan_Win64_Zusy_SXX_2147973436_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZU_2147973460_0
+rule Trojan_Win64_Zusy_AZU_2147973479_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZU!MTB"
-        threat_id = "2147973460"
+        threat_id = "2147973479"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4206,12 +4235,12 @@ rule Trojan_Win64_Zusy_AZU_2147973460_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZYU_2147973461_0
+rule Trojan_Win64_Zusy_AZYU_2147973480_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZYU!MTB"
-        threat_id = "2147973461"
+        threat_id = "2147973480"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"

@@ -46,3 +46,25 @@ rule Trojan_MSIL_Mikey_MK_2147970054_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mikey_SX_2147973460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mikey.SX!MTB"
+        threat_id = "2147973460"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {28 57 00 00 0a 72 ?? ?? 00 70 28 36 00 00 0a 13 ?? 12 ?? fe 16 27 00 00 01 6f 37 00 00 0a 16 1e 6f 38 00 00 0a 72 ?? ?? 00 70 28 49 00 00 0a 28 40 00 00 0a 13 ?? 11 ?? 11 ?? 28 58 00 00 0a 00}  //weight: 30, accuracy: Low
+        $x_10_2 = {28 53 00 00 0a 13 ?? 11 ?? 6f 54 00 00 0a 13 ?? 11 ?? 14 fe 03 13}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
