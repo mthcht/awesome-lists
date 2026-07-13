@@ -208,12 +208,12 @@ rule Ransom_Win32_Babuk_KK_2147946089_0
         )
 }
 
-rule Ransom_Win32_Babuk_SN_2147973424_0
+rule Ransom_Win32_Babuk_SN_2147973430_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/Babuk.SN!MTB"
-        threat_id = "2147973424"
+        threat_id = "2147973430"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "Babuk"

@@ -284,6 +284,29 @@ rule Trojan_Win64_Doina_AHD_2147957673_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "persist: runkey HKCU open failed err=" ascii //weight: 30
+        $x_20_2 = "persist: startup folder copy ok=" ascii //weight: 20
+        $x_10_3 = "persist: WMI subscription created" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_AHD_2147957673_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AHD!MTB"
+        threat_id = "2147957673"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "130"
         strings_accuracy = "Low"
     strings:
@@ -434,12 +457,12 @@ rule Trojan_Win64_Doina_PAHP_2147971126_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Doina_AHC_2147973367_0
+rule Trojan_Win64_Doina_AHC_2147973372_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Doina.AHC!MTB"
-        threat_id = "2147973367"
+        threat_id = "2147973372"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Doina"

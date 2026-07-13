@@ -18416,12 +18416,12 @@ rule Trojan_MSIL_FormBook_ABFK_2147973044_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_RSK_2147973300_0
+rule Trojan_MSIL_FormBook_RSK_2147973304_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.RSK!MTB"
-        threat_id = "2147973300"
+        threat_id = "2147973304"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"
@@ -18438,12 +18438,33 @@ rule Trojan_MSIL_FormBook_RSK_2147973300_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_PGFL_2147973353_0
+rule Trojan_MSIL_FormBook_RSL_2147973306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.RSL!MTB"
+        threat_id = "2147973306"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 38 12 01 00 00 02 7b ?? 00 00 04 06 07 6f ?? 00 00 0a 0d 02 7b ?? 00 00 04 14 fe 03 13 09 11 09 2c 19 02 7b ?? 00 00 04 02 12 03 28 ?? 00 00 0a 73 ?? 00 00 06 6f ?? 00 00 0a 00 08 17 58 0c 08 02 7b ?? 00 00 04 fe 04 16 fe 01 13 0a 11 0a 2c 29 00 02 7b ?? 00 00 04 14 fe 03 13 0b 11 0b 2c 14 02 7b ?? 00 00 04 02 06 07 73 ?? 00 00 06 6f ?? 00 00 0a 00 38 9d 00 00 00 02 7b ?? 00 00 04 14 fe 03 13 0c 11 0c 2c 19 02 7b ?? 00 00 04 02 12 03 28 ?? 00 00 0a 73 ?? 00 00 06 6f ?? 00 00 0a 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_PGFL_2147973358_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.PGFL!MTB"
-        threat_id = "2147973353"
+        threat_id = "2147973358"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"

@@ -362,3 +362,24 @@ rule HackTool_Linux_SuspUnixReShellCmd_P_2147926566_0
         )
 }
 
+rule HackTool_Linux_SuspUnixReShellCmd_PA_2147973525_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/SuspUnixReShellCmd.PA"
+        threat_id = "2147973525"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "SuspUnixReShellCmd"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 61 00 74 00 20 00 [0-32] 7c 00 [0-12] 73 00 68 00 20 00 2d 00 69 00 [0-2] 7c 00 [0-4] 6e 00 63 00 20 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {63 00 61 00 74 00 20 00 [0-32] 7c 00 [0-12] 73 00 68 00 20 00 2d 00 69 00 [0-2] 7c 00 [0-4] 74 00 65 00 6c 00 6e 00 65 00 74 00 20 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

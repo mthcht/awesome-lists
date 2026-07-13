@@ -723,12 +723,12 @@ rule Trojan_MSIL_Agenttesla_PALA_2147956567_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Agenttesla_MCT_2147973293_0
+rule Trojan_MSIL_Agenttesla_MCT_2147973297_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Agenttesla.MCT!MTB"
-        threat_id = "2147973293"
+        threat_id = "2147973297"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Agenttesla"

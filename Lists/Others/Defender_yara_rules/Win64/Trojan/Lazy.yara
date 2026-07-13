@@ -6598,12 +6598,12 @@ rule Trojan_Win64_Lazy_PGLQ_2147972939_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_PGLS_2147973350_0
+rule Trojan_Win64_Lazy_PGLS_2147973355_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.PGLS!MTB"
-        threat_id = "2147973350"
+        threat_id = "2147973355"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"
@@ -6622,12 +6622,12 @@ rule Trojan_Win64_Lazy_PGLS_2147973350_0
         (3 of ($x*))
 }
 
-rule Trojan_Win64_Lazy_AHV_2147973361_0
+rule Trojan_Win64_Lazy_AHV_2147973366_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.AHV!MTB"
-        threat_id = "2147973361"
+        threat_id = "2147973366"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"
@@ -6643,12 +6643,35 @@ rule Trojan_Win64_Lazy_AHV_2147973361_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_MKV_2147973394_0
+rule Trojan_Win64_Lazy_AHR_2147973373_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHR!MTB"
+        threat_id = "2147973373"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "=== ExtractBrowserDecryptionKeys started (browser: %s) ===" ascii //weight: 30
+        $x_20_2 = "=== ExtractBrowserDecryptionKeys finished ===" ascii //weight: 20
+        $x_10_3 = "Detecting browser type..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_MKV_2147973400_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lazy.MKV!MTB"
-        threat_id = "2147973394"
+        threat_id = "2147973400"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lazy"
