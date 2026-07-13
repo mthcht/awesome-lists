@@ -128,12 +128,12 @@ rule Trojan_Win32_DLLHijack_DP_2147968703_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_CAP_2147973363_0
+rule Trojan_Win32_DLLHijack_CAP_2147973368_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.CAP!MTB"
-        threat_id = "2147973363"
+        threat_id = "2147973368"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -144,6 +144,27 @@ rule Trojan_Win32_DLLHijack_CAP_2147973363_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {89 c5 83 e5 ?? 0f b6 4c 2e ?? 30 4c 06 ?? 8d 48 ?? 83 e1 ?? 0f b6 4c 0e ?? 30 4c 06 ?? 83 c0 02 39 c3 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DLLHijack_PS_2147973386_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.PS!MTB"
+        threat_id = "2147973386"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {34 b3 88 84 0c ?? ?? 00 00 41 83 f9 0b 72 eb 8d 84 24 ?? ?? 00 00 c6 84 24 ?? ?? 00 00 00 50 6a 01 6a 00 ff 15}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

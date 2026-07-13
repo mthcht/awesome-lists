@@ -1,30 +1,3 @@
-rule Trojan_Linux_DiskWiper_A_2147794563_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Linux/DiskWiper.A"
-        threat_id = "2147794563"
-        type = "Trojan"
-        platform = "Linux: Linux platform"
-        family = "DiskWiper"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "60"
-        strings_accuracy = "High"
-    strings:
-        $x_5_1 = "dd " wide //weight: 5
-        $x_55_2 = "of=/dev/sda" wide //weight: 55
-        $n_5_3 = "mkinitramfs" wide //weight: -5
-        $n_5_4 = "u-boot.imx" wide //weight: -5
-        $n_5_5 = ".iso" wide //weight: -5
-        $n_5_6 = ".img" wide //weight: -5
-        $n_5_7 = "if=kontron" wide //weight: -5
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Linux_DiskWiper_B_2147799373_0
 {
     meta:

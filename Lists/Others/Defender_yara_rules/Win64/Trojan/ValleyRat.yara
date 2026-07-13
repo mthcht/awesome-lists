@@ -604,12 +604,12 @@ rule Trojan_Win64_ValleyRat_AAC_2147972885_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_AAA_2147973311_0
+rule Trojan_Win64_ValleyRat_AAA_2147973316_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.AAA!AMTB"
-        threat_id = "2147973311"
+        threat_id = "2147973316"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -632,12 +632,12 @@ rule Trojan_Win64_ValleyRat_AAA_2147973311_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_MCT_2147973323_0
+rule Trojan_Win64_ValleyRat_MCT_2147973328_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.MCT!MTB"
-        threat_id = "2147973323"
+        threat_id = "2147973328"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -649,6 +649,27 @@ rule Trojan_Win64_ValleyRat_MCT_2147973323_0
     strings:
         $x_1_1 = {53 48 83 ec 20 b9 00 01 00 00 e8 21 1b 00 00 48 89 c1 48 89 c3 e8 06 05 00 00 48 8b 15}  //weight: 1, accuracy: High
         $x_1_2 = {74 6f 53 74 61 72 74 41 6e 64 53 74 6f 70 43 68 72 6f 6e 6f 00 3f 3f 30 4d 58 41 75 74 6f 53 74 61 72 74 41 6e 64 53}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_BAA_2147973396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.BAA!MTB"
+        threat_id = "2147973396"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 2b e0 48 8b 05 ?? ?? ?? ?? 48 33 c4 48 89 85 50 13 00 00 48 8b d9 33 d2 41 b8 f0 13 00 00 48 8d 4c 24 60 e8}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

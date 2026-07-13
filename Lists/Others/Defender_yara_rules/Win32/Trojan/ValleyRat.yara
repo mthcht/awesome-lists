@@ -644,12 +644,12 @@ rule Trojan_Win32_ValleyRat_AVR_2147969428_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRat_C_2147973342_0
+rule Trojan_Win32_ValleyRat_C_2147973347_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRat.C!AMTB"
-        threat_id = "2147973342"
+        threat_id = "2147973347"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRat"
@@ -662,6 +662,27 @@ rule Trojan_Win32_ValleyRat_C_2147973342_0
         $x_2_1 = "C:\\Users\\Public\\Downloads\\pocket.exe" ascii //weight: 2
         $x_1_2 = "\\CSS\\Release\\CSS.pdb" ascii //weight: 1
         $x_2_3 = "http://198.176.60.32/" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ValleyRat_BAA_2147973395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.BAA!MTB"
+        threat_id = "2147973395"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 55 ec 8b 45 f4 01 d0 8b 4d ec 8b 55 f4 01 ca 0f b6 12 89 d1 8b 15 ?? ?? ?? ?? 31 ca 88 10 83 45 ec 01 8b 45 ec 3b 45 e4}  //weight: 5, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

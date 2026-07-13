@@ -40,6 +40,27 @@ rule TrojanDownloader_Win64_Mikey_ARA_2147923023_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Mikey_ARA_2147923023_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Mikey.ARA!MTB"
+        threat_id = "2147923023"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {66 0f 6f 85 e0 00 00 00 0f 57 05 27 47 00 00 66 0f 7f 85 e0 00 00 00 66 0f 6f 8d f0 00 00 00 0f 57 0d 20 47 00 00 66 0f 7f 8d f0 00 00 00 66 0f 6f 85 00 01 00 00 0f 57 05 19 47 00 00 66 0f 7f 85 00 01 00 00 66 0f 6f 8d 10 01 00 00 0f 57 0d 12 47 00 00 66 0f 7f 8d 10 01 00 00 4c 8d 05 e3 79 00 00 48 8d 95 e0 00 00 00 48 8d 4d 40}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule TrojanDownloader_Win64_Mikey_SX_2147962751_0
 {
     meta:

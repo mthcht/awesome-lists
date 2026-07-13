@@ -1,9 +1,9 @@
-rule Trojan_Win32_AmsiBypass_LRA_2147973419_0
+rule Trojan_Win32_AmsiBypass_LRA_2147973427_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/AmsiBypass.LRA!MTB"
-        threat_id = "2147973419"
+        threat_id = "2147973427"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "AmsiBypass"

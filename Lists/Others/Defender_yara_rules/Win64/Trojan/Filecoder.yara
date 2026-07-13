@@ -384,12 +384,12 @@ rule Trojan_Win64_Filecoder_LRB_2147972690_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Filecoder_PGFR_2147973393_0
+rule Trojan_Win64_Filecoder_PGFR_2147973401_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Filecoder.PGFR!MTB"
-        threat_id = "2147973393"
+        threat_id = "2147973401"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Filecoder"
