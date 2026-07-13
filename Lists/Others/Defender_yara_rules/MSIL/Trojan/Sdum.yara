@@ -41,12 +41,12 @@ rule Trojan_MSIL_Sdum_NU_2147949050_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Sdum_SN_2147973411_0
+rule Trojan_MSIL_Sdum_SN_2147973413_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Sdum.SN!MTB"
-        threat_id = "2147973411"
+        threat_id = "2147973413"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Sdum"

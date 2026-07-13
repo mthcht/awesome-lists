@@ -644,12 +644,12 @@ rule Trojan_Win32_ValleyRat_AVR_2147969428_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRat_C_2147973303_0
+rule Trojan_Win32_ValleyRat_C_2147973304_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRat.C!AMTB"
-        threat_id = "2147973303"
+        threat_id = "2147973304"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRat"
