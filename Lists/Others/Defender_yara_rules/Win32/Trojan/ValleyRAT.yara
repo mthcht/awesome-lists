@@ -271,3 +271,24 @@ rule Trojan_Win32_ValleyRAT_AHE_2147972296_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_SLXE_2147973379_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.SLXE!!MTB"
+        threat_id = "2147973379"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {ff d0 89 c2 8b 45 f0 0f af c2 89 45 e0 8b 55 f0 8b 45 ec 01 d0 0f b6 00 88 45 e6 0f b6 45 e6 32 45 f7 88 45 e5 8b 55 f0 8b 45 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

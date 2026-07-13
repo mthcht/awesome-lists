@@ -267,3 +267,28 @@ rule TrojanDownloader_MSIL_Remcos_PZJM_2147936655_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Remcos_AMTB_2147973345_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Remcos!AMTB"
+        threat_id = "2147973345"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "http://poolfreshstep.com/relay/Ajkwcm.exe" ascii //weight: 4
+        $x_4_2 = "http://poolfreshstep.com/relay/Deksmvj.exe" ascii //weight: 4
+        $x_1_3 = "Pomodoro Finished" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

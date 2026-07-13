@@ -1,9 +1,9 @@
-rule Ransom_Win32_GENTLEMEN_DA_2147973283_0
+rule Ransom_Win32_GENTLEMEN_DA_2147973298_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/GENTLEMEN.DA!MTB"
-        threat_id = "2147973283"
+        threat_id = "2147973298"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "GENTLEMEN"

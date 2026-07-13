@@ -3791,3 +3791,40 @@ rule Trojan_MSIL_Stealer_ARS_2147972094_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_AAV_2147973308_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.AAV!AMTB"
+        threat_id = "2147973308"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "https://github.com/Grioandr2/ewrwr/raw/refs/heads/main/Build.exe" wide //weight: 10
+        $x_10_2 = "https://github.com/lipstick861/xworm/raw/refs/heads/main/System.exe" wide //weight: 10
+        $x_10_3 = "https://envs.sh/Os5.exe" wide //weight: 10
+        $x_10_4 = "https://github.com/kebablulalibka/4324/raw/refs/heads/main/1234.exe" wide //weight: 10
+        $x_10_5 = "https://raw.githubusercontent.com/TextesAV/nerakta/main/Update.exe" wide //weight: 10
+        $x_10_6 = "https://envs.sh/BJR.exe" wide //weight: 10
+        $x_10_7 = "https://www.python.org/ftp/python/3.13.7/python-3.13.7-amd64.exe" wide //weight: 10
+        $x_10_8 = "https://github.com/grindizzz/1234556778/raw/main/1234.exe" wide //weight: 10
+        $x_10_9 = "https://example.com/Example.exe" wide //weight: 10
+        $x_2_10 = "-NoProfile -ExecutionPolicy Bypass -Command \"(Invoke-WebRequest -Uri" wide //weight: 2
+        $x_2_11 = "KillProcess" ascii //weight: 2
+        $x_2_12 = "KillRemove" wide //weight: 2
+        $x_2_13 = "PROCESS_TERMINATE" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 4 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

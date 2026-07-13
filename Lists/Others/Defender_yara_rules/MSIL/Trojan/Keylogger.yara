@@ -1263,3 +1263,31 @@ rule Trojan_MSIL_Keylogger_MK_2147969831_0
         )
 }
 
+rule Trojan_MSIL_Keylogger_AAA_2147973305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.AAA!AMTB"
+        threat_id = "2147973305"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Plugin.Keylogger.dll" ascii //weight: 1
+        $x_1_2 = "[KL] Starting keylogger..." wide //weight: 1
+        $x_1_3 = "[KL] Keylogger started: pollingThread + flushTimer(10s)" wide //weight: 1
+        $x_1_4 = "StartKeylogger" wide //weight: 1
+        $x_1_5 = "ReadKeylogHistory" wide //weight: 1
+        $x_1_6 = "[KL] StopKeylogger() skipped, not running" wide //weight: 1
+        $x_1_7 = "[KL-CMD] Keylogger stopped, pending data flushed" wide //weight: 1
+        $x_1_8 = "SendKeylogData" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

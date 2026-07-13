@@ -128,3 +128,24 @@ rule Trojan_Win32_DLLHijack_DP_2147968703_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DLLHijack_CAP_2147973363_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.CAP!MTB"
+        threat_id = "2147973363"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 c5 83 e5 ?? 0f b6 4c 2e ?? 30 4c 06 ?? 8d 48 ?? 83 e1 ?? 0f b6 4c 0e ?? 30 4c 06 ?? 83 c0 02 39 c3 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

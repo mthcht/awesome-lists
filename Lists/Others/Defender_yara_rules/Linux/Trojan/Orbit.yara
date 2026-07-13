@@ -27,3 +27,29 @@ rule Trojan_Linux_Orbit_A_2147826080_0
         )
 }
 
+rule Trojan_Linux_Orbit_AMTB_2147973456_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Orbit!AMTB"
+        threat_id = "2147973456"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Orbit"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/dev/shm/.lck" ascii //weight: 2
+        $x_2_2 = "pam_get_password" ascii //weight: 2
+        $x_2_3 = "pcap_packet_callback" ascii //weight: 2
+        $n_100_4 = "Uninst.exe" ascii //weight: -100
+        $n_100_5 = "Uninstaller.exe" ascii //weight: -100
+        $n_100_6 = "Uninstal.exe" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

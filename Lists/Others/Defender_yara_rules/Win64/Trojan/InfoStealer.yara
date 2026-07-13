@@ -260,3 +260,34 @@ rule Trojan_Win64_InfoStealer_PAH_2147968879_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_AAB_2147973313_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.AAB!AMTB"
+        threat_id = "2147973313"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\GhostlyHollowingCrypter-main\\GhostlyHollowingCrypter\\GHStub\\x64\\Release\\GHStub.pdb" ascii //weight: 10
+        $x_10_2 = "\\SheepCrypter-main\\SheepCrypter-main\\SheepStub\\x64\\Release\\SheepStub.pdb" ascii //weight: 10
+        $x_10_3 = "\\PCZONE.GE\\source\\repos\\Stub\\x64\\Release\\Stub.pdb" ascii //weight: 10
+        $x_1_4 = "SECRET" ascii //weight: 1
+        $x_1_5 = "Bytes after decryption:" ascii //weight: 1
+        $x_1_6 = "%sdecrypted_%d.exe" ascii //weight: 1
+        $x_1_7 = "Recovered Key:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

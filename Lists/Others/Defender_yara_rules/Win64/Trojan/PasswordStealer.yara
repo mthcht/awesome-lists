@@ -95,3 +95,34 @@ rule Trojan_Win64_PasswordStealer_AAA_2147972886_0
         )
 }
 
+rule Trojan_Win64_PasswordStealer_AA_2147973307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PasswordStealer.AA!AMTB"
+        threat_id = "2147973307"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PasswordStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "24"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = "[+] Bot Automated Stealer V20 (" ascii //weight: 10
+        $x_10_2 = "[*] Ghost Stealer V20 Active" ascii //weight: 10
+        $x_10_3 = "[+] Starting Bot Automated Stealer V20 (Stealth Mode)..." ascii //weight: 10
+        $x_10_4 = "[-] Timeout. Please check stealer_log.txt for details." ascii //weight: 10
+        $x_2_5 = "[+] SUCCESS!" ascii //weight: 2
+        $x_2_6 = "\" --headless=new --disable-gpu --remote-debugging-port=0" wide //weight: 2
+        $x_10_7 = {50 61 79 6c 6f 61 64 5c [0-10] 78 36 34 5c 52 65 6c 65 61 73 65 5c 49 6e 6a 65 63 74 6f 72 2e 70 64 62}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_10_*) and 2 of ($x_2_*))) or
+            ((3 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

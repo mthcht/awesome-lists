@@ -614,12 +614,12 @@ rule Trojan_MSIL_Dnoper_AMJA_2147937049_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Dnoper_A_2147973351_0
+rule Trojan_MSIL_Dnoper_A_2147973387_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Dnoper.A!AMTB"
-        threat_id = "2147973351"
+        threat_id = "2147973387"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Dnoper"

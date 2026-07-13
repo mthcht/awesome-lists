@@ -1031,3 +1031,24 @@ rule Trojan_Win64_StealC_GVVA_2147972582_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_IDK_2147973355_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.IDK!MTB"
+        threat_id = "2147973355"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 89 ca 49 29 c9 41 31 f1 48 89 d9 48 c1 e3 05 48 29 cb 44 31 cb 88 1c 0f 48 89 cb 0f 1f 40 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3335,3 +3335,31 @@ rule Trojan_Win32_Remcos_SNH_2147969797_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Remcos_SNR_2147973337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Remcos.SNR!MTB"
+        threat_id = "2147973337"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\felloes.ini" ascii //weight: 3
+        $x_1_2 = "Banksektoren45.jpg" ascii //weight: 1
+        $x_1_3 = "Delagtiggres98.jpg" ascii //weight: 1
+        $x_1_4 = "Triazins.txt" ascii //weight: 1
+        $x_1_5 = "forsvoret.jpg" ascii //weight: 1
+        $x_1_6 = "\\Vulnerable\\Tvanglsestes.ini" ascii //weight: 1
+        $x_1_7 = "\\sprgsmaalsfelter\\pseudosophical" ascii //weight: 1
+        $x_1_8 = "\\gaardejeren.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -212,3 +212,30 @@ rule Trojan_MSIL_BadJoke_MKA_2147965937_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BadJoke_AAA_2147973312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BadJoke.AAA!AMTB"
+        threat_id = "2147973312"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "C:\\Users\\admin\\Documents\\trae_projects\\qbot\\RMP\\obj\\Debug\\RMP.pdb" ascii //weight: 10
+        $x_1_2 = "Lock your system, you cant use your pc with us." ascii //weight: 1
+        $x_1_3 = "C:\\Users\\admin\\Documents\\trae_projects\\qbot\\RMP\\Bsod.mp3" wide //weight: 1
+        $x_1_4 = "We own you!" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

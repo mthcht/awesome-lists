@@ -1,9 +1,9 @@
-rule HackTool_Linux_SuspProcessExfil_PA_2147973532_0
+rule HackTool_Linux_SuspProcessExfil_PA_2147973571_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspProcessExfil.PA"
-        threat_id = "2147973532"
+        threat_id = "2147973571"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspProcessExfil"

@@ -604,12 +604,40 @@ rule Trojan_Win64_ValleyRat_AAC_2147972885_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_MCT_2147973298_0
+rule Trojan_Win64_ValleyRat_AAA_2147973311_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AAA!AMTB"
+        threat_id = "2147973311"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "[QuickHttpClient] send data failed(ErrorCode=" ascii //weight: 2
+        $x_2_2 = "[KeyboardRecord] Failed to disable offline keyboard" ascii //weight: 2
+        $x_2_3 = "netsh advfirewall firewall delete rule name=all dir=out remoteport=%s protocol=tcp" wide //weight: 2
+        $x_2_4 = "Driver.bin" wide //weight: 2
+        $x_2_5 = "\\venSuccess.ini" wide //weight: 2
+        $x_2_6 = "%ProgramData%\\Venlnk" wide //weight: 2
+        $x_2_7 = "\\DisplaySessionContainers.log" wide //weight: 2
+        $x_2_8 = "C:\\Users\\Public\\venwin.lock" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_MCT_2147973323_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.MCT!MTB"
-        threat_id = "2147973298"
+        threat_id = "2147973323"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"

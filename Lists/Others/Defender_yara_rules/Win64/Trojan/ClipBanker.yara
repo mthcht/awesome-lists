@@ -1712,3 +1712,51 @@ rule Trojan_Win64_ClipBanker_SXC_2147972504_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_AAA_2147973309_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.AAA!AMTB"
+        threat_id = "2147973309"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "27"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "D:\\PROJECTVS\\clipper\\clipper\\x64\\Release\\clipper.pdb" ascii //weight: 15
+        $x_2_2 = "ETH/BNB" ascii //weight: 2
+        $x_2_3 = "api.telegram.org" ascii //weight: 2
+        $x_2_4 = "/sendMessage" ascii //weight: 2
+        $x_2_5 = "Global\\CLRHostMutex" ascii //weight: 2
+        $x_2_6 = "??1_Lockit@std@@QEAA@XZ" ascii //weight: 2
+        $x_2_7 = "GetClipboardData" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_SNQ_2147973336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.SNQ!MTB"
+        threat_id = "2147973336"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {81 f3 b9 79 37 9e c1 c3 0d 44 69 c1 65 89 07 6c 41 03 d8 44 8b c1 48 8b 16 42 0f b6 14 02 8b c3 c1 e8 10 0f b6 c0 33 d0 43 88 14 06 ff c1 3b cf 7c ce}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

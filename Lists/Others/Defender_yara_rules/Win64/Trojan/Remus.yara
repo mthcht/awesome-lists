@@ -62,12 +62,12 @@ rule Trojan_Win64_Remus_AX_2147972704_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_PL_2147973317_0
+rule Trojan_Win64_Remus_PL_2147973346_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.PL!MTB"
-        threat_id = "2147973317"
+        threat_id = "2147973346"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -83,12 +83,12 @@ rule Trojan_Win64_Remus_PL_2147973317_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_IDK_2147973324_0
+rule Trojan_Win64_Remus_IDK_2147973353_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.IDK!MTB"
-        threat_id = "2147973324"
+        threat_id = "2147973353"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -104,12 +104,12 @@ rule Trojan_Win64_Remus_IDK_2147973324_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_NYB_2147973341_0
+rule Trojan_Win64_Remus_NYB_2147973373_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.NYB!MTB"
-        threat_id = "2147973341"
+        threat_id = "2147973373"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
