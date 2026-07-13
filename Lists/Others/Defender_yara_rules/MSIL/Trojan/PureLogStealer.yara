@@ -4539,3 +4539,27 @@ rule Trojan_MSIL_PureLogStealer_AGWB_2147971188_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_RVG_2147973301_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RVG!MTB"
+        threat_id = "2147973301"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 9f a3 3d 09 1f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 8b 00 00 00 76 01 00 00 ?? 02 00 00 4e 08 00 00 87 03 00 00 03 00 00 00 91 01 00 00 05 00 00 00 4c 00 00 00 0b 00 00 00 0e 00 00 00 ?? 00 00 00 01 00 00 00 03 00 00 00 04 00 00 00 01 00 00 00 24 00 00 00 02 00 00 00 0e 00 00 00 02 00 00 00 04 00 00 00 04 00 00 00 4b 00 00 00 09 00 00 00 03}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_3 = "StringBuilder" ascii //weight: 1
+        $x_1_4 = "TripleDES" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

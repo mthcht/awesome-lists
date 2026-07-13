@@ -298,12 +298,12 @@ rule Trojan_Linux_CoinMiner_AMTB_2147960269_0
         )
 }
 
-rule Trojan_Linux_CoinMiner_A_2147973407_0
+rule Trojan_Linux_CoinMiner_A_2147973415_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Linux/CoinMiner.A!AMTB"
-        threat_id = "2147973407"
+        threat_id = "2147973415"
         type = "Trojan"
         platform = "Linux: Linux platform"
         family = "CoinMiner"

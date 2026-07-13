@@ -1367,6 +1367,29 @@ rule Trojan_Win64_Vidar_PS_2147960586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_PS_2147960586_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.PS!MTB"
+        threat_id = "2147960586"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8b 44 24 50 0f b6 0a 48 c1 e1 05 48 33 c8 8a 02 88 84 1d 00 08 00 00 49 03 dd 49 03 d5 48 89 4c 24 50 44 38 22 75}  //weight: 5, accuracy: High
+        $x_3_2 = {48 8d 0d 48 35 20 00 48 8b 04 01 48 35 54 90 e0 33 48 89 84 24 08 01 00 00 48 8b 84 24 08 01 00 00 48 35 54 90 e0 33 48 89 84 24 10 01 00 00 48 8b 84 24 10 01 00 00 48 8b 94 24 c0 00 00 00 48 8b 8c 24 40 02 00 00 ff d0}  //weight: 3, accuracy: High
+        $x_3_3 = {45 8d 74 24 0f 44 89 6c 24 28 48 8b d7 4c 89 6c 24 20 44 89 65 a4 c7 45 b0 0c 00 00 00 44 89 75 d0 ff 15 15 d9 0f 00}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_PL_2147960692_0
 {
     meta:
@@ -3089,12 +3112,12 @@ rule Trojan_Win64_Vidar_NXL_2147972647_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_PB_2147973271_0
+rule Trojan_Win64_Vidar_PB_2147973276_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.PB!MTB"
-        threat_id = "2147973271"
+        threat_id = "2147973276"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3110,12 +3133,12 @@ rule Trojan_Win64_Vidar_PB_2147973271_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_GLG_2147973308_0
+rule Trojan_Win64_Vidar_GLG_2147973314_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.GLG!MTB"
-        threat_id = "2147973308"
+        threat_id = "2147973314"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3131,12 +3154,12 @@ rule Trojan_Win64_Vidar_GLG_2147973308_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_PGVH_2147973342_0
+rule Trojan_Win64_Vidar_PGVH_2147973349_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.PGVH!MTB"
-        threat_id = "2147973342"
+        threat_id = "2147973349"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3153,12 +3176,12 @@ rule Trojan_Win64_Vidar_PGVH_2147973342_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_AC_2147973348_0
+rule Trojan_Win64_Vidar_AC_2147973356_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.AC!MTB"
-        threat_id = "2147973348"
+        threat_id = "2147973356"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3174,12 +3197,12 @@ rule Trojan_Win64_Vidar_AC_2147973348_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_LVD_2147973363_0
+rule Trojan_Win64_Vidar_LVD_2147973371_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.LVD!MTB"
-        threat_id = "2147973363"
+        threat_id = "2147973371"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3195,12 +3218,12 @@ rule Trojan_Win64_Vidar_LVD_2147973363_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_LVD_2147973363_1
+rule Trojan_Win64_Vidar_LVD_2147973371_1
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.LVD!MTB"
-        threat_id = "2147973363"
+        threat_id = "2147973371"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
@@ -3216,12 +3239,12 @@ rule Trojan_Win64_Vidar_LVD_2147973363_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_AAVD_2147973399_0
+rule Trojan_Win64_Vidar_AAVD_2147973407_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Vidar.AAVD!MTB"
-        threat_id = "2147973399"
+        threat_id = "2147973407"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"
