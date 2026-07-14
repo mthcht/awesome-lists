@@ -158,12 +158,12 @@ rule Trojan_Win64_AgentTesla_AZPZ_2147967242_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_AgentTesla_DS_2147973432_0
+rule Trojan_Win64_AgentTesla_DS_2147973440_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/AgentTesla.DS!MTB"
-        threat_id = "2147973432"
+        threat_id = "2147973440"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "AgentTesla"

@@ -399,12 +399,12 @@ rule Trojan_Win64_Aotera_NR_2147973042_0
         )
 }
 
-rule Trojan_Win64_Aotera_CA_2147973414_0
+rule Trojan_Win64_Aotera_CA_2147973422_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Aotera.CA!MTB"
-        threat_id = "2147973414"
+        threat_id = "2147973422"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Aotera"

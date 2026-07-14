@@ -1,9 +1,9 @@
-rule Trojan_Win64_SteamStealer_AAA_2147973352_0
+rule Trojan_Win64_SteamStealer_AAA_2147973356_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/SteamStealer.AAA!AMTB"
-        threat_id = "2147973352"
+        threat_id = "2147973356"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "SteamStealer"

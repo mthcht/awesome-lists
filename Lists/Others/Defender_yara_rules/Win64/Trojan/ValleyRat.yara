@@ -604,12 +604,12 @@ rule Trojan_Win64_ValleyRat_AAC_2147972885_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_AAA_2147973353_0
+rule Trojan_Win64_ValleyRat_AAA_2147973357_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.AAA!AMTB"
-        threat_id = "2147973353"
+        threat_id = "2147973357"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -632,12 +632,12 @@ rule Trojan_Win64_ValleyRat_AAA_2147973353_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_MCT_2147973366_0
+rule Trojan_Win64_ValleyRat_MCT_2147973371_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.MCT!MTB"
-        threat_id = "2147973366"
+        threat_id = "2147973371"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -654,12 +654,76 @@ rule Trojan_Win64_ValleyRat_MCT_2147973366_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_BAA_2147973454_0
+rule Trojan_Win64_ValleyRat_AOXB_2147973392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AOXB!MTB"
+        threat_id = "2147973392"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {44 89 e1 32 0c 07 88 4d db 44 0f b6 4d db 44 0f b6 55 db 45 0f b6 d2 41 c1 fa 04 41 c1 e1 04 45 09 d1 44 88 4d db 0f b6 55 db f7 d2 88 55 db 88 0c 06 48 83 c0 01 39 c3 7f}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_APXB_2147973393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.APXB!MTB"
+        threat_id = "2147973393"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 45 f8 48 63 d0 48 8b 45 ?? 48 01 d0 0f b6 00 88 45 ?? 0f b6 45 ?? 32 45 ff 88 45 ?? 8b 45 f8 48 63 d0 48 8b 45 ?? 48 01 c2 0f b6 45 ?? 88 02 0f b6 45 ?? 83 e0 01 88 45 ?? 0f b6 45 ?? d1 f8 88 45 ff 80 7d ?? 01 75}  //weight: 5, accuracy: Low
+        $x_5_2 = {4b 8d 04 34 89 f1 0f b6 10 48 8b 85 ?? ?? ?? ?? 4c 01 f0 31 d1 88 08 40 0f b6 c6 d1 f8 89 c1 83 f1 8a 83 e6 01 0f 45 c1 41 83 c5 01 31 d0 41 81 fd ?? ?? ?? ?? 89 c6 0f 84}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_NGT_2147973411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.NGT!MTB"
+        threat_id = "2147973411"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b 45 f8 8b 4d e4 8b 55 fc 03 14 81 89 55 dc ff 75 e0 ff 75 dc e8 ?? ?? ?? ?? 59 59 85 c0 ?? ?? 8b 45 f8 8b 4d d8 0f b7 04 41 8b 4d d4 8b 55 fc 03 14 81 8b c2}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_BAA_2147973465_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.BAA!MTB"
-        threat_id = "2147973454"
+        threat_id = "2147973465"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"

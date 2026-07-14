@@ -5809,12 +5809,12 @@ rule Trojan_MSIL_XWorm_BAV_2147972794_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ZUA_2147973436_0
+rule Trojan_MSIL_XWorm_ZUA_2147973444_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ZUA!MTB"
-        threat_id = "2147973436"
+        threat_id = "2147973444"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5830,12 +5830,12 @@ rule Trojan_MSIL_XWorm_ZUA_2147973436_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZH_2147973438_0
+rule Trojan_MSIL_XWorm_YZH_2147973446_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZH!MTB"
-        threat_id = "2147973438"
+        threat_id = "2147973446"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5851,12 +5851,33 @@ rule Trojan_MSIL_XWorm_YZH_2147973438_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_BAS_2147973455_0
+rule Trojan_MSIL_XWorm_YZK_2147973448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.YZK!MTB"
+        threat_id = "2147973448"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {02 8e 69 8d ?? 00 00 01 0a 16 0b 16 0c 2b 1f 06 08 02 08 91 7e ?? 00 00 04 07 91 61 d2 9c 07 17 58 7e ?? 00 00 04 8e 69 5d 0b 08 17 58 0c 08 02 8e 69 32 db 06}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_BAS_2147973466_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.BAS!MTB"
-        threat_id = "2147973455"
+        threat_id = "2147973466"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"

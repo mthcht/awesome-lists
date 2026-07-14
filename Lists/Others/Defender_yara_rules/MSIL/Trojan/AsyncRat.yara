@@ -10,6 +10,34 @@ rule Trojan_MSIL_AsyncRat_MK_2147784756_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "81"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = "0NWdk9mcQNXdylmdpRnbBBSbvJnZgoCI0NWZsV2U" ascii //weight: 25
+        $x_20_2 = "x3vGfYv+S1QYHq0m4h5t8Yh3xK7e5M0QW0mQz4yJ6aQ=" ascii //weight: 20
+        $x_15_3 = "-NoLogo -NoProfile -ExecutionPolicy Bypass" ascii //weight: 15
+        $x_10_4 = "TCPBeacon" ascii //weight: 10
+        $x_5_5 = "<DownloadAndExecuteInternal>" ascii //weight: 5
+        $x_3_6 = "<DownloadOnlyInternal>" ascii //weight: 3
+        $x_2_7 = "RunUserSessionCaptureLoop" ascii //weight: 2
+        $x_1_8 = "BuildInteractiveStartInfo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRat_MK_2147784756_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.MK!MTB"
+        threat_id = "2147784756"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "Low"
     strings:

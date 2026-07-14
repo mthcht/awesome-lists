@@ -907,3 +907,25 @@ rule Trojan_Win64_Injector_MKA_2147972731_0
         )
 }
 
+rule Trojan_Win64_Injector_SXQ_2147973520_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.SXQ!MTB"
+        threat_id = "2147973520"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {44 8a 02 4c 8d 1d ?? ?? ?? ?? 49 8b c1 4c 03 ce 83 e0 0f 42 8a 04 18 41 32 c0 88 02 48 03 d6 4c 2b d6 75 dc}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 c3 03 de 6b c8 5d 80 e9 5d 88 0f 48 03 fe 41 3b de 72 eb}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

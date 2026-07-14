@@ -123,3 +123,27 @@ rule Trojan_Win32_BypassUAC_SX_2147966679_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BypassUAC_SXA_2147973518_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BypassUAC.SXA!MTB"
+        threat_id = "2147973518"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Global\\NtuserManPayload" ascii //weight: 30
+        $x_20_2 = "[4]InjectW7DAT" ascii //weight: 20
+        $x_10_3 = "%s\\ntuser_temp.dat" ascii //weight: 10
+        $x_5_4 = "persistence86.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

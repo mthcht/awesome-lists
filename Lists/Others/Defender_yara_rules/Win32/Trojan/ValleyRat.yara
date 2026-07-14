@@ -634,6 +634,28 @@ rule Trojan_Win32_ValleyRat_AVR_2147969428_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8a 54 34 5c 8d 8c 24 5b 01 00 00 2b ce 8a 01 88 44 34 5c 46 88 11 81 fe 80}  //weight: 2, accuracy: High
+        $x_1_2 = {53 6a 00 ff d5 50 ff 15 ?? ?? ?? ?? 6a 00 ff 74 24 14 ff 15 ?? ?? ?? ?? 33 c0 eb 56 8d 44 24 1c c7 44 24 1c ?? ?? ?? ?? 50 53 6a 00 6a 01 6a 00 ff 74 24 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ValleyRat_AVR_2147969428_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.AVR!MTB"
+        threat_id = "2147969428"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
@@ -644,12 +666,12 @@ rule Trojan_Win32_ValleyRat_AVR_2147969428_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRat_C_2147973389_0
+rule Trojan_Win32_ValleyRat_C_2147973396_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRat.C!AMTB"
-        threat_id = "2147973389"
+        threat_id = "2147973396"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRat"
@@ -667,12 +689,12 @@ rule Trojan_Win32_ValleyRat_C_2147973389_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRat_BAA_2147973453_0
+rule Trojan_Win32_ValleyRat_BAA_2147973464_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRat.BAA!MTB"
-        threat_id = "2147973453"
+        threat_id = "2147973464"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRat"
