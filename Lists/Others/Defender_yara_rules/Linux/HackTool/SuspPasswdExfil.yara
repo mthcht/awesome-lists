@@ -1,9 +1,9 @@
-rule HackTool_Linux_SuspPasswdExfil_PA_2147973629_0
+rule HackTool_Linux_SuspPasswdExfil_PA_2147973631_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspPasswdExfil.PA"
-        threat_id = "2147973629"
+        threat_id = "2147973631"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspPasswdExfil"
@@ -23,12 +23,12 @@ rule HackTool_Linux_SuspPasswdExfil_PA_2147973629_0
         )
 }
 
-rule HackTool_Linux_SuspPasswdExfil_PB_2147973630_0
+rule HackTool_Linux_SuspPasswdExfil_PB_2147973632_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspPasswdExfil.PB"
-        threat_id = "2147973630"
+        threat_id = "2147973632"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspPasswdExfil"
@@ -48,12 +48,12 @@ rule HackTool_Linux_SuspPasswdExfil_PB_2147973630_0
         )
 }
 
-rule HackTool_Linux_SuspPasswdExfil_PC_2147973631_0
+rule HackTool_Linux_SuspPasswdExfil_PC_2147973633_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspPasswdExfil.PC"
-        threat_id = "2147973631"
+        threat_id = "2147973633"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspPasswdExfil"

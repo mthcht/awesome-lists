@@ -25,12 +25,12 @@ rule TrojanDownloader_MSIL_Stealer_ABF_2147824759_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_MSIL_Stealer_AAA_2147973341_0
+rule TrojanDownloader_MSIL_Stealer_AAA_2147973343_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:MSIL/Stealer.AAA!AMTB"
-        threat_id = "2147973341"
+        threat_id = "2147973343"
         type = "TrojanDownloader"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Stealer"

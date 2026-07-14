@@ -1,9 +1,9 @@
-rule HackTool_Linux_SuspShadowExfil_PA_2147973626_0
+rule HackTool_Linux_SuspShadowExfil_PA_2147973628_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspShadowExfil.PA"
-        threat_id = "2147973626"
+        threat_id = "2147973628"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspShadowExfil"
@@ -23,12 +23,12 @@ rule HackTool_Linux_SuspShadowExfil_PA_2147973626_0
         )
 }
 
-rule HackTool_Linux_SuspShadowExfil_PB_2147973627_0
+rule HackTool_Linux_SuspShadowExfil_PB_2147973629_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspShadowExfil.PB"
-        threat_id = "2147973627"
+        threat_id = "2147973629"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspShadowExfil"
@@ -48,12 +48,12 @@ rule HackTool_Linux_SuspShadowExfil_PB_2147973627_0
         )
 }
 
-rule HackTool_Linux_SuspShadowExfil_PC_2147973628_0
+rule HackTool_Linux_SuspShadowExfil_PC_2147973630_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspShadowExfil.PC"
-        threat_id = "2147973628"
+        threat_id = "2147973630"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspShadowExfil"

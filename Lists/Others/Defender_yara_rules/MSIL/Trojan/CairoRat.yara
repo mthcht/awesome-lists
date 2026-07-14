@@ -1,9 +1,9 @@
-rule Trojan_MSIL_CairoRat_AAA_2147973349_0
+rule Trojan_MSIL_CairoRat_AAA_2147973351_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/CairoRat.AAA!AMTB"
-        threat_id = "2147973349"
+        threat_id = "2147973351"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "CairoRat"

@@ -20,6 +20,7 @@ rule Trojan_Win32_Steanoz_Z_2147949789_0
         $x_1_5 = "Convert]::FromBase64String" wide //weight: 1
         $n_100_6 = "GRUMACA.LIMS.RASPBERRY" wide //weight: -100
         $n_100_7 = "RASPPAVASQUEBRADO" wide //weight: -100
+        $n_100_8 = "MFiles.VAF.dll" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

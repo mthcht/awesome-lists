@@ -1,9 +1,9 @@
-rule Trojan_MSIL_PartulaFaba_A_2147973363_0
+rule Trojan_MSIL_PartulaFaba_A_2147973365_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PartulaFaba.A!dha"
-        threat_id = "2147973363"
+        threat_id = "2147973365"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PartulaFaba"

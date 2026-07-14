@@ -1,9 +1,9 @@
-rule HackTool_MSIL_Watson_SX_2147973490_0
+rule HackTool_MSIL_Watson_SX_2147973492_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:MSIL/Watson.SX!MTB"
-        threat_id = "2147973490"
+        threat_id = "2147973492"
         type = "HackTool"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Watson"

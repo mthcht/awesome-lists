@@ -46,12 +46,12 @@ rule Trojan_MSIL_Mikey_MK_2147970054_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Mikey_SX_2147973491_0
+rule Trojan_MSIL_Mikey_SX_2147973493_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Mikey.SX!MTB"
-        threat_id = "2147973491"
+        threat_id = "2147973493"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Mikey"
