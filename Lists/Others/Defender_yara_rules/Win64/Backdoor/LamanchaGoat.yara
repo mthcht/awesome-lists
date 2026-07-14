@@ -1,9 +1,9 @@
-rule Backdoor_Win64_LamanchaGoat_A_2147973364_0
+rule Backdoor_Win64_LamanchaGoat_A_2147973369_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:Win64/LamanchaGoat.A!dha"
-        threat_id = "2147973364"
+        threat_id = "2147973369"
         type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
         family = "LamanchaGoat"

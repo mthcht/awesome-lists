@@ -569,3 +569,28 @@ rule Trojan_MSIL_Xworm_BGU_2147971958_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_PUR_2147973434_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PUR!MTB"
+        threat_id = "2147973434"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {11 0d 13 04 28 ?? 01 00 0a 11 04 6f ?? 01 00 0a 13 05 11 06 11 05 6f ?? 01 00 0a 28 ?? 01 00 0a 74 ?? ?? 00 01 0b 73 ?? ?? 00 0a 0a 16 07 6f ?? 01 00 0a 17 da 13 0b 13 09 2b 1e 06 07 11 09 16 6f ?? 01 00 0a 13 0c 12 0c 28 ?? 01 00 0a 6f ?? 01 00 0a 11 09 17 d6 13 09 11 09 11 0b ?? ?? 06 6f}  //weight: 3, accuracy: Low
+        $x_4_2 = "SillyWorm V4" ascii //weight: 4
+        $x_3_3 = "<Xwormmm>" ascii //weight: 3
+        $x_2_4 = "BotKito.BootkitRunner" ascii //weight: 2
+        $x_2_5 = "taskkill /IM cmstp.exe /F" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -88,3 +88,25 @@ rule Trojan_Win32_HijackLoader_MCD_2147965704_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_HijackLoader_ARAZ_2147973393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/HijackLoader.ARAZ!MTB"
+        threat_id = "2147973393"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "HijackLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8b 55 fc 8b 42 34 8b 4d f0 0f be 14 08 85 d2 74 23 8b 45 fc 8b 48 34 8b 55 f0 66 0f be 04 11 8b 4d f0 8b 55 c0 66 89 04 4a 8b 45 f0 83 c0 01 89 45 f0 eb cc}  //weight: 10, accuracy: High
+        $x_20_2 = {8b 55 d0 89 95 7c ff ff ff 8b 45 d0 83 e8 01 89 45 d0 83 bd 7c ff ff ff 00 74 1e 8b 4d cc 8b 55 c8 8a 02 88 01 8b 4d cc 83 c1 01 89 4d cc 8b 55 c8 83 c2 01 89 55 c8 eb c7}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

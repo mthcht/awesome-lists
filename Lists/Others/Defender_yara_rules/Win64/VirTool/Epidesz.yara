@@ -1,9 +1,9 @@
-rule VirTool_Win64_Epidesz_A_2147973400_0
+rule VirTool_Win64_Epidesz_A_2147973408_0
 {
     meta:
         author = "defender2yara"
         detection_name = "VirTool:Win64/Epidesz.A"
-        threat_id = "2147973400"
+        threat_id = "2147973408"
         type = "VirTool"
         platform = "Win64: Windows 64-bit platform"
         family = "Epidesz"

@@ -158,3 +158,26 @@ rule Trojan_Win64_AgentTesla_AZPZ_2147967242_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentTesla_DS_2147973432_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentTesla.DS!MTB"
+        threat_id = "2147973432"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8d 2c 30 41 3b e9 0f 83 ?? ?? ?? ?? 48 03 29 4c 8d 74 24 ?? 44 8b fe 47 0f b6 34 3e 44 30 75 00 ff c6 3b f7 7c da}  //weight: 5, accuracy: Low
+        $x_2_2 = {49 8b fa 48 8b ea 4d 8b f3 4c 33 f3 41 bf 0c 00 00 00 48 03 f7 48 c1 c7 1f 48 33 fe 49 03 ee 49 c1 c6 1d 4c 33 f5 49 03 f6 49 c1 c6 17 4c 33 f6 48 03 ef 48 c1 c7 11 48 33 fd 41 ff cf 75 d3 49 03 f0 48 03 f3 4c 8b fb 49 c1 e7 20 4d 33 fa 4c 03 ff}  //weight: 2, accuracy: High
+        $x_2_3 = {4c 8b 45 0c 48 8b 4d 04 8b 55 14 ff d6}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

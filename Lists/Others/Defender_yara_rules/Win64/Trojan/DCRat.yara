@@ -392,12 +392,12 @@ rule Trojan_Win64_DCRat_CR_2147958570_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DCRat_C_2147973438_0
+rule Trojan_Win64_DCRat_C_2147973450_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DCRat.C!AMTB"
-        threat_id = "2147973438"
+        threat_id = "2147973450"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DCRat"

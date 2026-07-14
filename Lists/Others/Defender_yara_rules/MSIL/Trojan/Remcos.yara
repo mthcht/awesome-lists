@@ -15010,12 +15010,12 @@ rule Trojan_MSIL_Remcos_RVK_2147972702_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_RVL_2147973367_0
+rule Trojan_MSIL_Remcos_RVL_2147973372_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Remcos.RVL!MTB"
-        threat_id = "2147973367"
+        threat_id = "2147973372"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"
@@ -15026,6 +15026,29 @@ rule Trojan_MSIL_Remcos_RVL_2147973367_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {02 11 21 11 22 6f ?? 00 00 0a 13 15 11 21 13 16 11 22 13 17 08 11 21 08 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 13 25 11 07 11 25 6f ?? 00 00 06 23 95 d6 26 e8 0b 2e 11 3e 5a 58 13 26 11 26 28 ?? 00 00 0a 2c 0f 11 14 72 a6 15 00 70 16 6f ?? 00 00 0a 2b 6f 11 19 6f ?? 00 00 0a 11 15 11 23 6f ?? 00 00 0a 13 24 11 11 11 24 6f ?? 00 00 0a 11 18}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Remcos_PTR_2147973435_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.PTR!MTB"
+        threat_id = "2147973435"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 d5 a2 fd 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 6b 00 00 00 17 00 00 00 61 00 00 00 2c 01 00 00 46 00 00 00 d4 00 00 00 31 00 00 00 01 00 00 00 01 00 00 00 29 00 00 00 05 00 00 00 0b 00 00 00 0c 00 00 00 01 00 00 00 17 00 00 00 01 00 00 00 01 00 00 00 ?? 00 00 00 ?? 00 00 00 02 00 00 00 05}  //weight: 2, accuracy: Low
+        $x_2_2 = "PixelPainter.Properties.Resources.resources" ascii //weight: 2
+        $x_2_3 = "$A3D73C6F-9E69-4F54-9FE1-18F9DFEE34A6" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

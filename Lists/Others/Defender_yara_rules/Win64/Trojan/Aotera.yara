@@ -399,3 +399,24 @@ rule Trojan_Win64_Aotera_NR_2147973042_0
         )
 }
 
+rule Trojan_Win64_Aotera_CA_2147973414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.CA!MTB"
+        threat_id = "2147973414"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 03 c4 0f b6 c0 44 33 d8 45 33 fb 47 88 7c 0e ?? 41 ff c0 41 3b e8 0f 8f}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
