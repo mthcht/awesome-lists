@@ -283,12 +283,12 @@ rule Trojan_Win32_Korplug_AKL_2147973062_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Korplug_PGKO_2147973424_0
+rule Trojan_Win32_Korplug_PGKO_2147973426_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Korplug.PGKO!MTB"
-        threat_id = "2147973424"
+        threat_id = "2147973426"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Korplug"

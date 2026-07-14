@@ -367,12 +367,12 @@ rule Trojan_Win32_Rugmi_ARG_2147971944_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Rugmi_HAD_2147973397_0
+rule Trojan_Win32_Rugmi_HAD_2147973399_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Rugmi.HAD!MTB"
-        threat_id = "2147973397"
+        threat_id = "2147973399"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Rugmi"
