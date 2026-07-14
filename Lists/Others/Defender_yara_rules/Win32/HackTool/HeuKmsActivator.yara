@@ -1,9 +1,9 @@
-rule HackTool_Win32_HeuKmsActivator_2147973607_0
+rule HackTool_Win32_HeuKmsActivator_2147973622_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Win32/HeuKmsActivator"
-        threat_id = "2147973607"
+        threat_id = "2147973622"
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "HeuKmsActivator"

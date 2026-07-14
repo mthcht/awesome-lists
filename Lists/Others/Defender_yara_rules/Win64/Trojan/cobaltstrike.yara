@@ -1,9 +1,9 @@
-rule Trojan_Win64_cobaltstrike_IDK_2147973365_0
+rule Trojan_Win64_cobaltstrike_IDK_2147973377_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/cobaltstrike.IDK!MTB"
-        threat_id = "2147973365"
+        threat_id = "2147973377"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "cobaltstrike"

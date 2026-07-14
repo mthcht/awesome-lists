@@ -1,9 +1,9 @@
-rule Trojan_MSIL_LausivLoader_NYA_2147973391_0
+rule Trojan_MSIL_LausivLoader_NYA_2147973403_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/LausivLoader.NYA!MTB"
-        threat_id = "2147973391"
+        threat_id = "2147973403"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "LausivLoader"

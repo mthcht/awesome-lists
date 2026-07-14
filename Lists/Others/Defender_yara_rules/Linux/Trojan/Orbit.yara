@@ -27,12 +27,12 @@ rule Trojan_Linux_Orbit_A_2147826080_0
         )
 }
 
-rule Trojan_Linux_Orbit_AMTB_2147973483_0
+rule Trojan_Linux_Orbit_AMTB_2147973497_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Linux/Orbit!AMTB"
-        threat_id = "2147973483"
+        threat_id = "2147973497"
         type = "Trojan"
         platform = "Linux: Linux platform"
         family = "Orbit"

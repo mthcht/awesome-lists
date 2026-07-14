@@ -5809,12 +5809,12 @@ rule Trojan_MSIL_XWorm_BAV_2147972794_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ZUA_2147973395_0
+rule Trojan_MSIL_XWorm_ZUA_2147973407_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ZUA!MTB"
-        threat_id = "2147973395"
+        threat_id = "2147973407"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5830,12 +5830,12 @@ rule Trojan_MSIL_XWorm_ZUA_2147973395_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZH_2147973397_0
+rule Trojan_MSIL_XWorm_YZH_2147973409_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZH!MTB"
-        threat_id = "2147973397"
+        threat_id = "2147973409"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5846,6 +5846,29 @@ rule Trojan_MSIL_XWorm_YZH_2147973397_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {5b 03 02 7b ?? 00 00 04 5d 6f ?? 00 00 0a 0a 04 19 5a 0b 19 8d ?? 00 00 1b 25 16 07 12 00 28 ?? 00 00 0a 73 ?? 00 00 0a a2 25 17 07 17 58 12}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_BAS_2147973423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BAS!MTB"
+        threat_id = "2147973423"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 0a 2b 64 11 0a ?? ?? 00 00 0a ?? ?? 00 00 0a 13 0b 11 0b 72 37 00 00 70 28 0e 00 00 0a 2c 1d 28 0f 00 00 0a 11 0a ?? ?? 00 00 0a 74 01 00 00 1b ?? ?? 00 00 0a 28 12 00 00 0a 13 05 11 0b 72 41 00 00 70 28 0e 00 00 0a 2c 1d 28 0f 00 00 0a 11 0a ?? ?? 00 00 0a 74 01 00 00 1b ?? ?? 00 00 0a 28 12 00 00 0a 13 06 11 0a ?? ?? 00 00 0a 2d 93}  //weight: 2, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "Invoke" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

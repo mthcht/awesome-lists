@@ -539,3 +539,27 @@ rule Trojan_Win64_DonutLoader_GMX_2147973028_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DonutLoader_ADT_2147973495_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.ADT!MTB"
+        threat_id = "2147973495"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {48 8d 0d 56 77 03 00 ff 15 ?? ?? ?? ?? 48 8b c8 48 8d 15 56 77 03 00 ff 15 ?? ?? ?? ?? 48 8b d8 48 8d 0d 36 77 03 00 ff 15 ?? ?? ?? ?? 48 8b c8 48 8d 15 46 77 03 00 ff 15 ?? ?? ?? ?? 48 8b f8 48 8d 0d 16 77 03 00 ff 15 ?? ?? ?? ?? 48 8b c8 48 8d 15 36 77 03 00 ff 15 ?? ?? ?? ?? 48 8b f0 48 8b 54 24 48 48 2b 54 24 40 33 c9 41 b9 04 00 00 00 41 b8 00 10 00 00 ff d3}  //weight: 4, accuracy: Low
+        $x_1_2 = "tasklist.exe" ascii //weight: 1
+        $x_2_3 = "powershell.exe -Command Get-Process" ascii //weight: 2
+        $x_3_4 = "umvbr.bin" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
