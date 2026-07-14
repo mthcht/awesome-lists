@@ -1,9 +1,9 @@
-rule HackTool_Linux_SuspSSHKeyExfil_PA_2147973619_0
+rule HackTool_Linux_SuspSSHKeyExfil_PA_2147973635_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspSSHKeyExfil.PA"
-        threat_id = "2147973619"
+        threat_id = "2147973635"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspSSHKeyExfil"

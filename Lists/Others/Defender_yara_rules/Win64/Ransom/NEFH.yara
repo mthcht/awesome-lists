@@ -1,9 +1,9 @@
-rule Ransom_Win64_NEFH_MKV_2147973381_0
+rule Ransom_Win64_NEFH_MKV_2147973394_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win64/NEFH.MKV!MTB"
-        threat_id = "2147973381"
+        threat_id = "2147973394"
         type = "Ransom"
         platform = "Win64: Windows 64-bit platform"
         family = "NEFH"

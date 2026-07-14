@@ -392,3 +392,33 @@ rule Trojan_Win64_DCRat_CR_2147958570_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DCRat_C_2147973436_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.C!AMTB"
+        threat_id = "2147973436"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ZwSuspendProcess" ascii //weight: 1
+        $x_1_2 = "TerminateProcess" ascii //weight: 1
+        $x_1_3 = "TerminateThread" ascii //weight: 1
+        $x_1_4 = "DeleteFileW" ascii //weight: 1
+        $x_6_5 = "K:\\sb\\client_exe_new\\x64\\Release\\vtcp_server.pdb" ascii //weight: 6
+        $x_9_6 = "lH6jkF/3d3uewyjXmqplqWayXgqEN8jIITDgoJP5zID4+nfMP+adDNM/M147avENzWztZhOfFDyR+" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_9_*))) or
+            (all of ($x*))
+        )
+}
+

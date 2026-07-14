@@ -8873,12 +8873,12 @@ rule Trojan_Win32_GuLoader_RFG_2147972996_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_SNP_2147973360_0
+rule Trojan_Win32_GuLoader_SNP_2147973373_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GuLoader.SNP!MTB"
-        threat_id = "2147973360"
+        threat_id = "2147973373"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GuLoader"

@@ -84,12 +84,12 @@ rule TrojanDownloader_Win64_Small_ARA_2147912986_1
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win64_Small_PAHW_2147973365_0
+rule TrojanDownloader_Win64_Small_PAHW_2147973378_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:Win64/Small.PAHW!MTB"
-        threat_id = "2147973365"
+        threat_id = "2147973378"
         type = "TrojanDownloader"
         platform = "Win64: Windows 64-bit platform"
         family = "Small"
@@ -101,6 +101,30 @@ rule TrojanDownloader_Win64_Small_PAHW_2147973365_0
     strings:
         $x_3_1 = {44 0f b6 0f 41 80 f1 aa 48 8b 4b 10 48 8b 53 18 48 3b ca 73 ?? 48 8d 41 01 48 89 43 10 48 8b c3}  //weight: 3, accuracy: Low
         $x_2_2 = "Set-MpPreference -DisableRealtimeMonitoring $true" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win64_Small_AMTB_2147973437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Small!AMTB"
+        threat_id = "2147973437"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Small"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd /c sc delete mixedsvc" ascii //weight: 1
+        $x_1_2 = "cmd /c sc create MixedSvc binPath= \"C:\\Program Files\\Windows Media Player\\Mixed Reality.exe\" start= auto displayname" ascii //weight: 1
+        $x_1_3 = "cmd /c sc description MixedSvc \"Manager the Mixed Reality functionality\"" ascii //weight: 1
+        $x_1_4 = "cmd /c sc start MixedSvc" ascii //weight: 1
+        $x_1_5 = "K:\\sb\\ZQDS\\x64\\Release\\ZQDS.pdb" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

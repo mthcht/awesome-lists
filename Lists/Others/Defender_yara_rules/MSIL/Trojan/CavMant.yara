@@ -1,9 +1,9 @@
-rule Trojan_MSIL_CavMant_DA_2147973315_0
+rule Trojan_MSIL_CavMant_DA_2147973328_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/CavMant.DA!MTB"
-        threat_id = "2147973315"
+        threat_id = "2147973328"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "CavMant"

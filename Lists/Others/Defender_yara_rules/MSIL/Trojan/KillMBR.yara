@@ -1284,12 +1284,12 @@ rule Trojan_MSIL_KillMBR_SX_2147970813_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_KillMBR_AVN_2147973449_0
+rule Trojan_MSIL_KillMBR_AVN_2147973465_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/KillMBR.AVN!MTB"
-        threat_id = "2147973449"
+        threat_id = "2147973465"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "KillMBR"

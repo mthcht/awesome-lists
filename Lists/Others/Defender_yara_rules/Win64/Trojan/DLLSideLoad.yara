@@ -261,12 +261,12 @@ rule Trojan_Win64_DLLSideLoad_MCX_2147972490_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLSideLoad_PAA_2147973348_0
+rule Trojan_Win64_DLLSideLoad_PAA_2147973361_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLSideLoad.PAA!MTB"
-        threat_id = "2147973348"
+        threat_id = "2147973361"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLSideLoad"
@@ -282,12 +282,12 @@ rule Trojan_Win64_DLLSideLoad_PAA_2147973348_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLSideLoad_CB_2147973387_0
+rule Trojan_Win64_DLLSideLoad_CB_2147973400_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLSideLoad.CB!MTB"
-        threat_id = "2147973387"
+        threat_id = "2147973400"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLSideLoad"
