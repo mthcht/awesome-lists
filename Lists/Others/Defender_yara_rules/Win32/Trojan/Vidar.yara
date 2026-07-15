@@ -7166,12 +7166,12 @@ rule Trojan_Win32_Vidar_LR_2147972053_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Vidar_MK_2147973564_0
+rule Trojan_Win32_Vidar_MK_2147973569_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Vidar.MK!MTB"
-        threat_id = "2147973564"
+        threat_id = "2147973569"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Vidar"

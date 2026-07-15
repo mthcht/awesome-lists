@@ -1,9 +1,9 @@
-rule HackTool_Linux_SuspNetworkExfil_PA_2147973711_0
+rule HackTool_Linux_SuspNetworkExfil_PA_2147973716_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspNetworkExfil.PA"
-        threat_id = "2147973711"
+        threat_id = "2147973716"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspNetworkExfil"

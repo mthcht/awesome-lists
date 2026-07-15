@@ -123,12 +123,12 @@ rule Trojan_Win32_BypassUAC_SX_2147966679_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_BypassUAC_SXA_2147973556_0
+rule Trojan_Win32_BypassUAC_SXA_2147973561_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/BypassUAC.SXA!MTB"
-        threat_id = "2147973556"
+        threat_id = "2147973561"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "BypassUAC"

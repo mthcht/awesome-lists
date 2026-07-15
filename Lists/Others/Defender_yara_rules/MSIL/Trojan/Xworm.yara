@@ -569,12 +569,12 @@ rule Trojan_MSIL_Xworm_BGU_2147971958_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Xworm_PUR_2147973479_0
+rule Trojan_MSIL_Xworm_PUR_2147973484_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Xworm.PUR!MTB"
-        threat_id = "2147973479"
+        threat_id = "2147973484"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Xworm"

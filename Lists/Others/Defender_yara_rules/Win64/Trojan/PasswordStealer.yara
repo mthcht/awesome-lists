@@ -95,12 +95,12 @@ rule Trojan_Win64_PasswordStealer_AAA_2147972886_0
         )
 }
 
-rule Trojan_Win64_PasswordStealer_AA_2147973387_0
+rule Trojan_Win64_PasswordStealer_AA_2147973390_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/PasswordStealer.AA!AMTB"
-        threat_id = "2147973387"
+        threat_id = "2147973390"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "PasswordStealer"

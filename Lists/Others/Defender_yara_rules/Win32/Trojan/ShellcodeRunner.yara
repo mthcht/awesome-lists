@@ -1058,12 +1058,12 @@ rule Trojan_Win32_ShellcodeRunner_SXC_2147970905_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ShellcodeRunner_DC_2147973380_0
+rule Trojan_Win32_ShellcodeRunner_DC_2147973381_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ShellcodeRunner.DC!MTB"
-        threat_id = "2147973380"
+        threat_id = "2147973381"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ShellcodeRunner"

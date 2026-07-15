@@ -77,12 +77,12 @@ rule Ransom_Win32_Crilock_B_2147683592_0
         (3 of ($x*))
 }
 
-rule Ransom_Win32_Crilock_SN_2147973602_0
+rule Ransom_Win32_Crilock_SN_2147973607_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/Crilock.SN!MTB"
-        threat_id = "2147973602"
+        threat_id = "2147973607"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "Crilock"

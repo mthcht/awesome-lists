@@ -210,3 +210,27 @@ rule Ransom_MSIL_LockScreen_AYA_2147966392_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_LockScreen_AMTB_2147973437_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockScreen!AMTB"
+        threat_id = "2147973437"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MimiLocker" ascii //weight: 1
+        $x_1_2 = "HACKED BY MIMI TYPH" ascii //weight: 1
+        $x_1_3 = "C:\\TEMP\\$unlocker_id" ascii //weight: 1
+        $x_1_4 = "Windows Deleted!" ascii //weight: 1
+        $x_1_5 = "Memory blocked by MimiTyph" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
