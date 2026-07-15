@@ -539,12 +539,12 @@ rule Trojan_Win64_DonutLoader_GMX_2147973028_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DonutLoader_ADT_2147973550_0
+rule Trojan_Win64_DonutLoader_ADT_2147973555_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DonutLoader.ADT!MTB"
-        threat_id = "2147973550"
+        threat_id = "2147973555"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DonutLoader"
@@ -558,6 +558,29 @@ rule Trojan_Win64_DonutLoader_ADT_2147973550_0
         $x_1_2 = "tasklist.exe" ascii //weight: 1
         $x_2_3 = "powershell.exe -Command Get-Process" ascii //weight: 2
         $x_3_4 = "umvbr.bin" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_ALD_2147973556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.ALD!MTB"
+        threat_id = "2147973556"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "sosermasn\\x64\\Release\\sosermasn.pdb" ascii //weight: 3
+        $x_5_2 = "31.77.168.180" ascii //weight: 5
+        $x_4_3 = "piva.exe" ascii //weight: 4
     condition:
         (filesize < 20MB) and
         (all of ($x*))

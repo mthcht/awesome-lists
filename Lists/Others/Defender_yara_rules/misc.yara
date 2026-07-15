@@ -33729,6 +33729,26 @@ rule __PUA_Block_Rostpay_2
         detection_name = "!#PUA:Block:Rostpay"
         threat_id = "1879049169"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "offerTitle" ascii //weight: 1
+        $x_1_2 = "OffersUrl" ascii //weight: 1
+        $x_1_3 = "get_ShowingOffer" ascii //weight: 1
+        $x_1_4 = "ShowNextOffer" ascii //weight: 1
+        $x_1_5 = "DriverHubInstaller.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
+rule __PUA_Block_Rostpay_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "!#PUA:Block:Rostpay"
+        threat_id = "1879049169"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
@@ -33743,7 +33763,7 @@ rule __PUA_Block_Rostpay_2
         (all of ($x*))
 }
 
-rule __PUA_Block_Rostpay_3
+rule __PUA_Block_Rostpay_4
 {
     meta:
         author = "defender2yara"
@@ -33768,7 +33788,7 @@ rule __PUA_Block_Rostpay_3
         )
 }
 
-rule __PUA_Block_Rostpay_4
+rule __PUA_Block_Rostpay_5
 {
     meta:
         author = "defender2yara"
@@ -33795,7 +33815,7 @@ rule __PUA_Block_Rostpay_4
         )
 }
 
-rule __PUA_Block_Rostpay_5
+rule __PUA_Block_Rostpay_6
 {
     meta:
         author = "defender2yara"
@@ -33821,7 +33841,7 @@ rule __PUA_Block_Rostpay_5
         (all of ($x*))
 }
 
-rule __PUA_Block_Rostpay_6
+rule __PUA_Block_Rostpay_7
 {
     meta:
         author = "defender2yara"
@@ -33844,7 +33864,7 @@ rule __PUA_Block_Rostpay_6
         (all of ($x*))
 }
 
-rule __PUA_Block_Rostpay_7
+rule __PUA_Block_Rostpay_8
 {
     meta:
         author = "defender2yara"
@@ -33867,7 +33887,7 @@ rule __PUA_Block_Rostpay_7
         (all of ($x*))
 }
 
-rule __PUA_Block_Rostpay_8
+rule __PUA_Block_Rostpay_9
 {
     meta:
         author = "defender2yara"

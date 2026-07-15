@@ -1,9 +1,9 @@
-rule Trojan_Win32_GigaWiper_GVA_2147973457_0
+rule Trojan_Win32_GigaWiper_GVA_2147973461_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GigaWiper.GVA!MTB"
-        threat_id = "2147973457"
+        threat_id = "2147973461"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GigaWiper"

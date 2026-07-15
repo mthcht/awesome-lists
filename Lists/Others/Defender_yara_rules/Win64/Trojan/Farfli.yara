@@ -692,12 +692,12 @@ rule Trojan_Win64_Farfli_LRA_2147971005_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Farfli_MKA_2147973528_0
+rule Trojan_Win64_Farfli_MKA_2147973532_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Farfli.MKA!MTB"
-        threat_id = "2147973528"
+        threat_id = "2147973532"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Farfli"

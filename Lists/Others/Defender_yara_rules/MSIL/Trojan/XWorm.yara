@@ -5809,12 +5809,12 @@ rule Trojan_MSIL_XWorm_BAV_2147972794_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ZUA_2147973444_0
+rule Trojan_MSIL_XWorm_ZUA_2147973448_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ZUA!MTB"
-        threat_id = "2147973444"
+        threat_id = "2147973448"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5830,12 +5830,12 @@ rule Trojan_MSIL_XWorm_ZUA_2147973444_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZH_2147973446_0
+rule Trojan_MSIL_XWorm_YZH_2147973450_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZH!MTB"
-        threat_id = "2147973446"
+        threat_id = "2147973450"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5851,12 +5851,12 @@ rule Trojan_MSIL_XWorm_YZH_2147973446_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZK_2147973448_0
+rule Trojan_MSIL_XWorm_YZK_2147973452_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZK!MTB"
-        threat_id = "2147973448"
+        threat_id = "2147973452"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5872,12 +5872,12 @@ rule Trojan_MSIL_XWorm_YZK_2147973448_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_BAS_2147973466_0
+rule Trojan_MSIL_XWorm_BAS_2147973470_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.BAS!MTB"
-        threat_id = "2147973466"
+        threat_id = "2147973470"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
