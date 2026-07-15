@@ -1,9 +1,9 @@
-rule Trojan_MSIL_FakeBrain_DA_2147973371_0
+rule Trojan_MSIL_FakeBrain_DA_2147973377_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FakeBrain.DA!MTB"
-        threat_id = "2147973371"
+        threat_id = "2147973377"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FakeBrain"
@@ -29,12 +29,12 @@ rule Trojan_MSIL_FakeBrain_DA_2147973371_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FakeBrain_DB_2147973372_0
+rule Trojan_MSIL_FakeBrain_DB_2147973378_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FakeBrain.DB!MTB"
-        threat_id = "2147973372"
+        threat_id = "2147973378"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FakeBrain"

@@ -4164,12 +4164,12 @@ rule Trojan_Win64_Zusy_AHV_2147972999_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_LRM_2147973534_0
+rule Trojan_Win64_Zusy_LRM_2147973540_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.LRM!MTB"
-        threat_id = "2147973534"
+        threat_id = "2147973540"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4193,12 +4193,12 @@ rule Trojan_Win64_Zusy_LRM_2147973534_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_SXX_2147973540_0
+rule Trojan_Win64_Zusy_SXX_2147973546_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.SXX!MTB"
-        threat_id = "2147973540"
+        threat_id = "2147973546"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4214,12 +4214,12 @@ rule Trojan_Win64_Zusy_SXX_2147973540_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZU_2147973580_0
+rule Trojan_Win64_Zusy_AZU_2147973586_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZU!MTB"
-        threat_id = "2147973580"
+        threat_id = "2147973586"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4235,12 +4235,12 @@ rule Trojan_Win64_Zusy_AZU_2147973580_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZYU_2147973581_0
+rule Trojan_Win64_Zusy_AZYU_2147973587_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZYU!MTB"
-        threat_id = "2147973581"
+        threat_id = "2147973587"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"

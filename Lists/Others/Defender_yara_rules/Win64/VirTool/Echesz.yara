@@ -1,9 +1,9 @@
-rule VirTool_Win64_Echesz_A_2147973448_0
+rule VirTool_Win64_Echesz_A_2147973454_0
 {
     meta:
         author = "defender2yara"
         detection_name = "VirTool:Win64/Echesz.A"
-        threat_id = "2147973448"
+        threat_id = "2147973454"
         type = "VirTool"
         platform = "Win64: Windows 64-bit platform"
         family = "Echesz"

@@ -1,9 +1,9 @@
-rule Trojan_Win64_MuckLoader_MU_2147973590_0
+rule Trojan_Win64_MuckLoader_MU_2147973596_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/MuckLoader.MU!MTB"
-        threat_id = "2147973590"
+        threat_id = "2147973596"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "MuckLoader"

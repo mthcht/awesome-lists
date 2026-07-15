@@ -9736,12 +9736,12 @@ rule Trojan_Win32_Neoreblamy_NYE_2147973022_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreblamy_NYG_2147973466_0
+rule Trojan_Win32_Neoreblamy_NYG_2147973472_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Neoreblamy.NYG!MTB"
-        threat_id = "2147973466"
+        threat_id = "2147973472"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Neoreblamy"
@@ -9758,12 +9758,12 @@ rule Trojan_Win32_Neoreblamy_NYG_2147973466_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreblamy_NYI_2147973467_0
+rule Trojan_Win32_Neoreblamy_NYI_2147973473_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Neoreblamy.NYI!MTB"
-        threat_id = "2147973467"
+        threat_id = "2147973473"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Neoreblamy"
