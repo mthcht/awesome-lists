@@ -71,3 +71,27 @@ rule Trojan_MacOS_Stealer_ABH_2147970496_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Stealer_A_2147973544_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Stealer.A!AMTB"
+        threat_id = "2147973544"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "exfil('AtomicWalletData.txt', content);" ascii //weight: 3
+        $x_2_2 = "/^(unlock|decrypt|openWallet|verifyPassword|authenticate|login|checkPassword|validatePassword|deriveKey|importWallet|restore)$/i" ascii //weight: 2
+        $x_1_3 = "exodus.wallet" ascii //weight: 1
+        $x_1_4 = "AtomicWallet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5364,3 +5364,37 @@ rule Trojan_Win32_CobaltStrike_CAI_2147970973_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CobaltStrike_CAQ_2147973501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CobaltStrike.CAQ!MTB"
+        threat_id = "2147973501"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "54"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c7 44 24 0c 04 00 00 00 c7 44 24 08 00 30 00 00 c7 44 24 04 ?? ?? ?? ?? 89 04 24 ff 15}  //weight: 10, accuracy: Low
+        $x_10_2 = {c7 44 24 04 ?? ?? ?? ?? 89 04 24 e8}  //weight: 10, accuracy: Low
+        $x_10_3 = {89 1c 24 89 44 24 0c c7 44 24 08 20 00 00 00 c7 44 24 04 ?? ?? ?? ?? ff 15}  //weight: 10, accuracy: Low
+        $x_10_4 = {89 1c 24 89 4c 24 14 89 4c 24 10 89 4c 24 0c ff 15}  //weight: 10, accuracy: High
+        $x_10_5 = {c7 44 24 04 ff ff ff ff 89 04 24 ff 15}  //weight: 10, accuracy: High
+        $x_1_6 = "sbiedll.dll" ascii //weight: 1
+        $x_1_7 = "vboxtray.exe" ascii //weight: 1
+        $x_1_8 = "vmtoolsd.exe" ascii //weight: 1
+        $x_1_9 = "procmon.exe" ascii //weight: 1
+        $x_1_10 = "wireshark.exe" ascii //weight: 1
+        $x_1_11 = "fiddler.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_10_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

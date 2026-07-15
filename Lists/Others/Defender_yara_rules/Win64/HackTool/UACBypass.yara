@@ -20,3 +20,34 @@ rule HackTool_Win64_UACBypass_AHB_2147961487_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_UACBypass_MK_2147973628_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/UACBypass.MK!MTB"
+        threat_id = "2147973628"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypass"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "forRundll: UAC bypass succeeded" ascii //weight: 15
+        $x_10_2 = "DllMain: SYSTEM agent detected via Global mutex" ascii //weight: 10
+        $x_5_3 = "connect(): KeylogHelper launched, KeylogThread skipped" ascii //weight: 5
+        $x_3_4 = "Keylogger ONLINE: Raw Input API + In-Memory XOR buffer ---]" ascii //weight: 3
+        $x_2_5 = "dll_hijack" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_15_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_15_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_15_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

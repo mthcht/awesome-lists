@@ -111090,12 +111090,12 @@ rule Trojan_MSIL_AgentTesla_ABRW_2147972966_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_RBM_2147973428_0
+rule Trojan_MSIL_AgentTesla_RBM_2147973456_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.RBM!MTB"
-        threat_id = "2147973428"
+        threat_id = "2147973456"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111112,12 +111112,12 @@ rule Trojan_MSIL_AgentTesla_RBM_2147973428_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_ABVK_2147973599_0
+rule Trojan_MSIL_AgentTesla_ABVK_2147973639_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.ABVK!MTB"
-        threat_id = "2147973599"
+        threat_id = "2147973639"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111128,6 +111128,28 @@ rule Trojan_MSIL_AgentTesla_ABVK_2147973599_0
         strings_accuracy = "Low"
     strings:
         $x_4_1 = {0a 06 02 7d ?? 00 00 04 00 7e ?? 00 00 04 06 7b ?? 00 00 04 6f ?? 00 00 0a a5 ?? 00 00 01 0b 06 7e ?? 00 00 04 06 7b ?? 00 00 04 6f ?? 00 00 0a a5 ?? 00 00 01 7d ?? 00 00 04 03 16 31 12 07 16 31 0e 06 7b ?? 00 00 04 16 fe 02 16 fe 01 2b 01 17 0c 08 2c}  //weight: 4, accuracy: Low
+        $x_1_2 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AgentTesla_ABRG_2147973640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.ABRG!MTB"
+        threat_id = "2147973640"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {38 55 00 00 00 73 28 00 00 06 13 00 38 8c 00 00 00 11 00 7e 18 00 00 04 11 00 7b 29 00 00 04 6f ?? 00 00 0a a5 03 00 00 01 7d 28 00 00 04 20 00 00 00 00 7e ab 00 00 04 7b 67 00 00 04 3a b5 ff ff ff 26 20 00 00 00 00 38 aa ff ff ff 11 01 16 3d 58 00 00 00 38 88 00 00 00 03 16 3d ec ff ff ff 38 21 00 00 00 38 3f 00 00 00 38 3a 00 00 00}  //weight: 4, accuracy: Low
         $x_1_2 = "GetPixel" ascii //weight: 1
     condition:
         (filesize < 20MB) and

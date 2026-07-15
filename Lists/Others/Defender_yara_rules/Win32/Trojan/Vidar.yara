@@ -7166,12 +7166,35 @@ rule Trojan_Win32_Vidar_LR_2147972053_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Vidar_MK_2147973578_0
+rule Trojan_Win32_Vidar_AA_2147973543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.AA!AMTB"
+        threat_id = "2147973543"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "SOFTWARE\\monero-project\\monero-core" ascii //weight: 3
+        $x_2_2 = "\\Monero\\wallet.keys" ascii //weight: 2
+        $x_2_3 = "wallet_path" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_MK_2147973615_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Vidar.MK!MTB"
-        threat_id = "2147973578"
+        threat_id = "2147973615"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Vidar"

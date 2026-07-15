@@ -57,6 +57,34 @@ rule Trojan_Win64_GreedyBear_NB_2147962644_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 8b 11 49 31 c2 44 0f b6 59 08 49 83 f3 ?? ?? 00 00 48 ff c1 48 ff ca 4d 09 d3 75}  //weight: 2, accuracy: Low
+        $x_2_2 = {4c 8b 11 49 31 c2 44 0f b6 59 ?? 49 83 f3 ?? 48 ff c1 48 ff ca 4d 09 d3 75}  //weight: 2, accuracy: Low
+        $x_2_3 = {44 8b 1a 41 31 c3 8b 72 ?? 31 ce 48 ff c2 49 ff ca 44 09 de 75}  //weight: 2, accuracy: Low
+        $x_1_4 = "VirtualBox MAC OUISystemManufacturer" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_GreedyBear_NB_2147962644_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GreedyBear.NB!MTB"
+        threat_id = "2147962644"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GreedyBear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

@@ -15010,12 +15010,12 @@ rule Trojan_MSIL_Remcos_RVK_2147972702_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_RVL_2147973423_0
+rule Trojan_MSIL_Remcos_RVL_2147973451_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Remcos.RVL!MTB"
-        threat_id = "2147973423"
+        threat_id = "2147973451"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"
@@ -15031,12 +15031,12 @@ rule Trojan_MSIL_Remcos_RVL_2147973423_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_PTR_2147973493_0
+rule Trojan_MSIL_Remcos_PTR_2147973523_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Remcos.PTR!MTB"
-        threat_id = "2147973493"
+        threat_id = "2147973523"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"
@@ -15054,12 +15054,12 @@ rule Trojan_MSIL_Remcos_PTR_2147973493_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_PZR_2147973494_0
+rule Trojan_MSIL_Remcos_PZR_2147973524_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Remcos.PZR!MTB"
-        threat_id = "2147973494"
+        threat_id = "2147973524"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"
@@ -15072,6 +15072,28 @@ rule Trojan_MSIL_Remcos_PZR_2147973494_0
         $x_2_1 = "LaserBounce.Properties.Resources.resources" ascii //weight: 2
         $x_2_2 = "$a86d980f-2db7-4182-841f-2f01a1b43d3f" ascii //weight: 2
         $x_2_3 = {57 d5 a2 fd 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 6b 00 00 00 19 00 00 00 67 00 00 00 2d 01 00 00 3b 00 00 00 d3 00 00 00 32 00 00 00 01 00 00 00 02 00 00 00 27 00 00 00 05 00 00 00 0b 00 00 00 0c 00 00 00 01 00 00 00 16 00 00 00 01 00 00 00 02 00 00 00 09 00 00 00 0b 00 00 00 02 00 00 00 05 00 00 00 01 00 00 00 0d 00 00 00 0b 00 00 00 14 00 00 00 7f 85 5c c2}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Remcos_SX_2147973607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.SX!MTB"
+        threat_id = "2147973607"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {13 0b 11 0b 28 13 00 00 0a 00 11 0b 73 14 00 00 0a 13 0c 11 0c 28 15 00 00 0a 13 0d 11 0d 28 16 00 00 0a 13 0e}  //weight: 10, accuracy: High
+        $x_2_2 = "OtnmpxnddVnptbN.mpxnddVn" wide //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

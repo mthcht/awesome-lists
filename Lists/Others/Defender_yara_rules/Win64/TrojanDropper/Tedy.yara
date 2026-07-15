@@ -70,3 +70,25 @@ rule TrojanDropper_Win64_Tedy_KK_2147965818_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_Tedy_CA_2147973502_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Tedy.CA!MTB"
+        threat_id = "2147973502"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 c1 c1 e9 ?? 30 0a 48 83 c2 01 49 39 d0}  //weight: 10, accuracy: Low
+        $x_10_2 = {0f b6 44 04 ?? 30 44 15 ?? 48 83 c2 01 48 81 fa ?? ?? ?? ?? 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

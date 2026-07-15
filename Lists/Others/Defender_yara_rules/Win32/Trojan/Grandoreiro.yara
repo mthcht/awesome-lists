@@ -479,6 +479,33 @@ rule Trojan_Win32_Grandoreiro_NG_2147896738_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Grandoreiro_NG_2147896738_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Grandoreiro.NG!MTB"
+        threat_id = "2147896738"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Grandoreiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {7c 55 8d 85 ?? ?? ff ff 8b 55 d0 83 f2 5a e8 ?? ?? bc ff 8b 95 ?? ?? ff ff 8d 45 e0}  //weight: 2, accuracy: Low
+        $x_2_2 = {eb 78 8d 85 70 fb ff ff 50 8b 55 d4 83 c2 01 71 05 e8 ?? ?? bc ff b9 02 00 00 00 8b 45 e4 e8 ?? ?? bc ff 8b 8d ?? ?? ff ff 8d 85}  //weight: 2, accuracy: Low
+        $x_1_3 = "RMMClient_Unique_Mutex_ID" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_Grandoreiro_DV_2147901043_0
 {
     meta:
