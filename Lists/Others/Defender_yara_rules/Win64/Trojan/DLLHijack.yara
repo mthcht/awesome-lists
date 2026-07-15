@@ -477,12 +477,12 @@ rule Trojan_Win64_DLLHijack_MCX_2147972812_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DV_2147973352_0
+rule Trojan_Win64_DLLHijack_DV_2147973369_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DV!MTB"
-        threat_id = "2147973352"
+        threat_id = "2147973369"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -501,12 +501,12 @@ rule Trojan_Win64_DLLHijack_DV_2147973352_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DW_2147973353_0
+rule Trojan_Win64_DLLHijack_DW_2147973370_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DW!MTB"
-        threat_id = "2147973353"
+        threat_id = "2147973370"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -522,12 +522,12 @@ rule Trojan_Win64_DLLHijack_DW_2147973353_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DX_2147973356_0
+rule Trojan_Win64_DLLHijack_DX_2147973373_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DX!MTB"
-        threat_id = "2147973356"
+        threat_id = "2147973373"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -544,12 +544,40 @@ rule Trojan_Win64_DLLHijack_DX_2147973356_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_AGXB_2147973402_0
+rule Trojan_Win64_DLLHijack_DZ_2147973377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DZ!MTB"
+        threat_id = "2147973377"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "q r!s\"t#u$v%w&x'y(z){*|+},-~." wide //weight: 1
+        $x_1_2 = {0d 00 13 ad 0d 00 24 ad 0d 00 35 ad 0d 00 4a ad 0d 00 5f ad 0d 00 85 ad 0d 00 b0 ad 0d 00 ca ad 0d 00 df ad 0d 00 f3 ad 0d 00 08 ae 0d 00 1d ae 0d 00 35 ae 0d 00 4b ae 0d 00 62 ae 0d 00 76 ae 0d 00 8f ae 0d 00 a7 ae 0d 00 c4 ae 0d 00 df ae 0d 00 f6 ae 0d 00 0d af 0d 00 25 af 0d 00 35 af 0d 00 4d af 0d 00 62 af 0d 00 72 af 0d 00 88 af 0d 00 9d af 0d 00 a8 af 0d 00 b3 af 0d 00 c6 af 0d 00}  //weight: 1, accuracy: High
+        $x_1_3 = {2b 49 04 00 3e 49 04 00 55 49 04 00 71 49 04 00 95 49 04 00 a7 49 04 00 c0 49 04 00 db 49 04 00 f8 49 04 00 15 4a 04 00 2f 4a 04 00 52 4a 04 00 63 4a 04 00 7e 4a 04 00 ad 4a 04 00 c5 4a 04 00 dd 4a 04 00 02 4b 04 00 15 4b 04 00 2f 4b 04 00}  //weight: 1, accuracy: High
+        $x_1_4 = {39 4c 74 0b 48 8d 41 e0 ba 01 00 00 00 eb 14 80 79 01 8b 75 ef 80 79 02 d1 75 e9 80 79 03 b8 75 e3 eb 6f 49 89 c0 80 38 4c 75 1b 80 78 01 8b 75 15 80 78 02 d1 75 0f 80 78 03 b8 75 09 89 d0 66 41 03 40 04 eb 50 83 c2 01 48 83 e8 20 81 fa f4 01 00 00 75 ce 48 8d 41 20 66 ba 01 00 80 38 4c 75 1a}  //weight: 1, accuracy: High
+        $x_1_5 = {0d d2 02 00 13 d2 02 00 19 d2 02 00 1f d2 02 00 27 d2 02 00 2f d2 02 00 36 d2 02 00 3b d2 02 00 42 d2 02 00 4a d2 02 00 50 d2 02 00 57 d2 02 00 5f d2 02 00 67 d2 02 00 72 d2 02 00 7f d2 02 00 8a d2 02 00 91 d2 02 00 98 d2 02 00 a2 d2 02 00 a9 d2 02 00 b1 d2 02 00 bb d2 02 00 c2 d2 02 00 ca d2 02 00 d1 d2 02 00 da d2 02 00 e5 d2 02 00 f0}  //weight: 1, accuracy: High
+        $x_1_6 = {74 21 80 38 4c 75 ec 80 78 01 8b 75 e6 80 78 02 d1 75 e0 80 78 03 b8 75 da 0f b7 40 04 29 d0 5d c3 66 90 31 c0 5d c3 80 79 01 8b 0f 85 7b ff ff ff 80 79 02 d1 0f 85 71 ff ff ff 80 79 03 b8 0f}  //weight: 1, accuracy: High
+        $x_1_7 = {4c 8d 25 e6 fd ff ff 29 f6 48 89 df f3 48 ab 48 89 d7 49 29 ec b1 20 f3 48 ab 48 89 d7 eb 2e c6 07 09 44 89 67 04 48 83 c6 01 8b 50 0c 48 83 c3 0c 89 53 f4 03 50 08 48 89 f8 48 29 e8 48 83 c7 08 89 43 fc 89 53 f8 48 83 fe 20 74 35 48 89 f1 e8 38 05 00 00 48 85 c0 75 c5 48 85 f6}  //weight: 1, accuracy: High
+        $x_1_8 = {07 c3 0d 5a 07 c4 0d 5b 07 5c 07 c5 0d 5d 07 5e 07 c6 0d 5f 07 c7 0d 60 07 c8 0d 61 07 c9 0d 62 07 ca 0d 63 07 cb 0d 64 07 cc 0d 65 07 cd 0d 66 07 ce 0d 67 07 cf 0d 68 07 d0 0d 69 07 d1 0d 6a 07 d2 0d 6b 07 d3 0d 6c 07 6d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_AGXB_2147973421_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.AGXB!MTB"
-        threat_id = "2147973402"
+        threat_id = "2147973421"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -571,12 +599,12 @@ rule Trojan_Win64_DLLHijack_AGXB_2147973402_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_GMX_2147973677_0
+rule Trojan_Win64_DLLHijack_GMX_2147973696_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.GMX!MTB"
-        threat_id = "2147973677"
+        threat_id = "2147973696"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"

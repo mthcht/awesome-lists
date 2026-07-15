@@ -490,12 +490,12 @@ rule Trojan_Win32_RemcosRAT_RVA_2147963364_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_RemcosRAT_RTT_2147973689_0
+rule Trojan_Win32_RemcosRAT_RTT_2147973708_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/RemcosRAT.RTT!MTB"
-        threat_id = "2147973689"
+        threat_id = "2147973708"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "RemcosRAT"

@@ -362,12 +362,12 @@ rule HackTool_Linux_SuspUnixReShellCmd_P_2147926566_0
         )
 }
 
-rule HackTool_Linux_SuspUnixReShellCmd_PA_2147973678_0
+rule HackTool_Linux_SuspUnixReShellCmd_PA_2147973697_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Linux/SuspUnixReShellCmd.PA"
-        threat_id = "2147973678"
+        threat_id = "2147973697"
         type = "HackTool"
         platform = "Linux: Linux platform"
         family = "SuspUnixReShellCmd"
