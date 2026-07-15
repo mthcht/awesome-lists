@@ -15010,12 +15010,12 @@ rule Trojan_MSIL_Remcos_RVK_2147972702_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_RVL_2147973418_0
+rule Trojan_MSIL_Remcos_RVL_2147973423_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Remcos.RVL!MTB"
-        threat_id = "2147973418"
+        threat_id = "2147973423"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"
@@ -15031,12 +15031,12 @@ rule Trojan_MSIL_Remcos_RVL_2147973418_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_PTR_2147973487_0
+rule Trojan_MSIL_Remcos_PTR_2147973493_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Remcos.PTR!MTB"
-        threat_id = "2147973487"
+        threat_id = "2147973493"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"
@@ -15049,6 +15049,29 @@ rule Trojan_MSIL_Remcos_PTR_2147973487_0
         $x_2_1 = {57 d5 a2 fd 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 6b 00 00 00 17 00 00 00 61 00 00 00 2c 01 00 00 46 00 00 00 d4 00 00 00 31 00 00 00 01 00 00 00 01 00 00 00 29 00 00 00 05 00 00 00 0b 00 00 00 0c 00 00 00 01 00 00 00 17 00 00 00 01 00 00 00 01 00 00 00 ?? 00 00 00 ?? 00 00 00 02 00 00 00 05}  //weight: 2, accuracy: Low
         $x_2_2 = "PixelPainter.Properties.Resources.resources" ascii //weight: 2
         $x_2_3 = "$A3D73C6F-9E69-4F54-9FE1-18F9DFEE34A6" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Remcos_PZR_2147973494_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.PZR!MTB"
+        threat_id = "2147973494"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "LaserBounce.Properties.Resources.resources" ascii //weight: 2
+        $x_2_2 = "$a86d980f-2db7-4182-841f-2f01a1b43d3f" ascii //weight: 2
+        $x_2_3 = {57 d5 a2 fd 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 6b 00 00 00 19 00 00 00 67 00 00 00 2d 01 00 00 3b 00 00 00 d3 00 00 00 32 00 00 00 01 00 00 00 02 00 00 00 27 00 00 00 05 00 00 00 0b 00 00 00 0c 00 00 00 01 00 00 00 16 00 00 00 01 00 00 00 02 00 00 00 09 00 00 00 0b 00 00 00 02 00 00 00 05 00 00 00 01 00 00 00 0d 00 00 00 0b 00 00 00 14 00 00 00 7f 85 5c c2}  //weight: 2, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -1,9 +1,9 @@
-rule Trojan_Win32_SharkLoader_AMTB_2147973505_0
+rule Trojan_Win32_SharkLoader_AMTB_2147973512_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/SharkLoader!AMTB"
-        threat_id = "2147973505"
+        threat_id = "2147973512"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "SharkLoader"

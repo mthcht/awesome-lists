@@ -243,12 +243,12 @@ rule Trojan_Win64_KeyLogger_KK_2147970441_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_KeyLogger_AC_2147973524_0
+rule Trojan_Win64_KeyLogger_AC_2147973531_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/KeyLogger.AC!MTB"
-        threat_id = "2147973524"
+        threat_id = "2147973531"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "KeyLogger"
@@ -265,12 +265,12 @@ rule Trojan_Win64_KeyLogger_AC_2147973524_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_KeyLogger_AD_2147973525_0
+rule Trojan_Win64_KeyLogger_AD_2147973532_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/KeyLogger.AD!MTB"
-        threat_id = "2147973525"
+        threat_id = "2147973532"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "KeyLogger"

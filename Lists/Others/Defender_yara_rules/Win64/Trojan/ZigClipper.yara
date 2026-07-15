@@ -1,9 +1,9 @@
-rule Trojan_Win64_ZigClipper_SNS_2147973430_0
+rule Trojan_Win64_ZigClipper_SNS_2147973436_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ZigClipper.SNS!MTB"
-        threat_id = "2147973430"
+        threat_id = "2147973436"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ZigClipper"

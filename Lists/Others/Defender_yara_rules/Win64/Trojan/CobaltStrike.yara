@@ -19611,12 +19611,12 @@ rule Trojan_Win64_CobaltStrike_SX_2147972619_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_CobaltStrike_DVR_2147973445_0
+rule Trojan_Win64_CobaltStrike_DVR_2147973451_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/CobaltStrike.DVR!MTB"
-        threat_id = "2147973445"
+        threat_id = "2147973451"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "CobaltStrike"
