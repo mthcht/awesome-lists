@@ -1,9 +1,9 @@
-rule Trojan_Linux_jscramSteal_DA_2147973351_0
+rule Trojan_Linux_jscramSteal_DA_2147973359_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Linux/jscramSteal.DA!MTB"
-        threat_id = "2147973351"
+        threat_id = "2147973359"
         type = "Trojan"
         platform = "Linux: Linux platform"
         family = "jscramSteal"

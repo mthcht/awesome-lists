@@ -74,12 +74,12 @@ rule Trojan_MSIL_Quasarrat_PQ_2147959949_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Quasarrat_PUR_2147973443_0
+rule Trojan_MSIL_Quasarrat_PUR_2147973451_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Quasarrat.PUR!MTB"
-        threat_id = "2147973443"
+        threat_id = "2147973451"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Quasarrat"

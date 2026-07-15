@@ -1,9 +1,9 @@
-rule Trojan_Win64_Romulusloader_MCT_2147973375_0
+rule Trojan_Win64_Romulusloader_MCT_2147973383_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Romulusloader.MCT!MTB"
-        threat_id = "2147973375"
+        threat_id = "2147973383"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Romulusloader"

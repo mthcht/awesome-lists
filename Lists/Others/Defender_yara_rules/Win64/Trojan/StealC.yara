@@ -1031,12 +1031,12 @@ rule Trojan_Win64_StealC_GVVA_2147972582_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_StealC_IDK_2147973413_0
+rule Trojan_Win64_StealC_IDK_2147973421_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/StealC.IDK!MTB"
-        threat_id = "2147973413"
+        threat_id = "2147973421"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "StealC"

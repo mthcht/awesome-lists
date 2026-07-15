@@ -26,12 +26,12 @@ rule VirTool_Win64_Slekesz_A_2147907205_0
         (all of ($x*))
 }
 
-rule VirTool_Win64_Slekesz_A_2147973417_0
+rule VirTool_Win64_Slekesz_A_2147973425_0
 {
     meta:
         author = "defender2yara"
         detection_name = "VirTool:Win64/Slekesz.A"
-        threat_id = "2147973417"
+        threat_id = "2147973425"
         type = "VirTool"
         platform = "Win64: Windows 64-bit platform"
         family = "Slekesz"
