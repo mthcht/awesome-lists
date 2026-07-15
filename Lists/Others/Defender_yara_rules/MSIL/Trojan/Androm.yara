@@ -2150,12 +2150,12 @@ rule Trojan_MSIL_Androm_SK_2147972062_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Androm_SNA_2147973608_0
+rule Trojan_MSIL_Androm_SNA_2147973610_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Androm.SNA!MTB"
-        threat_id = "2147973608"
+        threat_id = "2147973610"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Androm"

@@ -541,6 +541,27 @@ rule Trojan_Win32_Mikey_PGMY_2147964393_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff 15 0c 30 40 00 [0-8] ff 4c 24 ?? ?? ?? ?? 33 c0 [0-26] 75 02 ?? ?? ?? ?? 00 40 40 00 32 88 b8 15 40 00 [0-8] 80 f1 ?? 88 88 [0-15] 01 3d 20 14 00 00 72 d1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Mikey_PGMY_2147964393_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.PGMY!MTB"
+        threat_id = "2147964393"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:

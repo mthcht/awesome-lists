@@ -1,9 +1,9 @@
-rule Trojan_MSIL_BeepRat_ABXB_2147973429_0
+rule Trojan_MSIL_BeepRat_ABXB_2147973431_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/BeepRat.ABXB!MTB"
-        threat_id = "2147973429"
+        threat_id = "2147973431"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "BeepRat"

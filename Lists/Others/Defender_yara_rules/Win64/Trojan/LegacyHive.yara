@@ -1,9 +1,9 @@
-rule Trojan_Win64_LegacyHive_DA_2147973386_0
+rule Trojan_Win64_LegacyHive_DA_2147973388_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/LegacyHive.DA!MTB"
-        threat_id = "2147973386"
+        threat_id = "2147973388"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "LegacyHive"

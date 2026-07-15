@@ -539,12 +539,12 @@ rule Trojan_Win64_DonutLoader_GMX_2147973028_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DonutLoader_ADT_2147973594_0
+rule Trojan_Win64_DonutLoader_ADT_2147973596_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DonutLoader.ADT!MTB"
-        threat_id = "2147973594"
+        threat_id = "2147973596"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DonutLoader"
@@ -563,12 +563,12 @@ rule Trojan_Win64_DonutLoader_ADT_2147973594_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DonutLoader_ALD_2147973595_0
+rule Trojan_Win64_DonutLoader_ALD_2147973597_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DonutLoader.ALD!MTB"
-        threat_id = "2147973595"
+        threat_id = "2147973597"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DonutLoader"
