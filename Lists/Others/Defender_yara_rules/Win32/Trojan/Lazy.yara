@@ -3225,12 +3225,12 @@ rule Trojan_Win32_Lazy_KWX_2147972555_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Lazy_SX_2147973605_0
+rule Trojan_Win32_Lazy_SX_2147973614_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Lazy.SX!MTB"
-        threat_id = "2147973605"
+        threat_id = "2147973614"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Lazy"

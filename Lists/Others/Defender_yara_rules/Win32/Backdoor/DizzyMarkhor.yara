@@ -1,9 +1,9 @@
-rule Backdoor_Win32_DizzyMarkhor_C_2147973612_0
+rule Backdoor_Win32_DizzyMarkhor_C_2147973621_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:Win32/DizzyMarkhor.C!dha"
-        threat_id = "2147973612"
+        threat_id = "2147973621"
         type = "Backdoor"
         platform = "Win32: Windows 32-bit platform"
         family = "DizzyMarkhor"

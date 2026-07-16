@@ -70,12 +70,12 @@ rule TrojanDropper_Win64_Tedy_KK_2147965818_0
         (all of ($x*))
 }
 
-rule TrojanDropper_Win64_Tedy_CA_2147973502_0
+rule TrojanDropper_Win64_Tedy_CA_2147973510_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDropper:Win64/Tedy.CA!MTB"
-        threat_id = "2147973502"
+        threat_id = "2147973510"
         type = "TrojanDropper"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"

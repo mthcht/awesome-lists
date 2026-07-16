@@ -15049,12 +15049,12 @@ rule Trojan_Win32_ClickFix_MUG_2147973066_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_AHZ_2147973772_0
+rule Trojan_Win32_ClickFix_AHZ_2147973785_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.AHZ!MTB"
-        threat_id = "2147973772"
+        threat_id = "2147973785"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15074,12 +15074,63 @@ rule Trojan_Win32_ClickFix_AHZ_2147973772_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_TCZ_2147973773_0
+rule Trojan_Win32_ClickFix_BSZ_2147973786_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BSZ!MTB"
+        threat_id = "2147973786"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "s^t^a^r^t" wide //weight: 1
+        $x_1_2 = "for /f" wide //weight: 1
+        $x_1_3 = "f^^i^^n^^g^^e^^r" wide //weight: 1
+        $x_1_4 = ".^co^m" wide //weight: 1
+        $x_1_5 = "do %u" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_BTZ_2147973787_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BTZ!MTB"
+        threat_id = "2147973787"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-ep bypass" wide //weight: 1
+        $x_1_3 = "https:" wide //weight: 1
+        $x_1_4 = "index.php?" wide //weight: 1
+        $x_1_5 = "TEMP" wide //weight: 1
+        $x_1_6 = "[Net.WebClient]" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_TCZ_2147973788_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.TCZ!MTB"
-        threat_id = "2147973773"
+        threat_id = "2147973788"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15095,6 +15146,58 @@ rule Trojan_Win32_ClickFix_TCZ_2147973773_0
         $x_1_4 = "\\Downloads\\tmp" wide //weight: 1
         $x_1_5 = "I am not a robot reCAPTCHA" wide //weight: 1
         $x_1_6 = "Verif" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_TDZ_2147973789_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.TDZ!MTB"
+        threat_id = "2147973789"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "irm" wide //weight: 1
+        $x_1_2 = "schtasks /create" wide //weight: 1
+        $x_1_3 = ".xyz/" wide //weight: 1
+        $x_1_4 = "Enter" wide //weight: 1
+        $x_1_5 = "/sc minute" wide //weight: 1
+        $x_1_6 = ".PowerShell]::Create" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_TEE_2147973790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.TEE!MTB"
+        threat_id = "2147973790"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd /v:on" wide //weight: 1
+        $x_1_2 = "ll&!p!!" wide //weight: 1
+        $x_1_3 = "e!!l!" wide //weight: 1
+        $x_1_4 = "iex(irm" wide //weight: 1
+        $x_1_5 = "pow&set" wide //weight: 1
+        $x_1_6 = ".net/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

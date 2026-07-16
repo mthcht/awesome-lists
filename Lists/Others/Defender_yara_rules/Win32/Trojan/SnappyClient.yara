@@ -1,9 +1,9 @@
-rule Trojan_Win32_SnappyClient_A_2147973656_0
+rule Trojan_Win32_SnappyClient_A_2147973665_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/SnappyClient.A!AMTB"
-        threat_id = "2147973656"
+        threat_id = "2147973665"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "SnappyClient"
