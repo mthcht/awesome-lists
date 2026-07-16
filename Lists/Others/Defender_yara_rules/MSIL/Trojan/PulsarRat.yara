@@ -43,12 +43,12 @@ rule Trojan_MSIL_PulsarRat_GDB_2147966591_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PulsarRat_A_2147973709_0
+rule Trojan_MSIL_PulsarRat_A_2147973722_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PulsarRat.A!AMTB"
-        threat_id = "2147973709"
+        threat_id = "2147973722"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PulsarRat"

@@ -5364,12 +5364,12 @@ rule Trojan_Win32_CobaltStrike_CAI_2147970973_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_CobaltStrike_CAQ_2147973546_0
+rule Trojan_Win32_CobaltStrike_CAQ_2147973556_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/CobaltStrike.CAQ!MTB"
-        threat_id = "2147973546"
+        threat_id = "2147973556"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "CobaltStrike"

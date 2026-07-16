@@ -18416,12 +18416,12 @@ rule Trojan_MSIL_FormBook_ABFK_2147973044_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_RSK_2147973489_0
+rule Trojan_MSIL_FormBook_RSK_2147973495_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.RSK!MTB"
-        threat_id = "2147973489"
+        threat_id = "2147973495"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"
@@ -18438,12 +18438,12 @@ rule Trojan_MSIL_FormBook_RSK_2147973489_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_RSL_2147973491_0
+rule Trojan_MSIL_FormBook_RSL_2147973497_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.RSL!MTB"
-        threat_id = "2147973491"
+        threat_id = "2147973497"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"
@@ -18459,12 +18459,34 @@ rule Trojan_MSIL_FormBook_RSL_2147973491_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_FormBook_PGFL_2147973606_0
+rule Trojan_MSIL_FormBook_YZP_2147973592_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.YZP!MTB"
+        threat_id = "2147973592"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {72 98 03 00 70 28 ?? 00 00 0a 80 25 00 00 04 38 3f 00 00 00 2a d0 47 00 00 01 28 ?? 00 00 0a 72 9c 03 00 70 18 8d 3d 00 00 01 25 16 d0 03 00 00 01 28 ?? 00 00 0a a2 25 17 d0 03 00 00 01 28 ?? 00 00 0a a2}  //weight: 10, accuracy: Low
+        $x_1_2 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_PGFL_2147973619_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/FormBook.PGFL!MTB"
-        threat_id = "2147973606"
+        threat_id = "2147973619"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FormBook"

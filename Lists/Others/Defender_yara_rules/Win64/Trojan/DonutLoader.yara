@@ -539,12 +539,35 @@ rule Trojan_Win64_DonutLoader_GMX_2147973028_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DonutLoader_ADT_2147973697_0
+rule Trojan_Win64_DonutLoader_SMF_2147973545_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DonutLoader.SMF!MTB"
+        threat_id = "2147973545"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {89 c8 c1 e8 11 01 c8 89 c1 c1 e9 11 31 c1 89 ca f7 d2 8b 05 5c 5e 0b 00 41 89 c0 41 31 d0}  //weight: 2, accuracy: High
+        $x_2_2 = {41 81 c0 93 0f 51 b7 41 31 c0 c1 e8 08 44 31 c0 31 c2 81 f2 e2 05 cd 53 89 54 24 34 31 44 24 34 8b 44 24 34 ba d8 13 39 ac 31 d0 44 8b 44 24 34 44 89 c2 c1 e2 0f 41 29 d0 44 89 c2 c1 ea 0f 44 31 c2 f7 d2 39 c1 0f 8d 7c 3b 00 00 89 d0 c1 e0 0f 89 d1 29 c1}  //weight: 2, accuracy: High
+        $x_1_3 = "VigorOnlineRPC_BootstrapPowerOn" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DonutLoader_ADT_2147973710_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DonutLoader.ADT!MTB"
-        threat_id = "2147973697"
+        threat_id = "2147973710"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DonutLoader"
@@ -563,12 +586,12 @@ rule Trojan_Win64_DonutLoader_ADT_2147973697_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DonutLoader_ALD_2147973698_0
+rule Trojan_Win64_DonutLoader_ALD_2147973711_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DonutLoader.ALD!MTB"
-        threat_id = "2147973698"
+        threat_id = "2147973711"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DonutLoader"

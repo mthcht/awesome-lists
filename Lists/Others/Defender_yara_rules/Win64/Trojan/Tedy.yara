@@ -7136,12 +7136,12 @@ rule Trojan_Win64_Tedy_GMF_2147973024_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_YDQ_2147973495_0
+rule Trojan_Win64_Tedy_YDQ_2147973501_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.YDQ!MTB"
-        threat_id = "2147973495"
+        threat_id = "2147973501"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7161,12 +7161,12 @@ rule Trojan_Win64_Tedy_YDQ_2147973495_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_Tedy_YDR_2147973496_0
+rule Trojan_Win64_Tedy_YDR_2147973502_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.YDR!MTB"
-        threat_id = "2147973496"
+        threat_id = "2147973502"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7183,12 +7183,12 @@ rule Trojan_Win64_Tedy_YDR_2147973496_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_SNM_2147973502_0
+rule Trojan_Win64_Tedy_SNM_2147973508_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.SNM!MTB"
-        threat_id = "2147973502"
+        threat_id = "2147973508"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7209,12 +7209,12 @@ rule Trojan_Win64_Tedy_SNM_2147973502_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_CAN_2147973542_0
+rule Trojan_Win64_Tedy_CAN_2147973552_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.CAN!MTB"
-        threat_id = "2147973542"
+        threat_id = "2147973552"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7230,12 +7230,12 @@ rule Trojan_Win64_Tedy_CAN_2147973542_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_AHV_2147973618_0
+rule Trojan_Win64_Tedy_AHV_2147973631_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.AHV!MTB"
-        threat_id = "2147973618"
+        threat_id = "2147973631"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7252,12 +7252,12 @@ rule Trojan_Win64_Tedy_AHV_2147973618_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_LRG_2147973635_0
+rule Trojan_Win64_Tedy_LRG_2147973648_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.LRG!MTB"
-        threat_id = "2147973635"
+        threat_id = "2147973648"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7311,12 +7311,12 @@ rule Trojan_Win64_Tedy_LRG_2147973635_0
         )
 }
 
-rule Trojan_Win64_Tedy_SXP_2147973646_0
+rule Trojan_Win64_Tedy_SXP_2147973659_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.SXP!MTB"
-        threat_id = "2147973646"
+        threat_id = "2147973659"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7333,12 +7333,12 @@ rule Trojan_Win64_Tedy_SXP_2147973646_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_MKU_2147973668_0
+rule Trojan_Win64_Tedy_MKU_2147973681_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.MKU!MTB"
-        threat_id = "2147973668"
+        threat_id = "2147973681"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7355,12 +7355,12 @@ rule Trojan_Win64_Tedy_MKU_2147973668_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_MKV_2147973673_0
+rule Trojan_Win64_Tedy_MKV_2147973686_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.MKV!MTB"
-        threat_id = "2147973673"
+        threat_id = "2147973686"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7377,12 +7377,12 @@ rule Trojan_Win64_Tedy_MKV_2147973673_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ARS_2147973682_0
+rule Trojan_Win64_Tedy_ARS_2147973695_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.ARS!MTB"
-        threat_id = "2147973682"
+        threat_id = "2147973695"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7399,12 +7399,12 @@ rule Trojan_Win64_Tedy_ARS_2147973682_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_GH_2147973701_0
+rule Trojan_Win64_Tedy_GH_2147973714_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.GH!MTB"
-        threat_id = "2147973701"
+        threat_id = "2147973714"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"
@@ -7423,12 +7423,12 @@ rule Trojan_Win64_Tedy_GH_2147973701_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_AE_2147973707_0
+rule Trojan_Win64_Tedy_AE_2147973720_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Tedy.AE!AMTB"
-        threat_id = "2147973707"
+        threat_id = "2147973720"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Tedy"

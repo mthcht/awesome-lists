@@ -1,9 +1,9 @@
-rule VirTool_Win64_Sheledz_A_2147973538_0
+rule VirTool_Win64_Sheledz_A_2147973548_0
 {
     meta:
         author = "defender2yara"
         detection_name = "VirTool:Win64/Sheledz.A"
-        threat_id = "2147973538"
+        threat_id = "2147973548"
         type = "VirTool"
         platform = "Win64: Windows 64-bit platform"
         family = "Sheledz"

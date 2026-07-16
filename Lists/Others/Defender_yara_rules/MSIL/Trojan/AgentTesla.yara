@@ -111090,12 +111090,12 @@ rule Trojan_MSIL_AgentTesla_ABRW_2147972966_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_RBM_2147973492_0
+rule Trojan_MSIL_AgentTesla_RBM_2147973498_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.RBM!MTB"
-        threat_id = "2147973492"
+        threat_id = "2147973498"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111112,12 +111112,35 @@ rule Trojan_MSIL_AgentTesla_RBM_2147973492_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_ABVK_2147973691_0
+rule Trojan_MSIL_AgentTesla_PZR_2147973585_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.PZR!MTB"
+        threat_id = "2147973585"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "WaterCycle.Properties.Resources.resources" ascii //weight: 2
+        $x_2_2 = "$a1b2c3d4-e5f6-7890-1234-567890abcdef" ascii //weight: 2
+        $x_2_3 = {00 00 00 00 02 00 00 01 57 9d a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 66 00 00 00 1d 00 00 00 ?? 00 00 00 5e 00 00 00 35 00 00 00 9a 00 00 00 01 00 00 00 21 00 00 00 0b 00 00 00 10 00 00 00 02 00 00 00 06 00 00 00 07 00 00 00 0e 00 00 00 0e 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 10 00 00 00 02 00 00 00 07 00 00 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AgentTesla_ABVK_2147973704_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.ABVK!MTB"
-        threat_id = "2147973691"
+        threat_id = "2147973704"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111134,12 +111157,12 @@ rule Trojan_MSIL_AgentTesla_ABVK_2147973691_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_ABRG_2147973692_0
+rule Trojan_MSIL_AgentTesla_ABRG_2147973705_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.ABRG!MTB"
-        threat_id = "2147973692"
+        threat_id = "2147973705"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"

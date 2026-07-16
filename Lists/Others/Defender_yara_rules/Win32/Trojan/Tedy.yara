@@ -1486,6 +1486,27 @@ rule Trojan_Win32_Tedy_SCK_2147972625_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_SCK_2147972625_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.SCK!MTB"
+        threat_id = "2147972625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2e 74 65 78 74 00 00 00 0c 82 81 01 00 10 00 00 00 84 81 01 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 60 00 00 60 2e 64 61 74 61 00 00 00 cc 1d 00 00 00 a0 81 01 00 1e 00 00 00 88 81 01 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0 2e 72 64 61 74 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Tedy_MKC_2147972686_0
 {
     meta:
@@ -1533,12 +1554,12 @@ rule Trojan_Win32_Tedy_KPN_2147972991_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_GPKA_2147973557_0
+rule Trojan_Win32_Tedy_GPKA_2147973567_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Tedy.GPKA!MTB"
-        threat_id = "2147973557"
+        threat_id = "2147973567"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Tedy"

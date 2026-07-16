@@ -197,3 +197,27 @@ rule Trojan_Win64_Androm_ABN_2147961271_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Androm_SNT_2147973514_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Androm.SNT!MTB"
+        threat_id = "2147973514"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "svchost.exe" ascii //weight: 1
+        $x_1_2 = "powershell" ascii //weight: 1
+        $x_5_3 = "158.94.211.92" ascii //weight: 5
+        $x_1_4 = "enterprise/student_s.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
