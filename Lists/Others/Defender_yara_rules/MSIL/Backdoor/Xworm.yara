@@ -1,9 +1,9 @@
-rule Backdoor_MSIL_Xworm_MK_2147973640_0
+rule Backdoor_MSIL_Xworm_MK_2147973641_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:MSIL/Xworm.MK!MTB"
-        threat_id = "2147973640"
+        threat_id = "2147973641"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Xworm"

@@ -212,12 +212,12 @@ rule Trojan_MSIL_BadJoke_MKA_2147965937_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_BadJoke_AAA_2147973440_0
+rule Trojan_MSIL_BadJoke_AAA_2147973441_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/BadJoke.AAA!AMTB"
-        threat_id = "2147973440"
+        threat_id = "2147973441"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "BadJoke"

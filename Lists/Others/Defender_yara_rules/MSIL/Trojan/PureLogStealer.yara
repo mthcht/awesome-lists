@@ -4539,12 +4539,12 @@ rule Trojan_MSIL_PureLogStealer_AGWB_2147971188_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureLogStealer_RVG_2147973466_0
+rule Trojan_MSIL_PureLogStealer_RVG_2147973467_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureLogStealer.RVG!MTB"
-        threat_id = "2147973466"
+        threat_id = "2147973467"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureLogStealer"

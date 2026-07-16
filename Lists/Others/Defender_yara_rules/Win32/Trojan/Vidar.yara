@@ -7166,12 +7166,12 @@ rule Trojan_Win32_Vidar_LR_2147972053_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Vidar_AA_2147973556_0
+rule Trojan_Win32_Vidar_AA_2147973557_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Vidar.AA!AMTB"
-        threat_id = "2147973556"
+        threat_id = "2147973557"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Vidar"
@@ -7189,12 +7189,12 @@ rule Trojan_Win32_Vidar_AA_2147973556_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Vidar_MK_2147973628_0
+rule Trojan_Win32_Vidar_MK_2147973629_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Vidar.MK!MTB"
-        threat_id = "2147973628"
+        threat_id = "2147973629"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Vidar"

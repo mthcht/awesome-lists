@@ -1369,12 +1369,12 @@ rule Ransom_MSIL_HiddenTear_F_2147972527_0
         )
 }
 
-rule Ransom_MSIL_HiddenTear_G_2147973484_0
+rule Ransom_MSIL_HiddenTear_G_2147973485_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:MSIL/HiddenTear.G!AMTB"
-        threat_id = "2147973484"
+        threat_id = "2147973485"
         type = "Ransom"
         platform = "MSIL: .NET intermediate language scripts"
         family = "HiddenTear"
