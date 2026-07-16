@@ -1,9 +1,9 @@
-rule Trojan_Win32_CodfishSupplyChain_RZT_2147973787_0
+rule Trojan_Win32_CodfishSupplyChain_RZT_2147973788_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/CodfishSupplyChain.RZT!MTB"
-        threat_id = "2147973787"
+        threat_id = "2147973788"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "CodfishSupplyChain"

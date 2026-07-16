@@ -1,9 +1,9 @@
-rule Trojan_Win64_SharpDump_Z_2147973449_0
+rule Trojan_Win64_SharpDump_Z_2147973450_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/SharpDump.Z!MTB"
-        threat_id = "2147973449"
+        threat_id = "2147973450"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "SharpDump"

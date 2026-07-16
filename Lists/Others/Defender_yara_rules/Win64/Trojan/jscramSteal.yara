@@ -1,9 +1,9 @@
-rule Trojan_Win64_jscramSteal_DA_2147973426_0
+rule Trojan_Win64_jscramSteal_DA_2147973427_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/jscramSteal.DA!MTB"
-        threat_id = "2147973426"
+        threat_id = "2147973427"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "jscramSteal"

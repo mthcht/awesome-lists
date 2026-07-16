@@ -20,12 +20,12 @@ rule HackTool_Win64_UACBypass_AHB_2147961487_0
         (all of ($x*))
 }
 
-rule HackTool_Win64_UACBypass_MK_2147973640_0
+rule HackTool_Win64_UACBypass_MK_2147973641_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Win64/UACBypass.MK!MTB"
-        threat_id = "2147973640"
+        threat_id = "2147973641"
         type = "HackTool"
         platform = "Win64: Windows 64-bit platform"
         family = "UACBypass"

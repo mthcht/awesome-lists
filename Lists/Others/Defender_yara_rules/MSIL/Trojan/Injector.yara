@@ -2410,12 +2410,12 @@ rule Trojan_MSIL_Injector_NYA_2147973043_0
         )
 }
 
-rule Trojan_MSIL_Injector_LRB_2147973595_0
+rule Trojan_MSIL_Injector_LRB_2147973596_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Injector.LRB!MTB"
-        threat_id = "2147973595"
+        threat_id = "2147973596"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Injector"
@@ -2431,12 +2431,12 @@ rule Trojan_MSIL_Injector_LRB_2147973595_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Injector_MKB_2147973634_0
+rule Trojan_MSIL_Injector_MKB_2147973635_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Injector.MKB!MTB"
-        threat_id = "2147973634"
+        threat_id = "2147973635"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Injector"

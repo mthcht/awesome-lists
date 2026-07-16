@@ -666,12 +666,12 @@ rule Trojan_Win32_ValleyRat_AVR_2147969428_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRat_C_2147973482_0
+rule Trojan_Win32_ValleyRat_C_2147973483_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRat.C!AMTB"
-        threat_id = "2147973482"
+        threat_id = "2147973483"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRat"
@@ -689,12 +689,12 @@ rule Trojan_Win32_ValleyRat_C_2147973482_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRat_BAA_2147973561_0
+rule Trojan_Win32_ValleyRat_BAA_2147973562_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRat.BAA!MTB"
-        threat_id = "2147973561"
+        threat_id = "2147973562"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRat"

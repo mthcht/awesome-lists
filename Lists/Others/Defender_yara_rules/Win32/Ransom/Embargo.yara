@@ -132,12 +132,12 @@ rule Ransom_Win32_Embargo_HA_2147966658_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_Embargo_C_2147973543_0
+rule Ransom_Win32_Embargo_C_2147973544_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/Embargo.C"
-        threat_id = "2147973543"
+        threat_id = "2147973544"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "Embargo"
