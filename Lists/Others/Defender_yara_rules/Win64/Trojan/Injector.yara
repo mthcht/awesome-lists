@@ -907,12 +907,12 @@ rule Trojan_Win64_Injector_MKA_2147972731_0
         )
 }
 
-rule Trojan_Win64_Injector_SXQ_2147973615_0
+rule Trojan_Win64_Injector_SXQ_2147973618_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Injector.SXQ!MTB"
-        threat_id = "2147973615"
+        threat_id = "2147973618"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Injector"

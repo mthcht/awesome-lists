@@ -271,12 +271,12 @@ rule Trojan_Win32_ValleyRAT_AHE_2147972296_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRAT_SLXE_2147973527_0
+rule Trojan_Win32_ValleyRAT_SLXE_2147973530_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRAT.SLXE!!MTB"
-        threat_id = "2147973527"
+        threat_id = "2147973530"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRAT"

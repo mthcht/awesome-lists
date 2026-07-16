@@ -1,9 +1,9 @@
-rule Backdoor_MSIL_BlueOtter_A_2147973454_0
+rule Backdoor_MSIL_BlueOtter_A_2147973457_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:MSIL/BlueOtter.A!dha"
-        threat_id = "2147973454"
+        threat_id = "2147973457"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
         family = "BlueOtter"
