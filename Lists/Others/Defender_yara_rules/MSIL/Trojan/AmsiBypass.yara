@@ -96,12 +96,12 @@ rule Trojan_MSIL_AmsiBypass_CCHZ_2147910221_0
         )
 }
 
-rule Trojan_MSIL_AmsiBypass_LRB_2147973611_0
+rule Trojan_MSIL_AmsiBypass_LRB_2147973631_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AmsiBypass.LRB!MTB"
-        threat_id = "2147973611"
+        threat_id = "2147973631"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AmsiBypass"

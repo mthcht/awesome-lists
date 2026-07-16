@@ -210,12 +210,12 @@ rule Ransom_MSIL_LockScreen_AYA_2147966392_0
         (all of ($x*))
 }
 
-rule Ransom_MSIL_LockScreen_AMTB_2147973499_0
+rule Ransom_MSIL_LockScreen_AMTB_2147973517_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:MSIL/LockScreen!AMTB"
-        threat_id = "2147973499"
+        threat_id = "2147973517"
         type = "Ransom"
         platform = "MSIL: .NET intermediate language scripts"
         family = "LockScreen"

@@ -858,12 +858,12 @@ rule Trojan_MSIL_RemcosRAT_SL_2147966085_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RemcosRAT_RVL_2147973475_0
+rule Trojan_MSIL_RemcosRAT_RVL_2147973486_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/RemcosRAT.RVL!MTB"
-        threat_id = "2147973475"
+        threat_id = "2147973486"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "RemcosRAT"
@@ -875,6 +875,29 @@ rule Trojan_MSIL_RemcosRAT_RVL_2147973475_0
     strings:
         $x_5_1 = {00 02 11 20 16 94 11 20 17 94 6f ?? ?? 00 0a 13 16 11 20 16 94 13 17 11 20 17 94 13 18 09 11 20 16 94 09 6f ?? ?? 00 0a 5d 6f ?? ?? 00 0a 13 27 11 06 11 27 6f ?? 00 00 06 6c 23 95 d6 26 e8 0b 2e 11 3e 5a 58 13 28 11 28 28 ?? ?? 00 0a 13 29 11 29 2c 05 38 b7 00 00 00 00 11 1b 11 20 6f ?? ?? 00 0a 00}  //weight: 5, accuracy: Low
         $x_2_2 = {11 2a 17 2e 0d 2b 16 12 16 28 ?? ?? 00 0a 13 21 2b 16 12 16 28 ?? ?? 00 0a 13 21 2b 0b 12 16 28 ?? ?? 00 0a 13 21 2b 00 11 1a 11 21 11 20 18 94 6f ?? ?? 00 0a 13 22 11 12 11 22 6f ?? ?? 00 0a 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RemcosRAT_ARR_2147973684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RemcosRAT.ARR!MTB"
+        threat_id = "2147973684"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {19 2b fa 02 17 7e ?? ?? 00 04 1f 65 7e ?? ?? 00 04 1f 65 91 7e ?? 00 00 04 20 ?? ?? ?? ?? 94 61 1f 60 5f 9c 58 2b 01}  //weight: 11, accuracy: Low
+        $x_9_2 = {13 08 2b be 02 08 91 0d 03 06 91 13 04 09 05 61 11 04 61 13 05 16 13 08 2b a8}  //weight: 9, accuracy: High
+        $x_5_3 = "$F9D8C7A6-5E4B-4A3D-9F2C-8B1A7E6D5F4C" ascii //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

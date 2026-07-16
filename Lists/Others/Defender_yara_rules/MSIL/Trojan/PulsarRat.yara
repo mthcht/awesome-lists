@@ -43,3 +43,31 @@ rule Trojan_MSIL_PulsarRat_GDB_2147966591_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PulsarRat_A_2147973709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PulsarRat.A!AMTB"
+        threat_id = "2147973709"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PulsarRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Pulsar.Client.Helper.HVNC.Chromium.OperaPatcher+<PatchOperaAsync>" ascii //weight: 3
+        $x_3_2 = "Pulsar.Common.Messages.Monitoring.KeyLogger" ascii //weight: 3
+        $x_3_3 = "Pulsar.Common.Messages.Monitoring.Passwords" ascii //weight: 3
+        $x_3_4 = "encryptedPassword" ascii //weight: 3
+        $x_2_5 = "Pulsar.Common.Messages.Monitoring.RemoteDesktop" ascii //weight: 2
+        $x_2_6 = "Pulsar.Common.Messages.Administration.ReverseProxy" ascii //weight: 2
+        $x_2_7 = "executeInMemory" ascii //weight: 2
+        $x_1_8 = "DoDisableTaskManager" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2228,3 +2228,33 @@ rule Trojan_Win64_Rozena_SRT_2147971831_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_C_2147973712_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.C!AMTB"
+        threat_id = "2147973712"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = "Software\\Microsoft\\AMSI\\Providers" ascii //weight: 3
+        $x_3_2 = {73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 20 00 22 00 [0-20] 22 00 20 00 2f 00 74 00 72 00 20 00 22 00 25 00 73 00 22 00 20 00 2f 00 73 00 63 00 20 00 6f 00 6e 00 6c 00 6f 00 67 00 6f 00 6e 00 20 00 2f 00 72 00 6c 00 20 00 68 00 69 00 67 00 68 00 65 00 73 00 74 00 20 00 2f 00 66 00}  //weight: 3, accuracy: Low
+        $x_3_3 = {73 63 68 74 61 73 6b 73 20 2f 63 72 65 61 74 65 20 2f 74 6e 20 22 [0-20] 22 20 2f 74 72 20 22 25 73 22 20 2f 73 63 20 6f 6e 6c 6f 67 6f 6e 20 2f 72 6c 20 68 69 67 68 65 73 74 20 2f 66}  //weight: 3, accuracy: Low
+        $x_3_4 = "cmd.exe /c timeout /t 1 /nobreak && del /f /q \"%s\"" ascii //weight: 3
+        $x_2_5 = "vmware.dll" ascii //weight: 2
+        $x_2_6 = "vboxguest.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((4 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -9736,12 +9736,12 @@ rule Trojan_Win32_Neoreblamy_NYE_2147973022_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreblamy_NYG_2147973543_0
+rule Trojan_Win32_Neoreblamy_NYG_2147973562_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Neoreblamy.NYG!MTB"
-        threat_id = "2147973543"
+        threat_id = "2147973562"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Neoreblamy"
@@ -9758,12 +9758,12 @@ rule Trojan_Win32_Neoreblamy_NYG_2147973543_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreblamy_NYI_2147973544_0
+rule Trojan_Win32_Neoreblamy_NYI_2147973563_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Neoreblamy.NYI!MTB"
-        threat_id = "2147973544"
+        threat_id = "2147973563"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Neoreblamy"
@@ -9780,12 +9780,12 @@ rule Trojan_Win32_Neoreblamy_NYI_2147973544_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Neoreblamy_NYJ_2147973546_0
+rule Trojan_Win32_Neoreblamy_NYJ_2147973565_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Neoreblamy.NYJ!MTB"
-        threat_id = "2147973546"
+        threat_id = "2147973565"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Neoreblamy"
@@ -9797,6 +9797,28 @@ rule Trojan_Win32_Neoreblamy_NYJ_2147973546_0
     strings:
         $x_2_1 = {eb 09 8b 45 a4 83 c0 01 89 45 a4 83 7d a4 01 7d 0d 8b 4d a4}  //weight: 2, accuracy: High
         $x_1_2 = {6b c2 00 8b 8d ?? ?? ff ff 89 4c 05 88}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Neoreblamy_NYK_2147973566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Neoreblamy.NYK!MTB"
+        threat_id = "2147973566"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Neoreblamy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {eb 09 8b 4d e8 83 c1 01 89 4d e8 83 7d e8 01 7d 10 8b 55 e8}  //weight: 2, accuracy: High
+        $x_1_2 = {6b d1 00 8b 84 15 ?? ?? ff ff 83 e8 01}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

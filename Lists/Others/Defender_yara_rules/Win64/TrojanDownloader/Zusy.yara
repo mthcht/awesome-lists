@@ -108,3 +108,27 @@ rule TrojanDownloader_Win64_Zusy_AHB_2147965875_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Zusy_KKA_2147973641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Zusy.KKA!MTB"
+        threat_id = "2147973641"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "powershell -WindowStyle Hidden -Command \"$WshShell = New-Object -ComObject WScript.Shell" ascii //weight: 4
+        $x_3_2 = "powershell -WindowStyle Hidden -Command \"Add-MpPreference -ExclusionPath '%s' -ErrorAction SilentlyContinue\"" ascii //weight: 3
+        $x_2_3 = "schtasks /create /tn \"%s\" /tr \"%s\\%s\" /sc hourly /mo 1 /f" ascii //weight: 2
+        $x_1_4 = "%s\\WindowsHelper.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -126,3 +126,29 @@ rule Ransom_Win32_BlackMatter_PAB_2147795391_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_BlackMatter_YDQ_2147973498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/BlackMatter.YDQ!MTB"
+        threat_id = "2147973498"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BlackMatter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {53 56 57 8d bd 84 fc ff ff b9 00 c2 eb 0b e2 fe}  //weight: 2, accuracy: High
+        $x_1_2 = {8a 96 bf 38 5a 5b f9 d9 95 23 14 52 12 33 91 8f 78 3c a9 73 a2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_1_*))) or
+            ((1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

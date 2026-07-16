@@ -376,3 +376,25 @@ rule Ransom_Win32_Maze_ARA_2147897438_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Maze_YSN_2147973494_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Maze.YSN!MTB"
+        threat_id = "2147973494"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Maze"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {fe ce 80 cc 7e fe c1 81 fb 64 23 00 00 0f 84 96 0e 00 00 81 f7 84 15 00 00 66 21 d6 b1 7d 89 d1 66 29 d6 66 81 e1}  //weight: 1, accuracy: High
+        $x_3_2 = {29 fa 66 09 c6 89 f1 00 e1 ba 11 22 00 00 2d 95 0c 00 00 81 fb c1 09 00 00 0f 84 87 17 00 00 88 f5 f6 d2}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

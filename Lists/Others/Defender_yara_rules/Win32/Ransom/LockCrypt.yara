@@ -121,3 +121,29 @@ rule Ransom_Win32_LockCrypt_PD_2147809019_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_LockCrypt_ARR_2147973683_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockCrypt.ARR!MTB"
+        threat_id = "2147973683"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {32 c1 02 c1 34 ?? 02 c1 32 c1 02 c1 32 c1 2c ?? 32 c1 02 c1}  //weight: 10, accuracy: Low
+        $x_5_2 = {8b 0a 33 c8 23 cb 33 c8 8b c1 d1 e9 83 e0 01 8b 04 85 ?? ?? ?? ?? 33 82 70 ?? ?? ?? 33 c1 89 07 8b fa 8b 02}  //weight: 5, accuracy: Low
+        $x_4_3 = "To restore files write to the mail: lokeradmin@cock.li" ascii //weight: 4
+        $x_3_4 = "If we dont respond within 24 hours - write to the mail: adminsysloker@airmail.cc" ascii //weight: 3
+        $x_1_5 = "In subject: {KEY11111}" ascii //weight: 1
+        $x_2_6 = "If you dont write immediately - the price will be higher." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

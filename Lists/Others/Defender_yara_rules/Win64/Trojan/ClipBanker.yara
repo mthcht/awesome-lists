@@ -1712,12 +1712,12 @@ rule Trojan_Win64_ClipBanker_SXC_2147972504_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ClipBanker_AAA_2147973449_0
+rule Trojan_Win64_ClipBanker_AAA_2147973460_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ClipBanker.AAA!AMTB"
-        threat_id = "2147973449"
+        threat_id = "2147973460"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ClipBanker"
@@ -1739,12 +1739,12 @@ rule Trojan_Win64_ClipBanker_AAA_2147973449_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ClipBanker_SNQ_2147973488_0
+rule Trojan_Win64_ClipBanker_SNQ_2147973505_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ClipBanker.SNQ!MTB"
-        threat_id = "2147973488"
+        threat_id = "2147973505"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ClipBanker"
@@ -1755,6 +1755,34 @@ rule Trojan_Win64_ClipBanker_SNQ_2147973488_0
         strings_accuracy = "High"
     strings:
         $x_6_1 = {81 f3 b9 79 37 9e c1 c3 0d 44 69 c1 65 89 07 6c 41 03 d8 44 8b c1 48 8b 16 42 0f b6 14 02 8b c3 c1 e8 10 0f b6 c0 33 d0 43 88 14 06 ff c1 3b cf 7c ce}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ClipBanker_B_2147973710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.B!AMTB"
+        threat_id = "2147973710"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "svchost_task.exeAdd-MpPreference" ascii //weight: 3
+        $x_3_2 = "main.getReplacementAddress" ascii //weight: 3
+        $x_3_3 = "main.(*WindowsClipboard).processClipboardChange" ascii //weight: 3
+        $x_3_4 = "main.(*C2Client).sendTelegramMessage" ascii //weight: 3
+        $x_2_5 = "main.listenForAdminCommands" ascii //weight: 2
+        $x_2_6 = "main.addToDefenderExclusions" ascii //weight: 2
+        $x_2_7 = "main.detectClipAddress" ascii //weight: 2
+        $x_1_8 = "fatal error: bcryptprimitives.dll not found" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

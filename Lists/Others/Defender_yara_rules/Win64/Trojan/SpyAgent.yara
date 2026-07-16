@@ -47,3 +47,31 @@ rule Trojan_Win64_SpyAgent_AMTB_2147972531_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SpyAgent_A_2147973711_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SpyAgent.A!AMTB"
+        threat_id = "2147973711"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "powershell-NoProfile-NonInteractive-WindowStyleHidden-ExecutionPolicyBypass" ascii //weight: 3
+        $x_3_2 = "-ErrorAction SilentlyContinue" ascii //weight: 3
+        $x_3_3 = "lsass.exe not found" ascii //weight: 3
+        $x_3_4 = "SeDebugPrivilege" ascii //weight: 3
+        $x_2_5 = "lastpass.txt" ascii //weight: 2
+        $x_2_6 = "bitwarden.txt" ascii //weight: 2
+        $x_2_7 = "Web Datacredit_cards.txt" ascii //weight: 2
+        $x_2_8 = "WinSCP credentials" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

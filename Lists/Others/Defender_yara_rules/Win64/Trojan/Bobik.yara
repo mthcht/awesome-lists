@@ -110,12 +110,12 @@ rule Trojan_Win64_Bobik_SXA_2147972024_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Bobik_AHA_2147973604_0
+rule Trojan_Win64_Bobik_AHA_2147973624_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Bobik.AHA!MTB"
-        threat_id = "2147973604"
+        threat_id = "2147973624"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Bobik"

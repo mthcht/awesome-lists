@@ -1533,3 +1533,24 @@ rule Trojan_Win32_Tedy_KPN_2147972991_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_GPKA_2147973557_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.GPKA!MTB"
+        threat_id = "2147973557"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {e8 d9 00 00 00 48 8d 58 fb 51 52 41 50 41 51 48 83 ec 28 48 c7 c0 60 00 00 00 65 48 8b 38 48 8b 7f 18 48 8b 7f 20 48 8b 7f 20 48 8b 83 13 01}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
