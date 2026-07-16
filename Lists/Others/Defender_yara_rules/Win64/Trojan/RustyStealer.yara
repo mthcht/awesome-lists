@@ -624,3 +624,24 @@ rule Trojan_Win64_RustyStealer_PAHO_2147972082_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_FUA_2147973515_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.FUA!MTB"
+        threat_id = "2147973515"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 bf 20 00 00 00 8b f2 8b d9 4c 8b 48 18 4c 03 cf 33 ed 4d 8b 01 4d 85 c0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

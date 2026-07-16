@@ -2404,3 +2404,26 @@ rule Trojan_Win32_ICLoader_RR_2147963465_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_GPKA_2147973538_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.GPKA!MTB"
+        threat_id = "2147973538"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 bb 9c 69 00 4a 01 66 00 00 be 0a 00 1a 48 20 ff cb 93 65 00 00 d4 00 00 b5 e8 6d 26}  //weight: 4, accuracy: High
+        $x_4_2 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 71 a0 69 00 e4 04 66 00 00 be 0a 00 fd 1e 8a 15 60 97 65 00 00 d4 00 00 e4 1a 3f ad}  //weight: 4, accuracy: High
+        $x_4_3 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 e1 ba 69 00 70 1f 66 00 00 be 0a 00 1e 4a 7f 0a f6 b1 65 00 00 d4 00 00 55 22 2d 38}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

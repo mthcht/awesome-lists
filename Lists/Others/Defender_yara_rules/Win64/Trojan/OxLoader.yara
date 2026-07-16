@@ -20,12 +20,12 @@ rule Trojan_Win64_OxLoader_GVA_2147972748_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_OxLoader_AOXL_2147973658_0
+rule Trojan_Win64_OxLoader_AOXL_2147973673_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/OxLoader.AOXL!MTB"
-        threat_id = "2147973658"
+        threat_id = "2147973673"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "OxLoader"

@@ -2803,12 +2803,12 @@ rule Trojan_MSIL_Tedy_BGU_2147972341_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_AVN_2147973592_0
+rule Trojan_MSIL_Tedy_AVN_2147973607_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Tedy.AVN!MTB"
-        threat_id = "2147973592"
+        threat_id = "2147973607"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Tedy"

@@ -3335,12 +3335,12 @@ rule Trojan_Win32_Remcos_SNH_2147969797_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Remcos_SNR_2147973476_0
+rule Trojan_Win32_Remcos_SNR_2147973489_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Remcos.SNR!MTB"
-        threat_id = "2147973476"
+        threat_id = "2147973489"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Remcos"

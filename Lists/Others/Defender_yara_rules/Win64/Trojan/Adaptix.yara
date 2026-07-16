@@ -1,9 +1,9 @@
-rule Trojan_Win64_Adaptix_ABTS_2147973652_0
+rule Trojan_Win64_Adaptix_ABTS_2147973667_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Adaptix.ABTS!MTB"
-        threat_id = "2147973652"
+        threat_id = "2147973667"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Adaptix"

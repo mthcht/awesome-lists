@@ -1,9 +1,9 @@
-rule Trojan_MSIL_DBadur_SX_2147973607_0
+rule Trojan_MSIL_DBadur_SX_2147973622_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/DBadur.SX!MTB"
-        threat_id = "2147973607"
+        threat_id = "2147973622"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "DBadur"
