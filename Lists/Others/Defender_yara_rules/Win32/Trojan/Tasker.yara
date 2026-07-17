@@ -223,3 +223,27 @@ rule Trojan_Win32_Tasker_LM_2147946818_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tasker_LR_2147973724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tasker.LR!MTB"
+        threat_id = "2147973724"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {7e 09 00 00 04 2d 11 14 fe 06 16 00 00 06 73 45 00 00 0a 80 09 00 00 04 7e 09 00 00 04 73 46 00 00 0a 0a 06 17 6f 47 00 00 0a 06 6f 48 00 00 0a 28 87 00 00 0a 16 28 88 00 00 0a 73 05 00 00 06 28 89 00 00 0a 2a}  //weight: 20, accuracy: High
+        $x_1_2 = "create WindowsLocker binpath= \"" ascii //weight: 1
+        $x_2_3 = "schtasks /delete /tn WindowsLocker /f >nul 2>&1" ascii //weight: 2
+        $x_3_4 = "taskkill /f /im WindowsLocker.exe >nul 2>&1" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

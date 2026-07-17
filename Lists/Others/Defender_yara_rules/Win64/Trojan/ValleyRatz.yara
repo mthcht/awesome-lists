@@ -1,9 +1,9 @@
-rule Trojan_Win64_ValleyRatz_Z_2147973523_0
+rule Trojan_Win64_ValleyRatz_Z_2147973533_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRatz.Z!MTB"
-        threat_id = "2147973523"
+        threat_id = "2147973533"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRatz"
@@ -19,12 +19,12 @@ rule Trojan_Win64_ValleyRatz_Z_2147973523_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRatz_ZC_2147973524_0
+rule Trojan_Win64_ValleyRatz_ZC_2147973534_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRatz.ZC!MTB"
-        threat_id = "2147973524"
+        threat_id = "2147973534"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRatz"
@@ -45,12 +45,12 @@ rule Trojan_Win64_ValleyRatz_ZC_2147973524_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRatz_ZC_2147973524_1
+rule Trojan_Win64_ValleyRatz_ZC_2147973534_1
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRatz.ZC!MTB"
-        threat_id = "2147973524"
+        threat_id = "2147973534"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRatz"

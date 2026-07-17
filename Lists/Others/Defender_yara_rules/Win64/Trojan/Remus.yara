@@ -62,12 +62,12 @@ rule Trojan_Win64_Remus_AX_2147972704_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_PL_2147973577_0
+rule Trojan_Win64_Remus_PL_2147973591_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.PL!MTB"
-        threat_id = "2147973577"
+        threat_id = "2147973591"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -83,12 +83,12 @@ rule Trojan_Win64_Remus_PL_2147973577_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_IDK_2147973584_0
+rule Trojan_Win64_Remus_IDK_2147973598_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.IDK!MTB"
-        threat_id = "2147973584"
+        threat_id = "2147973598"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -104,12 +104,12 @@ rule Trojan_Win64_Remus_IDK_2147973584_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_NYB_2147973615_0
+rule Trojan_Win64_Remus_NYB_2147973629_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.NYB!MTB"
-        threat_id = "2147973615"
+        threat_id = "2147973629"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -123,6 +123,56 @@ rule Trojan_Win64_Remus_NYB_2147973615_0
         $x_1_2 = "OpenClipboard" ascii //weight: 1
         $x_1_3 = {b1 79 37 9e 41 0f af d1 41 81 f1 b1 79 37 1e}  //weight: 1, accuracy: High
         $x_2_4 = {d1 e8 41 83 e0 01 41 f7 d8 41 21 d0 41 31 c0 44 89 c0 d1 e8 41 83 e0 01 41 f7 d8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_NYD_2147973638_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.NYD!MTB"
+        threat_id = "2147973638"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "GetClipboardData" ascii //weight: 1
+        $x_1_2 = "OpenClipboard" ascii //weight: 1
+        $x_1_3 = {69 c9 b8 7d 6d 5c 41 31 c8 8b 4c 24 ?? 85 c9 74 e3}  //weight: 1, accuracy: Low
+        $x_2_4 = {81 e1 54 8a fe 9f 41 89 c0 0d 54 8a fe 1f 0f af c1 81 f1 54 8a fe 9f 41 81 e0 ab 75 01 60}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_MK_2147973773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.MK!MTB"
+        threat_id = "2147973773"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 83 ec 58 b9 99 68 51 89 e8 ?? ?? 02 00 48 89 05 ?? ?? 03 00 b9 17 a3 aa e6 e8 ?? ?? 02 00 48 89 05 ?? ?? 03 00 c7 44 24}  //weight: 20, accuracy: Low
+        $x_15_2 = "GetUserNameA" ascii //weight: 15
+        $x_10_3 = "GetComputerNameExA" ascii //weight: 10
+        $x_5_4 = "GetKeyboardLayoutNameW" ascii //weight: 5
+        $x_3_5 = "OpenClipboard" ascii //weight: 3
+        $x_2_6 = "GetClipboardData" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

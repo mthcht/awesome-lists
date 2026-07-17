@@ -2803,12 +2803,12 @@ rule Trojan_MSIL_Tedy_BGU_2147972341_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_AVN_2147973692_0
+rule Trojan_MSIL_Tedy_AVN_2147973709_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Tedy.AVN!MTB"
-        threat_id = "2147973692"
+        threat_id = "2147973709"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Tedy"
@@ -2819,6 +2819,31 @@ rule Trojan_MSIL_Tedy_AVN_2147973692_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = {11 04 11 0b 09 11 0b 91 7e 03 00 00 04 11 0b 7e 03 00 00 04 8e 69 5d 91 61 d2 9c 11 0b 17 58 13 0b 11 0b 09 8e 69 32 d8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_SX_2147973751_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.SX!MTB"
+        threat_id = "2147973751"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "63"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "/KeyloggerLogs <get/clean/delete>" wide //weight: 20
+        $x_20_2 = "/Uac <enable/disable>" wide //weight: 20
+        $x_10_3 = "uninstallSharp.bat" wide //weight: 10
+        $x_8_4 = "/Stealer" wide //weight: 8
+        $x_5_5 = "The process is successfully suspended" wide //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

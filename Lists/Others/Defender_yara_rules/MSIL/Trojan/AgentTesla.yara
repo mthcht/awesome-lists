@@ -111090,12 +111090,12 @@ rule Trojan_MSIL_AgentTesla_ABRW_2147972966_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_RBM_2147973543_0
+rule Trojan_MSIL_AgentTesla_RBM_2147973553_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.RBM!MTB"
-        threat_id = "2147973543"
+        threat_id = "2147973553"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111112,12 +111112,12 @@ rule Trojan_MSIL_AgentTesla_RBM_2147973543_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_PZR_2147973631_0
+rule Trojan_MSIL_AgentTesla_PZR_2147973646_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.PZR!MTB"
-        threat_id = "2147973631"
+        threat_id = "2147973646"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111135,12 +111135,12 @@ rule Trojan_MSIL_AgentTesla_PZR_2147973631_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_ABVK_2147973760_0
+rule Trojan_MSIL_AgentTesla_ABVK_2147973786_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.ABVK!MTB"
-        threat_id = "2147973760"
+        threat_id = "2147973786"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111157,12 +111157,12 @@ rule Trojan_MSIL_AgentTesla_ABVK_2147973760_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_ABRG_2147973761_0
+rule Trojan_MSIL_AgentTesla_ABRG_2147973787_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.ABRG!MTB"
-        threat_id = "2147973761"
+        threat_id = "2147973787"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"
@@ -111179,12 +111179,12 @@ rule Trojan_MSIL_AgentTesla_ABRG_2147973761_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_ABTT_2147973763_0
+rule Trojan_MSIL_AgentTesla_ABTT_2147973789_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/AgentTesla.ABTT!MTB"
-        threat_id = "2147973763"
+        threat_id = "2147973789"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "AgentTesla"

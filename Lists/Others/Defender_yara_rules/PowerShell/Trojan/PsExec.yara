@@ -1,9 +1,9 @@
-rule Trojan_PowerShell_PsExec_SL_2147973913_0
+rule Trojan_PowerShell_PsExec_SL_2147973941_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:PowerShell/PsExec.SL!MTB"
-        threat_id = "2147973913"
+        threat_id = "2147973941"
         type = "Trojan"
         platform = "PowerShell: "
         family = "PsExec"

@@ -1263,12 +1263,12 @@ rule Trojan_MSIL_Keylogger_MK_2147969831_0
         )
 }
 
-rule Trojan_MSIL_Keylogger_AAA_2147973505_0
+rule Trojan_MSIL_Keylogger_AAA_2147973515_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Keylogger.AAA!AMTB"
-        threat_id = "2147973505"
+        threat_id = "2147973515"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Keylogger"

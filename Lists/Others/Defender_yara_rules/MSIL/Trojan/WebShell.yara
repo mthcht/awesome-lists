@@ -783,3 +783,26 @@ rule Trojan_MSIL_WebShell_LR_2147972615_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_SX_2147973749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.SX!MTB"
+        threat_id = "2147973749"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {26 11 0a 6f ?? 00 00 0a 13 0b 11 0a 6f ?? 00 00 0a 00 06 6f ?? 00 00 0a 11 04 16 1f 10 6f ?? 00 00 0a 6f ?? 00 00 0a 00}  //weight: 20, accuracy: Low
+        $x_10_2 = "BypassFriendlyUrlRoute succesfully!<br/>" wide //weight: 10
+        $x_5_3 = "payload" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

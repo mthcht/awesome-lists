@@ -90,3 +90,27 @@ rule Trojan_MSIL_Midie_SXB_2147969755_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Midie_SXC_2147973748_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Midie.SXC!MTB"
+        threat_id = "2147973748"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "\\DeepRed\\RemoteControlBot" ascii //weight: 20
+        $x_20_2 = "DeepRed Remote Control Bot" wide //weight: 20
+        $x_10_3 = "Bot Shutting Down..." wide //weight: 10
+        $x_5_4 = "rootinject" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

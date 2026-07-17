@@ -41,12 +41,12 @@ rule Trojan_MSIL_PurelogStealer_MG_2147954966_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PurelogStealer_SO_2147973504_0
+rule Trojan_MSIL_PurelogStealer_SO_2147973514_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PurelogStealer.SO!MTB"
-        threat_id = "2147973504"
+        threat_id = "2147973514"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PurelogStealer"

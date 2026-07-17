@@ -5809,12 +5809,36 @@ rule Trojan_MSIL_XWorm_BAV_2147972794_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ZUA_2147973633_0
+rule Trojan_MSIL_XWorm_ASXB_2147973577_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ASXB!MTB"
+        threat_id = "2147973577"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 9d a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 66 00 00 00 1d 00 00 00 ?? 00 00 00 5e 00 00 00 35 00 00 00 9a 00 00 00 01 00 00 00 21 00 00 00 0b 00 00 00 10 00 00 00 02 00 00 00 06}  //weight: 2, accuracy: Low
+        $x_2_2 = "WaterCycle.Properties.Resources" wide //weight: 2
+        $x_1_3 = "jermutyunKhochndak" wide //weight: 1
+        $x_1_4 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_ZUA_2147973649_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ZUA!MTB"
-        threat_id = "2147973633"
+        threat_id = "2147973649"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5830,12 +5854,12 @@ rule Trojan_MSIL_XWorm_ZUA_2147973633_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZH_2147973635_0
+rule Trojan_MSIL_XWorm_YZH_2147973651_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZH!MTB"
-        threat_id = "2147973635"
+        threat_id = "2147973651"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5851,12 +5875,12 @@ rule Trojan_MSIL_XWorm_YZH_2147973635_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZK_2147973637_0
+rule Trojan_MSIL_XWorm_YZK_2147973653_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZK!MTB"
-        threat_id = "2147973637"
+        threat_id = "2147973653"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5872,12 +5896,12 @@ rule Trojan_MSIL_XWorm_YZK_2147973637_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_BAS_2147973662_0
+rule Trojan_MSIL_XWorm_BAS_2147973678_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.BAS!MTB"
-        threat_id = "2147973662"
+        threat_id = "2147973678"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5895,12 +5919,33 @@ rule Trojan_MSIL_XWorm_BAS_2147973662_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ABVK_2147973762_0
+rule Trojan_MSIL_XWorm_SX_2147973750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.SX!MTB"
+        threat_id = "2147973750"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8e 69 20 00 30 00 00 1a 28 02 00 00 06 13 ?? 16 13 ?? 06 11 ?? 11 ?? 11 ?? 8e 69 12 ?? 28 04 00 00 06 26 16 13 ?? 06 11 ?? 11 ?? 8e 69 1f 20 12 ?? 28 03 00 00 06 26}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_ABVK_2147973788_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ABVK!MTB"
-        threat_id = "2147973762"
+        threat_id = "2147973788"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
