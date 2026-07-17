@@ -1,9 +1,9 @@
-rule Backdoor_MSIL_PangolinEcho_A_2147973544_0
+rule Backdoor_MSIL_PangolinEcho_A_2147973547_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:MSIL/PangolinEcho.A!dha"
-        threat_id = "2147973544"
+        threat_id = "2147973547"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PangolinEcho"

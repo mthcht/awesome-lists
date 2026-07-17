@@ -1,9 +1,9 @@
-rule Trojan_Win32_DisableFlightIntegrity_A_2147973947_0
+rule Trojan_Win32_DisableFlightIntegrity_A_2147973953_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DisableFlightIntegrity.A"
-        threat_id = "2147973947"
+        threat_id = "2147973953"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DisableFlightIntegrity"

@@ -156,12 +156,12 @@ rule Backdoor_Win32_CobaltStrike_BW_2147815894_0
         (all of ($x*))
 }
 
-rule Backdoor_Win32_CobaltStrike_MK_2147973761_0
+rule Backdoor_Win32_CobaltStrike_MK_2147973766_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:Win32/CobaltStrike.MK!MTB"
-        threat_id = "2147973761"
+        threat_id = "2147973766"
         type = "Backdoor"
         platform = "Win32: Windows 32-bit platform"
         family = "CobaltStrike"

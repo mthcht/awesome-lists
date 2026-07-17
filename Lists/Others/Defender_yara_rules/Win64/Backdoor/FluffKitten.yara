@@ -1,9 +1,9 @@
-rule Backdoor_Win64_FluffKitten_A_2147973658_0
+rule Backdoor_Win64_FluffKitten_A_2147973662_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:Win64/FluffKitten.A!dha"
-        threat_id = "2147973658"
+        threat_id = "2147973662"
         type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
         family = "FluffKitten"
@@ -21,12 +21,12 @@ rule Backdoor_Win64_FluffKitten_A_2147973658_0
         (all of ($x*))
 }
 
-rule Backdoor_Win64_FluffKitten_B_2147973659_0
+rule Backdoor_Win64_FluffKitten_B_2147973663_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Backdoor:Win64/FluffKitten.B!dha"
-        threat_id = "2147973659"
+        threat_id = "2147973663"
         type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
         family = "FluffKitten"

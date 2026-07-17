@@ -271,12 +271,12 @@ rule Trojan_Win32_ValleyRAT_AHE_2147972296_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRAT_SLXE_2147973639_0
+rule Trojan_Win32_ValleyRAT_SLXE_2147973643_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRAT.SLXE!!MTB"
-        threat_id = "2147973639"
+        threat_id = "2147973643"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRAT"
@@ -287,6 +287,28 @@ rule Trojan_Win32_ValleyRAT_SLXE_2147973639_0
         strings_accuracy = "High"
     strings:
         $x_2_1 = {ff d0 89 c2 8b 45 f0 0f af c2 89 45 e0 8b 55 f0 8b 45 ec 01 d0 0f b6 00 88 45 e6 0f b6 45 e6 32 45 f7 88 45 e5 8b 55 f0 8b 45 e8}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ValleyRAT_PGVE_2147973692_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.PGVE!MTB"
+        threat_id = "2147973692"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 33 ed 85 ff 74 ?? 49 8b cc 80 31 b7 48 ff c1 49 83 ee 01 75}  //weight: 5, accuracy: Low
+        $x_5_2 = {6b 91 f5 5a 2f f0 9b 09 2f f0 9b 09 2f f0 9b 09 64 88 98 08 2a f0 9b 09 64 88 9e 08 a4 f0 9b 09 64 88 9f 08 25 f0 9b 09 7d}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

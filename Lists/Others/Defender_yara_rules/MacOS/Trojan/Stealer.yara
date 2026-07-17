@@ -71,12 +71,12 @@ rule Trojan_MacOS_Stealer_ABH_2147970496_0
         (all of ($x*))
 }
 
-rule Trojan_MacOS_Stealer_A_2147973671_0
+rule Trojan_MacOS_Stealer_A_2147973675_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MacOS/Stealer.A!AMTB"
-        threat_id = "2147973671"
+        threat_id = "2147973675"
         type = "Trojan"
         platform = "MacOS: "
         family = "Stealer"

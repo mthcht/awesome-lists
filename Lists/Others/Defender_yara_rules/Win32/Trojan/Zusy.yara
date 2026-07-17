@@ -9783,12 +9783,12 @@ rule Trojan_Win32_Zusy_LRL_2147972216_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_MKE_2147973756_0
+rule Trojan_Win32_Zusy_MKE_2147973761_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Zusy.MKE!MTB"
-        threat_id = "2147973756"
+        threat_id = "2147973761"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Zusy"
@@ -9805,12 +9805,12 @@ rule Trojan_Win32_Zusy_MKE_2147973756_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Zusy_MKF_2147973774_0
+rule Trojan_Win32_Zusy_MKF_2147973779_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Zusy.MKF!MTB"
-        threat_id = "2147973774"
+        threat_id = "2147973779"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Zusy"

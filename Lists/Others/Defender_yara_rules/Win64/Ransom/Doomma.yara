@@ -1,9 +1,9 @@
-rule Ransom_Win64_Doomma_YDQ_2147973560_0
+rule Ransom_Win64_Doomma_YDQ_2147973563_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win64/Doomma.YDQ!MTB"
-        threat_id = "2147973560"
+        threat_id = "2147973563"
         type = "Ransom"
         platform = "Win64: Windows 64-bit platform"
         family = "Doomma"

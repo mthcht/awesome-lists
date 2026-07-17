@@ -9590,12 +9590,12 @@ rule Trojan_Win64_AbuseCommMain_PA_2147972870_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_AbuseCommMain_PB_2147973618_0
+rule Trojan_Win64_AbuseCommMain_PB_2147973621_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/AbuseCommMain.PB"
-        threat_id = "2147973618"
+        threat_id = "2147973621"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "AbuseCommMain"
@@ -9613,12 +9613,12 @@ rule Trojan_Win64_AbuseCommMain_PB_2147973618_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_AbuseCommMain_PC_2147973622_0
+rule Trojan_Win64_AbuseCommMain_PC_2147973625_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/AbuseCommMain.PC"
-        threat_id = "2147973622"
+        threat_id = "2147973625"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "AbuseCommMain"

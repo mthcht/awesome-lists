@@ -1,9 +1,9 @@
-rule Trojan_MacOS_SuspCommendExec_B_2147973920_0
+rule Trojan_MacOS_SuspCommendExec_B_2147973926_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MacOS/SuspCommendExec.B"
-        threat_id = "2147973920"
+        threat_id = "2147973926"
         type = "Trojan"
         platform = "MacOS: "
         family = "SuspCommendExec"

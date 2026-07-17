@@ -1,9 +1,9 @@
-rule Trojan_Win32_GigaWiper_GVA_2147973665_0
+rule Trojan_Win32_GigaWiper_GVA_2147973669_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GigaWiper.GVA!MTB"
-        threat_id = "2147973665"
+        threat_id = "2147973669"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GigaWiper"
@@ -20,12 +20,12 @@ rule Trojan_Win32_GigaWiper_GVA_2147973665_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GigaWiper_GVB_2147973667_0
+rule Trojan_Win32_GigaWiper_GVB_2147973671_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GigaWiper.GVB!MTB"
-        threat_id = "2147973667"
+        threat_id = "2147973671"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GigaWiper"

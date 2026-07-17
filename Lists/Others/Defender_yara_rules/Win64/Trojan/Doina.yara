@@ -457,12 +457,12 @@ rule Trojan_Win64_Doina_PAHP_2147971126_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Doina_AHC_2147973703_0
+rule Trojan_Win64_Doina_AHC_2147973708_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Doina.AHC!MTB"
-        threat_id = "2147973703"
+        threat_id = "2147973708"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Doina"

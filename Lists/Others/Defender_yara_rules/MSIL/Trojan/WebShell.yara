@@ -783,12 +783,12 @@ rule Trojan_MSIL_WebShell_LR_2147972615_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_WebShell_SX_2147973749_0
+rule Trojan_MSIL_WebShell_SX_2147973754_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/WebShell.SX!MTB"
-        threat_id = "2147973749"
+        threat_id = "2147973754"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "WebShell"

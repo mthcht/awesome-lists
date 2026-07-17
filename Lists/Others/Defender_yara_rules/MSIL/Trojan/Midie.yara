@@ -90,12 +90,12 @@ rule Trojan_MSIL_Midie_SXB_2147969755_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Midie_SXC_2147973748_0
+rule Trojan_MSIL_Midie_SXC_2147973753_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Midie.SXC!MTB"
-        threat_id = "2147973748"
+        threat_id = "2147973753"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Midie"
