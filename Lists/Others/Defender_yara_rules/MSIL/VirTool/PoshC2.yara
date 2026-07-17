@@ -16,8 +16,8 @@ rule VirTool_MSIL_PoshC2_B_2147779403_0
         $x_1_2 = "SessionID={0}" wide //weight: 1
         $x_1_3 = "{0};{1};{2};{3};{4};http" wide //weight: 1
         $x_1_4 = "RANDOMURI" wide //weight: 1
-        $x_1_5 = "JITTER" wide //weight: 1
-        $x_1_6 = "KILLDATE" wide //weight: 1
+        $x_1_5 = "JITTER" ascii //weight: 1
+        $x_1_6 = "KILLDATE" ascii //weight: 1
         $x_1_7 = "run-exe Core.Program Core" wide //weight: 1
         $x_1_8 = "<=(setbeacon|beacon)\\s{1,})(" wide //weight: 1
         $x_1_9 = "!d-3dion@LD!-d" wide //weight: 1
@@ -25,6 +25,10 @@ rule VirTool_MSIL_PoshC2_B_2147779403_0
         $x_1_11 = {72 00 75 00 6e 00 2d 00 64 00 6c 00 6c 00 [0-8] 73 00 74 00 61 00 72 00 74 00 2d 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00}  //weight: 1, accuracy: Low
         $x_1_12 = "(?<=(beacon)\\s{1,})(?<" wide //weight: 1
         $x_1_13 = {72 00 75 00 6e 00 2d 00 [0-6] 2d 00 62 00 61 00 63 00 6b 00 67 00 72 00 6f 00 75 00 6e 00 64 00}  //weight: 1, accuracy: Low
+        $x_1_14 = {53 00 74 00 61 00 67 00 65 00 [0-2] 2d 00 43 00 6f 00 72 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_15 = "run-temp-appdomain" wide //weight: 1
+        $x_1_16 = "<BeaconCommsChannels>" ascii //weight: 1
+        $x_1_17 = {47 45 54 5f 54 41 53 4b 5f 49 44 00}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (10 of ($x*))

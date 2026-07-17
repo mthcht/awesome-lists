@@ -606,6 +606,29 @@ rule HackTool_Win32_Keygen_2147751727_9
         threshold = "3"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "Ahead Nero v8.x *Keymaker*" ascii //weight: 1
+        $x_1_2 = "Nero 8 Ultra Edition" ascii //weight: 1
+        $x_1_3 = "***Nero Serials Found***" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_2147751727_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "Press generate or paste serial" ascii //weight: 1
         $x_1_2 = "Paste request code here" ascii //weight: 1
         $x_1_3 = "Invalid request code" ascii //weight: 1
@@ -614,7 +637,7 @@ rule HackTool_Win32_Keygen_2147751727_9
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_10
+rule HackTool_Win32_Keygen_2147751727_11
 {
     meta:
         author = "defender2yara"
@@ -642,7 +665,7 @@ rule HackTool_Win32_Keygen_2147751727_10
         )
 }
 
-rule HackTool_Win32_Keygen_2147751727_11
+rule HackTool_Win32_Keygen_2147751727_12
 {
     meta:
         author = "defender2yara"
@@ -666,7 +689,7 @@ rule HackTool_Win32_Keygen_2147751727_11
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_12
+rule HackTool_Win32_Keygen_2147751727_13
 {
     meta:
         author = "defender2yara"
@@ -693,7 +716,7 @@ rule HackTool_Win32_Keygen_2147751727_12
         )
 }
 
-rule HackTool_Win32_Keygen_2147751727_13
+rule HackTool_Win32_Keygen_2147751727_14
 {
     meta:
         author = "defender2yara"
@@ -717,7 +740,31 @@ rule HackTool_Win32_Keygen_2147751727_13
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_14
+rule HackTool_Win32_Keygen_2147751727_15
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Corel Products Keygen" ascii //weight: 1
+        $x_1_2 = "Serial Number:" ascii //weight: 1
+        $x_1_3 = "3Installation Code (Form: XXXX-XXXX-XXXX-XXXX-XXXX):" ascii //weight: 1
+        $x_1_4 = "Activation Code:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_2147751727_16
 {
     meta:
         author = "defender2yara"
@@ -744,7 +791,7 @@ rule HackTool_Win32_Keygen_2147751727_14
         )
 }
 
-rule HackTool_Win32_Keygen_2147751727_15
+rule HackTool_Win32_Keygen_2147751727_17
 {
     meta:
         author = "defender2yara"
@@ -768,7 +815,31 @@ rule HackTool_Win32_Keygen_2147751727_15
         (all of ($x*))
 }
 
-rule HackTool_Win32_Keygen_2147751727_16
+rule HackTool_Win32_Keygen_2147751727_18
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Keygen!MTB"
+        threat_id = "2147751727"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Keygen"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BigFish games keymaker by Vovan[Braga Software]" wide //weight: 1
+        $x_1_2 = "savegamelist" wide //weight: 1
+        $x_1_3 = "GameList.TxT" ascii //weight: 1
+        $x_1_4 = "[==*Zs,hl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_Keygen_2147751727_19
 {
     meta:
         author = "defender2yara"

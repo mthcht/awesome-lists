@@ -604,12 +604,12 @@ rule Trojan_Win64_ValleyRat_AAC_2147972885_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_STA_2147973467_0
+rule Trojan_Win64_ValleyRat_STA_2147973477_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.STA"
-        threat_id = "2147973467"
+        threat_id = "2147973477"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -629,12 +629,12 @@ rule Trojan_Win64_ValleyRat_STA_2147973467_0
         (3 of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_AAA_2147973501_0
+rule Trojan_Win64_ValleyRat_AAA_2147973511_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.AAA!AMTB"
-        threat_id = "2147973501"
+        threat_id = "2147973511"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -657,12 +657,12 @@ rule Trojan_Win64_ValleyRat_AAA_2147973501_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_MCT_2147973519_0
+rule Trojan_Win64_ValleyRat_MCT_2147973530_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.MCT!MTB"
-        threat_id = "2147973519"
+        threat_id = "2147973530"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -679,12 +679,12 @@ rule Trojan_Win64_ValleyRat_MCT_2147973519_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_AOXB_2147973551_0
+rule Trojan_Win64_ValleyRat_AOXB_2147973562_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.AOXB!MTB"
-        threat_id = "2147973551"
+        threat_id = "2147973562"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -700,12 +700,12 @@ rule Trojan_Win64_ValleyRat_AOXB_2147973551_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_APXB_2147973552_0
+rule Trojan_Win64_ValleyRat_APXB_2147973563_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.APXB!MTB"
-        threat_id = "2147973552"
+        threat_id = "2147973563"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -722,12 +722,12 @@ rule Trojan_Win64_ValleyRat_APXB_2147973552_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_NGT_2147973575_0
+rule Trojan_Win64_ValleyRat_NGT_2147973587_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.NGT!MTB"
-        threat_id = "2147973575"
+        threat_id = "2147973587"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"
@@ -743,12 +743,12 @@ rule Trojan_Win64_ValleyRat_NGT_2147973575_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRat_BAA_2147973647_0
+rule Trojan_Win64_ValleyRat_BAA_2147973661_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRat.BAA!MTB"
-        threat_id = "2147973647"
+        threat_id = "2147973661"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRat"

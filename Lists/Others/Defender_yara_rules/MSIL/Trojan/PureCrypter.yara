@@ -681,3 +681,26 @@ rule Trojan_MSIL_PureCrypter_GXN_2147972646_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureCrypter_PYR_2147973632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureCrypter.PYR!MTB"
+        threat_id = "2147973632"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {00 00 0a 13 06 11 06 07 6f ?? 00 00 0a 11 06 08 6f ?? 00 00 0a 11 06 17 6f ?? 00 00 0a 11 06 18 6f ?? 00 00 0a 11 06 6f ?? 00 00 0a 13 07 11 07 06 16 06 8e 69 6f ?? 00 00 0a 0d}  //weight: 5, accuracy: Low
+        $x_3_2 = {11 0a 11 0b 16 11 0c 6f ?? 00 00 0a 11 09 11 0b 16 11 0b 8e 69 6f ?? 00 00 0a 25 13 0c 16}  //weight: 3, accuracy: Low
+        $x_3_3 = "PayloadSource.zip" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

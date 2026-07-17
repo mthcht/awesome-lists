@@ -64,12 +64,12 @@ rule Trojan_Win32_Ousaban_GTM_2147928990_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Ousaban_GVE_2147973631_0
+rule Trojan_Win32_Ousaban_GVE_2147973645_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Ousaban.GVE!MTB"
-        threat_id = "2147973631"
+        threat_id = "2147973645"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Ousaban"

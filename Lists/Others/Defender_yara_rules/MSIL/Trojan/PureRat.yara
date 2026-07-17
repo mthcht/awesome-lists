@@ -1152,12 +1152,12 @@ rule Trojan_MSIL_PureRat_ABH_2147973023_0
         )
 }
 
-rule Trojan_MSIL_PureRat_ABI_2147973659_0
+rule Trojan_MSIL_PureRat_ABI_2147973674_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureRat.ABI!MTB"
-        threat_id = "2147973659"
+        threat_id = "2147973674"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureRat"
@@ -1190,12 +1190,12 @@ rule Trojan_MSIL_PureRat_ABI_2147973659_0
         )
 }
 
-rule Trojan_MSIL_PureRat_ABJ_2147973660_0
+rule Trojan_MSIL_PureRat_ABJ_2147973675_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureRat.ABJ!MTB"
-        threat_id = "2147973660"
+        threat_id = "2147973675"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureRat"
@@ -1210,6 +1210,44 @@ rule Trojan_MSIL_PureRat_ABJ_2147973660_0
         $x_5_3 = "m8DE" ascii //weight: 5
         $x_5_4 = "m8DC" ascii //weight: 5
         $x_2_5 = "ProtoBuf.Serializers.IProtoTypeSerializer.HasCallbacks" ascii //weight: 2
+        $x_2_6 = "CreateDecryptor" ascii //weight: 2
+        $x_2_7 = "ReadAllBytes" ascii //weight: 2
+        $x_2_8 = "GZipStream" ascii //weight: 2
+        $x_2_9 = "GetFolderPath" ascii //weight: 2
+        $x_2_10 = "FromBase64String" ascii //weight: 2
+        $x_2_11 = "set_UseShellExecute" ascii //weight: 2
+        $x_2_12 = "set_IV" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 8 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MSIL_PureRat_ABK_2147973676_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.ABK!MTB"
+        threat_id = "2147973676"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "27"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {02 00 04 28 ?? 06 00 06 20 01 00 00 00 7e ?? 02 00 04 7b ?? 02 00 04 3a}  //weight: 6, accuracy: Low
+        $x_5_2 = "m8DD" ascii //weight: 5
+        $x_5_3 = "m8DE" ascii //weight: 5
+        $x_5_4 = "m8DC" ascii //weight: 5
+        $x_2_5 = "protobuf-net" ascii //weight: 2
         $x_2_6 = "CreateDecryptor" ascii //weight: 2
         $x_2_7 = "ReadAllBytes" ascii //weight: 2
         $x_2_8 = "GZipStream" ascii //weight: 2

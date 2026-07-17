@@ -197,12 +197,12 @@ rule Trojan_Win64_Androm_ABN_2147961271_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Androm_SNT_2147973548_0
+rule Trojan_Win64_Androm_SNT_2147973559_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Androm.SNT!MTB"
-        threat_id = "2147973548"
+        threat_id = "2147973559"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Androm"

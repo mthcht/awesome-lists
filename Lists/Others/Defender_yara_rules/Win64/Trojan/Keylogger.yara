@@ -282,3 +282,29 @@ rule Trojan_Win64_Keylogger_LVD_2147972172_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Keylogger_LRG_2147973701_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.LRG!MTB"
+        threat_id = "2147973701"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "1.pptx.exe" ascii //weight: 1
+        $x_2_2 = ">how_\"I am an box" ascii //weight: 2
+        $x_3_3 = "cm').innerText = msgprompt= \"P name\" ,\"Harry Potterif (" ascii //weight: 3
+        $x_4_4 = "\"confirmvar r = \"Pa )" ascii //weight: 4
+        $x_6_5 = "toad.how Alert\">C\"> <spancm\"></spanPpfile\"pic\" accept/*,.js,.css,*'fo'," ascii //weight: 6
+        $x_7_6 = "<requestedExecutionLevel level='requireAdministrator' uiAccess='false' />" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

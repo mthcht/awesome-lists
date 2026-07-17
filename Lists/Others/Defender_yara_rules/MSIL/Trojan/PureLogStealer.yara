@@ -4539,12 +4539,12 @@ rule Trojan_MSIL_PureLogStealer_AGWB_2147971188_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureLogStealer_RVG_2147973530_0
+rule Trojan_MSIL_PureLogStealer_RVG_2147973541_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureLogStealer.RVG!MTB"
-        threat_id = "2147973530"
+        threat_id = "2147973541"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureLogStealer"
@@ -4563,12 +4563,12 @@ rule Trojan_MSIL_PureLogStealer_RVG_2147973530_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureLogStealer_ARXB_2147973553_0
+rule Trojan_MSIL_PureLogStealer_ARXB_2147973564_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureLogStealer.ARXB!MTB"
-        threat_id = "2147973553"
+        threat_id = "2147973564"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureLogStealer"

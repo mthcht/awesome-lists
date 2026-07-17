@@ -121,12 +121,12 @@ rule Ransom_Win32_LockCrypt_PD_2147809019_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_LockCrypt_ARR_2147973731_0
+rule Ransom_Win32_LockCrypt_ARR_2147973752_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/LockCrypt.ARR!MTB"
-        threat_id = "2147973731"
+        threat_id = "2147973752"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "LockCrypt"

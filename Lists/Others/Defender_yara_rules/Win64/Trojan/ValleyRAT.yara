@@ -643,12 +643,12 @@ rule Trojan_Win64_ValleyRAT_PAHT_2147972979_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRAT_EM_2147973516_0
+rule Trojan_Win64_ValleyRAT_EM_2147973526_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRAT.EM!MTB"
-        threat_id = "2147973516"
+        threat_id = "2147973526"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRAT"
@@ -664,12 +664,35 @@ rule Trojan_Win64_ValleyRAT_EM_2147973516_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRAT_AAVR_2147973735_0
+rule Trojan_Win64_ValleyRAT_AHA_2147973689_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.AHA!MTB"
+        threat_id = "2147973689"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "\"%s\" --child \"%s\"" wide //weight: 30
+        $x_20_2 = "%s%08X%08X.exe" ascii //weight: 20
+        $x_10_3 = "C:\\windows\\system32\\drivers\\vmmouse.sys" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_AAVR_2147973756_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRAT.AAVR!MTB"
-        threat_id = "2147973735"
+        threat_id = "2147973756"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRAT"

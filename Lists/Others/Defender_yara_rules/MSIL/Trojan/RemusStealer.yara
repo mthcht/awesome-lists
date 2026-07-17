@@ -1,9 +1,9 @@
-rule Trojan_MSIL_RemusStealer_ATXB_2147973554_0
+rule Trojan_MSIL_RemusStealer_ATXB_2147973565_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/RemusStealer.ATXB!MTB"
-        threat_id = "2147973554"
+        threat_id = "2147973565"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "RemusStealer"

@@ -128,12 +128,12 @@ rule Trojan_Win32_DLLHijack_DP_2147968703_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_CAP_2147973587_0
+rule Trojan_Win32_DLLHijack_CAP_2147973599_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.CAP!MTB"
-        threat_id = "2147973587"
+        threat_id = "2147973599"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -149,12 +149,12 @@ rule Trojan_Win32_DLLHijack_CAP_2147973587_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_CAQ_2147973588_0
+rule Trojan_Win32_DLLHijack_CAQ_2147973600_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.CAQ!MTB"
-        threat_id = "2147973588"
+        threat_id = "2147973600"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -170,12 +170,12 @@ rule Trojan_Win32_DLLHijack_CAQ_2147973588_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_PS_2147973615_0
+rule Trojan_Win32_DLLHijack_PS_2147973627_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.PS!MTB"
-        threat_id = "2147973615"
+        threat_id = "2147973627"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -186,6 +186,27 @@ rule Trojan_Win32_DLLHijack_PS_2147973615_0
         strings_accuracy = "Low"
     strings:
         $x_4_1 = {34 b3 88 84 0c ?? ?? 00 00 41 83 f9 0b 72 eb 8d 84 24 ?? ?? 00 00 c6 84 24 ?? ?? 00 00 00 50 6a 01 6a 00 ff 15}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DLLHijack_GXN_2147973891_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.GXN!MTB"
+        threat_id = "2147973891"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6d 0a 63 f8 14 73 00 01 3e 06 12 13 60 82 50 ?? 76 47 4c 31 98 ?? ?? ?? ?? 2d}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

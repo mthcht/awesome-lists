@@ -43,3 +43,25 @@ rule Trojan_Win32_Dllhijack_GCN_2147928896_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dllhijack_YZT_2147973640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dllhijack.YZT!MTB"
+        threat_id = "2147973640"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dllhijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {b8 01 00 00 00 8b e5 5d c3 64 a1 30 00 00 00 53 56 33 f6 8b 40 0c 8b 50 0c 8b 42 18 85 c0}  //weight: 5, accuracy: High
+        $x_5_2 = {6a 40 68 00 10 00 00 8d 44 24 ?? 50 6a 00 8d 44 24 ?? 50 6a ff}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

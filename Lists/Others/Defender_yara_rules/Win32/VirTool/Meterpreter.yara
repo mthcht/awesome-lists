@@ -99,3 +99,24 @@ rule VirTool_Win32_Meterpreter_J_2147844471_0
         (all of ($x*))
 }
 
+rule VirTool_Win32_Meterpreter_A_2147973528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/Meterpreter.A"
+        threat_id = "2147973528"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Meterpreter"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 45 88 89 45 80 8d 45 a8 89 7d d8 89 7d d4 c7 45 bc 06 00 00 00 89 7d c0 89 7d c4 c7 45 98 89 4d 3f bc c7 45 9c 05 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {c7 45 b4 06 00 00 00 66 0f d6 45 b8 c7 45 90 89 4d 3f bc c7 45 94 05 00 00 00 66 0f d6 45 98 c7 45 80 e8 8a 4d 53 c7 45 84 03 00 00 00 66 0f d6 45 88 c7 45 a0 c3 ad 69 81 c7 45 a4 04 00 00 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

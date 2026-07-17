@@ -477,12 +477,12 @@ rule Trojan_Win64_DLLHijack_MCX_2147972812_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DV_2147973481_0
+rule Trojan_Win64_DLLHijack_DV_2147973491_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DV!MTB"
-        threat_id = "2147973481"
+        threat_id = "2147973491"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -501,12 +501,12 @@ rule Trojan_Win64_DLLHijack_DV_2147973481_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DW_2147973482_0
+rule Trojan_Win64_DLLHijack_DW_2147973492_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DW!MTB"
-        threat_id = "2147973482"
+        threat_id = "2147973492"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -522,12 +522,12 @@ rule Trojan_Win64_DLLHijack_DW_2147973482_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DX_2147973485_0
+rule Trojan_Win64_DLLHijack_DX_2147973495_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DX!MTB"
-        threat_id = "2147973485"
+        threat_id = "2147973495"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -544,12 +544,12 @@ rule Trojan_Win64_DLLHijack_DX_2147973485_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_DZ_2147973490_0
+rule Trojan_Win64_DLLHijack_DZ_2147973500_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.DZ!MTB"
-        threat_id = "2147973490"
+        threat_id = "2147973500"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -572,12 +572,12 @@ rule Trojan_Win64_DLLHijack_DZ_2147973490_0
         (1 of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_AGXB_2147973550_0
+rule Trojan_Win64_DLLHijack_AGXB_2147973561_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.AGXB!MTB"
-        threat_id = "2147973550"
+        threat_id = "2147973561"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -599,12 +599,12 @@ rule Trojan_Win64_DLLHijack_AGXB_2147973550_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_NYB_2147973611_0
+rule Trojan_Win64_DLLHijack_NYB_2147973623_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.NYB!MTB"
-        threat_id = "2147973611"
+        threat_id = "2147973623"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -624,12 +624,12 @@ rule Trojan_Win64_DLLHijack_NYB_2147973611_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DLLHijack_GMX_2147973866_0
+rule Trojan_Win64_DLLHijack_GMX_2147973889_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DLLHijack.GMX!MTB"
-        threat_id = "2147973866"
+        threat_id = "2147973889"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DLLHijack"
@@ -641,6 +641,27 @@ rule Trojan_Win64_DLLHijack_GMX_2147973866_0
     strings:
         $x_10_1 = {0c 12 4f d2 2b 4a d3 fc c0 18 d2 d7 33 de ec 98 8b 4e c8 3e 95 9f 8e 27}  //weight: 10, accuracy: High
         $x_1_2 = "UxEnhance64.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_GXM_2147973890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.GXM!MTB"
+        threat_id = "2147973890"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 89 c7 b8 01 00 00 00 0f 1f 44 00 00 0f b6 14 06 31 c2 83 f2 87 88 14 01 48 83 c0 01 48 83 f8 0d}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

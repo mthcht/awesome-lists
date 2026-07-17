@@ -1,9 +1,9 @@
-rule Trojan_MacOS_jscramSteal_DA_2147973487_0
+rule Trojan_MacOS_jscramSteal_DA_2147973497_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MacOS/jscramSteal.DA!MTB"
-        threat_id = "2147973487"
+        threat_id = "2147973497"
         type = "Trojan"
         platform = "MacOS: "
         family = "jscramSteal"

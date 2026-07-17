@@ -1,9 +1,9 @@
-rule Trojan_MSIL_Zegost_GVN_2147973677_0
+rule Trojan_MSIL_Zegost_GVN_2147973694_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Zegost.GVN!MTB"
-        threat_id = "2147973677"
+        threat_id = "2147973694"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Zegost"
