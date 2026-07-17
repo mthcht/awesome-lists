@@ -1,9 +1,9 @@
-rule Trojan_MSIL_DeepThoughts_A_2147973674_0
+rule Trojan_MSIL_DeepThoughts_A_2147973684_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/DeepThoughts.A!dha"
-        threat_id = "2147973674"
+        threat_id = "2147973684"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "DeepThoughts"

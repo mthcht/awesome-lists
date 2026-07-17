@@ -5809,12 +5809,12 @@ rule Trojan_MSIL_XWorm_BAV_2147972794_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ZUA_2147973586_0
+rule Trojan_MSIL_XWorm_ZUA_2147973595_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ZUA!MTB"
-        threat_id = "2147973586"
+        threat_id = "2147973595"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5830,12 +5830,12 @@ rule Trojan_MSIL_XWorm_ZUA_2147973586_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZH_2147973588_0
+rule Trojan_MSIL_XWorm_YZH_2147973597_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZH!MTB"
-        threat_id = "2147973588"
+        threat_id = "2147973597"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5851,12 +5851,12 @@ rule Trojan_MSIL_XWorm_YZH_2147973588_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_YZK_2147973590_0
+rule Trojan_MSIL_XWorm_YZK_2147973599_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.YZK!MTB"
-        threat_id = "2147973590"
+        threat_id = "2147973599"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5872,12 +5872,12 @@ rule Trojan_MSIL_XWorm_YZK_2147973590_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_BAS_2147973613_0
+rule Trojan_MSIL_XWorm_BAS_2147973623_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.BAS!MTB"
-        threat_id = "2147973613"
+        threat_id = "2147973623"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"
@@ -5895,12 +5895,12 @@ rule Trojan_MSIL_XWorm_BAS_2147973613_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_XWorm_ABVK_2147973706_0
+rule Trojan_MSIL_XWorm_ABVK_2147973716_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/XWorm.ABVK!MTB"
-        threat_id = "2147973706"
+        threat_id = "2147973716"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "XWorm"

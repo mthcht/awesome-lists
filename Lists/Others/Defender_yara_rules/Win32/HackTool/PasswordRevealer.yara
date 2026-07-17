@@ -1,9 +1,9 @@
-rule HackTool_Win32_PasswordRevealer_2147973734_0
+rule HackTool_Win32_PasswordRevealer_2147973744_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Win32/PasswordRevealer!MTB"
-        threat_id = "2147973734"
+        threat_id = "2147973744"
         type = "HackTool"
         platform = "Win32: Windows 32-bit platform"
         family = "PasswordRevealer"

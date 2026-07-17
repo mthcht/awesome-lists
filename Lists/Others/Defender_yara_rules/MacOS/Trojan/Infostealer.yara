@@ -68,12 +68,12 @@ rule Trojan_MacOS_Infostealer_DA_2147972245_0
         (all of ($x*))
 }
 
-rule Trojan_MacOS_Infostealer_J_2147973482_0
+rule Trojan_MacOS_Infostealer_J_2147973491_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MacOS/Infostealer.J"
-        threat_id = "2147973482"
+        threat_id = "2147973491"
         type = "Trojan"
         platform = "MacOS: "
         family = "Infostealer"

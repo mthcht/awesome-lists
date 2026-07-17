@@ -226,12 +226,12 @@ rule Trojan_Win64_Lotok_PAGR_2147954819_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lotok_AHB_2147973634_0
+rule Trojan_Win64_Lotok_AHB_2147973644_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Lotok.AHB!MTB"
-        threat_id = "2147973634"
+        threat_id = "2147973644"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Lotok"

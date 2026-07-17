@@ -126,12 +126,12 @@ rule Ransom_Win32_BlackMatter_PAB_2147795391_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_BlackMatter_YDQ_2147973504_0
+rule Ransom_Win32_BlackMatter_YDQ_2147973513_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/BlackMatter.YDQ!MTB"
-        threat_id = "2147973504"
+        threat_id = "2147973513"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "BlackMatter"
