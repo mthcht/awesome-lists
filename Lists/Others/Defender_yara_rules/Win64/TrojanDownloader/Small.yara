@@ -84,12 +84,12 @@ rule TrojanDownloader_Win64_Small_ARA_2147912986_1
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win64_Small_PAHW_2147973537_0
+rule TrojanDownloader_Win64_Small_PAHW_2147973555_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:Win64/Small.PAHW!MTB"
-        threat_id = "2147973537"
+        threat_id = "2147973555"
         type = "TrojanDownloader"
         platform = "Win64: Windows 64-bit platform"
         family = "Small"
@@ -106,12 +106,12 @@ rule TrojanDownloader_Win64_Small_PAHW_2147973537_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win64_Small_AMTB_2147973626_0
+rule TrojanDownloader_Win64_Small_AMTB_2147973644_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:Win64/Small!AMTB"
-        threat_id = "2147973626"
+        threat_id = "2147973644"
         type = "TrojanDownloader"
         platform = "Win64: Windows 64-bit platform"
         family = "Small"

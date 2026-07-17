@@ -260,12 +260,12 @@ rule Trojan_Win64_InfoStealer_PAH_2147968879_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_InfoStealer_AAB_2147973485_0
+rule Trojan_Win64_InfoStealer_AAB_2147973503_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/InfoStealer.AAB!AMTB"
-        threat_id = "2147973485"
+        threat_id = "2147973503"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "InfoStealer"

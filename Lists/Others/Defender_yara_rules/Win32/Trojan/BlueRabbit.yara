@@ -1,9 +1,9 @@
-rule Trojan_Win32_BlueRabbit_GVA_2147973618_0
+rule Trojan_Win32_BlueRabbit_GVA_2147973636_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/BlueRabbit.GVA!MTB"
-        threat_id = "2147973618"
+        threat_id = "2147973636"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "BlueRabbit"

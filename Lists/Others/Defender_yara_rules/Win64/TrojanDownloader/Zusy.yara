@@ -108,12 +108,12 @@ rule TrojanDownloader_Win64_Zusy_AHB_2147965875_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win64_Zusy_KKA_2147973671_0
+rule TrojanDownloader_Win64_Zusy_KKA_2147973689_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:Win64/Zusy.KKA!MTB"
-        threat_id = "2147973671"
+        threat_id = "2147973689"
         type = "TrojanDownloader"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"

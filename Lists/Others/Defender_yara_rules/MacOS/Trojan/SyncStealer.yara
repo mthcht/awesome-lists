@@ -106,12 +106,12 @@ rule Trojan_MacOS_SyncStealer_GVD_2147970688_0
         (all of ($x*))
 }
 
-rule Trojan_MacOS_SyncStealer_PAA_2147973873_0
+rule Trojan_MacOS_SyncStealer_PAA_2147973891_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MacOS/SyncStealer.PAA!MTB"
-        threat_id = "2147973873"
+        threat_id = "2147973891"
         type = "Trojan"
         platform = "MacOS: "
         family = "SyncStealer"
@@ -136,12 +136,12 @@ rule Trojan_MacOS_SyncStealer_PAA_2147973873_0
         )
 }
 
-rule Trojan_MacOS_SyncStealer_PAB_2147973874_0
+rule Trojan_MacOS_SyncStealer_PAB_2147973892_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MacOS/SyncStealer.PAB!MTB"
-        threat_id = "2147973874"
+        threat_id = "2147973892"
         type = "Trojan"
         platform = "MacOS: "
         family = "SyncStealer"
