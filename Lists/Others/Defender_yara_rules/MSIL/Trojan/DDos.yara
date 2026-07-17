@@ -1,9 +1,9 @@
-rule Trojan_MSIL_DDos_AMTB_2147973538_0
+rule Trojan_MSIL_DDos_AMTB_2147973545_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/DDos!AMTB"
-        threat_id = "2147973538"
+        threat_id = "2147973545"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "DDos"

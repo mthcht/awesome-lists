@@ -15049,12 +15049,12 @@ rule Trojan_Win32_ClickFix_MUG_2147973066_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_AHZ_2147973856_0
+rule Trojan_Win32_ClickFix_AHZ_2147973863_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.AHZ!MTB"
-        threat_id = "2147973856"
+        threat_id = "2147973863"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15074,12 +15074,12 @@ rule Trojan_Win32_ClickFix_AHZ_2147973856_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_BSZ_2147973857_0
+rule Trojan_Win32_ClickFix_BSZ_2147973864_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.BSZ!MTB"
-        threat_id = "2147973857"
+        threat_id = "2147973864"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15099,12 +15099,12 @@ rule Trojan_Win32_ClickFix_BSZ_2147973857_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_BTZ_2147973858_0
+rule Trojan_Win32_ClickFix_BTZ_2147973865_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.BTZ!MTB"
-        threat_id = "2147973858"
+        threat_id = "2147973865"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15125,12 +15125,12 @@ rule Trojan_Win32_ClickFix_BTZ_2147973858_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_TCZ_2147973859_0
+rule Trojan_Win32_ClickFix_TCZ_2147973866_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.TCZ!MTB"
-        threat_id = "2147973859"
+        threat_id = "2147973866"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15151,12 +15151,12 @@ rule Trojan_Win32_ClickFix_TCZ_2147973859_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_TDZ_2147973860_0
+rule Trojan_Win32_ClickFix_TDZ_2147973867_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.TDZ!MTB"
-        threat_id = "2147973860"
+        threat_id = "2147973867"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15177,12 +15177,12 @@ rule Trojan_Win32_ClickFix_TDZ_2147973860_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_TEE_2147973861_0
+rule Trojan_Win32_ClickFix_TEE_2147973868_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ClickFix.TEE!MTB"
-        threat_id = "2147973861"
+        threat_id = "2147973868"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"
@@ -15198,6 +15198,30 @@ rule Trojan_Win32_ClickFix_TEE_2147973861_0
         $x_1_4 = "iex(irm" wide //weight: 1
         $x_1_5 = "pow&set" wide //weight: 1
         $x_1_6 = ".net/" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_MUH_2147973872_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MUH!MTB"
+        threat_id = "2147973872"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-force ;;powershell" wide //weight: 1
+        $x_1_2 = "::FromBase64String( ($" wide //weight: 1
+        $x_1_3 = "-replace" wide //weight: 1
+        $x_1_4 = "[system.Text.Encoding]::UTF8.GetString" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

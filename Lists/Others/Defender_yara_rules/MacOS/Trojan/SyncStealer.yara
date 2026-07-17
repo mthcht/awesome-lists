@@ -106,3 +106,57 @@ rule Trojan_MacOS_SyncStealer_GVD_2147970688_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_SyncStealer_PAA_2147973873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SyncStealer.PAA!MTB"
+        threat_id = "2147973873"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SyncStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "410"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = "sh -c " wide //weight: 100
+        $x_100_2 = "cat" wide //weight: 100
+        $x_10_3 = "/Chrome/Default/Login Data" wide //weight: 10
+        $x_10_4 = "/Chrome/System Profile/Network/Cookies" wide //weight: 10
+        $x_10_5 = "/Chrome/System Profile/Web Data" wide //weight: 10
+        $x_100_6 = "/tmp/sync" wide //weight: 100
+        $x_100_7 = "/Browsers/Chrome_" wide //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_100_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_MacOS_SyncStealer_PAB_2147973874_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/SyncStealer.PAB!MTB"
+        threat_id = "2147973874"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "SyncStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "cp /" wide //weight: 4
+        $x_2_2 = "/Library/Keychains/login.keychain-db" wide //weight: 2
+        $x_2_3 = "/Library/Keychains/metadata.keychain-db" wide //weight: 2
+        $x_2_4 = "/tmp/sync" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -376,12 +376,12 @@ rule Ransom_Win32_Maze_ARA_2147897438_0
         (all of ($x*))
 }
 
-rule Ransom_Win32_Maze_YSN_2147973509_0
+rule Ransom_Win32_Maze_YSN_2147973516_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/Maze.YSN!MTB"
-        threat_id = "2147973509"
+        threat_id = "2147973516"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "Maze"

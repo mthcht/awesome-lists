@@ -2150,12 +2150,12 @@ rule Trojan_MSIL_Androm_SK_2147972062_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Androm_YZM_2147973600_0
+rule Trojan_MSIL_Androm_YZM_2147973607_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Androm.YZM!MTB"
-        threat_id = "2147973600"
+        threat_id = "2147973607"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Androm"
@@ -2172,12 +2172,12 @@ rule Trojan_MSIL_Androm_YZM_2147973600_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Androm_SNA_2147973738_0
+rule Trojan_MSIL_Androm_SNA_2147973745_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Androm.SNA!MTB"
-        threat_id = "2147973738"
+        threat_id = "2147973745"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Androm"

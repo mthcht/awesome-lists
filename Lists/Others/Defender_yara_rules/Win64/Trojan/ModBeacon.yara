@@ -1,9 +1,9 @@
-rule Trojan_Win64_ModBeacon_RV_2147973503_0
+rule Trojan_Win64_ModBeacon_RV_2147973510_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ModBeacon.RV!MTB"
-        threat_id = "2147973503"
+        threat_id = "2147973510"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ModBeacon"

@@ -858,12 +858,12 @@ rule Trojan_MSIL_RemcosRAT_SL_2147966085_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RemcosRAT_RVL_2147973501_0
+rule Trojan_MSIL_RemcosRAT_RVL_2147973508_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/RemcosRAT.RVL!MTB"
-        threat_id = "2147973501"
+        threat_id = "2147973508"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "RemcosRAT"
@@ -880,12 +880,12 @@ rule Trojan_MSIL_RemcosRAT_RVL_2147973501_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RemcosRAT_ARR_2147973707_0
+rule Trojan_MSIL_RemcosRAT_ARR_2147973714_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/RemcosRAT.ARR!MTB"
-        threat_id = "2147973707"
+        threat_id = "2147973714"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "RemcosRAT"

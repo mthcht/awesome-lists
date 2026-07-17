@@ -1,9 +1,9 @@
-rule HackTool_Win64_TokenPlayer_P_2147973683_0
+rule HackTool_Win64_TokenPlayer_P_2147973690_0
 {
     meta:
         author = "defender2yara"
         detection_name = "HackTool:Win64/TokenPlayer.P!MTB"
-        threat_id = "2147973683"
+        threat_id = "2147973690"
         type = "HackTool"
         platform = "Win64: Windows 64-bit platform"
         family = "TokenPlayer"

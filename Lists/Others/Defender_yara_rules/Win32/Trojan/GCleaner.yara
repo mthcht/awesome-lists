@@ -2222,12 +2222,12 @@ rule Trojan_Win32_GCleaner_IVZ_2147968450_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GCleaner_PGCE_2147973627_0
+rule Trojan_Win32_GCleaner_PGCE_2147973634_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GCleaner.PGCE!MTB"
-        threat_id = "2147973627"
+        threat_id = "2147973634"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GCleaner"
@@ -2243,12 +2243,12 @@ rule Trojan_Win32_GCleaner_PGCE_2147973627_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GCleaner_PGCD_2147973631_0
+rule Trojan_Win32_GCleaner_PGCD_2147973638_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GCleaner.PGCD!MTB"
-        threat_id = "2147973631"
+        threat_id = "2147973638"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GCleaner"

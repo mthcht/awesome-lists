@@ -643,12 +643,33 @@ rule Trojan_Win64_ValleyRAT_PAHT_2147972979_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ValleyRAT_AAVR_2147973710_0
+rule Trojan_Win64_ValleyRAT_EM_2147973498_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.EM!MTB"
+        threat_id = "2147973498"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {42 80 3c 01 63 75 38 42 80 7c 01 01 6f 75 30 42 80 7c 01 02 64 75 28 42 80 7c 01 03 65 75 20 42 80 7c 01 04 6d 75 18 42 80 7c 01 05 61 75 10 42 80 7c 01 06 72 75 08 42 80 7c 01 07 6b}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_AAVR_2147973717_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ValleyRAT.AAVR!MTB"
-        threat_id = "2147973710"
+        threat_id = "2147973717"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ValleyRAT"
