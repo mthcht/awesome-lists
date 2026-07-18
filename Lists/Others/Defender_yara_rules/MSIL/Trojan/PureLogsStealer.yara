@@ -309,12 +309,12 @@ rule Trojan_MSIL_PureLogsStealer_ZHI_2147962833_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureLogsStealer_ABPL_2147973809_0
+rule Trojan_MSIL_PureLogsStealer_ABPL_2147973815_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureLogsStealer.ABPL!MTB"
-        threat_id = "2147973809"
+        threat_id = "2147973815"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureLogsStealer"

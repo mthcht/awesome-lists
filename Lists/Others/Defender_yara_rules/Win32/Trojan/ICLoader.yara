@@ -2404,12 +2404,12 @@ rule Trojan_Win32_ICLoader_RR_2147963465_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_GPKA_2147973637_0
+rule Trojan_Win32_ICLoader_GPKA_2147973643_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ICLoader.GPKA!MTB"
-        threat_id = "2147973637"
+        threat_id = "2147973643"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ICLoader"
@@ -2427,12 +2427,12 @@ rule Trojan_Win32_ICLoader_GPKA_2147973637_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_GPKB_2147973639_0
+rule Trojan_Win32_ICLoader_GPKB_2147973645_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ICLoader.GPKB!MTB"
-        threat_id = "2147973639"
+        threat_id = "2147973645"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ICLoader"

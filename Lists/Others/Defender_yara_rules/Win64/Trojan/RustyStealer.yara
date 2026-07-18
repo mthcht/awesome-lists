@@ -624,12 +624,12 @@ rule Trojan_Win64_RustyStealer_PAHO_2147972082_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_RustyStealer_FUA_2147973613_0
+rule Trojan_Win64_RustyStealer_FUA_2147973619_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/RustyStealer.FUA!MTB"
-        threat_id = "2147973613"
+        threat_id = "2147973619"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "RustyStealer"

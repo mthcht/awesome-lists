@@ -190,12 +190,12 @@ rule Trojan_Win64_ShellLoader_SXC_2147966596_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellLoader_SXD_2147973766_0
+rule Trojan_Win64_ShellLoader_SXD_2147973772_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ShellLoader.SXD!MTB"
-        threat_id = "2147973766"
+        threat_id = "2147973772"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ShellLoader"

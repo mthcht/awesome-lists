@@ -128,12 +128,12 @@ rule Trojan_Win32_DLLHijack_DP_2147968703_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_CAP_2147973624_0
+rule Trojan_Win32_DLLHijack_CAP_2147973630_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.CAP!MTB"
-        threat_id = "2147973624"
+        threat_id = "2147973630"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -149,12 +149,12 @@ rule Trojan_Win32_DLLHijack_CAP_2147973624_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_CAQ_2147973625_0
+rule Trojan_Win32_DLLHijack_CAQ_2147973631_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.CAQ!MTB"
-        threat_id = "2147973625"
+        threat_id = "2147973631"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -170,12 +170,12 @@ rule Trojan_Win32_DLLHijack_CAQ_2147973625_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_PS_2147973654_0
+rule Trojan_Win32_DLLHijack_PS_2147973660_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.PS!MTB"
-        threat_id = "2147973654"
+        threat_id = "2147973660"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"
@@ -191,12 +191,12 @@ rule Trojan_Win32_DLLHijack_PS_2147973654_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLHijack_GXN_2147973939_0
+rule Trojan_Win32_DLLHijack_GXN_2147973945_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLHijack.GXN!MTB"
-        threat_id = "2147973939"
+        threat_id = "2147973945"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLHijack"

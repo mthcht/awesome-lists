@@ -109,12 +109,12 @@ rule Trojan_MSIL_DonutLoader_BA_2147966174_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DonutLoader_ARL_2147973815_0
+rule Trojan_MSIL_DonutLoader_ARL_2147973821_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/DonutLoader.ARL!MTB"
-        threat_id = "2147973815"
+        threat_id = "2147973821"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "DonutLoader"
@@ -131,12 +131,12 @@ rule Trojan_MSIL_DonutLoader_ARL_2147973815_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DonutLoader_AUL_2147973816_0
+rule Trojan_MSIL_DonutLoader_AUL_2147973822_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/DonutLoader.AUL!MTB"
-        threat_id = "2147973816"
+        threat_id = "2147973822"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "DonutLoader"

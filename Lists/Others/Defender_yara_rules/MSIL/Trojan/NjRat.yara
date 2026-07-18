@@ -4035,12 +4035,12 @@ rule Trojan_MSIL_NjRat_PU_2147972588_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_NjRat_AUXB_2147973588_0
+rule Trojan_MSIL_NjRat_AUXB_2147973594_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/NjRat.AUXB!MTB"
-        threat_id = "2147973588"
+        threat_id = "2147973594"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "NjRat"

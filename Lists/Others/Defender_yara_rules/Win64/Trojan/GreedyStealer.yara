@@ -1,9 +1,9 @@
-rule Trojan_Win64_GreedyStealer_ARA_2147973601_0
+rule Trojan_Win64_GreedyStealer_ARA_2147973607_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/GreedyStealer.ARA!MTB"
-        threat_id = "2147973601"
+        threat_id = "2147973607"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "GreedyStealer"

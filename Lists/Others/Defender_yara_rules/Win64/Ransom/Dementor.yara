@@ -1,9 +1,9 @@
-rule Ransom_Win64_Dementor_YDQ_2147973570_0
+rule Ransom_Win64_Dementor_YDQ_2147973576_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win64/Dementor.YDQ!MTB"
-        threat_id = "2147973570"
+        threat_id = "2147973576"
         type = "Ransom"
         platform = "Win64: Windows 64-bit platform"
         family = "Dementor"

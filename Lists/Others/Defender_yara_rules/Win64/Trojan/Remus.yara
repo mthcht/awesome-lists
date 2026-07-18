@@ -62,12 +62,12 @@ rule Trojan_Win64_Remus_AX_2147972704_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_PL_2147973602_0
+rule Trojan_Win64_Remus_PL_2147973608_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.PL!MTB"
-        threat_id = "2147973602"
+        threat_id = "2147973608"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -83,12 +83,12 @@ rule Trojan_Win64_Remus_PL_2147973602_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_IDK_2147973609_0
+rule Trojan_Win64_Remus_IDK_2147973615_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.IDK!MTB"
-        threat_id = "2147973609"
+        threat_id = "2147973615"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -104,12 +104,12 @@ rule Trojan_Win64_Remus_IDK_2147973609_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_NYB_2147973641_0
+rule Trojan_Win64_Remus_NYB_2147973647_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.NYB!MTB"
-        threat_id = "2147973641"
+        threat_id = "2147973647"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -128,12 +128,12 @@ rule Trojan_Win64_Remus_NYB_2147973641_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_NYD_2147973650_0
+rule Trojan_Win64_Remus_NYD_2147973656_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.NYD!MTB"
-        threat_id = "2147973650"
+        threat_id = "2147973656"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"
@@ -152,12 +152,12 @@ rule Trojan_Win64_Remus_NYD_2147973650_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_MK_2147973792_0
+rule Trojan_Win64_Remus_MK_2147973798_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Remus.MK!MTB"
-        threat_id = "2147973792"
+        threat_id = "2147973798"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Remus"

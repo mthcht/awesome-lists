@@ -1155,12 +1155,12 @@ rule Trojan_Win32_Midie_SXA_2147968808_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Midie_MK_2147973786_0
+rule Trojan_Win32_Midie_MK_2147973792_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Midie.MK!MTB"
-        threat_id = "2147973786"
+        threat_id = "2147973792"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Midie"

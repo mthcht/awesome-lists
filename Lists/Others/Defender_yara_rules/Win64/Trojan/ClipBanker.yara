@@ -1739,12 +1739,12 @@ rule Trojan_Win64_ClipBanker_AAA_2147973528_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ClipBanker_SNQ_2147973575_0
+rule Trojan_Win64_ClipBanker_SNQ_2147973581_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ClipBanker.SNQ!MTB"
-        threat_id = "2147973575"
+        threat_id = "2147973581"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ClipBanker"
@@ -1760,12 +1760,12 @@ rule Trojan_Win64_ClipBanker_SNQ_2147973575_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ClipBanker_B_2147973829_0
+rule Trojan_Win64_ClipBanker_B_2147973835_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/ClipBanker.B!AMTB"
-        threat_id = "2147973829"
+        threat_id = "2147973835"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "ClipBanker"

@@ -126,12 +126,12 @@ rule Trojan_Win64_RemusStealer_MJ_2147972205_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_RemusStealer_MK_2147973781_0
+rule Trojan_Win64_RemusStealer_MK_2147973787_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/RemusStealer.MK!MTB"
-        threat_id = "2147973781"
+        threat_id = "2147973787"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "RemusStealer"

@@ -267,12 +267,12 @@ rule TrojanDownloader_MSIL_Remcos_PZJM_2147936655_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_MSIL_Remcos_AMTB_2147973598_0
+rule TrojanDownloader_MSIL_Remcos_AMTB_2147973604_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:MSIL/Remcos!AMTB"
-        threat_id = "2147973598"
+        threat_id = "2147973604"
         type = "TrojanDownloader"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Remcos"

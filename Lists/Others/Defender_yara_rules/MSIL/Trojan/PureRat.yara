@@ -1152,12 +1152,12 @@ rule Trojan_MSIL_PureRat_ABH_2147973023_0
         )
 }
 
-rule Trojan_MSIL_PureRat_ABI_2147973705_0
+rule Trojan_MSIL_PureRat_ABI_2147973711_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureRat.ABI!MTB"
-        threat_id = "2147973705"
+        threat_id = "2147973711"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureRat"
@@ -1190,12 +1190,12 @@ rule Trojan_MSIL_PureRat_ABI_2147973705_0
         )
 }
 
-rule Trojan_MSIL_PureRat_ABJ_2147973706_0
+rule Trojan_MSIL_PureRat_ABJ_2147973712_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureRat.ABJ!MTB"
-        threat_id = "2147973706"
+        threat_id = "2147973712"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureRat"
@@ -1228,12 +1228,12 @@ rule Trojan_MSIL_PureRat_ABJ_2147973706_0
         )
 }
 
-rule Trojan_MSIL_PureRat_ABK_2147973707_0
+rule Trojan_MSIL_PureRat_ABK_2147973713_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureRat.ABK!MTB"
-        threat_id = "2147973707"
+        threat_id = "2147973713"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureRat"

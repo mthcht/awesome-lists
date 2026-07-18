@@ -1,9 +1,9 @@
-rule SoftwareBundler_Win32_YandexBundler_490403_0
+rule SoftwareBundler_Win32_YandexBundler_490409_0
 {
     meta:
         author = "defender2yara"
         detection_name = "SoftwareBundler:Win32/YandexBundler.muthu66"
-        threat_id = "490403"
+        threat_id = "490409"
         type = "SoftwareBundler"
         platform = "Win32: Windows 32-bit platform"
         family = "YandexBundler"

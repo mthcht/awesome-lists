@@ -367,12 +367,12 @@ rule Trojan_Win32_Rugmi_ARG_2147971944_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Rugmi_HAD_2147973640_0
+rule Trojan_Win32_Rugmi_HAD_2147973646_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Rugmi.HAD!MTB"
-        threat_id = "2147973640"
+        threat_id = "2147973646"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Rugmi"
@@ -388,12 +388,12 @@ rule Trojan_Win32_Rugmi_HAD_2147973640_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Rugmi_SX_2147973748_0
+rule Trojan_Win32_Rugmi_SX_2147973754_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Rugmi.SX!MTB"
-        threat_id = "2147973748"
+        threat_id = "2147973754"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Rugmi"

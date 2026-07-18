@@ -1,9 +1,9 @@
-rule Trojan_MSIL_ShadowRecruit_GVA_2147973680_0
+rule Trojan_MSIL_ShadowRecruit_GVA_2147973686_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/ShadowRecruit.GVA!MTB"
-        threat_id = "2147973680"
+        threat_id = "2147973686"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "ShadowRecruit"
