@@ -19,12 +19,12 @@ rule Trojan_Win64_VenomRat_AVE_2147972547_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_VenomRat_AMTB_2147973595_0
+rule Trojan_Win64_VenomRat_AMTB_2147973597_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/VenomRat!AMTB"
-        threat_id = "2147973595"
+        threat_id = "2147973597"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "VenomRat"

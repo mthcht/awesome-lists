@@ -21,12 +21,12 @@ rule Trojan_Win32_Rokrat_A_2147913232_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Rokrat_GVA_2147973671_0
+rule Trojan_Win32_Rokrat_GVA_2147973674_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Rokrat.GVA!MTB"
-        threat_id = "2147973671"
+        threat_id = "2147973674"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Rokrat"
@@ -42,12 +42,12 @@ rule Trojan_Win32_Rokrat_GVA_2147973671_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Rokrat_GVB_2147973672_0
+rule Trojan_Win32_Rokrat_GVB_2147973675_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Rokrat.GVB!MTB"
-        threat_id = "2147973672"
+        threat_id = "2147973675"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Rokrat"
@@ -64,12 +64,12 @@ rule Trojan_Win32_Rokrat_GVB_2147973672_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Rokrat_GVC_2147973673_0
+rule Trojan_Win32_Rokrat_GVC_2147973676_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Rokrat.GVC!MTB"
-        threat_id = "2147973673"
+        threat_id = "2147973676"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Rokrat"

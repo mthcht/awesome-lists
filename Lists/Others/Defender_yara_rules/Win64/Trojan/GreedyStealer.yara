@@ -1,19 +1,19 @@
-rule Trojan_Win64_cobaltstrike_IDK_2147973610_0
+rule Trojan_Win64_GreedyStealer_ARA_2147973601_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/cobaltstrike.IDK!MTB"
-        threat_id = "2147973610"
+        detection_name = "Trojan:Win64/GreedyStealer.ARA!MTB"
+        threat_id = "2147973601"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
-        family = "cobaltstrike"
+        family = "GreedyStealer"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "10"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = {41 8a 04 10 34 1b 41 88 00 49 ff c0 49 83 e9 01 75 ee}  //weight: 1, accuracy: High
+        $x_10_1 = {44 30 0c 03 48 ff c0 44 39 e0 72 f4}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

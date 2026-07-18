@@ -88,12 +88,12 @@ rule Trojan_Win32_HijackLoader_MCD_2147965704_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_HijackLoader_ARAZ_2147973598_0
+rule Trojan_Win32_HijackLoader_ARAZ_2147973600_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/HijackLoader.ARAZ!MTB"
-        threat_id = "2147973598"
+        threat_id = "2147973600"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "HijackLoader"

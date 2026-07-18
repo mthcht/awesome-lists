@@ -7233,12 +7233,12 @@ rule Trojan_Win32_OffLoader_ABSM_2147972967_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_YZJ_2147973661_0
+rule Trojan_Win32_OffLoader_YZJ_2147973664_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/OffLoader.YZJ!MTB"
-        threat_id = "2147973661"
+        threat_id = "2147973664"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "OffLoader"
@@ -7256,12 +7256,12 @@ rule Trojan_Win32_OffLoader_YZJ_2147973661_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_OffLoader_ABDS_2147973799_0
+rule Trojan_Win32_OffLoader_ABDS_2147973803_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/OffLoader.ABDS!MTB"
-        threat_id = "2147973799"
+        threat_id = "2147973803"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "OffLoader"

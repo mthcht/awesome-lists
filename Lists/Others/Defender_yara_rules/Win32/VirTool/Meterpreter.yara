@@ -99,12 +99,12 @@ rule VirTool_Win32_Meterpreter_J_2147844471_0
         (all of ($x*))
 }
 
-rule VirTool_Win32_Meterpreter_A_2147973545_0
+rule VirTool_Win32_Meterpreter_A_2147973547_0
 {
     meta:
         author = "defender2yara"
         detection_name = "VirTool:Win32/Meterpreter.A"
-        threat_id = "2147973545"
+        threat_id = "2147973547"
         type = "VirTool"
         platform = "Win32: Windows 32-bit platform"
         family = "Meterpreter"

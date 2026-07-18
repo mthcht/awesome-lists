@@ -1,9 +1,9 @@
-rule Trojan_MSIL_ImminentRat_ANXB_2147973579_0
+rule Trojan_MSIL_ImminentRat_ANXB_2147973581_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/ImminentRat.ANXB!MTB"
-        threat_id = "2147973579"
+        threat_id = "2147973581"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "ImminentRat"

@@ -1554,12 +1554,12 @@ rule Trojan_Win32_Tedy_KPN_2147972991_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_GPKA_2147973635_0
+rule Trojan_Win32_Tedy_GPKA_2147973638_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Tedy.GPKA!MTB"
-        threat_id = "2147973635"
+        threat_id = "2147973638"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Tedy"

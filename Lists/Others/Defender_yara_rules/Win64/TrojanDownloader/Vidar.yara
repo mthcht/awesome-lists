@@ -34,12 +34,12 @@ rule TrojanDownloader_Win64_Vidar_A_2147827732_0
         (all of ($x*))
 }
 
-rule TrojanDownloader_Win64_Vidar_AH_2147973720_0
+rule TrojanDownloader_Win64_Vidar_AH_2147973724_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:Win64/Vidar.AH!MTB"
-        threat_id = "2147973720"
+        threat_id = "2147973724"
         type = "TrojanDownloader"
         platform = "Win64: Windows 64-bit platform"
         family = "Vidar"

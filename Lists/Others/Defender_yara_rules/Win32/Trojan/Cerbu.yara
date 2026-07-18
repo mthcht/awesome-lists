@@ -236,12 +236,12 @@ rule Trojan_Win32_Cerbu_ARA_2147966999_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Cerbu_AHD_2147973717_0
+rule Trojan_Win32_Cerbu_AHD_2147973721_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Cerbu.AHD!MTB"
-        threat_id = "2147973717"
+        threat_id = "2147973721"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Cerbu"

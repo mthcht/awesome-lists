@@ -7532,12 +7532,12 @@ rule Trojan_MSIL_DarkTortilla_AYA_2147973035_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_DarkTortilla_BZR_2147973602_0
+rule Trojan_MSIL_DarkTortilla_BZR_2147973605_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/DarkTortilla.BZR!MTB"
-        threat_id = "2147973602"
+        threat_id = "2147973605"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "DarkTortilla"

@@ -1,9 +1,9 @@
-rule Trojan_Win32_Sock5Systemz_LR_2147973736_0
+rule Trojan_Win32_Sock5Systemz_LR_2147973740_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Sock5Systemz.LR!MTB"
-        threat_id = "2147973736"
+        threat_id = "2147973740"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Sock5Systemz"

@@ -681,12 +681,12 @@ rule Trojan_MSIL_PureCrypter_GXN_2147972646_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureCrypter_PYR_2147973656_0
+rule Trojan_MSIL_PureCrypter_PYR_2147973659_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/PureCrypter.PYR!MTB"
-        threat_id = "2147973656"
+        threat_id = "2147973659"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "PureCrypter"

@@ -1,9 +1,9 @@
-rule Ransom_Win32_KoraRansom_YDQ_2147973565_0
+rule Ransom_Win32_KoraRansom_YDQ_2147973567_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:Win32/KoraRansom.YDQ!MTB"
-        threat_id = "2147973565"
+        threat_id = "2147973567"
         type = "Ransom"
         platform = "Win32: Windows 32-bit platform"
         family = "KoraRansom"

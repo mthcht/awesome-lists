@@ -434,12 +434,12 @@ rule Trojan_MSIL_VIPKeylogger_AVTB_2147966989_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_VIPKeylogger_AVXB_2147973587_0
+rule Trojan_MSIL_VIPKeylogger_AVXB_2147973589_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/VIPKeylogger.AVXB!MTB"
-        threat_id = "2147973587"
+        threat_id = "2147973589"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "VIPKeylogger"

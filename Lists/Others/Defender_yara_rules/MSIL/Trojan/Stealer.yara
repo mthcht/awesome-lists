@@ -3791,12 +3791,12 @@ rule Trojan_MSIL_Stealer_ARS_2147972094_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Stealer_AAV_2147973525_0
+rule Trojan_MSIL_Stealer_AAV_2147973527_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Stealer.AAV!AMTB"
-        threat_id = "2147973525"
+        threat_id = "2147973527"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Stealer"

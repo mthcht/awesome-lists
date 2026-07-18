@@ -2134,12 +2134,12 @@ rule Ransom_MSIL_FileCoder_MKA_2147968553_0
         (all of ($x*))
 }
 
-rule Ransom_MSIL_FileCoder_F_2147973591_0
+rule Ransom_MSIL_FileCoder_F_2147973593_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Ransom:MSIL/FileCoder.F!AMTB"
-        threat_id = "2147973591"
+        threat_id = "2147973593"
         type = "Ransom"
         platform = "MSIL: .NET intermediate language scripts"
         family = "FileCoder"
