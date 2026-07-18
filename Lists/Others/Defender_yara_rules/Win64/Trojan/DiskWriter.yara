@@ -91,12 +91,12 @@ rule Trojan_Win64_DiskWriter_AHA_2147971380_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DiskWriter_MK_2147973763_0
+rule Trojan_Win64_DiskWriter_MK_2147973773_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/DiskWriter.MK!MTB"
-        threat_id = "2147973763"
+        threat_id = "2147973773"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "DiskWriter"

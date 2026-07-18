@@ -4164,12 +4164,12 @@ rule Trojan_Win64_Zusy_AHV_2147972999_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_LRM_2147973727_0
+rule Trojan_Win64_Zusy_LRM_2147973737_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.LRM!MTB"
-        threat_id = "2147973727"
+        threat_id = "2147973737"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4193,12 +4193,12 @@ rule Trojan_Win64_Zusy_LRM_2147973727_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_SXX_2147973737_0
+rule Trojan_Win64_Zusy_SXX_2147973747_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.SXX!MTB"
-        threat_id = "2147973737"
+        threat_id = "2147973747"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4214,12 +4214,12 @@ rule Trojan_Win64_Zusy_SXX_2147973737_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_SXY_2147973751_0
+rule Trojan_Win64_Zusy_SXY_2147973761_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.SXY!MTB"
-        threat_id = "2147973751"
+        threat_id = "2147973761"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4236,12 +4236,12 @@ rule Trojan_Win64_Zusy_SXY_2147973751_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZU_2147973796_0
+rule Trojan_Win64_Zusy_AZU_2147973806_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZU!MTB"
-        threat_id = "2147973796"
+        threat_id = "2147973806"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"
@@ -4257,12 +4257,12 @@ rule Trojan_Win64_Zusy_AZU_2147973796_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_AZYU_2147973797_0
+rule Trojan_Win64_Zusy_AZYU_2147973807_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/Zusy.AZYU!MTB"
-        threat_id = "2147973797"
+        threat_id = "2147973807"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "Zusy"

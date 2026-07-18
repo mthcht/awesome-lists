@@ -8873,12 +8873,12 @@ rule Trojan_Win32_GuLoader_RFG_2147972996_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_RFH_2147973557_0
+rule Trojan_Win32_GuLoader_RFH_2147973561_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GuLoader.RFH!MTB"
-        threat_id = "2147973557"
+        threat_id = "2147973561"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GuLoader"
@@ -8898,12 +8898,12 @@ rule Trojan_Win32_GuLoader_RFH_2147973557_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_GuLoader_SNP_2147973568_0
+rule Trojan_Win32_GuLoader_SNP_2147973572_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/GuLoader.SNP!MTB"
-        threat_id = "2147973568"
+        threat_id = "2147973572"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "GuLoader"

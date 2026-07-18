@@ -47,12 +47,12 @@ rule Trojan_Win64_SpyAgent_AMTB_2147972531_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_SpyAgent_A_2147973816_0
+rule Trojan_Win64_SpyAgent_A_2147973826_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win64/SpyAgent.A!AMTB"
-        threat_id = "2147973816"
+        threat_id = "2147973826"
         type = "Trojan"
         platform = "Win64: Windows 64-bit platform"
         family = "SpyAgent"

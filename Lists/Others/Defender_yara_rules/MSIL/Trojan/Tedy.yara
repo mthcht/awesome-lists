@@ -2803,12 +2803,33 @@ rule Trojan_MSIL_Tedy_BGU_2147972341_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_AVN_2147973714_0
+rule Trojan_MSIL_Tedy_PAHY_2147973590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.PAHY!MTB"
+        threat_id = "2147973590"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 07 11 08 58 02 07 11 08 58 91 11 05 11 08 91 61 d2 9c 00 11 08 17 58 13 08 11 08 11 07 fe 04 13 0a 11 0a 2d d9}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_AVN_2147973724_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Tedy.AVN!MTB"
-        threat_id = "2147973714"
+        threat_id = "2147973724"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Tedy"
@@ -2824,12 +2845,12 @@ rule Trojan_MSIL_Tedy_AVN_2147973714_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_SX_2147973756_0
+rule Trojan_MSIL_Tedy_SX_2147973766_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:MSIL/Tedy.SX!MTB"
-        threat_id = "2147973756"
+        threat_id = "2147973766"
         type = "Trojan"
         platform = "MSIL: .NET intermediate language scripts"
         family = "Tedy"

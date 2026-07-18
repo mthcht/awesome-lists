@@ -271,12 +271,12 @@ rule Trojan_Win32_ValleyRAT_AHE_2147972296_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRAT_SLXE_2147973643_0
+rule Trojan_Win32_ValleyRAT_SLXE_2147973648_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRAT.SLXE!!MTB"
-        threat_id = "2147973643"
+        threat_id = "2147973648"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRAT"
@@ -292,12 +292,12 @@ rule Trojan_Win32_ValleyRAT_SLXE_2147973643_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ValleyRAT_PGVE_2147973692_0
+rule Trojan_Win32_ValleyRAT_PGVE_2147973697_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/ValleyRAT.PGVE!MTB"
-        threat_id = "2147973692"
+        threat_id = "2147973697"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "ValleyRAT"

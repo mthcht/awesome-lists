@@ -46,12 +46,12 @@ rule Trojan_Win32_DLLSideLoad_ST_2147973072_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_DLLSideLoad_SJ_2147973516_0
+rule Trojan_Win32_DLLSideLoad_SJ_2147973520_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/DLLSideLoad.SJ!MTB"
-        threat_id = "2147973516"
+        threat_id = "2147973520"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "DLLSideLoad"

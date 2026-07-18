@@ -223,12 +223,12 @@ rule Trojan_Win32_Tasker_LM_2147946818_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tasker_LR_2147973729_0
+rule Trojan_Win32_Tasker_LR_2147973739_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Tasker.LR!MTB"
-        threat_id = "2147973729"
+        threat_id = "2147973739"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Tasker"

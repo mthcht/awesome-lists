@@ -1,9 +1,9 @@
-rule TrojanDownloader_Win32_ClickFix_JC_2147973946_0
+rule TrojanDownloader_Win32_ClickFix_JC_2147973959_0
 {
     meta:
         author = "defender2yara"
         detection_name = "TrojanDownloader:Win32/ClickFix.JC"
-        threat_id = "2147973946"
+        threat_id = "2147973959"
         type = "TrojanDownloader"
         platform = "Win32: Windows 32-bit platform"
         family = "ClickFix"

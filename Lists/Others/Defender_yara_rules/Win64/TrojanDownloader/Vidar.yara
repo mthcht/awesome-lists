@@ -34,3 +34,24 @@ rule TrojanDownloader_Win64_Vidar_A_2147827732_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Vidar_AH_2147973720_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Vidar.AH!MTB"
+        threat_id = "2147973720"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 0f b6 c1 42 32 04 1a 88 04 0a ff c2 0f b6 84 24 87 00 00 00 34 ?? 88 04 24 0f b6 84 24 40 01 00 00 fe c0 88 84 24 40 01 00 00 0f b6 04 24 fe c0 88 04 24 41 3b d0 75}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

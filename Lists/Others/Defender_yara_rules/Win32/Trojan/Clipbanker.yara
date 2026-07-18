@@ -352,12 +352,12 @@ rule Trojan_Win32_Clipbanker_AMAG_2147919822_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Clipbanker_LRG_2147973724_0
+rule Trojan_Win32_Clipbanker_LRG_2147973734_0
 {
     meta:
         author = "defender2yara"
         detection_name = "Trojan:Win32/Clipbanker.LRG!MTB"
-        threat_id = "2147973724"
+        threat_id = "2147973734"
         type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Clipbanker"
