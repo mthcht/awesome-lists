@@ -2694,6 +2694,29 @@ rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {42 0f b6 84 09 ?? ?? ?? ?? 30 01 48 8d 49 01 49 83 e8 01 75}  //weight: 11, accuracy: Low
+        $x_6_2 = {88 0f 32 45 fe 88 03 0f b6 44 24 21 32 45 ff 88 43 ?? 0f b6 44 24 22 32 45 ?? 88 43 02 0f b6 44 24 23 32 45 ?? 88 43 03 0f b6 44 24 24}  //weight: 6, accuracy: Low
+        $x_3_3 = {44 32 c0 41 0f b6 c0 44 89 44 24 68 c0 e8 ?? 0f b6 c0 6b c8 ?? 41 0f b6 c0 02 c0 32 c8 41 0f b6 c5 c0 e8 ?? 0f b6 c0 44 6b f8}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_ARR_2147961505_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.ARR!MTB"
+        threat_id = "2147961505"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "28"
         strings_accuracy = "Low"
     strings:
