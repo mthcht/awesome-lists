@@ -827,30 +827,6 @@ rule HackTool_Win32_Keygen_2147751727_18
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "BigFish games keymaker by Vovan[Braga Software]" wide //weight: 1
-        $x_1_2 = "savegamelist" wide //weight: 1
-        $x_1_3 = "GameList.TxT" ascii //weight: 1
-        $x_1_4 = "[==*Zs,hl" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule HackTool_Win32_Keygen_2147751727_19
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Win32/Keygen!MTB"
-        threat_id = "2147751727"
-        type = "HackTool"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Keygen"
-        severity = "High"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
