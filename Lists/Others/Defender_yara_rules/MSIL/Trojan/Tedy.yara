@@ -2870,3 +2870,28 @@ rule Trojan_MSIL_Tedy_SX_2147973776_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_SXA_2147974130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.SXA!MTB"
+        threat_id = "2147974130"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "Low"
+    strings:
+        $x_50_1 = {a2 08 17 07 72 ?? 00 00 70 28 ?? 00 00 0a 28 ?? 00 00 0a a2 06 08}  //weight: 50, accuracy: Low
+        $x_15_2 = "OnStealer" ascii //weight: 15
+        $x_5_3 = "OBSGrabber/Profiles/" wide //weight: 5
+        $x_5_4 = "/obs-studio/basic/profiles/" wide //weight: 5
+        $x_5_5 = "OBSGrabber/global.ini" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

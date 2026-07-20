@@ -73,3 +73,28 @@ rule Ransom_MSIL_LockFile_SX_2147968170_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_LockFile_MLV_2147974127_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockFile.MLV!MTB"
+        threat_id = "2147974127"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\PonosDedaRemix.pdb" ascii //weight: 3
+        $x_1_2 = "You got it!" ascii //weight: 1
+        $x_2_3 = "Fucking Windows" ascii //weight: 2
+        $x_2_4 = "ransomLabel" ascii //weight: 2
+        $x_2_5 = "Decrypted Password: " ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

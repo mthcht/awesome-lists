@@ -9827,3 +9827,26 @@ rule Trojan_Win32_Zusy_MKF_2147973799_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Zusy_YDQ_2147974139_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.YDQ!MTB"
+        threat_id = "2147974139"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {0f b6 2c 03 89 c6 b8 ac 1f 74 54 89 d7 f7 e9 c1 fa 05 89 c8 c1 f9 1f 29 ca 6b ca 61 89 c2 29 c8 31 e8 89 d9 c1 e3 05 29 cb 31 c3 88 1c 0e}  //weight: 3, accuracy: High
+        $x_1_2 = {f2 0f 10 d9 f2 0f 5e da f2 0f 58 c3 f2 0f 10 1d ?? ?? ?? ?? f2 0f 58 d3 f2 0f 10 25 ?? ?? ?? ?? 66 0f ef cc 41}  //weight: 1, accuracy: Low
+        $x_1_3 = "Go build ID:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

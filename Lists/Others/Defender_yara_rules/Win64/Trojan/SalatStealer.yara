@@ -220,3 +220,24 @@ rule Trojan_Win64_SalatStealer_DGRS_2147971899_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_IDK_2147974125_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.IDK!MTB"
+        threat_id = "2147974125"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 0c 10 32 8d ?? ?? ?? ?? 88 8c 05 ?? ?? ?? ?? 48 8d 48 ?? 80 7c 10 ?? ?? 74 ?? 48 83 f8 ?? 48 89 c8 72 ?? eb}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

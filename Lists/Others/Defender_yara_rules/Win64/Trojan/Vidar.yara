@@ -3324,3 +3324,24 @@ rule Trojan_Win64_Vidar_AF_2147974109_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GVVD_2147974128_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GVVD!MTB"
+        threat_id = "2147974128"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 0f b6 08 45 8d 41 bf 41 80 f8 19 41 8d 49 20 0f b6 d1 45 8d 43 bf 8b 4d 67 41 0f 47 d1 44 0f b6 ca 41 8b d1 33 d1 41 8d 4b 20 89 55 67 41 80 f8 19 0f b6 d1 41 0f 47 d3 44 3a ca 75 34 48 ff c0 49 ff c2 38 18 75 af}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

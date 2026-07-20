@@ -4459,27 +4459,6 @@ rule Trojan_Win64_Emotet_RDD_2147842987_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Emotet_LK_2147842997_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/Emotet.LK!MTB"
-        threat_id = "2147842997"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Emotet"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8b 04 24 c1 e8 0d 8b 0c 24 c1 e1 13 0b c1 89 04 24 48 8b 44 24 20 0f be 00 83 f8 61 7c 11}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win64_Emotet_SAI_2147843091_0
 {
     meta:
