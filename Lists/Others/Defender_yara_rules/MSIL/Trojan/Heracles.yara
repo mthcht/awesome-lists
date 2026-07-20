@@ -11250,3 +11250,25 @@ rule Trojan_MSIL_Heracles_A_2147973831_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_ABD_2147974118_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.ABD!MTB"
+        threat_id = "2147974118"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WinTune.dll" ascii //weight: 1
+        $x_1_2 = "Windows optimization toolkit" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

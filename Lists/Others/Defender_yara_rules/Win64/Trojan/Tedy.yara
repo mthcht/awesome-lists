@@ -7473,3 +7473,27 @@ rule Trojan_Win64_Tedy_AE_2147973832_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_MKW_2147974120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKW!MTB"
+        threat_id = "2147974120"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {44 8b c0 41 81 f0 b9 79 37 9e 41 c1 c8 09 8b d0 81 f2 e1 a7 f5 1b c1 ca 0f 8b c8 81 f1 72 f3 6e 3c c1 c9 15 35 a5 a5 a5 a5 c1 c8 1b}  //weight: 10, accuracy: High
+        $x_5_2 = "Failed to read payload:" ascii //weight: 5
+        $x_3_3 = "DecryptData failed:" ascii //weight: 3
+        $x_2_4 = "CreateFileA failed:" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

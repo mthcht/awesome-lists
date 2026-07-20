@@ -6890,3 +6890,26 @@ rule Trojan_Win64_Lazy_MSA_2147973797_0
         )
 }
 
+rule Trojan_Win64_Lazy_MSB_2147974122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MSB!MTB"
+        threat_id = "2147974122"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_12_1 = {44 0f b6 4c 24 0f 44 32 0c 02 44 88 0c 01 48 83 c0 01 49 39 c0}  //weight: 12, accuracy: High
+        $x_5_2 = "powershell.exe -w hidden -nop -c \"" ascii //weight: 5
+        $x_3_3 = "%{$d=Get-DiskImage -DevicePath ('\\\\.\\CDROM'+$_) -EA 0" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

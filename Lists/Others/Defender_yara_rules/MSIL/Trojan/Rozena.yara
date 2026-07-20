@@ -3290,3 +3290,27 @@ rule Trojan_MSIL_Rozena_CAT_2147970593_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rozena_MKC_2147974119_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rozena.MKC!MTB"
+        threat_id = "2147974119"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "injected_ids.txt" ascii //weight: 10
+        $x_5_2 = "<SaveInjectedProcessIds>" ascii //weight: 5
+        $x_3_3 = "<FindProcessByGameFolder>" ascii //weight: 3
+        $x_2_4 = "_lastInjectionAttempt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

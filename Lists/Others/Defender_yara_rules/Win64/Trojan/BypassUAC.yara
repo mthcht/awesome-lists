@@ -137,3 +137,27 @@ rule Trojan_Win64_BypassUAC_GVB_2147972392_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_MKA_2147974121_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.MKA!MTB"
+        threat_id = "2147974121"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "$d=$env:LOCALAPPDATA+'\\WinUpd';if(!(Test-Path $d)){md $d};$r=Get-ItemProperty $k;" wide //weight: 10
+        $x_5_2 = "$nm=[Text.Encoding]::Unicode.GetString($fs);[IO.File]::WriteAllBytes($d+'\\'+$nm,$b)};" wide //weight: 5
+        $x_3_3 = "Start-Process ($d+'\\'+[Text.Encoding]::Unicode.GetString((1..$r.HF.Length|%{$r.HF[$_-1] -bxor $x})))" wide //weight: 3
+        $x_2_4 = "powershell.exe -ep bypass -w hidden -c \"$k='HKCU:\\Software\\Classes\\CLSID}\\Instance'" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
