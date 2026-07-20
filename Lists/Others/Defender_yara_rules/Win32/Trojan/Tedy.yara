@@ -1575,3 +1575,26 @@ rule Trojan_Win32_Tedy_GPKA_2147973644_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_LRL_2147974086_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.LRL!MTB"
+        threat_id = "2147974086"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {89 45 0c 5b 3b c6 7d ?? 8b 0f 80 34 01 74 40 3b c6 7c ?? 01 37 8b c6}  //weight: 20, accuracy: Low
+        $x_10_2 = {50 66 89 85 cc f5 ff ff 8d 85 ce f5 ff ff 50 c7 85 b4 f5 ff ff 7b 76 55 5f c7 85 b8 f5 ff ff 21 6a 57 57 c7 85 bc f5 ff ff 2e 00 64 00 c7 85 c0 f5 ff ff 6c 00 6c 00 c7 85 c4 f5 ff ff 5f 00 62 00 c7 85 c8 f5 ff ff 69 00 6e 00}  //weight: 10, accuracy: High
+        $x_5_3 = "xiugaishiyong" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
