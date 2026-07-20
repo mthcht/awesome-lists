@@ -349,3 +349,27 @@ rule Trojan_Win64_KillAV_SX_2147972403_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_MX_2147974100_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.MX!MTB"
+        threat_id = "2147974100"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "DefenderKiller" ascii //weight: 10
+        $x_1_2 = "KSLDriver.sys" ascii //weight: 1
+        $x_1_3 = "Usage: %s kill <PID | process_name>" ascii //weight: 1
+        $x_1_4 = "Closing handle (triggers ZwTerminateProcess)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

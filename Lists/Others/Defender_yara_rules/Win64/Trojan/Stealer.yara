@@ -1177,3 +1177,28 @@ rule Trojan_Win64_Stealer_NYA_2147973648_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_AMX_2147974091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.AMX!MTB"
+        threat_id = "2147974091"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Google\\Chrome\\User Data\\Default\\Login Data.json" ascii //weight: 1
+        $x_1_2 = "stolen_username" ascii //weight: 1
+        $x_1_3 = "Web Data.json" ascii //weight: 1
+        $x_1_4 = "USERNAME" ascii //weight: 1
+        $x_1_5 = "ProgramData\\WindowsTelemetry" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

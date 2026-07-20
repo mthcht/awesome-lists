@@ -1440,6 +1440,28 @@ rule Trojan_Win64_Zusy_ARAX_2147931743_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\stopmpernigga.pdb" ascii //weight: 2
+        $x_2_2 = "SOFTWARE\\Classes\\mscfile\\shell\\open\\command" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_ARAX_2147931743_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.ARAX!MTB"
+        threat_id = "2147931743"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "High"
     strings:
@@ -4273,6 +4295,33 @@ rule Trojan_Win64_Zusy_AZYU_2147973817_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {45 0f b7 04 4b 41 31 d0 66 44 89 04 48 41 89 d0 41 c1 e0 06 46 8d 44 02 13 41 8d 14 08 49 0f af d2 48 c1 ea 27 44 69 ca fb 00 00 00 41 8d 14 08 48 83 c1 01 44 29 ca 83 c2 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_KMK_2147974102_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KMK!MTB"
+        threat_id = "2147974102"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 8b 84 24 c8 00 00 00 48 8b 4c 24 60 8a 8c 0c 50 01 00 00 32 08 88 08 48 8b 8c 24 48 01 00 00 48 89 c8 48 83 c0 01 48 89 44 24 30 48 39 c8}  //weight: 4, accuracy: High
+        $x_1_2 = "[krl] console_ok" ascii //weight: 1
+        $x_1_3 = "payload_returned" ascii //weight: 1
+        $x_1_4 = "main() entered" ascii //weight: 1
+        $x_1_5 = "gadget: 0x" ascii //weight: 1
+        $x_1_6 = "ret_gad: 0x" ascii //weight: 1
+        $x_1_7 = "\\Temp\\kr_step" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

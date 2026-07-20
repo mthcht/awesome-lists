@@ -111,3 +111,25 @@ rule Trojan_Win64_AdaptixC2_RS_2147972398_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AdaptixC2_ARA_2147974092_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AdaptixC2.ARA!MTB"
+        threat_id = "2147974092"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AdaptixC2"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "%s\\svchost_%d.exe" ascii //weight: 6
+        $x_2_2 = {c7 44 24 28 00 00 00 08 c7 44 24 20 00 00 00 00 ff 15}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
