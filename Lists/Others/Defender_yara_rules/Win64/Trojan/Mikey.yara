@@ -2723,3 +2723,29 @@ rule Trojan_Win64_Mikey_SXL_2147973761_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_SXM_2147974234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.SXM!MTB"
+        threat_id = "2147974234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "54"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "anac2stealer" ascii //weight: 20
+        $x_15_2 = "History ] Stealer" ascii //weight: 15
+        $x_10_3 = "tmp_search.dat" ascii //weight: 10
+        $x_5_4 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 5
+        $x_3_5 = "Passwords.txt" ascii //weight: 3
+        $x_1_6 = "\\discord\\Local Storage\\leveldb\\" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

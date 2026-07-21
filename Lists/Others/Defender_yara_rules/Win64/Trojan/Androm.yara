@@ -221,3 +221,25 @@ rule Trojan_Win64_Androm_SNT_2147973584_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Androm_ABAN_2147974239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Androm.ABAN!MTB"
+        threat_id = "2147974239"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 0f b6 d0 42 0f b6 04 11 41 88 04 30 42 88 14 11 41 0f b6 0c 30 48 03 ca 0f b6 c1 0f b6 4c 04 ?? 41 30 49 ?? 49 83 eb}  //weight: 5, accuracy: Low
+        $x_5_2 = {48 8b c1 83 e0 ?? 0f b6 84 10 ?? ?? ?? ?? 41 32 84 10 ?? ?? ?? ?? 49 ff c0 88 04 19 48 ff c1 49 81 f8}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

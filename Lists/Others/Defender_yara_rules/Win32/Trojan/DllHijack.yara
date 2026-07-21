@@ -324,3 +324,25 @@ rule Trojan_Win32_DllHijack_ARS_2147972093_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_SX_2147974232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.SX!MTB"
+        threat_id = "2147974232"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {32 d1 41 88 54 05 e8 40 81 e1 ff 00 00 00 83 f8 0e 72 e7}  //weight: 30, accuracy: High
+        $x_20_2 = {80 f2 a3 88 10 0f b6 91 ?? ?? ?? ?? 80 f2 a4 88 50 01 0f b6 91 ?? ?? ?? ?? 80 f2 a5 88 50 02 0f b6 91 ?? ?? ?? ?? 80 f2 a6 88 50 03}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

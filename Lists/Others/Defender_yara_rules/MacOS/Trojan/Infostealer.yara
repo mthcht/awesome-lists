@@ -96,3 +96,33 @@ rule Trojan_MacOS_Infostealer_J_2147973550_0
         (8 of ($x*))
 }
 
+rule Trojan_MacOS_Infostealer_K_2147974248_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Infostealer.K"
+        threat_id = "2147974248"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Infostealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "security unlock-keychain" ascii //weight: 1
+        $x_1_2 = "security dump-keychain" ascii //weight: 1
+        $x_1_3 = "osascript -e 'display dialog" ascii //weight: 1
+        $x_1_4 = "Login Data" ascii //weight: 1
+        $x_1_5 = "MetaMask" ascii //weight: 1
+        $x_1_6 = "Atomic_Wallet" ascii //weight: 1
+        $x_1_7 = "/dev/vmci" ascii //weight: 1
+        $x_1_8 = "isDebuggerAttached" ascii //weight: 1
+        $x_1_9 = "killall -9 security" ascii //weight: 1
+        $x_1_10 = ".kube" ascii //weight: 1
+        $x_1_11 = "/Library/Messages/chat.db" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (10 of ($x*))
+}
+

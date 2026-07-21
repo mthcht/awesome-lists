@@ -130,3 +130,27 @@ rule Trojan_Win32_KillAV_ABKV_2147971134_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillAV_MK_2147974237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillAV.MK!MTB"
+        threat_id = "2147974237"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "HS_KILLAV_DONE" ascii //weight: 10
+        $x_5_2 = "killav_sc.pdb" ascii //weight: 5
+        $x_3_3 = "killav_sc.dll" ascii //weight: 3
+        $x_2_4 = "RichMbU" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

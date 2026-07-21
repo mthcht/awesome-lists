@@ -114,3 +114,27 @@ rule Trojan_MSIL_Midie_SXC_2147973773_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Midie_SXD_2147974233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Midie.SXD!MTB"
+        threat_id = "2147974233"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "52"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "RunNebulaStealer" ascii //weight: 20
+        $x_20_2 = "Calling RunNebulaStealer" wide //weight: 20
+        $x_10_3 = "cmd.exe /C sc query WcsHost | findstr RUNNING >nul 2>&1 || sc start WcsHost >nul 2>&1 & reg query" wide //weight: 10
+        $x_2_4 = "UpdateHelper.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
