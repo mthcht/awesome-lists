@@ -3366,3 +3366,25 @@ rule Trojan_Win64_Vidar_GVVE_2147974150_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GVVF_2147974172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GVVF!MTB"
+        threat_id = "2147974172"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "://mub.depansm188.top" ascii //weight: 1
+        $x_1_2 = "\\AppData\\Local\\Temp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
