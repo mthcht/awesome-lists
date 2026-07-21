@@ -21,3 +21,27 @@ rule Ransom_MSIL_Lockbit_SNA_2147964159_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Lockbit_VD_2147974222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Lockbit.VD!MTB"
+        threat_id = "2147974222"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lockbit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Fucking Windows" wide //weight: 3
+        $x_2_2 = "TriggerSecretKey" wide //weight: 2
+        $x_2_3 = "Encrypting Data" wide //weight: 2
+        $x_1_4 = "telegram" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
