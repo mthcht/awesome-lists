@@ -20,3 +20,24 @@ rule VirTool_Win64_Havoc_E_2147929297_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Havoc_F_2147974197_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Havoc.F"
+        threat_id = "2147974197"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "andInjectShellcode" ascii //weight: 1
+        $x_1_2 = "andInjectDL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

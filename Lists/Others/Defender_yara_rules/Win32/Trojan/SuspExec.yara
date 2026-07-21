@@ -90,6 +90,7 @@ rule Trojan_Win32_SuspExec_SE_2147940952_0
         $n_100_4 = "msedgewebview2.exe" wide //weight: -100
         $n_1000_5 = "if false == false echo" wide //weight: -1000
         $n_1000_6 = "/olb/businessserv/mca/getDetails.do" wide //weight: -1000
+        $n_100_7 = "'https://app.gitlab.barcapint.com'" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

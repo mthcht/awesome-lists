@@ -157,3 +157,26 @@ rule Trojan_Linux_Gafgyt_HAC_2147960960_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Gafgyt_AMTB_2147974191_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Gafgyt!AMTB"
+        threat_id = "2147974191"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Gafgyt"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "http_attack.c" ascii //weight: 3
+        $x_3_2 = "/tmp/.bot_lock" ascii //weight: 3
+        $x_3_3 = "26a8d078cea5dad2af3b9bea9ad9c8c7afe75495b73036eee27b895c654a5652" ascii //weight: 3
+        $x_3_4 = "fd00e82a0a3d86af73deacaa9df16432" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
