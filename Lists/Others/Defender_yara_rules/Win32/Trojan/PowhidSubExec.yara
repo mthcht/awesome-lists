@@ -16,8 +16,10 @@ rule Trojan_Win32_PowhidSubExec_B_2147941383_0
         $x_1_2 = {68 00 69 00 64 00 64 00 65 00 6e 00 [0-60] 24 00}  //weight: 1, accuracy: Low
         $x_1_3 = "appdata" wide //weight: 1
         $x_1_4 = {2e 00 73 00 75 00 62 00 73 00 74 00 72 00 69 00 6e 00 67 00 [0-60] 24 00}  //weight: 1, accuracy: Low
+        $n_100_5 = "\\AppData\\Local\\Temp\\claude\\" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

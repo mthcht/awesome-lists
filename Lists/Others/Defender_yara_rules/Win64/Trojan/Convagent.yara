@@ -320,6 +320,33 @@ rule Trojan_Win64_Convagent_SPGE_2147902438_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_NA_2147910672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.NA!MTB"
+        threat_id = "2147910672"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 6d 00 31 c0 31 c9 31 d2 48 c7 c3 ff ff ff ff 31 f6 31 ff 45 31 c0 eb ?? 4d 8d 48 01 48 ff c2 4c 39 c9 49 0f 4c c9 41 89 d9 4c 89 c3}  //weight: 1, accuracy: Low
+        $x_1_2 = {4c 8b 8c dc ?? ?? 00 00 4c 8b 94 dc ?? ?? 00 00 4d 0f af d1 4c 89 94 dc ?? ?? 00 00 48 ff c0 31 db}  //weight: 1, accuracy: Low
+        $x_1_3 = {48 c7 84 dc ?? ?? 00 00 00 00 00 00 49 89 d2 49 89 c3 49 8d 43 01 4c 89 d2 31 db}  //weight: 1, accuracy: Low
+        $x_2_4 = "JMPZ @listensocket" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Convagent_RZ_2147914030_0
 {
     meta:

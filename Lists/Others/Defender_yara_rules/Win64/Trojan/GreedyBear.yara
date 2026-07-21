@@ -98,3 +98,27 @@ rule Trojan_Win64_GreedyBear_NB_2147962644_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_GreedyBear_NC_2147974262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GreedyBear.NC!MTB"
+        threat_id = "2147974262"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GreedyBear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {4c 0f af c0 49 31 c8 48 c1 c1 2f 4c 31 c1 48 89 c8 48 83 c8 01 48 c1 e9 ?? 41 89 c8 41 b9 ?? ?? ?? ?? 4d 0f af c8 49 c1 e9 ?? 47 8d 04 89 47 8d 04 40 44 29 c1 ff c1 49 89 d8 49 31 c0 49 d3 c0}  //weight: 2, accuracy: Low
+        $x_1_2 = {41 89 de 41 c1 ee 07 41 31 de 43 8d 1c f6 39 f3}  //weight: 1, accuracy: High
+        $x_1_3 = "Encrypted data" ascii //weight: 1
+        $x_1_4 = "payload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
