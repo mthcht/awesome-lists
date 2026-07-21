@@ -6962,3 +6962,24 @@ rule Trojan_Win64_Lazy_LRN_2147974152_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GPKF_2147974206_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GPKF!MTB"
+        threat_id = "2147974206"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {9c 49 b8 bf ca 90 37 28 8e 8d d8 66 41 f7 d0 41 f7 d8 48 81 44 24 08 39 f3 b6 3e 41 80 e8 92 4c 8b 44 24 10 48 c7 44 24 10 7a 76 59 26 ff 74 24}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

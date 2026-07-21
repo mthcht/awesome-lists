@@ -3388,3 +3388,24 @@ rule Trojan_Win64_Vidar_GVVF_2147974172_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GPKF_2147974205_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GPKF!MTB"
+        threat_id = "2147974205"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {0f b6 c0 2b c8 41 8a 04 18 88 84 1d ?? ?? 00 00 49 03 dd 89 4c 24 ?? 41 8a 04 18 84 c0 75 d4}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

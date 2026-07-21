@@ -212,3 +212,24 @@ rule Trojan_Win32_DLLHijack_GXN_2147973945_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DLLHijack_GPKH_2147974209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.GPKH!MTB"
+        threat_id = "2147974209"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 83 ec 38 48 8d 54 24 20 48 8d 0d 60 93 03 00 e8 2b 74 00 00 48 8d 0d 74 7a 01 00 e8 df 4f 01 00 48 83 c4 38 c3}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

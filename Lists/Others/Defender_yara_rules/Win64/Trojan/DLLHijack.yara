@@ -688,3 +688,25 @@ rule Trojan_Win64_DLLHijack_GXM_2147973944_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_GPKD_2147974203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.GPKD!MTB"
+        threat_id = "2147974203"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b6 f3 6a b8 f2 92 04 eb f2 92 04 eb f2 92 04 eb 8b 13 01 ea 7b 92 04 eb 8b 13 00 ea fe 92 04 eb 8b 13 07 ea f4 92 04 eb 7b 19 07 ea fb 92 04 eb}  //weight: 10, accuracy: High
+        $x_5_2 = "DLL Hijacked" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
