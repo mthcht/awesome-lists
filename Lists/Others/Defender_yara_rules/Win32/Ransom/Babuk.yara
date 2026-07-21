@@ -230,3 +230,26 @@ rule Ransom_Win32_Babuk_SN_2147973843_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Babuk_AMTB_2147974148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Babuk!AMTB"
+        threat_id = "2147974148"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Babuk"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bl4ckfile" ascii //weight: 1
+        $x_1_2 = "black.png" ascii //weight: 1
+        $x_1_3 = "\\bl4ck_ico.bin" ascii //weight: 1
+        $x_1_4 = "Software\\Classes\\.bl4ck" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

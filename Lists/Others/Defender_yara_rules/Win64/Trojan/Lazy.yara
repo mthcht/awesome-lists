@@ -6935,3 +6935,30 @@ rule Trojan_Win64_Lazy_YDQ_2147974137_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LRN_2147974152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LRN!MTB"
+        threat_id = "2147974152"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Your PC is infected by malware." ascii //weight: 1
+        $x_2_2 = "If your seeing this, your PC is dead." ascii //weight: 2
+        $x_3_3 = "taskkill /F /IM cmstp.exe" ascii //weight: 3
+        $x_4_4 = "t.me/ios_violador" ascii //weight: 4
+        $x_5_5 = "You will not be able to remove this screen (it comes back on computer start)" ascii //weight: 5
+        $x_6_6 = "unless you message me on telegram" ascii //weight: 6
+        $x_7_7 = "// Disable right click context menu completely" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

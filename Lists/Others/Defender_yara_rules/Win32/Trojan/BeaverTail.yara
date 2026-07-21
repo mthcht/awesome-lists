@@ -27,6 +27,7 @@ rule Trojan_Win32_BeaverTail_ARA_2147930777_0
         $x_10_12 = "/.n2/mlip" wide //weight: 10
         $n_100_13 = "sentinel" wide //weight: -100
         $n_100_14 = "sysinfo.h" wide //weight: -100
+        $n_100_15 = ".claude/shell-snapshots" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

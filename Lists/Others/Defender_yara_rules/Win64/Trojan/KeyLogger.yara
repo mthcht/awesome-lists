@@ -290,3 +290,35 @@ rule Trojan_Win64_KeyLogger_AD_2147973715_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KeyLogger_LRN_2147974151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.LRN!MTB"
+        threat_id = "2147974151"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Hook procedure has been installed successfully" ascii //weight: 1
+        $x_2_2 = "Keylogger is up and running..." ascii //weight: 2
+        $x_3_3 = "Cannot uninstall the hook procedure" ascii //weight: 3
+        $x_4_4 = "Hook procedure has been uninstalled successfully" ascii //weight: 4
+        $x_5_5 = "Keylogger\\keylogger-master\\src\\Keylogger\\x64\\Release\\Keylogger" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

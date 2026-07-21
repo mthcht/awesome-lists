@@ -310,3 +310,29 @@ rule Trojan_Win64_DiscordStealer_SXB_2147972662_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_PAHV_2147974146_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.PAHV!MTB"
+        threat_id = "2147974146"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "encrypted_key" ascii //weight: 2
+        $x_1_2 = "Brave-Browser\\User Data" ascii //weight: 1
+        $x_1_3 = "\\Microsoft\\Edge\\User Data" ascii //weight: 1
+        $x_2_4 = "Discord Token Stealer" wide //weight: 2
+        $x_1_5 = "\\DiscordTokens.txt" ascii //weight: 1
+        $x_1_6 = "/billing/payment-sources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

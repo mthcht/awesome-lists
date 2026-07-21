@@ -138,3 +138,29 @@ rule Trojan_MSIL_OrcusRat_CM_2147967094_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_OrcusRat_AMTB_2147974149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/OrcusRat!AMTB"
+        threat_id = "2147974149"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "OrcusRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Orcus.Server.CommandLine.pdb" ascii //weight: 3
+        $x_3_2 = "OrcusServer.php?" ascii //weight: 3
+        $x_1_3 = "OrcusServerCommandLine_ProcessedByFody" ascii //weight: 1
+        $x_1_4 = "Orcus.Server.Core.Config" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
