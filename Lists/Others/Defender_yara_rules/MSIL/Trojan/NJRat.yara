@@ -249,3 +249,26 @@ rule Trojan_MSIL_NJRat_CAT_2147971879_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NJRat_GVN_2147974292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NJRat.GVN!MTB"
+        threat_id = "2147974292"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NJRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "StartKeylogger" ascii //weight: 10
+        $x_10_2 = "Njrat.Stub" ascii //weight: 10
+        $x_10_3 = "CaptureScreen" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
