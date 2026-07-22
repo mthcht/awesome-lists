@@ -1685,3 +1685,36 @@ rule Trojan_Win32_Stealer_HAB_2147967341_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Stealer_Z_2147974281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.Z!AMTB"
+        threat_id = "2147974281"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$ExecuteCommand" ascii //weight: 1
+        $x_1_2 = "$HashDump" ascii //weight: 1
+        $x_1_3 = "$ScreenShot" ascii //weight: 1
+        $x_1_4 = "ProductName" ascii //weight: 1
+        $x_1_5 = "CurrentBuildNumber" ascii //weight: 1
+        $x_1_6 = "C:\\Users\\Public\\tvnserver.exe" ascii //weight: 1
+        $x_1_7 = "Huorong Security" ascii //weight: 1
+        $x_1_8 = "ESET Security" ascii //weight: 1
+        $x_1_9 = "SentinelMon.exe" ascii //weight: 1
+        $x_1_10 = "SophosUI.exe" ascii //weight: 1
+        $x_1_11 = "UAC Disabled" ascii //weight: 1
+        $x_1_12 = "AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_13 = "AppData\\Local\\Google\\Chrome\\User Data\\Default\\Cookies" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

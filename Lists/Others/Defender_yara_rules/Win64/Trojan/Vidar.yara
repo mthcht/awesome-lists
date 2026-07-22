@@ -3409,3 +3409,26 @@ rule Trojan_Win64_Vidar_GPKF_2147974205_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AHG_2147974285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AHG!MTB"
+        threat_id = "2147974285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Decoded %d bytes (PE header: 0x%02x 0x%02x), launching..." ascii //weight: 30
+        $x_20_2 = "Global\\LoaderInstance_" ascii //weight: 20
+        $x_10_3 = "Starting loader update: %d b64 chars" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
