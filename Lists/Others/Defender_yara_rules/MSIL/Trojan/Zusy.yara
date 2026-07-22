@@ -5538,3 +5538,32 @@ rule Trojan_MSIL_Zusy_GPKG_2147974208_0
         )
 }
 
+rule Trojan_MSIL_Zusy_LRN_2147974302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.LRN!MTB"
+        threat_id = "2147974302"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "TryDecryptLoginData" ascii //weight: 1
+        $x_2_2 = "wallet.dat" ascii //weight: 2
+        $x_3_3 = "exodus.wallet" ascii //weight: 3
+        $x_4_4 = "wallet_scan" ascii //weight: 4
+        $x_5_5 = "wallet_clipper_start" ascii //weight: 5
+        $x_6_6 = "wallet_clipper_stop" ascii //weight: 6
+        $x_7_7 = "Crypto clipper started" ascii //weight: 7
+        $x_8_8 = "Crypto clipper stopped" ascii //weight: 8
+        $x_9_9 = "HarvestBrowserPasswords" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
