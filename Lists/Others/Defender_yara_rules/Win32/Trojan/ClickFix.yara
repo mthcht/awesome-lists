@@ -15302,3 +15302,26 @@ rule Trojan_Win32_ClickFix_MUH_2147973973_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_SVA_2147974287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVA"
+        threat_id = "2147974287"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "pcalua.exe" wide //weight: 1
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = "win32_processstartup" wide //weight: 1
+        $x_10_4 = {72 00 75 00 6e 00 64 00 6c 00 6c 00 33 00 32 00 [0-16] 67 00 63 00 2e 00 6b 00 65 00 79 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
