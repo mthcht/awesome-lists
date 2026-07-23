@@ -8949,3 +8949,29 @@ rule Trojan_Win32_GuLoader_RFI_2147974367_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SNU_2147974376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SNU!MTB"
+        threat_id = "2147974376"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "\\kapituleres.txt" ascii //weight: 5
+        $x_1_2 = "\\timmos\\uddannelsesfondet.gif" ascii //weight: 1
+        $x_1_3 = "Spiralises\\multifoiled\\Antiseptises" ascii //weight: 1
+        $x_1_4 = "ressentiment\\vulkans" ascii //weight: 1
+        $x_1_5 = "\\incoronation\\cholecystotomies.zip" ascii //weight: 1
+        $x_1_6 = "\\turboladedes\\entreprenrers.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

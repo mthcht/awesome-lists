@@ -75,3 +75,31 @@ rule Trojan_Win64_SpyAgent_A_2147973836_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SpyAgent_B_2147974377_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SpyAgent.B!AMTB"
+        threat_id = "2147974377"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Capturing screenshot as JPEG" ascii //weight: 1
+        $x_4_2 = "CatClaw agent online" ascii //weight: 4
+        $x_1_3 = "selfdestruct" ascii //weight: 1
+        $x_4_4 = "CatClawAgent.pdb" ascii //weight: 4
+        $x_1_5 = "Keyboard hook installed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
