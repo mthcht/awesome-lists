@@ -352,6 +352,7 @@ rule Trojan_Win32_SuspLolbinLaunch_B_2147769387_0
         $n_10_4 = "airlock" wide //weight: -10
         $n_10_5 = "ADSync" wide //weight: -10
         $n_10_6 = "\\Program Files\\Guardz Agent\\" wide //weight: -10
+        $n_10_7 = "\\Cloudflare\\Cloudflare WARP\\" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

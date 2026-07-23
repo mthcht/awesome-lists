@@ -22,3 +22,27 @@ rule Trojan_Win32_ShardLoader_KVX_2147973828_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShardLoader_KXZ_2147974337_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShardLoader.KXZ!MTB"
+        threat_id = "2147974337"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShardLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c8 83 e1 1f 8a 4c 0d dc 30 0c 30 40 3b c3 7c ?? b8 17 00 00 00 8b cb 99 33 ff f7 fb 8b c3 2b c2 99}  //weight: 1, accuracy: Low
+        $x_1_2 = {43 3a 5c 50 72 6f 67 72 61 6d 44 61 74 61 5c 49 44 4d 5c 6c 6f 67 73 5c 4d 65 64 69 75 6d 49 6e 73 74 53 74 61 72 74 2e 65 78 65 00}  //weight: 1, accuracy: High
+        $x_1_3 = "SolidPDFCreator.dll" ascii //weight: 1
+        $x_1_4 = "GetSPApp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

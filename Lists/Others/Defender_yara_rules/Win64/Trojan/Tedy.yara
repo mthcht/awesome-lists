@@ -7048,6 +7048,28 @@ rule Trojan_Win64_Tedy_CAL_2147972399_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GPKE_2147972435_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GPKE!MTB"
+        threat_id = "2147972435"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 c7 04 24 00 00 00 00 65 48 8b 04 25 60 00 00 00 48 8b 40 18 48 8b 40 20 48 8b 00 48 8b 00 48 8b 40 20 48 89 04 24 48 8b 0c 24 48 b8 4c 6f 61 64 4c 69 62 72 48 89 04 24 c7 44 24 08 61 72 79 41 c6 44 24 0c}  //weight: 4, accuracy: High
+        $x_3_2 = ".rcd7cb" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_LVD_2147972485_0
 {
     meta:
