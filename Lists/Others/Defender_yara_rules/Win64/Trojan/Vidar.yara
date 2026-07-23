@@ -659,6 +659,28 @@ rule Trojan_Win64_Vidar_ARR_2147956043_2
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_15_1 = {0f b6 45 64 48 8d 52 ?? 40 0f b6 cf ff c7 0f af c8 02 4d 65 30 4a ff 3b fe 72}  //weight: 15, accuracy: Low
+        $x_5_2 = "cmd.exe /c ping 127.0.0.1 -n 5 >nul & del /f /q \"" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_ARR_2147956043_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ARR!MTB"
+        threat_id = "2147956043"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_9_1 = {f2 0f 59 ca f2 0f 58 c8 f2 0f 10 05 ?? ?? ?? ?? f2 0f 59 c8 f2 0f 5e e9}  //weight: 9, accuracy: Low
         $x_11_2 = {44 0f 10 c3 f2 0f 5c dd f2 44 0f 58 c5 f2 41 0f 5e d8 44 0f 10 c3 f2 0f 59 db f2 41 0f 59 d8 44 0f 10 cb f2 41 0f 59 d8 f2 41 0f 59 d8 44 0f 10 d3 f2 41 0f 59 d8 f2 41 0f 59 d8 44 0f 10 db f2 41 0f 59 d8 f2 41 0f 59 d8}  //weight: 11, accuracy: High
     condition:
@@ -666,7 +688,7 @@ rule Trojan_Win64_Vidar_ARR_2147956043_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Vidar_ARR_2147956043_3
+rule Trojan_Win64_Vidar_ARR_2147956043_4
 {
     meta:
         author = "defender2yara"

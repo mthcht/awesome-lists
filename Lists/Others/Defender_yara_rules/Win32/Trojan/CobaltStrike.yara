@@ -5342,28 +5342,6 @@ rule Trojan_Win32_CobaltStrike_FJ_2147964003_0
         )
 }
 
-rule Trojan_Win32_CobaltStrike_CAI_2147970973_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/CobaltStrike.CAI!MTB"
-        threat_id = "2147970973"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "CobaltStrike"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "20"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = {0f 10 06 8d 54 24 ?? 8b ce e8 ?? ?? ?? ?? b9 10 00 00 00 8a 04 37 30 06 46 83 e9 01}  //weight: 10, accuracy: Low
-        $x_10_2 = {88 1e 0f b6 48 ?? 32 4d ?? 88 48 ?? 0f b6 48 ?? 32 ce 88 48 ?? 8b 4d ?? 41}  //weight: 10, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_CobaltStrike_CAQ_2147973633_0
 {
     meta:

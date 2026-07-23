@@ -148,3 +148,45 @@ rule Trojan_Win64_RemusStealer_MK_2147973787_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RemusStealer_SWD_2147974361_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.SWD!MTB"
+        threat_id = "2147974361"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 48 8b 40 18 4c 8b 50 20 4c 8d 58 20 4d 39 d3 ?? ?? 0f 1f 40 00 49 8b 42 50 48 85 c0 74}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_RemusStealer_NGT_2147974369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.NGT!MTB"
+        threat_id = "2147974369"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 4c 8b 40 18 49 8b 50 10 49 83 c0 10 31 c0 4c 39 c2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

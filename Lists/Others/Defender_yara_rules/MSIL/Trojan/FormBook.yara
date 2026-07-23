@@ -835,6 +835,29 @@ rule Trojan_MSIL_FormBook_CVY_2147794317_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_PRY_2147794635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.PRY!MTB"
+        threat_id = "2147794635"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {01 57 9d a2 29 09 0b 00 00 00 00 00 00 00 00 00 00 02 00 00 00 91 00 00 00 1b 00 00 00 ?? 00 00 00 55 00 00 00 3f 00 00 00 da 00 00 00 01 00 00 00 18 00 00 00 0b 00 00 00 ?? 00 00 00 01 00 00 00 04 00 00 00 05 00 00 00 04 00 00 00 0f 00 00 00 02 00 00 00 07 00 00 00 03 00 00 00 0e 00 00 00 02 00 00 00}  //weight: 3, accuracy: Low
+        $x_2_2 = "RiverCrossing.Properties.Resources.resources" ascii //weight: 2
+        $x_2_3 = "8f3c4e2a-1b5d-4f7e-9a0c-3b2a1e0f9d8c" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_CWG_2147794639_0
 {
     meta:
@@ -18587,6 +18610,30 @@ rule Trojan_MSIL_FormBook_ABBS_2147974153_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {25 16 03 6f ?? ?? 00 0a 0a 12 00 28 ?? ?? 00 0a 9c 25 17 03 6f ?? ?? 00 0a 0a 12 00 28 ?? ?? 00 0a 9c 25 18 03 6f ?? ?? 00 0a 0a 12 00 28 ?? ?? 00 0a 9c 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_MCT_2147974347_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.MCT!MTB"
+        threat_id = "2147974347"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "9F2C-8B1A7D6E5F4C" ascii //weight: 1
+        $x_1_2 = {57 bd b6 3d 09 0f 00 00 00 00 00 00 00 00 00 00 01 00 00 00 ea 00 00 00 20 05}  //weight: 1, accuracy: High
+        $x_1_3 = "System Optimizer Ultimate.dll" ascii //weight: 1
+        $x_1_4 = "tyZpjbAV0qz.resources" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

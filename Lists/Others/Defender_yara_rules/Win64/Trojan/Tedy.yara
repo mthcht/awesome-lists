@@ -7519,3 +7519,24 @@ rule Trojan_Win64_Tedy_MKW_2147974120_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CAQ_2147974348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAQ!MTB"
+        threat_id = "2147974348"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {42 88 4c 1c ?? 02 4c 04 ?? 0f b6 c9 8a 44 0c ?? 42 30 04 06 49 ff c0 eb}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7211,3 +7211,56 @@ rule Trojan_Win32_Vidar_MK_2147973782_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_GVAG_2147974349_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.GVAG!MTB"
+        threat_id = "2147974349"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5e 48 83 ec 28 48 8d be 00 50 0f 00 8b 07 09 c0 74 4a 8b 5f 04 48 8d 8c 30 dc 81 0f 00 48 01 f3 48 83 c7 08 ff 15 40 12 00 00 48 95 8a 07 48 ff c7 08 c0 74 d7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_GVAH_2147974350_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.GVAH!MTB"
+        threat_id = "2147974350"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "kavfs.exe" wide //weight: 1
+        $x_1_2 = "NortonSvc.exe" wide //weight: 1
+        $x_1_3 = "NortonUI.exe" wide //weight: 1
+        $x_1_4 = "MBAMService.exe" wide //weight: 1
+        $x_1_5 = "mbamtray.exe" wide //weight: 1
+        $x_1_6 = "AvastSvc.exe" wide //weight: 1
+        $x_1_7 = "aswEngSrv.exe" wide //weight: 1
+        $x_1_8 = "AvastUI.exe" wide //weight: 1
+        $x_1_9 = "avgcsrva.exe" wide //weight: 1
+        $x_1_10 = "avgsvc.exe" wide //weight: 1
+        $x_1_11 = "avgui.exe" wide //weight: 1
+        $x_1_12 = "\\AppData\\Local\\Temp\\" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
