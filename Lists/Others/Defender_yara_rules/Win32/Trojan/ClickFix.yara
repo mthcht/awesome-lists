@@ -15424,3 +15424,29 @@ rule Trojan_Win32_ClickFix_SVB_2147974396_0
         )
 }
 
+rule Trojan_Win32_ClickFix_YKV_2147974425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YKV!MTB"
+        threat_id = "2147974425"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "| cmd" wide //weight: 5
+        $x_4_2 = "curl -s" wide //weight: 4
+        $x_4_3 = "^&" wide //weight: 4
+        $x_2_4 = "gd?id" wide //weight: 2
+        $x_2_5 = "null 2>&1" wide //weight: 2
+        $x_2_6 = "start /min" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

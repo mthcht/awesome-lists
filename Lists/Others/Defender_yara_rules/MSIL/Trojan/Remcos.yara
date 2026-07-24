@@ -15143,3 +15143,26 @@ rule Trojan_MSIL_Remcos_BAE_2147974263_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVM_2147974450_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVM!MTB"
+        threat_id = "2147974450"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 1f a2 29 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 87 00 00 00 0e 00 00 00 5a 00 00 00 57 00 00 00 51 00 00 00 04 00 00 00 22 01 00 00 01 00 00 00 1d 00 00 00 21 00 00 00 03 00 00 00 08 00 00 00 09 00 00 00 0f 00 00 00 01 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 03 00 00 00 04 00 00 00 06}  //weight: 2, accuracy: High
+        $x_1_2 = "SunriseTimer.Properties.Resources" ascii //weight: 1
+        $x_1_3 = "get_HI" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

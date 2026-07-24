@@ -694,12 +694,12 @@ rule _PseudoThreat_c0000a01_0
         (2 of ($x*))
 }
 
-rule _PseudoThreat_c0000b1e_0
+rule _PseudoThreat_c0000b23_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000b1e"
-        threat_id = "3221228318"
+        detection_name = "!PseudoThreat_c0000b23"
+        threat_id = "3221228323"
         severity = "7"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"

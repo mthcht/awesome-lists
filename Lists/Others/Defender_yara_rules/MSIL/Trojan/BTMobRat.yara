@@ -52,3 +52,27 @@ rule Trojan_MSIL_BTMobRat_AC_2147969378_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BTMobRat_ABIC_2147974462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BTMobRat.ABIC!MTB"
+        threat_id = "2147974462"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BTMobRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BTMOB.loader.resources" ascii //weight: 1
+        $x_1_2 = "BTMOB.downloader.resources" ascii //weight: 1
+        $x_1_3 = "BTMOB.uploader.resources" ascii //weight: 1
+        $x_2_4 = "BTMOB.injections.resources" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

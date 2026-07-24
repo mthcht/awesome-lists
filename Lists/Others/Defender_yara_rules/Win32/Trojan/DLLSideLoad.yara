@@ -75,3 +75,24 @@ rule Trojan_Win32_DLLSideLoad_SJ_2147973522_0
         )
 }
 
+rule Trojan_Win32_DLLSideLoad_CD_2147974451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLSideLoad.CD!MTB"
+        threat_id = "2147974451"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b c2 33 d2 f7 f1 8a 44 15 ?? 42 30 04 37 47 3b 7d ?? 72}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

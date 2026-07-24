@@ -8975,3 +8975,29 @@ rule Trojan_Win32_GuLoader_SNU_2147974376_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SNV_2147974464_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SNV!MTB"
+        threat_id = "2147974464"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "\\Endocrinopathy" ascii //weight: 5
+        $x_1_2 = "\\superbrugerne\\programeditoren.htm" ascii //weight: 1
+        $x_1_3 = "\\Mukden\\inquieted.zip" ascii //weight: 1
+        $x_1_4 = "doktoreres.ini" ascii //weight: 1
+        $x_1_5 = "\\sdmefulde\\selvangivelsesblanket.ini" ascii //weight: 1
+        $x_1_6 = "\\husalter\\kabbelejes.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
