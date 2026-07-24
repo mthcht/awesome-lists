@@ -7286,3 +7286,45 @@ rule Trojan_Win32_Vidar_GVAI_2147974413_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_GPKG_2147974477_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.GPKG!MTB"
+        threat_id = "2147974477"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8b 4c 24 20 33 c8 8b c1 89 44 24 20 8b 44 24 24 35 ?? ?? ?? ?? 8b 4c 24 20 2b c8 8b c1 89 44 24 20 eb ae}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_GVAJ_2147974479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.GVAJ!MTB"
+        threat_id = "2147974479"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {33 c8 8b 45 b3 33 c1 89 45 b3 8b 45 b3 8b 55 b3 35 d8 8a ba 09 8b 4d b3 c1 ea 04 c1 e0 03 33 d0 41 8b c0 33 ca 89 4d b3 8b 55 b3 8b 4d 7f 33 d1 89 55 7f 8b 4d b7 83 e1 3f f7 e1 c1 ea 02 8d 04 92 2b c8 0f 84}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -430,3 +430,56 @@ rule HackTool_Linux_SuspUnixReShellCmd_PB_2147974319_0
         (all of ($x*))
 }
 
+rule HackTool_Linux_SuspUnixReShellCmd_PD_2147974488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/SuspUnixReShellCmd.PD"
+        threat_id = "2147974488"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "SuspUnixReShellCmd"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {6e 00 63 00 20 00 [0-64] 7c 00 [0-4] 2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {74 00 65 00 6c 00 6e 00 65 00 74 00 20 00 [0-64] 7c 00 [0-4] 2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00 [0-16] 7c 00 [0-4] 6e 00 63 00 20 00}  //weight: 10, accuracy: Low
+        $x_10_4 = {2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00 [0-16] 7c 00 [0-4] 74 00 65 00 6c 00 6e 00 65 00 74 00 20 00}  //weight: 10, accuracy: Low
+        $n_50_5 = "127.0.0.1" wide //weight: -50
+        $n_50_6 = "localhost" wide //weight: -50
+        $n_50_7 = "nc -vz" wide //weight: -50
+        $n_50_8 = "nc -z" wide //weight: -50
+        $n_50_9 = "/proc/net/tcp" wide //weight: -50
+        $n_50_10 = "| /bin/sh /usr/bin/egrep" wide //weight: -50
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (1 of ($x*))
+}
+
+rule HackTool_Linux_SuspUnixReShellCmd_PE_2147974489_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/SuspUnixReShellCmd.PE"
+        threat_id = "2147974489"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "SuspUnixReShellCmd"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {6f 00 70 00 65 00 6e 00 73 00 73 00 6c 00 20 00 73 00 5f 00 63 00 6c 00 69 00 65 00 6e 00 74 00 [0-24] 2d 00 63 00 6f 00 6e 00 6e 00 65 00 63 00 74 00 [0-64] 7c 00 [0-4] 2f 00 62 00 69 00 6e 00 2f 00 [0-4] 73 00 68 00 [0-4] 2d 00 69 00}  //weight: 1, accuracy: Low
+        $n_50_2 = "127.0.0.1" wide //weight: -50
+        $n_50_3 = "localhost" wide //weight: -50
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

@@ -3923,6 +3923,29 @@ rule Trojan_MSIL_Lazy_ARR_2147964018_1
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_6_1 = {0b 07 14 28 ?? ?? ?? ?? 2d 54 07 6f ?? ?? ?? ?? 0d 14 13 04 09 8e 69 17 33 3a 09 16 9a}  //weight: 6, accuracy: Low
+        $x_10_2 = {2c 04 17 0b 2b 18 02 02 7b ?? ?? ?? 04 11 07 72 ?? 01 00 70 28 ?? 00 00 0a 7d ?? ?? ?? 04 11 06 17 58 13 06 11 06 11 05 8e 69 32 b5}  //weight: 10, accuracy: Low
+        $x_4_3 = "Angkor.Ylw.Main.MainWin" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_ARR_2147964018_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.ARR!MTB"
+        threat_id = "2147964018"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_15_1 = {70 00 61 00 73 00 74 00 65 00 66 00 79 00 2e 00 61 00 70 00 70 00 2f 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2f 00 72 00 61 00 77 00 20 00 2d 00 55 00 73 00 65 00 42 00 61 00 73 00 69 00 63 00 50 00 61 00 72 00 73 00 69 00 6e 00 67 00}  //weight: 15, accuracy: Low
         $x_15_2 = {70 61 73 74 65 66 79 2e 61 70 70 2f ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 2f 72 61 77 20 2d 55 73 65 42 61 73 69 63 50 61 72 73 69 6e 67}  //weight: 15, accuracy: Low
         $x_5_3 = {64 00 61 00 79 00 64 00 65 00 6f 00 6e 00 63 00 68 00 61 00 75 00 6f 00 69 00 5f 00 [0-2] 2e 00 65 00 78 00 65 00}  //weight: 5, accuracy: Low
@@ -3936,7 +3959,7 @@ rule Trojan_MSIL_Lazy_ARR_2147964018_1
         )
 }
 
-rule Trojan_MSIL_Lazy_ARR_2147964018_2
+rule Trojan_MSIL_Lazy_ARR_2147964018_3
 {
     meta:
         author = "defender2yara"

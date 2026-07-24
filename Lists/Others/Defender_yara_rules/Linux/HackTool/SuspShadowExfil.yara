@@ -97,3 +97,27 @@ rule HackTool_Linux_SuspShadowExfil_PD_2147974320_0
         (1 of ($x*))
 }
 
+rule HackTool_Linux_SuspShadowExfil_PE_2147974490_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Linux/SuspShadowExfil.PE"
+        threat_id = "2147974490"
+        type = "HackTool"
+        platform = "Linux: Linux platform"
+        family = "SuspShadowExfil"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {63 00 61 00 74 00 20 00 [0-48] 2f 00 65 00 74 00 63 00 2f 00 73 00 68 00 61 00 64 00 6f 00 77 00 [0-48] 7c 00 [0-4] 6e 00 63 00 20 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {63 00 61 00 74 00 20 00 [0-48] 2f 00 65 00 74 00 63 00 2f 00 73 00 68 00 61 00 64 00 6f 00 77 00 [0-48] 7c 00 [0-4] 74 00 65 00 6c 00 6e 00 65 00 74 00 20 00}  //weight: 10, accuracy: Low
+        $n_50_3 = "127.0.0.1" wide //weight: -50
+        $n_50_4 = "localhost" wide //weight: -50
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (1 of ($x*))
+}
+

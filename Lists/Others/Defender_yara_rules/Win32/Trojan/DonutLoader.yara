@@ -42,3 +42,31 @@ rule Trojan_Win32_DonutLoader_RR_2147964362_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DonutLoader_GTX_2147974480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DonutLoader.GTX!MTB"
+        threat_id = "2147974480"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Services\\VMTools" ascii //weight: 1
+        $x_1_2 = "kobemaino395-bot" ascii //weight: 1
+        $x_1_3 = "\\Vmmouse.sys" ascii //weight: 1
+        $x_1_4 = "\\vmhgfs.sys" ascii //weight: 1
+        $x_1_5 = "\\VBoxMouse.sys" ascii //weight: 1
+        $x_1_6 = "Amsif" ascii //weight: 1
+        $x_1_7 = "GlobalMemoryStatusEx" ascii //weight: 1
+        $x_1_8 = "\\AMSI.DLL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
