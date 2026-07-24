@@ -15397,3 +15397,30 @@ rule Trojan_Win32_ClickFix_NG_2147974356_0
         )
 }
 
+rule Trojan_Win32_ClickFix_SVB_2147974396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVB"
+        threat_id = "2147974396"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {70 00 63 00 61 00 6c 00 75 00 61 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 10, accuracy: High
+        $x_1_2 = "powershell" wide //weight: 1
+        $x_1_3 = {77 00 6d 00 69 00 63 00 6c 00 61 00 73 00 73 00 [0-48] 77 00 69 00 6e 00 33 00 32 00 5f 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00 73 00 74 00 61 00 72 00 74 00 75 00 70 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {63 00 6d 00 64 00 [0-48] 70 00 75 00 73 00 68 00 64 00}  //weight: 1, accuracy: Low
+        $x_1_5 = "rundll32" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

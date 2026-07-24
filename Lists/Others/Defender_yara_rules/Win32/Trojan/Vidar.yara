@@ -7264,3 +7264,25 @@ rule Trojan_Win32_Vidar_GVAH_2147974350_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_GVAI_2147974413_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.GVAI!MTB"
+        threat_id = "2147974413"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {31 c0 48 89 4c 24 20 88 44 24 1f 48 8b 05 62 67 28 00 48 89 04 24 48 8d 81 08 03 00 00 48 89 44 24 08 e8 05 98 03 00 45 0f 57 ff 4c 8b 35 aa bf 2c 00 65 4d 8b 36 4d 8b 36 0f b6 44 24 1f 84 c0 74 12}  //weight: 1, accuracy: High
+        $x_1_2 = {48 89 e7 48 01 c7 48 8b 5f f8 48 89 5e 40 48 89 7e 38 48 8b 19 48 8b 5b 30 48 8b 33 48 89 31 48 8b 66 38 48 8b 04 24 48 89 46 38 48 8b 5c 24 10 48 83 fb 00 75 24}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

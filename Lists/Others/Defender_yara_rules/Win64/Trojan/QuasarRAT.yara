@@ -293,3 +293,28 @@ rule Trojan_Win64_QuasarRAT_GVE_2147972261_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_BAA_2147974391_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.BAA!MTB"
+        threat_id = "2147974391"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "Set objShell = CreateObject(\"WScript.Shell\")" ascii //weight: 2
+        $x_2_2 = "objShell.Run \"\"\"%s\"\"\", 0, False" ascii //weight: 2
+        $x_2_3 = {73 00 63 00 68 00 74 00 61 00 73 00 6b 00 73 00 20 00 2f 00 63 00 72 00 65 00 61 00 74 00 65 00 20 00 2f 00 74 00 6e 00 20 00 22 00 [0-15] 22 00 20 00 2f 00 74 00 72 00 20 00 22 00 77 00 73 00 63 00 72 00 69 00 70 00 74 00 2e 00 65 00 78 00 65 00 20 00 2f 00 2f 00 42 00 20 00 2f 00 2f 00 4e 00 6f 00 6c 00 6f 00 67 00 6f 00 20 00 22 00 5c 00 22 00 25 00 73 00 5c 00 22 00 22 00 22 00 20 00 2f 00 73 00 63 00 20 00 6f 00 6e 00 6c 00 6f 00 67 00 6f 00 6e 00 20 00 2f 00 72 00 6c 00 20 00 68 00 69 00 67 00 68 00 65 00 73 00 74 00 20 00 2f 00 66 00}  //weight: 2, accuracy: Low
+        $x_2_4 = {73 63 68 74 61 73 6b 73 20 2f 63 72 65 61 74 65 20 2f 74 6e 20 22 [0-15] 22 20 2f 74 72 20 22 77 73 63 72 69 70 74 2e 65 78 65 20 2f 2f 42 20 2f 2f 4e 6f 6c 6f 67 6f 20 22 5c 22 25 73 5c 22 22 22 20 2f 73 63 20 6f 6e 6c 6f 67 6f 6e 20 2f 72 6c 20 68 69 67 68 65 73 74 20 2f 66}  //weight: 2, accuracy: Low
+        $x_2_5 = "cmd.exe /c timeout /t 1 /nobreak && del /f /q \"%s\"" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

@@ -379,3 +379,29 @@ rule Trojan_MSIL_Rhadamanthys_APOB_2147960676_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Rhadamanthys_NYA_2147974390_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Rhadamanthys.NYA!MTB"
+        threat_id = "2147974390"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Rhadamanthys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "de421a20-1e1b-45c6-9884-84736c6ab0db" ascii //weight: 1
+        $x_1_2 = "feffefeeffe" ascii //weight: 1
+        $x_2_3 = "rh111.Watchers" ascii //weight: 2
+        $x_1_4 = "InvokeRegistry" ascii //weight: 1
+        $x_1_5 = "FromBase64String" ascii //weight: 1
+        $x_2_6 = {1a 62 11 02 1b 63 61 11 02 58 11 03 11 00 11 03 19 5f 94 58 61}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

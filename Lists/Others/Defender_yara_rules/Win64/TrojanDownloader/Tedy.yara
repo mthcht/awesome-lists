@@ -203,3 +203,27 @@ rule TrojanDownloader_Win64_Tedy_SXA_2147974318_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Tedy_SXB_2147974392_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Tedy.SXB!MTB"
+        threat_id = "2147974392"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "powershell -WindowStyle Hidden -Command \"$WshShell = New-Object -ComObject WScript.Shell" ascii //weight: 20
+        $x_10_2 = "schtasks /create /tn \"%s\" /tr \"%s\\%s\" /sc hourly /mo 1 /f" ascii //weight: 10
+        $x_5_3 = "Please right-click and select 'Run as administrator'." ascii //weight: 5
+        $x_1_4 = "$Shortcut = $WshShell.CreateShortcut('%s')" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

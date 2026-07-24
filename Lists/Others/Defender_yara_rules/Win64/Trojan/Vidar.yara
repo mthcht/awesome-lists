@@ -106,6 +106,27 @@ rule Trojan_Win64_Vidar_CCFX_2147899887_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AG_2147905336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AG!MTB"
+        threat_id = "2147905336"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {48 8b 44 24 40 0f b7 00 85 c0 74 72 48 8b 44 24 40 0f b7 00 83 f8 2f 74 65 48 8b 44 24 40 0f b7 00 83 f8 3a 74 58 48 8d 84 24 ?? 0f 00 00 48 8b 8c 24 98 00 00 00 48 2b c8 48 8b c1 48 d1 f8 48 3d fa 00 00 00 7d 37 48 8b 84 24 98 00 00 00 48 8b 4c 24 40 0f b7 09 66 89 08 48 8b 84 24 98 00 00 00 48 83 c0 02 48 89 84 24 98 00 00 00 48 8b 44 24 40 48 83 c0 02 48 89 44 24 40 eb 82}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_NA_2147907875_0
 {
     meta:

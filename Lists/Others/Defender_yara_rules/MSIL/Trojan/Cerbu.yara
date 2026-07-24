@@ -482,3 +482,27 @@ rule Trojan_MSIL_Cerbu_ZKE_2147967421_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cerbu_SX_2147974393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cerbu.SX!MTB"
+        threat_id = "2147974393"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "45"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Steal Chrome saved passwords" wide //weight: 15
+        $x_15_2 = "Dump Wi-Fi passwords" wide //weight: 15
+        $x_10_3 = "[+] WinDefend service stopped." wide //weight: 10
+        $x_5_4 = "[Persistence] Removed from startup and deleted install copy." wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
