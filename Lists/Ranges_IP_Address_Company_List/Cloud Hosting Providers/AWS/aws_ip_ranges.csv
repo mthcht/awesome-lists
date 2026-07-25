@@ -2080,6 +2080,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 150.222.168.32/32,eu-west-1,AMAZON,eu-west-1
 150.247.46.0/24,us-west-2,AMAZON,us-west-2
 176.32.112.0/21,us-west-1,AMAZON,us-west-1
+1.179.52.0/22,GLOBAL,AMAZON,GLOBAL
 3.2.56.0/24,me-south-1,AMAZON,me-south-1
 15.230.153.0/24,eu-west-2,AMAZON,eu-west-2
 16.106.0.0/16,ap-east-1,AMAZON,ap-east-1
@@ -3273,6 +3274,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 173.83.208.0/24,eu-south-1,AMAZON,eu-south-1
 208.86.90.0/23,eu-west-1,AMAZON,eu-west-1
 216.244.16.0/21,eu-central-1,AMAZON,eu-central-1
+1.179.56.0/22,GLOBAL,AMAZON,GLOBAL
 15.181.248.0/24,us-west-2,AMAZON,us-west-2-las-1b
 15.225.0.0/16,eu-west-3,AMAZON,eu-west-3
 15.230.15.13/32,eu-central-1,AMAZON,eu-central-1
@@ -3757,6 +3759,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 69.107.7.96/29,us-east-1,AMAZON,us-east-1
 76.223.170.0/28,ca-west-1,AMAZON,ca-west-1
 150.222.102.0/24,us-west-2,AMAZON,us-west-2
+1.178.86.0/24,ap-southeast-3,AMAZON,ap-southeast-3
 1.178.172.0/23,GLOBAL,AMAZON,GLOBAL
 3.4.12.2/32,ap-southeast-2,AMAZON,ap-southeast-2
 3.4.12.5/32,us-east-1,AMAZON,us-east-1
@@ -8027,6 +8030,7 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 51.74.128.0/18,eusc-de-east-1,EC2,eusc-de-east-1
 54.194.0.0/15,eu-west-1,EC2,eu-west-1
 63.249.192.0/24,ap-southeast-1,EC2,ap-southeast-1
+1.178.86.0/24,ap-southeast-3,EC2,ap-southeast-3
 15.129.80.0/22,eu-west-1,EC2,eu-west-1
 35.50.232.0/24,ap-south-1,EC2,ap-south-1
 45.57.128.0/18,ap-southeast-1,EC2,ap-southeast-1-han-1
@@ -8600,7 +8604,9 @@ dest_ip,metadata_region,metadata_service,metadata_network_border_group
 177.71.128.0/17,sa-east-1,EC2,sa-east-1
 205.251.200.0/23,GLOBAL,ROUTE53,GLOBAL
 64.91.192.0/19,GLOBAL,ROUTE53,GLOBAL
+1.179.52.0/22,GLOBAL,ROUTE53,GLOBAL
 52.95.110.0/24,GLOBAL,ROUTE53,GLOBAL
+1.179.56.0/22,GLOBAL,ROUTE53,GLOBAL
 205.251.192.0/21,GLOBAL,ROUTE53,GLOBAL
 3.4.32.0/20,GLOBAL,ROUTE53,GLOBAL
 63.246.114.0/23,GLOBAL,ROUTE53,GLOBAL
