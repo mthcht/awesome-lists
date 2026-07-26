@@ -4390,3 +4390,27 @@ rule Trojan_Win64_Zusy_MKH_2147974235_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_MKI_2147974539_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKI!MTB"
+        threat_id = "2147974539"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = ">>> HOSTS_INTEGRITY_GUARD_BEGIN >>>" ascii //weight: 10
+        $x_5_2 = "<<< HOSTS_INTEGRITY_GUARD_END <<<" ascii //weight: 5
+        $x_3_3 = "--restore-hosts" ascii //weight: 3
+        $x_2_4 = "schtasks /create /tn \"%s\" /tr \"\\\"%s\\\" --restore \\\"%s\\\"\" /sc onstart /ru SYSTEM /rl HIGHEST /f >nul 2>" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
