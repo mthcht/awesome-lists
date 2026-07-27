@@ -708,3 +708,25 @@ rule Trojan_Win64_ValleyRAT_AAVR_2147973807_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_AHC_2147974543_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.AHC!MTB"
+        threat_id = "2147974543"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = "SelfDelete: write cleanup FAIL err=%lu" ascii //weight: 20
+        $x_30_2 = {45 8b c4 8a 44 04 44 32 44 0d ?? 48 8b cb 88 44 24 40 ff 15 ?? ?? ?? ?? 41 03 fc 3b 7c 24 48 72}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

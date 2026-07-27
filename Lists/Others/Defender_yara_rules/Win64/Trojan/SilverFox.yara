@@ -130,3 +130,24 @@ rule Trojan_Win64_SilverFox_GXN_2147974379_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SilverFox_AHA_2147974542_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SilverFox.AHA!MTB"
+        threat_id = "2147974542"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SilverFox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 f7 e0 41 8b c0 41 ff c0 2b c2 d1 e8 03 c2 c1 e8 ?? 6b c0 ?? 2b c8 8a 4c 0c 38 32 0e 48 ff c6 41 88 09 49 ff c1 44 3b c5 72}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
