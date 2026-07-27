@@ -7028,3 +7028,31 @@ rule Trojan_Win64_Lazy_MSC_2147974578_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LRO_2147974594_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LRO!MTB"
+        threat_id = "2147974594"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Epic Privacy Browser" ascii //weight: 1
+        $x_2_2 = "] passwords_add_file called with invalid parameters" ascii //weight: 2
+        $x_3_3 = "%stmp_cookie_%lu_%s.db" ascii //weight: 3
+        $x_4_4 = "%spasswordslog.txt" ascii //weight: 4
+        $x_5_5 = "Firefox\\%s\\cookies.txt" ascii //weight: 5
+        $x_6_6 = "%s\\%s\\cookies.txt" ascii //weight: 6
+        $x_7_7 = "[+] Initialized passwords module" ascii //weight: 7
+        $x_8_8 = "\\\\.\\pipe\\passwords_data_pipe" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

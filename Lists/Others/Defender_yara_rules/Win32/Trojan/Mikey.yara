@@ -868,3 +868,28 @@ rule Trojan_Win32_Mikey_LRL_2147972501_0
         )
 }
 
+rule Trojan_Win32_Mikey_LRC_2147974595_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LRC!MTB"
+        threat_id = "2147974595"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {81 ec 88 00 00 00 c7 45 8c 00 00 00 00 8b 45 08 89 45 f0 c7 45 f4 00 00 00 00 c6 45 d8 52 c6 45 d9 65 c6 45 da 61 c6 45 db 64 c6 45 dc 46 c6 45 dd 69 c6 45 de 6c c6 45 df 65 c6 45 e0 00 8d 4d d8 51}  //weight: 10, accuracy: High
+        $x_20_2 = {83 c4 0c c6 45 b8 33 b8 01 00 00 00 6b c8 00 8a 94 0d b9 fe ff ff 88 55 e8}  //weight: 20, accuracy: High
+        $x_1_3 = "%s\\log\\%s_RuntimeLog_%d_%02d_%02d_%02d%02d%02d.log" ascii //weight: 1
+        $x_2_4 = "Log Format:<Current Time>[Thread ID]<File,Line>:..." ascii //weight: 2
+        $x_3_5 = "\\log\\%s_RuntimeLog_%d_%02d_%02d.log" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
