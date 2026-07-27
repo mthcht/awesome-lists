@@ -7583,3 +7583,25 @@ rule Trojan_Win64_Tedy_MKX_2147974394_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_GPKL_2147974548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.GPKL!MTB"
+        threat_id = "2147974548"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 8b 00 48 8b 00 48 8b 40 20 48 89 04 24 48 8b 0c 24 48 b8 4c 6f 61 64 4c 69 62 72 48 89 04 24 c7 44 24 08 61 72 79 41 c6 44 24}  //weight: 4, accuracy: High
+        $x_3_2 = {48 89 04 24 48 8b 0c 24 48 b8 47 65 74 50 72 6f 63 41 48 89 04 24 c7 44 24 08 64 64 72 65 66 c7 44 24 0c 73 73 c6 44 24 0e}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
