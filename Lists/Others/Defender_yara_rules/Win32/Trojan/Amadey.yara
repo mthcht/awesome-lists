@@ -4847,3 +4847,27 @@ rule Trojan_Win32_Amadey_DC_2147971766_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Amadey_KYX_2147974570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Amadey.KYX!MTB"
+        threat_id = "2147974570"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 45 e8 8a d4 c0 ea 04 8a c8 c0 e1 02 80 e2 03 02 d1 8a c4 88 55 ec 8a 55 ea 8a ca c0 e0 04 c0 e9 02 80 e1 0f c0 e2 06 02 55 eb 02 c8 33 c0 88 4d ed 88 55 ee 89 45 e0}  //weight: 2, accuracy: High
+        $x_2_2 = "net localgroup \"Administrators\"" ascii //weight: 2
+        $x_2_3 = "SET PasswordExpires=FALSE" ascii //weight: 2
+        $x_2_4 = "SET Passwordchangeable=FALSE" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

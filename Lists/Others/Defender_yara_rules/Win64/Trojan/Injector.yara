@@ -929,3 +929,28 @@ rule Trojan_Win64_Injector_SXQ_2147973769_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_MKB_2147974577_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.MKB!MTB"
+        threat_id = "2147974577"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {44 8b 42 24 44 8d 0c 09 4a 8d 0c 00 44 8b 42 1c 42 0f b7 0c 09 c1 e1 02 48 63 c9 48 8d 14 08 42 8b 14 02 48 01 d0}  //weight: 20, accuracy: High
+        $x_15_2 = {44 6b c1 04 45 89 c0 49 01 c0 45 8b 0c 30 41 b8 6f 24 00 00 49 01 c1}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

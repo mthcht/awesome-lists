@@ -1228,3 +1228,27 @@ rule Trojan_Win64_CoinMiner_NXD_2147972586_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_LRC_2147974554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.LRC!MTB"
+        threat_id = "2147974554"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "//c1.9cpool.xyz/nwvcver.txt" ascii //weight: 1
+        $x_2_2 = "interface ip add dns %d %s validate=no" ascii //weight: 2
+        $x_3_3 = "//c1.9cpool.xyz/dns.exe" ascii //weight: 3
+        $x_4_4 = "sc config WALNService start=demand" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

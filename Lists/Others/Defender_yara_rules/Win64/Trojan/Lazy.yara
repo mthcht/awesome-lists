@@ -7004,3 +7004,27 @@ rule Trojan_Win64_Lazy_GPKF_2147974206_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MSC_2147974578_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MSC!MTB"
+        threat_id = "2147974578"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[INFO] Reflective injection attempt..." ascii //weight: 10
+        $x_5_2 = "[WARN] Hooks detected in ntdll." ascii //weight: 5
+        $x_3_3 = "[WARN] Analysis tools detected." ascii //weight: 3
+        $x_2_4 = "[ERROR] QueueUserAPC failed. Falling back to CreateRemoteThread..." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -971,3 +971,30 @@ rule Trojan_Win64_Amadey_AYD_2147967811_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_CJX_2147974571_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.CJX!MTB"
+        threat_id = "2147974571"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {89 0d a6 74 05 00 c1 e9 10 81 e1 ff 7f 00 00 f7 e1 c1 ea 03 6b c2 1a 2b c8 b8 4f ec c4 4e 66 83 c1 61 66 89 0f}  //weight: 3, accuracy: High
+        $x_2_2 = {48 8b c1 83 e0 0f 0f b6 84 10 ?? ?? ?? ?? 41 32 84 10 ?? ?? ?? ?? 49 ff c0 88 04 19 48 ff c1 49 81 f8 1e 01 00 00 72 d8 45 33 c0}  //weight: 2, accuracy: Low
+        $x_1_3 = "SeDebugPrivilege" ascii //weight: 1
+        $x_1_4 = "RtlCreateUserThread" ascii //weight: 1
+        $x_1_5 = "Task To Run:" ascii //weight: 1
+        $x_1_6 = "System Component Manager" ascii //weight: 1
+        $x_1_7 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

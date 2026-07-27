@@ -774,3 +774,25 @@ rule Trojan_Win64_DLLHijack_DAA_2147974526_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_SPR_2147974575_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.SPR!MTB"
+        threat_id = "2147974575"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c7 44 24 04 fd 71 3c ee 8b 4c 24 04 89 ca 81 f2 db 3c 88 60 89 15 0b 95 11 00 8b 05 01 95 11 00 41 89 c0 41 31 d0 f0 44 0f b1 05 f2 94 11 00 75}  //weight: 1, accuracy: High
+        $x_2_2 = {2e 74 65 78 74 00 00 00 70 3e 14 00 00 10 00 00 00 40 14 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 60 2e 72 64 61 74 61 00 00 2a 8a 01 00 00 50 14 00 00 8c 01 00 00 44 14 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 40 2e 64 61 74 61}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

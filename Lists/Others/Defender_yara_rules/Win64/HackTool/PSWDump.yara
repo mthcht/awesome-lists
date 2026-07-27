@@ -238,3 +238,27 @@ rule HackTool_Win64_PSWDump_SX_2147971319_0
         (all of ($x*))
 }
 
+rule HackTool_Win64_PSWDump_MK_2147974576_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win64/PSWDump.MK!MTB"
+        threat_id = "2147974576"
+        type = "HackTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[+] IPC loopback port" ascii //weight: 10
+        $x_5_2 = "CHROMELEVATOR_SCAN_OPENSSH" ascii //weight: 5
+        $x_3_3 = "VgBpAHIAdAB1AGEAbABCAG8AeAA=" ascii //weight: 3
+        $x_2_4 = "Scan Completed Now Starting crypto clipboard monitoring (Ctrl+C to exit)..." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
