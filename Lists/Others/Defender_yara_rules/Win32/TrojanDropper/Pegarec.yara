@@ -13,8 +13,10 @@ rule TrojanDropper_Win32_Pegarec_A_2147730997_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {65 00 20 00 2d 00 6f 00 2b 00 20 00 2d 00 72 00 20 00 2d 00 69 00 6e 00 75 00 6c 00 20 00 [0-32] 2e 00 6a 00 70 00 67 00 20 00 [0-32] 2e 00 65 00 78 00 65 00 20 00 26 00 20 00 01 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $n_100_2 = "\\Program Files (x86)\\Microsoft Intune Management Extension\\" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

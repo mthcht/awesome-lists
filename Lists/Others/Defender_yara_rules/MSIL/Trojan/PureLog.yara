@@ -322,3 +322,24 @@ rule Trojan_MSIL_PureLog_RDQ_2147919038_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLog_ABVC_2147974644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLog.ABVC!MTB"
+        threat_id = "2147974644"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLog"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 05 06 6f ?? 00 00 0a 0b 0e 04 1f 61 6a 5d 6c 23 ?? ?? ?? ?? ?? ?? ?? ?? 5a 05 6c 58 06 6c 58 0c 08 28 ?? 00 00 0a 2c 01 2a 03 12 01 28 ?? 00 00 0a 6f ?? 00 00 0a 03}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

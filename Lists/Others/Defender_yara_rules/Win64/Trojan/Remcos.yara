@@ -371,3 +371,24 @@ rule Trojan_Win64_Remcos_GVZ_2147972453_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_AHB_2147974643_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.AHB!MTB"
+        threat_id = "2147974643"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 0f b6 3c ?? 8d 5f bf 89 fd 40 80 cd ?? 80 fb ?? 40 0f b6 dd 0f 43 df 0f b6 fb 44 31 ?? 44 69 ?? ?? ?? ?? ?? 48 ff c6 49 39 f1 75}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
