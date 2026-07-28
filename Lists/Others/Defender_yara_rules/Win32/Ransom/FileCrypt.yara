@@ -73,3 +73,28 @@ rule Ransom_Win32_FileCrypt_AI_2147851342_0
         (3 of ($x*))
 }
 
+rule Ransom_Win32_FileCrypt_CAT_2147974680_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCrypt.CAT!MTB"
+        threat_id = "2147974680"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "killProcessesAndServices" ascii //weight: 5
+        $x_5_2 = "deleteVSSShadows" ascii //weight: 5
+        $x_5_3 = "EncryptFile" ascii //weight: 5
+        $x_5_4 = "CreateRansomNote" ascii //weight: 5
+        $x_5_5 = "locker.go" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

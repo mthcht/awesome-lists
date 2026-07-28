@@ -1041,30 +1041,6 @@ rule Ransom_MSIL_Cryptolocker_PDJ_2147777745_2
         (all of ($x*))
 }
 
-rule Ransom_MSIL_Cryptolocker_PDJ_2147777745_3
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:MSIL/Cryptolocker.PDJ!MTB"
-        threat_id = "2147777745"
-        type = "Ransom"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Cryptolocker"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "your files have been encrypted" ascii //weight: 1
-        $x_1_2 = "bootstatuspolicy ignoreallfailures" ascii //weight: 1
-        $x_1_3 = "recoveryenabled no" ascii //weight: 1
-        $x_1_4 = ".encrypted" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Ransom_MSIL_Cryptolocker_PDK_2147777834_0
 {
     meta:

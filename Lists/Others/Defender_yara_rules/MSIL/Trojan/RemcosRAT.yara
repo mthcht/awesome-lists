@@ -903,3 +903,30 @@ rule Trojan_MSIL_RemcosRAT_ARR_2147973804_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_RemcosRAT_GVA_2147974681_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RemcosRAT.GVA!MTB"
+        threat_id = "2147974681"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "32QPSRTRUTVRWRXRYRZR[R\\R]R^R_R`RaRdcecfcgchcicjckclcmcnc" wide //weight: 1
+        $x_1_2 = "lblParameter3.Locked" wide //weight: 1
+        $x_1_3 = "progressBar1.Locked" wide //weight: 1
+        $x_1_4 = "cmdApply.DefaultModifiers" wide //weight: 1
+        $x_1_5 = "GetDelegateForFunctionPointer" wide //weight: 1
+        $x_1_6 = "cmbDistribution.Locked" wide //weight: 1
+        $x_1_7 = "file:///" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
