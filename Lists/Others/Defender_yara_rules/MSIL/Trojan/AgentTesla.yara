@@ -35951,29 +35951,6 @@ rule Trojan_MSIL_AgentTesla_DAD_2147795245_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {13 04 16 13 07 2b 18 00 11 04 11 07 09 11 07 9a 1f 10 28 ?? 00 00 0a 9c 00 11 07 17 58 13 07 11 07 09 8e 69 fe 04 13 08 11 08 2d db}  //weight: 3, accuracy: Low
-        $x_1_2 = "Split" ascii //weight: 1
-        $x_1_3 = "ToByte" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_AgentTesla_DAD_2147795245_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/AgentTesla.DAD!MTB"
-        threat_id = "2147795245"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "AgentTesla"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
