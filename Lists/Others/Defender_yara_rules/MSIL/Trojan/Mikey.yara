@@ -68,3 +68,28 @@ rule Trojan_MSIL_Mikey_SX_2147973766_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mikey_SXA_2147974674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mikey.SXA!MTB"
+        threat_id = "2147974674"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Initializing SocketIO client for http://" wide //weight: 10
+        $x_10_2 = "SocketIO Connected! Registering agent..." wide //weight: 10
+        $x_20_3 = "Command payload received from server." wide //weight: 20
+        $x_5_4 = "webcam_list" wide //weight: 5
+        $x_5_5 = "[Kill Error]:" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

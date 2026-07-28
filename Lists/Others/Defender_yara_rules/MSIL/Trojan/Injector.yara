@@ -2477,3 +2477,31 @@ rule Trojan_MSIL_Injector_MKB_2147973789_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_ABYB_2147974672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.ABYB!MTB"
+        threat_id = "2147974672"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "XOR_Loader" ascii //weight: 3
+        $x_3_2 = "RunHollow" ascii //weight: 3
+        $x_2_3 = "VirtualAllocEx" ascii //weight: 2
+        $x_2_4 = "WriteProcessMemory" ascii //weight: 2
+        $x_2_5 = "NtUnmapViewOfSection" ascii //weight: 2
+        $x_2_6 = "GetThreadContext" ascii //weight: 2
+        $x_2_7 = "SetThreadContext" ascii //weight: 2
+        $x_1_8 = "payload" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
