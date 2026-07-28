@@ -599,3 +599,26 @@ rule Trojan_Win32_SalatStealer_KBX_2147974572_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_MMX_2147974662_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.MMX!MTB"
+        threat_id = "2147974662"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {89 c6 8d 45 f3 c6 45 f3 01 89 45 e8 8d 45 e8 68}  //weight: 1, accuracy: High
+        $x_1_2 = {50 00 72 00 6f 00 67 00 72 00 61 00 6d 00 44 00 61 00 74 00 61 00 5c 00 73 00 76 00 63 00 5f 00 [0-16] 2e 00 6c 00 6f 00 67 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "state.payload.decrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
