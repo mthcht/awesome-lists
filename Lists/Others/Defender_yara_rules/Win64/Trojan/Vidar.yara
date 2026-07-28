@@ -3496,3 +3496,30 @@ rule Trojan_Win64_Vidar_AHG_2147974285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GXT_2147974652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GXT!MTB"
+        threat_id = "2147974652"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Steel Hammer" ascii //weight: 3
+        $x_3_2 = "Cotton Jacket" ascii //weight: 3
+        $x_2_3 = "LRZNQOGG-1001" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

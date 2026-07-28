@@ -909,3 +909,25 @@ rule Trojan_Win64_XWorm_PAHT_2147972727_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_GXT_2147974653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.GXT!MTB"
+        threat_id = "2147974653"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Uaz1VFQ5ADFVVFWw" ascii //weight: 2
+        $x_2_2 = "ORJB1sVcp9OEqhYb.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
