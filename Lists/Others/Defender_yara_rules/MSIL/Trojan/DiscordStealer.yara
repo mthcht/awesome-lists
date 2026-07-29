@@ -382,3 +382,28 @@ rule Trojan_MSIL_DiscordStealer_SXA_2147970151_0
         )
 }
 
+rule Trojan_MSIL_DiscordStealer_MKA_2147974739_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DiscordStealer.MKA!MTB"
+        threat_id = "2147974739"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "// VEIL_INJECTION" ascii //weight: 15
+        $x_10_2 = "DiscordInject" ascii //weight: 10
+        $x_5_3 = "InjectionMonitor" ascii //weight: 5
+        $x_3_4 = "GetInjectionPayload" ascii //weight: 3
+        $x_2_5 = "RatMain" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

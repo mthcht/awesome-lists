@@ -164,15 +164,39 @@ rule Trojan_Win64_Remus_MK_2147973798_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "55"
+        threshold = "50"
         strings_accuracy = "Low"
     strings:
         $x_20_1 = {48 83 ec 58 b9 99 68 51 89 e8 ?? ?? 02 00 48 89 05 ?? ?? 03 00 b9 17 a3 aa e6 e8 ?? ?? 02 00 48 89 05 ?? ?? 03 00 c7 44 24}  //weight: 20, accuracy: Low
         $x_15_2 = "GetUserNameA" ascii //weight: 15
         $x_10_3 = "GetComputerNameExA" ascii //weight: 10
-        $x_5_4 = "GetKeyboardLayoutNameW" ascii //weight: 5
-        $x_3_5 = "OpenClipboard" ascii //weight: 3
-        $x_2_6 = "GetClipboardData" ascii //weight: 2
+        $x_3_4 = "OpenClipboard" ascii //weight: 3
+        $x_2_5 = "GetClipboardData" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_MKA_2147974737_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.MKA!MTB"
+        threat_id = "2147974737"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 83 ec 58 b9 51 80 41 a1 e8 ?? ?? 02 00 48 89 05 ?? ?? 03 00 b9 47 0d 06 f2 e8 ?? ?? 02 00 48 89 05 ?? ?? 03 00 48 89 c1}  //weight: 20, accuracy: Low
+        $x_15_2 = "GetUserNameA" ascii //weight: 15
+        $x_10_3 = "GetComputerNameExA" ascii //weight: 10
+        $x_3_4 = "OpenClipboard" ascii //weight: 3
+        $x_2_5 = "GetClipboardData" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
