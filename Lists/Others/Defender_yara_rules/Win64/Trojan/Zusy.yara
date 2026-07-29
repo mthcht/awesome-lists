@@ -4414,3 +4414,25 @@ rule Trojan_Win64_Zusy_MKI_2147974539_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_MKG_2147974770_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKG!MTB"
+        threat_id = "2147974770"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {42 0f b6 84 31 e8 66 01 00 34 ?? 0f b6 c0 66 89 44 4d 30 48 ff c1 48 83 f9}  //weight: 20, accuracy: Low
+        $x_15_2 = {42 0f b6 84 31 80 66 01 00 48 8d 49 01 34 ?? 88 44 0d cf 48 83 ea}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

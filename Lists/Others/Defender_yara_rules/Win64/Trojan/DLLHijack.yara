@@ -818,3 +818,45 @@ rule Trojan_Win64_DLLHijack_SPR_2147974575_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_AEYB_2147974752_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.AEYB!MTB"
+        threat_id = "2147974752"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b d5 48 8d 0d ?? ?? ?? ?? 8d 47 05 25 ?? ?? ?? ?? 7d ?? ff c8 83 c8 e0 ff c0 48 98 ff c7 0f b6 04 08 30 02 48 ff c2 48 63 c7 48 3b c6 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_CAR_2147974759_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.CAR!MTB"
+        threat_id = "2147974759"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 8b c1 45 8b c1 2b c2 41 ff c1 0f b6 54 08 ?? 43 30 14 18 8b 54 24 ?? 45 3b ca 72}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

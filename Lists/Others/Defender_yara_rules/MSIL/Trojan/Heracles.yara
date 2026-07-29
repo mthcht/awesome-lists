@@ -11339,3 +11339,31 @@ rule Trojan_MSIL_Heracles_ABHC_2147974238_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_NYX_2147974754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.NYX!MTB"
+        threat_id = "2147974754"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "c4AHBvc2l0aW9uNzgAZWxlbWVudDc4AGFtb3VudDc4AGNhY2hlU2xvdDc4AHJl" ascii //weight: 2
+        $x_1_2 = "MARQBKAHcAZABrAEIAdwBYAHUAcAAADU0ARwBsAFg" ascii //weight: 1
+        $x_2_3 = "AlJiYgV98AABZgJiAqH27MIPsLAAAXWCBs/f//IGP////+" ascii //weight: 2
+        $x_1_4 = "YAFhf+AS0BAAAWLQEAAGHQEwAAASgTAAAKIMj3AAAg9e8AABYX" ascii //weight: 1
+        $x_1_5 = "ImFBMIIMcGAgARBWARBVoNCSCTmQgAWAdZIE8DAAAgXP3" ascii //weight: 1
+        $x_1_6 = "FromBase64String" ascii //weight: 1
+        $x_1_7 = "WriteAllBytes" ascii //weight: 1
+        $x_1_8 = "GetTempPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

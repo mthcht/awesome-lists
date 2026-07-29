@@ -33,6 +33,30 @@ rule HackTool_Win32_Patcher_2147744922_0
         family = "Patcher"
         severity = "High"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Team URET" wide //weight: 1
+        $x_1_2 = "ADMIN@CRACK" wide //weight: 1
+        $x_1_3 = "Patch Setup [to install without entering email]" wide //weight: 1
+        $x_1_4 = "RegGen for DAEMON Tools" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule HackTool_Win32_Patcher_2147744922_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/Patcher!MTB"
+        threat_id = "2147744922"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Patcher"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
@@ -48,7 +72,7 @@ rule HackTool_Win32_Patcher_2147744922_0
         (all of ($x*))
 }
 
-rule HackTool_Win32_Patcher_2147744922_1
+rule HackTool_Win32_Patcher_2147744922_2
 {
     meta:
         author = "defender2yara"
@@ -74,7 +98,7 @@ rule HackTool_Win32_Patcher_2147744922_1
         (all of ($x*))
 }
 
-rule HackTool_Win32_Patcher_2147744922_2
+rule HackTool_Win32_Patcher_2147744922_3
 {
     meta:
         author = "defender2yara"
@@ -98,7 +122,7 @@ rule HackTool_Win32_Patcher_2147744922_2
         (all of ($x*))
 }
 
-rule HackTool_Win32_Patcher_2147744922_3
+rule HackTool_Win32_Patcher_2147744922_4
 {
     meta:
         author = "defender2yara"
