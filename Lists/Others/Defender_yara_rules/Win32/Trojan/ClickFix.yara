@@ -15440,7 +15440,9 @@ rule Trojan_Win32_ClickFix_SVB_2147974396_0
         $x_1_2 = "powershell" wide //weight: 1
         $x_1_3 = {77 00 6d 00 69 00 63 00 6c 00 61 00 73 00 73 00 [0-48] 77 00 69 00 6e 00 33 00 32 00 5f 00 70 00 72 00 6f 00 63 00 65 00 73 00 73 00 73 00 74 00 61 00 72 00 74 00 75 00 70 00}  //weight: 1, accuracy: Low
         $x_1_4 = {63 00 6d 00 64 00 [0-48] 70 00 75 00 73 00 68 00 64 00}  //weight: 1, accuracy: Low
-        $x_1_5 = "rundll32" wide //weight: 1
+        $x_1_5 = "saps cmd" wide //weight: 1
+        $x_1_6 = "rundll32" wide //weight: 1
+        $x_1_7 = "m^s^h^t^a" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
