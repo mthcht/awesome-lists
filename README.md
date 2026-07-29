@@ -176,6 +176,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 
 <details> 
 
+- [chainabuse (for malicious owned crypto wallets address)](https://chainabuse.com/)
 - [ABUSE.CH BLACKLISTS](https://sslbl.abuse.ch/blacklist/)
 - [Block Lists](https://github.com/blocklistproject/Lists)
 - [DNS Block List](https://github.com/hagezi/dns-blocklists)
