@@ -15222,6 +15222,31 @@ rule Trojan_Win32_ClickFix_AZG_2147973967_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_AZG_2147973967_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.AZG!MTB"
+        threat_id = "2147973967"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "c*d.e?" wide //weight: 3
+        $x_4_2 = "c*u*r*l.e?" wide //weight: 4
+        $x_4_3 = "where p*ell" wide //weight: 4
+        $x_3_4 = "|for /f" wide //weight: 3
+        $x_4_5 = "h^t^t^p^s^:" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ClickFix_IXG_2147973968_0
 {
     meta:

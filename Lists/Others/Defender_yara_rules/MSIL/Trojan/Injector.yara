@@ -1772,6 +1772,27 @@ rule Trojan_MSIL_Injector_KKA_2147965483_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {11 07 11 0d 8f 1f 00 00 01 25 47 06 11 0d 06 8e 69 5d 91 61 d2 52 00 11 0d 17 58 13 0d 11 0d 11 07 8e 69 fe 04 13 0e 11 0e 2d d4}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_KKA_2147965483_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.KKA!MTB"
+        threat_id = "2147965483"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "High"
     strings:

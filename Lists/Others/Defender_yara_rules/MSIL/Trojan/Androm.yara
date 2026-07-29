@@ -1864,6 +1864,27 @@ rule Trojan_MSIL_Androm_KK_2147951760_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {63 11 04 1d 62 60 d2 13 04 11 04 09 19 5a 20 ff 00 00 00 5f d2 61 d2 13 04 11 04 07 09 07 8e 69 5d 91 61}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Androm_KK_2147951760_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.KK!MTB"
+        threat_id = "2147951760"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "Low"
     strings:
         $x_20_1 = {11 00 28 67 00 00 06 7e 04 00 00 04 7e 05 00 00 04 72 01 00 00 70 72 ?? 00 00 70 6f 4d 00 00 06 38 00 00 00 00 dd ?? ff ff ff 26 38 00 00 00 00 dd ?? ff ff ff 38 ?? ff ff ff}  //weight: 20, accuracy: Low
@@ -2189,6 +2210,48 @@ rule Trojan_MSIL_Androm_SNA_2147973840_0
     strings:
         $x_5_1 = "https://pantyl.com" wide //weight: 5
         $x_2_2 = "000ff1e0-9c6b-4fda-9094-53d2aca760a6" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Androm_KKA_2147974698_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.KKA!MTB"
+        threat_id = "2147974698"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {20 6d 4e c6 41 5a 20 39 30 00 00 58 [0-5] 11 04 [0-5] 1f 10 63 20 ff 00 00 00 5f d2 13 [0-15] 61 [0-10] 61 d2 9c [0-5] 17 58 [0-5] 02 8e 69 32}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Androm_KKB_2147974699_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.KKB!MTB"
+        threat_id = "2147974699"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {06 11 07 06 8e 69 5d 91 11 06 61 d2 13 08 11 05 11 07 02 11 07 91 11 08 61 d2 9c 02 11 07 91 13 06 11 07 17 58 13 07 11 07 02 8e 69 32 d2}  //weight: 20, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -730,3 +730,25 @@ rule Trojan_Win64_ValleyRAT_AHC_2147974543_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_ABAT_2147974691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.ABAT!MTB"
+        threat_id = "2147974691"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 8b c8 4c 2b d0 43 0f b6 14 0a 4d 8d 49 01 44 0f b6 05 ?? ?? ?? ?? 44 32 c2 45 88 41 ff 49 83 ee}  //weight: 5, accuracy: Low
+        $x_5_2 = {48 8d 0c 24 48 03 ca 48 ff c2 42 0f b6 04 01 34 9e 88 01 49 3b d1}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
