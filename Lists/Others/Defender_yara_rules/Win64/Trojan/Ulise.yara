@@ -595,3 +595,29 @@ rule Trojan_Win64_Ulise_KK_2147972590_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_ISX_2147974846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.ISX!MTB"
+        threat_id = "2147974846"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {43 32 14 78 48 8d 4d d0 e8 ?? ?? ?? ?? 4c 8d 45 f0 48 83 7d 08 0f 4c 0f 47 45 f0 48 8d 4c 24 70 48 83 fb 0f 48 0f 47 ce 8d 47 01 99 41 f7 fd 48 63 c2 0f b6 14 08 43 32 54 78 01 48 8d 4d b0 e8 ?? ?? ?? ?? 83 c7 02 49}  //weight: 5, accuracy: Low
+        $x_1_2 = "X-FORWARDED-HOST:" ascii //weight: 1
+        $x_1_3 = "FILE_UPLOAD" ascii //weight: 1
+        $x_1_4 = "FILE_DOWNLOAD" ascii //weight: 1
+        $x_1_5 = "Clear Rules Success!" ascii //weight: 1
+        $x_1_6 = "\\Temp\\iislog.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

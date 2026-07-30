@@ -694,12 +694,12 @@ rule _PseudoThreat_c0000a02_0
         (2 of ($x*))
 }
 
-rule _PseudoThreat_c0000b1a_0
+rule _PseudoThreat_c0000b1b_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "!PseudoThreat_c0000b1a"
-        threat_id = "3221228314"
+        detection_name = "!PseudoThreat_c0000b1b"
+        threat_id = "3221228315"
         severity = "7"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
@@ -36792,6 +36792,24 @@ rule __PUA_Block_BabylonToolbar_0
 }
 
 rule __PUA_Block_BabylonToolbar_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "!#PUA:Block:BabylonToolbar"
+        threat_id = "1879049318"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Unlocker 1.9.1" ascii //weight: 1
+        $x_2_2 = "Babylon.ini" ascii //weight: 2
+        $x_1_3 = "Make Babylon my default search engine" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule __PUA_Block_BabylonToolbar_2
 {
     meta:
         author = "defender2yara"

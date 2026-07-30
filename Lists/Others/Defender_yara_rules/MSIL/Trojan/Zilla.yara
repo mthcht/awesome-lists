@@ -2739,3 +2739,37 @@ rule Trojan_MSIL_Zilla_SXG_2147973755_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_FX_2147974847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.FX!MTB"
+        threat_id = "2147974847"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Get-Wallets" ascii //weight: 1
+        $x_1_2 = "Get-Logins" ascii //weight: 1
+        $x_1_3 = "MetaMask" ascii //weight: 1
+        $x_1_4 = "Exodus" ascii //weight: 1
+        $x_1_5 = "Atomic" ascii //weight: 1
+        $x_1_6 = "Electrum" ascii //weight: 1
+        $x_1_7 = "$env:APPDATA\\Mozilla\\Firefox\\Profiles" ascii //weight: 1
+        $x_1_8 = "GetFolderPath('ApplicationData')" ascii //weight: 1
+        $x_1_9 = "HVNC:CAPTURE" ascii //weight: 1
+        $x_1_10 = "KL:START" ascii //weight: 1
+        $x_1_11 = "KL:LOGS" ascii //weight: 1
+        $x_1_12 = "MIC:CAPTURE" ascii //weight: 1
+        $x_1_13 = "FM:UPLOAD" ascii //weight: 1
+        $x_1_14 = "FM:DRIVES" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
