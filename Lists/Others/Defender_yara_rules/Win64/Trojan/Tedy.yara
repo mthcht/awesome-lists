@@ -7605,3 +7605,45 @@ rule Trojan_Win64_Tedy_GPKL_2147974548_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CAR_2147974831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAR!MTB"
+        threat_id = "2147974831"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {66 0f 6f 44 24 ?? 0f 57 45 ?? 66 0f 7f 44 24 ?? 66 0f 6f 4c 24 ?? 0f 57 4d ?? 66 0f 7f 4c 24 ?? 48 8d 54 24 ?? 49 8b c8 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_CAS_2147974833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CAS!MTB"
+        threat_id = "2147974833"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 89 f8 48 d3 f8 48 83 03 01 83 e0 ?? 41 30 06 49 39 ed 0f 85}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

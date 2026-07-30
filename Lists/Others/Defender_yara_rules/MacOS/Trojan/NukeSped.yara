@@ -191,3 +191,31 @@ rule Trojan_MacOS_NukeSped_F_2147775470_0
         )
 }
 
+rule Trojan_MacOS_NukeSped_F_2147974830_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/NukeSped.F"
+        threat_id = "2147974830"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "NukeSped"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {74 65 6c 65 67 72 61 6d 2e 74 78 74 00 68 74 74 70 73 3a 2f 2f 61 70 69 2e 74 65 6c 65 67 72 61 6d 2e 6f 72 67 2f 62 6f 74 00 2f 73 65 6e 64}  //weight: 1, accuracy: High
+        $x_1_2 = {6f 73 61 73 63 72 69 70 74 20 2d 65 20 27 00 27 00 74 65 6c 6c 20 61 70 70 6c 69 63 61 74 69 6f 6e}  //weight: 1, accuracy: High
+        $x_1_3 = "curl -s -S -L -A \"macintosh\" -o" ascii //weight: 1
+        $x_1_4 = "zoom | google | teams | system" ascii //weight: 1
+        $x_1_5 = "codesign --force --deep --sign" ascii //weight: 1
+        $x_1_6 = {75 6e 7a 69 70 20 2d 6f 20 22 00 22 20 2d 64}  //weight: 1, accuracy: High
+        $x_1_7 = "xattr -rc" ascii //weight: 1
+        $x_1_8 = "/bin/open" ascii //weight: 1
+        $x_1_9 = "Downloading ZoomApp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (8 of ($x*))
+}
+
