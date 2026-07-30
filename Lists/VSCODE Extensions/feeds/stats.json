@@ -1,19 +1,19 @@
 {
-  "generated_utc": "2026-07-30T14:31:19+00:00",
-  "total_records": 1937,
-  "total_malicious": 1865,
+  "generated_utc": "2026-07-30T16:49:04+00:00",
+  "total_records": 1948,
+  "total_malicious": 1876,
   "total_risky": 72,
   "severity_counts": {
     "critical": 592,
-    "high": 969,
+    "high": 975,
     "low": 22,
-    "medium": 354
+    "medium": 359
   },
   "category_counts": {
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 950,
+    "impersonation": 956,
     "impersonation-malware": 5,
     "malware": 592,
     "owner-request": 8,
@@ -31,7 +31,7 @@
     "risky-infrastructure": 4,
     "risky-remote-access": 15,
     "risky-tunnel": 5,
-    "spam": 71,
+    "spam": 76,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 208
@@ -40,13 +40,13 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 950,
+    "impersonation": 956,
     "impersonation-malware": 5,
     "malware": 592,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
-    "spam": 71,
+    "spam": 76,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 208
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 1491,
+  "total_publishers": 1495,
   "top_publishers": [
     [
       "pit00",
@@ -98,6 +98,10 @@
     [
       "cryptninjaswap",
       10
+    ],
+    [
+      "okok909090",
+      8
     ],
     [
       "yonbip",
@@ -161,10 +165,6 @@
     ],
     [
       "fsiovn",
-      5
-    ],
-    [
-      "kodawari",
       5
     ]
   ]
