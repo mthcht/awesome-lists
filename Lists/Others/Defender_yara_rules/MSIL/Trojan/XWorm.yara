@@ -5962,3 +5962,26 @@ rule Trojan_MSIL_XWorm_ABVK_2147973813_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_ABXG_2147974795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ABXG!MTB"
+        threat_id = "2147974795"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {02 05 06 28 ?? 00 00 06 0d 0e 04 1f 61 6a 5d 6c 23 ?? ?? ?? ?? ?? ?? ?? ?? 5a 05 6c 58 06 6c 58 13 04 11 04 28 ?? 00 00 0a 13 06 11 06 2c 08}  //weight: 3, accuracy: Low
+        $x_1_2 = {61 38 b4 fd ff ff 03 12 03 28 ?? 00 00 0a 6f ?? 00 00 0a 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

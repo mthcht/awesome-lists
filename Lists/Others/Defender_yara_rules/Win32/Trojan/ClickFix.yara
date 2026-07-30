@@ -8169,15 +8169,16 @@ rule Trojan_Win32_ClickFix_CCY_2147945456_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
+        threshold = "7"
+        strings_accuracy = "High"
     strings:
-        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
-        $x_1_2 = "Net.WebClient" wide //weight: 1
-        $x_1_3 = ".DownloadString($" wide //weight: 1
-        $x_1_4 = "hidden" wide //weight: 1
-        $x_1_5 = "$env:TEMP" wide //weight: 1
-        $x_1_6 = "join" wide //weight: 1
+        $x_1_1 = "net.webclient" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = "download" wide //weight: 1
+        $x_1_4 = "replace" wide //weight: 1
+        $x_1_5 = ";foreach($" wide //weight: 1
+        $x_1_6 = "Invoke-Item" wide //weight: 1
+        $x_1_7 = "$env:temp+(" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -8195,18 +8196,20 @@ rule Trojan_Win32_ClickFix_CCY_2147945456_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
+        threshold = "6"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = "net.webclient" wide //weight: 1
-        $x_1_2 = "http" wide //weight: 1
-        $x_1_3 = "download" wide //weight: 1
-        $x_1_4 = "replace" wide //weight: 1
-        $x_1_5 = ";foreach($" wide //weight: 1
-        $x_1_6 = "Invoke-Item" wide //weight: 1
-        $x_1_7 = "$env:temp+(" wide //weight: 1
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "Net.WebClient" wide //weight: 1
+        $x_1_3 = ".DownloadString($" wide //weight: 1
+        $x_1_4 = "hidden" wide //weight: 1
+        $x_1_5 = "$env:TEMP" wide //weight: 1
+        $x_1_6 = "join" wide //weight: 1
+        $n_100_7 = "powershell -NonInteractive -EncodedCommand YQByAHQAaQBmAGEAYwB0AG8AcgB5AC4AbgB6AC4AcwBlAHIAdgBpAGMAZQAuAGEAbgB6" wide //weight: -100
+        $n_100_8 = "a r t i f a c t o r y . n z . s e r v i c e . a n z" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
