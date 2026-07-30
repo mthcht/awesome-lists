@@ -4264,3 +4264,28 @@ rule Trojan_MSIL_Lazy_SX_2147972618_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_SXA_2147974852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.SXA!MTB"
+        threat_id = "2147974852"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "49"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {03 28 ae 00 00 0a 0b 06 07 16 07 8e 69 6f 36 00 00 0a de 03}  //weight: 30, accuracy: High
+        $x_10_2 = "SHELL_OUT|>> New Session created" wide //weight: 10
+        $x_5_3 = "SCREEN_INFO|" wide //weight: 5
+        $x_2_4 = "KEY_DOWN" wide //weight: 2
+        $x_2_5 = "EXEC_URL" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
