@@ -233,3 +233,35 @@ rule Trojan_Win32_DLLHijack_GPKH_2147974209_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DLLHijack_NYQ_2147975004_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.NYQ!MTB"
+        threat_id = "2147975004"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {46 00 3a 00 5c 00 64 00 64 00 5c 00 76 00 63 00 74 00 6f 00 6f 00 6c 00 73 00 5c 00 76 00 63 00 37 00 6c 00 69 00 62 00 73 00 5c 00 73 00 68 00 69 00 70 00 5c 00 61 00 74 00 6c 00 6d 00 66 00 63 00 5c 00 [0-47] 5c 00 52 00 65 00 6c 00 65 00 61 00 73 00 65 00 5c 00 [0-31] 2e 00 70 00 64 00 62 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {46 3a 5c 64 64 5c 76 63 74 6f 6f 6c 73 5c 76 63 37 6c 69 62 73 5c 73 68 69 70 5c 61 74 6c 6d 66 63 5c [0-47] 5c 52 65 6c 65 61 73 65 5c [0-31] 2e 70 64 62}  //weight: 2, accuracy: Low
+        $x_2_3 = "\\Temp\\TAOAcceleratorEx64_ev.SYS" ascii //weight: 2
+        $x_1_4 = "BB7BBB62FD9C76D5DDF37F17DDC3E7FF" ascii //weight: 1
+        $x_1_5 = "38926a7FFFEF316D5CD0610EF31" ascii //weight: 1
+        $x_1_6 = "cmd.exe /c start \"\" /B cmd /C %s" ascii //weight: 1
+        $x_1_7 = "taskkill /f /im cmd.exe" ascii //weight: 1
+        $x_1_8 = "6CC3288A937D15D79EF99F581CE2D91EA4" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 5 of ($x_1_*))) or
+            ((3 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
