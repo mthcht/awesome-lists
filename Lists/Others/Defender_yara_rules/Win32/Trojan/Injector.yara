@@ -2700,3 +2700,27 @@ rule Trojan_Win32_Injector_LR_2147972500_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_LRD_2147974854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.LRD!MTB"
+        threat_id = "2147974854"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "34"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 55 ec 8d 04 0f 30 10 41 3b 4d c8}  //weight: 20, accuracy: High
+        $x_2_2 = "Process created and payload injected successfully" ascii //weight: 2
+        $x_4_3 = "Looking for payload file:" ascii //weight: 4
+        $x_8_4 = "Successfully read payload, size:" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
