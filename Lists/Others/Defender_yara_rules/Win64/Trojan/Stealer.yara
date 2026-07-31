@@ -1202,3 +1202,30 @@ rule Trojan_Win64_Stealer_AMX_2147974091_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_ABSM_2147974861_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.ABSM!MTB"
+        threat_id = "2147974861"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell -Command \"Compress-Archive -Path '%s\\*' -DestinationPath '%s' -Force" ascii //weight: 1
+        $x_1_2 = "cmd.exe /c schtasks /delete /tn \"ElitraUpdater\" /f" ascii //weight: 1
+        $x_2_3 = "bot8590951288:AAFme0U79KFqLMt60Qkk8EhL_GmUxPvFcI8/sendDocument" ascii //weight: 2
+        $x_2_4 = "Your PC is locked by ElitraFly Rework" ascii //weight: 2
+        $x_1_5 = "%s\\screenshot.bmp" ascii //weight: 1
+        $x_1_6 = "GetComputerName" ascii //weight: 1
+        $x_2_7 = "VMware" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

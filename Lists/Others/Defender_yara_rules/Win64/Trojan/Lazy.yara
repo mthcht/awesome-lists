@@ -7079,3 +7079,24 @@ rule Trojan_Win64_Lazy_MSD_2147974773_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_GVP_2147974859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.GVP!MTB"
+        threat_id = "2147974859"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 4a ff 48 85 c9 7c 23 48 89 ca 48 0f af c9 48 01 d1 0f ba e1 00 72 e7 0f b6 0c 10 0f b6 74 14 21 31 f1 c0 c1 04 88 0c 10 eb d4}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -107,3 +107,27 @@ rule Trojan_Win64_Agentb_BMD_2147963726_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Agentb_ABAM_2147974860_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Agentb.ABAM!MTB"
+        threat_id = "2147974860"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Agentb"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {44 8b 45 00 8b d3 48 8b cf ff 15 ?? ?? ?? ?? 48 8d 0d 05 3d 01 00 ff 15 ?? ?? ?? ?? 48 8b c8 48 8d 15 e5 3c 01 00 ff 15 ?? ?? ?? ?? 48 8b f8 48 85 c0 74 2d 4c 8d 4d 00 41 b8 40 00 00 00 48 8b d3 48 8b c8 ff 15 ?? ?? ?? ?? c6 07 c3 4c 8d 4d 00 44 8b 45 00 48 8b d3 48 8b cf ff 15 22 0d 01 00}  //weight: 7, accuracy: Low
+        $x_1_2 = "encrypted_key" ascii //weight: 1
+        $x_1_3 = "discord\\Local Storage\\leveldb" ascii //weight: 1
+        $x_1_4 = "discord\\Local State" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
