@@ -211,3 +211,25 @@ rule Trojan_Win64_ShellLoader_SXD_2147973772_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellLoader_MKA_2147974883_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellLoader.MKA!MTB"
+        threat_id = "2147974883"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "shellcode-loader.pdb" ascii //weight: 20
+        $x_15_2 = "mask_key_16bytes" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

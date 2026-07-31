@@ -240,3 +240,25 @@ rule Trojan_Win64_FileCoder_SB_2147964662_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_MKA_2147974884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.MKA!MTB"
+        threat_id = "2147974884"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 89 f9 48 89 f2 48 83 c4 20 5f 5e 5d 49 ff e0 55 48 83 ec 20 48 8d 6c 24 20 b9 78 00 00 00 e8 84 56 00 00 b8 01 40 00 80 48 83 c4 20 5d c3}  //weight: 20, accuracy: High
+        $x_15_2 = "TEMPboykisser_step.log" ascii //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
