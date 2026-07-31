@@ -128,3 +128,27 @@ rule Trojan_MSIL_Krypt_PSS_2147951169_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Krypt_SN_2147975031_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Krypt.SN!MTB"
+        threat_id = "2147975031"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Krypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {28 58 00 00 0a 28 59 00 00 0a 13 07 11 08 11 07 17 28 5a 00 00 0a}  //weight: 2, accuracy: High
+        $x_2_2 = {28 73 00 00 0a 74 47 00 00 01 0c 08 02 7b 10 00 00 04 02 7b 11 00 00 04 73 74 00 00 0a 6f 75 00 00 0a 08 20 aa 03 00 00 28 49 00 00 06 6f 76 00 00 0a 14}  //weight: 2, accuracy: High
+        $x_2_3 = {07 02 7b 13 00 00 04 73 8b 00 00 0a 6f 8c 00 00 0a 07 6f 8d 00 00 0a 02 7b 12 00 00 04 6f 8e 00 00 0a 07 06 6f 8f 00 00 0a 20 f8 03 00 00 28 49 00 00 06 73 90 00 00 0a 13 04 11 04}  //weight: 2, accuracy: High
+        $x_1_4 = "$c896b493-c26d-40fc-94f2-11d9c2648bfc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

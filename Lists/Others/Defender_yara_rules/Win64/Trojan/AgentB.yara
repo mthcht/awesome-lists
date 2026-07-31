@@ -204,3 +204,26 @@ rule Trojan_Win64_AgentB_AHG_2147973719_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_AHH_2147975044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.AHH!MTB"
+        threat_id = "2147975044"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[ELEVATE] Trying AppInfo RPC elevation" ascii //weight: 30
+        $x_20_2 = "[MAIN] Exfil completed successfully" ascii //weight: 20
+        $x_10_3 = "[EXFIL] Uploading harvest archive..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4210,3 +4210,28 @@ rule Trojan_MSIL_Jalapeno_NYD_2147974845_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_SNA_2147975036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.SNA!MTB"
+        threat_id = "2147975036"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "As you reboot, you find that your MBR has been overwritten." ascii //weight: 2
+        $x_2_2 = "Game Over." ascii //weight: 2
+        $x_2_3 = "victim was not locked, you need lock first" wide //weight: 2
+        $x_2_4 = "schtasks //create //sc minute //mo 1 //tn CleanSweepCheck //tr" wide //weight: 2
+        $x_2_5 = "MBR Overwritten, successfully." wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

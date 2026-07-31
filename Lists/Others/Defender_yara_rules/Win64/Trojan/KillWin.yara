@@ -71,3 +71,27 @@ rule Trojan_Win64_KillWin_SXC_2147965918_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillWin_KK_2147975046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillWin.KK!MTB"
+        threat_id = "2147975046"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "HOPELESS_V4" ascii //weight: 4
+        $x_3_2 = "C:\\Windows\\System32\\.hopeless_v4_infected" ascii //weight: 3
+        $x_2_3 = "] Need Admin. Elevating..." ascii //weight: 2
+        $x_1_4 = "[*] PHASE 6: Encryption" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

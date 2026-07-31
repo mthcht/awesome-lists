@@ -138,3 +138,29 @@ rule Ransom_MSIL_Encoder_D_2147966958_0
         )
 }
 
+rule Ransom_MSIL_Encoder_SN_2147975034_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Encoder.SN!MTB"
+        threat_id = "2147975034"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Trigger\\obj\\Debug\\Trigger.pdb" ascii //weight: 1
+        $x_1_2 = "b71fdcdc-aad4-4b37-8e39-65375c833fd0" ascii //weight: 1
+        $x_1_3 = "TELEGRAM: @ratgood_bot " wide //weight: 1
+        $x_1_4 = "Boot Sector .................... Deleted" wide //weight: 1
+        $x_1_5 = "Fucking Windows ......... Done" wide //weight: 1
+        $x_1_6 = "Encrypting Datas           ........ OK" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

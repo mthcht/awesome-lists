@@ -265,3 +265,25 @@ rule Trojan_Win32_DLLHijack_NYQ_2147975004_0
         )
 }
 
+rule Trojan_Win32_DLLHijack_GXR_2147975011_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.GXR!MTB"
+        threat_id = "2147975011"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 02 99 b9 ?? ?? ?? ?? f7 f9 83 c2 ?? 8b 45 ?? 8b 48 ?? 8b 45 ?? 0f be 0c 01 33 ca 8b 55 ?? 8b 42 ?? 8b 55 ?? 88 0c 10 8b 45 ?? 83 c0 ?? 89 45}  //weight: 10, accuracy: Low
+        $x_10_2 = {0f b6 00 99 b9 ?? ?? ?? ?? f7 f9 83 c2 ?? 8b 45 ?? 8b 40 ?? 8b 4d ?? 0f be 04 08 33 c2 8b 4d ?? 8b 49 ?? 8b 55 ?? 88 04 11 8b 45 ?? 40 89 45 ?? b8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

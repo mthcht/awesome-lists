@@ -20,6 +20,34 @@ rule Trojan_Win64_Cerbu_AMS_2147851297_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_NC_2147901579_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.NC!MTB"
+        threat_id = "2147901579"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {8b 44 24 54 ff c0 89 44 24 54 83 7c 24 54 10 7d 1e 48 63 44 24 54 48 8d 0d ?? ?? 01 00 48 63 54 24 54 0f b6 04 01 88 84 14 a8 00 00 00 eb d1}  //weight: 2, accuracy: Low
+        $x_2_2 = {c7 44 24 30 00 00 00 00 c7 44 24 28 10 00 00 00 48 8d 05 ?? ?? 01 00 48 89 44 24 20 45 33 c9 45 33 c0 48 8d 54 24 70 48 8b 4c 24 60}  //weight: 2, accuracy: Low
+        $x_1_3 = {e9 80 02 00 00 c7 44 24 20 00 00 00 00 41 b9 20 00 00 00 4c 8d 05 ?? ?? 01 00 48 8d 15 ?? ?? 01 00 48 8b 4c 24 60}  //weight: 1, accuracy: Low
+        $x_2_4 = "payload" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Cerbu_GTT_2147926640_0
 {
     meta:

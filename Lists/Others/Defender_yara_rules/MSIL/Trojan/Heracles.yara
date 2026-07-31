@@ -11367,3 +11367,25 @@ rule Trojan_MSIL_Heracles_NYX_2147974754_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_YYS_2147975023_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.YYS!MTB"
+        threat_id = "2147975023"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {11 0f 11 19 11 06 11 19 93 11 0a 1b 5d 61 b4 9c 11 0f 11 19 11 0f 11 19 91 11 0a 1b 5d 61 b4 9c 11 19 17 d6 13 19 11 19 11 23 31 d4}  //weight: 6, accuracy: High
+        $x_5_2 = {03 08 06 5d 91 1e 5d 13 04 02 50 08 91 0b 07 11 04 1d 5f 64 d2 07 1e 11 04 da 1d 5f 62 d2 60 0b 07 03 08 06 5d 91 61 0b 08 1d d8 20 ff 00 00 00 5d 0d 07 09 d6 20 00 01 00 00 5d b4 0b 07 09 da}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

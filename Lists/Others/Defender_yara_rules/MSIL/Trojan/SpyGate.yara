@@ -46,3 +46,27 @@ rule Trojan_MSIL_SpyGate_AA_2147962380_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyGate_SN_2147975028_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyGate.SN!MTB"
+        threat_id = "2147975028"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyGate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {08 02 7b a6 00 00 04 6f c4 01 00 0a 13 09 08 11 09 28 c5 01 00 0a 13 0a 08 16 11 09 02 7b a6 00 00 04 6f f5 00 00 0a d6 6f c6 01 00 0a 0c 02 7b a4 00 00 04 13 0b 11 0b 2c 0a 11 0b 11 0a 6f 6f 01 00 06 00}  //weight: 4, accuracy: High
+        $x_2_2 = "5a542c1b-2d36-4c31-b039-26a88d3967da" ascii //weight: 2
+        $x_1_3 = "Stub.My.Resources" ascii //weight: 1
+        $x_1_4 = "invisible_cursor.cur" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
