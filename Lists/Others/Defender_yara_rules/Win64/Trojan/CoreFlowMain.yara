@@ -938,3 +938,63 @@ rule Trojan_Win64_CoreFlowMain_AU_2147973939_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoreFlowMain_AV_2147975092_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoreFlowMain.AV"
+        threat_id = "2147975092"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoreFlowMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_primaryDevicePubKey{\"id\":\"primaryDevicePubKey\",\"value\":\"053b580bc5b510fbf7b85751eec24434fe97ebcca465e33d543a893e3809ff5c73\"}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoreFlowMain_AW_2147975096_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoreFlowMain.AW"
+        threat_id = "2147975096"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoreFlowMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_primaryDevicePubKey{\"id\":\"primaryDevicePubKey\",\"value\":\"05819e91436d270ed16cb2709fe974c1126df149b904b16fc4bfb674e5f755d947\"}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoreFlowMain_AX_2147975105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoreFlowMain.AX"
+        threat_id = "2147975105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoreFlowMain"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_primaryDevicePubKey{\"id\":\"primaryDevicePubKey\",\"value\":\"05d597852fbc95f4e721305133f1c4a21d004dd8825e36c55e40757f9d25fd3d36\"}" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
