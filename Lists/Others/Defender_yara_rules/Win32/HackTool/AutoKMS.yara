@@ -420,6 +420,28 @@ rule HackTool_Win32_AutoKMS_AMTB_2147932276_0
         family = "AutoKMS"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "HEU_KMS_Activator_v19.5.1" ascii //weight: 2
+        $x_2_2 = "H'LyFA6" ascii //weight: 2
+        $x_2_3 = "zn}/SX6" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule HackTool_Win32_AutoKMS_AMTB_2147932276_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/AutoKMS!AMTB"
+        threat_id = "2147932276"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AutoKMS"
+        severity = "High"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "11"
         strings_accuracy = "High"
     strings:
