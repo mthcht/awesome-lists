@@ -3567,3 +3567,34 @@ rule Trojan_Win64_Vidar_PMX_2147974664_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AB_2147975120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AB!AMTB"
+        threat_id = "2147975120"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "rundll32.exe \"%s\",LaunchApplication" ascii //weight: 1
+        $x_1_2 = "rundll32.exe \"%s\",InitializeService" ascii //weight: 1
+        $x_1_3 = "rundll32.exe \"%s\",ServiceRoutine" ascii //weight: 1
+        $x_1_4 = {47 00 6c 00 6f 00 62 00 61 00 6c 00 5c 00 [0-10] 5f 00 6d 00 74 00 78 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {47 6c 6f 62 61 6c 5c [0-10] 5f 6d 74 78}  //weight: 1, accuracy: Low
+        $x_1_6 = "report_system_76.props" ascii //weight: 1
+        $x_1_7 = "stream_996.config" ascii //weight: 1
+        $x_1_8 = "directory_771.yaml.tmp" ascii //weight: 1
+        $x_1_9 = "Reaper2Heartbeat" ascii //weight: 1
+        $x_1_10 = "manifest_alt_77.ledger" ascii //weight: 1
+        $x_1_11 = "CipherAllocator" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+
