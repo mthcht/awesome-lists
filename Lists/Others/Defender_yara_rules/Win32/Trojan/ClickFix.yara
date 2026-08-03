@@ -6785,7 +6785,7 @@ rule Trojan_Win32_ClickFix_BBU_2147944600_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = "powershell" wide //weight: 1
-        $x_1_2 = "-join([char[]]" wide //weight: 1
+        $x_1_2 = "-c iex(-join([char[]](" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
