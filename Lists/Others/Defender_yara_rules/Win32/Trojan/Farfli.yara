@@ -6059,6 +6059,31 @@ rule Trojan_Win32_Farfli_KKA_2147968221_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Gh0st Updade" ascii //weight: 5
+        $x_4_2 = "svchost.0O0" ascii //weight: 4
+        $x_3_3 = "\\klg.dat" ascii //weight: 3
+        $x_2_4 = "sc config sharedaccess start= disabled" ascii //weight: 2
+        $x_1_5 = "net1.exe stop sharedaccess" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Farfli_KKA_2147968221_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.KKA!MTB"
+        threat_id = "2147968221"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "High"
     strings:

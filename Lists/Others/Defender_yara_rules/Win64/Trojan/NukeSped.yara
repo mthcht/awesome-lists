@@ -219,3 +219,25 @@ rule Trojan_Win64_NukeSped_GP_2147962578_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NukeSped_MCT_2147975217_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NukeSped.MCT!MTB"
+        threat_id = "2147975217"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NukeSped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 69 6e 48 65 78 2d 4d 6f 72 74 49 6e 65 74 44 4c 52 5f 78 36 34 2e 64 6c 6c 00 62 65 4e 6f 74 69 66 69 65 64 00 67 65 74 46 75 6e 63 73 41 72 72 61 79 00 67 65 74 4e 61 6d 65 00 69 73 55 6e 69 63 6f 64 65 00 6d 65 73 73 61 67 65 50 72 6f 63 00 73 65 74 49 6e 66 6f}  //weight: 1, accuracy: High
+        $x_1_2 = {48 65 78 45 64 69 74 6f 72 2d 4d 6f 72 74 48 74 74 70 44 4c 52 2e 64 6c 6c 00 62 65 4e 6f 74 69 66 69 65 64 00 67 65 74 46 75 6e 63 73 41 72 72 61 79 00 67 65 74 4e 61 6d 65 00 69 73 55 6e 69 63 6f 64 65 00 6d 65 73 73 61 67 65 50 72 6f 63 00 73 65 74 49 6e 66 6f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

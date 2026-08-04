@@ -139,6 +139,33 @@ rule Trojan_Win64_Vidar_NA_2147907875_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 89 84 24 98 00 00 00 48 8b 8c 24 e8 00 00 00 0f b6 0c 01 88 4c 24 2f 90 48 8b 84 24 b0 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {48 8b 84 24 b0 00 00 00 48 8b 48 20 48 8b 49 18 48 8b 94 24 98 00 00 00 48 01 d1 0f b6 5c 24 2f 88 19 48 8d 4a 01 48 89 c8}  //weight: 2, accuracy: High
+        $x_1_3 = "timeoutgocachehashgocachetesthttp2clienthttp2serverrandseednoparchive" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Vidar_NA_2147907875_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NA!MTB"
+        threat_id = "2147907875"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
@@ -3596,5 +3623,30 @@ rule Trojan_Win64_Vidar_AB_2147975120_0
     condition:
         (filesize < 20MB) and
         (4 of ($x*))
+}
+
+rule Trojan_Win64_Vidar_ABHS_2147975192_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ABHS!MTB"
+        threat_id = "2147975192"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "C2 unavailable, attempt" ascii //weight: 2
+        $x_2_2 = "Sandbox Check" ascii //weight: 2
+        $x_5_3 = "https://t.me/x0xprs" ascii //weight: 5
+        $x_2_4 = "AV: Kaspersky" ascii //weight: 2
+        $x_2_5 = "Dead drop" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

@@ -56,7 +56,7 @@ rule Trojan_Win32_Curlygate_YPS_2147975163_0
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {43 0f b6 14 01 4c 63 05 ?? ?? ?? ?? 4c 8b 4d e0 47 0f b6 14 01 44 31 d2 41 88 d3 8b 55 d8 41 89 d0}  //weight: 1, accuracy: Low
+        $x_1_1 = {43 0f b6 14 01 4c 63 05 ?? ?? ?? ?? 4c 8b 4d ?? 47 0f b6 14 01 44 31 d2 41 88 d3 8b 55 ?? 41 89 d0}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

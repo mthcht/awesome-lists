@@ -352,3 +352,27 @@ rule Trojan_Win32_Dapato_C_2147961700_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dapato_ARR_2147975204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dapato.ARR!MTB"
+        threat_id = "2147975204"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dapato"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {80 34 0f 7b 41 3b ce 7c}  //weight: 10, accuracy: High
+        $x_5_2 = "ziliao.jpg" ascii //weight: 5
+        $x_3_3 = "dfgsdfgsdfgadsfwerzsdf123123" ascii //weight: 3
+        $x_2_4 = {0f 10 40 e0 8d 40 40 83 c1 40 0f 28 ca 0f 57 c2 0f 11 40 a0 0f 10 40 b0 0f 57 c8 0f 11 48 b0 0f 28 ca}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

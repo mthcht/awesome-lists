@@ -491,6 +491,51 @@ rule Trojan_Win64_Midie_KK_2147948776_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b c3 c1 e0 10 25 ff ff ff 7f 0b 05 ?? ?? 21 00 89 46 48 8b c3 48 83 c4 28 5b}  //weight: 5, accuracy: Low
+        $x_10_2 = {48 83 ec 28 48 8d 4c 24 20 e8 a2 28 03 00 0f b7 44 24 20 c1 e0 06 0f b6 4c 24 22 0b c1 48 83 c4 28}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_KK_2147948776_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.KK!MTB"
+        threat_id = "2147948776"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {44 03 d3 41 33 fa 41 8b ca d3 e7 0f cf 03 df 33 eb 8b cb d3 e5 0f cd 44 03 d5 41 33 da 8b cd d3 e3 0f cb}  //weight: 20, accuracy: High
+        $x_10_2 = {8d 51 03 41 c1 e8 18 44 88 44 13 10 8b d1 83 e2 03 4c 8d 05 ?? ?? ?? ?? 41 03 6c 90 10 83 c1 04 83 f9 40}  //weight: 10, accuracy: Low
+        $x_5_3 = "GetInstallDetailsPayload" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_KK_2147948776_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.KK!MTB"
+        threat_id = "2147948776"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
@@ -501,7 +546,7 @@ rule Trojan_Win64_Midie_KK_2147948776_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Midie_KK_2147948776_1
+rule Trojan_Win64_Midie_KK_2147948776_3
 {
     meta:
         author = "defender2yara"

@@ -1027,3 +1027,29 @@ rule Trojan_Linux_Mirai_DA_2147971067_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_GVB_2147975189_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.GVB!MTB"
+        threat_id = "2147975189"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/proc/self/oom_score_adj" ascii //weight: 1
+        $x_1_2 = "VapeBot has been executed" ascii //weight: 1
+        $x_1_3 = "[kworker/u4:0]" ascii //weight: 1
+        $x_1_4 = "/proc/self/exe" ascii //weight: 1
+        $x_1_5 = "/proc/self/oom_adj" ascii //weight: 1
+        $x_1_6 = "systemd-resolve-check" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

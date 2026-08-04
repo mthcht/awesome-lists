@@ -4311,3 +4311,27 @@ rule Trojan_MSIL_Lazy_SXB_2147975024_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_KK_2147975224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.KK!MTB"
+        threat_id = "2147975224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "PastebinLink1.pdb" ascii //weight: 4
+        $x_3_2 = "$3f5f5b70-15e5-40cd-9a2c-baf170024d28" ascii //weight: 3
+        $x_2_3 = "Debugger Detected" ascii //weight: 2
+        $x_1_4 = "is tampered." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

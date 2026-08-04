@@ -2964,3 +2964,52 @@ rule Trojan_Win64_LummaStealer_NVD_2147968183_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_PAHZ_2147975187_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PAHZ!MTB"
+        threat_id = "2147975187"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "KYNX STARTED" ascii //weight: 2
+        $x_1_2 = "Wallets\\Extensions\\" ascii //weight: 1
+        $x_1_3 = "Cookie" ascii //weight: 1
+        $x_1_4 = "Roblox" ascii //weight: 1
+        $x_1_5 = "RBXCrate" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_LummaStealer_PAIA_2147975188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.PAIA!MTB"
+        threat_id = "2147975188"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "cmd.exe /c choice /C Y /N /D Y /T 3 & del" wide //weight: 2
+        $x_1_2 = ".credentials" wide //weight: 1
+        $x_1_3 = ".wallet" wide //weight: 1
+        $x_2_4 = "seed_scanner" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8753,3 +8753,26 @@ rule Trojan_MSIL_SnakeKeylogger_ABVC_2147974675_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SnakeKeylogger_RVH_2147975203_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SnakeKeylogger.RVH!MTB"
+        threat_id = "2147975203"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SnakeKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {57 df a2 3f 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 75 00 00 00 26 00 00 00 8a 00 00 00 71 00 00 00 49 00 00 00 06 00 00 00 17 01 00 00 01 00 00 00 5a 00 00 00 01 00 00 00 04 00 00 00 1e 00 00 00 06 00 00 00 15 00 00 00 1a 00 00 00 0a 00 00 00 01 00 00 00 36 00 00 00 01 00 00 00 0e 00 00 00 01 00 00 00 05 00 00 00 01 00 00 00 18 00 00 00 0d 00 00 00 17}  //weight: 5, accuracy: High
+        $x_1_2 = "GetPixel" ascii //weight: 1
+        $x_1_3 = "get_UDP" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

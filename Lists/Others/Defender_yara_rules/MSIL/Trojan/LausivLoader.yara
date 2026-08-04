@@ -54,3 +54,30 @@ rule Trojan_MSIL_LausivLoader_NYD_2147974306_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LausivLoader_GVA_2147975211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LausivLoader.GVA!MTB"
+        threat_id = "2147975211"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LausivLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "rLvMxQyT" wide //weight: 1
+        $x_1_2 = "BACAEDFEGDHGKJMLNLOLPLQLRLSLTLULVLWLXLYLZL[L\\L]L^L_L`LaLbLcLdLeLfLgLhLlkmknkokpkqktsus~}" wide //weight: 1
+        $x_1_3 = "tQaCQYKIo1FdSsme" wide //weight: 1
+        $x_1_4 = "-NoLogo -NonInteractive -WindowStyle Hidden -Command" wide //weight: 1
+        $x_1_5 = "powershell" wide //weight: 1
+        $x_1_6 = "TSML_20140424" wide //weight: 1
+        $x_1_7 = ".metadata.xml" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

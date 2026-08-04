@@ -1306,3 +1306,28 @@ rule Trojan_MSIL_KillMBR_AVN_2147973733_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_MKB_2147975190_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.MKB!MTB"
+        threat_id = "2147975190"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "PlayBytebeatAudioLoop" ascii //weight: 15
+        $x_10_2 = "PerformBitBltEffects" ascii //weight: 10
+        $x_5_3 = "\\\\.\\PhysicalDrive0" ascii //weight: 5
+        $x_3_4 = "/c reg delete HKLM /f" ascii //weight: 3
+        $x_2_5 = "\\bootmgr" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
