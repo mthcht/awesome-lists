@@ -7125,3 +7125,24 @@ rule Trojan_Win64_Lazy_MSE_2147974885_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AJYB_2147975149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AJYB!MTB"
+        threat_id = "2147975149"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 8d 44 24 0c 48 89 44 24 38 48 8b 44 24 38 8b 00 89 44 24 34 8b 44 24 34 c1 e0 0d 33 44 24 34 89 44 24 34 8b 44 24 34 c1 e8 11 33 44 24 34 89 44 24 34 8b 44 24 34 c1 e0 05 33 44 24 34 89 44 24 34 8b 4c 24 34 48 8b 44 24 38 89 08 8b 44 24 34 c1 e8 18 44 0f b6 c0 48 8b 44 24 10 48 8b 0c 24 0f b6 14 08 44 31 c2 88 14 08 48 8b 04 24 48 83 c0 01 48 89 04 24}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

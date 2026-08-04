@@ -41,3 +41,45 @@ rule Trojan_Win32_Curlygate_YPR_2147974866_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Curlygate_YPS_2147975163_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Curlygate.YPS!MTB"
+        threat_id = "2147975163"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Curlygate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {43 0f b6 14 01 4c 63 05 ?? ?? ?? ?? 4c 8b 4d e0 47 0f b6 14 01 44 31 d2 41 88 d3 8b 55 d8 41 89 d0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Curlygate_YPT_2147975164_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Curlygate.YPT!MTB"
+        threat_id = "2147975164"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Curlygate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f 28 4c 11 d0 0f 57 c8 0f 28 54 11 e0 0f 57 d0 0f 11 4c 08 d0}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
