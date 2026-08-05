@@ -161,3 +161,27 @@ rule Trojan_Win64_BypassUAC_MKA_2147974121_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_MKB_2147975270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.MKB!MTB"
+        threat_id = "2147975270"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[TRIGGER] Launching UAC bypass triggers..." wide //weight: 10
+        $x_5_2 = "[INFO] Already admin or UAC disabled - running payload directly (no UAC bypass needed)" wide //weight: 5
+        $x_3_3 = "[INFO] Starting scheduled task (pattern: *NodeRemote*)..." wide //weight: 3
+        $x_2_4 = "[SUCCESS] Payload ready at:" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
