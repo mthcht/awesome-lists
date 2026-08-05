@@ -4678,6 +4678,30 @@ rule Trojan_MSIL_XWorm_AYD_2147964621_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Microsoft_Edge0.My" ascii //weight: 5
+        $x_1_2 = "Microsoft Edge0.exe" wide //weight: 1
+        $x_1_3 = "$0981d105-8037-4783-a429-236ef24e5ea5" ascii //weight: 1
+        $x_1_4 = "FromBase64String" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_AYD_2147964621_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AYD!MTB"
+        threat_id = "2147964621"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -6001,6 +6025,29 @@ rule Trojan_MSIL_XWorm_YYV_2147975183_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = {16 11 08 8e b7 17 da 13 29 13 1c 2b 17 11 08 11 1c 11 08 11 1c 91 20 aa 00 00 00 61 b4 9c 11 1c 17 d6 13 1c 11 1c 11 29 31 e3 16 11 07 8e b7 17 da 13 2a 13 1d 2b 17}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_RVC_2147975294_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.RVC!MTB"
+        threat_id = "2147975294"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 97 a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 a1 00 00 00 2e 00 00 00 ?? 01 00 00 c6 00 00 00 ?? 00 00 00 01 00 00 00 5c 01 00 00 38 00 00 00 0f 00 00 00 ?? 00 00 00 04 00 00 00 12 00 00 00 13 00 00 00 2e 00 00 00 1c 00 00 00 02 00 00 00 06 00 00 00 04 00 00 00 1e 00 00 00 0d 00 00 00 0b}  //weight: 2, accuracy: Low
+        $x_1_2 = "3e75babc-b16c-413d-8f02-1916c9ae8531" ascii //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
