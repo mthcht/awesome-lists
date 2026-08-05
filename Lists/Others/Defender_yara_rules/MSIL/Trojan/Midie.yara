@@ -138,3 +138,25 @@ rule Trojan_MSIL_Midie_SXD_2147974233_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Midie_SXE_2147975235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Midie.SXE!MTB"
+        threat_id = "2147975235"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {28 12 00 00 0a 13 ?? 7e 01 00 00 04 72 ?? ?? 00 70 11 ?? 6f 13 00 00 0a 8e 69 8c 0c 00 00 01 72 ?? ?? 00 70 28 0b 00 00 0a 28 05 00 00 0a 00}  //weight: 10, accuracy: Low
+        $x_5_2 = "INTERCEPTED ProcessExit" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

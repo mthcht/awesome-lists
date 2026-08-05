@@ -390,3 +390,25 @@ rule Trojan_Win32_Mint_MKB_2147969075_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mint_MKC_2147975239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mint.MKC!MTB"
+        threat_id = "2147975239"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 45 fc 33 45 f0 89 45 fc 8b 4d fc 33 4d f0 89 4d f0 8b 55 fc 33 55 f0}  //weight: 20, accuracy: High
+        $x_15_2 = {8b 4d f4 6b c9 28 8b 55 e8 8b 42 04 8b 55 f8 03 44 0a 0c}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

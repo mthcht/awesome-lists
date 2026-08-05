@@ -132,3 +132,25 @@ rule TrojanDownloader_Win64_Zusy_KKA_2147973753_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Zusy_SXA_2147975234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Zusy.SXA!MTB"
+        threat_id = "2147975234"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {48 89 85 80 00 00 00 48 8b 85 80 00 00 00 48 89 85 e8 00 00 00 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 85 80 00 00 00 48 8b 85 80 00 00 00 48 89 85 f0 00 00 00 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 85 80 00 00 00 48 8b 85 80 00 00 00 48 89 85 f8 00 00 00 48 b8}  //weight: 15, accuracy: Low
+        $x_10_2 = {33 d2 b9 e9 fd 00 00 ff 15 ?? ?? ?? ?? 48 8d 55 60 48 83 7d 78 07 48 0f 47 55 60 4c 89 64 24 20 45 33 c9 4c 8b c3 33 c9 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

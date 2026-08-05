@@ -348,3 +348,27 @@ rule Trojan_Win32_Korplug_AGK_2147974700_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Korplug_SXA_2147975237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Korplug.SXA!MTB"
+        threat_id = "2147975237"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Korplug"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {68 80 00 00 00 57 8d 84 24 ?? 04 00 00 50 8b 46 04 ff d0 ff 74 24 ?? 8d 44 24 ?? 50 8d 44 24 ?? 50 8d 84 24 ?? 04 00 00 50 8b 46 08 ff d0}  //weight: 20, accuracy: Low
+        $x_5_2 = "C:\\ProgramData\\winheader.txt" wide //weight: 5
+        $x_5_3 = "%s\\OperaDef6.ini" wide //weight: 5
+        $x_2_4 = "user_pref(\"network.proxy.http_port" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -868,3 +868,29 @@ rule Trojan_Win64_Barys_KP_2147972554_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_SXA_2147975238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.SXA!MTB"
+        threat_id = "2147975238"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "59"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "%smk%08X.dat" ascii //weight: 20
+        $x_15_2 = "%s\\mrun.exe" ascii //weight: 15
+        $x_10_3 = "Killed PID %lu" ascii //weight: 10
+        $x_10_4 = "%s_Cookies.txt" ascii //weight: 10
+        $x_2_5 = "%s\\Login Data" ascii //weight: 2
+        $x_2_6 = "%s\\Web Data" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

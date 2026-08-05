@@ -1414,6 +1414,7 @@ rule Trojan_Win32_ClickFix_DZ_2147936523_0
         $x_100_38 = {f9 03 91 03 20 04 22 04 21 04 1d 04 91 03}  //weight: 100, accuracy: High
         $n_1000_39 = "msedgewebview2.exe" wide //weight: -1000
         $n_1000_40 = "if false == false echo" wide //weight: -1000
+        $n_1000_41 = "\\AppData\\Local\\Microsoft\\OneDrive\\StandaloneUpdater\\OneDriveSetup.exe" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

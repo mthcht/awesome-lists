@@ -5567,3 +5567,27 @@ rule Trojan_MSIL_Zusy_LRN_2147974302_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_SXH_2147975236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.SXH!MTB"
+        threat_id = "2147975236"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Program+<TryFetchRemoteConfig>d__" ascii //weight: 15
+        $x_10_2 = "Program+<CheckAndUpdateExe>d__" ascii //weight: 10
+        $x_5_3 = "<configCipher>5__1" ascii //weight: 5
+        $x_5_4 = "HandleUpgradeArgs" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

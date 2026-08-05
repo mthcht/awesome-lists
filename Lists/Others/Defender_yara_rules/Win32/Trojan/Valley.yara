@@ -23,3 +23,24 @@ rule Trojan_Win32_Valley_MK_2147974738_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Valley_MKA_2147975240_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Valley.MKA!MTB"
+        threat_id = "2147975240"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Valley"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {58 33 cb c0 f8 e1 2b ca d1 c1 f6 d2 98 c1 fa 29 0f c9 40 4a f7 d0 c1 c1 03}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

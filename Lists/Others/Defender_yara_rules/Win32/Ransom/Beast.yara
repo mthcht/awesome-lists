@@ -114,3 +114,24 @@ rule Ransom_Win32_Beast_AYA_2147972776_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Beast_G_2147975233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Beast.G"
+        threat_id = "2147975233"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Beast"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {81 bc 24 00 01 00 00 50 4b 06 06 ?? ?? 81 bc 24 dc 00 00 00 50 4b 06 07 ?? ?? 81 bc 24 94 00 00 00 50 4b 05 06}  //weight: 1, accuracy: Low
+        $x_1_2 = {81 bc 24 08 09 00 00 00 00 51 42 ?? ?? 81 bc 24 0c 09 00 00 45 41 53 54}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

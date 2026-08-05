@@ -827,3 +827,25 @@ rule Trojan_Win64_ValleyRat_GVA_2147974794_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_MK_2147975241_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.MK!MTB"
+        threat_id = "2147975241"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 42 01 48 8d 52 fe 42 0f b6 4c 05 a0 42 88 44 05 a0 88 4a 03 0f b6 42 02 42 0f b6 4c 05 a1 42 88 44 05 a1 49 83 c0 02 88 4a 02 49 81 f8 80}  //weight: 20, accuracy: High
+        $x_15_2 = "/create /tn \"CacheTask\" /tr \"\"%s\"\" /sc onlogon /rl highest /f" wide //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
