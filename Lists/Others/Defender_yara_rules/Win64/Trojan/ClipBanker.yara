@@ -1788,3 +1788,26 @@ rule Trojan_Win64_ClipBanker_B_2147973835_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_AMX_2147975332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.AMX!MTB"
+        threat_id = "2147975332"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Global\\CryptoClipboardMonitor_SingleInstance" wide //weight: 10
+        $x_5_2 = "ClipboardMonitorClass" wide //weight: 5
+        $x_5_3 = "GetClipboardData" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

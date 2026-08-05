@@ -15514,3 +15514,28 @@ rule Trojan_Win32_ClickFix_AHG_2147975015_0
         )
 }
 
+rule Trojan_Win32_ClickFix_YCI_2147975334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YCI!MTB"
+        threat_id = "2147975334"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "---To-Complete-Verification---" wide //weight: 3
+        $x_2_2 = "PRESS-ENTER" wide //weight: 2
+        $x_1_3 = "http:\\" wide //weight: 1
+        $x_1_4 = "-OK -Q" wide //weight: 1
+        $x_1_5 = ".cloud/" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
