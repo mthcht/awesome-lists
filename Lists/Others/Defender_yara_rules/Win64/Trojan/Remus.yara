@@ -202,3 +202,27 @@ rule Trojan_Win64_Remus_MKA_2147974737_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remus_NZD_2147975281_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.NZD!MTB"
+        threat_id = "2147975281"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetClipboardData" ascii //weight: 1
+        $x_1_2 = "OpenClipboard" ascii //weight: 1
+        $x_1_3 = {69 c9 67 f7 a4 7a 41 31 c8 8b 4c 24 30 85 c9}  //weight: 1, accuracy: High
+        $x_2_4 = {41 81 e1 e4 bc f4 ef 41 89 c2 41 81 e2 1b 43 0b 10}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

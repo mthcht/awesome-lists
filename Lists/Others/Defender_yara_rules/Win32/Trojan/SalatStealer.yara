@@ -622,3 +622,30 @@ rule Trojan_Win32_SalatStealer_MMX_2147974662_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_BAB_2147975282_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.BAB!MTB"
+        threat_id = "2147975282"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "CookiesNamed" ascii //weight: 1
+        $x_1_2 = "writeKeyLog" ascii //weight: 1
+        $x_1_3 = "net/http.(*socksDialer).connect.deferwrap1" ascii //weight: 1
+        $x_1_4 = "main.PayloadContainer" ascii //weight: 1
+        $x_1_5 = "SetCookies" ascii //weight: 1
+        $x_1_6 = "stub/utils.Decode" ascii //weight: 1
+        $x_1_7 = "decryptionKey" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
