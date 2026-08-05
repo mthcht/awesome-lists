@@ -63,3 +63,25 @@ rule Trojan_MSIL_Jaik_VDC_2147973039_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jaik_VDJ_2147975317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jaik.VDJ!MTB"
+        threat_id = "2147975317"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {72 7d 00 00 70 09 73 0c 00 00 0a 7a 73 0d 00 00 0a 13 04 11 04 72 b3 00 00 70 6f 0e 00 00 0a 00 11 04 72 c3 00 00 70 09 72 e5 00 00 70 28 0f 00 00 0a}  //weight: 5, accuracy: High
+        $x_1_2 = "PayloadChunks" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

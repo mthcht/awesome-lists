@@ -420,3 +420,24 @@ rule Trojan_Win64_Aotera_CA_2147973632_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Aotera_CB_2147975326_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.CB!MTB"
+        threat_id = "2147975326"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 8d 04 0c 3b c6 0f 83 ?? ?? ?? ?? 44 8b c0 46 0f b6 54 03 ?? 44 8b c9 47 0f b6 4c 0f ?? 45 33 d1 3b 47 ?? 73 ?? 46 88 54 07 ?? ff c1 3b ca 7c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

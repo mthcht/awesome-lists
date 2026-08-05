@@ -746,3 +746,26 @@ rule Trojan_MSIL_Agenttesla_MCT_2147973554_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_WEQ_2147975310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.WEQ!MTB"
+        threat_id = "2147975310"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "TuningForkApp.Properties.Resources.resources" ascii //weight: 5
+        $x_2_2 = {02 00 41 01 57 d7 a2 fd 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 79 00 00 00 18 00 00 00 8c 00 00 00 18 02 00 00 79 00 00 00 03 00 00 00 d9 00 00 00 11 00 00 00 01 00 00 00 01 00 00 00 29 00 00 00 01 00 00 00 04 00 00 00 05 00 00 00 01 00 00 00 03 00 00 00 01 00 00 00 01 00 00 00 ?? 00 00 00 ?? 00 00 00 02 00 00 00 06 00 00 00 01 00 00 00 0f 00 00 00 05 00 00 00 07 00 00 00}  //weight: 2, accuracy: Low
+        $x_1_3 = "get_TY" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
