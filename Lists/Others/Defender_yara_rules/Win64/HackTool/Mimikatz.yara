@@ -32,8 +32,10 @@ rule HackTool_Win64_Mimikatz_A_2147723337_0
         $x_1_18 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\" ascii //weight: 1
         $x_1_19 = "AppData\\Local\\Microsoft\\Windows\\WebCache\\WebCacheV01.dat" ascii //weight: 1
         $x_1_20 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 1
+        $n_50_21 = "workspace\\CES_UM_git\\Release\\x64\\Symbols\\CmdAgent.pdb" ascii //weight: -50
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (6 of ($x*))
 }
 

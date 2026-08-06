@@ -247,3 +247,27 @@ rule Trojan_Win64_Disco_LR_2147970612_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Disco_MKB_2147975351_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.MKB!MTB"
+        threat_id = "2147975351"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[*] Spyware background thread started. Sending screenshots every 15 seconds" ascii //weight: 10
+        $x_5_2 = "[*] The malware thread is now running in the background." ascii //weight: 5
+        $x_3_3 = "] ATTENTION: In 5 seconds, this window will hide itself completely (Stealth Mode)." ascii //weight: 3
+        $x_2_4 = "[T] Capturing screenshot" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
