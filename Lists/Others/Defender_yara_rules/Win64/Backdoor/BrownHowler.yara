@@ -1,12 +1,12 @@
-rule Trojan_Win64_SeaMonkey_AMS_2147970850_0
+rule Backdoor_Win64_BrownHowler_AMS_2147975371_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:Win64/SeaMonkey.AMS!MTB"
-        threat_id = "2147970850"
-        type = "Trojan"
+        detection_name = "Backdoor:Win64/BrownHowler.AMS!MTB"
+        threat_id = "2147975371"
+        type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
-        family = "SeaMonkey"
+        family = "BrownHowler"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"

@@ -1,12 +1,12 @@
-rule Trojan_MSIL_SeaMonkey_ASM_2147970845_0
+rule TrojanDropper_MSIL_BrownHowler_ASM_2147975370_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Trojan:MSIL/SeaMonkey.ASM!MTB"
-        threat_id = "2147970845"
-        type = "Trojan"
+        detection_name = "TrojanDropper:MSIL/BrownHowler.ASM!MTB"
+        threat_id = "2147975370"
+        type = "TrojanDropper"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "SeaMonkey"
+        family = "BrownHowler"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
