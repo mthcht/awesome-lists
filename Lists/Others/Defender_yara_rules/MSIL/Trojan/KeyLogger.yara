@@ -579,3 +579,33 @@ rule Trojan_MSIL_KeyLogger_SXA_2147971731_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KeyLogger_VDA_2147975382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.VDA!MTB"
+        threat_id = "2147975382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SetWindowsHookExW" ascii //weight: 2
+        $x_2_2 = "GetKeyState" ascii //weight: 2
+        $x_2_3 = "SendKeys" ascii //weight: 2
+        $x_2_4 = "sysprocms.exe" ascii //weight: 2
+        $x_2_5 = "SysProcMs.Properties.Resources" ascii //weight: 2
+        $x_1_6 = "CurrentVersion\\Run" ascii //weight: 1
+        $x_1_7 = "CallNextHookEx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((5 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

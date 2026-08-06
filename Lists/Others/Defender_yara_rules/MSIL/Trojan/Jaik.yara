@@ -85,3 +85,49 @@ rule Trojan_MSIL_Jaik_VDJ_2147975317_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jaik_VDH_2147975381_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jaik.VDH!MTB"
+        threat_id = "2147975381"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "OrdinaryWorldboxLauncher.Resources.Injector.exe" wide //weight: 2
+        $x_2_2 = "OrdinaryWorldboxLauncher.Resources.SandboxHook.dll" wide //weight: 2
+        $x_1_3 = "ForceLoadMods.dll" wide //weight: 1
+        $x_1_4 = "rmdir /s /q" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Jaik_VDI_2147975383_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jaik.VDI!MTB"
+        threat_id = "2147975383"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 07 02 07 91 9d 07 7e 1f 00 00 04 58 0b 07 02 28 ?? 00 00 06 32 e9}  //weight: 5, accuracy: Low
+        $x_5_2 = {7e 1e 00 00 04 0a 02 0b 16 0c 2b 0c 07 08 91 26 06 17 58 0a 08 17 58 0c 08 07 8e 69 32 ee}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

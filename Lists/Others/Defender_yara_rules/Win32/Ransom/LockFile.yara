@@ -139,3 +139,29 @@ rule Ransom_Win32_LockFile_PAHK_2147969725_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_LockFile_PPV_2147975376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/LockFile.PPV!MTB"
+        threat_id = "2147975376"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LockFile"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/silent" ascii //weight: 2
+        $x_2_2 = "/detached" ascii //weight: 2
+        $x_2_3 = "\\infect.exe" ascii //weight: 2
+        $x_2_4 = "YOU_ARE_WELCOME.txt" ascii //weight: 2
+        $x_2_5 = "STOP TRYING TO CLOSE THIS" ascii //weight: 2
+        $x_2_6 = "Infection starting" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

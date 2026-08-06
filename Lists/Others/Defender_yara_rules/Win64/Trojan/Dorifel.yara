@@ -19,3 +19,27 @@ rule Trojan_Win64_Dorifel_MKV_2147911514_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dorifel_VD_2147975378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dorifel.VD!MTB"
+        threat_id = "2147975378"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dorifel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "https://387218192.fwh.is/?i=1" wide //weight: 1
+        $x_1_2 = "https://CockeoRoblox.wuaze.com" wide //weight: 1
+        $x_1_3 = "https://share.google/UhyTVooeXFlez5aFe" wide //weight: 1
+        $x_1_4 = "start /min wmplayer \"musique.mp3\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
