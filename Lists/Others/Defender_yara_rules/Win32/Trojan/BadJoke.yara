@@ -566,3 +566,34 @@ rule Trojan_Win32_BadJoke_LR_2147969752_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BadJoke_LR_2147969752_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BadJoke.LR!MTB"
+        threat_id = "2147969752"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BadJoke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "66"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "your pc is fucked, enjoy." ascii //weight: 1
+        $x_2_2 = "girlfriend.exe" ascii //weight: 2
+        $x_3_3 = "will you be my valentine" ascii //weight: 3
+        $x_4_4 = "your computer will not boot up again, enjoy" ascii //weight: 4
+        $x_5_5 = "it aint ur day nigga" ascii //weight: 5
+        $x_6_6 = "you sicken me.." ascii //weight: 6
+        $x_7_7 = "you shall recieve the wrath" ascii //weight: 7
+        $x_8_8 = "u cannot kill me" ascii //weight: 8
+        $x_9_9 = "valentines day is here" ascii //weight: 9
+        $x_10_10 = "MBR.bin" ascii //weight: 10
+        $x_11_11 = "run as admin for it to work" ascii //weight: 11
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

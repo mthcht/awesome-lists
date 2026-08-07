@@ -1,12 +1,12 @@
-rule Backdoor_Win64_SeaMonkey_A_2147967368_0
+rule Backdoor_Win64_AusterePurlin_A_2147975420_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Backdoor:Win64/SeaMonkey.A!dha"
-        threat_id = "2147967368"
+        detection_name = "Backdoor:Win64/AusterePurlin.A!dha"
+        threat_id = "2147975420"
         type = "Backdoor"
         platform = "Win64: Windows 64-bit platform"
-        family = "SeaMonkey"
+        family = "AusterePurlin"
         severity = "Critical"
         info = "dha: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"

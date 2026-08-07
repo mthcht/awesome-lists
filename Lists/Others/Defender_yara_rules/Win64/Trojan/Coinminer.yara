@@ -111,3 +111,27 @@ rule Trojan_Win64_Coinminer_NCA_2147901139_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Coinminer_PAIB_2147975402_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Coinminer.PAIB!MTB"
+        threat_id = "2147975402"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Coinminer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "cmd.exe /C reagentc /disable" ascii //weight: 3
+        $x_3_2 = "cmd.exe /C powercfg /hibernate off" ascii //weight: 3
+        $x_1_3 = "/grant Administrators:F" ascii //weight: 1
+        $x_1_4 = "/deny Everyone:RX" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

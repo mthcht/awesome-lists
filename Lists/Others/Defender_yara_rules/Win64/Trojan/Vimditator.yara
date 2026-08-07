@@ -53,3 +53,31 @@ rule Trojan_Win64_Vimditator_PGVD_2147962587_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vimditator_NZA_2147975388_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vimditator.NZA!MTB"
+        threat_id = "2147975388"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vimditator"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MicrosoftEdgeUpdate.pdb" ascii //weight: 1
+        $x_1_2 = "IUdm3dm2pcoVbarAUdahPa24" ascii //weight: 1
+        $x_1_3 = "PHmolmilmblxloglnktKMKKinHPhaGydBCo" ascii //weight: 1
+        $x_1_4 = "8_A_H_L_N_/_Q_V_W_Y_a_m_s_w_" ascii //weight: 1
+        $x_1_5 = "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender" ascii //weight: 1
+        $x_1_6 = "DisableRealtimeMonitoringREG_DWORD1DisableOnAccessProtectionDisableBehaviorMonitoringDisableAntiSpyware" ascii //weight: 1
+        $x_1_7 = "taskkill /F /IM" ascii //weight: 1
+        $x_2_8 = "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run/vMicrosoftEdgeUpdateBackground/" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

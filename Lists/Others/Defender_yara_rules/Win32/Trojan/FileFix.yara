@@ -578,8 +578,10 @@ rule Trojan_Win32_FileFix_BBA_2147955906_0
         $x_1_1 = "([System.IO.File]::ReadAllBytes($" wide //weight: 1
         $x_1_2 = "[regex]::Matches($" wide //weight: 1
         $x_1_3 = ".GetBytes($" wide //weight: 1
+        $n_100_4 = "\\git\\app-pronet\\PGM\\pronet\\src\\com\\globaldenso\\pronet\\business\\service\\common\\ScheduleCommonServiceImpl.java" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

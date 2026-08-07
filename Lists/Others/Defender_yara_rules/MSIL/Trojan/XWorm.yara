@@ -5998,6 +5998,27 @@ rule Trojan_MSIL_XWorm_ABXG_2147974795_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {13 04 00 07 6f ?? ?? 00 0a 13 05 11 04 07 6f ?? ?? 00 0a 7d 73 00 00 04 11 04 07 6f ?? ?? 00 0a 7d 75 00 00 04 11 04 07 6f ?? ?? 00 0a 7d 74 00 00 04 16 11 05 28 ?? ?? 00 0a 11 04 fe 06 7e 00 00 06 73 5f 01 00 0a 7e 70 00 00 04 25 2d 17 26}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_ABXG_2147974795_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.ABXG!MTB"
+        threat_id = "2147974795"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
@@ -6042,14 +6063,18 @@ rule Trojan_MSIL_XWorm_RVC_2147975294_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
+        threshold = "12"
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {57 97 a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 a1 00 00 00 2e 00 00 00 ?? 01 00 00 c6 00 00 00 ?? 00 00 00 01 00 00 00 5c 01 00 00 38 00 00 00 0f 00 00 00 ?? 00 00 00 04 00 00 00 12 00 00 00 13 00 00 00 2e 00 00 00 1c 00 00 00 02 00 00 00 06 00 00 00 04 00 00 00 1e 00 00 00 0d 00 00 00 0b}  //weight: 2, accuracy: Low
-        $x_1_2 = "3e75babc-b16c-413d-8f02-1916c9ae8531" ascii //weight: 1
-        $x_1_3 = "GetPixel" ascii //weight: 1
+        $x_2_2 = {57 d7 a2 fd 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 a3 00 00 00 38 00 00 00 ?? 01 00 00 a0 02 00 00 ?? 00 00 00 01 00 00 00 71 01 00 00 39 00 00 00 01 00 00 00 10 00 00 00 ?? 00 00 00 04 00 00 00 12 00 00 00 13 00 00 00 01 00 00 00 2f 00 00 00 01 00 00 00 1d 00 00 00 ?? 00 00 00 ?? 00 00 00 02 00 00 00 06 00 00 00 04 00 00 00 28 00 00 00 12 00 00 00 10}  //weight: 2, accuracy: Low
+        $x_5_3 = "3e75babc-b16c-413d-8f02-1916c9ae8531" ascii //weight: 5
+        $x_5_4 = "GetPixel" ascii //weight: 5
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_5_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

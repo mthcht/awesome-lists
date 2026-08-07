@@ -1229,3 +1229,24 @@ rule Trojan_Win64_Stealer_ABSM_2147974861_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_UNK_2147975405_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.UNK!MTB"
+        threat_id = "2147975405"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8d 14 30 41 0f b6 ca 32 0a 41 38 0c 10 75 10}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1,12 +1,12 @@
-rule TrojanDropper_MSIL_SeaMonkey_C_2147967680_0
+rule TrojanDropper_MSIL_AusterePurlin_C_2147975419_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "TrojanDropper:MSIL/SeaMonkey.C!dha"
-        threat_id = "2147967680"
+        detection_name = "TrojanDropper:MSIL/AusterePurlin.C!dha"
+        threat_id = "2147975419"
         type = "TrojanDropper"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "SeaMonkey"
+        family = "AusterePurlin"
         severity = "Critical"
         info = "dha: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"

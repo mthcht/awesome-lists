@@ -117,3 +117,29 @@ rule Trojan_MSIL_KillAV_SX_2147972617_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillAV_SXA_2147975426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillAV.SXA!MTB"
+        threat_id = "2147975426"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "StagingExfil: Sent to C2:" wide //weight: 20
+        $x_10_2 = "StealthBypass: Complete (AMSI=" wide //weight: 10
+        $x_10_3 = "StealthBypass: ETW bypass complete" wide //weight: 10
+        $x_8_4 = "([^\"]+WinRAR\\.exe)" wide //weight: 8
+        $x_5_5 = "a -r -ep1 -m0 -ibck \"" wide //weight: 5
+        $x_2_6 = "WalletStealer" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

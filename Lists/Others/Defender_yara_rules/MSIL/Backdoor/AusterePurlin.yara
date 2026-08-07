@@ -1,12 +1,12 @@
-rule Backdoor_MSIL_SeaMonkey_B_2147967679_0
+rule Backdoor_MSIL_AusterePurlin_B_2147975418_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Backdoor:MSIL/SeaMonkey.B!dha"
-        threat_id = "2147967679"
+        detection_name = "Backdoor:MSIL/AusterePurlin.B!dha"
+        threat_id = "2147975418"
         type = "Backdoor"
         platform = "MSIL: .NET intermediate language scripts"
-        family = "SeaMonkey"
+        family = "AusterePurlin"
         severity = "Critical"
         info = "dha: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"

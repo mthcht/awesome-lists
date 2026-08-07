@@ -7714,3 +7714,59 @@ rule Trojan_Win64_Tedy_GPKM_2147975165_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PAIB_2147975403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PAIB!MTB"
+        threat_id = "2147975403"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "download_file" ascii //weight: 3
+        $x_3_2 = "\"command\"" ascii //weight: 3
+        $x_1_3 = "\\delete_me.bat" ascii //weight: 1
+        $x_1_4 = "password" ascii //weight: 1
+        $x_1_5 = "hardware serial number" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Tedy_SNX_2147975411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SNX!MTB"
+        threat_id = "2147975411"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "NtAllocateVirtualMemory" ascii //weight: 1
+        $x_1_2 = "NtWriteVirtualMemory" ascii //weight: 1
+        $x_1_3 = "WinRAR.exe" ascii //weight: 1
+        $x_2_4 = "\\APP.BIN" ascii //weight: 2
+        $x_1_5 = "2795226556" ascii //weight: 1
+        $x_1_6 = "5a434d45081d195b5a425719405a4756575a1b55" ascii //weight: 1
+        $x_4_7 = "feidu" ascii //weight: 4
+        $x_1_8 = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

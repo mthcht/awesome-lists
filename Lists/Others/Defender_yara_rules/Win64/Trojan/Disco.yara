@@ -247,6 +247,57 @@ rule Trojan_Win64_Disco_LR_2147970612_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Disco_LR_2147970612_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.LR!MTB"
+        threat_id = "2147970612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[-] WinHttpSendRequest failed. Error:" ascii //weight: 1
+        $x_2_2 = "[*] Spyware background thread started. Sending screenshots every 15 seconds..." ascii //weight: 2
+        $x_3_3 = "[T] Capturing screenshot" ascii //weight: 3
+        $x_4_4 = "sent to Discord." ascii //weight: 4
+        $x_5_5 = "[-] Upload failed for screenshot" ascii //weight: 5
+        $x_6_6 = "] Bhai, code me upar apna Discord Webhook URL daalna mat bhulna" ascii //weight: 6
+        $x_7_7 = "KERNEL CHEAT SCREENSHOT SIMULATOR (SPYWARE)" ascii //weight: 7
+        $x_8_8 = "[*] The malware thread is now running in the background." ascii //weight: 8
+        $x_9_9 = "] ATTENTION: In 5 seconds, this window will hide itself completely (Stealth Mode)." ascii //weight: 9
+        $x_10_10 = "] It will look like the program is closed, but it will keep sending screenshots" ascii //weight: 10
+        $x_11_11 = "] To stop it later, open Task Manager and kill 'Project1.exe' / 'ScreenCaptureTest.exe'." ascii //weight: 11
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*) and 1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Disco_MKB_2147975351_0
 {
     meta:

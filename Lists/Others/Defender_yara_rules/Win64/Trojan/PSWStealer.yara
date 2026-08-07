@@ -21,3 +21,24 @@ rule Trojan_Win64_PSWStealer_GNN_2147813279_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PSWStealer_ARAF_2147975404_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PSWStealer.ARAF!MTB"
+        threat_id = "2147975404"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8d 50 ff 83 e2 0e 0f b6 14 0a 30 54 06 ff 89 c2 83 e2 0f 0f b6 14 0a 30 14 06 48 83 c0 02 48 3d 01 20 00 00 75 da}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
