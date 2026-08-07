@@ -107078,27 +107078,6 @@ rule Trojan_MSIL_AgentTesla_RSO_2147925834_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AgentTesla_RDCG_2147926069_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/AgentTesla.RDCG!MTB"
-        threat_id = "2147926069"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "AgentTesla"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = {16 0f 01 28 8a 00 00 0a 9c 25 17 0f 01 28 8b 00 00 0a 9c 25 18 0f 01 28 8c 00 00 0a 9c}  //weight: 2, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_AgentTesla_PMUH_2147926205_0
 {
     meta:
