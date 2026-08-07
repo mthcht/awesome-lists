@@ -1053,3 +1053,36 @@ rule Trojan_Linux_Mirai_GVB_2147975189_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_GVZ_2147975753_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.GVZ!MTB"
+        threat_id = "2147975753"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "pool_url" ascii //weight: 1
+        $x_1_2 = "wallet_address" ascii //weight: 1
+        $x_1_3 = "pool_password" ascii //weight: 1
+        $x_1_4 = "algo" ascii //weight: 1
+        $x_1_5 = "threads" ascii //weight: 1
+        $x_1_6 = "http://%s/bins/xmrig.%s" ascii //weight: 1
+        $x_1_7 = "wget -q -O %s %s 2>/dev/null" ascii //weight: 1
+        $x_1_8 = "curl -s -o %s %s 2>/dev/null" ascii //weight: 1
+        $x_1_9 = "/dev/vboxguest" ascii //weight: 1
+        $x_1_10 = "/sys/class/dmi/id/product_name" ascii //weight: 1
+        $x_1_11 = "QEMU" ascii //weight: 1
+        $x_1_12 = "eth0" ascii //weight: 1
+        $x_1_13 = "08:00:27" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (10 of ($x*))
+}
+

@@ -2257,3 +2257,24 @@ rule Trojan_MSIL_Androm_KKB_2147974699_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_ABAG_2147975754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.ABAG!MTB"
+        threat_id = "2147975754"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 07 03 3f ?? 00 00 00 dd ?? 00 00 00 11 09 11 05 5a 11 08 19 5a 58 13 0a 11 06 11 0a 28 ?? 00 00 0a 25 16 28 ?? 00 00 0a 13 0b 25 17 28 ?? 00 00 0a 13 0c 18 28 ?? 00 00 0a 13 0d 06 11 0d 6f ?? 00 00 0a 11 07 17 58 13 07 11 07 03 3f ?? 00 00 00 dd ?? 00 00 00 06 11 0c 6f ?? 00 00 0a 11 07 17 58 13 07 11 07 03}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
