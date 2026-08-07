@@ -1097,3 +1097,36 @@ rule Trojan_Win64_DllHijack_AF_2147974826_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_KLX_2147975765_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.KLX!MTB"
+        threat_id = "2147975765"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 8b d8 b8 4d 5a 00 00 66 41 39 03 75 74 49 63 4b 3c 49 03 cb 81 39 50 45 00 00 75}  //weight: 2, accuracy: High
+        $x_1_2 = "hijack_log.txt" ascii //weight: 1
+        $x_1_3 = "target_function_name_here" ascii //weight: 1
+        $x_1_4 = "LdrFastFailInLoaderCallout" ascii //weight: 1
+        $x_1_5 = "LdrGetDllFullName" ascii //weight: 1
+        $x_1_6 = "Func_WinHttpReadData" ascii //weight: 1
+        $x_1_7 = "Func_WinHttpConnect" ascii //weight: 1
+        $x_1_8 = "Func_WinHttpSendRequest" ascii //weight: 1
+        $x_1_9 = "Func_WinHttpOpenRequest" ascii //weight: 1
+        $x_1_10 = "Func_WinHttpOpen" ascii //weight: 1
+        $x_1_11 = "Func_WinHttpGetIEProxyConfigForCurrentUser" ascii //weight: 1
+        $x_1_12 = "winhttp.dll" ascii //weight: 1
+        $x_1_13 = "ShellExecuteExW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

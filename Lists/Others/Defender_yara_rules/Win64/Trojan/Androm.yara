@@ -215,7 +215,7 @@ rule Trojan_Win64_Androm_SNT_2147973584_0
         $x_1_1 = "svchost.exe" ascii //weight: 1
         $x_1_2 = "powershell" ascii //weight: 1
         $x_5_3 = "158.94.211.92" ascii //weight: 5
-        $x_1_4 = "enterprise/student_s.bin" ascii //weight: 1
+        $x_1_4 = "enterprise" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

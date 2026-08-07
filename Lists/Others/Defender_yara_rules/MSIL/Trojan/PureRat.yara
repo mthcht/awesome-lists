@@ -1266,3 +1266,50 @@ rule Trojan_MSIL_PureRat_ABK_2147973713_0
         )
 }
 
+rule Trojan_MSIL_PureRat_ABL_2147975771_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureRat.ABL!MTB"
+        threat_id = "2147975771"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0f 00 06 02 7e ?? 06 00 04 28 fb 0e 00 06 7e ?? 06 00 04 28 ?? 0e 00 06 7e ?? 06 00 04 28}  //weight: 6, accuracy: Low
+        $x_5_2 = "m8DD" ascii //weight: 5
+        $x_5_3 = "m8DE" ascii //weight: 5
+        $x_5_4 = "m8DC" ascii //weight: 5
+        $x_3_5 = "protobuf-net" ascii //weight: 3
+        $x_3_6 = "ProtoBuf.Serializers.IProtoTypeSerializer.HasCallbacks" ascii //weight: 3
+        $x_2_7 = "CreateDecryptor" ascii //weight: 2
+        $x_2_8 = "ReadAllBytes" ascii //weight: 2
+        $x_2_9 = "GZipStream" ascii //weight: 2
+        $x_2_10 = "GetFolderPath" ascii //weight: 2
+        $x_2_11 = "FromBase64String" ascii //weight: 2
+        $x_2_12 = "set_UseShellExecute" ascii //weight: 2
+        $x_2_13 = "set_IV" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_5_*) and 2 of ($x_3_*) and 6 of ($x_2_*))) or
+            ((3 of ($x_5_*) and 7 of ($x_2_*))) or
+            ((3 of ($x_5_*) and 1 of ($x_3_*) and 5 of ($x_2_*))) or
+            ((3 of ($x_5_*) and 2 of ($x_3_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 7 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 2 of ($x_3_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 6 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 1 of ($x_3_*) and 5 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 2 of ($x_5_*) and 2 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 4 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 1 of ($x_3_*) and 2 of ($x_2_*))) or
+            ((1 of ($x_6_*) and 3 of ($x_5_*) and 2 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

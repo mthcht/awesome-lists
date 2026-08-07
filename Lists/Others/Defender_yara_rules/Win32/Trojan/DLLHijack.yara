@@ -309,3 +309,25 @@ rule Trojan_Win32_DLLHijack_GXP_2147975362_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DLLHijack_CAT_2147975764_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.CAT!MTB"
+        threat_id = "2147975764"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {e8 02 00 00 00 eb 05 58 89 04 24 c3 a0 ?? ?? ?? 10 3c a5 0f 84}  //weight: 10, accuracy: Low
+        $x_5_2 = {c8 ff ff ff 0f 0b 0f 00 c0 0f 00 c8 0f 00 d0 0f 00 d8 0f 01 04 24 0f 01 0c 24 0f 01 14 24 0f 01 1c 24 0f 01 c1}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
