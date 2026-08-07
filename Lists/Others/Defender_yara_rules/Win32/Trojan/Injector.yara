@@ -2724,3 +2724,25 @@ rule Trojan_Win32_Injector_LRD_2147974854_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_MKF_2147975445_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.MKF!MTB"
+        threat_id = "2147975445"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {b8 39 8e e3 38 41 f7 e0 c1 ea 03 8d 0c d2 c1 e1 02 44 2b c1 48 8d 0d 5c 0b 00 00 42 0f b7 04 41 44 8b c2 66 89 44 5c 58 48 ff c3 85 d2}  //weight: 20, accuracy: High
+        $x_15_2 = {41 8a 04 10 88 02 49 03 d6 8b 47 54 48 8b ca 48 2b ce 48 3b c8}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

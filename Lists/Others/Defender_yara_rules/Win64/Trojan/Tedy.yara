@@ -3578,6 +3578,29 @@ rule Trojan_Win64_Tedy_ARR_2147957105_8
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {49 63 c0 41 ff c0 8b 4c 84 70 31 4c 94 40 48 ff c2 48 83 fa}  //weight: 6, accuracy: High
+        $x_4_2 = {0f b6 02 42 0f b6 0c 0a 42 32 0c 12 88 0a 42 88 04 12 48 8d 52 ?? 49 83 e8}  //weight: 4, accuracy: Low
+        $x_10_3 = "bloxholder.com" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_ARR_2147957105_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.ARR!MTB"
+        threat_id = "2147957105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
         strings_accuracy = "High"
     strings:
         $x_16_1 = {48 2b c8 0f b6 44 0c 30 43 32 04 10 41 88 00 4c 3b ce}  //weight: 16, accuracy: High
@@ -3587,7 +3610,7 @@ rule Trojan_Win64_Tedy_ARR_2147957105_8
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ARR_2147957105_9
+rule Trojan_Win64_Tedy_ARR_2147957105_10
 {
     meta:
         author = "defender2yara"
@@ -3610,7 +3633,7 @@ rule Trojan_Win64_Tedy_ARR_2147957105_9
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ARR_2147957105_10
+rule Trojan_Win64_Tedy_ARR_2147957105_11
 {
     meta:
         author = "defender2yara"
@@ -3633,7 +3656,7 @@ rule Trojan_Win64_Tedy_ARR_2147957105_10
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_ARR_2147957105_11
+rule Trojan_Win64_Tedy_ARR_2147957105_12
 {
     meta:
         author = "defender2yara"

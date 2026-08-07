@@ -769,3 +769,30 @@ rule Trojan_MSIL_Agenttesla_WEQ_2147975310_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_MCU_2147975444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MCU!MTB"
+        threat_id = "2147975444"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "warworm_crash.log" wide //weight: 1
+        $x_1_2 = "=== Warworm stub started ===" wide //weight: 1
+        $x_1_3 = "CryptoClipper" wide //weight: 1
+        $x_1_4 = "WifiStealer" wide //weight: 1
+        $x_1_5 = "WormNetwork" wide //weight: 1
+        $x_1_6 = "warworm_credentials_" wide //weight: 1
+        $x_1_7 = "Staying alive" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

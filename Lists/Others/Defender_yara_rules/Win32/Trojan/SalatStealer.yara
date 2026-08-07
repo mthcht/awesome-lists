@@ -670,3 +670,25 @@ rule Trojan_Win32_SalatStealer_DA_2147975368_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_DB_2147975625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.DB!MTB"
+        threat_id = "2147975625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {a0 00 f1 02 02 86 04 ba 06 26 0a 95 02 0c a5 02 10 65 02 0c a0 12 26 14 ad 02 1a f6 1e 96 20 38 22 94 26 09 04 2a 38 2c 39 03 2a 09 02 2e c1 02 30 98 32 2c 34 25 03 3a be 18 70 3a d0 3e 96 40 38 44 f1 02 46 11 03 4a b2 4c 3a 4e 90 52 09 04 56 68 58 41 03 5a aa 58 31 02 5c e9 02 3a 4c 5e a5 02 3a 79 02 30 75 03 60 d4 30 b6 62 50 30 85 02 64 19 02 30 4d 06 0c 7d 02 00 6c 3c 0c 32 0c 04 26 0e 2e 10 0c 12 26 1c 88 2c 32 1e 2e 60 8e 58 32 62 2c 64 2e 5a 26 4a 2a 48 0c 3e 19 2d 0a 00 1c 01 63 00 0d f0 0b e0 09 d0 07 c0 05 70 04 60}  //weight: 1, accuracy: High
+        $x_1_2 = {0d 4d 7a 39 02 00 1c 02 c2 04 5a 06 11 03 04 88 08 9a 0a 6e 08 8c 0c 94 0e 2c 10 b6 14 6d 04 18 4c 1a c8 14 3a 1a 4d 02 18 25 02 1c 69 02 08 6c 1e 6c 20 66 22 3e 24 fc 28 88 2c fa 2e c2 32 ad 02 34 74 32 ac 36 ac 38 2c 3a b0 3e 55 04 42 4e 44 cc 3e 3a 44 4d 02 42 25 02 46 b9 02 2c a4 48 2c 4a 30 4c 75 05 54 2a 56 81 03 50 46 56 70 54 25 02 58 91 04 00 60 04 34 0a 0c 0c 92 1a 34 2c 28 34 0c 36 92 44 34 48 78 56 34 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -43,3 +43,28 @@ rule Trojan_Win64_BadIIS_MK_2147971034_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BadIIS_GVA_2147975748_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BadIIS.GVA!MTB"
+        threat_id = "2147975748"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BadIIS"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b c2 83 e0 3f 48 8b da 48 33 1d 55 f8 01 00 8b c8 48 d3 cb b9 40 00 00 00 2b c8 48 d3 cf 48 33 fa 48 89 3d 3c f8 01 00 33 c9}  //weight: 1, accuracy: High
+        $x_1_2 = "SERVER_NAME" ascii //weight: 1
+        $x_1_3 = "REMOTE_ADDR" ascii //weight: 1
+        $x_1_4 = "360browser" ascii //weight: 1
+        $x_1_5 = "qqbrowser" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

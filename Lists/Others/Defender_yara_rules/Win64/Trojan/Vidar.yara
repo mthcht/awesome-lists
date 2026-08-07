@@ -3694,3 +3694,25 @@ rule Trojan_Win64_Vidar_GPKC_2147975349_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GVX_2147975749_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GVX!MTB"
+        threat_id = "2147975749"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {3b c7 73 19 44 8b c0 48 8b 16 41 8d 0c 01 ff c0 4d 8d 40 01 42 30 4c 02 ff 3b c7 72 ea}  //weight: 1, accuracy: High
+        $x_1_2 = {0f b6 45 77 30 44 0d ef 48 ff c1 48 83 f9 20 7c ef}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
