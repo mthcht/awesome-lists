@@ -6078,3 +6078,24 @@ rule Trojan_MSIL_XWorm_RVC_2147975294_0
         )
 }
 
+rule Trojan_MSIL_XWorm_AQYB_2147975775_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AQYB!MTB"
+        threat_id = "2147975775"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {61 09 23 00 00 00 00 00 00 59 40 5a 6a 61 11 05 23 00 00 00 00 00 88 c3 40 5a 6a 61 11 09 6f ?? 00 00 0a 6a 61 13 0a 11 0a 21 ff ff ff ff ff 00 00 00 5f 13 0a 73 ?? 00 00 06 13 0b 73 ?? 00 00 06 13 0c 73 ?? 00 00 06 13 0d 73 ?? 00 00 06 13 0e 73 ?? 00 00 06 13 0f 11 0b 11 0c 6f ?? 00 00 06 11 0c 11 0d 6f ?? 00 00 06 11 0d 11 0e 6f ?? 00 00 06 11 0e 11 0f 6f ?? 00 00 06 73 ?? 00 00 06 25 02 7d ?? 00 00 04 25 03}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -42,3 +42,24 @@ rule Trojan_Win64_PSWStealer_ARAF_2147975404_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PSWStealer_ARAC_2147975778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PSWStealer.ARAC!MTB"
+        threat_id = "2147975778"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 89 c1 83 e1 0f 0f b6 8c 0c e0 08 00 00 41 30 0c 06 48 83 c0 01 48 39 c2 75 e5}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
