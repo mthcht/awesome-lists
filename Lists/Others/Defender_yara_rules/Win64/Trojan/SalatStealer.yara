@@ -241,3 +241,28 @@ rule Trojan_Win64_SalatStealer_IDK_2147974125_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_Z_2147975816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.Z!MTB"
+        threat_id = "2147975816"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.getGeckoCookies" ascii //weight: 1
+        $x_1_2 = "main.getChromeAutofils" ascii //weight: 1
+        $x_1_3 = "main.runKeylogger" ascii //weight: 1
+        $x_1_4 = "salat/task.go" ascii //weight: 1
+        $x_1_5 = "salat/screenshot.CaptureRect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
