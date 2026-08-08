@@ -841,6 +841,32 @@ rule Trojan_Win64_Injector_LR_2147972219_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "master key give me, length =" ascii //weight: 1
+        $x_2_2 = "Opera master key not give me" ascii //weight: 2
+        $x_3_3 = "master key not give me" ascii //weight: 3
+        $x_4_4 = "Scanning Desktop for TXT files (depth 6)" ascii //weight: 4
+        $x_5_5 = "Elevator DLL loaded from server" ascii //weight: 5
+        $x_6_6 = "OCR DLL loaded from server" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_LR_2147972219_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.LR!MTB"
+        threat_id = "2147972219"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "36"
         strings_accuracy = "High"
     strings:

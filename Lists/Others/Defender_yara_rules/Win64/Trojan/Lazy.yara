@@ -7212,3 +7212,25 @@ rule Trojan_Win64_Lazy_ARAF_2147975777_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SXS_2147975795_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SXS!MTB"
+        threat_id = "2147975795"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {f2 0f 10 05 ?? ?? 01 00 f2 0f 11 45 ?? 66 83 75 ?? 3c 66 83 75 ?? 3d 66 83 75 ?? 3e 66 89 4d ?? 33 c9 c7 45 ?? 53 00 70 00}  //weight: 20, accuracy: Low
+        $x_5_2 = {8d 47 02 41 80 3c 06 c4 ?? ?? ?? ?? ?? ?? 8d 47 04 41 80 3c 06 c3 ?? ?? ?? ?? ?? ?? 8d 47 03 41 0f b6 1c 06 4c 8b 6c 24 38 49 8b 45 08 49 8b cd 80 78 19 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
