@@ -204,6 +204,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 147552,en,AS,Asia,AZ,Azerbaijan,MAS,Masally,,,Masally,,Asia/Baku,0
 147622,en,AS,Asia,AZ,Azerbaijan,LAN,"Lankaran Rayon",,,Lankaran,,Asia/Baku,0
 148140,en,AS,Asia,AZ,Azerbaijan,CAB,Jabrayil,,,,,Asia/Baku,0
+148212,en,AS,Asia,AZ,Azerbaijan,NX,"Nakhchivan Autonomous Republic",SAR,"Sharur Rayon",Demirchi,,Asia/Baku,0
 148445,en,AS,Asia,AZ,Azerbaijan,AST,Astara,,,Astara,,Asia/Baku,0
 148615,en,AS,Asia,AZ,Azerbaijan,AGC,"Aghjabadi Rayon",,,,,Asia/Baku,0
 148619,en,AS,Asia,AZ,Azerbaijan,AGM,"Aghdam Rayon",,,Agdam,,Asia/Baku,0
@@ -244,7 +245,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 169179,en,AS,Asia,SY,Syria,HL,"Aleppo Governorate",,,Jarābulus,,Asia/Damascus,0
 169389,en,AS,Asia,SY,Syria,ID,"Idlib Governorate",,,Idlib,,Asia/Damascus,0
 169577,en,AS,Asia,SY,Syria,HI,"Homs Governorate",,,Homs,,Asia/Damascus,0
-169897,en,AS,Asia,SY,Syria,RD,Rif-dimashq,,,Ḩarastā,,Asia/Damascus,0
 170017,en,AS,Asia,SY,Syria,HM,"Hama Governorate",,,Hama,,Asia/Damascus,0
 170062,en,AS,Asia,SY,Syria,HL,"Aleppo Governorate",,,,,Asia/Damascus,0
 170063,en,AS,Asia,SY,Syria,HL,"Aleppo Governorate",,,Aleppo,,Asia/Damascus,0
@@ -1395,7 +1395,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 409417,en,AS,Asia,AZ,Azerbaijan,SR,Shirvan,,,,,Asia/Baku,0
 409682,en,AS,Asia,SA,"Saudi Arabia",02,"Mecca Region",,,Thuwal,,Asia/Riyadh,0
 411735,en,AS,Asia,OM,Oman,DA,"Ad Dakhiliyah",,,,,Asia/Muscat,0
-411736,en,AS,Asia,OM,Oman,BJ,"Al Batinah South",,,,,Asia/Muscat,0
 411741,en,AS,Asia,OM,Oman,MU,"Musandam Governorate",,,,,Asia/Muscat,0
 411849,en,AS,Asia,OM,Oman,ZA,"Ad Dhahirah",,,Yanqul,,Asia/Muscat,0
 412084,en,AS,Asia,OM,Oman,BJ,"Al Batinah South",,,"Bayt al `Awabi",,Asia/Muscat,0
@@ -1628,6 +1627,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 483661,en,EU,Europe,RU,Russia,KDA,"Krasnodar Krai",,,Temryuk,,Europe/Moscow,0
 483797,en,EU,Europe,RU,Russia,LIP,"Lipetsk Oblast",,,Telepnevo,,Europe/Moscow,0
 484048,en,EU,Europe,RU,Russia,TA,"Tatarstan Republic",,,,,Europe/Moscow,0
+484106,en,EU,Europe,RU,Russia,TA,"Tatarstan Republic",,,"Tatarskiye Chelny",,Europe/Moscow,0
 484287,en,EU,Europe,RU,Russia,KLU,"Kaluga Oblast",,,Tarusa,,Europe/Moscow,0
 484646,en,EU,Europe,RU,Russia,TAM,"Tambov Oblast",,,Tambov,,Europe/Moscow,0
 484670,en,EU,Europe,RU,Russia,KDA,"Krasnodar Krai",,,Taman',,Europe/Moscow,0
@@ -1649,6 +1649,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 487845,en,EU,Europe,RU,Russia,ROS,"Rostov Oblast",,,Stavropol',,Europe/Moscow,0
 487846,en,EU,Europe,RU,Russia,STA,"Stavropol Kray",,,Stavropol,,Europe/Moscow,0
 487928,en,EU,Europe,RU,Russia,BEL,"Belgorod Oblast",,,"Stary Oskol",,Europe/Moscow,0
+488445,en,EU,Europe,RU,Russia,TVE,"Tver Oblast",,,"Staroye Gvozdino",,Europe/Moscow,0
 488635,en,EU,Europe,RU,Russia,KDA,"Krasnodar Krai",,,Staroshcherbinovskaya,,Europe/Moscow,0
 488742,en,EU,Europe,RU,Russia,KDA,"Krasnodar Krai",,,Starominskaya,,Europe/Moscow,0
 488881,en,EU,Europe,RU,Russia,BA,"Bashkortostan Republic",,,Starobaltachevo,,Asia/Yekaterinburg,0
@@ -1775,7 +1776,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 508351,en,EU,Europe,RU,Russia,UD,"Udmurtiya Republic",,,Podgornoye,,Europe/Samara,0
 508370,en,EU,Europe,RU,Russia,STA,"Stavropol Kray",,,Podgornoye,,Europe/Moscow,0
 508656,en,EU,Europe,RU,Russia,BRY,"Bryansk Oblast",,,Pochep,,Europe/Moscow,0
-508711,en,EU,Europe,RU,Russia,LEN,"Leningrad Oblast",,,Pobeda,,Europe/Moscow,0
 509234,en,EU,Europe,RU,Russia,KR,Karelia,,,Pitkyaranta,,Europe/Moscow,0
 509512,en,EU,Europe,RU,Russia,KRS,"Kursk Oblast",,,Pilyugina,,Europe/Moscow,0
 509598,en,EU,Europe,RU,Russia,LEN,"Leningrad Oblast",,,Pikalyovo,,Europe/Moscow,0
@@ -1795,6 +1795,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 512524,en,EU,Europe,RU,Russia,KO,Komi,,,Parma,,Europe/Moscow,0
 512642,en,EU,Europe,RU,Russia,NGR,"Novgorod Oblast",,,Parad,,Europe/Moscow,0
 512902,en,EU,Europe,RU,Russia,YAR,"Yaroslavl Oblast",,,Panfilovo,,Europe/Moscow,0
+513095,en,EU,Europe,RU,Russia,IVA,"Ivanovo Oblast",,,Palekh,,Europe/Moscow,0
 513406,en,EU,Europe,RU,Russia,KGD,"Kaliningrad Oblast",,,Ozërsk,,Europe/Kaliningrad,0
 513883,en,EU,Europe,RU,Russia,SAM,"Samara Oblast",,,Otradnyy,,Europe/Samara,0
 513898,en,EU,Europe,RU,Russia,LEN,"Leningrad Oblast",,,Otradnoye,,Europe/Moscow,0
@@ -2130,6 +2131,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 565348,en,EU,Europe,RU,Russia,ROS,"Rostov Oblast",,,Donetsk,,Europe/Moscow,0
 565381,en,EU,Europe,RU,Russia,MOS,"Moscow Oblast",,,Domodedovo,,Europe/Moscow,0
 565496,en,EU,Europe,RU,Russia,CU,"Chuvash Republic",,,Dolina,,Europe/Moscow,0
+565611,en,EU,Europe,RU,Russia,LIP,"Lipetsk Oblast",,,Dolgorukovo,,Europe/Moscow,0
 565614,en,EU,Europe,RU,Russia,MOS,"Moscow Oblast",,,Dolgoprudny,,Europe/Moscow,0
 565774,en,EU,Europe,RU,Russia,VLA,"Vladimir Oblast",,,Dobryatino,,Europe/Moscow,0
 565778,en,EU,Europe,RU,Russia,PER,"Perm Krai",,,Dobryanka,,Asia/Yekaterinburg,0
@@ -2276,7 +2278,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 585786,en,AS,Asia,AZ,Azerbaijan,QBA,"Quba Rayon",,,,,Asia/Baku,0
 585915,en,AS,Asia,AZ,Azerbaijan,ABS,"Absheron Rayon",,,Xirdalan,,Asia/Baku,0
 586523,en,AS,Asia,AZ,Azerbaijan,GA,"Ganja City",,,Ganja,,Asia/Baku,0
-586751,en,AS,Asia,AZ,Azerbaijan,SMI,"Shamakhi Rayon",,,Dǝmirçi,,Asia/Baku,0
 586845,en,AS,Asia,AZ,Azerbaijan,QAX,"Qakh Rayon",,,Çinarlı,,Asia/Baku,0
 586925,en,AS,Asia,AZ,Azerbaijan,BA,"Baku City",,,Buzovna,,Asia/Baku,0
 587010,en,AS,Asia,AZ,Azerbaijan,BAL,"Balakan District",,,,,Asia/Baku,0
@@ -2291,6 +2292,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 587533,en,EU,Europe,EE,Estonia,37,Harjumaa,198,"Harku vald",Viti,,Europe/Tallinn,1
 587577,en,EU,Europe,EE,Estonia,84,Viljandimaa,897,"Viljandi linn",Viljandi,,Europe/Tallinn,1
 587629,en,EU,Europe,EE,Estonia,37,Harjumaa,890,"Viimsi Parish",Viimsi,,Europe/Tallinn,1
+587800,en,EU,Europe,EE,Estonia,37,Harjumaa,726,"Saue vald",Vanamõisa,,Europe/Tallinn,1
 587876,en,EU,Europe,EE,Estonia,81,Valgamaa,855,"Valga vald",Valga,,Europe/Tallinn,1
 588153,en,EU,Europe,EE,Estonia,52,Järvamaa,834,"Türi vald",Türi,,Europe/Tallinn,1
 588160,en,EU,Europe,EE,Estonia,37,Harjumaa,431,"Lääne-Harju vald",Tuulna,,Europe/Tallinn,1
@@ -2428,7 +2430,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 599757,en,EU,Europe,LT,Lithuania,AL,Alytus,07,"Druskininkai Municipality",Druskininkai,,Europe/Vilnius,1
 599980,en,EU,Europe,LT,Lithuania,KL,"Klaipėda County",21,"Klaipėda District Municipality",Dauparai,,Europe/Vilnius,1
 600109,en,EU,Europe,LT,Lithuania,KU,Kaunas,13,"Kaišiadorys District Municipality",Dainava,,Europe/Vilnius,1
-600295,en,EU,Europe,LT,Lithuania,VL,Vilnius,58,"Vilnius District Municipality",Buivydiškės,,Europe/Vilnius,1
 600438,en,EU,Europe,LT,Lithuania,PN,Panevėžys,06,"Biržai District Municipality",Biržai,,Europe/Vilnius,1
 600688,en,EU,Europe,LT,Lithuania,VL,Vilnius,58,"Vilnius District Municipality","Baltoji Vokė",,Europe/Vilnius,1
 600994,en,EU,Europe,LT,Lithuania,UT,Utena,04,"Anykščiai District Municipality",Anykščiai,,Europe/Vilnius,1
@@ -3501,7 +3502,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 694745,en,EU,Europe,UA,Ukraine,51,Odesa,,,Savran',,Europe/Kyiv,0
 694792,en,EU,Europe,UA,Ukraine,56,"Rivne Oblast",,,Sarny,,Europe/Kyiv,0
 694864,en,EU,Europe,UA,Ukraine,46,Lviv,,,Sambir,,Europe/Kyiv,0
-694910,en,EU,Europe,UA,Ukraine,43,Crimea,,,Saki,,Europe/Simferopol,0
+694910,en,EU,Europe,UA,Ukraine,43,Crimea,,,Saky,,Europe/Simferopol,0
 695019,en,EU,Europe,RU,Russia,KRS,"Kursk Oblast",,,Ryl'sk,,Europe/Moscow,0
 695118,en,EU,Europe,UA,Ukraine,32,"Kyiv Oblast",,,Rusanov,,Europe/Kyiv,0
 695315,en,EU,Europe,UA,Ukraine,26,"Ivano-Frankivsk Oblast",,,Rozhniativ,,Europe/Kyiv,0
@@ -3602,7 +3603,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 703446,en,EU,Europe,UA,Ukraine,32,"Kyiv Oblast",,,,,Europe/Kyiv,0
 703447,en,EU,Europe,UA,Ukraine,30,"Kyiv City",,,,,Europe/Kyiv,0
 703448,en,EU,Europe,UA,Ukraine,30,"Kyiv City",,,Kyiv,,Europe/Kyiv,0
-703460,en,EU,Europe,UA,Ukraine,56,"Rivne Oblast",,,Kvasyliv,,Europe/Kyiv,0
 703656,en,EU,Europe,UA,Ukraine,63,"Kharkiv Oblast",,,Kupyansk,,Europe/Kyiv,0
 703845,en,EU,Europe,UA,Ukraine,12,"Dnipropetrovsk Oblast",,,"Kryvyi Rih",,Europe/Kyiv,0
 703883,en,EU,Europe,UA,Ukraine,43,Crimea,,,,,Europe/Simferopol,0
@@ -3642,7 +3642,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 706165,en,EU,Europe,UA,Ukraine,21,"Zakarpattia Oblast",,,Khust,,Europe/Kyiv,0
 706232,en,EU,Europe,UA,Ukraine,32,"Kyiv Oblast",,,Khotiv,,Europe/Kyiv,0
 706244,en,EU,Europe,UA,Ukraine,77,Chernivtsi,,,Khotyn,,Europe/Kyiv,0
-706271,en,EU,Europe,UA,Ukraine,61,"Ternopil Oblast",,,Khorostkiv,,Europe/Kyiv,0
 706352,en,EU,Europe,UA,Ukraine,46,Lviv,,,Khodoriv,,Europe/Kyiv,0
 706369,en,EU,Europe,UA,Ukraine,68,"Khmelnytskyi Oblast",,,Khmelnytskyi,,Europe/Kyiv,0
 706380,en,EU,Europe,UA,Ukraine,05,Vinnytsia,,,Khmilnyk,,Europe/Kyiv,0
@@ -3764,7 +3763,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 713017,en,EU,Europe,UA,Ukraine,32,"Kyiv Oblast",,,Babintsy,,Europe/Kyiv,0
 713163,en,EU,Europe,UA,Ukraine,51,Odesa,,,Artsyz,,Europe/Kyiv,0
 713203,en,EU,Europe,UA,Ukraine,43,Crimea,,,Armyansk,,Europe/Simferopol,0
-713259,en,EU,Europe,UA,Ukraine,09,Luhansk,,,Antratsit,,Europe/Kyiv,0
+713259,en,EU,Europe,UA,Ukraine,09,Luhansk,,,Antratsyt,,Europe/Kyiv,0
 713304,en,EU,Europe,UA,Ukraine,65,"Kherson Oblast",,,Antonivka,,Europe/Kyiv,0
 713386,en,EU,Europe,UA,Ukraine,18,"Zhytomyr Oblast",,,Andrushky,,Europe/Kyiv,0
 713504,en,EU,Europe,UA,Ukraine,14,Donetsk,,,Amvrosiyivka,,Europe/Kyiv,0
@@ -5058,6 +5057,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 784136,en,EU,Europe,RS,Serbia,VO,Vojvodina,04,"South Banat",Vršac,,Europe/Belgrade,0
 784141,en,EU,Europe,RS,Serbia,18,Raška,,,"Vrnjačka Banja",,Europe/Belgrade,0
 784227,en,EU,Europe,RS,Serbia,24,Pčinja,,,Vranje,,Europe/Belgrade,0
+784236,en,EU,Europe,RS,Serbia,00,Belgrade,,,Vranić,,Europe/Belgrade,0
 784318,en,EU,Europe,RS,Serbia,23,Jablanica,,,Vlasotince,,Europe/Belgrade,0
 784424,en,EU,Europe,MK,"North Macedonia",202,Vinica,,,Vinica,,Europe/Skopje,0
 784434,en,EU,Europe,RS,Serbia,VO,Vojvodina,06,"South Bačka",Vilovo,,Europe/Belgrade,0
@@ -5243,6 +5243,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 797446,en,EU,Europe,RU,Russia,STA,"Stavropol Kray",,,Gubenko,,Europe/Moscow,0
 798544,en,EU,Europe,PL,Poland,,,,,,,Europe/Warsaw,1
 798549,en,EU,Europe,RO,Romania,,,,,,,Europe/Bucharest,1
+803824,en,EU,Europe,RU,Russia,KDA,"Krasnodar Krai",,,Pobeda,,Europe/Moscow,0
 804443,en,EU,Europe,RU,Russia,KDA,"Krasnodar Krai",,,Kravchenko,,Europe/Moscow,0
 804879,en,EU,Europe,RU,Russia,STA,"Stavropol Kray",,,Makhach-Kala,,Europe/Moscow,0
 806142,en,EU,Europe,RU,Russia,BEL,"Belgorod Oblast",,,Kalitva,,Europe/Moscow,0
@@ -5272,7 +5273,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 828301,en,AS,Asia,AZ,Azerbaijan,QOB,"Gobustan Rayon",,,,,Asia/Baku,0
 828387,en,AS,Asia,KZ,Kazakhstan,23,"Atyrau Oblisi",,,Tengiz,,Asia/Atyrau,0
 828558,en,EU,Europe,RU,Russia,NIZ,"Nizhny Novgorod Oblast",,,Razgulyay,,Europe/Moscow,0
-828987,en,EU,Europe,FI,Finland,08,"Central Finland",,,"Southern Finland",,Europe/Helsinki,1
 828990,en,EU,Europe,RU,Russia,PER,"Perm Krai",,,Lek,,Asia/Yekaterinburg,0
 829005,en,EU,Europe,RU,Russia,SVE,"Sverdlovsk Oblast",,,Lesnoy,,Asia/Yekaterinburg,0
 830603,en,EU,Europe,FI,Finland,10,Lapland,,,,,Europe/Helsinki,1
@@ -6041,6 +6041,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1185283,en,AS,Asia,BD,Bangladesh,F,"Rangpur Division",55,Rangpur,Badarganj,,Asia/Dhaka,0
 1185293,en,AS,Asia,BD,Bangladesh,D,"Khulna Division",43,Narail,Narail,,Asia/Dhaka,0
 1185920,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",17,Gopalganj,Tungipara,,Asia/Dhaka,0
+1186680,en,AS,Asia,BD,Bangladesh,G,"Sylhet Division",61,Sunamganj,Tekerghat,,Asia/Dhaka,0
 1188225,en,AS,Asia,BD,Bangladesh,B,Chittagong,47,Noakhali,Shafīpur,,Asia/Dhaka,0
 1189887,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",35,Munshiganj,Rāna,,Asia/Dhaka,0
 1192091,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",13,Dhaka,Pātrun,,Asia/Dhaka,0
@@ -6328,6 +6329,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1256728,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Shahjahanpur,,Asia/Kolkata,0
 1256741,en,AS,Asia,IN,India,DL,"National Capital Territory of Delhi",,,Shāhdara,,Asia/Kolkata,0
 1256747,en,AS,Asia,IN,India,MH,Maharashtra,,,Shāhāpur,,Asia/Kolkata,0
+1256759,en,AS,Asia,IN,India,KA,Karnataka,,,Shāhābād,,Asia/Kolkata,0
 1256832,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Seohāra,,Asia/Kolkata,0
 1256913,en,AS,Asia,IN,India,MP,"Madhya Pradesh",,,Sehore,,Asia/Kolkata,0
 1256922,en,AS,Asia,IN,India,TS,Telangana,,,Secunderabad,,Asia/Kolkata,0
@@ -6753,6 +6755,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1268593,en,AS,Asia,IN,India,HR,Haryana,,,Kaithal,,Asia/Kolkata,0
 1268616,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Kaimganj,,Asia/Kolkata,0
 1268622,en,AS,Asia,IN,India,TR,Tripura,,,Kailāshahar,,Asia/Kolkata,0
+1268680,en,AS,Asia,IN,India,GJ,Gujarat,,,Kadi,,Asia/Kolkata,0
 1268691,en,AS,Asia,IN,India,KA,Karnataka,,,Kadandale,,Asia/Kolkata,0
 1268707,en,AS,Asia,IN,India,TN,"Tamil Nadu",,,Kadayanallur,,Asia/Kolkata,0
 1268761,en,AS,Asia,IN,India,MH,Maharashtra,,,Junnar,,Asia/Kolkata,0
@@ -7738,6 +7741,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1564046,en,AS,Asia,VN,Vietnam,37,"Tây Ninh Province",,,"Trảng Bàng",,Asia/Ho_Chi_Minh,0
 1565019,en,AS,Asia,VN,Vietnam,SG,"Ho Chi Minh",,,"Thủ Đức",,Asia/Ho_Chi_Minh,0
 1565022,en,AS,Asia,VN,Vietnam,57,"Bình Dương Province",,,"Thu Dau Mot",,Asia/Ho_Chi_Minh,0
+1565107,en,AS,Asia,VN,Vietnam,20,"Thái Bình Province",,,"Thuận An",,Asia/Bangkok,0
 1565108,en,AS,Asia,VN,Vietnam,27,"Quảng Nam Province",,,"Thuận An",,Asia/Ho_Chi_Minh,0
 1566083,en,AS,Asia,VN,Vietnam,SG,"Ho Chi Minh",,,"Ho Chi Minh City",,Asia/Ho_Chi_Minh,0
 1566166,en,AS,Asia,VN,Vietnam,21,"Thanh Hóa Province",,,"Thanh Hóa",,Asia/Bangkok,0
@@ -7997,7 +8001,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1624725,en,AS,Asia,ID,Indonesia,KU,"North Kalimantan",,,Tarakan,,Asia/Makassar,0
 1624827,en,AS,Asia,ID,Indonesia,KU,"North Kalimantan",,,"Tanjung Selor",,Asia/Makassar,0
 1624863,en,AS,Asia,ID,Indonesia,KR,"Riau Islands",,,"Tanjung Pinang",,Asia/Jakarta,0
-1624879,en,AS,Asia,ID,Indonesia,RI,Riau,,,Tanjungpadang,,Asia/Jakarta,0
 1624917,en,AS,Asia,ID,Indonesia,LA,Lampung,,,"Bandar Lampung",,Asia/Jakarta,0
 1624974,en,AS,Asia,ID,Indonesia,KR,"Riau Islands",,,"Tanjung Balai",,Asia/Jakarta,0
 1624997,en,AS,Asia,ID,Indonesia,NB,"West Nusa Tenggara",,,Tanjung,,Asia/Makassar,0
@@ -8011,7 +8014,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1625585,en,AS,Asia,ID,Indonesia,SA,"North Sulawesi",,,Taruna,,Asia/Makassar,0
 1625707,en,AS,Asia,ID,Indonesia,BA,Bali,,,"Kabupaten Tabanan",,Asia/Makassar,0
 1625708,en,AS,Asia,ID,Indonesia,BA,Bali,,,Tabanan,,Asia/Makassar,0
-1625804,en,AS,Asia,ID,Indonesia,BT,Banten,,,Kubangkepuh,,Asia/Jakarta,0
 1625812,en,AS,Asia,ID,Indonesia,JT,"Central Java",,,Surakarta,,Asia/Jakarta,0
 1625822,en,AS,Asia,ID,Indonesia,JI,"East Java",,,Surabaya,,Asia/Jakarta,0
 1625850,en,AS,Asia,ID,Indonesia,JK,Jakarta,,,"Sunter Agung",,Asia/Jakarta,0
@@ -8316,7 +8318,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1653316,en,AS,Asia,LA,Laos,SV,"Savannakhet Province",,,Savannakhet,,Asia/Vientiane,0
 1655078,en,AS,Asia,LA,Laos,OU,"Khouèng Oudômxai",,,"Muang Xay",,Asia/Vientiane,0
 1655087,en,AS,Asia,LA,Laos,VI,"Vientiane Province",,,"Vang Vieng",,Asia/Vientiane,0
-1655124,en,AS,Asia,LA,Laos,VI,"Vientiane Province",,,"Muang Phon-Hong",,Asia/Vientiane,0
 1655199,en,AS,Asia,LA,Laos,KH,"Khammouane Province",,,Thakhek,,Asia/Vientiane,0
 1655842,en,AS,Asia,LA,Laos,,,,,,,Asia/Vientiane,0
 1657981,en,AS,Asia,LA,Laos,XI,Xiangkhouang,,,"Ban Sixou",,Asia/Vientiane,0
@@ -8619,6 +8620,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1694861,en,AS,Asia,PH,Philippines,03,"Central Luzon",BUL,"Province of Bulacan",Paombong,,Asia/Manila,0
 1695097,en,AS,Asia,PH,Philippines,03,"Central Luzon",TAR,"Province of Tarlac",Paniqui,,Asia/Manila,0
 1695357,en,AS,Asia,PH,Philippines,01,Ilocos,PAN,"Province of Pangasinan",,,Asia/Manila,0
+1695392,en,AS,Asia,PH,Philippines,10,"Northern Mindanao",BUK,"Province of Bukidnon",Pangantucan,,Asia/Manila,0
 1695462,en,AS,Asia,PH,Philippines,03,"Central Luzon",BUL,"Province of Bulacan",Pandi,,Asia/Manila,0
 1695848,en,AS,Asia,PH,Philippines,03,"Central Luzon",PAM,"Province of Pampanga",,,Asia/Manila,0
 1695849,en,AS,Asia,PH,Philippines,11,"Davao Region",DAS,"Province of Davao del Sur",Pampanga,,Asia/Manila,0
@@ -8732,7 +8734,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1709003,en,AS,Asia,PH,Philippines,40,Calabarzon,CAV,"Province of Cavite",Kawit,,Asia/Manila,0
 1709168,en,AS,Asia,PH,Philippines,00,"Metro Manila",,,Caruhatan,,Asia/Manila,0
 1709632,en,AS,Asia,PH,Philippines,06,"Western Visayas",AKL,"Province of Aklan","Kalibo Town",,Asia/Manila,0
-1709635,en,AS,Asia,PH,Philippines,06,"Western Visayas",AKL,"Province of Aklan",Kalibo,,Asia/Manila,0
 1709968,en,AS,Asia,PH,Philippines,06,"Western Visayas",NEC,"Province of Negros Occidental",Kabankalan,,Asia/Manila,0
 1710103,en,AS,Asia,PH,Philippines,05,"Bicol Region",CAN,"Province of Camarines Norte","Jose Pañganiban",,Asia/Manila,0
 1710181,en,AS,Asia,PH,Philippines,10,"Northern Mindanao",MSC,"Province of Misamis Occidental",Jimenez,,Asia/Manila,0
@@ -8747,6 +8748,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1710519,en,AS,Asia,PH,Philippines,14,"Autonomous Region in Muslim Mindanao",BAS,"Province of Basilan",Isabela,,Asia/Manila,0
 1710544,en,AS,Asia,PH,Philippines,05,"Bicol Region",CAS,"Province of Camarines Sur","Iriga City",,Asia/Manila,0
 1710666,en,AS,Asia,PH,Philippines,08,"Eastern Visayas",LEY,"Province of Leyte",Inopacan,,Asia/Manila,0
+1710908,en,AS,Asia,PH,Philippines,07,"Central Visayas",BOH,Bohol,Inabanga,,Asia/Manila,0
 1710914,en,AS,Asia,PH,Philippines,40,Calabarzon,CAV,"Province of Cavite",Imus,,Asia/Manila,0
 1710932,en,AS,Asia,PH,Philippines,10,"Northern Mindanao",BUK,"Province of Bukidnon",Impasugong,,Asia/Manila,0
 1711005,en,AS,Asia,PH,Philippines,06,"Western Visayas",ILI,"Province of Iloilo","Iloilo City",,Asia/Manila,0
@@ -8789,6 +8791,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1716573,en,AS,Asia,PH,Philippines,06,"Western Visayas",ANT,"Province of Antique",Culasi,,Asia/Manila,0
 1716618,en,AS,Asia,PH,Philippines,40,Calabarzon,BTG,"Province of Batangas",Cuenca,,Asia/Manila,0
 1716771,en,AS,Asia,PH,Philippines,14,"Autonomous Region in Muslim Mindanao",,,"Cotabato City",,Asia/Manila,0
+1716849,en,AS,Asia,PH,Philippines,07,"Central Visayas",BOH,Bohol,Corella,,Asia/Manila,0
 1716924,en,AS,Asia,PH,Philippines,07,"Central Visayas",CEB,"Province of Cebu",Consolacion,,Asia/Manila,0
 1717051,en,AS,Asia,PH,Philippines,07,"Central Visayas",CEB,"Province of Cebu",Compostela,,Asia/Manila,0
 1717053,en,AS,Asia,PH,Philippines,11,"Davao Region",COM,"Davao de Oro",Compostela,,Asia/Manila,0
@@ -8813,6 +8816,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1720402,en,AS,Asia,PH,Philippines,08,"Eastern Visayas",WSA,"Province of Samar","Calbayog City",,Asia/Manila,0
 1720472,en,AS,Asia,PH,Philippines,40,Calabarzon,QUE,Quezon,Calauag,,Asia/Manila,0
 1720481,en,AS,Asia,PH,Philippines,41,Mimaropa,ROM,"Province of Romblon",Calatrava,,Asia/Manila,0
+1720508,en,AS,Asia,PH,Philippines,01,Ilocos,PAN,"Province of Pangasinan",Calasiao,,Asia/Manila,0
 1720561,en,AS,Asia,PH,Philippines,41,Mimaropa,MDR,"Oriental Mindoro",Calapan,,Asia/Manila,0
 1720681,en,AS,Asia,PH,Philippines,40,Calabarzon,LAG,"Province of Laguna",Calamba,,Asia/Manila,0
 1720840,en,AS,Asia,PH,Philippines,40,Calabarzon,RIZ,"Province of Rizal",Cainta,,Asia/Manila,0
@@ -10907,7 +10911,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1880219,en,AS,Asia,SG,Singapore,,,,,"Tai Seng",,Asia/Singapore,0
 1880251,en,AS,Asia,SG,Singapore,,,,,,,Asia/Singapore,0
 1880252,en,AS,Asia,SG,Singapore,,,,,Singapore,,Asia/Singapore,0
-1880271,en,AS,Asia,SG,Singapore,,,,,Serangoon,,Asia/Singapore,0
 1880283,en,AS,Asia,SG,Singapore,,,,,"Sembawang Estate",,Asia/Singapore,0
 1880348,en,AS,Asia,SG,Singapore,,,,,Punggol,,Asia/Singapore,0
 1880486,en,AS,Asia,SG,Singapore,,,,,Loyang,,Asia/Singapore,0
@@ -11543,7 +11546,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2088628,en,OC,Oceania,PG,"Papua New Guinea",,,,,,,Pacific/Port_Moresby,0
 2089470,en,OC,Oceania,PG,"Papua New Guinea",NSB,Bougainville,,,,,Pacific/Bougainville,0
 2089856,en,OC,Oceania,PG,"Papua New Guinea",NCD,"National Capital",,,,,Pacific/Port_Moresby,0
-2089915,en,OC,Oceania,PG,"Papua New Guinea",NCD,"National Capital",,,"Napa Napa",,Pacific/Port_Moresby,0
 2090015,en,OC,Oceania,PG,"Papua New Guinea",WHM,"Western Highlands Province",,,Nambaga,,Pacific/Port_Moresby,0
 2090020,en,OC,Oceania,PG,"Papua New Guinea",NIK,"New Ireland",,,Namatanai,,Pacific/Port_Moresby,0
 2090409,en,OC,Oceania,PG,"Papua New Guinea",WHM,"Western Highlands Province",,,"Mt Hagen",,Pacific/Port_Moresby,0
@@ -12022,6 +12024,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2145805,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,"Tuross Head",,Australia/Sydney,0
 2145872,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Tunbridge,,Australia/Hobart,0
 2145903,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Tully,,Australia/Brisbane,0
+2145936,en,OC,Oceania,AU,Australia,ACT,"Australian Capital Territory",,,Tuggeranong,,Australia/Sydney,0
 2145940,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Tuggerah,,Australia/Sydney,0
 2146108,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Traralgon,,Australia/Melbourne,0
 2146123,en,OC,Oceania,AU,Australia,VIC,Victoria,,,"Trafalgar South",,Australia/Melbourne,0
@@ -12111,7 +12114,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2152686,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Portarlington,,Australia/Melbourne,0
 2152740,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Pontville,,Australia/Hobart,0
 2152757,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Pomborneit,,Australia/Melbourne,0
-2152812,en,OC,Oceania,AU,Australia,QLD,Queensland,,,"Point Vernon",,Australia/Brisbane,0
 2152985,en,OC,Oceania,AU,Australia,SA,"South Australia",,,Pinnaroo,,Australia/Adelaide,0
 2153082,en,OC,Oceania,AU,Australia,QLD,Queensland,,,"Pine Mountain",,Australia/Brisbane,0
 2153168,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Pimpama,,Australia/Brisbane,0
@@ -12242,7 +12244,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2160645,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Landsborough,,Australia/Brisbane,0
 2160678,en,OC,Oceania,AU,Australia,SA,"South Australia",,,Lameroo,,Australia/Adelaide,0
 2160735,en,OC,Oceania,AU,Australia,VIC,Victoria,,,"Lakes Entrance",,Australia/Melbourne,0
-2160774,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,"Lake Albert",,Australia/Sydney,0
 2160782,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Laidley,,Australia/Brisbane,0
 2160914,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Kuttabul,,Australia/Brisbane,0
 2160944,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Kuranda,,Australia/Brisbane,0
@@ -12257,12 +12258,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2161314,en,OC,Oceania,NF,"Norfolk Island",,,,,Kingston,,Pacific/Norfolk,0
 2161335,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Kingscliff,,Australia/Sydney,0
 2161376,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Kingaroy,,Australia/Brisbane,0
+2161392,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Kincumber,,Australia/Sydney,0
 2161415,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Kilmore,,Australia/Melbourne,0
 2161427,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Killawarra,,Australia/Melbourne,0
 2161515,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Kiama,,Australia/Sydney,0
 2161587,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Kerang,,Australia/Melbourne,0
 2161658,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Kempsey,,Australia/Sydney,0
-2161678,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Kelso,,Australia/Sydney,0
 2161708,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Kellevie,,Australia/Hobart,0
 2161714,en,OC,Oceania,AU,Australia,SA,"South Australia",,,Keith,,Australia/Adelaide,0
 2161771,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Katunga,,Australia/Melbourne,0
@@ -12372,6 +12373,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2170260,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Corowa,,Australia/Sydney,0
 2170261,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Cororooke,,Australia/Melbourne,0
 2170312,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Corinella,,Australia/Melbourne,0
+2170366,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Coramba,,Australia/Sydney,0
 2170421,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Cooyal,,Australia/Sydney,0
 2170456,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Cooranbong,,Australia/Sydney,0
 2170577,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Cooma,,Australia/Sydney,0
@@ -12536,7 +12538,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2183272,en,OC,Oceania,NZ,"New Zealand",CAN,Canterbury,,,Rotherham,,Pacific/Auckland,0
 2183310,en,OC,Oceania,NZ,"New Zealand",CAN,Canterbury,,,Rolleston,,Pacific/Auckland,0
 2183355,en,OC,Oceania,NZ,"New Zealand",TAS,"Tasman District",,,Rockville,,Pacific/Auckland,0
-2183406,en,OC,Oceania,NZ,"New Zealand",TAS,"Tasman District",,,Riwaka,,Pacific/Auckland,0
 2183413,en,OC,Oceania,NZ,"New Zealand",AUK,Auckland,,,Riverhead,,Pacific/Auckland,0
 2183472,en,OC,Oceania,NZ,"New Zealand",TAS,"Tasman District",,,Richmond,,Pacific/Auckland,0
 2183526,en,OC,Oceania,NZ,"New Zealand",MBH,Marlborough,,,Renwick,,Pacific/Auckland,0
@@ -12669,7 +12670,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2212775,en,AF,Africa,LY,Libya,SB,"Sabha District",,,Sabha,,Africa/Tripoli,0
 2214846,en,AF,Africa,LY,Libya,MI,Misratah,,,Misratah,,Africa/Tripoli,0
 2215636,en,AF,Africa,LY,Libya,,,,,,,Africa/Tripoli,0
-2216432,en,AF,Africa,LY,Libya,JG,"Jabal al Gharbi",,,Jādū,,Africa/Tripoli,0
+2216432,en,AF,Africa,LY,Libya,JG,"Jabal al Gharbi",,,Jadu,,Africa/Tripoli,0
 2216885,en,AF,Africa,LY,Libya,ZA,"Az Zawiyah",,,Zawiya,,Africa/Tripoli,0
 2217440,en,AF,Africa,LY,Libya,NL,Nalut,,,Ghadames,,Africa/Tripoli,0
 2218970,en,AF,Africa,LY,Libya,ZA,"Az Zawiyah",,,"Az Zawiyah",,Africa/Tripoli,0
@@ -14188,7 +14189,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2517469,en,EU,Europe,ES,Spain,AN,Andalusia,GR,Granada,"Gabia la Grande",,Europe/Madrid,1
 2517482,en,EU,Europe,ES,Spain,AN,Andalusia,J,Jaen,"Fuerte del Rey",,Europe/Madrid,1
 2517498,en,EU,Europe,ES,Spain,EX,Extremadura,BA,Badajoz,"Fuentes de León",,Europe/Madrid,1
-2517500,en,EU,Europe,ES,Spain,AN,Andalusia,SE,Seville,"Fuentes de Andalucía",,Europe/Madrid,1
+2517500,en,EU,Europe,ES,Spain,AN,Andalusia,SE,Seville,Ukraine,,Europe/Madrid,1
 2517509,en,EU,Europe,ES,Spain,VC,Valencia,V,Valencia,Fuenterrobles,,Europe/Madrid,1
 2517512,en,EU,Europe,ES,Spain,AN,Andalusia,CO,Cordoba,"Fuente Palmera",,Europe/Madrid,1
 2517515,en,EU,Europe,ES,Spain,AN,Andalusia,CO,Cordoba,"Fuente Obejuna",,Europe/Madrid,1
@@ -15411,7 +15412,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2619807,en,EU,Europe,DK,Denmark,84,"Capital Region",,,Hornbæk,,Europe/Copenhagen,1
 2619844,en,EU,Europe,DK,Denmark,85,Zealand,,,Hørve,,Europe/Copenhagen,1
 2619856,en,EU,Europe,DK,Denmark,84,"Capital Region",,,Hørsholm,,Europe/Copenhagen,1
-2619859,en,EU,Europe,DK,Denmark,82,"Central Jutland",,,Hørning,,Europe/Copenhagen,1
+2619860,en,EU,Europe,DK,Denmark,82,"Central Jutland",,,Hørning,,Europe/Copenhagen,1
 2619882,en,EU,Europe,DK,Denmark,85,Zealand,,,Høng,,Europe/Copenhagen,1
 2619965,en,EU,Europe,DK,Denmark,85,Zealand,,,Højby,,Europe/Copenhagen,1
 2619970,en,EU,Europe,DK,Denmark,82,"Central Jutland",,,Højbjerg,,Europe/Copenhagen,1
@@ -15665,6 +15666,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2633653,en,EU,Europe,GB,"United Kingdom",ENG,England,HRY,Haringey,"Wood Green",,Europe/London,0
 2633655,en,EU,Europe,GB,"United Kingdom",ENG,England,RDB,Redbridge,"Woodford Green",,Europe/London,0
 2633656,en,EU,Europe,GB,"United Kingdom",ENG,England,SKP,Stockport,Woodford,,Europe/London,0
+2633658,en,EU,Europe,GB,"United Kingdom",ENG,England,RDB,Redbridge,Woodford,,Europe/London,0
 2633671,en,EU,Europe,GB,"United Kingdom",ENG,England,SFK,Suffolk,Woodbridge,,Europe/London,0
 2633675,en,EU,Europe,GB,"United Kingdom",ENG,England,BKM,Buckinghamshire,Wooburn,,Europe/London,0
 2633683,en,EU,Europe,GB,"United Kingdom",ENG,England,STS,Staffordshire,Wombourne,,Europe/London,0
@@ -15674,6 +15676,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2633692,en,EU,Europe,GB,"United Kingdom",ENG,England,WAR,Warwickshire,Wolston,,Europe/London,0
 2633694,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,Wolsingham,,Europe/London,0
 2633697,en,EU,Europe,GB,"United Kingdom",ENG,England,NNH,"North Northamptonshire",Wollaston,,Europe/London,0
+2633707,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,Woldingham,,Europe/London,0
 2633708,en,EU,Europe,GB,"United Kingdom",ENG,England,WOK,Wokingham,Wokingham,,Europe/London,0
 2633709,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,Woking,,Europe/London,0
 2633720,en,EU,Europe,GB,"United Kingdom",ENG,England,SOM,Somerset,Wiveliscombe,,Europe/London,0
@@ -15755,6 +15758,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2634130,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Whitchurch,,Europe/London,0
 2634135,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Whitby,,Europe/London,0
 2634137,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,WLN,"West Lothian",Whitburn,,Europe/London,0
+2634138,en,EU,Europe,GB,"United Kingdom",ENG,England,STY,"South Tyneside",Whitburn,,Europe/London,0
 2634155,en,EU,Europe,GB,"United Kingdom",ENG,England,GAT,Gateshead,Whickham,,Europe/London,0
 2634157,en,EU,Europe,GB,"United Kingdom",ENG,England,BNE,Barnet,Whetstone,,Europe/London,0
 2634161,en,EU,Europe,GB,"United Kingdom",ENG,England,SFK,Suffolk,Whepstead,,Europe/London,0
@@ -15769,6 +15773,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2634227,en,EU,Europe,GB,"United Kingdom",ENG,England,NBL,Northumberland,"West Woodburn",,Europe/London,0
 2634234,en,EU,Europe,GB,"United Kingdom",ENG,England,BRY,Bromley,"West Wickham",,Europe/London,0
 2634236,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,"West Wellow",,Europe/London,0
+2634251,en,EU,Europe,GB,"United Kingdom",ENG,England,THR,Thurrock,"West Thurrock",,Europe/London,0
 2634259,en,EU,Europe,GB,"United Kingdom",ENG,England,,,"West Suffolk",,Europe/London,0
 2634265,en,EU,Europe,GB,"United Kingdom",ENG,England,NTT,Nottinghamshire,"West Stockwith",,Europe/London,0
 2634308,en,EU,Europe,GB,"United Kingdom",ENG,England,NSM,"North Somerset",Weston-super-Mare,,Europe/London,0
@@ -15821,6 +15826,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2634608,en,EU,Europe,GB,"United Kingdom",ENG,England,ESS,Essex,Weeley,,Europe/London,0
 2634613,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire","Weedon Bec",,Europe/London,0
 2634614,en,EU,Europe,GB,"United Kingdom",ENG,England,BKM,Buckinghamshire,Weedon,,Europe/London,0
+2634616,en,EU,Europe,GB,"United Kingdom",ENG,England,WLV,Wolverhampton,Wednesfield,,Europe/London,0
 2634617,en,EU,Europe,GB,"United Kingdom",ENG,England,SAW,Sandwell,Wednesbury,,Europe/London,0
 2634618,en,EU,Europe,GB,"United Kingdom",ENG,England,SOM,Somerset,Wedmore,,Europe/London,0
 2634623,en,EU,Europe,GB,"United Kingdom",ENG,England,CHW,Cheshire,Weaverham,,Europe/London,0
@@ -15875,6 +15881,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2634869,en,EU,Europe,GB,"United Kingdom",ENG,England,OXF,Oxfordshire,Wallingford,,Europe/London,0
 2634873,en,EU,Europe,GB,"United Kingdom",ENG,England,WRL,Wirral,Wallasey,,Europe/London,0
 2634885,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SCB,"The Scottish Borders",Walkerburn,,Europe/London,0
+2634887,en,EU,Europe,GB,"United Kingdom",ENG,England,SLF,Salford,Walkden,,Europe/London,0
 2634888,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire",Walgrave,,Europe/London,0
 2634892,en,EU,Europe,GB,"United Kingdom",ENG,England,LIN,Lincolnshire,Walesby,,Europe/London,0
 2634895,en,EU,Europe,GB,"United Kingdom",WLS,Wales,,,,,Europe/London,0
@@ -15931,6 +15938,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2635496,en,EU,Europe,GB,"United Kingdom",WLS,Wales,RCT,"Rhondda Cynon Taf",Treorchy,,Europe/London,0
 2635518,en,EU,Europe,GB,"United Kingdom",WLS,Wales,MON,Monmouthshire,Trelleck,,Europe/London,0
 2635524,en,EU,Europe,GB,"United Kingdom",WLS,Wales,MTY,"Merthyr Tydfil",Treharris,,Europe/London,0
+2635531,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CGN,Ceredigion,Tregaron,,Europe/London,0
 2635547,en,EU,Europe,GB,"United Kingdom",WLS,Wales,BGW,"Blaenau Gwent",Tredegar,,Europe/London,0
 2635549,en,EU,Europe,GB,"United Kingdom",WLS,Wales,POW,Powys,Trecastle,,Europe/London,0
 2635563,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ELN,"East Lothian",Tranent,,Europe/London,0
@@ -16009,6 +16017,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2636120,en,EU,Europe,GB,"United Kingdom",ENG,England,SOM,Somerset,Templecombe,,Europe/London,0
 2636132,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,Teignmouth,,Europe/London,0
 2636147,en,EU,Europe,GB,"United Kingdom",ENG,England,RIC,"Richmond upon Thames",Teddington,,Europe/London,0
+2636150,en,EU,Europe,GB,"United Kingdom",ENG,England,CMA,Cumbria,Tebay,,Europe/London,0
 2636158,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,FIF,Fife,Tayport,,Europe/London,0
 2636159,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,AGB,"Argyll and Bute",Taynuilt,,Europe/London,0
 2636169,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,Tawstock,,Europe/London,0
@@ -16047,6 +16056,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2636407,en,EU,Europe,GB,"United Kingdom",ENG,England,LIN,Lincolnshire,Swayfield,,Europe/London,0
 2636408,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Sway,,Europe/London,0
 2636409,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,Swavesey,,Europe/London,0
+2636410,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",MUL,"Mid Ulster",Swatragh,,Europe/London,0
 2636428,en,EU,Europe,GB,"United Kingdom",ENG,England,DBY,Derbyshire,Swanwick,,Europe/London,0
 2636432,en,EU,Europe,GB,"United Kingdom",WLS,Wales,SWA,"City and County of Swansea",Swansea,,Europe/London,0
 2636433,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Swanscombe,,Europe/London,0
@@ -16336,6 +16346,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2638892,en,EU,Europe,GB,"United Kingdom",ENG,England,WAR,Warwickshire,"Ryton on Dunsmore",,Europe/London,0
 2638894,en,EU,Europe,GB,"United Kingdom",ENG,England,SHR,Shropshire,Ryton,,Europe/London,0
 2638902,en,EU,Europe,GB,"United Kingdom",ENG,England,RUT,Rutland,Ryhall,,Europe/London,0
+2638905,en,EU,Europe,GB,"United Kingdom",ENG,England,ESX,"East Sussex","Rye Harbour",,Europe/London,0
 2638909,en,EU,Europe,GB,"United Kingdom",ENG,England,ESX,"East Sussex",Rye,,Europe/London,0
 2638911,en,EU,Europe,GB,"United Kingdom",ENG,England,IOW,"Isle of Wight",Ryde,,Europe/London,0
 2638917,en,EU,Europe,GB,"United Kingdom",ENG,England,SHR,Shropshire,Ruyton-XI-Towns,,Europe/London,0
@@ -16423,6 +16434,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2639609,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,Rattery,,Europe/London,0
 2639611,en,EU,Europe,GB,"United Kingdom",ENG,England,WAR,Warwickshire,Ratley,,Europe/London,0
 2639627,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Raskelf,,Europe/London,0
+2639653,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",ANN,"Antrim and Newtownabbey",Randalstown,,Europe/London,0
 2639660,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Ramsgate,,Europe/London,0
 2639664,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,Ramsey,,Europe/London,0
 2639668,en,EU,Europe,GB,"United Kingdom",ENG,England,BUR,"Borough of Bury",Ramsbottom,,Europe/London,0
@@ -16431,6 +16443,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2639689,en,EU,Europe,GB,"United Kingdom",ENG,England,SHN,"St. Helens",Rainhill,,Europe/London,0
 2639690,en,EU,Europe,GB,"United Kingdom",ENG,England,HAV,Havering,Rainham,,Europe/London,0
 2639691,en,EU,Europe,GB,"United Kingdom",ENG,England,MDW,Medway,Rainham,,Europe/London,0
+2639700,en,EU,Europe,GB,"United Kingdom",WLS,Wales,MON,Monmouthshire,Raglan,,Europe/London,0
 2639710,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CRF,Cardiff,Radyr,,Europe/London,0
 2639715,en,EU,Europe,GB,"United Kingdom",ENG,England,BAS,"Bath and North East Somerset",Radstock,,Europe/London,0
 2639720,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,Radlett,,Europe/London,0
@@ -16487,6 +16500,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2640056,en,EU,Europe,GB,"United Kingdom",WLS,Wales,RCT,"Rhondda Cynon Taf",Porth,,Europe/London,0
 2640059,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",MEA,"Mid and East Antrim",Portglenone,,Europe/London,0
 2640060,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,IVC,Inverclyde,"Port Glasgow",,Europe/London,0
+2640067,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,AGB,"Argyll and Bute","Port Ellen",,Europe/London,0
 2640071,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Portchester,,Europe/London,0
 2640075,en,EU,Europe,GB,"United Kingdom",ENG,England,NSM,"North Somerset",Portbury,,Europe/London,0
 2640078,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",AND,"Ards and North Down",Portavogie,,Europe/London,0
@@ -16560,6 +16574,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2640503,en,EU,Europe,GB,"United Kingdom",WLS,Wales,PEM,Pembrokeshire,Pembroke,,Europe/London,0
 2640504,en,EU,Europe,GB,"United Kingdom",ENG,England,HEF,Herefordshire,Pembridge,,Europe/London,0
 2640506,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CMN,Carmarthenshire,Pembrey,,Europe/London,0
+2640507,en,EU,Europe,GB,"United Kingdom",ENG,England,WGN,Wigan,Pemberton,,Europe/London,0
 2640511,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,Pelton,,Europe/London,0
 2640526,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SCB,"The Scottish Borders",Peebles,,Europe/London,0
 2640553,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SCB,"The Scottish Borders",Paxton,,Europe/London,0
@@ -16567,6 +16582,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2640562,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire",Paulerspury,,Europe/London,0
 2640563,en,EU,Europe,GB,"United Kingdom",ENG,England,CON,Cornwall,Paul,,Europe/London,0
 2640565,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire",Pattishall,,Europe/London,0
+2640574,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EAY,"East Ayrshire",Patna,,Europe/London,0
 2640589,en,EU,Europe,GB,"United Kingdom",ENG,England,WSX,"West Sussex","Partridge Green",,Europe/London,0
 2640593,en,EU,Europe,GB,"United Kingdom",ENG,England,TRF,Trafford,Partington,,Europe/London,0
 2640601,en,EU,Europe,GB,"United Kingdom",ENG,England,BCP,"Bournemouth, Christchurch and Poole",Parkstone,,Europe/London,0
@@ -16604,6 +16620,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2640908,en,EU,Europe,GB,"United Kingdom",ENG,England,LAN,Lancashire,Ormskirk,,Europe/London,0
 2640910,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ELN,"East Lothian",Ormiston,,Europe/London,0
 2640923,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ORK,"Orkney Islands",,,Europe/London,0
+2640955,en,EU,Europe,GB,"United Kingdom",ENG,England,MAN,Manchester,Openshaw,,Europe/London,0
 2640966,en,EU,Europe,GB,"United Kingdom",ENG,England,WOR,Worcestershire,Ombersley,,Europe/London,0
 2640967,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",FMO,"Fermanagh and Omagh",Omagh,,Europe/London,0
 2640969,en,EU,Europe,GB,"United Kingdom",ENG,England,SGC,"South Gloucestershire",Olveston,,Europe/London,0
@@ -16682,6 +16699,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2641544,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ERW,"East Renfrewshire","Newton Mearns",,Europe/London,0
 2641546,en,EU,Europe,GB,"United Kingdom",ENG,England,SHN,"St. Helens",Newton-le-Willows,,Europe/London,0
 2641549,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ABD,Aberdeenshire,Newtonhill,,Europe/London,0
+2641551,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,MLN,Midlothian,Newtongrange,,Europe/London,0
 2641555,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,"Newton Aycliffe",,Europe/London,0
 2641557,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,"Newton Abbot",,Europe/London,0
 2641581,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",NMD,"Newry Mourne and Down",Newry,,Europe/London,0
@@ -16734,6 +16752,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2641795,en,EU,Europe,GB,"United Kingdom",ENG,England,CHW,Cheshire,Neston,,Europe/London,0
 2641810,en,EU,Europe,GB,"United Kingdom",ENG,England,LAN,Lancashire,Nelson,,Europe/London,0
 2641811,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CAY,"Caerphilly County Borough",Nelson,,Europe/London,0
+2641815,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ERW,"East Renfrewshire",Neilston,,Europe/London,0
 2641827,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,Needingworth,,Europe/London,0
 2641828,en,EU,Europe,GB,"United Kingdom",ENG,England,SFK,Suffolk,"Needham Market",,Europe/London,0
 2641843,en,EU,Europe,GB,"United Kingdom",WLS,Wales,NTL,"Neath Port Talbot",Neath,,Europe/London,0
@@ -16754,10 +16773,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2641996,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,MRY,Moray,Mulben,,Europe/London,0
 2641997,en,EU,Europe,GB,"United Kingdom",ENG,England,NFK,Norfolk,Mulbarton,,Europe/London,0
 2642001,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,HLD,Highland,"Muir of Ord",,Europe/London,0
+2642005,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EAY,"East Ayrshire",Muirkirk,,Europe/London,0
 2642054,en,EU,Europe,GB,"United Kingdom",ENG,England,SHR,Shropshire,"Much Wenlock",,Europe/London,0
 2642057,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,"Much Hadham",,Europe/London,0
 2642080,en,EU,Europe,GB,"United Kingdom",ENG,England,STS,Staffordshire,"Mow Cop",,Europe/London,0
 2642116,en,EU,Europe,GB,"United Kingdom",WLS,Wales,RCT,"Rhondda Cynon Taf","Mountain Ash",,Europe/London,0
+2642131,en,EU,Europe,GB,"United Kingdom",ENG,England,TAM,Tameside,"Mottram in Longdendale",,Europe/London,0
 2642135,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,NLK,"North Lanarkshire",Motherwell,,Europe/London,0
 2642136,en,EU,Europe,GB,"United Kingdom",ENG,England,DOR,Dorset,Motcombe,,Europe/London,0
 2642137,en,EU,Europe,GB,"United Kingdom",WLS,Wales,FLN,Flintshire,Mostyn,,Europe/London,0
@@ -16797,6 +16818,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2642465,en,EU,Europe,GB,"United Kingdom",ENG,England,MIK,"Milton Keynes","Milton Keynes",,Europe/London,0
 2642473,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,HLD,Highland,Milton,,Europe/London,0
 2642482,en,EU,Europe,GB,"United Kingdom",ENG,England,CMA,Cumbria,Milnthorpe,,Europe/London,0
+2642484,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EDU,"East Dunbartonshire",Milngavie,,Europe/London,0
 2642486,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,PKN,"Perth and Kinross",Milnathort,,Europe/London,0
 2642497,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ABE,"Aberdeen City",Milltimber,,Europe/London,0
 2642503,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,NAY,"North Ayrshire",Millport,,Europe/London,0
@@ -16975,6 +16997,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2643827,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,FIF,Fife,Lochgelly,,Europe/London,0
 2643837,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,STG,Stirling,Lochearnhead,,Europe/London,0
 2643842,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,HLD,Highland,Lochcarron,,Europe/London,0
+2643844,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ELS,"Western Isles",Lochboisdale,,Europe/London,0
 2643862,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,MLN,Midlothian,Loanhead,,Europe/London,0
 2643875,en,EU,Europe,GB,"United Kingdom",WLS,Wales,GWN,Gwynedd,Llwyngwril,,Europe/London,0
 2643895,en,EU,Europe,GB,"United Kingdom",WLS,Wales,POW,Powys,Llanymynech,,Europe/London,0
@@ -17023,6 +17046,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2644228,en,EU,Europe,GB,"United Kingdom",ENG,England,ESS,Essex,"Little Warley",,Europe/London,0
 2644230,en,EU,Europe,GB,"United Kingdom",ENG,England,NFK,Norfolk,"Little Walsingham",,Europe/London,0
 2644240,en,EU,Europe,GB,"United Kingdom",ENG,England,CMA,Cumbria,"Little Strickland",,Europe/London,0
+2644244,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Littlestone,,Europe/London,0
 2644268,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,Littleport,,Europe/London,0
 2644271,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,"Little Paxton",,Europe/London,0
 2644284,en,EU,Europe,GB,"United Kingdom",ENG,England,OXF,Oxfordshire,Littlemore,,Europe/London,0
@@ -17048,6 +17072,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2644487,en,EU,Europe,GB,"United Kingdom",ENG,England,LIN,Lincolnshire,Lincoln,,Europe/London,0
 2644491,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,Limpsfield,,Europe/London,0
 2644495,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,FIF,Fife,Limekilns,,Europe/London,0
+2644497,en,EU,Europe,GB,"United Kingdom",ENG,England,TWH,"Tower Hamlets",Limehouse,,Europe/London,0
 2644501,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",CCG,"Causeway Coast and Glens",Limavady,,Europe/London,0
 2644508,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,Lilley,,Europe/London,0
 2644516,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,Lifton,,Europe/London,0
@@ -17104,6 +17129,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2644914,en,EU,Europe,GB,"United Kingdom",ENG,England,SOM,Somerset,Langport,,Europe/London,0
 2644917,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,"Langley Park",,Europe/London,0
 2644927,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,DGY,"Dumfries and Galloway",Langholm,,Europe/London,0
+2644940,en,EU,Europe,GB,"United Kingdom",ENG,England,NSM,"North Somerset","Lower Langford",,Europe/London,0
 2644972,en,EU,Europe,GB,"United Kingdom",ENG,England,LAN,Lancashire,Lancaster,,Europe/London,0
 2644974,en,EU,Europe,GB,"United Kingdom",ENG,England,LAN,Lancashire,,,Europe/London,0
 2644975,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SLK,"South Lanarkshire",Lanarkshire,,Europe/London,0
@@ -17280,6 +17306,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2646406,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Hunmanby,,Europe/London,0
 2646411,en,EU,Europe,GB,"United Kingdom",ENG,England,WBK,"West Berkshire",Hungerford,,Europe/London,0
 2646436,en,EU,Europe,GB,"United Kingdom",ENG,England,,,Humberside,,Europe/London,0
+2646452,en,EU,Europe,GB,"United Kingdom",ENG,England,IOS,"Isles of Scilly","Hugh Town",,Europe/London,0
 2646458,en,EU,Europe,GB,"United Kingdom",ENG,England,KIR,Kirklees,Huddersfield,,Europe/London,0
 2646459,en,EU,Europe,GB,"United Kingdom",ENG,England,NTT,Nottinghamshire,Huthwaite,,Europe/London,0
 2646460,en,EU,Europe,GB,"United Kingdom",ENG,England,NTT,Nottinghamshire,"Hucknall Torkard",,Europe/London,0
@@ -17357,6 +17384,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2646998,en,EU,Europe,GB,"United Kingdom",ENG,England,WIL,Wiltshire,Heytesbury,,Europe/London,0
 2647007,en,EU,Europe,GB,"United Kingdom",ENG,England,NBL,Northumberland,Hexham,,Europe/London,0
 2647021,en,EU,Europe,GB,"United Kingdom",ENG,England,SND,Sunderland,Hetton-Le-Hole,,Europe/London,0
+2647026,en,EU,Europe,GB,"United Kingdom",ENG,England,WRL,Wirral,Heswall,,Europe/London,0
 2647027,en,EU,Europe,GB,"United Kingdom",ENG,England,HNS,Hounslow,Heston,,Europe/London,0
 2647034,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire",Hessle,,Europe/London,0
 2647036,en,EU,Europe,GB,"United Kingdom",ENG,England,YOR,York,Hessay,,Europe/London,0
@@ -17402,6 +17430,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2647260,en,EU,Europe,GB,"United Kingdom",ENG,England,DBY,Derbyshire,Hayfield,,Europe/London,0
 2647261,en,EU,Europe,GB,"United Kingdom",ENG,England,HIL,Hillingdon,Hayes,,Europe/London,0
 2647262,en,EU,Europe,GB,"United Kingdom",ENG,England,BRY,Bromley,Hayes,,Europe/London,0
+2647268,en,EU,Europe,GB,"United Kingdom",ENG,England,NLN,"North Lincolnshire",Haxey,,Europe/London,0
 2647269,en,EU,Europe,GB,"United Kingdom",ENG,England,YOR,York,Haxby,,Europe/London,0
 2647289,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Hawkinge,,Europe/London,0
 2647291,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Hawkhurst,,Europe/London,0
@@ -17462,6 +17491,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2647601,en,EU,Europe,GB,"United Kingdom",ENG,England,HAL,Halton,,,Europe/London,0
 2647604,en,EU,Europe,GB,"United Kingdom",ENG,England,ESS,Essex,Halstead,,Europe/London,0
 2647616,en,EU,Europe,GB,"United Kingdom",ENG,England,MDW,Medway,Halling,,Europe/London,0
+2647630,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,HLD,Highland,Halkirk,,Europe/London,0
 2647632,en,EU,Europe,GB,"United Kingdom",ENG,England,CLD,Calderdale,Halifax,,Europe/London,0
 2647637,en,EU,Europe,GB,"United Kingdom",ENG,England,KWL,Knowsley,Halewood,,Europe/London,0
 2647638,en,EU,Europe,GB,"United Kingdom",ENG,England,SFK,Suffolk,Halesworth,,Europe/London,0
@@ -17555,6 +17585,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2648363,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,Godstone,,Europe/London,0
 2648372,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,Godalming,,Europe/London,0
 2648378,en,EU,Europe,GB,"United Kingdom",ENG,England,SOM,Somerset,Goathurst,,Europe/London,0
+2648385,en,EU,Europe,GB,"United Kingdom",WLS,Wales,NTL,"Neath Port Talbot",Glyn-neath,,Europe/London,0
 2648396,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Glusburn,,Europe/London,0
 2648402,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,,,Europe/London,0
 2648404,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,Gloucester,,Europe/London,0
@@ -17574,6 +17605,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2648657,en,EU,Europe,GB,"United Kingdom",ENG,England,MDW,Medway,Gillingham,,Europe/London,0
 2648658,en,EU,Europe,GB,"United Kingdom",ENG,England,DOR,Dorset,Gillingham,,Europe/London,0
 2648675,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire",Gilberdyke,,Europe/London,0
+2648683,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ERW,"East Renfrewshire",Giffnock,,Europe/London,0
 2648728,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CAY,"Caerphilly County Borough",Gelligaer,,Europe/London,0
 2648738,en,EU,Europe,GB,"United Kingdom",ENG,England,NTT,Nottinghamshire,Gedling,,Europe/London,0
 2648759,en,EU,Europe,GB,"United Kingdom",ENG,England,WAR,Warwickshire,Gaydon,,Europe/London,0
@@ -17743,6 +17775,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2650386,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ELN,"East Lothian",,,Europe/London,0
 2650392,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ELN,"East Lothian","East Linton",,Europe/London,0
 2650396,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Eastleigh,,Europe/London,0
+2650397,en,EU,Europe,GB,"United Kingdom",ENG,England,NTT,Nottinghamshire,"East Leake",,Europe/London,0
 2650405,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SLK,"South Lanarkshire","East Kilbride",,Europe/London,0
 2650411,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,"East Horsley",,Europe/London,0
 2650422,en,EU,Europe,GB,"United Kingdom",ENG,England,BAS,"Bath and North East Somerset","East Harptree",,Europe/London,0
@@ -17762,6 +17795,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2650502,en,EU,Europe,GB,"United Kingdom",ENG,England,BNE,Barnet,"East Barnet",,Europe/London,0
 2650517,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Easingwold,,Europe/London,0
 2650518,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,Easington,,Europe/London,0
+2650519,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire",Easington,,Europe/London,0
 2650531,en,EU,Europe,GB,"United Kingdom",ENG,England,NTY,"North Tyneside",Earsdon,,Europe/London,0
 2650541,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SCB,"The Scottish Borders",Earlston,,Europe/London,0
 2650544,en,EU,Europe,GB,"United Kingdom",ENG,England,SFK,Suffolk,"Earl Soham",,Europe/London,0
@@ -17771,10 +17805,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2650557,en,EU,Europe,GB,"United Kingdom",ENG,England,NBL,Northumberland,Earle,,Europe/London,0
 2650563,en,EU,Europe,GB,"United Kingdom",ENG,England,LAN,Lancashire,Earby,,Europe/London,0
 2650567,en,EU,Europe,GB,"United Kingdom",ENG,England,EAL,Ealing,Ealing,,Europe/London,0
+2650572,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ERW,"East Renfrewshire",Eaglesham,,Europe/London,0
 2650586,en,EU,Europe,GB,"United Kingdom",ENG,England,SGC,"South Gloucestershire",Dyrham,,Europe/London,0
 2650588,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,Dymock,,Europe/London,0
 2650589,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Dymchurch,,Europe/London,0
 2650601,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ABE,"Aberdeen City",Dyce,,Europe/London,0
+2650605,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,Duxford,,Europe/London,0
 2650613,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,Dursley,,Europe/London,0
 2650628,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,Durham,,Europe/London,0
 2650629,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,,,Europe/London,0
@@ -17789,6 +17825,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2650709,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",CCG,"Causeway Coast and Glens",Dunloy,,Europe/London,0
 2650713,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,Dunkeswell,,Europe/London,0
 2650716,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,PKN,"Perth and Kinross",Dunkeld,,Europe/London,0
+2650726,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",CCG,"Causeway Coast and Glens",Dungiven,,Europe/London,0
 2650729,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",MUL,"Mid Ulster",Dungannon,,Europe/London,0
 2650732,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,FIF,Fife,Dunfermline,,Europe/London,0
 2650739,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",NMD,"Newry Mourne and Down",Dundrum,,Europe/London,0
@@ -17901,6 +17938,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2651621,en,EU,Europe,GB,"United Kingdom",ENG,England,BDG,"Barking and Dagenham",Dagenham,,Europe/London,0
 2651653,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CAY,"Caerphilly County Borough",Cwmcarn,,Europe/London,0
 2651654,en,EU,Europe,GB,"United Kingdom",WLS,Wales,TOF,"Torfaen County Borough",Cwmbran,,Europe/London,0
+2651676,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",CCG,"Causeway Coast and Glens",Cushendall,,Europe/London,0
 2651685,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EDH,Edinburgh,Currie,,Europe/London,0
 2651693,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Curdridge,,Europe/London,0
 2651695,en,EU,Europe,GB,"United Kingdom",ENG,England,DBY,Derbyshire,Curbar,,Europe/London,0
@@ -17926,6 +17964,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2651842,en,EU,Europe,GB,"United Kingdom",ENG,England,WOR,Worcestershire,Crowle,,Europe/London,0
 2651844,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,Crowhurst,,Europe/London,0
 2651852,en,EU,Europe,GB,"United Kingdom",ENG,England,ESX,"East Sussex",Crowborough,,Europe/London,0
+2651864,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",NMD,"Newry Mourne and Down",Crossmaglen,,Europe/London,0
 2651869,en,EU,Europe,GB,"United Kingdom",ENG,England,ESX,"East Sussex","Cross in Hand",,Europe/London,0
 2651872,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CMN,Carmarthenshire,"Cross Hands",,Europe/London,0
 2651876,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",NMD,"Newry Mourne and Down",Crossgar,,Europe/London,0
@@ -18053,6 +18092,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2652924,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",DRS,"Derry City and Strabane",Claudy,,Europe/London,0
 2652943,en,EU,Europe,GB,"United Kingdom",WLS,Wales,PEM,Pembrokeshire,"Clarbeston Road",,Europe/London,0
 2652949,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Clapham,,Europe/London,0
+2652951,en,EU,Europe,GB,"United Kingdom",ENG,England,LBH,Lambeth,Clapham,,Europe/London,0
 2652959,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",FMO,"Fermanagh and Omagh",Clanabogan,,Europe/London,0
 2652974,en,EU,Europe,GB,"United Kingdom",ENG,England,ESS,Essex,Clacton-on-Sea,,Europe/London,0
 2652975,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,CLK,Clackmannanshire,,,Europe/London,0
@@ -18257,6 +18297,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2654579,en,EU,Europe,GB,"United Kingdom",ENG,England,WOR,Worcestershire,Bromsgrove,,Europe/London,0
 2654588,en,EU,Europe,GB,"United Kingdom",ENG,England,BRY,Bromley,Bromley,,Europe/London,0
 2654596,en,EU,Europe,GB,"United Kingdom",ENG,England,WRL,Wirral,Bromborough,,Europe/London,0
+2654604,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,NAY,"North Ayrshire",Brodick,,Europe/London,0
 2654611,en,EU,Europe,GB,"United Kingdom",ENG,England,KIR,Kirklees,Brockholes,,Europe/London,0
 2654615,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Brockenhurst,,Europe/London,0
 2654623,en,EU,Europe,GB,"United Kingdom",ENG,England,DOR,Dorset,Broadwindsor,,Europe/London,0
@@ -18359,6 +18400,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2655312,en,EU,Europe,GB,"United Kingdom",ENG,England,SFK,Suffolk,Blythburgh,,Europe/London,0
 2655315,en,EU,Europe,GB,"United Kingdom",ENG,England,NBL,Northumberland,Blyth,,Europe/London,0
 2655323,en,EU,Europe,GB,"United Kingdom",ENG,England,SFT,Sefton,Blundellsands,,Europe/London,0
+2655329,en,EU,Europe,GB,"United Kingdom",ENG,England,WLL,Walsall,Bloxwich,,Europe/London,0
 2655331,en,EU,Europe,GB,"United Kingdom",ENG,England,OXF,Oxfordshire,Bloxham,,Europe/London,0
 2655344,en,EU,Europe,GB,"United Kingdom",ENG,England,SRY,Surrey,"Blindley Heath",,Europe/London,0
 2655348,en,EU,Europe,GB,"United Kingdom",ENG,England,OXF,Oxfordshire,Blewbury,,Europe/London,0
@@ -18370,9 +18412,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2655381,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire",Blakesley,,Europe/London,0
 2655384,en,EU,Europe,GB,"United Kingdom",ENG,England,NFK,Norfolk,Blakeney,,Europe/London,0
 2655385,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,Blakeney,,Europe/London,0
+2655394,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,PKN,"Perth and Kinross","Blairgowrie and Rattray",,Europe/London,0
 2655403,en,EU,Europe,GB,"United Kingdom",WLS,Wales,BGW,"Blaenau Gwent",Blaina,,Europe/London,0
 2655435,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Blackwater,,Europe/London,0
 2655436,en,EU,Europe,GB,"United Kingdom",ENG,England,IOW,"Isle of Wight",Blackwater,,Europe/London,0
+2655438,en,EU,Europe,GB,"United Kingdom",ENG,England,TWH,"Tower Hamlets",Blackwall,,Europe/London,0
 2655459,en,EU,Europe,GB,"United Kingdom",ENG,England,BPL,Blackpool,Blackpool,,Europe/London,0
 2655522,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ABD,Aberdeenshire,Blackburn,,Europe/London,0
 2655523,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,WLN,"West Lothian",Blackburn,,Europe/London,0
@@ -18458,6 +18502,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2656071,en,EU,Europe,GB,"United Kingdom",ENG,England,DEV,Devon,Beaworthy,,Europe/London,0
 2656073,en,EU,Europe,GB,"United Kingdom",WLS,Wales,AGY,Anglesey,Beaumaris,,Europe/London,0
 2656076,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,HLD,Highland,Beauly,,Europe/London,0
+2656083,en,EU,Europe,GB,"United Kingdom",WLS,Wales,BGW,"Blaenau Gwent",Beaufort,,Europe/London,0
 2656085,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Bearsted,,Europe/London,0
 2656086,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EDU,"East Dunbartonshire",Bearsden,,Europe/London,0
 2656100,en,EU,Europe,GB,"United Kingdom",ENG,England,DOR,Dorset,Beaminster,,Europe/London,0
@@ -18522,9 +18567,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2656483,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",NMD,"Newry Mourne and Down",Ballynahinch,,Europe/London,0
 2656488,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",CCG,"Causeway Coast and Glens",Ballymoney,,Europe/London,0
 2656490,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",MEA,"Mid and East Antrim",Ballymena,,Europe/London,0
+2656509,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",AND,"Ards and North Down",Ballygowan,,Europe/London,0
 2656528,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",ANN,"Antrim and Newtownabbey",Ballyclare,,Europe/London,0
 2656531,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",CCG,"Causeway Coast and Glens",Ballycastle,,Europe/London,0
 2656565,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ABD,Aberdeenshire,Ballater,,Europe/London,0
+2656567,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,SAY,"South Ayrshire",Ballantrae,,Europe/London,0
 2656584,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,STG,Stirling,Balfron,,Europe/London,0
 2656586,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EDH,Edinburgh,Balerno,,Europe/London,0
 2656594,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,Baldock,,Europe/London,0
@@ -18704,6 +18751,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2657916,en,EU,Europe,CH,Switzerland,GR,Grisons,,,Zizers,,Europe/Zurich,0
 2657919,en,EU,Europe,CH,Switzerland,BE,Bern,,,Zimmerwald,,Europe/Zurich,0
 2657920,en,EU,Europe,CH,Switzerland,GR,Grisons,,,Zillis,,Europe/Zurich,0
+2657921,en,EU,Europe,CH,Switzerland,TG,Thurgau,,,Zihlschlacht,,Europe/Zurich,0
 2657926,en,EU,Europe,CH,Switzerland,GR,Grisons,,,Zernez,,Europe/Zurich,0
 2657928,en,EU,Europe,CH,Switzerland,VS,Valais,,,Zermatt,,Europe/Zurich,0
 2657931,en,EU,Europe,CH,Switzerland,LU,Lucerne,,,Zell,,Europe/Zurich,0
@@ -22691,6 +22739,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2769258,en,EU,Europe,AT,Austria,1,Burgenland,,,Pamhagen,,Europe/Vienna,1
 2769324,en,EU,Europe,AT,Austria,7,Tyrol,,,Oetz,,Europe/Vienna,1
 2769342,en,EU,Europe,AT,Austria,4,"Upper Austria",,,Ottensheim,,Europe/Vienna,1
+2769347,en,EU,Europe,AT,Austria,3,"Lower Austria",,,Ottenschlag,,Europe/Vienna,1
 2769359,en,EU,Europe,AT,Austria,9,"State of Vienna",,,Ottakring,,Europe/Vienna,1
 2769384,en,EU,Europe,AT,Austria,4,"Upper Austria",,,Ostermiething,,Europe/Vienna,1
 2769396,en,EU,Europe,AT,Austria,1,Burgenland,,,Oslip,,Europe/Vienna,1
@@ -23962,7 +24011,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2807363,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Witten,,Europe/Berlin,1
 2807440,en,EU,Europe,DE,Germany,RP,Rheinland-Pfalz,,,Wissen,,Europe/Berlin,1
 2807465,en,EU,Europe,DE,Germany,MV,Mecklenburg-Vorpommern,,,Wismar,,Europe/Berlin,1
-2807467,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,Wismar,,Europe/Berlin,1
+2807467,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,"Klein Wismar",,Europe/Berlin,1
 2807484,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Wischhafen,,Europe/Berlin,1
 2807528,en,EU,Europe,DE,Germany,BY,Bavaria,,,Wirsberg,,Europe/Berlin,1
 2807594,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Wipperfürth,,Europe/Berlin,1
@@ -24083,7 +24132,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2811685,en,EU,Europe,DE,Germany,RP,Rheinland-Pfalz,,,Weitefeld,,Europe/Berlin,1
 2811698,en,EU,Europe,DE,Germany,SN,Saxony,,,Weißwasser,,Europe/Berlin,1
 2811837,en,EU,Europe,DE,Germany,RP,Rheinland-Pfalz,,,Weißenthurm,,Europe/Berlin,1
-2811852,en,EU,Europe,DE,Germany,BY,Bavaria,,,Weißenstadt,,Europe/Berlin,1
 2811860,en,EU,Europe,DE,Germany,TH,Thuringia,,,Weißensee,,Europe/Berlin,1
 2811879,en,EU,Europe,DE,Germany,BY,Bavaria,,,Weißenhorn,,Europe/Berlin,1
 2811899,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,Weißenfels,,Europe/Berlin,1
@@ -24184,7 +24232,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2815076,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Waldenbuch,,Europe/Berlin,1
 2815101,en,EU,Europe,DE,Germany,HE,Hesse,,,Waldeck,,Europe/Berlin,1
 2815115,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Walddorfhäslach,,Europe/Berlin,1
-2815127,en,EU,Europe,DE,Germany,BY,Bavaria,,,Waldbüttelbrunn,,Europe/Berlin,1
 2815128,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Waldburg,,Europe/Berlin,1
 2815132,en,EU,Europe,DE,Germany,BY,Bavaria,,,Waldbrunn,,Europe/Berlin,1
 2815137,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Waldbröl,,Europe/Berlin,1
@@ -25259,7 +25306,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2861671,en,EU,Europe,DE,Germany,SN,Saxony,,,Nünchritz,,Europe/Berlin,1
 2861677,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Nümbrecht,,Europe/Berlin,1
 2861695,en,EU,Europe,DE,Germany,BY,Bavaria,,,Nüdlingen,,Europe/Berlin,1
-2861721,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Notzingen,,Europe/Berlin,1
 2861733,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Nottuln,,Europe/Berlin,1
 2861743,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Nottensdorf,,Europe/Berlin,1
 2861788,en,EU,Europe,DE,Germany,SN,Saxony,,,Nossen,,Europe/Berlin,1
@@ -27518,6 +27564,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2953410,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,"Bad Lauterberg im Harz",,Europe/Berlin,1
 2953412,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,"Bad Lauchstädt",,Europe/Berlin,1
 2953413,en,EU,Europe,DE,Germany,TH,Thuringia,,,"Bad Langensalza",,Europe/Berlin,1
+2953414,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,"Bad Krozingen",,Europe/Berlin,1
 2953416,en,EU,Europe,DE,Germany,RP,Rheinland-Pfalz,,,"Bad Kreuznach",,Europe/Berlin,1
 2953417,en,EU,Europe,DE,Germany,TH,Thuringia,,,"Bad Köstritz",,Europe/Berlin,1
 2953419,en,EU,Europe,DE,Germany,HE,Hesse,,,"Bad König",,Europe/Berlin,1
@@ -27752,6 +27799,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2960668,en,EU,Europe,LU,Luxembourg,ME,Mersch,,,Cruchten,,Europe/Luxembourg,1
 2960673,en,EU,Europe,LU,Luxembourg,LU,Luxembourg,,,Contern,,Europe/Luxembourg,1
 2960680,en,EU,Europe,LU,Luxembourg,ME,Mersch,,,Colmar,,Europe/Luxembourg,1
+2960684,en,EU,Europe,LU,Luxembourg,CL,Clervaux,,,Clervaux,,Europe/Luxembourg,1
 2960696,en,EU,Europe,LU,Luxembourg,CA,Capellen,,,,,Europe/Luxembourg,1
 2960697,en,EU,Europe,LU,Luxembourg,CA,Capellen,,,Capellen,,Europe/Luxembourg,1
 2960718,en,EU,Europe,LU,Luxembourg,ME,Mersch,,,Brouch,,Europe/Luxembourg,1
@@ -32611,6 +32659,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3008719,en,EU,Europe,FR,France,NAQ,"New Aquitaine",64,Pyrénées-Atlantiques,Lahonce,,Europe/Paris,1
 3008725,en,EU,Europe,FR,France,OCC,Occitanie,32,Gers,Lahitte,,Europe/Paris,1
 3008756,en,EU,Europe,FR,France,NOR,Normandy,76,Seine-Maritime,"La Haye",,Europe/Paris,1
+3008765,en,EU,Europe,FR,France,CVL,"Centre-Val de Loire",28,Eure-et-Loir,"La Haye",,Europe/Paris,1
 3008776,en,EU,Europe,FR,France,IDF,Île-de-France,77,Seine-et-Marne,"La Haute-Maison",,Europe/Paris,1
 3008800,en,EU,Europe,FR,France,NOR,Normandy,76,Seine-Maritime,"La Hallotière",,Europe/Paris,1
 3008809,en,EU,Europe,FR,France,PDL,"Pays de la Loire",44,Loire-Atlantique,"La Haie-Fouassière",,Europe/Paris,1
@@ -32960,6 +33009,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3013082,en,EU,Europe,FR,France,HDF,Hauts-de-France,59,North,Houplines,,Europe/Paris,1
 3013083,en,EU,Europe,FR,France,HDF,Hauts-de-France,59,North,Houplin-Ancoisne,,Europe/Paris,1
 3013089,en,EU,Europe,FR,France,HDF,Hauts-de-France,62,Pas-de-Calais,Houlle,,Europe/Paris,1
+3013091,en,EU,Europe,FR,France,NOR,Normandy,14,Calvados,Houlgate,,Europe/Paris,1
 3013097,en,EU,Europe,FR,France,IDF,Île-de-France,78,Yvelines,Houilles,,Europe/Paris,1
 3013115,en,EU,Europe,FR,France,GES,"Grand Est",54,"Meurthe et Moselle",Houdemont,,Europe/Paris,1
 3013119,en,EU,Europe,FR,France,HDF,Hauts-de-France,60,Oise,Houdancourt,,Europe/Paris,1
@@ -35851,7 +35901,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3036878,en,EU,Europe,FR,France,NAQ,"New Aquitaine",19,"Corrèze department",Arnac-Pompadour,,Europe/Paris,1
 3036881,en,EU,Europe,FR,France,ARA,Rhône-Alpes,74,"Upper Savoy",Armoy,,Europe/Paris,1
 3036893,en,EU,Europe,FR,France,OCC,Occitanie,11,Aude,Armissan,,Europe/Paris,1
-3036897,en,EU,Europe,FR,France,BFC,Bourgogne,58,Nièvre,Armes,,Europe/Paris,1
 3036903,en,EU,Europe,FR,France,HDF,Hauts-de-France,59,North,Armentières,,Europe/Paris,1
 3036913,en,EU,Europe,FR,France,HDF,Hauts-de-France,59,North,Armbouts-Cappel,,Europe/Paris,1
 3036916,en,EU,Europe,FR,France,HDF,Hauts-de-France,60,Oise,Armancourt,,Europe/Paris,1
@@ -42435,7 +42484,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3182362,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Bardonecchia,,Europe/Rome,1
 3182364,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Bardolino,,Europe/Rome,1
 3182366,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PR,"Province of Parma",Bardi,,Europe/Rome,1
-3182378,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"Ar Cenisio",,Europe/Rome,1
+3182378,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"Bar Cenisio",,Europe/Rome,1
 3182390,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Barberino di Mugello",,Europe/Rome,1
 3182392,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",PN,"Province of Pordenone",Barbeano,,Europe/Rome,1
 3182410,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Baranzate,,Europe/Rome,1
@@ -43396,6 +43445,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3315320,en,EU,Europe,IE,Ireland,L,Leinster,,,"Harold's Cross",,Europe/Dublin,1
 3315324,en,EU,Europe,IE,Ireland,L,Leinster,,,Phibsborough,,Europe/Dublin,1
 3315349,en,EU,Europe,LI,Liechtenstein,01,Balzers,,,Mäls,,Europe/Vaduz,0
+3315359,en,EU,Europe,LI,Liechtenstein,11,Vaduz,,,Ebaholz,,Europe/Vaduz,0
 3315825,en,EU,Europe,IE,Ireland,C,Connacht,MO,"County Mayo",Park,,Europe/Dublin,1
 3319179,en,EU,Europe,NL,"The Netherlands",FL,Flevoland,,,,,Europe/Amsterdam,1
 3319467,en,EU,Europe,AT,Austria,7,Tyrol,,,Hochgurgl,,Europe/Vienna,1
@@ -44202,6 +44252,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3397055,en,SA,"South America",BR,Brazil,PE,Pernambuco,,,Jupi,,America/Recife,0
 3397063,en,SA,"South America",BR,Brazil,AL,Alagoas,,,Junqueiro,,America/Maceio,0
 3397068,en,SA,"South America",BR,Brazil,AL,Alagoas,,,Jundiá,,America/Maceio,0
+3397108,en,SA,"South America",BR,Brazil,RN,"Rio Grande do Norte",,,Jucurutu,,America/Fortaleza,0
 3397115,en,SA,"South America",BR,Brazil,PE,Pernambuco,,,Jucati,,America/Recife,0
 3397119,en,SA,"South America",BR,Brazil,CE,Ceará,,,Jucás,,America/Fortaleza,0
 3397147,en,SA,"South America",BR,Brazil,CE,Ceará,,,"Juazeiro do Norte",,America/Fortaleza,0
@@ -44949,6 +45000,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3434261,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"El Talar",,America/Argentina/Buenos_Aires,0
 3434291,en,SA,"South America",AR,Argentina,N,Misiones,,,"El Soberbio",,America/Argentina/Cordoba,0
 3434509,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"El Palomar",,America/Argentina/Buenos_Aires,0
+3434674,en,SA,"South America",AR,Argentina,N,Misiones,,,Eldorado,,America/Argentina/Cordoba,0
 3434731,en,SA,"South America",AR,Argentina,P,Formosa,,,"El Colorado",,America/Argentina/Cordoba,0
 3434995,en,SA,"South America",AR,Argentina,N,Misiones,,,"Dos de Mayo",,America/Argentina/Cordoba,0
 3435010,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"Don Torcuato",,America/Argentina/Buenos_Aires,0
@@ -45021,7 +45073,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3436199,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,Azul,,America/Argentina/Buenos_Aires,0
 3436200,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,Azucena,,America/Argentina/Buenos_Aires,0
 3436221,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,Ayacucho,,America/Argentina/Buenos_Aires,0
-3436230,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,Avellaneda,,America/Argentina/Buenos_Aires,0
+3436230,en,SA,"South America",AR,Argentina,S,"Santa Fe",,,Avellaneda,,America/Argentina/Buenos_Aires,0
 3436287,en,SA,"South America",AR,Argentina,N,Misiones,,,"Aristóbulo del Valle",,America/Argentina/Cordoba,0
 3436311,en,SA,"South America",AR,Argentina,N,Misiones,,,Apóstoles,,America/Argentina/Cordoba,0
 3436327,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"Antonio Carboni",,America/Argentina/Buenos_Aires,0
@@ -47819,7 +47871,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3514868,en,NA,"North America",MX,Mexico,TAM,Tamaulipas,,,"Valle Hermoso",,America/Monterrey,0
 3514876,en,NA,"North America",MX,Mexico,YUC,Yucatán,,,Valladolid,,America/Merida,0
 3514906,en,NA,"North America",MX,Mexico,VER,Veracruz,,,"Úrsulo Galván",,America/Mexico_City,0
-3514916,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Unión Hidalgo",,America/Mexico_City,0
 3514929,en,NA,"North America",MX,Mexico,YUC,Yucatán,,,Umán,,America/Merida,0
 3514994,en,NA,"North America",MX,Mexico,CHP,Chiapas,,,Tuzantán,,America/Mexico_City,0
 3515001,en,NA,"North America",MX,Mexico,CHP,Chiapas,,,"Tuxtla Gutiérrez",,America/Merida,0
@@ -47965,7 +48016,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3518692,en,NA,"North America",MX,Mexico,QUE,Querétaro,,,"San Juan del Río",,America/Mexico_City,0
 3518723,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"San Juan Bautista Tuxtla",,America/Mexico_City,0
 3518732,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Ánimas Trujano",,America/Mexico_City,0
-3518824,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"San José Tenango",,America/Mexico_City,0
 3519062,en,NA,"North America",MX,Mexico,CMX,"Mexico City",,,"San Jerónimo Lídice",,America/Mexico_City,0
 3519214,en,NA,"North America",MX,Mexico,MEX,México,,,"San Gregorio Cuautzingo",,America/Mexico_City,0
 3519230,en,NA,"North America",MX,Mexico,PUE,Puebla,,,"San Gabriel Chilac",,America/Mexico_City,0
@@ -48034,7 +48084,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3522658,en,NA,"North America",MX,Mexico,HID,Hidalgo,,,"Nopala de Villagran",,America/Mexico_City,0
 3522696,en,NA,"North America",MX,Mexico,VER,Veracruz,,,Nogales,,America/Mexico_City,0
 3522732,en,NA,"North America",MX,Mexico,MEX,México,,,"Ciudad Nicolás Romero",,America/Mexico_City,0
-3522788,en,NA,"North America",MX,Mexico,VER,Veracruz,,,Nautla,,America/Mexico_City,0
 3522790,en,NA,"North America",MX,Mexico,MEX,México,,,Naucalpan,,America/Mexico_City,0
 3522795,en,NA,"North America",MX,Mexico,TLA,Tlaxcala,,,Natívitas,,America/Mexico_City,0
 3522804,en,NA,"North America",MX,Mexico,VER,Veracruz,,,Naranjos,,America/Mexico_City,0
@@ -48222,6 +48271,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3531200,en,NA,"North America",MX,Mexico,MEX,México,,,Chalco,,America/Mexico_City,0
 3531321,en,NA,"North America",MX,Mexico,VER,Veracruz,,,"Cerro Azul",,America/Mexico_City,0
 3531391,en,NA,"North America",MX,Mexico,VER,Veracruz,,,"Cazones de Herrera",,America/Mexico_City,0
+3531416,en,NA,"North America",MX,Mexico,VER,Veracruz,,,Catemaco,,America/Mexico_City,0
 3531434,en,NA,"North America",MX,Mexico,VER,Veracruz,,,"Castillo de Teayo",,America/Mexico_City,0
 3531556,en,NA,"North America",MX,Mexico,VER,Veracruz,,,"Carlos A. Carrillo",,America/Mexico_City,0
 3531570,en,NA,"North America",MX,Mexico,HID,Hidalgo,,,Cardonal,,America/Mexico_City,0
@@ -48893,6 +48943,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3632100,en,SA,"South America",VE,Venezuela,N,Monagas,,,,,America/Caracas,0
 3632191,en,SA,"South America",VE,Venezuela,M,Miranda,,,,,America/Caracas,0
 3632198,en,SA,"South America",VE,Venezuela,G,Carabobo,,,Miranda,,America/Caracas,0
+3632306,en,SA,"South America",VE,Venezuela,L,Mérida,,,,,America/Caracas,0
 3632308,en,SA,"South America",VE,Venezuela,L,Mérida,,,Mérida,,America/Caracas,0
 3632399,en,SA,"South America",VE,Venezuela,V,Zulia,,,"Mene Grande",,America/Caracas,0
 3632539,en,SA,"South America",VE,Venezuela,M,Miranda,,,Maturín,,America/Caracas,0
@@ -49380,6 +49431,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3673424,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Pacho,,America/Bogota,0
 3673637,en,SA,"South America",CO,Colombia,SAN,"Santander Department",,,Oiba,,America/Bogota,0
 3673662,en,SA,"South America",CO,Colombia,NSA,"Norte de Santander Department",,,Ocaña,,America/Bogota,0
+3673826,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Nocaima,,America/Bogota,0
 3673899,en,SA,"South America",CO,Colombia,HUI,"Huila Department",,,Neiva,,America/Bogota,0
 3673902,en,SA,"South America",CO,Colombia,CAL,"Caldas Department",,,Neira,,America/Bogota,0
 3674012,en,SA,"South America",CO,Colombia,HUI,"Huila Department",,,Nátaga,,America/Bogota,0
@@ -50502,6 +50554,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3866415,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,Alberti,,America/Argentina/Buenos_Aires,0
 3866425,en,SA,"South America",AR,Argentina,J,"San Juan",,,Albardón,,America/Argentina/San_Juan,0
 3866496,en,SA,"South America",AR,Argentina,T,Tucuman,,,Aguilares,,America/Argentina/Tucuman,0
+3866923,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"Adolfo Gonzales Chaves",,America/Argentina/Buenos_Aires,0
 3866935,en,SA,"South America",AR,Argentina,X,Cordoba,,,"Adelia María",,America/Argentina/Cordoba,0
 3866959,en,SA,"South America",AR,Argentina,X,Cordoba,,,Achiras,,America/Argentina/Cordoba,0
 3866965,en,SA,"South America",AR,Argentina,T,Tucuman,,,Acheral,,America/Argentina/Tucuman,0
@@ -56049,6 +56102,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4502641,en,NA,"North America",US,"United States",NJ,"New Jersey",,,Lawnside,504,America/New_York,0
 4502687,en,NA,"North America",US,"United States",NJ,"New Jersey",,,Lindenwold,504,America/New_York,0
 4502690,en,NA,"North America",US,"United States",NJ,"New Jersey",,,Linwood,504,America/New_York,0
+4502710,en,NA,"North America",US,"United States",NJ,"New Jersey",,,"Little Egg Harbor Township",501,America/New_York,0
 4502820,en,NA,"North America",US,"United States",NJ,"New Jersey",,,Lumberton,504,America/New_York,0
 4502833,en,NA,"North America",US,"United States",NJ,"New Jersey",,,Magnolia,504,America/New_York,0
 4502866,en,NA,"North America",US,"United States",NJ,"New Jersey",,,Manahawkin,501,America/New_York,0
@@ -57489,6 +57543,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4667282,en,NA,"North America",US,"United States",TN,Tennessee,,,"White House",659,America/Chicago,0
 4667339,en,NA,"North America",US,"United States",TN,Tennessee,,,"White Pine",557,America/New_York,0
 4667473,en,NA,"North America",US,"United States",TN,Tennessee,,,"Whites Creek",659,America/Chicago,0
+4667505,en,NA,"North America",US,"United States",TN,Tennessee,,,Whitesburg,531,America/New_York,0
 4667530,en,NA,"North America",US,"United States",TN,Tennessee,,,Whiteville,640,America/Chicago,0
 4667553,en,NA,"North America",US,"United States",TN,Tennessee,,,Whitleyville,659,America/Chicago,0
 4667608,en,NA,"North America",US,"United States",TN,Tennessee,,,Whitwell,575,America/Chicago,0
@@ -61441,6 +61496,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4985180,en,NA,"North America",US,"United States",MI,Michigan,,,"Bay City",513,America/Detroit,0
 4985208,en,NA,"North America",US,"United States",MI,Michigan,,,"Bay Port",513,America/Detroit,0
 4985309,en,NA,"North America",US,"United States",MI,Michigan,,,"Bear Lake",540,America/Detroit,0
+4985465,en,NA,"North America",US,"United States",MI,Michigan,,,Beaverton,513,America/Detroit,0
 4985552,en,NA,"North America",US,"United States",MI,Michigan,,,Belding,563,America/Detroit,0
 4985583,en,NA,"North America",US,"United States",MI,Michigan,,,Bellaire,540,America/Detroit,0
 4985601,en,NA,"North America",US,"United States",MI,Michigan,,,Belleville,505,America/Detroit,0
@@ -61479,6 +61535,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4987287,en,NA,"North America",US,"United States",MI,Michigan,,,Buckley,540,America/Detroit,0
 4987420,en,NA,"North America",US,"United States",MI,Michigan,,,Burnips,563,America/Detroit,0
 4987482,en,NA,"North America",US,"United States",MI,Michigan,,,Burton,513,America/Detroit,0
+4987586,en,NA,"North America",US,"United States",MI,Michigan,,,Byron,513,America/Detroit,0
 4987587,en,NA,"North America",US,"United States",MI,Michigan,,,"Byron Center",563,America/Detroit,0
 4987617,en,NA,"North America",US,"United States",MI,Michigan,,,Cadillac,540,America/Detroit,0
 4987661,en,NA,"North America",US,"United States",MI,Michigan,,,Caledonia,563,America/Detroit,0
@@ -61549,6 +61606,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4990327,en,NA,"North America",US,"United States",MI,Michigan,,,Dansville,551,America/Detroit,0
 4990400,en,NA,"North America",US,"United States",MI,Michigan,,,Davison,513,America/Detroit,0
 4990404,en,NA,"North America",US,"United States",MI,Michigan,,,Davisburg,505,America/Detroit,0
+4990456,en,NA,"North America",US,"United States",MI,Michigan,,,"De Tour Village",540,America/Detroit,0
 4990469,en,NA,"North America",US,"United States",MI,Michigan,,,DeWitt,551,America/Detroit,0
 4990510,en,NA,"North America",US,"United States",MI,Michigan,,,Dearborn,505,America/Detroit,0
 4990512,en,NA,"North America",US,"United States",MI,Michigan,,,"Dearborn Heights",505,America/Detroit,0
@@ -64338,6 +64396,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5131757,en,NA,"North America",US,"United States",NY,"New York",,,Pleasantville,501,America/New_York,0
 5131803,en,NA,"North America",US,"United States",NY,"New York",,,Plymouth,555,America/New_York,0
 5131826,en,NA,"North America",US,"United States",NY,"New York",,,Poestenkill,532,America/New_York,0
+5131860,en,NA,"North America",US,"United States",NY,"New York",,,Poland,526,America/New_York,0
 5131894,en,NA,"North America",US,"United States",NY,"New York",,,Pomona,501,America/New_York,0
 5132001,en,NA,"North America",US,"United States",NY,"New York",,,"Port Byron",555,America/New_York,0
 5132002,en,NA,"North America",US,"United States",NY,"New York",,,"Port Chester",501,America/New_York,0
@@ -66902,6 +66961,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5301641,en,NA,"North America",US,"United States",AZ,Arizona,,,Laveen,753,America/Phoenix,0
 5302053,en,NA,"North America",US,"United States",AZ,Arizona,,,"Litchfield Park",753,America/Phoenix,0
 5303304,en,NA,"North America",US,"United States",AZ,Arizona,,,Lukachukai,790,America/Denver,0
+5303422,en,NA,"North America",US,"United States",AZ,Arizona,,,"Madera Canyon",789,America/Phoenix,0
 5303643,en,NA,"North America",US,"United States",AZ,Arizona,,,"Many Farms",753,America/Denver,0
 5303705,en,NA,"North America",US,"United States",AZ,Arizona,,,Marana,789,America/Phoenix,0
 5303752,en,NA,"North America",US,"United States",AZ,Arizona,,,Maricopa,753,America/Phoenix,0
@@ -67646,7 +67706,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5387459,en,NA,"North America",US,"United States",CA,California,,,Richvale,868,America/Los_Angeles,0
 5387494,en,NA,"North America",US,"United States",CA,California,,,Ridgecrest,803,America/Los_Angeles,0
 5387687,en,NA,"North America",US,"United States",CA,California,,,"Rio Linda",862,America/Los_Angeles,0
-5387702,en,NA,"North America",US,"United States",CA,California,,,"Rio Oso",862,America/Los_Angeles,0
 5387749,en,NA,"North America",US,"United States",CA,California,,,Ripon,862,America/Los_Angeles,0
 5387844,en,NA,"North America",US,"United States",CA,California,,,Riverbank,862,America/Los_Angeles,0
 5387854,en,NA,"North America",US,"United States",CA,California,,,Riverdale,866,America/Los_Angeles,0
@@ -67797,7 +67856,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5403297,en,NA,"North America",US,"United States",CA,California,,,Traver,866,America/Los_Angeles,0
 5403312,en,NA,"North America",US,"United States",CA,California,,,"Travis AFB",862,America/Los_Angeles,0
 5403604,en,NA,"North America",US,"United States",CA,California,,,Trona,803,America/Los_Angeles,0
-5403662,en,NA,"North America",US,"United States",CA,California,,,Trowbridge,862,America/Los_Angeles,0
 5403676,en,NA,"North America",US,"United States",CA,California,,,Truckee,862,America/Los_Angeles,0
 5403767,en,NA,"North America",US,"United States",CA,California,,,Tujunga,803,America/Los_Angeles,0
 5403783,en,NA,"North America",US,"United States",CA,California,,,Tulare,866,America/Los_Angeles,0
@@ -68793,6 +68851,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5592949,en,NA,"North America",US,"United States",ID,Idaho,,,Fernwood,881,America/Los_Angeles,0
 5592973,en,NA,"North America",US,"United States",ID,Idaho,,,Filer,760,America/Boise,0
 5593068,en,NA,"North America",US,"United States",ID,Idaho,,,Firth,758,America/Boise,0
+5593217,en,NA,"North America",US,"United States",ID,Idaho,,,"Flat Rock",758,America/Boise,0
 5593399,en,NA,"North America",US,"United States",ID,Idaho,,,"Fort Hall",758,America/Boise,0
 5593543,en,NA,"North America",US,"United States",ID,Idaho,,,Franklin,758,America/Boise,0
 5593584,en,NA,"North America",US,"United States",ID,Idaho,,,Freedom,758,America/Denver,0
@@ -71441,7 +71500,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6111696,en,NA,"North America",CA,Canada,QC,Quebec,,,Port-Cartier,,America/Toronto,0
 6111701,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Port Clements",,America/Vancouver,0
 6111704,en,NA,"North America",CA,Canada,ON,Ontario,,,"Port Colborne",,America/Toronto,0
-6111706,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Port Coquitlam",,America/Vancouver,0
+6111706,en,NA,"North America",CA,Canada,BC,"British Columbia",,,PoCo,,America/Vancouver,0
 6111731,en,NA,"North America",CA,Canada,ON,Ontario,,,"Port Dover",,America/Toronto,0
 6111745,en,NA,"North America",CA,Canada,ON,Ontario,,,"Port Elgin",,America/Toronto,0
 6111831,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Porters Lake",,America/Halifax,0
@@ -73625,6 +73684,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6556315,en,EU,Europe,DE,Germany,BY,Bavaria,,,Höhenkirchen-Siegertsbrunn,,Europe/Berlin,1
 6556321,en,EU,Europe,DE,Germany,BY,Bavaria,,,Ottobrunn,,Europe/Berlin,1
 6557002,en,EU,Europe,DE,Germany,BY,Bavaria,,,Theres,,Europe/Berlin,1
+6557106,en,EU,Europe,DE,Germany,BY,Bavaria,,,Waldbüttelbrunn,,Europe/Berlin,1
 6557473,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,"Leer (Ostfriesland)",,Europe/Berlin,1
 6557479,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,"Dissen am Teutoburger Wald",,Europe/Berlin,1
 6557617,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,"Schloß Holte-Stukenbrock",,Europe/Berlin,1
@@ -73641,6 +73701,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6558184,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Überlingen,,Europe/Berlin,1
 6558269,en,EU,Europe,DE,Germany,BY,Bavaria,,,Grafenwöhr,,Europe/Berlin,1
 6558313,en,EU,Europe,DE,Germany,BY,Bavaria,,,Münchberg,,Europe/Berlin,1
+6558335,en,EU,Europe,DE,Germany,BY,Bavaria,,,Weißenstadt,,Europe/Berlin,1
 6558371,en,EU,Europe,DE,Germany,BY,Bavaria,,,"Bad Brückenau",,Europe/Berlin,1
 6558442,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Auetal,,Europe/Berlin,1
 6558463,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,"Dannenberg (Elbe)",,Europe/Berlin,1
@@ -73809,6 +73870,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6620293,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Yateley,,Europe/London,0
 6620294,en,EU,Europe,PT,Portugal,11,Lisbon,,,"Prior Velho",,Europe/Lisbon,1
 6620308,en,EU,Europe,GB,"United Kingdom",ENG,England,SOS,Southend-on-Sea,Westcliff-on-Sea,,Europe/London,0
+6620310,en,EU,Europe,GB,"United Kingdom",ENG,England,MAN,Manchester,Didsbury,,Europe/London,0
 6620315,en,EU,Europe,GB,"United Kingdom",ENG,England,STS,Staffordshire,Talke,,Europe/London,0
 6620337,en,EU,Europe,GB,"United Kingdom",ENG,England,ROT,Rotherham,Hellaby,,Europe/London,0
 6620339,en,OC,Oceania,AU,Australia,WA,"Western Australia",,,Karratha,,Australia/Perth,0
@@ -73844,8 +73906,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6639684,en,EU,Europe,BE,Belgium,VLG,Flanders,VWV,"West Flanders Province",Heuvelland,,Europe/Brussels,1
 6639685,en,EU,Europe,BE,Belgium,VLG,Flanders,VBR,"Flemish Brabant Province",Affligem,,Europe/Brussels,1
 6639974,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,"Salamander Bay",,Australia/Sydney,0
+6640028,en,EU,Europe,GB,"United Kingdom",ENG,England,TRF,Trafford,Hale,,Europe/London,0
 6640030,en,EU,Europe,GB,"United Kingdom",ENG,England,GAT,Gateshead,Ryton,,Europe/London,0
 6640068,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ABD,Aberdeenshire,Westhill,,Europe/London,0
+6640069,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ERW,"East Renfrewshire",Clarkston,,Europe/London,0
 6640171,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Beresford,,America/Moncton,0
 6640177,en,EU,Europe,CH,Switzerland,BE,Bern,,,Ipsach,,Europe/Zurich,0
 6640252,en,EU,Europe,FR,France,PAC,"Provence-Alpes-Côte d'Azur",06,Alpes-Maritimes,"Sophia Antipolis",,Europe/Paris,1
@@ -73904,7 +73968,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6691324,en,EU,Europe,CH,Switzerland,SO,Solothurn,,,Langendorf,,Europe/Zurich,0
 6691329,en,EU,Europe,CH,Switzerland,SO,Solothurn,,,Bellach,,Europe/Zurich,0
 6691331,en,EU,Europe,CH,Switzerland,SO,Solothurn,,,Aeschi,,Europe/Zurich,0
-6691336,en,EU,Europe,CH,Switzerland,SO,Solothurn,,,Flumenthal,,Europe/Zurich,0
 6691344,en,EU,Europe,CH,Switzerland,SO,Solothurn,,,Ammansegg,,Europe/Zurich,0
 6691355,en,EU,Europe,CH,Switzerland,BE,Bern,,,Inkwil,,Europe/Zurich,0
 6691357,en,EU,Europe,CH,Switzerland,BE,Bern,,,Niederönz,,Europe/Zurich,0
@@ -74037,6 +74100,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6697345,en,EU,Europe,NO,Norway,46,Vestland,,,Sandsli,,Europe/Oslo,0
 6697375,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,Donnington,,Europe/London,0
 6697376,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,"Aston Blank",,Europe/London,0
+6697378,en,EU,Europe,GB,"United Kingdom",NIR,"Northern Ireland",ANN,"Antrim and Newtownabbey",Glengormley,,Europe/London,0
 6697380,en,AS,Asia,MY,Malaysia,16,Putrajaya,,,Putrajaya,,Asia/Kuala_Lumpur,0
 6697516,en,AS,Asia,JP,Japan,18,Fukui,,,Nittazuka,,Asia/Tokyo,0
 6697563,en,AS,Asia,JP,Japan,27,Osaka,,,Neyagawa,,Asia/Tokyo,0
@@ -74257,6 +74321,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6942554,en,NA,"North America",CA,Canada,ON,Ontario,,,Haliburton,,America/Toronto,0
 6942645,en,NA,"North America",CA,Canada,QC,Quebec,,,Buckingham,,America/Toronto,0
 6942803,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Caraquet,,America/Moncton,0
+6943071,en,EU,Europe,GB,"United Kingdom",ENG,England,IOS,"Isles of Scilly","St Agnes",,Europe/London,0
+6943073,en,EU,Europe,GB,"United Kingdom",ENG,England,IOS,"Isles of Scilly",Bryher,,Europe/London,0
 6943308,en,EU,Europe,GB,"United Kingdom",ENG,England,ESX,"East Sussex",Bodiam,,Europe/London,0
 6943455,en,OC,Oceania,AU,Australia,SA,"South Australia",,,"Blair Athol",,Australia/Adelaide,0
 6943474,en,OC,Oceania,AU,Australia,SA,"South Australia",,,Athelstone,,Australia/Adelaide,0
@@ -74648,9 +74714,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7290889,en,EU,Europe,GB,"United Kingdom",ENG,England,NBL,Northumberland,Allendale,,Europe/London,0
 7290933,en,EU,Europe,LU,Luxembourg,LU,Luxembourg,,,Howald,,Europe/Luxembourg,1
 7292067,en,EU,Europe,GB,"United Kingdom",ENG,England,NYK,"North Yorkshire",Colburn,,Europe/London,0
+7292330,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CGN,Ceredigion,Pontarfynach,,Europe/London,0
 7292535,en,SA,"South America",CL,Chile,AI,Aysén,,,Puyuhuapi,,America/Coyhaique,0
 7292537,en,EU,Europe,PT,Portugal,30,Madeira,,,"Jardim da Serra",,Atlantic/Madeira,1
 7292901,en,EU,Europe,GB,"United Kingdom",ENG,England,CAM,Cambridgeshire,"Alconbury Weston",,Europe/London,0
+7294072,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CMN,Carmarthenshire,"St. Clears",,Europe/London,0
 7294162,en,EU,Europe,GB,"United Kingdom",ENG,England,STT,Stockton-on-Tees,Egglescliffe,,Europe/London,0
 7294477,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,Middleton-in-Teesdale,,Europe/London,0
 7295154,en,EU,Europe,GB,"United Kingdom",ENG,England,GLS,Gloucestershire,Bourton-on-the-Water,,Europe/London,0
@@ -75058,7 +75126,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7602861,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"Villa Martelli",,America/Argentina/Buenos_Aires,0
 7602862,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"Florida Oeste",,America/Argentina/Buenos_Aires,0
 7602863,en,SA,"South America",AR,Argentina,B,"Buenos Aires",,,"Villa Adelina",,America/Argentina/Buenos_Aires,0
-7603036,en,AF,Africa,KE,Kenya,35,"Nyandarua County",,,,,Africa/Nairobi,0
 7603205,en,EU,Europe,IT,Italy,42,Liguria,GE,"Province of Genoa",Doria,,Europe/Rome,1
 7603251,en,AF,Africa,TD,Chad,HL,Hadjer-Lamis,,,,,Africa/Ndjamena,0
 7604447,en,SA,"South America",BR,Brazil,SP,"São Paulo",,,Batistini,,America/Sao_Paulo,0
@@ -75114,6 +75181,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7628395,en,AS,Asia,TR,Türkiye,34,Istanbul,,,Altunizade,,Europe/Istanbul,0
 7628398,en,AS,Asia,TR,Türkiye,34,Istanbul,,,Acibadem,,Europe/Istanbul,0
 7628420,en,AS,Asia,TR,Türkiye,34,Istanbul,,,Sancaktepe,,Europe/Istanbul,0
+7634351,en,AS,Asia,PH,Philippines,15,Cordillera,MOU,"Mountain Province",Dantay,,Asia/Manila,0
 7639070,en,AS,Asia,PH,Philippines,01,Ilocos,PAN,"Province of Pangasinan",Barangay,,Asia/Manila,0
 7639550,en,AS,Asia,TR,Türkiye,80,Osmaniye,,,Kayseri,,Europe/Istanbul,0
 7641715,en,SA,"South America",BR,Brazil,PR,Paraná,,,Fortaleza,,America/Sao_Paulo,0
@@ -75129,7 +75197,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7646705,en,AS,Asia,IN,India,HR,Haryana,,,Adampur,,Asia/Kolkata,0
 7646708,en,AS,Asia,BD,Bangladesh,F,"Rangpur Division",28,Kurigram,Kurigram,,Asia/Dhaka,0
 7646711,en,AS,Asia,BD,Bangladesh,A,"Barisal Division",51,Patuakhali,Patuakhali,,Asia/Dhaka,0
-7646714,en,AS,Asia,BD,Bangladesh,F,"Rangpur Division",46,Nilphamari,Nilphamari,,Asia/Dhaka,0
+7646954,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",40,Narayanganj,"Rupganj Upazila",,Asia/Dhaka,0
 7646984,en,AS,Asia,IN,India,KA,Karnataka,,,Davangere,,Asia/Kolkata,0
 7647007,en,SA,"South America",AR,Argentina,R,"Rio Negro",,,Bariloche,,America/Argentina/Salta,0
 7647071,en,AS,Asia,AM,Armenia,ER,Yerevan,,,Kanaker-Zeytun,,Asia/Yerevan,0
@@ -75193,6 +75261,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7669562,en,EU,Europe,CH,Switzerland,SG,"Saint Gallen",,,Ermenswil,,Europe/Zurich,0
 7669565,en,EU,Europe,CH,Switzerland,TG,Thurgau,,,Ettenhausen,,Europe/Zurich,0
 7669568,en,EU,Europe,CH,Switzerland,AG,Aargau,,,Fenkrieden,,Europe/Zurich,0
+7669577,en,EU,Europe,CH,Switzerland,TG,Thurgau,,,Frasnacht,,Europe/Zurich,0
 7669580,en,EU,Europe,CH,Switzerland,TG,Thurgau,,,Freidorf,,Europe/Zurich,0
 7669585,en,EU,Europe,CH,Switzerland,SG,"Saint Gallen",,,Gähwil,,Europe/Zurich,0
 7669610,en,EU,Europe,CH,Switzerland,VS,Valais,,,Grugnay,,Europe/Zurich,0
@@ -75340,7 +75409,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7800129,en,AF,Africa,EG,Egypt,GZ,Giza,,,Faisal,,Africa/Cairo,0
 7800138,en,AF,Africa,EG,Egypt,C,"Cairo Governorate",,,"15 May City",,Africa/Cairo,0
 7803723,en,NA,"North America",CA,Canada,ON,Ontario,,,Omemee,,America/Toronto,0
-7806857,en,AF,Africa,KE,Kenya,34,"Nyamira county",,,,,Africa/Nairobi,0
 7828758,en,OC,Oceania,MP,"Northern Mariana Islands",S,Saipan,,,Saipan,,Pacific/Saipan,0
 7838907,en,EU,Europe,IE,Ireland,M,Munster,LK,Limerick,Castletroy,,Europe/Dublin,1
 7838923,en,EU,Europe,IE,Ireland,L,Leinster,,,Palmerstown,,Europe/Dublin,1
@@ -75436,7 +75504,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8012509,en,EU,Europe,PT,Portugal,11,Lisbon,,,Moscavide,,Europe/Lisbon,1
 8012515,en,EU,Europe,PT,Portugal,11,Lisbon,,,"Santo António Dos Cavaleiros",,Europe/Lisbon,1
 8012584,en,EU,Europe,PT,Portugal,11,Lisbon,,,Brandoa,,Europe/Lisbon,1
-8012861,en,EU,Europe,PT,Portugal,13,Porto,,,"Santo Ildefonso",,Europe/Lisbon,1
 8012971,en,EU,Europe,PT,Portugal,14,Santarém,,,Bugalhos,,Europe/Lisbon,1
 8013120,en,EU,Europe,PT,Portugal,15,Setúbal,,,Feijó,,Europe/Lisbon,1
 8013135,en,EU,Europe,PT,Portugal,15,Setúbal,,,Canha,,Europe/Lisbon,1
@@ -75755,7 +75822,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8348557,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Fountaindale,,Australia/Sydney,0
 8348596,en,OC,Oceania,AU,Australia,WA,"Western Australia",,,Ellenbrook,,Australia/Perth,0
 8348684,en,OC,Oceania,AU,Australia,ACT,"Australian Capital Territory",,,Mawson,,Australia/Sydney,0
-8348689,en,OC,Oceania,AU,Australia,QLD,Queensland,,,"Eli Waters",,Australia/Brisbane,0
 8348717,en,OC,Oceania,AU,Australia,QLD,Queensland,,,"Belli Park",,Australia/Brisbane,0
 8348763,en,OC,Oceania,AU,Australia,SA,"South Australia",,,Hewett,,Australia/Adelaide,0
 8348766,en,OC,Oceania,AU,Australia,QLD,Queensland,,,Burdell,,Australia/Brisbane,0
@@ -75831,6 +75897,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8394394,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Villalba,,Europe/Rome,1
 8394414,en,EU,Europe,CH,Switzerland,TG,Thurgau,,,Bischofszell,,Europe/Zurich,0
 8394416,en,EU,Europe,CH,Switzerland,TI,Ticino,,,Coldrerio,,Europe/Zurich,0
+8394433,en,AS,Asia,OM,Oman,SS,"Northeastern Governorate",,,,,Asia/Muscat,0
 8394437,en,AS,Asia,KR,"South Korea",50,Sejong-si,,,,,Asia/Seoul,0
 8394528,en,AS,Asia,JP,Japan,02,Aomori,,,Maetai,,Asia/Tokyo,0
 8395345,en,AS,Asia,JP,Japan,02,Aomori,,,Ōura,,Asia/Tokyo,0
@@ -75894,6 +75961,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8437533,en,SA,"South America",BR,Brazil,PI,Piauí,,,"Sigefredo Pacheco",,America/Fortaleza,0
 8437821,en,AS,Asia,JP,Japan,03,Iwate,,,Sakuramachi,,Asia/Tokyo,0
 8437926,en,AS,Asia,JP,Japan,03,Iwate,,,Narita,,Asia/Tokyo,0
+8440756,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Modīnagar,,Asia/Kolkata,0
 8441715,en,AS,Asia,JP,Japan,02,Aomori,,,Funakoshi,,Asia/Tokyo,0
 8442925,en,AS,Asia,IN,India,KL,Kerala,,,Pāla,,Asia/Kolkata,0
 8449427,en,NA,"North America",US,"United States",NJ,"New Jersey",,,"Howell Township",501,America/New_York,0
@@ -76357,6 +76425,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8616970,en,NA,"North America",CA,Canada,QC,Quebec,,,Causapscal,,America/Toronto,0
 8617396,en,NA,"North America",CA,Canada,ON,Ontario,,,Embrun,,America/Toronto,0
 8617397,en,NA,"North America",CA,Canada,QC,Quebec,,,Saint-Jean-de-Dieu,,America/Toronto,0
+8617464,en,AS,Asia,BD,Bangladesh,F,"Rangpur Division",46,Nilphamari,"Nilphamari Sadar Upazila",,Asia/Dhaka,0
 8618455,en,EU,Europe,EE,Estonia,37,Harjumaa,305,"Kiili vald",Kangru,,Europe/Tallinn,1
 8623061,en,AS,Asia,TR,Türkiye,34,Istanbul,,,Çelebi,,Europe/Istanbul,0
 8623085,en,AS,Asia,TR,Türkiye,34,Istanbul,,,Denizli,,Europe/Istanbul,0
@@ -76486,7 +76555,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8740951,en,EU,Europe,CH,Switzerland,SG,"Saint Gallen",,,"Eschenbach (SG)",,Europe/Zurich,0
 8740965,en,EU,Europe,CH,Switzerland,JU,Jura,,,Haute-Sorne,,Europe/Zurich,0
 8741036,en,EU,Europe,GB,"United Kingdom",ENG,England,GRE,Greenwich,Charlton,,Europe/London,0
-8741042,en,AS,Asia,ID,Indonesia,JA,Jambi,,,"Muaro Jambi",,Asia/Jakarta,0
 8741053,en,AS,Asia,IN,India,OD,Odisha,,,Rajgangpur,,Asia/Kolkata,0
 8741149,en,AS,Asia,JP,Japan,08,Ibaraki,,,"Kasumigaura Shi",,Asia/Tokyo,0
 8743202,en,AS,Asia,JP,Japan,15,Niigata,,,Sanada,,Asia/Tokyo,0
@@ -77928,6 +77996,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11281970,en,EU,Europe,NL,"The Netherlands",OV,Overijssel,,,Lattrop-Breklenkamp,,Europe/Amsterdam,1
 11282157,en,AF,Africa,ZA,"South Africa",LP,Limpopo,,,Malamulele,,Africa/Johannesburg,0
 11282178,en,AS,Asia,TR,Türkiye,41,Kocaeli,,,Kartepe,,Europe/Istanbul,0
+11282293,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",63,Tangail,"Dhanbari Upazila",,Asia/Dhaka,0
 11287507,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Porte di Rendena",,Europe/Rome,1
 11287661,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua","Borgo Virgilio",,Europe/Rome,1
 11287666,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Vallelaghi,,Europe/Rome,1
@@ -78087,6 +78156,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11551039,en,EU,Europe,GB,"United Kingdom",ENG,England,GRE,Greenwich,Thamesmead,,Europe/London,0
 11551053,en,EU,Europe,GB,"United Kingdom",ENG,England,RIC,"Richmond upon Thames","East Sheen",,Europe/London,0
 11551072,en,EU,Europe,GB,"United Kingdom",ENG,England,WND,Wandsworth,"Tooting Bec",,Europe/London,0
+11551090,en,EU,Europe,GB,"United Kingdom",ENG,England,IOS,"Isles of Scilly","Higher Town",,Europe/London,0
 11551119,en,EU,Europe,GB,"United Kingdom",ENG,England,MDB,Middlesbrough,Acklam,,Europe/London,0
 11551607,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,"Charles Sturt University",,Australia/Sydney,0
 11551650,en,AS,Asia,IL,Israel,M,"Central District",,,Alon,,Asia/Jerusalem,0
@@ -78139,6 +78209,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11592294,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,FAL,Falkirk,Stenhousemuir,,Europe/London,0
 11592297,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,HLD,Highland,Westhill,,Europe/London,0
 11592373,en,EU,Europe,AT,Austria,7,Tyrol,,,Gurgl,,Europe/Vienna,1
+11592450,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,EDU,"East Dunbartonshire",Torrance,,Europe/London,0
 11592586,en,EU,Europe,GB,"United Kingdom",ENG,England,DUR,Durham,"Great Lumley",,Europe/London,0
 11592587,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire","Greens Norton",,Europe/London,0
 11592588,en,EU,Europe,GB,"United Kingdom",ENG,England,STS,Staffordshire,Swindon,,Europe/London,0
@@ -78203,6 +78274,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11605824,en,AS,Asia,NP,Nepal,P1,Koshi,,,Jhāpā,,Asia/Kathmandu,0
 11608792,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Grafenberg,,Europe/Berlin,1
 11609634,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",33,Manikganj,Singair,,Asia/Dhaka,0
+11610810,en,EU,Europe,GB,"United Kingdom",ENG,England,NBL,Northumberland,"Holy Island",,Europe/London,0
 11610942,en,AS,Asia,NP,Nepal,P3,"Bagmati Province",,,Chandragiri,,Asia/Kathmandu,0
 11611008,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Mappano,,Europe/Rome,1
 11611203,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Schwerin,,Europe/Berlin,1
@@ -79245,6 +79317,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12241808,en,NA,"North America",PA,Panama,8,"Provincia de Panamá",,,Obarrio,,America/Panama,0
 12253463,en,AS,Asia,JP,Japan,27,Osaka,,,Daitōchō,,Asia/Tokyo,0
 12261574,en,EU,Europe,GB,"United Kingdom",ENG,England,DBY,Derbyshire,"Darley Dale",,Europe/London,0
+12261576,en,EU,Europe,GB,"United Kingdom",WLS,Wales,RCT,"Rhondda Cynon Taf","Talbot Green",,Europe/London,0
 12261578,en,EU,Europe,GB,"United Kingdom",WLS,Wales,FLN,Flintshire,Shotton,,Europe/London,0
 12261580,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CMN,Carmarthenshire,Hendy-Gwyn,,Europe/London,0
 12261584,en,EU,Europe,GB,"United Kingdom",ENG,England,BNS,Barnsley,Goldthorpe,,Europe/London,0
@@ -79331,6 +79404,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12263749,en,EU,Europe,GB,"United Kingdom",ENG,England,CHW,Cheshire,"Little Leigh",,Europe/London,0
 12263762,en,EU,Europe,GB,"United Kingdom",ENG,England,ESS,Essex,"Wickham St Paul",,Europe/London,0
 12263788,en,EU,Europe,GB,"United Kingdom",ENG,England,WAR,Warwickshire,Cawston,,Europe/London,0
+12263803,en,EU,Europe,GB,"United Kingdom",ENG,England,IOS,"Isles of Scilly","New Grimsby",,Europe/London,0
 12263811,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire",Bolton,,Europe/London,0
 12263871,en,EU,Europe,GB,"United Kingdom",SCT,Scotland,ZET,"Shetland Islands",Gott,,Europe/London,0
 12263876,en,EU,Europe,GB,"United Kingdom",WLS,Wales,FLN,Flintshire,"Mynydd Isa",,Europe/London,0
@@ -79386,6 +79460,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12265750,en,EU,Europe,GB,"United Kingdom",ENG,England,NFK,Norfolk,"High Kelling",,Europe/London,0
 12265753,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,Chipping,,Europe/London,0
 12265781,en,EU,Europe,GB,"United Kingdom",ENG,England,LEC,Leicestershire,"Smeeton Westerby",,Europe/London,0
+12265823,en,EU,Europe,GB,"United Kingdom",ENG,England,CON,Cornwall,"Sennen Cove",,Europe/London,0
 12265877,en,EU,Europe,GB,"United Kingdom",ENG,England,LAN,Lancashire,"Copster Green",,Europe/London,0
 12265881,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Ditton,,Europe/London,0
 12265966,en,EU,Europe,GB,"United Kingdom",ENG,England,SOM,Somerset,Moorlinch,,Europe/London,0
@@ -79499,6 +79574,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12439890,en,NA,"North America",MX,Mexico,YUC,Yucatán,,,Yucatán,,America/Merida,0
 12451407,en,SA,"South America",BR,Brazil,DF,"Federal District",,,Arapoanga,,America/Sao_Paulo,0
 12469262,en,SA,"South America",CL,Chile,CO,"Coquimbo Region",,,Valdivia,,America/Santiago,0
+12470174,en,AS,Asia,AE,"United Arab Emirates",AZ,"Abu Dhabi",,,"Al Wiqan",,Asia/Dubai,0
 12471708,en,AS,Asia,SA,"Saudi Arabia",01,"Riyadh Region",,,"Ash Sharq",,Asia/Riyadh,0
 12490589,en,AF,Africa,NG,Nigeria,OY,"Oyo State",,,Akande,,Africa/Lagos,0
 12493571,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,"Ebbsfleet Valley",,Europe/London,0
@@ -79547,7 +79623,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12572873,en,EU,Europe,PT,Portugal,01,Aveiro,,,"Gafanha da Nazaré",,Europe/Lisbon,1
 12587907,en,EU,Europe,FI,Finland,18,Uusimaa,,,Lahti,,Europe/Helsinki,1
 12594526,en,SA,"South America",AR,Argentina,M,Mendoza,,,"Los Barriales",,America/Argentina/Mendoza,0
-12618065,en,NA,"North America",JM,Jamaica,04,"Portland Parish",,,Manchester,,America/Jamaica,0
 12625504,en,EU,Europe,CH,Switzerland,GR,Grisons,,,Cumpadials,,Europe/Zurich,0
 12626142,en,NA,"North America",CA,Canada,QC,Quebec,,,"Little Burgundy",,America/Toronto,0
 12626165,en,NA,"North America",CA,Canada,QC,Quebec,,,Outremont,,America/Toronto,0
@@ -79606,7 +79681,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12681944,en,AS,Asia,IN,India,TN,"Tamil Nadu",,,Kangeyam,,Asia/Kolkata,0
 12681950,en,AS,Asia,IN,India,TN,"Tamil Nadu",,,Udumalaipettai,,Asia/Kolkata,0
 12682691,en,AS,Asia,IN,India,UK,Uttarakhand,,,Nanakmatta,,Asia/Kolkata,0
-12682901,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Modinagar,,Asia/Kolkata,0
 12684684,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Mugalsarai,,Asia/Kolkata,0
 12684758,en,AS,Asia,IN,India,AP,"Andhra Pradesh",,,Tiruvuru,,Asia/Kolkata,0
 12685852,en,AS,Asia,IN,India,WB,"West Bengal",,,Deshopran,,Asia/Kolkata,0
@@ -79816,6 +79890,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13267501,en,EU,Europe,GB,"United Kingdom",ENG,England,NTY,"North Tyneside",Palmersville,,Europe/London,0
 13267502,en,EU,Europe,GB,"United Kingdom",ENG,England,NTY,"North Tyneside",Holystone,,Europe/London,0
 13267683,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,Belsize,,Europe/London,0
+13267749,en,EU,Europe,GB,"United Kingdom",WLS,Wales,BGE,"County Borough of Bridgend",Whiterock,,Europe/London,0
 13267820,en,EU,Europe,GB,"United Kingdom",WLS,Wales,FLN,Flintshire,Carmel,,Europe/London,0
 13268021,en,EU,Europe,GB,"United Kingdom",ENG,England,HRT,Hertfordshire,Birchwood,,Europe/London,0
 13268060,en,EU,Europe,GB,"United Kingdom",ENG,England,NTT,Nottinghamshire,Newthorpe,,Europe/London,0
@@ -79835,11 +79910,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13269828,en,EU,Europe,GB,"United Kingdom",ENG,England,TFW,"Telford and Wrekin",Overdale,,Europe/London,0
 13269856,en,EU,Europe,GB,"United Kingdom",ENG,England,TFW,"Telford and Wrekin",Arleston,,Europe/London,0
 13269858,en,EU,Europe,GB,"United Kingdom",ENG,England,TFW,"Telford and Wrekin",Donnington,,Europe/London,0
+13270025,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CWY,Conwy,Gyffin,,Europe/London,0
 13270059,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CMN,Carmarthenshire,Penceiliogi,,Europe/London,0
 13270100,en,EU,Europe,GB,"United Kingdom",ENG,England,TAM,Tameside,Taunton,,Europe/London,0
 13270346,en,EU,Europe,GB,"United Kingdom",ENG,England,OXF,Oxfordshire,Southmoor,,Europe/London,0
 13270410,en,EU,Europe,GB,"United Kingdom",ENG,England,DUD,Dudley,Bromley,,Europe/London,0
 13270625,en,EU,Europe,GB,"United Kingdom",ENG,England,WOR,Worcestershire,"Aston Fields",,Europe/London,0
+13270651,en,EU,Europe,GB,"United Kingdom",ENG,England,SLF,Salford,Kersal,,Europe/London,0
 13270778,en,EU,Europe,GB,"United Kingdom",ENG,England,DUD,Dudley,"Quarry Bank",,Europe/London,0
 13270995,en,EU,Europe,GB,"United Kingdom",ENG,England,HAM,Hampshire,Chineham,,Europe/London,0
 13271025,en,EU,Europe,GB,"United Kingdom",ENG,England,LDS,Leeds,Cambridge,,Europe/London,0
@@ -80040,3 +80117,5 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13640011,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Ringe,,Europe/Berlin,1
 13640765,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Rosengarten,,Europe/Berlin,1
 13664897,en,AN,Antarctica,AQ,Antarctica,,,,,"McMurdo Station",,Antarctica/McMurdo,0
+13680164,en,AS,Asia,ID,Indonesia,KI,"East Kalimantan",,,"Nusantara Capital City",,Asia/Makassar,0
+13680579,en,EU,Europe,SE,Sweden,AB,"Stockholm County",,,"Kungens kurva",,Europe/Stockholm,1
