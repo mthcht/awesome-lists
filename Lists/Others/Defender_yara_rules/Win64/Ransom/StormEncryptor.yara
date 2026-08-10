@@ -49,3 +49,28 @@ rule Ransom_Win64_StormEncryptor_A_2147975806_0
         (4 of ($x*))
 }
 
+rule Ransom_Win64_StormEncryptor_YBC_2147975843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/StormEncryptor.YBC!MTB"
+        threat_id = "2147975843"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StormEncryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "!!!README_FIRST!!!.txt" ascii //weight: 1
+        $x_1_2 = "Path to encrypt" ascii //weight: 1
+        $x_1_3 = "Encrypt all files using Keyber Algorithm" ascii //weight: 1
+        $x_1_4 = "Build full file list first, then encrypt" ascii //weight: 1
+        $x_1_5 = "vssadmin delete shadows /All /quiet" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
