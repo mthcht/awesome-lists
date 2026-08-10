@@ -1,11 +1,11 @@
 {
-  "generated_utc": "2026-08-10T15:37:46+00:00",
-  "total_records": 1975,
-  "total_malicious": 1903,
+  "generated_utc": "2026-08-10T16:33:08+00:00",
+  "total_records": 1981,
+  "total_malicious": 1909,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 594,
-    "high": 996,
+    "critical": 596,
+    "high": 1000,
     "low": 22,
     "medium": 363
   },
@@ -13,9 +13,9 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 977,
+    "impersonation": 981,
     "impersonation-malware": 5,
-    "malware": 594,
+    "malware": 596,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -40,9 +40,9 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 977,
+    "impersonation": 981,
     "impersonation-malware": 5,
-    "malware": 594,
+    "malware": 596,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 1518,
+  "total_publishers": 1520,
   "top_publishers": [
     [
       "pit00",
@@ -140,6 +140,10 @@
       6
     ],
     [
+      "funovus",
+      6
+    ],
+    [
       "cobot100",
       5
     ],
@@ -161,10 +165,6 @@
     ],
     [
       "devshub-ai",
-      5
-    ],
-    [
-      "fsiovn",
       5
     ]
   ]
