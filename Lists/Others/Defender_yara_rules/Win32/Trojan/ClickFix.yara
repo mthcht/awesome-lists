@@ -7393,28 +7393,6 @@ rule Trojan_Win32_ClickFix_GVH_2147944827_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_CCJ_2147944949_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.CCJ!MTB"
-        threat_id = "2147944949"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "System.Net.Sockets.TCPClient" wide //weight: 1
-        $x_1_2 = "powershell" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_CCS_2147944950_0
 {
     meta:
