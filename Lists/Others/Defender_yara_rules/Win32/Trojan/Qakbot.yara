@@ -12984,34 +12984,6 @@ rule Trojan_Win32_Qakbot_BF_2147835417_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Qakbot_BG_2147835486_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Qakbot.BG!MTB"
-        threat_id = "2147835486"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Qakbot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "broadbill" ascii //weight: 1
-        $x_1_2 = "enlargeableness" ascii //weight: 1
-        $x_1_3 = "lipped" ascii //weight: 1
-        $x_1_4 = "monotheist" ascii //weight: 1
-        $x_1_5 = "pharyngemphraxis" ascii //weight: 1
-        $x_1_6 = "scribbleomania" ascii //weight: 1
-        $x_1_7 = "platypod" ascii //weight: 1
-        $x_1_8 = "unturpentined" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Qakbot_BH_2147835576_0
 {
     meta:
@@ -13468,33 +13440,6 @@ rule Trojan_Win32_Qakbot_NZ_2147837131_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {33 c1 2b c8 8b 86 ?? ?? ?? ?? 05 ?? ?? ?? ?? 81 c1 ?? ?? ?? ?? 31 46 ?? b8 ?? ?? ?? ?? 2b 46 ?? 01 86 ?? ?? ?? ?? 8b 86 ?? ?? ?? ?? 89 8e ?? ?? ?? ?? 8b 8e ?? ?? ?? ?? 31 04 11 83 c2 ?? 8b 86 ?? ?? ?? ?? 01 86 ?? ?? ?? ?? 81 fa ?? ?? ?? ?? 7c}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Qakbot_BO_2147837181_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Qakbot.BO!MTB"
-        threat_id = "2147837181"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Qakbot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "apetaloid" ascii //weight: 1
-        $x_1_2 = "ladykind" ascii //weight: 1
-        $x_1_3 = "overindulge" ascii //weight: 1
-        $x_1_4 = "spirometer" ascii //weight: 1
-        $x_1_5 = "townless" ascii //weight: 1
-        $x_1_6 = "zaparoan" ascii //weight: 1
-        $x_1_7 = "graben" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -3504,6 +3504,32 @@ rule Trojan_MSIL_Lazy_GVA_2147945301_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_SXD_2147947647_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.SXD!MTB"
+        threat_id = "2147947647"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "43"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "BROWSER_WALLET_KEYWORDS" ascii //weight: 15
+        $x_10_2 = "[*] Adding startup persistence..." wide //weight: 10
+        $x_10_3 = "[+] Startup persistence added" wide //weight: 10
+        $x_5_4 = "[*] Received DLL load command for" wide //weight: 5
+        $x_2_5 = "[+] Handshake OK, sending client info" wide //weight: 2
+        $x_1_6 = "WalletScanner" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_ATW_2147948428_0
 {
     meta:
@@ -4374,6 +4400,31 @@ rule Trojan_MSIL_Lazy_YXH_2147975828_0
         $x_10_1 = {0a 06 07 28 ?? 00 00 06 0c 16 13 04 2b 1b 08 11 04 8f ?? 00 00 01 25 47 06 11 04 06 8e 69 5d 91 61 d2 52 11 04 17 58 13 04 11 04 08 8e 69 32 de}  //weight: 10, accuracy: Low
         $x_1_2 = "FromBase64String" ascii //weight: 1
         $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_SXC_2147975876_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.SXC!MTB"
+        threat_id = "2147975876"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "<OK>File Deleted" wide //weight: 15
+        $x_15_2 = "<OK>Directory Deleted" wide //weight: 15
+        $x_10_3 = "<OK>Send EventLog finished!" wide //weight: 10
+        $x_5_4 = "<OK>Dir Send" wide //weight: 5
+        $x_5_5 = "<OK>Send Process finished!" wide //weight: 5
     condition:
         (filesize < 20MB) and
         (all of ($x*))

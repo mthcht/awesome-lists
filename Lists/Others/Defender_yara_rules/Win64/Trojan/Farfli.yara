@@ -648,6 +648,29 @@ rule Trojan_Win64_Farfli_LR_2147968427_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_LR_2147968427_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.LR!MTB"
+        threat_id = "2147968427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b cd 0f 1f 80 00 00 00 00 48 8b 43 10 49 ff c3 42 80 ?? ?? ?? ?? 48 ff c9 75 ?? 48 01 6b 10 48 83 7b 08 00 75 ?? 45 33 c0}  //weight: 20, accuracy: Low
+        $x_2_2 = "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$action = New-ScheduledTaskAction -Execute '\"" ascii //weight: 2
+        $x_3_3 = "Local\\MyLoveMutex_Fixed" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Farfli_SXI_2147969025_0
 {
     meta:

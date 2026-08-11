@@ -1763,27 +1763,6 @@ rule Trojan_Win32_Trickbot_WG_2147743291_0
         (9 of ($x*))
 }
 
-rule Trojan_Win32_Trickbot_IG_2147743326_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Trickbot.IG!MTB"
-        threat_id = "2147743326"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Trickbot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {8b 55 08 03 55 [0-8] 8b 4d ?? 03 4d [0-20] 33 ?? 8b ?? ?? 03 ?? ?? 88 ?? e9 9b 00 8b 55 ?? 83 c2 01 89 55 ?? 8b 45 ?? 3b 45 [0-10] 83 c1 01 81 e1 ?? ?? ?? ?? 89 4d ?? 8b 55 [0-12] 89 45 ?? 8b 4d ?? 03 4d ?? 81 e1}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Trickbot_FG_2147743437_0
 {
     meta:

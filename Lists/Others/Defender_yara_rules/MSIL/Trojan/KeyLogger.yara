@@ -609,3 +609,25 @@ rule Trojan_MSIL_KeyLogger_VDA_2147975382_0
         )
 }
 
+rule Trojan_MSIL_KeyLogger_SXB_2147975877_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.SXB!MTB"
+        threat_id = "2147975877"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {17 73 13 00 00 0a [0-2] 02 7b 01 00 00 04 18 28 0c 00 00 0a [0-10] 6f 14 00 00 0a [0-3] 6f 15 00 00 0a}  //weight: 30, accuracy: Low
+        $x_20_2 = {28 1a 00 00 0a 26 [0-1] fe 06 11 00 00 06 73 1b 00 00 0a 28 1c 00 00 0a 26}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

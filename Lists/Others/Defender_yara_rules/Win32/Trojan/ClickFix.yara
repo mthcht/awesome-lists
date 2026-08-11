@@ -15517,3 +15517,28 @@ rule Trojan_Win32_ClickFix_YCI_2147975334_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_MNI_2147975878_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MNI!MTB"
+        threat_id = "2147975878"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Start-Service WebClient" wide //weight: 3
+        $x_3_2 = "net use Z:" wide //weight: 3
+        $x_3_3 = "@SSL\\" wide //weight: 3
+        $x_4_4 = "regsvr32 /s /n /u /i:" wide //weight: 4
+        $x_5_5 = "pcalua" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

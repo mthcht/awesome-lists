@@ -331,3 +331,24 @@ rule Trojan_Win32_DLLHijack_CAT_2147975764_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DLLHijack_ASYB_2147975867_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.ASYB!MTB"
+        threat_id = "2147975867"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b 45 ec bf c8 01 00 00 8b 75 08 8b 48 08 8b 45 14 03 4d 10 0f b6 04 06 46 99 f7 ff 89 75 08 b8 ?? ?? ?? ?? 80 c2 36 30 11 c3 8b 75 10 b8 67 66 66 66 f7 ee 8b 5d ec 8b ce 8b 7d 0c c1 fa 02 8b c2 c7 45 fc ff ff ff ff c1 e8 1f 03 c2 8d 04 80 03 c0 2b c8 f7 d9 1b c9 21 4d 08 46 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

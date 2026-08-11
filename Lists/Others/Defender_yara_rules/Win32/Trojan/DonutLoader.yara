@@ -70,3 +70,24 @@ rule Trojan_Win32_DonutLoader_GTX_2147974480_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DonutLoader_ADLNA_2147975871_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DonutLoader.ADLNA!MTB"
+        threat_id = "2147975871"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {8b c1 33 d2 f7 75 e8 8a 82 ?? ?? ?? ?? 30 04 0b 41 8b 46 04 3b c8 72 e8 8b 5d f0 8d 4d f4 c7 45 ?? ?? ?? ?? ?? 51 ff 76 08 50 ff 36}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

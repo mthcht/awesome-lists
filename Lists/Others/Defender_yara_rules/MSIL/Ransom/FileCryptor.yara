@@ -947,3 +947,29 @@ rule Ransom_MSIL_FileCryptor_AYD_2147962412_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCryptor_AYE_2147975866_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCryptor.AYE!MTB"
+        threat_id = "2147975866"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "GMRansom\\obj\\Release\\GMRansom.pdb" ascii //weight: 5
+        $x_2_2 = "GMRansom.Properties.Resources" ascii //weight: 2
+        $x_1_3 = "GMRansom_MUTEX" wide //weight: 1
+        $x_1_4 = "/r /t 5 /c \"GMRansom:" wide //weight: 1
+        $x_1_5 = "ENCRYPTION THREAD START" wide //weight: 1
+        $x_1_6 = "delete shadows /all /quiet" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

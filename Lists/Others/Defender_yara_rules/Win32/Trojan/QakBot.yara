@@ -643,34 +643,6 @@ rule Trojan_Win32_QakBot_BM_2147822885_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_QakBot_BM_2147822885_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/QakBot.BM!MTB"
-        threat_id = "2147822885"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "QakBot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "coenamourment" ascii //weight: 1
-        $x_1_2 = "gianthood" ascii //weight: 1
-        $x_1_3 = "hoaxer" ascii //weight: 1
-        $x_1_4 = "supercargo" ascii //weight: 1
-        $x_1_5 = "psoriatiform" ascii //weight: 1
-        $x_1_6 = "unexplicitness" ascii //weight: 1
-        $x_1_7 = "meconophagism" ascii //weight: 1
-        $x_1_8 = "thurifer" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_QakBot_ER_2147831938_0
 {
     meta:

@@ -92,3 +92,26 @@ rule Trojan_Win64_Mimikatz_AHB_2147952646_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mimikatz_LR_2147975852_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mimikatz.LR!MTB"
+        threat_id = "2147975852"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mimikatz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "draft_004.pdb" ascii //weight: 1
+        $x_2_2 = "vaultcmd /list > \"%TEMP%\\cred-dump\\vault.txt\"" ascii //weight: 2
+        $x_3_3 = "xcopy \"%s\" \"%s\" /E /I /Q /Y" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

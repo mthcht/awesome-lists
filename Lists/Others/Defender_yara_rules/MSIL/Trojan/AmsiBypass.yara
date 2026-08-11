@@ -118,3 +118,27 @@ rule Trojan_MSIL_AmsiBypass_LRB_2147973738_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AmsiBypass_MK_2147975889_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AmsiBypass.MK!MTB"
+        threat_id = "2147975889"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AmsiBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Set-ItemProperty -Path $regPath -Name DisableAntiSpyware -Value 1 -Force" ascii //weight: 10
+        $x_5_2 = "$consumer = ([wmiclass]\"\\\\.\\root\\subscription:CommandLineEventConsumer\").CreateInstance()" ascii //weight: 5
+        $x_3_3 = "$a = [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils')" ascii //weight: 3
+        $x_2_4 = "sc.exe config WinDefend start= disabled" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

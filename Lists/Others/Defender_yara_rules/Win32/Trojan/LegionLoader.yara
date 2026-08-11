@@ -234,3 +234,24 @@ rule Trojan_Win32_LegionLoader_AAGB_2147851079_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LegionLoader_YBA_2147975894_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LegionLoader.YBA!MTB"
+        threat_id = "2147975894"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LegionLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {c1 e8 08 33 c8 8b 55 ?? 8b 32 03 f1 8b 45 ?? 33 d2 f7 75 ?? 8b 45 ?? 03 34 90 03 75 ?? 8b 4d cc 8b 11 2b d6}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
