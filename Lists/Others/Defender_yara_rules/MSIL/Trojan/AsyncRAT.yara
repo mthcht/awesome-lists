@@ -6364,6 +6364,37 @@ rule Trojan_MSIL_AsyncRAT_GVA_2147946807_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRAT_GVA_2147946807_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.GVA!MTB"
+        threat_id = "2147946807"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "curso.dll" ascii //weight: 1
+        $x_1_2 = "curso.My.Resources" ascii //weight: 1
+        $x_1_3 = "curso.Resources.resources" ascii //weight: 1
+        $x_1_4 = "curso.g.resources" ascii //weight: 1
+        $x_1_5 = "curso.pdb" ascii //weight: 1
+        $x_1_6 = "get_curso" ascii //weight: 1
+        $x_1_7 = "get_Computer" ascii //weight: 1
+        $x_1_8 = "get_GetInstance" ascii //weight: 1
+        $x_1_9 = "get_Application" ascii //weight: 1
+        $x_1_10 = "get_User" ascii //weight: 1
+        $x_1_11 = "get_WebServices" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_AsyncRAT_GVB_2147946838_0
 {
     meta:
@@ -6380,6 +6411,34 @@ rule Trojan_MSIL_AsyncRAT_GVB_2147946838_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {02 8e 69 8d 54 00 00 01 0a 02 8e 69 17 59 0b 16 0c 38 0e 00 00 00 06 08 02 07 91 9c 07 17 59 0b 08 17 58 0c 08 06 8e 69 32 ec}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_GVB_2147946838_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.GVB!MTB"
+        threat_id = "2147946838"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "@hookerkillernels.com" ascii //weight: 1
+        $x_1_2 = "@killmail.com" ascii //weight: 1
+        $x_1_3 = "@ikillclowns.com" ascii //weight: 1
+        $x_1_4 = "@spamkill.info" ascii //weight: 1
+        $x_1_5 = "_Encrypted$" ascii //weight: 1
+        $x_1_6 = "get_IsFamilyOrAssembly" ascii //weight: 1
+        $x_1_7 = "get_OutputBlockSize" ascii //weight: 1
+        $x_1_8 = "Kill" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

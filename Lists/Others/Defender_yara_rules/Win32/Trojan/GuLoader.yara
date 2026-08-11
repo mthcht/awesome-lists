@@ -9051,3 +9051,54 @@ rule Trojan_Win32_GuLoader_RFK_2147975210_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFL_2147975954_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFL!MTB"
+        threat_id = "2147975954"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "%Fattigkvarteret207%\\spotlysets\\piecing" ascii //weight: 2
+        $x_1_2 = "reparationsarbejders" ascii //weight: 1
+        $x_1_3 = "grafiksystemets" ascii //weight: 1
+        $x_1_4 = "tot gravity" ascii //weight: 1
+        $x_1_5 = "inclave.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_SNZ_2147975973_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SNZ!MTB"
+        threat_id = "2147975973"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Hoslagte.ini" ascii //weight: 5
+        $x_1_2 = "uopskaarede.ini" ascii //weight: 1
+        $x_1_3 = "\\Chiefish115.bin" ascii //weight: 1
+        $x_1_4 = "\\afknappende.zip" ascii //weight: 1
+        $x_1_5 = "\\Atomicism.jpg" ascii //weight: 1
+        $x_1_6 = "metalarbejderen.vas" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

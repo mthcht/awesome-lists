@@ -2425,6 +2425,29 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_5
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_6_1 = {0a 06 16 06 8e 69 28 ?? 00 00 0a 28 ?? 00 00 0a 02 6f ?? 00 00 0a 0b 07 06 07 8e 69 28 ?? 00 00 0a 06 20 ?? 01 00 00 1f 55 9c 06}  //weight: 6, accuracy: Low
+        $x_4_2 = {13 07 11 04 11 07 11 05 11 06 06 08 20 ?? ?? 00 00 59 6f ?? ?? ?? ?? 6b 06 09 1f 32 59}  //weight: 4, accuracy: Low
+        $x_10_3 = "$7d31891b-c644-45da-9fdb-8bd175b3d20b" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ARR_2147957141_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ARR!MTB"
+        threat_id = "2147957141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_10_1 = {02 06 07 03 07 59 6f ?? ?? ?? ?? 0c 08 2d 0b 72 ?? 02 00 70 73 ?? 00 00 0a 7a 07 08 58 0b 07 03 32 de}  //weight: 10, accuracy: Low
         $x_6_2 = "Welcome to JustificationRAT (Ts dont mean ANYTHING btw)" ascii //weight: 6
         $x_4_3 = "Client disconnected while receiving data." ascii //weight: 4
@@ -2433,7 +2456,7 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_5
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_ARR_2147957141_6
+rule Trojan_MSIL_Tedy_ARR_2147957141_7
 {
     meta:
         author = "defender2yara"
@@ -2457,7 +2480,7 @@ rule Trojan_MSIL_Tedy_ARR_2147957141_6
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Tedy_ARR_2147957141_7
+rule Trojan_MSIL_Tedy_ARR_2147957141_8
 {
     meta:
         author = "defender2yara"
@@ -2890,6 +2913,32 @@ rule Trojan_MSIL_Tedy_SXA_2147974130_0
         $x_5_3 = "OBSGrabber/Profiles/" wide //weight: 5
         $x_5_4 = "/obs-studio/basic/profiles/" wide //weight: 5
         $x_5_5 = "OBSGrabber/global.ini" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_ART_2147975975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.ART!MTB"
+        threat_id = "2147975975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {25 16 02 a2 25 17 72 ?? ?? 00 70 a2 25 18 04 a2 25 19 04}  //weight: 6, accuracy: Low
+        $x_8_2 = "$65fb93e1-5bc6-48e9-90d5-668150e07ad1" ascii //weight: 8
+        $x_7_3 = "$13785ee1-9dd6-4328-be87-7adeb8db2666" ascii //weight: 7
+        $x_3_4 = "mbrpayload" ascii //weight: 3
+        $x_4_5 = "RunPayload" ascii //weight: 4
+        $x_2_6 = "MBR successfully wiped." ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
