@@ -2707,3 +2707,26 @@ rule Trojan_Win32_ICLoader_GPAU_2147975851_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_ICLoader_GPAV_2147975944_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.GPAV!MTB"
+        threat_id = "2147975944"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 d5 8e f5 a4 64 6d 65}  //weight: 4, accuracy: Low
+        $x_4_2 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 5a c3 ca 6a 10 4b 65}  //weight: 4, accuracy: Low
+        $x_4_3 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 13 c1 05 5b ed 9a 65}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -1086,3 +1086,28 @@ rule Trojan_Linux_Mirai_GVZ_2147975753_0
         (10 of ($x*))
 }
 
+rule Trojan_Linux_Mirai_GV_2147975950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.GV!MTB"
+        threat_id = "2147975950"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Dfs`eeh&<'9)!Dhj`g}fza2)@g}le)Dhj)FZ)Q)89V88V? )Hyyel^lkB`}&?98'>'>)!BA]DE%)e`bl)Nljbf )_l{z`fg&0'8';)Zhoh{`&?98'>'>" ascii //weight: 1
+        $x_1_2 = "Hjjly}3)}lq}&a}de%hyye`jh}`fg&qa}de\"qde%hyye`jh}`fg&qde2x49'0%`dhnl&~lky%#&#2x49'1" ascii //weight: 1
+        $x_1_3 = "Jfg}lg}$]pyl3)hyye`jh}`fg&q$~~~$of{d$|{elgjfmlm" ascii //weight: 1
+        $x_1_4 = "_:N=3)hyyel})gf})of|gm" ascii //weight: 1
+        $x_1_5 = "qQqZe`jlqQqq_LNH'" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

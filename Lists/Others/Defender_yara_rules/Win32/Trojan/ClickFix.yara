@@ -3303,6 +3303,10 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_80 = "jsvue.digital/downforce" wide //weight: 1
         $x_1_81 = "xpertlearninghub.com" wide //weight: 1
         $x_1_82 = "myraisedfloor.it/challenge/cf" wide //weight: 1
+        $x_1_83 = "jetpopdownloadsecret.monster" wide //weight: 1
+        $x_1_84 = "wirelesswebdevice.com" wide //weight: 1
+        $x_1_85 = "id-verif-code.info" wide //weight: 1
+        $x_1_86 = ".karburatorotzhigi.com" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -15537,6 +15541,28 @@ rule Trojan_Win32_ClickFix_MNI_2147975878_0
         $x_3_3 = "@SSL\\" wide //weight: 3
         $x_4_4 = "regsvr32 /s /n /u /i:" wide //weight: 4
         $x_5_5 = "pcalua" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SVC_2147975953_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVC"
+        threat_id = "2147975953"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "-w 1" wide //weight: 1
+        $x_1_3 = {2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

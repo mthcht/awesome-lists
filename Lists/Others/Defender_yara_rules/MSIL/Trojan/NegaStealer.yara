@@ -48,3 +48,25 @@ rule Trojan_MSIL_NegaStealer_AULB_2147958154_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NegaStealer_ABSG_2147975945_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NegaStealer.ABSG!MTB"
+        threat_id = "2147975945"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NegaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 05 11 05 2c 26 00 03 03 7b ?? 00 00 04 03 7b ?? 00 00 04 03 7b ?? 00 00 04 6f ?? 00 00 0a 7d ?? 00 00 04 03 17 7d ?? 00 00 04 00 12 01 fe ?? ?? ?? ?? ?? 12 01 17 7d ?? 00 00 04 07 0c 2b 08 17 13 06}  //weight: 5, accuracy: Low
+        $x_5_2 = {25 16 72 ae 06 00 70 a2 25 17 72 b2 06 00 70 a2 25 18 72 b6 06 00 70 a2 25 19 72 7a 06 00 70 a2 25 1a 72 c8 05 00 70 a2 25 1b 72 a6 05 00 70 a2 0c 16 0d 2b 77}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
