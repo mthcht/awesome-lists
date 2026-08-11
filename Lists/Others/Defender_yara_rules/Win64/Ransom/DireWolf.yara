@@ -19,3 +19,25 @@ rule Ransom_Win64_DireWolf_A_2147942757_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_DireWolf_PA_2147975980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/DireWolf.PA!MTB"
+        threat_id = "2147975980"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DireWolf"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "files are encrypted" ascii //weight: 1
+        $x_4_2 = "size = , tail = .DireWolf/c start" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
