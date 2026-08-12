@@ -34,3 +34,24 @@ rule Trojan_Win32_PureLogStealer_AWPA_2147937738_0
         )
 }
 
+rule Trojan_Win32_PureLogStealer_UNK_2147976070_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PureLogStealer.UNK!MTB"
+        threat_id = "2147976070"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {80 38 4c 75 ?? 80 78 01 8b 75 ?? 80 78 02 d1 75 ?? 80 78 03 b8 75 ?? 8b 48 04 ba}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

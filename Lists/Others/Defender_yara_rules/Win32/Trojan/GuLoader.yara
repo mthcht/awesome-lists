@@ -9102,3 +9102,28 @@ rule Trojan_Win32_GuLoader_SNZ_2147975973_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFM_2147976069_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFM!MTB"
+        threat_id = "2147976069"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\Hyracodontidae\\sarafan.exe" ascii //weight: 2
+        $x_1_2 = "kalibrerende\\ginseng" ascii //weight: 1
+        $x_1_3 = "%blankede%\\Sealy" ascii //weight: 1
+        $x_1_4 = "dugperler underbiddets gentleheartedness" ascii //weight: 1
+        $x_1_5 = "anoxias" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
