@@ -72,3 +72,27 @@ rule Ransom_Win64_Gunra_PA_2147942739_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Gunra_RH_2147976074_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Gunra.RH!MTB"
+        threat_id = "2147976074"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Gunra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {50 45 00 00 64 86 0a ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 0b 02 0e 2b ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 34 15 0b 00 00 10}  //weight: 2, accuracy: Low
+        $x_1_2 = "ShadowCopy" wide //weight: 1
+        $x_1_3 = "Windows\\System32\\wbem\\WMIC.exe shadowcopy" wide //weight: 1
+        $x_1_4 = "YOUR ALL DATA HAVE BEEN ENCRYPTED!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

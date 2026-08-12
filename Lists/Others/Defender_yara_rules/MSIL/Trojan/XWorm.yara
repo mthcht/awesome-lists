@@ -2489,6 +2489,34 @@ rule Trojan_MSIL_XWorm_AD_2147945984_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AD_2147945984_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AD!MTB"
+        threat_id = "2147945984"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {7e 0f 00 00 04 28 ?? 01 00 06 20 ?? 02 00 00 20 5a 02 00 00}  //weight: 6, accuracy: Low
+        $x_4_2 = "Google Chrome" ascii //weight: 4
+        $x_3_3 = "x.exe" wide //weight: 3
+        $x_2_4 = "FromBase64String" ascii //weight: 2
+        $x_2_5 = "GZipStream" ascii //weight: 2
+        $x_2_6 = "CreateDecryptor" ascii //weight: 2
+        $x_2_7 = "DownloadString" ascii //weight: 2
+        $x_2_8 = "$e3a429a9-937e-4008-b498-560debac4351" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_AE_2147945985_0
 {
     meta:

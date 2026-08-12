@@ -1811,3 +1811,28 @@ rule Trojan_Win64_ClipBanker_AMX_2147975332_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_GVF_2147976075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.GVF!MTB"
+        threat_id = "2147976075"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {83 f6 55 40 88 34 11 48 ff c2 48 39 d3 7e 08 0f b6 34 10 77 eb}  //weight: 1, accuracy: High
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "Start-Process '%s' -Verb RunAs" ascii //weight: 1
+        $x_1_4 = "Startupfloat32float64" ascii //weight: 1
+        $x_1_5 = "-ExecutionPolicy" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

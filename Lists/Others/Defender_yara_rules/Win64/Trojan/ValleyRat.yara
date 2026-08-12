@@ -245,6 +245,29 @@ rule Trojan_Win64_ValleyRat_GVC_2147956531_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_GVD_2147957684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.GVD!MTB"
+        threat_id = "2147957684"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {89 45 e0 0f b6 84 05 d0 fe ff ff 88 84 3d d0 fe ff ff 8b 45 e0 88 8c 05 d0 fe ff ff 0f b6 84 3d d0 fe ff ff 03 c2 8b 55 d8 0f b6 c0 0f b6 84 05 d0 fe ff ff 30 04 16 42 8b 4d e8 8b c1 8b 75 e4 2b c6 3b d0 89 55 d8 8b 45 e0 72 89}  //weight: 1, accuracy: High
+        $x_1_2 = "://nancheng8588.oss-cn-hangzhou.aliyuncs.com/2026/nancheng858.bin" ascii //weight: 1
+        $x_1_3 = "TestKey123" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_ValleyRat_PI_2147961039_0
 {
     meta:
