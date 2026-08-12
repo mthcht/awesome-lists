@@ -322,6 +322,32 @@ rule Trojan_MSIL_BypassUAC_KK_2147969319_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "FakeWindows13" ascii //weight: 6
+        $x_5_2 = "<0>__GDIChaosHighRes" ascii //weight: 5
+        $x_4_3 = "<4>__TriggerBSOD" ascii //weight: 4
+        $x_3_4 = "<2>__BlockCmdAndPowerShell" ascii //weight: 3
+        $x_2_5 = "<1>__BlockTaskManager" ascii //weight: 2
+        $x_1_6 = "KillSystem" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_BypassUAC_KK_2147969319_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.KK!MTB"
+        threat_id = "2147969319"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "28"
         strings_accuracy = "High"
     strings:

@@ -4943,6 +4943,31 @@ rule Trojan_MSIL_Zusy_KK_2147963164_3
         threshold = "15"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = "PolarRAT_Mutex_X9F2" ascii //weight: 5
+        $x_4_2 = "PASSWORD_STEAL" ascii //weight: 4
+        $x_3_3 = "PolarSvcTask" ascii //weight: 3
+        $x_2_4 = ".polar_kl.dat" ascii //weight: 2
+        $x_1_5 = "PolarClient.ClientCore+<SendBeaconAsync>" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Zusy_KK_2147963164_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.KK!MTB"
+        threat_id = "2147963164"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
         $x_5_1 = "activation.php?code=" ascii //weight: 5
         $x_4_2 = "deactivation.php?hash=" ascii //weight: 4
         $x_3_3 = "\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" ascii //weight: 3
