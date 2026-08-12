@@ -870,3 +870,25 @@ rule Trojan_Win64_ValleyRat_ARAF_2147975776_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_MKA_2147975997_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.MKA!MTB"
+        threat_id = "2147975997"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b7 0c 38 66 83 f1 4b 66 89 4c 10 10 48 83 c0 02 48 83 f8 0a}  //weight: 20, accuracy: High
+        $x_15_2 = {48 8d 42 ff 48 8b d0 0f b6 08 80 f9 20}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

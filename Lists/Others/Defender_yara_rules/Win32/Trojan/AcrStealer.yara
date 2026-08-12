@@ -26,3 +26,24 @@ rule Trojan_Win32_AcrStealer_DB_2147975624_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_AcrStealer_UNK_2147975991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AcrStealer.UNK!MTB"
+        threat_id = "2147975991"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AcrStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 14 40 8d 94 94 d0 02 00 00 03 0c 82 40 83 f8 03 7c ed}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

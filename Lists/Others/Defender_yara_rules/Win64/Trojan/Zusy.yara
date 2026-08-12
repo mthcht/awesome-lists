@@ -4436,3 +4436,26 @@ rule Trojan_Win64_Zusy_MKG_2147974770_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AHH_2147975995_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AHH!MTB"
+        threat_id = "2147975995"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "kAutoFill: Edge unknown exception" ascii //weight: 30
+        $x_20_2 = "kCookies: Firefox EXCEPTION %s" ascii //weight: 20
+        $x_10_3 = "kPasswords: dump OK size=%zu" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

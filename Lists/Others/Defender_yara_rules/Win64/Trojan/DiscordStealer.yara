@@ -361,3 +361,28 @@ rule Trojan_Win64_DiscordStealer_Z_2147974346_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_SXC_2147976008_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.SXC!MTB"
+        threat_id = "2147976008"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "37"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "\"text\":\"Token Stealer Report -" ascii //weight: 20
+        $x_10_2 = "\"title\":\"Discord Token Collection Report\"," ascii //weight: 10
+        $x_5_3 = "WARNING: Multiple tokens found for this account\\n\\n" ascii //weight: 5
+        $x_1_4 = "\\Google\\Chrome\\User Data" ascii //weight: 1
+        $x_1_5 = "discordcanary" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

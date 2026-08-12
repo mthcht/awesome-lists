@@ -328,3 +328,28 @@ rule Trojan_Win64_Rootkit_KKA_2147973751_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rootkit_SXB_2147976007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rootkit.SXB!MTB"
+        threat_id = "2147976007"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "[+] Received request to inject shellcode" ascii //weight: 20
+        $x_15_2 = "Failed to create a spoofed device. Skipping." ascii //weight: 15
+        $x_10_3 = "[+] Received request to hide process" ascii //weight: 10
+        $x_10_4 = "[+] Received request to hide port" ascii //weight: 10
+        $x_5_5 = "[+] Hooking to NSI" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
