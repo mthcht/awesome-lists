@@ -1640,3 +1640,56 @@ rule Trojan_Win32_Tedy_SK_2147974574_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_BAT_2147976114_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.BAT!MTB"
+        threat_id = "2147976114"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /c chcp" ascii //weight: 1
+        $x_1_2 = "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command \"%s\"" ascii //weight: 1
+        $x_1_3 = "%s\\~msn%s.tmp" ascii //weight: 1
+        $x_1_4 = "Get-PSDrive -PSProvider FileSystem|Where-Object{$_.Root -match" ascii //weight: 1
+        $x_1_5 = "ForEach-Object{Add-MpPreference -ExclusionPath $_.Root -ErrorAction SilentlyContinue" ascii //weight: 1
+        $x_1_6 = "schtasks.exe /create /f /sc minute /mo 1 /tn \"%s\" /tr \"%s\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tedy_SX_2147976143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.SX!MTB"
+        threat_id = "2147976143"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "65"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Browser cookies, passwords, cards, wallets, Telegram, VPN stealer" wide //weight: 20
+        $x_10_2 = "Stealing Telegram data..." wide //weight: 10
+        $x_10_3 = "Stealing wallet data..." wide //weight: 10
+        $x_10_4 = "Stealing VPN/RDP credentials..." wide //weight: 10
+        $x_8_5 = "TelegramExfil" ascii //weight: 8
+        $x_5_6 = "BrowserStealer" ascii //weight: 5
+        $x_2_7 = "StealerCustomPlugin" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

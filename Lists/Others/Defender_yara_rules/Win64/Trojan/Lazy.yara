@@ -7256,3 +7256,48 @@ rule Trojan_Win64_Lazy_SXT_2147976006_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_LRP_2147976090_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LRP!MTB"
+        threat_id = "2147976090"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 2b cb 48 8b c7 48 f7 e9 48 c1 fa 03 48 8b c2 48 c1 e8 3f 48 03 d0 4c 8b ad 20 05 00 00 4d 2b c5 49 c1 f8 02 49 3b d0}  //weight: 20, accuracy: High
+        $x_2_2 = "SilentClicker/1.0" ascii //weight: 2
+        $x_3_3 = "Is hotkey toggled: [%s]" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AHW_2147976113_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHW!MTB"
+        threat_id = "2147976113"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {d3 e8 25 ff 00 00 00 b9 ?? 00 00 00 48 2b 8c 24 ?? ?? 00 00 48 6b c9 ?? d3 e0 8b 8c 24 ?? ?? 00 00 0b c8 8b c1 89 84 24}  //weight: 30, accuracy: Low
+        $x_20_2 = {0f b6 c8 8b 84 24 ?? ?? 00 00 d3 e8 25 ff 00 00 00 89 84 24 ?? ?? 00 00 8b 84 24 ?? ?? 00 00 25 ff 00 00 00 89 84 24}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

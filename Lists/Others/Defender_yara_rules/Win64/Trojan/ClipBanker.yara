@@ -1836,3 +1836,31 @@ rule Trojan_Win64_ClipBanker_GVF_2147976075_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_NZB_2147976141_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.NZB!MTB"
+        threat_id = "2147976141"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "asynctimerchanCloseClipboardEmptyClipboardRegSetValueExW" ascii //weight: 1
+        $x_2_2 = "h48lPFYpsTvQJZF4EKyI4aLHaev3CxivZmv7yZig9pc=" ascii //weight: 2
+        $x_1_3 = "EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=" ascii //weight: 1
+        $x_1_4 = "ldflags=\"-H windowsgui -s -w" ascii //weight: 1
+        $x_1_5 = "atotto/clipboard.readAll" ascii //weight: 1
+        $x_1_6 = "Go build ID:" ascii //weight: 1
+        $x_1_7 = "HanLaoMroNkoVaiaesadxshaavxfmanetcgodnstcpudpgcmTEMP.exe.lnktruereadopensyncpipefileStat.com.bat.cmd" ascii //weight: 1
+        $x_2_8 = "C:/Users/kylan/go/pkg/mod/github.com/atotto/clipboard@v0.1.4/clipboard_windows.go" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

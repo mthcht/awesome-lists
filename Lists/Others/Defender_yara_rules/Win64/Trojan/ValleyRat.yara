@@ -915,3 +915,69 @@ rule Trojan_Win64_ValleyRat_MKA_2147975997_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_AUYB_2147976139_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AUYB!MTB"
+        threat_id = "2147976139"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {43 0f b6 0c 33 48 8d 6d 01 4c 8b 43 10 b8 dd 47 70 1f f7 e1 8b c1 45 8b ca 2b c2 d1 e8 03 c2 c1 e8 08 69 c0 c8 01 00 00 2b c8 b8 cd cc cc cc 41 f7 e2 80 c1 36 49 8d 43 01 41 30 4c 28 ff 45 33 db c1 ea 03 41 ff c2 8d 0c 92 03 c9 44 3b c9 4c 0f 45 d8 44 3b d7 7c}  //weight: 5, accuracy: High
+        $x_1_2 = "SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "Telegram" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_AVYB_2147976140_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AVYB!MTB"
+        threat_id = "2147976140"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff c2 4c 63 c2 46 0f b6 14 04 42 8d 04 13 25 ff 00 00 80 7d ?? ff c8 0d 00 ff ff ff ff c0 48 63 d8 0f b6 04 1c 42 88 04 04 44 88 14 1c 42 0f b6 0c 04 41 03 ca 81 e1 ff 00 00 80 7d ?? ff c9 81 c9 00 ff ff ff ff c1 0f b6 c1 49 ff c1 0f b6 0c 04 41 30 49 ff 49 ff cb 75}  //weight: 5, accuracy: Low
+        $x_1_2 = "\\DisplaySessionContainers.log" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_AJB_2147976154_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AJB!MTB"
+        threat_id = "2147976154"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {2b ca 41 f7 e2 80 c1 ?? 43 30 0c 03 c1 ea ?? 8d 0c 92 03 c9 44 3b d1 4d 0f 44 cd 41 ff c2 49 ff c3 44 3b d7}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

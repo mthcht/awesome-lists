@@ -860,3 +860,31 @@ rule Trojan_Win64_DLLHijack_CAR_2147974759_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_GPKL_2147976082_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.GPKL!MTB"
+        threat_id = "2147976082"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "powershell -NoProfile -WindowStyle Hidden -Command \"Start-Process -FilePath" ascii //weight: 7
+        $x_2_2 = "libcurl/8.8.8" ascii //weight: 2
+        $x_1_3 = "nul 2>&1 & del /F /Q" ascii //weight: 1
+        $x_1_4 = "Verb RunAs -WindowStyle Hidden\" >nul 2>&1 & ping -n 211 127.0.0.1 >nul 2>&1 & rd /s /q" ascii //weight: 1
+        $x_1_5 = "1277444444.cmd" ascii //weight: 1
+        $x_1_6 = "Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers" ascii //weight: 1
+        $x_1_7 = "RUNASADMIN" ascii //weight: 1
+        $x_1_8 = "Unblock-File -Path '12.cmd" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -121,6 +121,27 @@ rule TrojanDownloader_Win64_Mikey_ARAN_2147975868_0
         threshold = "4"
         strings_accuracy = "Low"
     strings:
+        $x_4_1 = {0f b6 c8 4d 8d 40 01 6b d1 07 ff c0 80 c2 0d 43 32 54 ?? ff ?? ?? ?? 41 88 50 ff ?? ?? ?? 7c e0}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win64_Mikey_ARAN_2147975868_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Mikey.ARAN!MTB"
+        threat_id = "2147975868"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
         $x_4_1 = {41 0f b6 0c 11 0f b6 c1 2a c2 41 2a c0 04 ?? 88 44 14 30 41 32 c8 44 8d 41 01 44 02 c2 48 ff c2 48 83 fa 06 72 da}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and

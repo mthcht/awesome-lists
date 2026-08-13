@@ -2538,6 +2538,30 @@ rule Trojan_MSIL_XWorm_AE_2147945985_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AE_2147945985_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AE!MTB"
+        threat_id = "2147945985"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0a 2c 04 14 0a de 20 02 28 ?? 00 00 0a 0a de 17 de 15}  //weight: 6, accuracy: Low
+        $x_4_2 = "GavaRAT" ascii //weight: 4
+        $x_3_3 = "malware" wide //weight: 3
+        $x_3_4 = "sandbox" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_GVC_2147946062_0
 {
     meta:

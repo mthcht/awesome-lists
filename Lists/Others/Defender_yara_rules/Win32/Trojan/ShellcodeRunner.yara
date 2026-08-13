@@ -1079,3 +1079,28 @@ rule Trojan_Win32_ShellcodeRunner_DC_2147973515_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_SXD_2147976144_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.SXD!MTB"
+        threat_id = "2147976144"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "] Patching ETW via VirtualProtect..." wide //weight: 5
+        $x_10_2 = "] Retrieving shellcode into heap via WebClient..." wide //weight: 10
+        $x_15_3 = "] Spawning hidden host process via CreateProcessW..." wide //weight: 15
+        $x_20_4 = "] Writing payload to remote process..." wide //weight: 20
+        $x_5_5 = "] Triggering execution via NtCreateThreadEx..." wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

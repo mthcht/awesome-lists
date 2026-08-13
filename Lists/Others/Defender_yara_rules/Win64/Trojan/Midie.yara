@@ -1368,3 +1368,28 @@ rule Trojan_Win64_Midie_SXO_2147973758_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_AHF_2147976112_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.AHF!MTB"
+        threat_id = "2147976112"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "main.zdecryptFull" ascii //weight: 50
+        $x_40_2 = "main.zdecryptByte" ascii //weight: 40
+        $x_30_3 = "main.aesCTRDencrypt" ascii //weight: 30
+        $x_20_4 = "main.isRootDocFile" ascii //weight: 20
+        $x_10_5 = "main.extractRootDocs" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

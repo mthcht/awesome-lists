@@ -4774,6 +4774,29 @@ rule Trojan_MSIL_ClipBanker_ARR_2147967867_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
+        $x_10_1 = {0b 07 06 28 ?? ?? ?? ?? 2c 1c 07 28 ?? ?? ?? ?? 0c 08 07 28 ?? ?? ?? ?? 2c 0a 08 28 ?? ?? ?? ?? 08 0a 2b 02 07 0a}  //weight: 10, accuracy: Low
+        $x_6_2 = "$8787B2A7-E871-4D2D-B14C-3738E0A5A726" ascii //weight: 6
+        $x_4_3 = "^T[1-9A-HJ-NP-Za-km-z]{33}$" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ClipBanker_ARR_2147967867_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.ARR!MTB"
+        threat_id = "2147967867"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
         $x_7_1 = {2b 21 06 08 8f ?? ?? 00 01 25 71 ?? ?? 00 01 7e ?? ?? 00 04 08 1a 58 91 5a d2 81 ?? ?? ?? ?? 08 17 58 0c 08 06 8e 69 32 d9}  //weight: 7, accuracy: Low
         $x_3_2 = {13 05 09 11 05 d2 6e 1e 11 04 5a 1f 3f 5f 62 60 0d 11 04 17 58 13 04 11 04 1e 32 de}  //weight: 3, accuracy: High
         $x_10_3 = "$8431891b-5f8f-4dd4-9c71-14cecc338e3e" ascii //weight: 10
@@ -4782,7 +4805,7 @@ rule Trojan_MSIL_ClipBanker_ARR_2147967867_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ClipBanker_ARR_2147967867_1
+rule Trojan_MSIL_ClipBanker_ARR_2147967867_2
 {
     meta:
         author = "defender2yara"

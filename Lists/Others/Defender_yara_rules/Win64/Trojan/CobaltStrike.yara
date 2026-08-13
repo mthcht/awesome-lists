@@ -19680,3 +19680,35 @@ rule Trojan_Win64_CobaltStrike_NGT_2147974389_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_LR_2147976093_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.LR!MTB"
+        threat_id = "2147976093"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "78"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Memory allocated - ready to copy shellcode" ascii //weight: 1
+        $x_2_2 = "Shellcode copied to allocated memory" ascii //weight: 2
+        $x_3_3 = "Shellcode copied - ready to decrypt" ascii //weight: 3
+        $x_4_4 = "[%02d:%02d:%02d.%03d] [PID: %d] %s" ascii //weight: 4
+        $x_5_5 = "Starting shellcode injection process" ascii //weight: 5
+        $x_6_6 = "Resource loaded successfully" ascii //weight: 6
+        $x_7_7 = "Memory allocated for shellcode:" ascii //weight: 7
+        $x_8_8 = "Shellcode written to Notepad process" ascii //weight: 8
+        $x_9_9 = "Shellcode written - ready to execute" ascii //weight: 9
+        $x_10_10 = "Waiting for shellcode execution to complete..." ascii //weight: 10
+        $x_11_11 = "Shellcode execution completed" ascii //weight: 11
+        $x_12_12 = "DLL attached to process" ascii //weight: 12
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

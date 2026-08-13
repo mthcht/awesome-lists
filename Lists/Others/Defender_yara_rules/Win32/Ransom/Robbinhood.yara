@@ -123,3 +123,26 @@ rule Ransom_Win32_Robbinhood_A_2147759249_0
         (4 of ($x*))
 }
 
+rule Ransom_Win32_Robbinhood_NF_2147976089_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Robbinhood.NF!MTB"
+        threat_id = "2147976089"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Robbinhood"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "vssadmin.exewevtutil.exewinlogin.exe" ascii //weight: 2
+        $x_2_2 = "Decrypt_Files.html" ascii //weight: 2
+        $x_2_3 = ".enc_robbin_hood" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

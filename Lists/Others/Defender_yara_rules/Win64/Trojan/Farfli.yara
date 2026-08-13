@@ -520,6 +520,30 @@ rule Trojan_Win64_Farfli_ARR_2147961322_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 f7 e2 80 c1 ?? 43 30 0c 02 41 8d 4b ?? c1 ea ?? 45 33 db 8d 04 92 03 c0 44 3b d0 44 0f 45 d9 41 ff c2 44 3b d7}  //weight: 10, accuracy: Low
+        $x_6_2 = "%s-%04d%02d%02d-%02d%02d%02d.dmp" ascii //weight: 6
+        $x_4_3 = "COMMAND_CHANGELOAD" ascii //weight: 4
+        $x_5_4 = "COMMAND_KILL_AV" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Farfli_ARR_2147961322_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.ARR!MTB"
+        threat_id = "2147961322"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:

@@ -435,3 +435,25 @@ rule Trojan_Win32_Rugmi_SXA_2147974129_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rugmi_SXD_2147976142_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rugmi.SXD!MTB"
+        threat_id = "2147976142"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8a 58 01 84 db ?? ?? 8a 78 02 8d 70 02 84 ff ?? ?? 80 78 03 00 ?? ?? 0f b6 00 8d 0c 50 0f b6 c3 8d 14 48 0f b6 cf 8b c6 8d 14 51 0f b6 48 01 83 c0 02 80 38 00 8d 14 51}  //weight: 30, accuracy: Low
+        $x_10_2 = {66 0f be 0c 01 66 89 0c 47 40 8b 0d ?? ?? ?? ?? 80 3c 01 00 75 e4}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

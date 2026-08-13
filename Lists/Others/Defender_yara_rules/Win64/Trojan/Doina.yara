@@ -503,3 +503,25 @@ rule Trojan_Win64_Doina_AHC_2147973725_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_LR_2147976091_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.LR!MTB"
+        threat_id = "2147976091"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8a cb 83 c3 01 02 4e 26 30 0f 48 83 c7 01 83 fb 15 7c ?? b0 01}  //weight: 20, accuracy: Low
+        $x_10_2 = "http://%s/xd.php" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
