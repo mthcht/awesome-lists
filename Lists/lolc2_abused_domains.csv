@@ -16,5 +16,5 @@ amazonaws.com,*.s3-website-*.*.amazonaws.com,*.s3-website-*.*.amazonaws.com,doma
 on.aws,*.lambda-url.*.on.aws,*.lambda-url.*.on.aws,domain_fronting,high,Serverless Computing AWS Lambda  - https://lolc2.github.io/
 googleapis.com,*.storage.googleapis.com,*.storage.googleapis.com,delivery,low,Google Cloud Storage buckets
 trycloudflare.com,*.trycloudflare.com,*.trycloudflare.com,domain_fronting,high,Cloudflare Quick Tunnels
-azueredge.net,*.azueredge.net,*.azueredge.net,domain_fronting,medium,Azure Edge (not working since 2025)
+azuredge.net,*.azuredge.net,*.azuredge.net,domain_fronting,medium,Azure Edge (not working since 2025)
 trafficmanager.net,*.trafficmanager.net,*.trafficmanager.net,domain_fronting,high,Azure Traffic Manager
