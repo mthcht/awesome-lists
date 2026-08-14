@@ -35,7 +35,7 @@ rule Trojan_Win64_DllSideLoading_PI_2147976124_0
         threshold = "1"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {48 83 ec 48 48 b8 93 9b 83 9e 87 89 9e cc 48 89 44 24 ?? 48 b8 9f 99 83 81 85 93 9b 83 48 89 44 24 ?? 31 c0 48 83 f8 0d 74 0a 80 74 04 28 cc 48 ff c0 eb}  //weight: 1, accuracy: Low
+        $x_1_1 = {48 b8 93 9b 83 9e 87 89 9e cc 48 89 44 24 ?? 48 b8 9f 99 83 81 85 93 9b 83 48 89 44 24 ?? 31 c0 48 83 f8 0d 74 0a 80 74 04 ?? cc 48 ff c0 eb}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

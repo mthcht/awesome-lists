@@ -7301,3 +7301,24 @@ rule Trojan_Win64_Lazy_AHW_2147976113_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_SM_2147976211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.SM!MTB"
+        threat_id = "2147976211"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell -WindowStyle Hidden -Command \"& { iwr -Uri 'https://vcc-library.uk/Stb/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

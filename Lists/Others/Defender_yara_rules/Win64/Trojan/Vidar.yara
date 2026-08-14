@@ -3801,3 +3801,34 @@ rule Trojan_Win64_Vidar_DMX_2147976054_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GVBC_2147976218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GVBC!MTB"
+        threat_id = "2147976218"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "withdrawf" ascii //weight: 1
+        $x_1_2 = "transferL" ascii //weight: 1
+        $x_1_3 = ":depo" ascii //weight: 1
+        $x_1_4 = "Encrypted Text:" ascii //weight: 1
+        $x_1_5 = "Decrypted Text:" ascii //weight: 1
+        $x_1_6 = "*** BANKING LEDGER SYSTEM v2.1 ***" ascii //weight: 1
+        $x_1_7 = "Active Accounts:  earned" ascii //weight: 1
+        $x_1_8 = "Processing Statistics:" ascii //weight: 1
+        $x_1_9 = "main.hlte" ascii //weight: 1
+        $x_1_10 = "main.dohfle" ascii //weight: 1
+        $x_1_11 = "main.kxurfwizbfbdo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
