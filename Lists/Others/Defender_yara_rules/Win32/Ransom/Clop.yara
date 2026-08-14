@@ -453,8 +453,10 @@ rule Ransom_Win32_Clop_SIB_2147807749_0
         $x_1_29 = "net stop VeeamNFSSvc /y" ascii //weight: 1
         $x_1_30 = "net stop VeeamBrokerSvc /y" ascii //weight: 1
         $x_1_31 = "net stop BackupExecAgentAccelerator /y" ascii //weight: 1
+        $n_100_32 = "InE.MtpCorrelationRules.Tests.pdb" ascii //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_20_*) and 15 of ($x_1_*))) or
             ((2 of ($x_20_*))) or

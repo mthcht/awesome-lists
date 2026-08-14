@@ -32,7 +32,7 @@ rule Ransom_Win64_HiddenTear_VDA_2147972366_0
         family = "HiddenTear"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
@@ -41,8 +41,10 @@ rule Ransom_Win64_HiddenTear_VDA_2147972366_0
         $x_2_3 = "vssadmin delete shadows /all /quiet" wide //weight: 2
         $x_2_4 = "ExecutionPolicy Bypass" wide //weight: 2
         $x_1_5 = "encrypted" wide //weight: 1
+        $n_10_6 = "InE.MtpCorrelationRules.Tests.pdb" ascii //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((3 of ($x_2_*) and 1 of ($x_1_*))) or
             (all of ($x*))

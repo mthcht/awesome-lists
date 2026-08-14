@@ -83,3 +83,24 @@ rule Trojan_Win32_Curlygate_YPT_2147975164_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Curlygate_YBD_2147976166_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Curlygate.YBD!MTB"
+        threat_id = "2147976166"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Curlygate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 8b 0c 24 89 41 ?? 8b 44 24 ?? 35 ?? ?? ?? ?? 48 8b 0c ?? 89 41 ?? 48 89 c9 48 89 c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
