@@ -82,3 +82,31 @@ rule Trojan_Win64_MaskGramStealer_AMG_2147973046_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_MaskGramStealer_VMX_2147976236_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MaskGramStealer.VMX!MTB"
+        threat_id = "2147976236"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MaskGramStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 89 c2 48 ff c0 41 80 7c 01 ff 00 75 f2 31 c9 89 c8 99 41 f7 fa 48 63 d2 41 8a 04 11 41 32 04 0b 41 88 04 08 48 ff c1 48 83 f9 0b 75 e2 41 c6 40 0b 00}  //weight: 1, accuracy: High
+        $x_1_2 = "/senttag" ascii //weight: 1
+        $x_1_3 = "/getdll" ascii //weight: 1
+        $x_1_4 = "/uploadfile" ascii //weight: 1
+        $x_1_5 = "donflea247xw.cfd" ascii //weight: 1
+        $x_1_6 = "Virtual Desktop" ascii //weight: 1
+        $x_1_7 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_8 = "OutputDebugStringA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

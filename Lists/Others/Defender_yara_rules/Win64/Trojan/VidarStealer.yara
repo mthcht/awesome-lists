@@ -263,3 +263,25 @@ rule Trojan_Win64_VidarStealer_Z_2147971942_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_VidarStealer_ARA_2147976234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VidarStealer.ARA!MTB"
+        threat_id = "2147976234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 8b b4 24 c8 04 00 00 0f b6 3c 06 31 cf 31 f7 40 88 3c 30 48 ff c6 48 39 f3 0f 8f e4 fb ff ff}  //weight: 4, accuracy: High
+        $x_1_2 = "Go build ID:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9153,3 +9153,54 @@ rule Trojan_Win32_GuLoader_RFN_2147976138_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFP_2147976232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFP!MTB"
+        threat_id = "2147976232"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "korstogstiderne\\tvingernes\\histoplasmosis" ascii //weight: 2
+        $x_1_2 = "dispensations\\tistykpakkes" ascii //weight: 1
+        $x_1_3 = "%Hypostasere%\\Tilters219" ascii //weight: 1
+        $x_1_4 = "88\\Snickle" ascii //weight: 1
+        $x_1_5 = "\\Siphonostele\\defector.ini" ascii //weight: 1
+        $x_1_6 = "\\Smeltepunkter72\\Fejrende243.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GuLoader_RFQ_2147976233_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFQ!MTB"
+        threat_id = "2147976233"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\entomostraca\\nonmissionary" ascii //weight: 2
+        $x_1_2 = "%lophiomys%\\Helleristninger\\correlativism" ascii //weight: 1
+        $x_1_3 = "genvejene\\brnefdselsdagenes" ascii //weight: 1
+        $x_1_4 = "\\henst\\ideologically.dll" ascii //weight: 1
+        $x_1_5 = "5\\pendlingen\\skillingende.ini" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
