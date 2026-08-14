@@ -2,7 +2,7 @@
   "advisories": [
     {
       "advisory_id": "SVD-2026-0706",
-      "last_update": "2026-07-15",
+      "last_update": "2026-08-14",
       "published": "2026-07-15",
       "rows": [
         {
@@ -19,11 +19,11 @@
           "cve_id": "Multiple",
           "fix_version": "10.4.1",
           "fix_vnum": "10004001000",
-          "last_update": "2026-07-15",
+          "last_update": "2026-08-14",
           "product": "Splunk Universal Forwarder",
           "product_kind": "forwarder",
           "published": "2026-07-15",
-          "severity": "Low",
+          "severity": "Medium",
           "solution": "Upgrade Splunk Universal Forwarder to versions 10.4.1, 10.2.5, 10.0.8, 9.4.13, or higher.",
           "source": "splunk_advisory",
           "title": "SVD-2026-0706 | Splunk Vulnerability Disclosure",
@@ -43,11 +43,11 @@
           "cve_id": "Multiple",
           "fix_version": "10.2.5",
           "fix_vnum": "10002005000",
-          "last_update": "2026-07-15",
+          "last_update": "2026-08-14",
           "product": "Splunk Universal Forwarder",
           "product_kind": "forwarder",
           "published": "2026-07-15",
-          "severity": "Low",
+          "severity": "Medium",
           "solution": "Upgrade Splunk Universal Forwarder to versions 10.4.1, 10.2.5, 10.0.8, 9.4.13, or higher.",
           "source": "splunk_advisory",
           "title": "SVD-2026-0706 | Splunk Vulnerability Disclosure",
@@ -67,11 +67,11 @@
           "cve_id": "Multiple",
           "fix_version": "10.0.8",
           "fix_vnum": "10000008000",
-          "last_update": "2026-07-15",
+          "last_update": "2026-08-14",
           "product": "Splunk Universal Forwarder",
           "product_kind": "forwarder",
           "published": "2026-07-15",
-          "severity": "Low",
+          "severity": "Medium",
           "solution": "Upgrade Splunk Universal Forwarder to versions 10.4.1, 10.2.5, 10.0.8, 9.4.13, or higher.",
           "source": "splunk_advisory",
           "title": "SVD-2026-0706 | Splunk Vulnerability Disclosure",
@@ -91,18 +91,18 @@
           "cve_id": "Multiple",
           "fix_version": "9.4.13",
           "fix_vnum": "9004013000",
-          "last_update": "2026-07-15",
+          "last_update": "2026-08-14",
           "product": "Splunk Universal Forwarder",
           "product_kind": "forwarder",
           "published": "2026-07-15",
-          "severity": "Low",
+          "severity": "Medium",
           "solution": "Upgrade Splunk Universal Forwarder to versions 10.4.1, 10.2.5, 10.0.8, 9.4.13, or higher.",
           "source": "splunk_advisory",
           "title": "SVD-2026-0706 | Splunk Vulnerability Disclosure",
           "url": "https://advisory.splunk.com/advisories/SVD-2026-0706"
         }
       ],
-      "severity": "Low",
+      "severity": "Medium",
       "title": "SVD-2026-0706 | Splunk Vulnerability Disclosure",
       "url": "https://advisory.splunk.com/advisories/SVD-2026-0706"
     },
@@ -16601,6 +16601,6 @@
       "url": "https://advisory.splunk.com/advisories/SVD-2022-0301"
     }
   ],
-  "generated_at_utc": "2026-08-13T07:00:17Z",
+  "generated_at_utc": "2026-08-14T06:58:17Z",
   "source": "https://advisory.splunk.com/"
 }
