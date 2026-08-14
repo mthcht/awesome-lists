@@ -11432,3 +11432,32 @@ rule Trojan_MSIL_Heracles_ABSG_2147975853_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SQC_2147976168_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SQC!MTB"
+        threat_id = "2147976168"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Implant" ascii //weight: 1
+        $x_1_2 = "TransformFinalBlock" ascii //weight: 1
+        $x_1_3 = "HMACSHA256" ascii //weight: 1
+        $x_1_4 = "ToBase64String" ascii //weight: 1
+        $x_1_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_6 = "schtasks /Create /TN \"Microsoft\\Windows\\Maintenance\\WinCache\" /TR \"\\\"" ascii //weight: 1
+        $x_2_7 = "45.61.148.165" ascii //weight: 2
+        $x_5_8 = "239c73ada310d9ba978ccd2a3a7891df186d6023bf437e2c3ec769aaf6b4375c" ascii //weight: 5
+        $x_1_9 = "svchost.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
