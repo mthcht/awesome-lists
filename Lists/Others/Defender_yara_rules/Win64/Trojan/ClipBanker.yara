@@ -1892,3 +1892,30 @@ rule Trojan_Win64_ClipBanker_NZD_2147976241_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClipBanker_KKA_2147976249_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClipBanker.KKA!MTB"
+        threat_id = "2147976249"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "main.detectClipAddress" ascii //weight: 7
+        $x_6_2 = "main.getReplacementAddress" ascii //weight: 6
+        $x_5_3 = "main.getClipAddresses" ascii //weight: 5
+        $x_4_4 = "main.(*WindowsClipboard).processClipboardChange" ascii //weight: 4
+        $x_3_5 = "main.(*C2Client).SendClipNotification" ascii //weight: 3
+        $x_2_6 = "main.(*C2Client).sendTelegramMessage" ascii //weight: 2
+        $x_1_7 = "main.addToDefenderExclusions" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

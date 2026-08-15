@@ -407,3 +407,26 @@ rule Trojan_MSIL_Cassandra_KB_2147975223_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_PQT_2147976269_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.PQT!MTB"
+        threat_id = "2147976269"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {11 02 11 04 02 11 04 91 11 01 61 11 00 11 03 91 61 d2 9c}  //weight: 5, accuracy: High
+        $x_2_2 = "Smart Optimization.dll" ascii //weight: 2
+        $x_2_3 = "Adaptive machine learning system tuning service" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

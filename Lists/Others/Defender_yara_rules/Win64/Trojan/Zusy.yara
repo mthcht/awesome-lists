@@ -4459,3 +4459,28 @@ rule Trojan_Win64_Zusy_AHH_2147975995_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_SXZ_2147976262_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.SXZ!MTB"
+        threat_id = "2147976262"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "%s\\sysupdate.bat" ascii //weight: 20
+        $x_10_2 = "[PERSISTENCE] Registry RunOnce added:" ascii //weight: 10
+        $x_10_3 = "[PERSISTENCE] Registry RunOnce already exists:" ascii //weight: 10
+        $x_10_4 = "[PERSISTENCE] Restorer process created:" ascii //weight: 10
+        $x_5_5 = "JohnnySilverhandSign.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -430,3 +430,29 @@ rule Trojan_MSIL_ShellcodeRunner_ARR_2147973800_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_GPAW_2147976258_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.GPAW!MTB"
+        threat_id = "2147976258"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {6d 73 63 6f 72 6c 69 62 00 53 79 73 74 65 6d 00 4f 62 6a 65 63 74 00 56 69 72 74 75 61 6c 41 6c 6c 6f 63 00 43 72 65 61 74 65 54 68 72 65 61 64 00 57 61 69 74 46 6f 72 53 69 6e 67 6c 65 4f 62 6a 65 63 74}  //weight: 4, accuracy: High
+        $x_3_2 = {09 91 08 09 08 8e 69 5d 91 61 d2 9c 09 17 58 0d}  //weight: 3, accuracy: High
+        $x_1_3 = "SetupFiles" ascii //weight: 1
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion" ascii //weight: 1
+        $x_1_5 = {08 09 07 09 18 5a 18 6f ?? 00 00 0a 1f 10 28 ?? 00 00 0a 9c 09 17 58 0d 09 08 8e 69 fe 04}  //weight: 1, accuracy: Low
+        $x_1_6 = "pmaslg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1595,3 +1595,29 @@ rule Ransom_Win64_FileCoder_SST_2147971601_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_ARR_2147976250_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.ARR!MTB"
+        threat_id = "2147976250"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "Ransomware Public Key" ascii //weight: 8
+        $x_7_2 = "Desktop\\HOW_TO_DECRYPT.txt" ascii //weight: 7
+        $x_6_3 = "Files encrypted. Send 0.5 BTC to:" ascii //weight: 6
+        $x_3_4 = "bcdedit /delete {bootmgr} /f >nul 2>&1" ascii //weight: 3
+        $x_2_5 = "reagentc /disable >nul 2>&1" ascii //weight: 2
+        $x_4_6 = "Encryption done." ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

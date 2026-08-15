@@ -6151,3 +6151,34 @@ rule Trojan_MSIL_XWorm_AQYB_2147975775_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AXYB_2147976257_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AXYB!MTB"
+        threat_id = "2147976257"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {20 7e 02 00 00 20 2e 02 00 00 28 ?? 00 00 2b 80 06 00 00 04 7e 08 00 00 04 28 ?? ?? 00 06 20 e1 02 00 00 20 b1 02 00 00 28 ?? 00 00 2b 80 08 00 00 04 1c 13 15 2b 94 7e 09 00 00 04 28 ?? ?? 00 06 20 c1 03 00 00 20 91 03 00 00 28 ?? 00 00 2b 80 09 00 00 04 7e 0a 00 00 04 28 ?? ?? 00 06 20 95 01 00 00 20 c5 01 00 00 28 ?? 00 00 2b 80 0a 00 00 04 17 13 15}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+        $x_1_3 = "FromBase64String" ascii //weight: 1
+        $x_1_4 = "GetHostAddresses" ascii //weight: 1
+        $x_1_5 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_6 = "get_MachineName" ascii //weight: 1
+        $x_1_7 = "get_SystemDirectory" ascii //weight: 1
+        $x_1_8 = "get_Is64BitOperatingSystem" ascii //weight: 1
+        $x_1_9 = "GetDirectories" ascii //weight: 1
+        $x_1_10 = "get_TotalPhysicalMemory" ascii //weight: 1
+        $x_1_11 = "Mutex" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

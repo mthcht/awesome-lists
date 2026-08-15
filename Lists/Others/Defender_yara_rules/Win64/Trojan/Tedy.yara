@@ -7867,3 +7867,28 @@ rule Trojan_Win64_Tedy_GVBC_2147976242_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SZA_2147976256_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SZA!MTB"
+        threat_id = "2147976256"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe /c chcp 65001 >nul && %s" ascii //weight: 1
+        $x_1_2 = "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command \"%s\"" ascii //weight: 1
+        $x_1_3 = "%s\\~msn%s.tmp" ascii //weight: 1
+        $x_5_4 = "c2.freemasonry.dev" ascii //weight: 5
+        $x_2_5 = "C:\\TEMP\\~msnDEV-9b1074032ec4c387.tmp" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

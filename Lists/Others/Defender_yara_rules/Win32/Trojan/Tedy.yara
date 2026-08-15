@@ -967,6 +967,29 @@ rule Trojan_Win32_Tedy_ARR_2147954236_6
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_ARR_2147954236_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.ARR!MTB"
+        threat_id = "2147954236"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 85 88 97 ?? ?? 89 95 8c 97 ?? ?? 8b 85 88 97 ?? ?? 8b 8d 8c 97 ?? ?? 33 85 88 97 ?? ?? 33 8d 8c 97 ?? ?? 89 85 88 97 ?? ?? 89 8d 8c 97 ?? ?? 8b 95 88 97 ?? ?? 8b 85 8c 97 ?? ?? 89 95 64 97 ?? ?? 89 85 68 97}  //weight: 10, accuracy: Low
+        $x_6_2 = "ShellExecuteW(NULL, L\"open\", g_target, NULL, g_workDir, SW_HIDE)" ascii //weight: 6
+        $x_4_3 = "Start-Process -FilePath $TargetExe -WorkingDirectory $WorkDir -WindowStyle Hidden" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Tedy_LMG_2147955983_0
 {
     meta:

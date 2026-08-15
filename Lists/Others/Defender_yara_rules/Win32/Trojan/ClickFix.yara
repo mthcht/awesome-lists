@@ -3304,9 +3304,15 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_81 = "xpertlearninghub.com" wide //weight: 1
         $x_1_82 = "myraisedfloor.it/challenge/cf" wide //weight: 1
         $x_1_83 = "jetpopdownloadsecret.monster" wide //weight: 1
-        $x_1_84 = "wirelesswebdevice.com" wide //weight: 1
-        $x_1_85 = "id-verif-code.info" wide //weight: 1
-        $x_1_86 = ".karburatorotzhigi.com" wide //weight: 1
+        $x_1_84 = "pourpopclickgetfast.monster" wide //weight: 1
+        $x_1_85 = "wirelesswebdevice.com" wide //weight: 1
+        $x_1_86 = "id-verif-code.info" wide //weight: 1
+        $x_1_87 = ".karburatorotzhigi.com" wide //weight: 1
+        $x_1_88 = "sanremomodauomo.com" wide //weight: 1
+        $x_1_89 = "analysis-id-fmd.info" wide //weight: 1
+        $x_1_90 = "yamin4d.org" wide //weight: 1
+        $x_1_91 = "seniorgapyear.cfd" wide //weight: 1
+        $x_1_92 = "recaptcha-check.com" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -15557,15 +15563,24 @@ rule Trojan_Win32_ClickFix_SVC_2147975953_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
+        threshold = "21"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "powershell" wide //weight: 1
+        $x_10_1 = "powershell" wide //weight: 10
         $x_1_2 = "-w 1" wide //weight: 1
-        $x_1_3 = {2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "wi mi" wide //weight: 1
+        $x_11_4 = {69 00 72 00 6d 00 [0-255] 2e 00 6d 00 6f 00 6e 00 73 00 74 00 65 00 72 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 11, accuracy: Low
+        $x_11_5 = {24 00 61 00 3d 00 69 00 72 00 6d 00 [0-255] 3b 00 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 11, accuracy: Low
+        $x_11_6 = {24 00 73 00 3d 00 69 00 72 00 6d 00 [0-255] 3b 00 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 73 00 29 00}  //weight: 11, accuracy: Low
+        $x_10_7 = {2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*))) or
+            ((2 of ($x_11_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_SVD_2147976056_0
@@ -15585,6 +15600,62 @@ rule Trojan_Win32_ClickFix_SVD_2147976056_0
         $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 10, accuracy: High
         $x_10_2 = "iex(irm" wide //weight: 10
         $x_10_3 = "-usebasicparsing)" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_MMI_2147976267_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MMI!MTB"
+        threat_id = "2147976267"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "enter-press" wide //weight: 5
+        $x_5_2 = "enter-code" wide //weight: 5
+        $x_4_3 = "iex(irm" wide //weight: 4
+        $x_2_4 = ".info/" wide //weight: 2
+        $x_2_5 = "-w h" wide //weight: 2
+        $x_2_6 = "-UseBasicParsing" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_XVI_2147976268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.XVI!MTB"
+        threat_id = "2147976268"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "^s^t^a^r^t" wide //weight: 2
+        $x_2_2 = "/r %windir%" wide //weight: 2
+        $x_3_3 = "^|^" wide //weight: 3
+        $x_4_4 = "i^r^m" wide //weight: 4
+        $x_4_5 = "^|i^e^x&exit" wide //weight: 4
     condition:
         (filesize < 20MB) and
         (all of ($x*))
