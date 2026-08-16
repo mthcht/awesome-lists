@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,leboncoin.fr,18.155.173.14,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
+*original,leboncoin.fr,18.173.121.34,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
 addition,leboncoin0.fr,,,,
 addition,leboncoin1.fr,,,,
 addition,leboncoin2.fr,,,,
@@ -94,7 +94,6 @@ homoglyph,iebomcoin.fr,,,,
 homoglyph,iebonc0in.fr,,,,
 homoglyph,iebonco1n.fr,,,,
 homoglyph,ieboncoim.fr,,,,
-homoglyph,leboncoln.fr,15.188.102.58,,,ns-1319.awsdns-36.org
 homoglyph,ieboncoin.fr,76.76.21.21,,mx1.hostinger.com,ns1.dns-parking.com
 homoglyph,ieboncoir.fr,,,,
 homoglyph,ieboncoln.fr,,,,
@@ -143,6 +142,7 @@ homoglyph,leboncoim.fr,,,,
 homoglyph,leboncoir.fr,,,,
 homoglyph,leboncoirn.fr,,,,
 homoglyph,leboncolm.fr,,,,
+homoglyph,leboncoln.fr,15.188.102.58,,,ns-1319.awsdns-36.org
 homoglyph,leboncolr.fr,,,,
 homoglyph,lebone0in.fr,,,,
 homoglyph,leboneo1n.fr,,,,
@@ -747,10 +747,10 @@ insertion,lzeboncoin.fr,,,,
 insertion,mleboncoin.fr,,,,
 insertion,oleboncoin.fr,,,,
 insertion,pleboncoin.fr,,,,
-omission,lebonoin.fr,104.21.56.12,2606:4700:3030::ac43:afad,,jo.ns.cloudflare.com
-omission,lboncoin.fr,104.247.81.99,,mail.h-email.net,ns1.parkingcrew.net
 omission,lebncoin.fr,,,,
 omission,lebocoin.fr,,,,
+omission,lebonoin.fr,104.21.56.12,2606:4700:3030::ac43:afad,,jo.ns.cloudflare.com
+omission,lboncoin.fr,104.247.81.99,,mail.h-email.net,ns1.parkingcrew.net
 omission,leboncin.fr,157.90.33.73,,,ns1.park-my-domain.net
 omission,leboncoi.fr,157.90.33.73,,,ns1.park-my-domain.net
 omission,eboncoin.fr,,,,ns1.parkingcrew.net
@@ -780,14 +780,14 @@ replacement,lebonclin.fr,,,,
 replacement,lebonco8n.fr,,,,
 replacement,lebonco9n.fr,,,,
 replacement,leboncoih.fr,,,,
+replacement,leboncojn.fr,,,,
 replacement,leboncoun.fr,157.90.33.73,,,ns1.park-my-domain.net
 replacement,leboncpin.fr,157.90.33.73,,,ns1.park-my-domain.net
+replacement,lebondoin.fr,,,,
 replacement,lebonfoin.fr,216.150.1.1,,alt1.aspmx.l.google.com,ns81.domaincontrol.com
 replacement,lebonvoin.fr,84.16.66.164,2001:1600:0:aaaa::2:14,,ns11.infomaniak.ch
 replacement,leboncoib.fr,,,,ns1.parkingcrew.net
-replacement,leboncojn.fr,,,,
 replacement,leboncoon.fr,,,,ns1.parkingcrew.net
-replacement,lebondoin.fr,,,,
 replacement,lebonxoin.fr,,,,
 replacement,lebpncoin.fr,,,,ns1.parkingcrew.net
 replacement,legoncoin.fr,,,,
