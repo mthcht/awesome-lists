@@ -1250,3 +1250,30 @@ rule Trojan_Win64_Stealer_UNK_2147975405_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_EM_2147976305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.EM!MTB"
+        threat_id = "2147976305"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WindowsKeys.txt" ascii //weight: 1
+        $x_1_2 = "Global\\BrowserExtract_" ascii //weight: 1
+        $x_1_3 = "browser_extract\\state.json" ascii //weight: 1
+        $x_1_4 = "cookie/password" ascii //weight: 1
+        $x_1_5 = "All Cred.txt" ascii //weight: 1
+        $x_1_6 = "OA3xOriginalProductKey" ascii //weight: 1
+        $x_1_7 = "Screenshot.png " ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
