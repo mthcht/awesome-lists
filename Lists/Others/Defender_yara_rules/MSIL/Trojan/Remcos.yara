@@ -15211,3 +15211,26 @@ rule Trojan_MSIL_Remcos_YYS_2147976306_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_RVO_2147976310_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.RVO!MTB"
+        threat_id = "2147976310"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 dd a2 29 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 6c 00 00 00 23 00 00 00 6a 00 00 00 8a 00 00 00 72 00 00 00 fa 00 00 00 02 00 00 00 60 00 00 00 01 00 00 00 01 00 00 00 27 00 00 00 09 00 00 00 1f 00 00 00 23 00 00 00 2d 00 00 00 01 00 00 00 01 00 00 00 06 00 00 00 01 00 00 00 12 00 00 00 0e 00 00 00 0a}  //weight: 2, accuracy: High
+        $x_1_2 = "E9F7A8C6-5D4B-4A3E-9F2C-8B1A7E6D5F4C" ascii //weight: 1
+        $x_1_3 = "get_Cringe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
