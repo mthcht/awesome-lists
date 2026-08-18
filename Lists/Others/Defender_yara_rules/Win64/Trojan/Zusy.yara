@@ -4484,3 +4484,27 @@ rule Trojan_Win64_Zusy_SXZ_2147976262_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_MKK_2147976335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKK!MTB"
+        threat_id = "2147976335"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "c2.freemasonry.dev" ascii //weight: 10
+        $x_5_2 = "Global\\MSN_%s_%s" ascii //weight: 5
+        $x_3_3 = "Monitor from %s (OS: windows/amd64) (User: %s)" ascii //weight: 3
+        $x_2_4 = "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command \"%s\"" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
