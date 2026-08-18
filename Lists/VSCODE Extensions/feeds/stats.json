@@ -1,13 +1,13 @@
 {
-  "generated_utc": "2026-08-18T05:26:11+00:00",
-  "total_records": 2015,
-  "total_malicious": 1943,
+  "generated_utc": "2026-08-18T06:27:27+00:00",
+  "total_records": 2029,
+  "total_malicious": 1957,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 611,
+    "critical": 624,
     "high": 1015,
     "low": 22,
-    "medium": 367
+    "medium": 368
   },
   "category_counts": {
     "copyright-violation": 15,
@@ -15,7 +15,7 @@
     "expired-domain": 1,
     "impersonation": 996,
     "impersonation-malware": 5,
-    "malware": 611,
+    "malware": 624,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -34,7 +34,7 @@
     "spam": 80,
     "spam-malware": 5,
     "typo-squatting": 1,
-    "untrustworthy": 212
+    "untrustworthy": 213
   },
   "malicious_category_counts": {
     "copyright-violation": 15,
@@ -42,14 +42,14 @@
     "expired-domain": 1,
     "impersonation": 996,
     "impersonation-malware": 5,
-    "malware": 611,
+    "malware": 624,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
     "spam": 80,
     "spam-malware": 5,
     "typo-squatting": 1,
-    "untrustworthy": 212
+    "untrustworthy": 213
   },
   "risky_category_counts": {
     "risky-ai-code-access": 9,
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 1554,
+  "total_publishers": 1563,
   "top_publishers": [
     [
       "pit00",
@@ -132,6 +132,10 @@
       6
     ],
     [
+      "SadiqShuaibu",
+      6
+    ],
+    [
       "VSAnalysistest",
       6
     ],
@@ -161,10 +165,6 @@
     ],
     [
       "priskinski",
-      5
-    ],
-    [
-      "devshub-ai",
       5
     ]
   ]
