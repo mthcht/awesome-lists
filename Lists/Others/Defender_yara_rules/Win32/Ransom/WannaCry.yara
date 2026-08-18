@@ -46,3 +46,29 @@ rule Ransom_Win32_WannaCry_ARA_2147919876_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_WannaCry_MKZ_2147976369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/WannaCry.MKZ!MTB"
+        threat_id = "2147976369"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "WannaCry"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "RANSOMWARE_SECRET_KEY" ascii //weight: 3
+        $x_3_2 = ".WNCRY" ascii //weight: 3
+        $x_3_3 = "delete shadows /all /quiet" ascii //weight: 3
+        $x_3_4 = "readme.txt" ascii //weight: 3
+        $x_3_5 = "decryption completed" ascii //weight: 3
+        $x_3_6 = "PAYMENT_ADDR" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

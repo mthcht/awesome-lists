@@ -3950,27 +3950,6 @@ rule Trojan_MSIL_AsyncRAT_KAB_2147898989_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AsyncRAT_AMBA_2147900278_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/AsyncRAT.AMBA!MTB"
-        threat_id = "2147900278"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "AsyncRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {0b 06 06 6f ?? 00 00 0a 06 6f ?? 00 00 0a 6f ?? 00 00 0a 0c 07 08 16 73 ?? 00 00 0a 0d 73 ?? 00 00 0a 13 04 09 11 04 6f ?? 00 00 0a 11 04 6f ?? 00 00 0a 13 05 de 34}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_AsyncRAT_LN_2147900616_0
 {
     meta:

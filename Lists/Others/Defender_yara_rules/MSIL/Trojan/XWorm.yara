@@ -2319,6 +2319,29 @@ rule Trojan_MSIL_XWorm_AF_2147944975_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AF_2147944975_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AF!MTB"
+        threat_id = "2147944975"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "18"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {13 04 02 28 ?? 00 00 0a 0b ?? 13 09 38 ?? fe ff ff 11 04 75 ?? 00 00 01 07 74 ?? 00 00 1b 16 07 ?? ?? 00 00 1b 8e b7 6f ?? ?? 00 0a 28 ?? 01 00 06 0d}  //weight: 6, accuracy: Low
+        $x_6_2 = "CreateDecryptor" ascii //weight: 6
+        $x_6_3 = "DownloadFile" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_AG_2147945002_0
 {
     meta:

@@ -1726,7 +1726,7 @@ rule Trojan_MSIL_MassLogger_ABNN_2147976308_0
         threshold = "10"
         strings_accuracy = "Low"
     strings:
-        $x_10_1 = {16 94 02 7b ?? 00 00 04 17 94 6f ?? 00 00 0a a4 ?? 00 00 01 02 7b ?? 00 00 04 16 02 7b ?? 00 00 04 16 94 9e 02 7b ?? 00 00 04 17 02 7b ?? 00 00 04 17 94 9e 02 7b ?? 00 00 04 1f 65 6a 5d 6c 23}  //weight: 10, accuracy: Low
+        $x_10_1 = {16 94 02 7b ?? 00 00 04 17 94 6f ?? ?? 00 0a a4 ?? 00 00 01 02 7b ?? 00 00 04 16 02 7b ?? 00 00 04 16 94 9e 02 7b ?? 00 00 04 17 02 7b ?? 00 00 04 17 94 9e 02 7b ?? 00 00 04 1f 65 6a 5d 6c 23}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

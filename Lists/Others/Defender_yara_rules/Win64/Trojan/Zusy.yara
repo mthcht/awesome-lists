@@ -4508,3 +4508,26 @@ rule Trojan_Win64_Zusy_MKK_2147976335_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_XTV_2147976351_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.XTV!MTB"
+        threat_id = "2147976351"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 94 05 50 11 00 00 49 8d 42 01 41 30 50 f8 83 e0 03 41 30 50 fc 49 83 c2 06 0f b6 8c 05 50 11 00 00 41 8d 41 fe 41 30 48 f9 83 e0 03 41 30 48 fd 0f b6 84 05 50 11 00 00 41 30 40 fa 41 8d 41 ff 83 e0 03 41 83 c1 06}  //weight: 2, accuracy: High
+        $x_1_2 = "\\Users\\Public" ascii //weight: 1
+        $x_1_3 = "CreateDirectoryA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

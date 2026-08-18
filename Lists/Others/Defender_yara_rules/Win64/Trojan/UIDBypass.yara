@@ -23,3 +23,34 @@ rule Trojan_Win64_UIDBypass_GVA_2147976315_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UIDBypass_GVB_2147976371_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UIDBypass.GVB!MTB"
+        threat_id = "2147976371"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UIDBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "UID BYPASS" ascii //weight: 1
+        $x_1_2 = "://raw.githubusercontent.com/spmaniraj00-del/UIDNEWDLL/refs/heads/main/UIDBypassDll.dll" ascii //weight: 1
+        $x_1_3 = "dulo bypass..." ascii //weight: 1
+        $x_1_4 = "Downloading bypass module..." ascii //weight: 1
+        $x_1_5 = "Loading bypass module..." ascii //weight: 1
+        $x_1_6 = "Baixando DLL bypass..." ascii //weight: 1
+        $x_1_7 = "Downloading bypass DLL..." ascii //weight: 1
+        $x_1_8 = "Bypass ativo!" ascii //weight: 1
+        $x_1_9 = "UID BYPASS.pdb" ascii //weight: 1
+        $x_1_10 = "Ui BYPASS\\thirdparty" ascii //weight: 1
+        $x_1_11 = "UIDBypassDll.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

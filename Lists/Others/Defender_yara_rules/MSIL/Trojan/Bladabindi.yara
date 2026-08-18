@@ -4917,3 +4917,27 @@ rule Trojan_MSIL_Bladabindi_VDA_2147973037_0
         )
 }
 
+rule Trojan_MSIL_Bladabindi_ZRX_2147976353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.ZRX!MTB"
+        threat_id = "2147976353"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {07 72 db 01 00 70 6f 5c 00 00 0a 06 28 24 00 00 0a 14 6f 5d 00 00 0a 28 24 00 00 0a 13 07 11 07 6f 5e 00 00 0a 72 f1 01 00 70}  //weight: 1, accuracy: High
+        $x_1_2 = "Server1Payload" ascii //weight: 1
+        $x_1_3 = "SANDBOX" ascii //weight: 1
+        $x_1_4 = "SystemUpdate" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

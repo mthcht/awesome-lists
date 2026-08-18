@@ -2139,3 +2139,33 @@ rule Trojan_MSIL_Quasar_ZDF_2147966199_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_KRV_2147976354_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.KRV!MTB"
+        threat_id = "2147976354"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "get_Webcam" ascii //weight: 1
+        $x_1_2 = "get_RemotePort" ascii //weight: 1
+        $x_1_3 = "get_Password" ascii //weight: 1
+        $x_1_4 = "set_CloneBrowser" ascii //weight: 1
+        $x_1_5 = "get_SystemInfos" ascii //weight: 1
+        $x_1_6 = "get_HVNCImsg" ascii //weight: 1
+        $x_1_7 = "get_DLLData" ascii //weight: 1
+        $x_1_8 = "get_DownloadUrl" ascii //weight: 1
+        $x_1_9 = "get_RecoveredAccounts" ascii //weight: 1
+        $x_1_10 = "Quasar.Common.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
