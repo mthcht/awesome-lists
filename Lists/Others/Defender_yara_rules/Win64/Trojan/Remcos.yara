@@ -392,3 +392,26 @@ rule Trojan_Win64_Remcos_AHB_2147974643_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remcos_AHA_2147976376_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remcos.AHA!MTB"
+        threat_id = "2147976376"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "STUFE 1: Generiere Tempor" ascii //weight: 30
+        $x_20_2 = "Erstelle Ordner in AppData\\Local..." ascii //weight: 20
+        $x_10_3 = "Stufe 4.5: Lade EXE-Datei herunter" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

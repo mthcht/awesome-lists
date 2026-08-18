@@ -278,7 +278,7 @@ rule Trojan_Win64_Androm_ABZT_2147976225_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
+        threshold = "8"
         strings_accuracy = "High"
     strings:
         $x_5_1 = {80 31 36 48 ff c1 ff ca 75}  //weight: 5, accuracy: High
@@ -290,7 +290,7 @@ rule Trojan_Win64_Androm_ABZT_2147976225_0
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 3 of ($x_1_*))) or
             (all of ($x*))
         )
 }

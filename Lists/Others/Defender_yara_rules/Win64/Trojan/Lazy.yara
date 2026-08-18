@@ -6772,6 +6772,29 @@ rule Trojan_Win64_Lazy_AHR_2147973726_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AHR_2147973726_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AHR!MTB"
+        threat_id = "2147973726"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+] Extracted Data Is Written To: %S" ascii //weight: 30
+        $x_20_2 = "b:<browser> Target Browser: Chrome, Edge, Brave, Opera, Operagx, Vivaldi, Firefox, All" ascii //weight: 20
+        $x_10_3 = "/e:<count>   Max Extracted Entries Per Category (Default: %d, 'all' For No Limit)" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_LRM_2147973748_0
 {
     meta:

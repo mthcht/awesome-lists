@@ -1152,3 +1152,32 @@ rule Trojan_Win64_DllHijack_MKA_2147975998_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_FMX_2147976378_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.FMX!MTB"
+        threat_id = "2147976378"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 88 14 30 ff d3 89 c2 49 0f af d4 48 c1 ea 22 8d 14 92 29 d0 8d 50 01}  //weight: 1, accuracy: High
+        $x_1_2 = "Loadchromatic" ascii //weight: 1
+        $x_1_3 = "ProgramData\\goufu.txt" ascii //weight: 1
+        $x_1_4 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_5 = "IsDebuggerPresent" ascii //weight: 1
+        $x_1_6 = "GetCurrentProcess" ascii //weight: 1
+        $x_1_7 = "InitAPICalls" ascii //weight: 1
+        $x_2_8 = "DecryptChunk" ascii //weight: 2
+        $x_1_9 = "encrypted_MyCustomParam123" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
