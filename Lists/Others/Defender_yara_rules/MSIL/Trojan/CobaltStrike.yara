@@ -992,3 +992,47 @@ rule Trojan_MSIL_CobaltStrike_AVN_2147966802_0
         )
 }
 
+rule Trojan_MSIL_CobaltStrike_GVD_2147976395_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CobaltStrike.GVD!MTB"
+        threat_id = "2147976395"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2b 46 16 0c 2b 13 00 06 08 06 08 91 20 fa 00 00 00 61 d2 9c 00 08 17 58 0c 08 06 8e 69 fe 04 0d 09 2d e3}  //weight: 1, accuracy: High
+        $x_1_2 = ".aspx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_CobaltStrike_GVE_2147976396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CobaltStrike.GVE!MTB"
+        threat_id = "2147976396"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0c 2b 11 06 08 06 08 91 20 fa 00 00 00 61 d2 9c 08 17 58 0c 08 06 8e 69 32 e9}  //weight: 1, accuracy: High
+        $x_1_2 = ".aspx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -393,6 +393,27 @@ rule Trojan_Win64_PoolInject_KK_2147957800_2
         threshold = "20"
         strings_accuracy = "High"
     strings:
+        $x_20_1 = {48 8b 04 24 48 8b 4c 24 28 48 03 c8 48 8b c1 0f b6 00 48 8b 4c 24 20 8b 09 33 c8 8b c1 48 8b 4c 24 20 89 01 48 8b 44 24 20 8b 00 c1 e0 05 48 8b 4c 24 20 8b 09 c1 e9 1b 0b c1 48 8b 4c 24 20 89 01 48 8b 44 24 20 8b 00 05 de c0 37 13 48 8b 4c 24 20 89 01}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_PoolInject_KK_2147957800_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PoolInject.KK!MTB"
+        threat_id = "2147957800"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PoolInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {c6 85 88 00 00 00 2f c6 85 89 00 00 00 63 c6 85 8a 00 00 00 20 c6 85 8b 00 00 00 74 c6 85 8c 00 00 00 69 c6 85 8d 00 00 00 6d c6 85 8e 00 00 00 65 c6 85 8f 00 00 00 6f c6 85 90 00 00 00 75 c6 85 91 00 00 00 74 c6 85 92 00 00 00 20 c6 85 93 00 00 00 35 c6 85 94 00 00 00 20 c6 85 95 00 00 00 26 c6 85 96 00 00 00 20 c6 85 97 00 00 00 22 c6 85 98 00 00 00 25 c6 85 99 00 00 00 73 c6 85 9a 00 00 00 22}  //weight: 20, accuracy: High
     condition:
         (filesize < 20MB) and

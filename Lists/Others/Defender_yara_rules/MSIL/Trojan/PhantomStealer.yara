@@ -281,3 +281,24 @@ rule Trojan_MSIL_PhantomStealer_C_2147969152_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PhantomStealer_RVA_2147976386_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PhantomStealer.RVA!MTB"
+        threat_id = "2147976386"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PhantomStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 04 16 02 7b ?? 00 00 04 03 16 94 03 17 94 6f ?? ?? 00 0a a4 ?? 00 00 01 05 16 03 16 94 9e 05 17 03 17 94 9e 00 03 18 94 0d 09 0c 08 2c 08 2b 00 08 17 2e 11 2b 1e 04 16 8f ?? 00 00 01 28 ?? ?? 00 0a 0a 2b 1e 04 16 8f ?? 00 00 01 28 ?? 00 00 0a 0a 2b 0f 04 16 8f ?? 00 00 01 28 ?? 00 00 0a 0a 2b 00 0e 04 06 6f ?? ?? 00 0a 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

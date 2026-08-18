@@ -104,3 +104,39 @@ rule Trojan_Win32_Curlygate_YBD_2147976166_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Curlygate_YBE_2147976388_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Curlygate.YBE!MTB"
+        threat_id = "2147976388"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Curlygate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "164"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "postback_url" ascii //weight: 1
+        $x_1_2 = "postback_path" ascii //weight: 1
+        $x_1_3 = "crypto_domain" ascii //weight: 1
+        $x_1_4 = "postback_id" ascii //weight: 1
+        $x_10_5 = "SandboxieRpcSs.exe" ascii //weight: 10
+        $x_10_6 = "httpdebugger.exe" ascii //weight: 10
+        $x_10_7 = "x32dbg.exe" ascii //weight: 10
+        $x_10_8 = "joeboxserver" ascii //weight: 10
+        $x_10_9 = "xenservice" ascii //weight: 10
+        $x_10_10 = "fuck_you" ascii //weight: 10
+        $x_10_11 = "fuckyou" ascii //weight: 10
+        $x_100_12 = "fuck" ascii //weight: 100
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 6 of ($x_10_*) and 4 of ($x_1_*))) or
+            ((1 of ($x_100_*) and 7 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

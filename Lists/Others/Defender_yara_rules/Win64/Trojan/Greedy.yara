@@ -79,6 +79,29 @@ rule Trojan_Win64_Greedy_KK_2147969666_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8d 04 32 83 e0 1f 0f b6 04 01 30 06 48 83 c6 01 49 39 f0}  //weight: 20, accuracy: High
+        $x_10_2 = {41 8d 14 00 83 e2 1f 0f b6 14 11 30 10 48 83 c0 01 4c 39 c8}  //weight: 10, accuracy: High
+        $x_5_3 = "c2.freemasonry.dev" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Greedy_KK_2147969666_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Greedy.KK!MTB"
+        threat_id = "2147969666"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Greedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "High"
     strings:
@@ -92,7 +115,7 @@ rule Trojan_Win64_Greedy_KK_2147969666_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Greedy_KK_2147969666_1
+rule Trojan_Win64_Greedy_KK_2147969666_2
 {
     meta:
         author = "defender2yara"

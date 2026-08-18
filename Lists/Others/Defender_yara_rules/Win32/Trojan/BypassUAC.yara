@@ -147,3 +147,29 @@ rule Trojan_Win32_BypassUAC_SXA_2147973767_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BypassUAC_KK_2147976398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BypassUAC.KK!MTB"
+        threat_id = "2147976398"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "salat-stealer" ascii //weight: 6
+        $x_5_2 = "main.extractChromiumLoginsFull" ascii //weight: 5
+        $x_4_3 = "main.decryptAppBoundKey" ascii //weight: 4
+        $x_3_4 = "main.startKeylogger" ascii //weight: 3
+        $x_2_5 = "main.stealWallets" ascii //weight: 2
+        $x_1_6 = "main.elevateFodhelper" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

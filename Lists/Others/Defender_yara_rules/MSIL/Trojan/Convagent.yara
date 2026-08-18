@@ -745,3 +745,25 @@ rule Trojan_MSIL_Convagent_LR_2147972419_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Convagent_PLA_2147976393_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Convagent.PLA!MTB"
+        threat_id = "2147976393"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BuUbLfRSHpIKSxPpNzhnhYStnNOk.dll" ascii //weight: 1
+        $x_1_2 = "UdEYmKdpi7Unp8CMW9HTg7jc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
