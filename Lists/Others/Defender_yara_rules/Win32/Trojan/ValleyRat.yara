@@ -731,3 +731,45 @@ rule Trojan_Win32_ValleyRat_PLA_2147976273_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_OLZ_2147976322_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.OLZ!MTB"
+        threat_id = "2147976322"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8a c8 c0 e1 03 2a c8 80 c1 2d 32 ca 88 4c 05 ec 40 83 f8 10 7c ea}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ValleyRat_SYT_2147976323_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.SYT!MTB"
+        threat_id = "2147976323"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {2d 24 7e e2 bb 21 be 45 2f b8 2f 92 60 26 26 6e 7d 0a 30 12 e8 3c 76 50 ce 13 90 88 a8 5e fd 7a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

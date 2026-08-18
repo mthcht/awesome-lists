@@ -3854,3 +3854,24 @@ rule Trojan_Win64_Vidar_GVBC_2147976218_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_PLA_2147976330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.PLA!MTB"
+        threat_id = "2147976330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 89 d0 48 f7 ea 4c 01 c2 48 c1 fa 06 4d 89 c1 49 c1 f8 3f 4c 29 c2 48 6b d2 61 4d 89 c8 49 29 d1 41 31 f1 48 89 da 48 c1 e3 05 48 29 d3 44 31 cb 88 1c 11 e9 59 ff ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

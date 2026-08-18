@@ -6203,3 +6203,27 @@ rule Trojan_MSIL_XWorm_SES_2147976295_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_RVD_2147976321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.RVD!MTB"
+        threat_id = "2147976321"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {11 00 02 7b ?? 00 00 04 02 7b ?? 00 00 04 16 8f ?? 00 00 01 28 ?? ?? 00 0a 6f ?? ?? 00 0a 00 02 7b ?? 00 00 04 6f ?? ?? 00 0a 02 7b ?? 00 00 04 fe 04 16 fe 01 0a 06 2c 12 00 02 7b ?? 00 00 04 16 17 9c 73 ?? 00 00 06 0b 2b 14 73 ?? 00 00 06 25 02 7b ?? 00 00 04 7d ?? 00 00 04 0b 2b 00 07 2a 13}  //weight: 2, accuracy: Low
+        $x_1_2 = "TermiteMound" ascii //weight: 1
+        $x_1_3 = "get_Cringe" ascii //weight: 1
+        $x_1_4 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
