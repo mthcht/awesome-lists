@@ -346,6 +346,31 @@ rule Ransom_MSIL_HiddenTear_MK_2147773004_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_MK_2147773004_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.MK!MTB"
+        threat_id = "2147773004"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Son of Lazarus Group" wide //weight: 15
+        $x_10_2 = "SWILL_RANSOMWARE_SECRET_KEY_2025" wide //weight: 10
+        $x_5_3 = "Global\\SWILL_SERVICE_MUTEX" wide //weight: 5
+        $x_3_4 = "YOUR FILES HAVE BEEN ENCRYPTED!" wide //weight: 3
+        $x_2_5 = "DELETE_SHADOWS" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_MSIL_HiddenTear_DF_2147773120_0
 {
     meta:

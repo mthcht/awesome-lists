@@ -9204,3 +9204,30 @@ rule Trojan_Win32_GuLoader_RFQ_2147976233_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SXA_2147976431_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SXA!MTB"
+        threat_id = "2147976431"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "\\kkkenrulles.ini" ascii //weight: 5
+        $x_2_2 = "\\monogene.ini" ascii //weight: 2
+        $x_1_3 = "\\perqueir\\costulation.ini" ascii //weight: 1
+        $x_1_4 = "Anticynically.ini" ascii //weight: 1
+        $x_1_5 = "Indfattede.txt" ascii //weight: 1
+        $x_1_6 = "celletypens.jpg" ascii //weight: 1
+        $x_1_7 = "\\industriministerier.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

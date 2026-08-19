@@ -173,6 +173,28 @@ rule Trojan_MSIL_AsyncRAT_DA_2147829169_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {3b b0 39 73 02 b2 3b b4 39 73 02 b4 3b b6 39 73 02 b6 3b b8 39 73 02 b8 3b ba 39 73 02 ba 3b bc 39 73 02 bc 3b be 39 73 02 be 3b c0 39 73 02 c0 3b c2 39 73 02 c2 3b c4 39 73 02 c4 3b c6 39 73 02 c6 3b c8 39 73 02 c8 3b ca 39 73 02 ca 3b cc 39 73 02 cc 3b ce 39 73 02 ce 3b d0 39 73 02 d0 3b d2 39 73 02 d2 3b d4 39 73 02 d4 3b d6 39 73 02 d6 3b d8 39 73 02 d8 3b da 39 73 02 da 3b de 39 73 02 dc 3b e0 39 74}  //weight: 1, accuracy: High
+        $x_1_2 = {35 01 12 68 11 74 0c 20 03 01 11 80 a5 11 80 a9 11 80 ad 05 20 00 12 80 b1 12 07 07 08 12 68 1d 05 1d 05 15 11 35 01 1d 05 12 3d 09 0a 0a 02 15 11 35 01 1d 05 11 78 0e 07 06 08 12 68 02 15 11 35 01 02 12 3d 09 09 0a 02 15 11 35 01 02 11 7c 06 07 02 11 80 8c 09 05 0a 01 11 80 8c 07 07 03 12 80 80 0e 09 05 07 02 1d 05 09 06 07 02 11 80 94 09 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_DA_2147829169_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.DA!MTB"
+        threat_id = "2147829169"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "17"
         strings_accuracy = "High"
     strings:

@@ -1331,3 +1331,26 @@ rule Trojan_MSIL_KillMBR_MKB_2147975190_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_MKC_2147976438_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.MKC!MTB"
+        threat_id = "2147976438"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "This program has the potential to destory your computer, are you sure that you want to continue?" wide //weight: 5
+        $x_3_2 = "last warning!!" wide //weight: 3
+        $x_2_3 = "\\\\.\\PhysicalDrive0" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

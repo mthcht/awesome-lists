@@ -40,6 +40,28 @@ rule Trojan_Win32_ValleyRAT_DA_2147947212_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_DA_2147947212_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.DA!MTB"
+        threat_id = "2147947212"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {72 5e d8 eb 32 8a f4 9a 3c f5 68 9a 19 a9 7e 25 93 ad 1e a2 56 6b 67 8c aa 16 b1 3f 8f 65 b6 64 48 1b 39 dd d1 85 ce 5e a1 01 e4 76 b6 0e a2 99 55 7b 2a 69 12 48 c1 4f d4 94 6d 26 78 a3 0a 17 59 b8 21 84 8f 24 7b 4f c5 4a 24 6b 87 0b 78 69 56 5e 41 17 38 6c b2 48 55 73 2d a3 22 cf 0a 81 db 28 9c c7 84 0c 37 aa 65 96 6a 77 bf 97 07 a0 47 ec 48 59 d4 3a 81 cd 8a 34 06 ac 94 7e d5 0e b3 7f 66 9a 5e 36 d0 26 9f}  //weight: 1, accuracy: High
+        $x_1_2 = {6f 4c 5c 8a 97 ec 73 a7 c8 06 9b 16 36 39 71 92 3d 12 e9 ec 34 9a 06 67 41 8d e2 e9 b4 c0 0a 8f 6e 1d 6a db e1 c7 ac 2b 94 e3 a1 c3 8a 4c 1b 08 5a 8c ed 49 88 c7 45 51 df 2e 5f 8c c1 86 12 f0 72 77 86 68 06 ee 2e e3 27 a8 8b 47 0a 69 7a 0e 2c 6e 86 a7 2a b0 fd b7 91 0d cc c1 6c 9c 38 44 28 53}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
 rule Trojan_Win32_ValleyRAT_PAHL_2147949159_0
 {
     meta:
