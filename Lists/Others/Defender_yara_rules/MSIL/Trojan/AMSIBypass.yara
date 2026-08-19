@@ -199,3 +199,25 @@ rule Trojan_MSIL_AMSIBypass_SXC_2147974131_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AMSIBypass_SXD_2147976430_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AMSIBypass.SXD!MTB"
+        threat_id = "2147976430"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AMSIBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {1f 40 12 05 28 0b 00 00 06 26 06 28 0d 00 00 0a 08 6a 58 [0-2] 6a 58 28 0e 00 00 0a [0-2] 28 11 00 00 0a 06}  //weight: 20, accuracy: Low
+        $x_5_2 = "AmsiScanBuffer" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

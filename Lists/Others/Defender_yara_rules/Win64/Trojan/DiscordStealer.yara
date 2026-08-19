@@ -386,3 +386,26 @@ rule Trojan_Win64_DiscordStealer_SXC_2147976008_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_PLA_2147976428_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.PLA!MTB"
+        threat_id = "2147976428"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[OK] Webhook sent successfully!" ascii //weight: 1
+        $x_1_2 = " BROWSER DATA EXTRACTOR" ascii //weight: 1
+        $x_1_3 = "Extracting Discord Tokens..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

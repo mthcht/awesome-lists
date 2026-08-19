@@ -1635,3 +1635,29 @@ rule Ransom_Win32_FileCoder_A_2147971024_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_FileCoder_ARR_2147976425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.ARR!MTB"
+        threat_id = "2147976425"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "Ransomware.exe" ascii //weight: 8
+        $x_6_2 = "Your important files have been encrypted!" ascii //weight: 6
+        $x_4_3 = "ShowRansomMessage" ascii //weight: 4
+        $x_7_4 = "Key accepted. Decrypting files..." ascii //weight: 7
+        $x_3_5 = "RANSOM_AMOUNT" ascii //weight: 3
+        $x_2_6 = "PAYMENT_ADDR" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

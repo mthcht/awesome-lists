@@ -757,13 +757,13 @@ rule Trojan_MSIL_Convagent_PLA_2147976393_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
+        threshold = "2"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "BuUbLfRSHpIKSxPpNzhnhYStnNOk.dll" ascii //weight: 1
         $x_1_2 = "UdEYmKdpi7Unp8CMW9HTg7jc" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (all of ($x*))
 }
 

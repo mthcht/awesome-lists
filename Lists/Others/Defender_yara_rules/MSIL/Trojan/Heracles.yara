@@ -11484,3 +11484,25 @@ rule Trojan_MSIL_Heracles_SQC_2147976168_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_SXJ_2147976429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.SXJ!MTB"
+        threat_id = "2147976429"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {28 01 00 00 06 0c 07 16 08 07 8e 69 28 08 00 00 0a 00 7e 07 00 00 0a 16 08 7e 07 00 00 0a 16 12 ?? 28 ?? 00 00 06 13}  //weight: 20, accuracy: Low
+        $x_5_2 = "loader.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
