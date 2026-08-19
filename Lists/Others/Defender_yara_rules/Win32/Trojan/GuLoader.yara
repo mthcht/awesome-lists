@@ -9231,3 +9231,28 @@ rule Trojan_Win32_GuLoader_SXA_2147976431_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_RFR_2147976489_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.RFR!MTB"
+        threat_id = "2147976489"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\bippendes\\svrddanse" ascii //weight: 2
+        $x_1_2 = "%alluringness%\\Maskinmesteren31" ascii //weight: 1
+        $x_1_3 = "smkfuld forherliger barbicel" ascii //weight: 1
+        $x_1_4 = "chinoiserie" ascii //weight: 1
+        $x_1_5 = "chimaeridae overappraised.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
