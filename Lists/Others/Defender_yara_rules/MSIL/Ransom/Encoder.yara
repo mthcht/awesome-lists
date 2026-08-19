@@ -164,3 +164,57 @@ rule Ransom_MSIL_Encoder_SN_2147975034_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Encoder_NF_2147976447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Encoder.NF!MTB"
+        threat_id = "2147976447"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "DecryptionKey" ascii //weight: 1
+        $x_2_2 = ".encrypted" ascii //weight: 2
+        $x_2_3 = {52 45 41 44 4d 45 5f [0-47] 74 78 74}  //weight: 2, accuracy: Low
+        $x_1_4 = "Write-Host" ascii //weight: 1
+        $x_1_5 = "simulation" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_MSIL_Encoder_NG_2147976448_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Encoder.NG!MTB"
+        threat_id = "2147976448"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {41 46 49 41 52 51 42 42 41 45 51 41 54 51 42 46 41 46 38 [0-47] 48 51 41 65 41 42 30 41}  //weight: 2, accuracy: Low
+        $x_1_2 = "EQAZQBjAHIAeQBwAHQAaQBvAG4ASwBlAHk" ascii //weight: 1
+        $x_2_3 = "AuAGUAbgBjAHIAeQBwAHQAZQBkA" ascii //weight: 2
+        $x_1_4 = "FIARQBBAEQATQBFAF8AV" ascii //weight: 1
+        $x_1_5 = "BzAGkAbQB1AGwAYQB0AGkAbwBu" ascii //weight: 1
+        $x_1_6 = "UwBpAG0AdQBsAGEAdABpAG8Abg" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 3 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
