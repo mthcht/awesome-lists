@@ -306,3 +306,24 @@ rule Trojan_Win32_Dacic_PGAV_2147966317_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dacic_GVA_2147976461_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dacic.GVA!MTB"
+        threat_id = "2147976461"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {33 c9 48 89 4f 20 48 89 4f 28 48 89 4f 30 0f 57 c0 0f 11 47 38 48 c7 47 48 03 00 00 00 48 c7 47 50 0f 00 00 00 8b 05 89 01 12 00 66 89 47 38 0f b6 05 80 01 12 00 88 47 3a 88 4f 3b 0f 11 44 24 30 48 89 4c 24 40 48 c7 44 24 48 0f 00 00 00 88 4c 24 30 49 83 7e 18 0f 76 05 49 8b 16 eb 03}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
