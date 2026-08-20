@@ -4430,3 +4430,24 @@ rule Trojan_MSIL_Lazy_SXC_2147975876_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_DB_2147976559_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.DB!MTB"
+        threat_id = "2147976559"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {72 00 6f 00 72 00 3a 00 20 00 00 43 5e 00 5b 00 5c 00 64 00 5c 00 2e 00 5c 00 2d 00 5c 00 2b 00 5d 00 2b 00 28 00 5b 00 61 00 2d 00 7a 00 41 00 2d 00 5a 00 30 00 2d 00 39 00 5c 00 2d 00 5c 00 2b 00 5c 00 2e 00 5d 00 2a 00 29 00 24 00 01 23 4d 00 79 00 55 00 70 00 64 00 61 00 74 00 65 00 72 00}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

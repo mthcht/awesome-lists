@@ -163,3 +163,26 @@ rule Trojan_Win64_BroPass_PGBP_2147972199_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BroPass_AHA_2147976566_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BroPass.AHA!MTB"
+        threat_id = "2147976566"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BroPass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[INJ] Suspended browser PID=%lu" ascii //weight: 30
+        $x_20_2 = "[INJ] Payload failed: hr=0x%lx, comError=%lu, keySize=%lu" ascii //weight: 20
+        $x_10_3 = "[DBG] Direct COM failed (path validation). Trying DLL injection..." ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -212,3 +212,33 @@ rule Trojan_Win64_RemusStealer_ATSG_2147974735_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RemusStealer_SI_2147976372_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.SI!MTB"
+        threat_id = "2147976372"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 89 d9 48 c1 f9 3f 48 29 ca 48 6b ca 1a 48 29 cb 48 8d 4b 1a 48 85 db 48 0f 4c d9 48 83 c3 41 48 8d 44 24 20 e8 50 c2 f7 ff e9 5c ff}  //weight: 1, accuracy: High
+        $x_1_2 = "main.gwofotxtihapeqghlrlid" ascii //weight: 1
+        $x_1_3 = "main.mibdqzjgkvwsaebatylen" ascii //weight: 1
+        $x_1_4 = "main.pfdviozmtpnsvegtsw" ascii //weight: 1
+        $x_1_5 = "main.ikvlhlnvv" ascii //weight: 1
+        $x_1_6 = "main.rhkplytlabr" ascii //weight: 1
+        $x_1_7 = "main.jfwchfx" ascii //weight: 1
+        $x_1_8 = "main.qhzgyxo" ascii //weight: 1
+        $x_1_9 = "main.Dzcl" ascii //weight: 1
+        $x_1_10 = "main.Ncfsxqiifgcfbdy" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
