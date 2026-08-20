@@ -85,3 +85,25 @@ rule Trojan_MSIL_ResolverRAT_PGRR_2147954289_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ResolverRAT_YYZ_2147976573_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ResolverRAT.YYZ!MTB"
+        threat_id = "2147976573"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ResolverRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {11 2b 11 0c 1d 5f 91 13 1c 11 1c 19 62 11 1c 1b 63 60 d2 13 1c 11 04 11 0c 11 04 11 0c 91 11 1c 61 d2 9c 17 11 0c 58 13 0c 11 0c 11 07 32 d1}  //weight: 6, accuracy: High
+        $x_4_2 = "Pzxjsels.Properties.Resources.resources" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

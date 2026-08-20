@@ -3875,3 +3875,35 @@ rule Trojan_Win64_Vidar_PLA_2147976330_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_PAA_2147976570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.PAA!MTB"
+        threat_id = "2147976570"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "collectChromium: killing browser to unlock DBs" ascii //weight: 1
+        $x_1_2 = "\\sessionstore-backups\\recovery.jsonlz4" ascii //weight: 1
+        $x_1_3 = "\\Exodus\\exodus.wallet" ascii //weight: 1
+        $x_1_4 = "System info: processes OK" ascii //weight: 1
+        $x_1_5 = "stealToken: reverted" ascii //weight: 1
+        $x_1_6 = "Crypto/SeedPhrases.txt" ascii //weight: 1
+        $x_1_7 = "sbiedll.dll" ascii //weight: 1
+        $x_1_8 = "api_log.dll" ascii //weight: 1
+        $x_1_9 = "/sendMessage?chat_id=" ascii //weight: 1
+        $x_1_10 = "Content-Type: application/octet-stream" ascii //weight: 1
+        $x_1_11 = "EDR: CrowdStrike/SentinelOne detected " ascii //weight: 1
+        $x_1_12 = "syncDataExport: starting Winsock..." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (10 of ($x*))
+}
+
