@@ -2547,3 +2547,28 @@ rule Trojan_MSIL_Injector_ABYB_2147974672_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_WVN_2147976528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WVN!MTB"
+        threat_id = "2147976528"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {00 00 00 00 02 00 00 01 57 b5 02 3c 09 0f 00 00 00 00 00 00 00 00 00 00 01 00 00 00 5e 00 00 00 2c 00 00 00 5a 00 00 00 8e 00 00 00 d8 00 00 00 87 00 00 00 1a 00 00 00 02 00 00 00 07 00 00 00 18 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 08 00 00 00 01 00 00 00 03 00 00 00 04 00 00 00 1b 00 00 00 02 00 00 00 08 00 00 00}  //weight: 4, accuracy: High
+        $x_3_2 = "$16222ab6-0c5a-4597-9864-70bd30460184" ascii //weight: 3
+        $x_1_3 = "GRACE.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+        $x_1_5 = "LAUNCH" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

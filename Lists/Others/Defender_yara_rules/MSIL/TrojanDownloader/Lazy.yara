@@ -139,3 +139,28 @@ rule TrojanDownloader_MSIL_Lazy_MK_2147959468_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Lazy_MKA_2147976531_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Lazy.MKA!MTB"
+        threat_id = "2147976531"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "AWindowsService.Agent.ServiceManager+<ProcessDownloadedItems>d__19" ascii //weight: 15
+        $x_10_2 = "VWindowsService.Agent.ServiceManager+<>c__DisplayClass9_1+<<ExecuteUpdateProcess>b__0>d" ascii //weight: 10
+        $x_5_3 = "WindowsService.Agent.ServiceManager+<DownloadResourceFile>d__16" ascii //weight: 5
+        $x_3_4 = "WindowsService.Agent.ServiceManager+<LaunchExecutable>d__23" ascii //weight: 3
+        $x_2_5 = "IsSandbox" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

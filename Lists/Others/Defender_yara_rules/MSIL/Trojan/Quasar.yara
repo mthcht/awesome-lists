@@ -2169,3 +2169,24 @@ rule Trojan_MSIL_Quasar_KRV_2147976354_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_AQRU_2147976514_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.AQRU!MTB"
+        threat_id = "2147976514"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0a 0a 06 1b 8d ?? 00 00 01 25 16 72 ?? 1b 00 70 a2 25 17 7e ?? 00 00 04 a2 25 18 72 ?? 1b 00 70 a2 25 19 28 ?? 06 00 06 a2 25 1a 72 ?? 1b 00 70 a2 28 ?? 01 00 0a 6f ?? 00 00 0a 06 16 6f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

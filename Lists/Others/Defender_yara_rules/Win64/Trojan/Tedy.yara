@@ -7914,3 +7914,25 @@ rule Trojan_Win64_Tedy_ABTK_2147976399_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SXQ_2147976530_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SXQ!MTB"
+        threat_id = "2147976530"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = {41 81 3a 2e 74 65 78 75 4e 41 80 7a 04 74 75 47 45 8b 42 0c 45 8b 5a 08 4c 03 c7 41 83 fb 02 76 36 ?? 02 00 00 00}  //weight: 40, accuracy: Low
+        $x_10_2 = {41 0f b7 c2 41 0f b7 0c 46 44 0f b7 04 43 8d 41 bf 66 83 f8 19 8d 51 20 41 8d 40 bf 66 0f 47 d1 66 83 f8 19 41 8d 48 20 66 41 0f 47 c8 66 3b ca}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

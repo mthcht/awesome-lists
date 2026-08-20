@@ -11529,3 +11529,28 @@ rule Trojan_MSIL_Heracles_GVK_2147976462_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_PQT_2147976527_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.PQT!MTB"
+        threat_id = "2147976527"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "NebulaCactus" ascii //weight: 2
+        $x_2_2 = "OrbitSalsa" ascii //weight: 2
+        $x_2_3 = "Roguelike" ascii //weight: 2
+        $x_1_4 = "$d29f8b0b-9936-4137-b4ea-000b3178e36c" ascii //weight: 1
+        $x_1_5 = "Debug\\CryptoObfuscator_Output\\R5.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -457,3 +457,26 @@ rule Trojan_Win32_Rugmi_SXD_2147976142_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rugmi_ND_2147976513_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rugmi.ND!MTB"
+        threat_id = "2147976513"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b c1 8b 4c 24 18 0f a4 c1 0d c1 ea 13 c1 e0 0d 0b e9 33 6c f4 40 0b d0 33 54 f4 3c 8b 4c 24 1c 8b f1 8b 44 24 24 0f a4 c1 11 89 54 24 28 33 d2 c1 e0 11 0b d1 c1 ee 0f}  //weight: 2, accuracy: High
+        $x_2_2 = {8b c3 8b cd 0f a4 c1 07 c1 e0 07 33 e9 33 d8 8b cd 8b c3 0f ac c8 09 c1 e9 09 33 d8 33 e9 8b c3 8b cd 0f a4 c1 08 c1 e0 08 33 e9 33 d8 b8 d4 ae 4b a2}  //weight: 2, accuracy: High
+        $x_1_3 = "socket" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

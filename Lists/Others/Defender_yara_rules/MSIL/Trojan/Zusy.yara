@@ -5616,3 +5616,29 @@ rule Trojan_MSIL_Zusy_SXH_2147975236_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_KKA_2147976503_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.KKA!MTB"
+        threat_id = "2147976503"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "InjectShellcode" ascii //weight: 6
+        $x_5_2 = "HollowPe" ascii //weight: 5
+        $x_4_3 = "AntReverseSocks" ascii //weight: 4
+        $x_3_4 = "KeyloggerThreadHttp" ascii //weight: 3
+        $x_2_5 = "AntInject" ascii //weight: 2
+        $x_1_6 = "Local\\AntMigrateHandoff" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
