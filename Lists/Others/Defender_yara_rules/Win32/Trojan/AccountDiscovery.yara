@@ -176,8 +176,10 @@ rule Trojan_Win32_AccountDiscovery_G_2147768655_0
     strings:
         $x_1_1 = "dsquery.exe" wide //weight: 1
         $x_1_2 = "dsget.exe" wide //weight: 1
+        $n_10_3 = "dsget user -memberof -expand | findstr =GIS_DAD_" wide //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (1 of ($x*))
 }
 
