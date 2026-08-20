@@ -363,3 +363,30 @@ rule Trojan_Win32_Malgent_GA_2147937365_0
         )
 }
 
+rule Trojan_Win32_Malgent_2147976556_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "BypassLoader" ascii //weight: 3
+        $x_3_2 = "ApplyBypass" ascii //weight: 3
+        $x_2_3 = "Ring2Anim" ascii //weight: 2
+        $x_2_4 = "TELEGRAM BYPASS" wide //weight: 2
+        $x_2_5 = "DISCORD BYPASS" wide //weight: 2
+        $x_2_6 = "ROBLOX BYPASS" wide //weight: 2
+        $x_2_7 = "/WpfLoader;component/mainwindow.xaml" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

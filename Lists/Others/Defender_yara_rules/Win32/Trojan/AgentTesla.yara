@@ -2381,3 +2381,28 @@ rule Trojan_Win32_AgentTesla_SNL_2147972780_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AgentTesla_2147976550_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla!atmn"
+        threat_id = "2147976550"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\ebeltofteres\\Damprensningernes.ini" wide //weight: 1
+        $x_1_2 = "XHA~GDI32.DLL" ascii //weight: 1
+        $x_1_3 = "unknowndll.pdb" ascii //weight: 1
+        $x_1_4 = "myxochondroma.ukr" wide //weight: 1
+        $x_1_5 = "HgkkvcsggSS" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

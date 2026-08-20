@@ -3041,3 +3041,31 @@ rule Trojan_Win32_ClipBanker_AYB_2147975292_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_2147976555_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker!atmn"
+        threat_id = "2147976555"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "clipper/validators.CheckSeedPhrase" ascii //weight: 3
+        $x_3_2 = "clipper/validators.CheckTgBotToken" ascii //weight: 3
+        $x_3_3 = "clipper/pkg/defender.ExcludeFromDefender" ascii //weight: 3
+        $x_2_4 = "clipper/pkg/autorun.AddToRegistry.deferwrap1" ascii //weight: 2
+        $x_2_5 = "clipper/pkg/screenshot.TakeScreenshot" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

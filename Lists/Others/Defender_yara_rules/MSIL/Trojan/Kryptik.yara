@@ -1855,3 +1855,26 @@ rule Trojan_MSIL_Kryptik_PGKM_2147946037_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Kryptik_2147976552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Kryptik!atmn"
+        threat_id = "2147976552"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Kryptik"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetExecutingAssembly" ascii //weight: 1
+        $x_1_2 = "WindowsIdentity" ascii //weight: 1
+        $x_3_3 = "$da831585-3345-42a6-b579-7ccd2a7c7fde" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

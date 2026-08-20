@@ -3247,3 +3247,32 @@ rule Trojan_Win32_Lazy_SX_2147973768_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_2147976554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy!atmn"
+        threat_id = "2147976554"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = ".?AV<lambda_1>@?3??RemoteTpAlpcInsertionSetupExecution@@YAXXZ@" ascii //weight: 3
+        $x_3_2 = ".?AV<lambda_1>@?3??mycrypt_init@@YAXPEAUMyCryptState@@PEBE_K@Z@" ascii //weight: 3
+        $x_2_3 = ".?AV<lambda_2>@?3??DeleteSelf@@YAXXZ@" ascii //weight: 2
+        $x_2_4 = ".?AV<lambda_1>@?3??RunAsAdmin@@YAHPEB_W0@Z@" ascii //weight: 2
+        $x_2_5 = ".?AV<lambda_1>@?3??GetAdmin@@YAXXZ@" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 3 of ($x_2_*))) or
+            ((2 of ($x_3_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

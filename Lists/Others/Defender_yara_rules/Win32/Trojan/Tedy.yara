@@ -1716,3 +1716,31 @@ rule Trojan_Win32_Tedy_SX_2147976143_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_2147976553_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy!atmn"
+        threat_id = "2147976553"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DllCanUnloadNow" ascii //weight: 1
+        $x_1_2 = "odbcext.dll" wide //weight: 1
+        $x_2_3 = "wuaupdt.exe" wide //weight: 2
+        $x_2_4 = "wuaupdt.dat" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
