@@ -7345,3 +7345,28 @@ rule Trojan_Win64_Lazy_SM_2147976211_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MSF_2147976703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MSF!MTB"
+        threat_id = "2147976703"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "{\"id\":2,\"method\":\"Network.getAllCookies\"}" ascii //weight: 15
+        $x_10_2 = "Servers: %d (Admin in %d)" ascii //weight: 10
+        $x_5_3 = "%s:FAIL(no_cookies)" ascii //weight: 5
+        $x_3_4 = "{\"id\":1,\"method\":\"Network.enable\"}" ascii //weight: 3
+        $x_2_5 = "COOKIEZIP:%s" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
