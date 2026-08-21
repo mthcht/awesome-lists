@@ -325,3 +325,29 @@ rule Trojan_Win64_ShellcodeLoader_AKP_2147967736_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeLoader_LRN_2147976674_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeLoader.LRN!MTB"
+        threat_id = "2147976674"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Accidentally opened a black hole, fixing...Polishing the pixels..." ascii //weight: 1
+        $x_2_2 = "Press CTRL+P to activate Item Picker and debug-break in item call-stack." ascii //weight: 2
+        $x_3_3 = "Ready to Inject" ascii //weight: 3
+        $x_4_4 = "Injection successful." ascii //weight: 4
+        $x_5_5 = "\\User\\Desktop\\Simple-Manual-Map-Injector-master\\Simple-Manual-Map-Injector-master\\x64\\Release\\Injector-x64" ascii //weight: 5
+        $x_6_6 = "HyperVisor Loaded" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2868,6 +2868,28 @@ rule Trojan_MSIL_Tedy_AVN_2147973734_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_AVN_2147973734_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.AVN!MTB"
+        threat_id = "2147973734"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {0a 16 0b 2b 1a 06 07 8f 05 00 00 01 25 71 05 00 00 01 1f 5c 61 d2 81 05 00 00 01 07 17 58 0b 07 06 8e 69 32 e0}  //weight: 10, accuracy: High
+        $x_3_2 = "FromBase64String" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Tedy_SX_2147973776_0
 {
     meta:
@@ -2939,6 +2961,28 @@ rule Trojan_MSIL_Tedy_ART_2147975975_0
         $x_3_4 = "mbrpayload" ascii //weight: 3
         $x_4_5 = "RunPayload" ascii //weight: 4
         $x_2_6 = "MBR successfully wiped." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Tedy_LVN_2147976617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.LVN!MTB"
+        threat_id = "2147976617"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {08 09 06 09 91 07 09 07 8e 69 5d 91 61 d2 9c 09 17 58 0d 09 06 8e 69 fe 04 13 05 11 05 2d e1}  //weight: 10, accuracy: High
+        $x_3_2 = "FromBase64String" ascii //weight: 3
     condition:
         (filesize < 20MB) and
         (all of ($x*))

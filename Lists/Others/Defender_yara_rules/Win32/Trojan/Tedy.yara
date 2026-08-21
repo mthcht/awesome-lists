@@ -1744,3 +1744,34 @@ rule Trojan_Win32_Tedy_2147976553_0
         )
 }
 
+rule Trojan_Win32_Tedy_FVN_2147976618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.FVN!MTB"
+        threat_id = "2147976618"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = ".?AVRemoteDebuggerCheck@@" ascii //weight: 5
+        $x_5_2 = ".?AVVMWareVBoxRegistryCheck@@" ascii //weight: 5
+        $x_1_3 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_4 = "IsDebuggerPresent" ascii //weight: 1
+        $x_1_5 = "RegOpenKeyExA" ascii //weight: 1
+        $x_1_6 = "RegQueryValueExA" ascii //weight: 1
+        $x_1_7 = "GetSystemMetrics" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 5 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

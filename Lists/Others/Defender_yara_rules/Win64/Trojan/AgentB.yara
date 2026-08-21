@@ -227,3 +227,24 @@ rule Trojan_Win64_AgentB_AHH_2147975044_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_LVD_2147976610_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.LVD!MTB"
+        threat_id = "2147976610"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {32 c8 88 4c 24 ?? 0f b6 44 24 ?? fe c0 88 44 24}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

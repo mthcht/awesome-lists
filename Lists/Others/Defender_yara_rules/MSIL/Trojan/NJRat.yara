@@ -272,3 +272,28 @@ rule Trojan_MSIL_NJRat_GVN_2147974292_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NJRat_IVN_2147976615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NJRat.IVN!MTB"
+        threat_id = "2147976615"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NJRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "explorer.RegisterScreen.resources" ascii //weight: 10
+        $x_10_2 = "e53w34m968awCm9P85taUZe" ascii //weight: 10
+        $x_10_3 = "Wow64GetThreadContextx" ascii //weight: 10
+        $x_10_4 = "NtUnmapViewOfSection" ascii //weight: 10
+        $x_10_5 = "WriteProcessMemory" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5368,6 +5368,27 @@ rule Trojan_Win64_Tedy_AVD_2147964606_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 94 03 ?? ?? ?? ?? 0f b6 c2 32 c1 42 88 44 0c ?? 3a d1}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_AVD_2147964606_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AVD!MTB"
+        threat_id = "2147964606"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
@@ -7934,5 +7955,53 @@ rule Trojan_Win64_Tedy_SXQ_2147976530_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_SVD_2147976614_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SVD!MTB"
+        threat_id = "2147976614"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8a 04 02 84 c0 74 04 34 ?? 88 01 42 3b 54 24}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_EVN_2147976619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.EVN!MTB"
+        threat_id = "2147976619"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {45 33 c0 33 d2 33 c9 ff 15 ?? ?? ?? ?? cc 48 8b d6 e8 ?? ?? ?? ?? 4c 8b c5 49 8b d5 49 8b ce e8 ?? ?? ?? ?? 41 c6 04 2e 00 48 89 3e 48 8b c6 4c 8b 74 24 38 48 8b 7c 24 40 48 8b ac 24 80 00 00 00 4c 8b 7c 24 30 48 83 c4 48 41 5d 41 5c 5e 5b c3}  //weight: 6, accuracy: Low
+        $x_2_2 = ".?AVHypervisorCheck@@" ascii //weight: 2
+        $x_2_3 = ".?AVSandboxModuleCheck@@" ascii //weight: 2
+        $x_2_4 = ".?AVRemoteDebuggerCheck@@" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

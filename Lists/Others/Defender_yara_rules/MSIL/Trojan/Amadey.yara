@@ -1103,3 +1103,27 @@ rule Trojan_MSIL_Amadey_SPBX_2147959657_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Amadey_WVN_2147976673_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Amadey.WVN!MTB"
+        threat_id = "2147976673"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {72 e6 7b 02 70 13 07 11 05 28 ?? 00 00 0a 13 08 11 04 72 ?? 7c 02 70 1f 18 14 19 8d ?? 00 00 01 25 16 d0 ?? 00 00 1b 28 ?? 00 00 0a a2 25 17 d0 ?? 00 00 01 28 ?? 00 00 0a a2 25 18 d0 35 00 00 01 28 ?? 00 00 0a a2 14 6f ?? 00 00 0a 14 19 8d ?? 00 00 01 25 16 11 08 a2 25 17 11 07 a2 25 18 16 8c ?? 00 00 01 a2 6f ?? 00 00 0a 74 ?? 00 00 1b 13 09 11 09}  //weight: 2, accuracy: Low
+        $x_1_2 = "NeonBadminton.dll" ascii //weight: 1
+        $x_1_3 = "FalconToaster" ascii //weight: 1
+        $x_1_4 = "MojiGotchi" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

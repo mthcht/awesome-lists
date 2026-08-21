@@ -78,3 +78,25 @@ rule Trojan_Win32_Xworm_PGXS_2147962588_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Xworm_ARR_2147976634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Xworm.ARR!MTB"
+        threat_id = "2147976634"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_14_1 = {a2 11 0a 75 ?? ?? ?? ?? 13 0b 11 0b 74 ?? ?? ?? ?? 14 14 17 8d ?? ?? ?? ?? 13 0c 11 0c 75 ?? ?? ?? ?? 16 17 9c 11 0c}  //weight: 14, accuracy: Low
+        $x_6_2 = {06 17 58 0a 03 25 5a 0c 03 08 58 0c 1b 13 04}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

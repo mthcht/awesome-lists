@@ -903,3 +903,24 @@ rule Trojan_Win32_Upatre_AHZ_2147971550_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Upatre_AVD_2147976612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Upatre.AVD!MTB"
+        threat_id = "2147976612"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Upatre"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a e5 42 12 4c 7d 9b ec a9 ?? ?? ?? ?? 32 32 45 dc e3}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6273,3 +6273,26 @@ rule Trojan_MSIL_XWorm_RVD_2147976321_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_GVN_2147976611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.GVN!MTB"
+        threat_id = "2147976611"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "<Xwormmm>" wide //weight: 10
+        $x_10_2 = "powershell.exe -c explorer shell:::{3080F90E-D7AD-11D9-BD98-0000947B0257}" wide //weight: 10
+        $x_10_3 = "HVNCDesktop" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
