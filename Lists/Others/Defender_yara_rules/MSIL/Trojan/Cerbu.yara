@@ -558,3 +558,28 @@ rule Trojan_MSIL_Cerbu_NZD_2147975309_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cerbu_SXA_2147976797_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cerbu.SXA!MTB"
+        threat_id = "2147976797"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {11 06 11 08 16 28 ?? 00 00 0a 11 08 17 58 13 08 11 08 11 05 32 ea 11 06 1f 30 20 10 00 10 00 28 ?? 00 00 0a 09}  //weight: 30, accuracy: Low
+        $x_5_2 = "AntiAnalysis" ascii //weight: 5
+        $x_5_3 = "IsAnalysisToolRunning" ascii //weight: 5
+        $x_5_4 = "HasHardwareBreakpoints" ascii //weight: 5
+        $x_5_5 = "IsSandboxOrEmulated" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

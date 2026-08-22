@@ -8005,3 +8005,28 @@ rule Trojan_Win64_Tedy_EVN_2147976619_0
         )
 }
 
+rule Trojan_Win64_Tedy_MKZ_2147976799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.MKZ!MTB"
+        threat_id = "2147976799"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[*] Extracting embedded driver to:" ascii //weight: 15
+        $x_10_2 = "[*] Executing NtLoadDriver..." ascii //weight: 10
+        $x_5_3 = "Global\\MyUniqueApp_SingleInstance" wide //weight: 5
+        $x_3_4 = "DisableAntiSpyware" ascii //weight: 3
+        $x_2_5 = "DisableRealtimeMonitoring" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

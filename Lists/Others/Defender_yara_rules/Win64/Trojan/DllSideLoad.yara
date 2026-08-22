@@ -40,3 +40,30 @@ rule Trojan_Win64_DllSideLoad_ARA_2147976247_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllSideLoad_GVG_2147976781_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllSideLoad.GVG!MTB"
+        threat_id = "2147976781"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "colorcpl.exe" ascii //weight: 1
+        $x_1_2 = "Allocating buffer failed" ascii //weight: 1
+        $x_1_3 = "Running the shellcode" ascii //weight: 1
+        $x_1_4 = "Running again to unload the DLL" ascii //weight: 1
+        $x_1_5 = "Load status" ascii //weight: 1
+        $x_1_6 = "The shellcode finished with a return value" ascii //weight: 1
+        $x_1_7 = "Creating a new thread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
