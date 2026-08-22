@@ -1260,6 +1260,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 352262,en,AF,Africa,EG,Egypt,C,"Cairo Governorate",,,Heliopolis,,Africa/Cairo,0
 352352,en,AF,Africa,EG,Egypt,SHR,Sharqia,,,"Minyā al Qamḩ",,Africa/Cairo,0
 352354,en,AF,Africa,EG,Egypt,MNF,Monufia,,,Menouf,,Africa/Cairo,0
+352603,en,AF,Africa,EG,Egypt,MT,Matruh,,,,,Africa/Cairo,0
 352951,en,AF,Africa,EG,Egypt,MN,Minya,,,Mallawī,,Africa/Cairo,0
 353219,en,AF,Africa,EG,Egypt,GZ,Giza,,,"6th of October City",,Africa/Cairo,0
 353223,en,AF,Africa,EG,Egypt,BH,Beheira,,,"Madīnat as Sādāt",,Africa/Cairo,0
@@ -2328,6 +2329,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 588365,en,EU,Europe,EE,Estonia,60,Lääne-Virumaa,792,"Tapa vald",Tamsalu,,Europe/Tallinn,1
 588378,en,EU,Europe,EE,Estonia,68,Pärnumaa,809,"Tori vald",Tammiste,,Europe/Tallinn,1
 588409,en,EU,Europe,EE,Estonia,37,Harjumaa,784,Tallinn,Tallinn,,Europe/Tallinn,1
+588454,en,EU,Europe,EE,Estonia,37,Harjumaa,198,"Harku vald",Tabasalu,,Europe/Tallinn,1
 588673,en,EU,Europe,EE,Estonia,68,Pärnumaa,809,"Tori vald",Sindi,,Europe/Tallinn,1
 588686,en,EU,Europe,EE,Estonia,45,Ida-Virumaa,735,"Sillamäe linn",Sillamäe,,Europe/Tallinn,1
 588780,en,EU,Europe,EE,Estonia,37,Harjumaa,726,"Saue vald",Saue,,Europe/Tallinn,1
@@ -5574,7 +5576,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 956907,en,AF,Africa,ZA,"South Africa",NW,"North West",,,Schweizer-Reneke,,Africa/Johannesburg,0
 957487,en,AF,Africa,ZA,"South Africa",FS,"Free State",,,Sasolburg,,Africa/Johannesburg,0
 957654,en,AF,Africa,ZA,"South Africa",GP,Gauteng,,,Sandton,,Africa/Johannesburg,0
-957811,en,AF,Africa,ZA,"South Africa",GP,Gauteng,,,Sandown,,Africa/Johannesburg,0
 958093,en,AF,Africa,ZA,"South Africa",KZN,KwaZulu-Natal,,,"Salt Rock",,Africa/Johannesburg,0
 958441,en,AF,Africa,ZA,"South Africa",MP,Mpumalanga,,,Sabie,,Africa/Johannesburg,0
 958724,en,AF,Africa,ZA,"South Africa",NW,"North West",,,Rustenburg,,Africa/Johannesburg,0
@@ -6262,6 +6263,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1254163,en,AS,Asia,IN,India,KL,Kerala,,,Thiruvananthapuram,,Asia/Kolkata,0
 1254169,en,AS,Asia,IN,India,TR,Tripura,,,,,Asia/Kolkata,0
 1254187,en,AS,Asia,IN,India,KL,Kerala,,,Thrissur,,Asia/Kolkata,0
+1254192,en,AS,Asia,IN,India,WB,"West Bengal",,,Tribeni,,Asia/Kolkata,0
 1254214,en,AS,Asia,IN,India,HR,Haryana,,,Toshām,,Asia/Kolkata,0
 1254241,en,AS,Asia,IN,India,RJ,Rajasthan,,,Tonk,,Asia/Kolkata,0
 1254327,en,AS,Asia,IN,India,TN,"Tamil Nadu",,,Tiruvannamalai,,Asia/Kolkata,0
@@ -6761,6 +6763,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1267390,en,AS,Asia,IN,India,LD,Lakshadweep,,,Kavaratti,,Asia/Kolkata,0
 1267394,en,AS,Asia,IN,India,AP,"Andhra Pradesh",,,Kāvali,,Asia/Kolkata,0
 1267480,en,AS,Asia,IN,India,BR,Bihar,,,Katihar,,Asia/Kolkata,0
+1267495,en,AS,Asia,IN,India,GJ,Gujarat,,,Kathlāl,,Asia/Kolkata,0
 1267517,en,AS,Asia,IN,India,CG,Chhattisgarh,,,Katghora,,Asia/Kolkata,0
 1267529,en,AS,Asia,IN,India,MP,"Madhya Pradesh",,,Kataria,,Asia/Kolkata,0
 1267616,en,AS,Asia,IN,India,KL,Kerala,,,Kāsaragod,,Asia/Kolkata,0
@@ -7610,6 +7613,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1512569,en,AS,Asia,UZ,Uzbekistan,TK,Tashkent,,,Tashkent,,Asia/Tashkent,0
 1512770,en,AS,Asia,UZ,Uzbekistan,SI,"Sirdaryo Region",,,Sirdaryo,,Asia/Tashkent,0
 1512850,en,AS,Asia,UZ,Uzbekistan,TO,"Tashkent Region",,,Sergeli,,Asia/Tashkent,0
+1512979,en,AS,Asia,UZ,Uzbekistan,FA,Fergana,,,Kokand,,Asia/Tashkent,0
 1513243,en,AS,Asia,UZ,Uzbekistan,FA,Fergana,,,Margilan,,Asia/Tashkent,0
 1513271,en,AS,Asia,UZ,Uzbekistan,AN,"Andijan Region",,,Asaka,,Asia/Tashkent,0
 1513604,en,AS,Asia,UZ,Uzbekistan,XO,"Xorazm Region",,,Khiva,,Asia/Samarkand,0
@@ -11090,7 +11094,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1958070,en,AS,Asia,ID,Indonesia,MU,"North Maluku",,,,,Asia/Jayapura,0
 1959543,en,AS,Asia,ID,Indonesia,JB,"West Java",,,Lengkong,,Asia/Jakarta,0
 1959691,en,AS,Asia,ID,Indonesia,JB,"West Java",,,Wanaherang,,Asia/Jakarta,0
-1960080,en,AS,Asia,ID,Indonesia,JB,"West Java",,,Grobogan,,Asia/Jakarta,0
 1961005,en,AS,Asia,ID,Indonesia,BT,Banten,,,Bandung,,Asia/Jakarta,0
 1962789,en,AS,Asia,ID,Indonesia,JB,"West Java",,,Jatiluhur,,Asia/Jakarta,0
 1962939,en,AS,Asia,ID,Indonesia,JB,"West Java",,,Regol,,Asia/Jakarta,0
@@ -12120,7 +12123,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2149138,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Somerset,,Australia/Hobart,0
 2149254,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Smithton,,Australia/Hobart,0
 2149475,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Singleton,,Australia/Sydney,0
-2149556,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Sidmouth,,Australia/Hobart,0
 2149587,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Shoreham,,Australia/Melbourne,0
 2149642,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Sherbrook,,Australia/Melbourne,0
 2149645,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Shepparton,,Australia/Melbourne,0
@@ -12289,7 +12291,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2160277,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Lewisham,,Australia/Hobart,0
 2160336,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Leopold,,Australia/Melbourne,0
 2160339,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Leongatha,,Australia/Melbourne,0
-2160399,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Legana,,Australia/Hobart,0
 2160499,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,"Camden Haven",,Australia/Sydney,0
 2160517,en,OC,Oceania,AU,Australia,TAS,Tasmania,,,Launceston,,Australia/Hobart,0
 2160560,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Lara,,Australia/Melbourne,0
@@ -12583,6 +12584,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2181625,en,OC,Oceania,NZ,"New Zealand",STL,Southland,,,"Te Anau",,Pacific/Auckland,0
 2181742,en,OC,Oceania,NZ,"New Zealand",WKO,"Waikato Region",,,Taupo,,Pacific/Auckland,0
 2181818,en,OC,Oceania,NZ,"New Zealand",TAS,"Tasman District",,,,,Pacific/Auckland,0
+2181872,en,OC,Oceania,NZ,"New Zealand",TKI,"Taranaki Region",,,,,Pacific/Auckland,0
 2181997,en,OC,Oceania,NZ,"New Zealand",TAS,"Tasman District",,,Takaka,,Pacific/Auckland,0
 2182017,en,OC,Oceania,NZ,"New Zealand",NTL,Northland,,,Taipa,,Pacific/Auckland,0
 2182311,en,OC,Oceania,NZ,"New Zealand",NSN,"Nelson Region",,,Stoke,,Pacific/Auckland,0
@@ -14540,6 +14542,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2521801,en,EU,Europe,ES,Spain,VC,Valencia,A,Alicante,"Altea la Vella",,Europe/Madrid,1
 2521804,en,EU,Europe,ES,Spain,VC,Valencia,A,Alicante,Altea,,Europe/Madrid,1
 2521823,en,EU,Europe,ES,Spain,MC,Murcia,MU,Murcia,Alquerías,,Europe/Madrid,1
+2521826,en,EU,Europe,ES,Spain,IB,"Balearic Islands",PM,"Balearic Islands","s'Alqueria Blanca",,Europe/Madrid,1
 2521839,en,EU,Europe,ES,Spain,AN,Andalusia,H,Huelva,Alosno,,Europe/Madrid,1
 2521840,en,EU,Europe,ES,Spain,AN,Andalusia,MA,Malaga,Alora,,Europe/Madrid,1
 2521842,en,EU,Europe,ES,Spain,AN,Andalusia,GR,Granada,Alomartes,,Europe/Madrid,1
@@ -15186,6 +15189,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2612224,en,EU,Europe,DK,Denmark,83,"South Denmark",,,Strib,,Europe/Copenhagen,1
 2612233,en,EU,Europe,FO,"Faroe Islands",,,,,Strendur,,Atlantic/Faroe,0
 2612300,en,EU,Europe,DK,Denmark,82,"Central Jutland",,,Stouby,,Europe/Copenhagen,1
+2612301,en,EU,Europe,DK,Denmark,81,"North Denmark",,,Storvorde,,Europe/Copenhagen,1
 2612342,en,EU,Europe,DK,Denmark,85,Zealand,,,"Store Tåstrup",,Europe/Copenhagen,1
 2612381,en,EU,Europe,DK,Denmark,85,Zealand,,,"Store Merløse",,Europe/Copenhagen,1
 2612411,en,EU,Europe,DK,Denmark,85,Zealand,,,"Store Heddinge",,Europe/Copenhagen,1
@@ -16625,6 +16629,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2641327,en,EU,Europe,GB,"United Kingdom",ENG,England,LIN,Lincolnshire,"North Kelsey",,Europe/London,0
 2641330,en,EU,Europe,GB,"United Kingdom",ENG,England,CBF,"Central Bedfordshire",Northill,,Europe/London,0
 2641331,en,EU,Europe,GB,"United Kingdom",ENG,England,ESX,"East Sussex",Northiam,,Europe/London,0
+2641352,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire","North Frodingham",,Europe/London,0
 2641354,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,Northfleet,,Europe/London,0
 2641356,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire","North Ferriby",,Europe/London,0
 2641368,en,EU,Europe,GB,"United Kingdom",ENG,England,BKM,Buckinghamshire,Northend,,Europe/London,0
@@ -20349,7 +20354,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2708511,en,EU,Europe,SE,Sweden,T,"Örebro County",,,Hallsberg,,Europe/Stockholm,1
 2708543,en,EU,Europe,SE,Sweden,O,"Västra Götaland County",,,Hällingsjö,,Europe/Stockholm,1
 2708590,en,EU,Europe,SE,Sweden,O,"Västra Götaland County",,,Hällevadsholm,,Europe/Stockholm,1
-2708633,en,EU,Europe,SE,Sweden,Z,"Jämtland County",,,Hallen,,Europe/Stockholm,1
+2708639,en,EU,Europe,SE,Sweden,Z,"Jämtland County",,,Hallen,,Europe/Stockholm,1
 2708658,en,EU,Europe,SE,Sweden,O,"Västra Götaland County",,,Hällekis,,Europe/Stockholm,1
 2708794,en,EU,Europe,SE,Sweden,N,"Halland County",,,,,Europe/Stockholm,1
 2708891,en,EU,Europe,SE,Sweden,M,"Skåne County",,,Häljarp,,Europe/Stockholm,1
@@ -24270,6 +24275,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2821254,en,EU,Europe,DE,Germany,BY,Bavaria,,,Treuchtlingen,,Europe/Berlin,1
 2821342,en,EU,Europe,DE,Germany,SH,Schleswig-Holstein,,,Tremsbüttel,,Europe/Berlin,1
 2821416,en,EU,Europe,DE,Germany,HE,Hesse,,,Trebur,,Europe/Berlin,1
+2821454,en,EU,Europe,DE,Germany,TH,Thuringia,,,Treben,,Europe/Berlin,1
 2821465,en,EU,Europe,DE,Germany,BB,Brandenburg,,,Trebbin,,Europe/Berlin,1
 2821513,en,EU,Europe,DE,Germany,BY,Bavaria,,,Traunwalchen,,Europe/Berlin,1
 2821515,en,EU,Europe,DE,Germany,BY,Bavaria,,,Traunstein,,Europe/Berlin,1
@@ -25247,6 +25253,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2863672,en,EU,Europe,DE,Germany,RP,Rheinland-Pfalz,,,Niederalben,,Europe/Berlin,1
 2863674,en,EU,Europe,DE,Germany,BY,Bavaria,,,Niederaichbach,,Europe/Berlin,1
 2863678,en,EU,Europe,DE,Germany,RP,Rheinland-Pfalz,,,Niederahr,,Europe/Berlin,1
+2863692,en,EU,Europe,DE,Germany,HE,Hesse,,,Nied,,Europe/Berlin,1
 2863696,en,EU,Europe,DE,Germany,SH,Schleswig-Holstein,,,Niebüll,,Europe/Berlin,1
 2863711,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Nideggen,,Europe/Berlin,1
 2863712,en,EU,Europe,DE,Germany,HE,Hesse,,,Nidderau,,Europe/Berlin,1
@@ -25309,8 +25316,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2865557,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Neuenstein,,Europe/Berlin,1
 2865560,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,"Neuenstadt am Kocher",,Europe/Berlin,1
 2865592,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Neuenrade,,Europe/Berlin,1
+2865637,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Neuenkirchen,,Europe/Berlin,1
 2865641,en,EU,Europe,DE,Germany,NW,"North Rhine-Westphalia",,,Neuenkirchen,,Europe/Berlin,1
-2865642,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Neuenkirchen,,Europe/Berlin,1
 2865692,en,EU,Europe,DE,Germany,NI,"Lower Saxony",,,Neuenhaus,,Europe/Berlin,1
 2865798,en,EU,Europe,DE,Germany,BY,Bavaria,,,Neuendettelsau,,Europe/Berlin,1
 2865812,en,EU,Europe,DE,Germany,BW,Baden-Wurttemberg,,,Neuenbürg,,Europe/Berlin,1
@@ -33430,6 +33437,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3017512,en,EU,Europe,FR,France,HDF,Hauts-de-France,59,North,Fourmies,,Europe/Paris,1
 3017513,en,EU,Europe,FR,France,NOR,Normandy,27,Eure,Fourmetot,,Europe/Paris,1
 3017537,en,EU,Europe,FR,France,BFC,Bourgogne,58,Nièvre,Fourchambault,,Europe/Paris,1
+3017543,en,EU,Europe,FR,France,BFC,Bourgogne,25,Doubs,Fourbanne,,Europe/Paris,1
 3017546,en,EU,Europe,FR,France,NAQ,"New Aquitaine",17,Charente-Maritime,Fouras,,Europe/Paris,1
 3017556,en,EU,Europe,FR,France,HDF,Hauts-de-France,62,Pas-de-Calais,Fouquières-lès-Lens,,Europe/Paris,1
 3017559,en,EU,Europe,FR,France,NAQ,"New Aquitaine",16,Charente,Fouqueure,,Europe/Paris,1
@@ -40065,11 +40073,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164270,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo","Villa d'Almè",,Europe/Rome,1
 3164274,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Villa Cortese",,Europe/Rome,1
 3164282,en,EU,Europe,IT,Italy,75,Apulia,BR,"Province of Brindisi","Villa Castelli",,Europe/Rome,1
-3164301,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Niederdorf,,Europe/Rome,1
 3164318,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Vigonza,,Europe/Rome,1
 3164320,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice",Vigonovo,,Europe/Rome,1
 3164321,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Vigone,,Europe/Rome,1
-3164330,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Vigo di Fassa",,Europe/Rome,1
 3164332,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Vigodarzere,,Europe/Rome,1
 3164342,en,EU,Europe,IT,Italy,45,Emilia-Romagna,MO,"Province of Modena",Vignola,,Europe/Rome,1
 3164352,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Vignate,,Europe/Rome,1
@@ -40115,7 +40121,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164616,en,EU,Europe,IT,Italy,57,"The Marches",AP,"Province of Ascoli Piceno",Venarotta,,Europe/Rome,1
 3164617,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"Venaria Reale",,Europe/Rome,1
 3164621,en,EU,Europe,IT,Italy,67,Molise,IS,"Province of Isernia",Venafro,,Europe/Rome,1
-3164627,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Feldthurns,,Europe/Rome,1
 3164630,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Velletri,,Europe/Rome,1
 3164646,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Veglie,,Europe/Rome,1
 3164647,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Veggiano,,Europe/Rome,1
@@ -40133,7 +40138,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164723,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Vaprio d'Adda",,Europe/Rome,1
 3164727,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Vanzago,,Europe/Rome,1
 3164728,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Vanzaghello,,Europe/Rome,1
-3164738,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Vintl,,Europe/Rome,1
 3164778,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Valmontone,,Europe/Rome,1
 3164794,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno","Vallo della Lucania",,Europe/Rome,1
 3164845,en,EU,Europe,IT,Italy,62,Lazio,FR,"Province of Frosinone",Vallemaio,,Europe/Rome,1
@@ -40144,14 +40148,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164920,en,EU,Europe,IT,Italy,21,Piedmont,AL,"Province of Alessandria",Valenza,,Europe/Rome,1
 3164924,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona","Valeggio sul Mincio",,Europe/Rome,1
 3164931,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Valdobbiadene,,Europe/Rome,1
-3164949,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Olang,,Europe/Rome,1
 3164954,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Valdagno,,Europe/Rome,1
 3164959,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine",Valbruna,,Europe/Rome,1
 3164970,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona",Vailate,,Europe/Rome,1
 3164973,en,EU,Europe,IT,Italy,52,Tuscany,PO,"Provincia di Prato",Vaiano,,Europe/Rome,1
 3164982,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Vaglia,,Europe/Rome,1
 3164988,en,EU,Europe,IT,Italy,42,Liguria,SV,"Province of Savona","Vado Ligure",,Europe/Rome,1
-3164992,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Vadena,,Europe/Rome,1
 3165012,en,EU,Europe,IT,Italy,52,Tuscany,PT,"Province of Pistoia",Uzzano,,Europe/Rome,1
 3165018,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza","Usmate Velate",,Europe/Rome,1
 3165025,en,EU,Europe,IT,Italy,88,Sardinia,NU,"Province of Nuoro",Urzulei,,Europe/Rome,1
@@ -40165,11 +40167,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165094,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari",Turi,,Europe/Rome,1
 3165100,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Turbigo,,Europe/Rome,1
 3165106,en,EU,Europe,IT,Italy,55,Umbria,PG,"Province of Perugia","Tuoro sul Trasimeno",,Europe/Rome,1
-3165124,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Taufers im Münstertal",,Europe/Rome,1
 3165140,en,EU,Europe,IT,Italy,25,Lombardy,PV,"Province of Pavia",Tromello,,Europe/Rome,1
 3165141,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia",Troia,,Europe/Rome,1
 3165142,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Trofarello,,Europe/Rome,1
-3165144,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Truden,,Europe/Rome,1
 3165157,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Trissino,,Europe/Rome,1
 3165166,en,EU,Europe,IT,Italy,75,Apulia,BT,"Province of Barletta-Andria-Trani",Trinitapoli,,Europe/Rome,1
 3165178,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari",Triggiano,,Europe/Rome,1
@@ -40209,7 +40209,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165381,en,EU,Europe,IT,Italy,52,Tuscany,SI,"Province of Siena","Torrita di Siena",,Europe/Rome,1
 3165387,en,EU,Europe,IT,Italy,42,Liguria,GE,"Province of Genoa",Torrini,,Europe/Rome,1
 3165394,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza","Torri di Quartesolo",,Europe/Rome,1
-3165395,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona","Torri del Benaco",,Europe/Rome,1
 3165397,en,EU,Europe,IT,Italy,65,Abruzzo,CH,"Province of Chieti","Torricella Peligna",,Europe/Rome,1
 3165398,en,EU,Europe,IT,Italy,62,Lazio,RI,"Province of Rieti","Torricella in Sabina",,Europe/Rome,1
 3165403,en,EU,Europe,IT,Italy,75,Apulia,TA,"Province of Taranto",Torricella,,Europe/Rome,1
@@ -40239,22 +40238,17 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165612,en,EU,Europe,IT,Italy,55,Umbria,PG,"Province of Perugia",Todi,,Europe/Rome,1
 3165624,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Tivoli,,Europe/Rome,1
 3165627,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza",Tito,,Europe/Rome,1
-3165645,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Tiers,,Europe/Rome,1
 3165647,en,EU,Europe,IT,Italy,25,Lombardy,SO,"Province of Sondrio",Tirano,,Europe/Rome,1
-3165649,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Tione di Trento",,Europe/Rome,1
 3165684,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona",Ticengo,,Europe/Rome,1
 3165698,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Thiene,,Europe/Rome,1
 3165699,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza","Tezze sul Brenta",,Europe/Rome,1
-3165728,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Tisens,,Europe/Rome,1
 3165737,en,EU,Europe,IT,Italy,72,Campania,NA,"Province of Naples",Terzigno,,Europe/Rome,1
 3165751,en,EU,Europe,IT,Italy,52,Tuscany,AR,"Province of Arezzo","Terranuova Bracciolini",,Europe/Rome,1
 3165762,en,EU,Europe,IT,Italy,62,Lazio,LT,"Province of Latina",Terracina,,Europe/Rome,1
 3165771,en,EU,Europe,IT,Italy,55,Umbria,TR,"Province of Terni",Terni,,Europe/Rome,1
 3165773,en,EU,Europe,IT,Italy,67,Molise,CB,"Province of Campobasso",Termoli,,Europe/Rome,1
-3165783,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Termeno,,Europe/Rome,1
 3165788,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari",Terlizzi,,Europe/Rome,1
 3165789,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Terlan,,Europe/Rome,1
-3165796,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Terenten,,Europe/Rome,1
 3165803,en,EU,Europe,IT,Italy,65,Abruzzo,TE,"Province of Teramo",Teramo,,Europe/Rome,1
 3165817,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Tenno,,Europe/Rome,1
 3165828,en,EU,Europe,IT,Italy,88,Sardinia,SS,"Province of Sassari","Tempio Pausania",,Europe/Rome,1
@@ -40290,14 +40284,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3166122,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice",Stra,,Europe/Rome,1
 3166123,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Storo,,Europe/Rome,1
 3166151,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Stezzano,,Europe/Rome,1
-3166166,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Stilfs,,Europe/Rome,1
 3166176,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna",Stefania,,Europe/Rome,1
 3166189,en,EU,Europe,IT,Italy,75,Apulia,TA,"Province of Taranto",Statte,,Europe/Rome,1
 3166193,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",GO,"Province of Gorizia",Staranzano,,Europe/Rome,1
 3166216,en,EU,Europe,IT,Italy,57,"The Marches",AN,"Province of Ancona",Staffolo,,Europe/Rome,1
 3166224,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Squinzano,,Europe/Rome,1
 3166228,en,EU,Europe,IT,Italy,42,Liguria,SV,"Province of Savona",Spotorno,,Europe/Rome,1
-3166229,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Sporminore,,Europe/Rome,1
 3166230,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Spormaggiore,,Europe/Rome,1
 3166232,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Spongano,,Europe/Rome,1
 3166235,en,EU,Europe,IT,Italy,65,Abruzzo,PE,"Province of Pescara",Spoltore,,Europe/Rome,1
@@ -40332,7 +40324,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3166410,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Sommacampagna,,Europe/Rome,1
 3166420,en,EU,Europe,IT,Italy,72,Campania,AV,"Province of Avellino",Solofra,,Europe/Rome,1
 3166426,en,EU,Europe,IT,Italy,45,Emilia-Romagna,MO,"Province of Modena",Soliera,,Europe/Rome,1
-3166437,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Solda,,Europe/Rome,1
 3166439,en,EU,Europe,IT,Italy,25,Lombardy,VA,"Province of Varese","Solbiate Olona",,Europe/Rome,1
 3166442,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona","Solarolo Rainerio",,Europe/Rome,1
 3166446,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna",Solarolo,,Europe/Rome,1
@@ -40341,14 +40332,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3166458,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FC,"Province of Forlì-Cesena","Sogliano al Rubicone",,Europe/Rome,1
 3166462,en,EU,Europe,IT,Italy,52,Tuscany,AR,"Province of Arezzo",Soci,,Europe/Rome,1
 3166468,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Soave,,Europe/Rome,1
-3166474,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Schluderns,,Europe/Rome,1
 3166479,en,EU,Europe,IT,Italy,25,Lombardy,PV,"Province of Pavia",Siziano,,Europe/Rome,1
 3166499,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Sirmione,,Europe/Rome,1
 3166509,en,EU,Europe,IT,Italy,88,Sardinia,NU,"Province of Nuoro",Siniscola,,Europe/Rome,1
 3166516,en,EU,Europe,IT,Italy,52,Tuscany,SI,"Province of Siena",Sinalunga,,Europe/Rome,1
 3166520,en,EU,Europe,IT,Italy,65,Abruzzo,TE,"Province of Teramo",Silvi,,Europe/Rome,1
 3166532,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Silea,,Europe/Rome,1
-3166537,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Schlanders,,Europe/Rome,1
 3166540,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Signa,,Europe/Rome,1
 3166548,en,EU,Europe,IT,Italy,52,Tuscany,SI,"Province of Siena",Siena,,Europe/Rome,1
 3166561,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno",Siano,,Europe/Rome,1
@@ -40362,7 +40351,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3166602,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona","Sesto ed Uniti",,Europe/Rome,1
 3166604,en,EU,Europe,IT,Italy,25,Lombardy,VA,"Province of Varese","Sesto Calende",,Europe/Rome,1
 3166605,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",PN,"Province of Pordenone","Sesto al Reghena",,Europe/Rome,1
-3166606,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Sexten,,Europe/Rome,1
 3166607,en,EU,Europe,IT,Italy,52,Tuscany,AR,"Province of Arezzo",Sestino,,Europe/Rome,1
 3166614,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta","Sessa Aurunca",,Europe/Rome,1
 3166619,en,EU,Europe,IT,Italy,57,"The Marches",FM,"Province of Fermo",Servigliano,,Europe/Rome,1
@@ -40379,7 +40367,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3166711,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza",Seregno,,Europe/Rome,1
 3166714,en,EU,Europe,IT,Italy,52,Tuscany,LU,"Province of Lucca",Seravezza,,Europe/Rome,1
 3166740,en,EU,Europe,IT,Italy,57,"The Marches",AN,"Province of Ancona",Senigallia,,Europe/Rome,1
-3166752,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Senale,,Europe/Rome,1
 3166753,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Senago,,Europe/Rome,1
 3166766,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua","Selvazzano Dentro",,Europe/Rome,1
 3166784,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Sëlva,,Europe/Rome,1
@@ -40390,7 +40377,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3166833,en,EU,Europe,IT,Italy,65,Abruzzo,AQ,"Province of L'Aquila",Secinaro,,Europe/Rome,1
 3166866,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice",Scorzè,,Europe/Rome,1
 3166872,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Scorrano,,Europe/Rome,1
-3166910,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Natz-Schabs,,Europe/Rome,1
 3166917,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Schio,,Europe/Rome,1
 3166929,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Schiavon,,Europe/Rome,1
 3166940,en,EU,Europe,IT,Italy,55,Umbria,PG,"Province of Perugia",Scheggino,,Europe/Rome,1
@@ -40424,7 +40410,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3167135,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza",Sarconi,,Europe/Rome,1
 3167153,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine",Sappada,,Europe/Rome,1
 3167161,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","San Zenone degli Ezzelini",,Europe/Rome,1
-3167164,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Sanzeno,,Europe/Rome,1
 3167180,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza","San Vito di Leguzzano",,Europe/Rome,1
 3167182,en,EU,Europe,IT,Italy,34,Veneto,BL,"Province of Belluno","San Vito di Cadore",,Europe/Rome,1
 3167184,en,EU,Europe,IT,Italy,75,Apulia,BR,"Province of Brindisi","San Vito dei Normanni",,Europe/Rome,1
@@ -40492,14 +40477,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3167875,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo","San Pellegrino Terme",,Europe/Rome,1
 3167888,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia","San Paolo di Civitate",,Europe/Rome,1
 3167903,en,EU,Europe,IT,Italy,75,Apulia,BR,"Province of Brindisi","San Pancrazio Salentino",,Europe/Rome,1
-3167905,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","St. Pankraz",,Europe/Rome,1
 3167938,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Sannicola,,Europe/Rome,1
 3167940,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia","San Nicandro Garganico",,Europe/Rome,1
 3167941,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari","Sannicandro di Bari",,Europe/Rome,1
 3167954,en,EU,Europe,IT,Italy,52,Tuscany,PI,"Province of Pisa","San Miniato Basso",,Europe/Rome,1
 3167955,en,EU,Europe,IT,Italy,75,Apulia,BR,"Province of Brindisi","San Michele Salentino",,Europe/Rome,1
 3167962,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice","San Michele al Tagliamento",,Europe/Rome,1
-3167963,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","San Michele all'Adige",,Europe/Rome,1
 3167978,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"San Mauro Torinese",,Europe/Rome,1
 3167979,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FC,"Province of Forlì-Cesena","San Mauro Pascoli",,Europe/Rome,1
 3167989,en,EU,Europe,IT,Italy,21,Piedmont,NO,"Province of Novara","San Maurizio d'Opaglio",,Europe/Rome,1
@@ -40517,9 +40500,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3168075,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia","San Marco in Lamis",,Europe/Rome,1
 3168077,en,EU,Europe,IT,Italy,72,Campania,BN,"Province of Benevento","San Marco dei Cavoti",,Europe/Rome,1
 3168093,en,EU,Europe,IT,Italy,52,Tuscany,PT,"Province of Pistoia","San Marcello Pistoiese",,Europe/Rome,1
-3168114,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","St. Lorenzen",,Europe/Rome,1
 3168157,en,EU,Europe,IT,Italy,72,Campania,BN,"Province of Benevento","San Leucio del Sannio",,Europe/Rome,1
-3168160,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","St. Leonhard in Passeier",,Europe/Rome,1
 3168166,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine","San Leonardo",,Europe/Rome,1
 3168175,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna","San Lazzaro di Savena",,Europe/Rome,1
 3168196,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta","San Gregorio Matese",,Europe/Rome,1
@@ -40569,7 +40550,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3168485,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,"San Cesareo",,Europe/Rome,1
 3168493,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","San Cassiano",,Europe/Rome,1
 3168498,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","San Casciano in Val di Pesa",,Europe/Rome,1
-3168508,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Innichen,,Europe/Rome,1
 3168514,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona","San Bonifacio",,Europe/Rome,1
 3168521,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","San Biagio di Callalta",,Europe/Rome,1
 3168544,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"San Benigno Canavese",,Europe/Rome,1
@@ -40584,7 +40564,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3168613,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice","La Salute di Livenza",,Europe/Rome,1
 3168615,en,EU,Europe,IT,Italy,21,Piedmont,VC,"Province of Vercelli",Saluggia,,Europe/Rome,1
 3168627,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PR,"Province of Parma","Salsomaggiore Terme",,Europe/Rome,1
-3168632,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Salorno,,Europe/Rome,1
 3168633,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Salò,,Europe/Rome,1
 3168658,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce","Salice Salentino",,Europe/Rome,1
 3168660,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Salgareda,,Europe/Rome,1
@@ -40609,7 +40588,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3168843,en,EU,Europe,IT,Italy,34,Veneto,RO,"Province of Rovigo",Rovigo,,Europe/Rome,1
 3168854,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Rovereto,,Europe/Rome,1
 3168858,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",PN,"Province of Pordenone","Roveredo in Piano",,Europe/Rome,1
-3168860,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Roverè della Luna",,Europe/Rome,1
 3168865,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua",Roverbella,,Europe/Rome,1
 3168868,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como","Rovello Porro",,Europe/Rome,1
 3168870,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como",Rovellasca,,Europe/Rome,1
@@ -40639,7 +40617,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3169070,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Rome,,Europe/Rome,1
 3169072,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia",Rolo,,Europe/Rome,1
 3169093,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua",Rodigo,,Europe/Rome,1
-3169096,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Rodeneck-Rodengo,,Europe/Rome,1
 3169098,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Rodano,,Europe/Rome,1
 3169128,en,EU,Europe,IT,Italy,52,Tuscany,GR,"Provincia di Grosseto",Roccastrada,,Europe/Rome,1
 3169140,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FC,"Province of Forlì-Cesena","Rocca San Casciano",,Europe/Rome,1
@@ -40670,10 +40647,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3169320,en,EU,Europe,IT,Italy,65,Abruzzo,AQ,"Province of L'Aquila",Ripa,,Europe/Rome,1
 3169324,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia","Rio Saliceto",,Europe/Rome,1
 3169326,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza","Rionero in Vulture",,Europe/Rome,1
-3169345,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Mühlbach,,Europe/Rome,1
 3169361,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RN,"Province of Rimini",Rimini,,Europe/Rome,1
 3169392,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Rignano sull'Arno",,Europe/Rome,1
-3169409,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Schenna,,Europe/Rome,1
 3169412,en,EU,Europe,IT,Italy,62,Lazio,RI,"Province of Rieti",Rieti,,Europe/Rome,1
 3169424,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RN,"Province of Rimini",Riccione,,Europe/Rome,1
 3169440,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta",Riardo,,Europe/Rome,1
@@ -40699,7 +40674,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3169604,en,EU,Europe,IT,Italy,57,"The Marches",FM,"Province of Fermo",Rapagnano,,Europe/Rome,1
 3169620,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Ramon,,Europe/Rome,1
 3169630,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FC,"Province of Forlì-Cesena",Raggio,,Europe/Rome,1
-3169646,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Ratschings,,Europe/Rome,1
 3169647,en,EU,Europe,IT,Italy,21,Piedmont,CN,"Province of Cuneo",Racconigi,,Europe/Rome,1
 3169656,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua",Quistello,,Europe/Rome,1
 3169661,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza","Quinto Vicentino",,Europe/Rome,1
@@ -40725,7 +40699,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3169872,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Predore,,Europe/Rome,1
 3169874,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Prettau,,Europe/Rome,1
 3169908,en,EU,Europe,IT,Italy,65,Abruzzo,AQ,"Province of L'Aquila","Pratola Peligna",,Europe/Rome,1
-3169914,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Prad am Stilfser Joch",,Europe/Rome,1
 3169921,en,EU,Europe,IT,Italy,52,Tuscany,PO,"Provincia di Prato",Prato,,Europe/Rome,1
 3169926,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,"Pratica di Mare",,Europe/Rome,1
 3169934,en,EU,Europe,IT,Italy,72,Campania,AV,"Province of Avellino","Prata di Principato Ultra",,Europe/Rome,1
@@ -40778,10 +40751,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3170232,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PC,"Province of Piacenza",Pontenure,,Europe/Rome,1
 3170239,en,EU,Europe,IT,Italy,34,Veneto,BL,"Province of Belluno","Ponte nelle Alpi",,Europe/Rome,1
 3170253,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como","Ponte Lambro",,Europe/Rome,1
-3170259,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Waidbruck,,Europe/Rome,1
 3170266,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Ponte di Piave",,Europe/Rome,1
 3170272,en,EU,Europe,IT,Italy,52,Tuscany,PI,"Province of Pisa",Pontedera,,Europe/Rome,1
-3170275,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Ponte Arche",,Europe/Rome,1
 3170285,en,EU,Europe,IT,Italy,21,Piedmont,AL,"Province of Alessandria",Pontecurone,,Europe/Rome,1
 3170286,en,EU,Europe,IT,Italy,62,Lazio,FR,"Province of Frosinone",Pontecorvo,,Europe/Rome,1
 3170292,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno","Pontecagnano Faiano",,Europe/Rome,1
@@ -40810,7 +40781,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3170504,en,EU,Europe,IT,Italy,52,Tuscany,SI,"Province of Siena",Poggibonsi,,Europe/Rome,1
 3170537,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PC,"Province of Piacenza",Podenzano,,Europe/Rome,1
 3170554,en,EU,Europe,IT,Italy,88,Sardinia,SS,"Province of Sassari",Ploaghe,,Europe/Rome,1
-3170562,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Plaus,,Europe/Rome,1
 3170577,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Plan,,Europe/Rome,1
 3170597,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona",Pizzighettone,,Europe/Rome,1
 3170604,en,EU,Europe,IT,Italy,45,Emilia-Romagna,MO,"Province of Modena",Piumazzo,,Europe/Rome,1
@@ -40824,7 +40794,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3170674,en,EU,Europe,IT,Italy,52,Tuscany,LI,"Province of Livorno",Piombino,,Europe/Rome,1
 3170676,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Pioltello,,Europe/Rome,1
 3170680,en,EU,Europe,IT,Italy,57,"The Marches",PU,"Pesaro and Urbino",Piobbico,,Europe/Rome,1
-3170682,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Pinzolo,,Europe/Rome,1
 3170684,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",PN,"Province of Pordenone","Pinzano al Tagliamento",,Europe/Rome,1
 3170692,en,EU,Europe,IT,Italy,65,Abruzzo,TE,"Province of Teramo",Pineto,,Europe/Rome,1
 3170694,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Pinerolo,,Europe/Rome,1
@@ -40872,7 +40841,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3171214,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Pergine Valsugana",,Europe/Rome,1
 3171216,en,EU,Europe,IT,Italy,88,Sardinia,SS,"Province of Sassari",Perfugas,,Europe/Rome,1
 3171222,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno",Perdifumo,,Europe/Rome,1
-3171225,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Percha,,Europe/Rome,1
 3171230,en,EU,Europe,IT,Italy,65,Abruzzo,CH,"Province of Chieti",Perano,,Europe/Rome,1
 3171247,en,EU,Europe,IT,Italy,65,Abruzzo,PE,"Province of Pescara",Penne,,Europe/Rome,1
 3171248,en,EU,Europe,IT,Italy,65,Abruzzo,TE,"Province of Teramo","Penna Sant'Andrea",,Europe/Rome,1
@@ -40962,7 +40930,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3171965,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Orgiano,,Europe/Rome,1
 3171985,en,EU,Europe,IT,Italy,52,Tuscany,GR,"Provincia di Grosseto",Orbetello,,Europe/Rome,1
 3171986,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Orbassano,,Europe/Rome,1
-3171993,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Auer,,Europe/Rome,1
 3171995,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Oppeano,,Europe/Rome,1
 3172000,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Opera,,Europe/Rome,1
 3172019,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno","Omignano Scalo",,Europe/Rome,1
@@ -40997,7 +40964,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3172189,en,EU,Europe,IT,Italy,21,Piedmont,NO,"Province of Novara",Novara,,Europe/Rome,1
 3172190,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Deutschnofen,,Europe/Rome,1
 3172191,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza","Nova Milanese",,Europe/Rome,1
-3172192,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Welschnofen,,Europe/Rome,1
 3172195,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RN,"Province of Rimini",Novafeltria,,Europe/Rome,1
 3172199,en,EU,Europe,IT,Italy,65,Abruzzo,TE,"Province of Teramo",Notaresco,,Europe/Rome,1
 3172204,en,EU,Europe,IT,Italy,62,Lazio,LT,"Province of Latina",Norma,,Europe/Rome,1
@@ -41024,7 +40990,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3172338,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Negrar,,Europe/Rome,1
 3172350,en,EU,Europe,IT,Italy,42,Liguria,GE,"Province of Genoa",Conscenti,,Europe/Rome,1
 3172365,en,EU,Europe,IT,Italy,52,Tuscany,PI,"Province of Pisa",Navacchio,,Europe/Rome,1
-3172367,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Naturns,,Europe/Rome,1
 3172377,en,EU,Europe,IT,Italy,55,Umbria,TR,"Province of Terni",Narni,,Europe/Rome,1
 3172379,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Nardò,,Europe/Rome,1
 3172380,en,EU,Europe,IT,Italy,88,Sardinia,OR,"Province of Oristano",Narbolia,,Europe/Rome,1
@@ -41043,7 +41008,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3172502,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Motta Visconti",,Europe/Rome,1
 3172508,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Motta di Livenza",,Europe/Rome,1
 3172511,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona","Motta Baluffi",,Europe/Rome,1
-3172526,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Moos in Passeier",,Europe/Rome,1
 3172530,en,EU,Europe,IT,Italy,65,Abruzzo,PE,"Province of Pescara",Moscufo,,Europe/Rome,1
 3172555,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine",Mortegliano,,Europe/Rome,1
 3172557,en,EU,Europe,IT,Italy,25,Lombardy,PV,"Province of Pavia",Mortara,,Europe/Rome,1
@@ -41131,7 +41095,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173126,en,EU,Europe,IT,Italy,57,"The Marches",AP,"Province of Ascoli Piceno","Monsampolo del Tronto",,Europe/Rome,1
 3173131,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari",Monopoli,,Europe/Rome,1
 3173139,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Moniga del Garda",,Europe/Rome,1
-3173140,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Welsberg-Taisten,,Europe/Rome,1
 3173153,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",GO,"Province of Gorizia",Monfalcone,,Europe/Rome,1
 3173159,en,EU,Europe,IT,Italy,42,Liguria,GE,"Province of Genoa",Moneglia,,Europe/Rome,1
 3173162,en,EU,Europe,IT,Italy,21,Piedmont,CN,"Province of Cuneo",Mondovì,,Europe/Rome,1
@@ -41185,7 +41148,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173577,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Merano,,Europe/Rome,1
 3173582,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Mentana,,Europe/Rome,1
 3173599,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Melzo,,Europe/Rome,1
-3173600,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Mölten,,Europe/Rome,1
 3173614,en,EU,Europe,IT,Italy,72,Campania,NA,"Province of Naples","Melito di Napoli",,Europe/Rome,1
 3173615,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza",Melfi,,Europe/Rome,1
 3173630,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Melendugno,,Europe/Rome,1
@@ -41232,7 +41194,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173895,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua",Marmirolo,,Europe/Rome,1
 3173898,en,EU,Europe,IT,Italy,52,Tuscany,LI,"Province of Livorno",Marmi,,Europe/Rome,1
 3173902,en,EU,Europe,IT,Italy,52,Tuscany,LU,"Province of Lucca",Marlia,,Europe/Rome,1
-3173903,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Marling,,Europe/Rome,1
 3173914,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Marino,,Europe/Rome,1
 3173932,en,EU,Europe,IT,Italy,52,Tuscany,GR,"Provincia di Grosseto","Marina di Grosseto",,Europe/Rome,1
 3173934,en,EU,Europe,IT,Italy,52,Tuscany,LI,"Province of Livorno","Marina di Castagneto Carducci",,Europe/Rome,1
@@ -41243,7 +41204,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173949,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como","Mariano Comense",,Europe/Rome,1
 3173962,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice",Marghera,,Europe/Rome,1
 3173971,en,EU,Europe,IT,Italy,21,Piedmont,CN,"Province of Cuneo",Marene,,Europe/Rome,1
-3173977,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Mareo,,Europe/Rome,1
 3173985,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice",Marcon,,Europe/Rome,1
 3173987,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Marco,,Europe/Rome,1
 3173993,en,EU,Europe,IT,Italy,52,Tuscany,AR,"Province of Arezzo","Marciano della Chiana",,Europe/Rome,1
@@ -41274,7 +41234,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3174137,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Malonno,,Europe/Rome,1
 3174139,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Malo,,Europe/Rome,1
 3174141,en,EU,Europe,IT,Italy,25,Lombardy,VA,"Province of Varese",Malnate,,Europe/Rome,1
-3174144,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Mals,,Europe/Rome,1
 3174188,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Malcesine,,Europe/Rome,1
 3174198,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna",Malalbergo,,Europe/Rome,1
 3174220,en,EU,Europe,IT,Italy,57,"The Marches",AN,"Province of Ancona","Maiolati Spontini",,Europe/Rome,1
@@ -41288,7 +41247,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3174358,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta",Maddaloni,,Europe/Rome,1
 3174380,en,EU,Europe,IT,Italy,57,"The Marches",MC,"Province of Macerata","Province of Macerata",,Europe/Rome,1
 3174416,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia",Luzzara,,Europe/Rome,1
-3174425,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Lüsen,,Europe/Rome,1
 3174427,en,EU,Europe,IT,Italy,34,Veneto,RO,"Province of Rovigo",Lusia,,Europe/Rome,1
 3174429,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"Luserna San Giovanni",,Europe/Rome,1
 3174437,en,EU,Europe,IT,Italy,88,Sardinia,SS,"Province of Sassari",Luras,,Europe/Rome,1
@@ -41326,7 +41284,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3174653,en,EU,Europe,IT,Italy,75,Apulia,TA,"Province of Taranto",Lizzano,,Europe/Rome,1
 3174655,en,EU,Europe,IT,Italy,21,Piedmont,VC,"Province of Vercelli","Livorno Ferraris",,Europe/Rome,1
 3174659,en,EU,Europe,IT,Italy,52,Tuscany,LI,"Province of Livorno",Livorno,,Europe/Rome,1
-3174661,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Livo,,Europe/Rome,1
 3174679,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza",Lissone,,Europe/Rome,1
 3174683,en,EU,Europe,IT,Italy,57,"The Marches",AN,"Province of Ancona",L'Isola,,Europe/Rome,1
 3174692,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Liscate,,Europe/Rome,1
@@ -41365,14 +41322,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3175009,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza",Lavello,,Europe/Rome,1
 3175024,en,EU,Europe,IT,Italy,42,Liguria,GE,"Province of Genoa",Lavagna,,Europe/Rome,1
 3175032,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno",Laurino,,Europe/Rome,1
-3175038,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Laurein,,Europe/Rome,1
 3175055,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine",Latisana,,Europe/Rome,1
 3175058,en,EU,Europe,IT,Italy,62,Lazio,LT,"Province of Latina",Latina,,Europe/Rome,1
 3175061,en,EU,Europe,IT,Italy,75,Apulia,BR,"Province of Brindisi",Latiano,,Europe/Rome,1
 3175064,en,EU,Europe,IT,Italy,75,Apulia,TA,"Province of Taranto",Laterza,,Europe/Rome,1
 3175074,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Lastra a Signa",,Europe/Rome,1
 3175081,en,EU,Europe,IT,Italy,42,Liguria,SP,"Province of La Spezia","La Spezia",,Europe/Rome,1
-3175096,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Laas,,Europe/Rome,1
 3175105,en,EU,Europe,IT,Italy,67,Molise,CB,"Province of Campobasso",Larino,,Europe/Rome,1
 3175106,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Lariano,,Europe/Rome,1
 3175108,en,EU,Europe,IT,Italy,52,Tuscany,PI,"Province of Pisa",Lari,,Europe/Rome,1
@@ -41391,12 +41346,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3175236,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Lajen,,Europe/Rome,1
 3175238,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Lainate,,Europe/Rome,1
 3175239,en,EU,Europe,IT,Italy,42,Liguria,SV,"Province of Savona",Laigueglia,,Europe/Rome,1
-3175243,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Algund,,Europe/Rome,1
 3175248,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FE,"Province of Ferrara",Lagosanto,,Europe/Rome,1
 3175253,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza",Lagonegro,,Europe/Rome,1
 3175268,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Laghi,,Europe/Rome,1
 3175298,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Ladispoli,,Europe/Rome,1
-3175328,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Latsch,,Europe/Rome,1
 3175335,en,EU,Europe,IT,Italy,72,Campania,NA,"Province of Naples","Lacco Ameno",,Europe/Rome,1
 3175337,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Lacchiarella,,Europe/Rome,1
 3175382,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona",Izano,,Europe/Rome,1
@@ -41494,14 +41447,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3176283,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia",Gattatico,,Europe/Rome,1
 3176297,en,EU,Europe,IT,Italy,42,Liguria,SV,"Province of Savona",Garlenda,,Europe/Rome,1
 3176299,en,EU,Europe,IT,Italy,25,Lombardy,PV,"Province of Pavia",Garlasco,,Europe/Rome,1
-3176304,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Gargnano,,Europe/Rome,1
-3176305,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Gargazon,,Europe/Rome,1
 3176312,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Gardone Riviera",,Europe/Rome,1
 3176319,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Garda,,Europe/Rome,1
 3176320,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Garda,,Europe/Rome,1
 3176322,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Garbagnate Milanese",,Europe/Rome,1
 3176330,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Gandino,,Europe/Rome,1
-3176331,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Martell,,Europe/Rome,1
 3176334,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FC,"Province of Forlì-Cesena",Gambettola,,Europe/Rome,1
 3176339,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Gambassi Terme",,Europe/Rome,1
 3176359,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FE,"Province of Ferrara",Gallo,,Europe/Rome,1
@@ -41574,7 +41524,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3176849,en,EU,Europe,IT,Italy,52,Tuscany,GR,"Provincia di Grosseto",Follonica,,Europe/Rome,1
 3176852,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Follina,,Europe/Rome,1
 3176854,en,EU,Europe,IT,Italy,55,Umbria,PG,"Province of Perugia",Foligno,,Europe/Rome,1
-3176857,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Folgaria,,Europe/Rome,1
 3176860,en,EU,Europe,IT,Italy,52,Tuscany,AR,"Province of Arezzo","Foiano della Chiana",,Europe/Rome,1
 3176885,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia",Foggia,,Europe/Rome,1
 3176907,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Flero,,Europe/Rome,1
@@ -41596,7 +41545,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177009,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Figline Valdarno",,Europe/Rome,1
 3177016,en,EU,Europe,IT,Italy,34,Veneto,RO,"Province of Rovigo","Fiesso Umbertiano",,Europe/Rome,1
 3177019,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Fiesole,,Europe/Rome,1
-3177028,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Fiè Allo Sciliar",,Europe/Rome,1
 3177029,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PR,"Province of Parma",Fidenza,,Europe/Rome,1
 3177030,en,EU,Europe,IT,Italy,55,Umbria,TR,"Province of Terni",Ficulle,,Europe/Rome,1
 3177040,en,EU,Europe,IT,Italy,57,"The Marches",MC,"Province of Macerata",Fiastra,,Europe/Rome,1
@@ -41619,7 +41567,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177209,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo","Fara Gera d'Adda",,Europe/Rome,1
 3177210,en,EU,Europe,IT,Italy,65,Abruzzo,CH,"Province of Chieti","Fara Filiorum Petri",,Europe/Rome,1
 3177219,en,EU,Europe,IT,Italy,57,"The Marches",PU,"Pesaro and Urbino",Fano,,Europe/Rome,1
-3177231,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Pfalzen,,Europe/Rome,1
 3177245,en,EU,Europe,IT,Italy,62,Lazio,VT,"Province of Viterbo",Faleria,,Europe/Rome,1
 3177250,en,EU,Europe,IT,Italy,57,"The Marches",AN,"Province of Ancona","Falconara Marittima",,Europe/Rome,1
 3177260,en,EU,Europe,SM,"San Marino",09,Serravalle,,,Falciano,,Europe/San_Marino,0
@@ -41628,7 +41575,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177292,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine",Fagagna,,Europe/Rome,1
 3177299,en,EU,Europe,SM,"San Marino",04,Faetano,,,Faetano,,Europe/San_Marino,0
 3177300,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna",Faenza,,Europe/Rome,1
-3177304,en,EU,Europe,IT,Italy,25,Lombardy,SO,"Province of Sondrio","Faedo Valtellino",,Europe/Rome,1
 3177314,en,EU,Europe,IT,Italy,62,Lazio,VT,"Province of Viterbo","Fabrica di Roma",,Europe/Rome,1
 3177315,en,EU,Europe,IT,Italy,57,"The Marches",AN,"Province of Ancona",Fabriano,,Europe/Rome,1
 3177317,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia",Fabbrico,,Europe/Rome,1
@@ -41658,14 +41604,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177551,en,EU,Europe,IT,Italy,42,Liguria,IM,"Province of Imperia",Dolceacqua,,Europe/Rome,1
 3177564,en,EU,Europe,SM,"San Marino",09,Serravalle,,,Dogana,,Europe/San_Marino,0
 3177568,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",GO,"Province of Gorizia","Doberdò del Lago",,Europe/Rome,1
-3177571,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Toblach,,Europe/Rome,1
 3177580,en,EU,Europe,IT,Italy,88,Sardinia,SS,"Province of Sassari",Direzione,,Europe/Rome,1
-3177582,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Dimaro,,Europe/Rome,1
 3177588,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Dicomano,,Europe/Rome,1
 3177608,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza",Desio,,Europe/Rome,1
 3177610,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Desenzano del Garda",,Europe/Rome,1
 3177617,en,EU,Europe,IT,Italy,55,Umbria,PG,"Province of Perugia",Deruta,,Europe/Rome,1
-3177623,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Denno,,Europe/Rome,1
 3177628,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Dello,,Europe/Rome,1
 3177649,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Dambel,,Europe/Rome,1
 3177650,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Dalmine,,Europe/Rome,1
@@ -41674,7 +41617,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177663,en,EU,Europe,IT,Italy,72,Campania,BN,"Province of Benevento","Cusano Mutri",,Europe/Rome,1
 3177664,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Cusano Milanino",,Europe/Rome,1
 3177666,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Curtarolo,,Europe/Rome,1
-3177670,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Graun im Vinschgau",,Europe/Rome,1
 3177672,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Curno,,Europe/Rome,1
 3177682,en,EU,Europe,IT,Italy,34,Veneto,RO,"Province of Rovigo",Curà,,Europe/Rome,1
 3177692,en,EU,Europe,IT,Italy,65,Abruzzo,CH,"Province of Chieti",Cupello,,Europe/Rome,1
@@ -41694,7 +41636,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177866,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Covo,,Europe/Rome,1
 3177872,en,EU,Europe,IT,Italy,23,"Aosta Valley",,,Courmayeur,,Europe/Rome,1
 3177876,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna",Cotignola,,Europe/Rome,1
-3177882,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Costermano,,Europe/Rome,1
 3177894,en,EU,Europe,IT,Italy,21,Piedmont,VC,"Province of Vercelli",Costanzana,,Europe/Rome,1
 3177912,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Costabissara,,Europe/Rome,1
 3177924,en,EU,Europe,IT,Italy,21,Piedmont,BI,"Province of Biella",Cossato,,Europe/Rome,1
@@ -41702,7 +41643,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177948,en,EU,Europe,IT,Italy,52,Tuscany,AR,"Province of Arezzo",Cortona,,Europe/Rome,1
 3177952,en,EU,Europe,IT,Italy,34,Veneto,BL,"Province of Belluno","Cortina d'Ampezzo",,Europe/Rome,1
 3177983,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Corte Franca",,Europe/Rome,1
-3178002,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Cortaccia sulla Strada del Vino",,Europe/Rome,1
 3178004,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Corsico,,Europe/Rome,1
 3178014,en,EU,Europe,IT,Italy,57,"The Marches",MC,"Province of Macerata",Corridonia,,Europe/Rome,1
 3178019,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia",Correggio,,Europe/Rome,1
@@ -41751,7 +41691,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3178305,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Collio,,Europe/Rome,1
 3178314,en,EU,Europe,IT,Italy,57,"The Marches",AP,"Province of Ascoli Piceno","Colli del Tronto",,Europe/Rome,1
 3178349,en,EU,Europe,IT,Italy,52,Tuscany,LI,"Province of Livorno",Collesalvetti,,Europe/Rome,1
-3178357,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Collepietra,,Europe/Rome,1
 3178360,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Collepasso,,Europe/Rome,1
 3178388,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Collegno,,Europe/Rome,1
 3178398,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Colleferro,,Europe/Rome,1
@@ -41793,7 +41732,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3178738,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Ciampino,,Europe/Rome,1
 3178745,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Chivasso,,Europe/Rome,1
 3178758,en,EU,Europe,IT,Italy,72,Campania,AV,"Province of Avellino","Chiusano di San Domenico",,Europe/Rome,1
-3178764,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Klausen,,Europe/Rome,1
 3178767,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Chiuppano,,Europe/Rome,1
 3178780,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",PN,"Province of Pordenone",Chions,,Europe/Rome,1
 3178784,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice",Chioggia,,Europe/Rome,1
@@ -41826,7 +41764,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3179033,en,EU,Europe,IT,Italy,72,Campania,BN,"Province of Benevento","Cerreto Sannita",,Europe/Rome,1
 3179035,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Cerreto Guidi",,Europe/Rome,1
 3179066,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Cernusco sul Naviglio",,Europe/Rome,1
-3179069,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Tscherms,,Europe/Rome,1
 3179070,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como",Cermenate,,Europe/Rome,1
 3179075,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia",Cerignola,,Europe/Rome,1
 3179106,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Cerea,,Europe/Rome,1
@@ -41890,9 +41827,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3179521,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,"Castelnuovo di Porto",,Europe/Rome,1
 3179522,en,EU,Europe,IT,Italy,42,Liguria,SP,"Province of La Spezia","Castelnuovo Magra",,Europe/Rome,1
 3179523,en,EU,Europe,IT,Italy,52,Tuscany,LU,"Province of Lucca","Castelnuovo di Garfagnana",,Europe/Rome,1
-3179537,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Castelnuovo,,Europe/Rome,1
 3179547,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia","Castelnovo di Sotto",,Europe/Rome,1
-3179555,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Castel Mella",,Europe/Rome,1
 3179560,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna","Castel Maggiore",,Europe/Rome,1
 3179561,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,"Castel Madama",,Europe/Rome,1
 3179584,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Castello di Godego",,Europe/Rome,1
@@ -41992,7 +41927,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3180494,en,EU,Europe,IT,Italy,52,Tuscany,PO,"Provincia di Prato",Carmignano,,Europe/Rome,1
 3180495,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Carmiano,,Europe/Rome,1
 3180496,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Carmagnola,,Europe/Rome,1
-3180503,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Carisolo,,Europe/Rome,1
 3180504,en,EU,Europe,IT,Italy,21,Piedmont,VC,"Province of Vercelli",Carisio,,Europe/Rome,1
 3180507,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta",Carinola,,Europe/Rome,1
 3180510,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como",Carimate,,Europe/Rome,1
@@ -42037,7 +41971,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3180874,en,EU,Europe,IT,Italy,75,Apulia,FG,"Province of Foggia",Candela,,Europe/Rome,1
 3180878,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta","Cancello e Arnone",,Europe/Rome,1
 3180881,en,EU,Europe,IT,Italy,77,Basilicate,PZ,"Province of Potenza",Cancellara,,Europe/Rome,1
-3180883,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Canazei,,Europe/Rome,1
 3180898,en,EU,Europe,IT,Italy,21,Piedmont,CN,"Province of Cuneo",Canale,,Europe/Rome,1
 3180908,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Sand in Taufers",,Europe/Rome,1
 3180918,en,EU,Europe,IT,Italy,72,Campania,NA,"Province of Naples",Camposano,,Europe/Rome,1
@@ -42049,7 +41982,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3180973,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Campodoro,,Europe/Rome,1
 3180976,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Freienfeld,,Europe/Rome,1
 3180977,en,EU,Europe,IT,Italy,67,Molise,CB,"Province of Campobasso",Campodipietra,,Europe/Rome,1
-3180982,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Campodenno,,Europe/Rome,1
 3180983,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Campodarsego,,Europe/Rome,1
 3180991,en,EU,Europe,IT,Italy,67,Molise,CB,"Province of Campobasso",Campobasso,,Europe/Rome,1
 3181005,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce","Campi Salentina",,Europe/Rome,1
@@ -42081,13 +42013,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181164,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Caluso,,Europe/Rome,1
 3181165,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo","Calusco d'Adda",,Europe/Rome,1
 3181176,en,EU,Europe,IT,Italy,25,Lombardy,LC,"Province of Lecco",Calolziocorte,,Europe/Rome,1
-3181182,en,EU,Europe,IT,Italy,21,Piedmont,AT,"Province of Asti",Calliano,,Europe/Rome,1
 3181189,en,EU,Europe,IT,Italy,75,Apulia,LE,"Province of Lecce",Calimera,,Europe/Rome,1
 3181199,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Calenzano,,Europe/Rome,1
 3181209,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Caldogno,,Europe/Rome,1
 3181212,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna","Calderara di Reno",,Europe/Rome,1
 3181213,en,EU,Europe,IT,Italy,57,"The Marches",MC,"Province of Macerata",Caldarola,,Europe/Rome,1
-3181215,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Caldaro sulla Strada del Vino",,Europe/Rome,1
 3181220,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Calcio,,Europe/Rome,1
 3181222,en,EU,Europe,IT,Italy,57,"The Marches",PU,"Pesaro and Urbino",Calcinelli,,Europe/Rome,1
 3181223,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Calcinato,,Europe/Rome,1
@@ -42106,7 +42036,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181276,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Cagliari,,Europe/Rome,1
 3181277,en,EU,Europe,IT,Italy,57,"The Marches",PU,"Pesaro and Urbino",Cagli,,Europe/Rome,1
 3181288,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Cadoneghe,,Europe/Rome,1
-3181303,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Caderzone,,Europe/Rome,1
 3181305,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PC,"Province of Piacenza",Cadeo,,Europe/Rome,1
 3181311,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia","Cadelbosco di Sopra",,Europe/Rome,1
 3181345,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine",Buttrio,,Europe/Rome,1
@@ -42129,7 +42058,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181493,en,EU,Europe,IT,Italy,42,Liguria,SP,"Province of La Spezia",Brugnato,,Europe/Rome,1
 3181494,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Brugine,,Europe/Rome,1
 3181495,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza",Brugherio,,Europe/Rome,1
-3181504,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Bronzolo,,Europe/Rome,1
 3181507,en,EU,Europe,IT,Italy,25,Lombardy,PV,"Province of Pavia",Broni,,Europe/Rome,1
 3181521,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna",Brisighella,,Europe/Rome,1
 3181528,en,EU,Europe,IT,Italy,75,Apulia,BR,"Province of Brindisi",Brindisi,,Europe/Rome,1
@@ -42176,7 +42104,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181790,en,EU,Europe,IT,Italy,21,Piedmont,NO,"Province of Novara",Borgomanero,,Europe/Rome,1
 3181793,en,EU,Europe,SM,"San Marino",06,"Borgo Maggiore",,,"Borgo Maggiore",,Europe/San_Marino,0
 3181815,en,EU,Europe,IT,Italy,52,Tuscany,LU,"Province of Lucca","Borgo a Mozzano",,Europe/Rome,1
-3181822,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Borgo Valsugana",,Europe/Rome,1
 3181832,en,EU,Europe,IT,Italy,42,Liguria,SV,"Province of Savona","Borghetto Santo Spirito",,Europe/Rome,1
 3181848,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna","Fornace Zarattini",,Europe/Rome,1
 3181850,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,"Borgaro Torinese",,Europe/Rome,1
@@ -42197,7 +42124,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181939,en,EU,Europe,IT,Italy,67,Molise,CB,"Province of Campobasso",Bojano,,Europe/Rome,1
 3181943,en,EU,Europe,IT,Italy,42,Liguria,GE,"Province of Genoa",Bogliasco,,Europe/Rome,1
 3181946,en,EU,Europe,IT,Italy,25,Lombardy,LO,"Province of Lodi","Boffalora d'Adda",,Europe/Rome,1
-3181953,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Bocenago,,Europe/Rome,1
 3181971,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Darfo Boario Terme",,Europe/Rome,1
 3181994,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari",Bitritto,,Europe/Rome,1
 3181995,en,EU,Europe,IT,Italy,75,Apulia,BA,"Province of Bari",Bitonto,,Europe/Rome,1
@@ -42287,7 +42213,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3182548,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna","Bagnara di Romagna",,Europe/Rome,1
 3182552,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna",Bagnacavallo,,Europe/Rome,1
 3182576,en,EU,Europe,IT,Italy,34,Veneto,RO,"Province of Rovigo","Badia Polesine",,Europe/Rome,1
-3182585,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Badia,,Europe/Rome,1
 3182599,en,EU,Europe,IT,Italy,72,Campania,NA,"Province of Naples",Bacoli,,Europe/Rome,1
 3182607,en,EU,Europe,IT,Italy,25,Lombardy,VA,"Province of Varese",Azzate,,Europe/Rome,1
 3182625,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Avio,,Europe/Rome,1
@@ -42297,7 +42222,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3182640,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta",Aversa,,Europe/Rome,1
 3182650,en,EU,Europe,IT,Italy,72,Campania,AV,"Province of Avellino",Avellino,,Europe/Rome,1
 3182651,en,EU,Europe,IT,Italy,72,Campania,AV,"Province of Avellino",Avella,,Europe/Rome,1
-3182652,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Hafling,,Europe/Rome,1
 3182686,en,EU,Europe,IT,Italy,52,Tuscany,MS,"Province of Massa-Carrara",Aulla,,Europe/Rome,1
 3182696,en,EU,Europe,IT,Italy,72,Campania,AV,"Province of Avellino",Atripalda,,Europe/Rome,1
 3182697,en,EU,Europe,IT,Italy,65,Abruzzo,TE,"Province of Teramo",Atri,,Europe/Rome,1
@@ -42334,7 +42258,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3182903,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Arcugnano,,Europe/Rome,1
 3182904,en,EU,Europe,IT,Italy,25,Lombardy,MB,"Monza Brianza",Arcore,,Europe/Rome,1
 3182906,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Arconate,,Europe/Rome,1
-3182907,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Arcole,,Europe/Rome,1
 3182908,en,EU,Europe,IT,Italy,42,Liguria,SP,"Province of La Spezia",Arcola,,Europe/Rome,1
 3182910,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Arco,,Europe/Rome,1
 3182915,en,EU,Europe,IT,Italy,65,Abruzzo,CH,"Province of Chieti",Archi,,Europe/Rome,1
@@ -42356,7 +42279,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3183005,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Anzio,,Europe/Rome,1
 3183010,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como","Anzano del Parco",,Europe/Rome,1
 3183024,en,EU,Europe,IT,Italy,52,Tuscany,LI,"Province of Livorno",Antignano,,Europe/Rome,1
-3183038,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Altrei,,Europe/Rome,1
 3183039,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Antella,,Europe/Rome,1
 3183042,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Antea,,Europe/Rome,1
 3183061,en,EU,Europe,IT,Italy,62,Lazio,RM,Rome,Anguillara,,Europe/Rome,1
@@ -43117,9 +43039,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3217991,en,EU,Europe,IT,Italy,34,Veneto,VE,"Province of Venice","Castello di Brussa",,Europe/Rome,1
 3218364,en,EU,Europe,SI,Slovenia,014,"Municipality of Cerkno",,,Cerkno,,Europe/Ljubljana,1
 3218409,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Ormelle,,Europe/Rome,1
-3218410,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","San Polo di Piave",,Europe/Rome,1
 3218433,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Maserada sul Piave",,Europe/Rome,1
-3218565,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Rasun di Sotto",,Europe/Rome,1
 3218581,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Santa Lucia di Piave",,Europe/Rome,1
 3218582,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Mareno di Piave",,Europe/Rome,1
 3218585,en,EU,Europe,SI,Slovenia,020,"Municipality of Dobrepolje",,,Kukovo,,Europe/Ljubljana,1
@@ -43680,7 +43600,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3388173,en,SA,"South America",BR,Brazil,PI,Piauí,,,"São Pedro do Piauí",,America/Fortaleza,0
 3388210,en,SA,"South America",BR,Brazil,RN,"Rio Grande do Norte",,,"São Pedro",,America/Fortaleza,0
 3388238,en,SA,"South America",BR,Brazil,RN,"Rio Grande do Norte",,,"São Paulo do Potengi",,America/Fortaleza,0
-3388266,en,SA,"South America",BR,Brazil,PI,Piauí,,,"São Miguel do Tapuio",,America/Fortaleza,0
 3388267,en,SA,"South America",BR,Brazil,AL,Alagoas,,,"São Miguel dos Milagres",,America/Maceio,0
 3388269,en,SA,"South America",BR,Brazil,AL,Alagoas,,,"São Miguel dos Campos",,America/Maceio,0
 3388270,en,SA,"South America",BR,Brazil,PA,Pará,,,"São Miguel do Guamá",,America/Belem,0
@@ -47423,7 +47342,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3473263,en,SA,"South America",BR,Brazil,BA,Bahia,,,Abaíra,,America/Bahia,0
 3473267,en,SA,"South America",BR,Brazil,MG,"Minas Gerais",,,Abaeté,,America/Sao_Paulo,0
 3473268,en,SA,"South America",BR,Brazil,GO,Goiás,,,Abadiânia,,America/Sao_Paulo,0
-3473648,en,SA,"South America",BR,Brazil,RJ,"Rio de Janeiro",,,Icaraí,,America/Sao_Paulo,0
 3473663,en,SA,"South America",BR,Brazil,RJ,"Rio de Janeiro",,,Botafogo,,America/Sao_Paulo,0
 3473921,en,SA,"South America",BR,Brazil,RS,"Rio Grande do Sul",,,Higienópolis,,America/Sao_Paulo,0
 3473922,en,SA,"South America",BR,Brazil,RS,"Rio Grande do Sul",,,Auxiliadora,,America/Sao_Paulo,0
@@ -47739,6 +47657,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3517270,en,NA,"North America",MX,Mexico,MEX,México,,,"Santa María Chimalhuacán",,America/Mexico_City,0
 3517280,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Santa María Atzompa",,America/Mexico_City,0
 3517285,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Heroica Ciudad de Tlaxiaco",,America/Mexico_City,0
+3517363,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Santa Lucía",,America/Mexico_City,0
 3517382,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Santa Lucía del Camino",,America/Mexico_City,0
 3517517,en,NA,"North America",MX,Mexico,OAX,Oaxaca,,,"Santa Cruz Xoxocotlán",,America/Mexico_City,0
 3517524,en,NA,"North America",MX,Mexico,MEX,México,,,Tecámac,,America/Mexico_City,0
@@ -48694,6 +48613,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3629965,en,SA,"South America",VE,Venezuela,O,"Nueva Esparta",,,Porlamar,,America/Caracas,0
 3630173,en,SA,"South America",VE,Venezuela,N,Monagas,,,"Piedras Negras",,America/Caracas,0
 3630687,en,SA,"South America",VE,Venezuela,B,Anzoátegui,,,Pariaguán,,America/Caracas,0
+3630893,en,SA,"South America",VE,Venezuela,O,"Nueva Esparta",,,Pampatar,,America/Caracas,0
 3630894,en,SA,"South America",VE,Venezuela,T,"Estado Trujillo",,,Pampanito,,America/Caracas,0
 3630932,en,SA,"South America",VE,Venezuela,D,Aragua,,,"Palo Negro",,America/Caracas,0
 3631247,en,SA,"South America",VE,Venezuela,J,Guárico,,,Ortiz,,America/Caracas,0
@@ -48990,7 +48910,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3660809,en,SA,"South America",EC,Ecuador,L,Loja,,,Alamor,,America/Guayaquil,0
 3661615,en,SA,"South America",BR,Brazil,RO,Rondônia,,,"Vale do Anari",,America/Porto_Velho,0
 3661894,en,SA,"South America",BR,Brazil,AM,Amazonas,,,Tonantins,,America/Manaus,0
-3661944,en,SA,"South America",BR,Brazil,AM,Amazonas,,,Tefé,,America/Manaus,0
 3661948,en,SA,"South America",BR,Brazil,AC,Acre,,,"Marechal Thaumaturgo",,America/Rio_Branco,0
 3661980,en,SA,"South America",BR,Brazil,AC,Acre,,,Tarauacá,,America/Rio_Branco,0
 3662075,en,SA,"South America",BR,Brazil,AM,Amazonas,,,Tabatinga,,America/Manaus,0
@@ -49035,7 +48954,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3665691,en,SA,"South America",CO,Colombia,ANT,Antioquia,,,Yondó,,America/Bogota,0
 3665741,en,SA,"South America",CO,Colombia,ANT,Antioquia,,,Yarumal,,America/Bogota,0
 3665851,en,SA,"South America",CO,Colombia,CAL,"Caldas Department",,,Viterbo,,America/Bogota,0
-3665860,en,SA,"South America",CO,Colombia,MET,"Meta Department",,,Vistahermosa,,America/Bogota,0
 3665895,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Villeta,,America/Bogota,0
 3665900,en,SA,"South America",CO,Colombia,MET,"Meta Department",,,Villavicencio,,America/Bogota,0
 3665913,en,SA,"South America",CO,Colombia,NSA,"Norte de Santander Department",,,"Villa del Rosario",,America/Bogota,0
@@ -49125,7 +49043,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3669332,en,SA,"South America",CO,Colombia,MET,"Meta Department",,,"San Martín",,America/Bogota,0
 3669346,en,SA,"South America",CO,Colombia,SUC,"Sucre Department",,,"San Marcos",,America/Bogota,0
 3669382,en,SA,"South America",CO,Colombia,SAN,"Santander Department",,,"San Luis",,America/Bogota,0
-3669454,en,SA,"South America",CO,Colombia,BOL,"Departamento de Bolívar",,,"San Juan Nepomuceno",,America/Bogota,0
 3669469,en,SA,"South America",CO,Colombia,LAG,"La Guajira Department",,,"San Juan del Cesar",,America/Bogota,0
 3669480,en,SA,"South America",CO,Colombia,SUC,"Sucre Department",,,"San Juan de Betulia",,America/Bogota,0
 3669623,en,SA,"South America",CO,Colombia,CAL,"Caldas Department",,,"San José",,America/Bogota,0
@@ -49266,7 +49183,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3680840,en,SA,"South America",CO,Colombia,TOL,"Tolima Department",,,Honda,,America/Bogota,0
 3680944,en,SA,"South America",CO,Colombia,LAG,"La Guajira Department",,,Hatonuevo,,America/Bogota,0
 3681010,en,SA,"South America",CO,Colombia,CAS,"Casanare Department",,,"Hato Corozal",,America/Bogota,0
-3681344,en,SA,"South America",CO,Colombia,GUV,"Guaviare Department",,,,,America/Bogota,0
 3681356,en,SA,"South America",CO,Colombia,BOY,"Departamento de Boyacá",,,Guateque,,America/Bogota,0
 3681368,en,SA,"South America",CO,Colombia,ANT,Antioquia,,,Guatapé,,America/Bogota,0
 3681404,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Guasca,,America/Bogota,0
@@ -49289,7 +49205,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3682274,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Fusagasugá,,America/Bogota,0
 3682281,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Funza,,America/Bogota,0
 3682292,en,SA,"South America",CO,Colombia,MAG,"Magdalena Department",,,Fundación,,America/Bogota,0
-3682299,en,SA,"South America",CO,Colombia,MET,"Meta Department",,,"Fuente de Oro",,America/Bogota,0
 3682313,en,SA,"South America",CO,Colombia,ANT,Antioquia,,,Frontino,,America/Bogota,0
 3682330,en,SA,"South America",CO,Colombia,TOL,"Tolima Department",,,Fresno,,America/Bogota,0
 3682361,en,SA,"South America",CO,Colombia,ARA,"Arauca Department",,,Fortul,,America/Bogota,0
@@ -49375,7 +49290,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3687952,en,SA,"South America",CO,Colombia,ANT,Antioquia,,,Caldas,,America/Bogota,0
 3687964,en,SA,"South America",CO,Colombia,QUI,"Quindío Department",,,Calarcá,,America/Bogota,0
 3687972,en,SA,"South America",CO,Colombia,BOL,"Departamento de Bolívar",,,Calamar,,America/Bogota,0
-3687975,en,SA,"South America",CO,Colombia,GUV,"Guaviare Department",,,Calamar,,America/Bogota,0
 3688006,en,SA,"South America",CO,Colombia,CUN,Cundinamarca,,,Cajicá,,America/Bogota,0
 3688021,en,SA,"South America",CO,Colombia,TOL,"Tolima Department",,,Cajamarca,,America/Bogota,0
 3688071,en,SA,"South America",CO,Colombia,VAC,"Valle del Cauca Department",,,Caicedonia,,America/Bogota,0
@@ -49615,8 +49529,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3792387,en,SA,"South America",CO,Colombia,GUV,"Guaviare Department",,,"El Retorno",,America/Bogota,0
 3792389,en,SA,"South America",CO,Colombia,HUI,"Huila Department",,,Isnos,,America/Bogota,0
 3792392,en,SA,"South America",CO,Colombia,MAG,"Magdalena Department",,,Plato,,America/Bogota,0
-3792394,en,SA,"South America",CO,Colombia,MET,"Meta Department",,,Mapiripán,,America/Bogota,0
-3792395,en,SA,"South America",CO,Colombia,MET,"Meta Department",,,"Puerto Concordia",,America/Bogota,0
 3792399,en,SA,"South America",CO,Colombia,SAN,"Santander Department",,,"El Playón",,America/Bogota,0
 3792400,en,SA,"South America",CO,Colombia,SAN,"Santander Department",,,"Santa Helena del Opón",,America/Bogota,0
 3792402,en,SA,"South America",CO,Colombia,VAU,"Departamento del Vaupés",,,Taraira,,America/Bogota,0
@@ -54632,6 +54544,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4390485,en,NA,"North America",US,"United States",MO,Missouri,,,Higginsville,616,America/Chicago,0
 4390496,en,NA,"North America",US,"United States",MO,Missouri,,,"High Hill",609,America/Chicago,0
 4390555,en,NA,"North America",US,"United States",MO,Missouri,,,"High Ridge",609,America/Chicago,0
+4390602,en,NA,"North America",US,"United States",MO,Missouri,,,Highlandville,619,America/Chicago,0
 4390705,en,NA,"North America",US,"United States",MO,Missouri,,,Hillsboro,609,America/Chicago,0
 4390914,en,NA,"North America",US,"United States",MO,Missouri,,,Holden,616,America/Chicago,0
 4390975,en,NA,"North America",US,"United States",MO,Missouri,,,Hollister,619,America/Chicago,0
@@ -55384,6 +55297,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4474627,en,NA,"North America",US,"United States",NC,"North Carolina",,,"La Grange",545,America/New_York,0
 4474803,en,NA,"North America",US,"United States",NC,"North Carolina",,,"Lake Lure",567,America/New_York,0
 4474896,en,NA,"North America",US,"United States",NC,"North Carolina",,,"Lake Toxaway",567,America/New_York,0
+4474919,en,NA,"North America",US,"United States",NC,"North Carolina",,,"Lake Waccamaw",550,America/New_York,0
 4475057,en,NA,"North America",US,"United States",NC,"North Carolina",,,Landis,517,America/New_York,0
 4475122,en,NA,"North America",US,"United States",NC,"North Carolina",,,Lansing,517,America/New_York,0
 4475276,en,NA,"North America",US,"United States",NC,"North Carolina",,,"Laurel Hill",517,America/New_York,0
@@ -67874,7 +67788,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5551752,en,NA,"North America",US,"United States",AZ,Arizona,,,,,America/Phoenix,0
 5552219,en,NA,"North America",US,"United States",CO,Colorado,,,Matheson,752,America/Denver,0
 5552241,en,NA,"North America",US,"United States",KS,Kansas,,,Montezuma,678,America/Chicago,0
-5552243,en,NA,"North America",US,"United States",KS,Kansas,,,Rolla,678,America/Chicago,0
+5552243,en,NA,"North America",US,"United States",KS,Kansas,,,Rolla,616,America/Chicago,0
 5552301,en,NA,"North America",US,"United States",AZ,Arizona,,,Avondale,753,America/Phoenix,0
 5552575,en,NA,"North America",US,"United States",AZ,Arizona,,,Bagdad,753,America/Phoenix,0
 5552944,en,NA,"North America",US,"United States",AZ,Arizona,,,Bapchule,753,America/Phoenix,0
@@ -69434,6 +69348,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5883074,en,NA,"North America",CA,Canada,QC,Quebec,,,Albanel,,America/Toronto,0
 5883077,en,NA,"North America",CA,Canada,PE,"Prince Edward Island",,,Albany,,America/Halifax,0
 5883102,en,NA,"North America",CA,Canada,AB,Alberta,,,,,America/Edmonton,0
+5883166,en,NA,"North America",CA,Canada,PE,"Prince Edward Island",,,Alberton,,America/Halifax,0
 5883341,en,NA,"North America",CA,Canada,AB,Alberta,,,Aldersyde,,America/Edmonton,0
 5883385,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Alert Bay",,America/Vancouver,0
 5883490,en,NA,"North America",CA,Canada,ON,Ontario,,,Alexandria,,America/Toronto,0
@@ -69499,6 +69414,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5889745,en,NA,"North America",CA,Canada,QC,Quebec,,,Baie-Comeau,,America/Toronto,0
 5890404,en,NA,"North America",CA,Canada,QC,Quebec,,,Baie-du-Febvre,,America/Toronto,0
 5890542,en,NA,"North America",CA,Canada,QC,Quebec,,,Baie-D'Urfé,,America/Toronto,0
+5891545,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Baie Verte",,America/St_Johns,0
 5892415,en,NA,"North America",CA,Canada,ON,Ontario,,,Baltimore,,America/Toronto,0
 5892444,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Bamfield,,America/Vancouver,0
 5892510,en,NA,"North America",CA,Canada,ON,Ontario,,,Bancroft,,America/Toronto,0
@@ -69508,8 +69424,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5894171,en,NA,"North America",CA,Canada,ON,Ontario,,,Barrie,,America/Toronto,0
 5894188,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Barrière,,America/Vancouver,0
 5894228,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Barrington,,America/Halifax,0
-5894238,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Barrington Passage",,America/Halifax,0
 5894340,en,NA,"North America",CA,Canada,ON,Ontario,,,"Barry's Bay",,America/Toronto,0
+5894570,en,NA,"North America",CA,Canada,AB,Alberta,,,Bashaw,,America/Edmonton,0
 5894642,en,NA,"North America",CA,Canada,AB,Alberta,,,Bassano,,America/Edmonton,0
 5894924,en,NA,"North America",CA,Canada,ON,Ontario,,,Bath,,America/Toronto,0
 5895224,en,NA,"North America",CA,Canada,AB,Alberta,,,Bawlf,,America/Edmonton,0
@@ -69594,6 +69510,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5908473,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Brentwood Bay",,America/Vancouver,0
 5908481,en,NA,"North America",CA,Canada,ON,Ontario,,,Breslau,,America/Toronto,0
 5908499,en,NA,"North America",CA,Canada,AB,Alberta,,,Breton,,America/Edmonton,0
+5908715,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Bridgetown,,America/Halifax,0
 5908723,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Bridgewater,,America/Halifax,0
 5908835,en,NA,"North America",CA,Canada,ON,Ontario,,,Brighton,,America/Toronto,0
 5909022,en,NA,"North America",CA,Canada,ON,Ontario,,,Britannia,,America/Toronto,0
@@ -69630,6 +69547,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5913490,en,NA,"North America",CA,Canada,AB,Alberta,,,Calgary,,America/Edmonton,0
 5913550,en,NA,"North America",CA,Canada,ON,Ontario,,,Callander,,America/Toronto,0
 5913601,en,NA,"North America",CA,Canada,AB,Alberta,,,Calmar,,America/Edmonton,0
+5913681,en,NA,"North America",CA,Canada,ON,Ontario,,,Cambray,,America/Toronto,0
 5913695,en,NA,"North America",CA,Canada,ON,Ontario,,,Cambridge,,America/Toronto,0
 5913708,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Cambridge-Narrows,,America/Moncton,0
 5913934,en,NA,"North America",CA,Canada,ON,Ontario,,,Camlachie,,America/Toronto,0
@@ -69750,7 +69668,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5926511,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Conception Bay South",,America/St_Johns,0
 5926526,en,NA,"North America",CA,Canada,ON,Ontario,,,Concord,,America/Toronto,0
 5926550,en,NA,"North America",CA,Canada,AB,Alberta,,,Condor,,America/Edmonton,0
-5926705,en,NA,"North America",CA,Canada,ON,Ontario,,,Coniston,,America/Toronto,0
 5926720,en,NA,"North America",CA,Canada,AB,Alberta,,,Conklin,,America/Edmonton,0
 5926958,en,NA,"North America",CA,Canada,AB,Alberta,,,Consort,,America/Edmonton,0
 5926968,en,NA,"North America",CA,Canada,ON,Ontario,,,"Constance Bay",,America/Toronto,0
@@ -69898,6 +69815,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5949568,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,Estevan,,America/Regina,0
 5950268,en,NA,"North America",CA,Canada,ON,Ontario,,,Etobicoke,,America/Toronto,0
 5950361,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Eureka,,America/Halifax,0
+5950447,en,NA,"North America",CA,Canada,AB,Alberta,,,Evansburg,,America/Edmonton,0
 5950579,en,NA,"North America",CA,Canada,ON,Ontario,,,Everett,,America/Toronto,0
 5950674,en,NA,"North America",CA,Canada,ON,Ontario,,,Exeter,,America/Toronto,0
 5951036,en,NA,"North America",CA,Canada,AB,Alberta,,,Fairview,,America/Edmonton,0
@@ -69925,7 +69843,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5955278,en,NA,"North America",CA,Canada,ON,Ontario,,,Fonthill,,America/Toronto,0
 5955321,en,NA,"North America",CA,Canada,AB,Alberta,,,Foothills,,America/Edmonton,0
 5955497,en,NA,"North America",CA,Canada,ON,Ontario,,,Forest,,America/Toronto,0
-5955501,en,NA,"North America",CA,Canada,AB,Alberta,,,Forestburg,,America/Edmonton,0
 5955777,en,NA,"North America",CA,Canada,ON,Ontario,,,"Fort Albany",,America/Toronto,0
 5955793,en,NA,"North America",CA,Canada,AB,Alberta,,,"Fort Chipewyan",,America/Edmonton,0
 5955808,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Forteau,,America/St_Johns,0
@@ -69951,6 +69868,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5957776,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Fredericton,,America/Moncton,0
 5957883,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Freeport,,America/Halifax,0
 5957903,en,NA,"North America",CA,Canada,QC,Quebec,,,Frelighsburg,,America/Toronto,0
+5958172,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Freshwater,,America/St_Johns,0
 5958445,en,NA,"North America",CA,Canada,AB,Alberta,,,"Frog Lake",,America/Edmonton,0
 5958590,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Fruitvale,,America/Vancouver,0
 5958912,en,NA,"North America",CA,Canada,ON,Ontario,,,"Gads Hill",,America/Toronto,0
@@ -69973,12 +69891,14 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5960971,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Gibsons,,America/Vancouver,0
 5961023,en,NA,"North America",CA,Canada,AB,Alberta,,,"Gift Lake",,America/Edmonton,0
 5961068,en,NA,"North America",CA,Canada,MB,Manitoba,,,"Gilbert Plains",,America/Winnipeg,0
+5961157,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Gillams,,America/St_Johns,0
 5961233,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Gillies Bay",,America/Vancouver,0
 5961359,en,NA,"North America",CA,Canada,ON,Ontario,,,Gilmour,,America/Toronto,0
 5961417,en,NA,"North America",CA,Canada,MB,Manitoba,,,Gimli,,America/Winnipeg,0
 5961476,en,NA,"North America",CA,Canada,QC,Quebec,,,Girardville,,America/Toronto,0
 5961502,en,NA,"North America",CA,Canada,AB,Alberta,,,Girouxville,,America/Edmonton,0
 5961564,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Glace Bay",,America/Glace_Bay,0
+5961827,en,NA,"North America",CA,Canada,ON,Ontario,,,Glenarm,,America/Toronto,0
 5961855,en,NA,"North America",CA,Canada,ON,Ontario,,,Glenburnie,,America/Toronto,0
 5961876,en,NA,"North America",CA,Canada,ON,Ontario,,,Glencoe,,America/Toronto,0
 5961965,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,"Glen Harbour",,America/Regina,0
@@ -70042,12 +69962,14 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5967590,en,NA,"North America",CA,Canada,MB,Manitoba,,,Grunthal,,America/Winnipeg,0
 5967629,en,NA,"North America",CA,Canada,ON,Ontario,,,Guelph,,America/Toronto,0
 5967988,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,"Gull Lake",,America/Regina,0
+5968619,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Guysborough,,America/Halifax,0
 5968875,en,NA,"North America",CA,Canada,ON,Ontario,,,Hagersville,,America/Toronto,0
 5968992,en,NA,"North America",CA,Canada,ON,Ontario,,,Haileybury,,America/Toronto,0
 5969721,en,NA,"North America",CA,Canada,ON,Ontario,,,"Halton Hills",,America/Toronto,0
 5969782,en,NA,"North America",CA,Canada,ON,Ontario,,,Hamilton,,America/Toronto,0
 5969883,en,NA,"North America",CA,Canada,MB,Manitoba,,,Hamiota,,America/Winnipeg,0
 5969976,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Hammonds Plains",,America/Halifax,0
+5969990,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Hampden,,America/St_Johns,0
 5970234,en,NA,"North America",CA,Canada,AB,Alberta,,,Hanna,,America/Edmonton,0
 5970301,en,NA,"North America",CA,Canada,ON,Ontario,,,Hanover,,America/Toronto,0
 5970458,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Happy Valley-Goose Bay",,America/Goose_Bay,0
@@ -70070,9 +69992,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5972901,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Hazelton,,America/Vancouver,0
 5972961,en,NA,"North America",CA,Canada,MB,Manitoba,,,Headingley,,America/Winnipeg,0
 5973108,en,NA,"North America",CA,Canada,ON,Ontario,,,Hearst,,America/Toronto,0
+5973166,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Heart's Content",,America/St_Johns,0
 5973248,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Heatherton,,America/Halifax,0
 5973741,en,NA,"North America",CA,Canada,QC,Quebec,,,Hemmingford,,America/Toronto,0
-5974085,en,NA,"North America",CA,Canada,ON,Ontario,,,Hepworth,,America/Toronto,0
 5974227,en,NA,"North America",CA,Canada,ON,Ontario,,,"Heron Bay",,America/Toronto,0
 5974316,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Herring Cove",,America/Halifax,0
 5974518,en,NA,"North America",CA,Canada,ON,Ontario,,,Hiawatha,,America/Toronto,0
@@ -70153,6 +70075,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5991335,en,NA,"North America",CA,Canada,ON,Ontario,,,Kerwood,,America/Toronto,0
 5991370,en,NA,"North America",CA,Canada,ON,Ontario,,,Keswick,,America/Toronto,0
 5991882,en,NA,"North America",CA,Canada,ON,Ontario,,,Killaloe,,America/Toronto,0
+5991888,en,NA,"North America",CA,Canada,AB,Alberta,,,Killam,,America/Edmonton,0
 5991907,en,NA,"North America",CA,Canada,MB,Manitoba,,,Killarney,,America/Winnipeg,0
 5992044,en,NA,"North America",CA,Canada,AB,Alberta,,,Kimball,,America/Edmonton,0
 5992059,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Kimberley,,America/Edmonton,0
@@ -70208,13 +70131,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6043718,en,NA,"North America",CA,Canada,QC,Quebec,,,Lac-Supérieur,,America/Toronto,0
 6047817,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Ladysmith,,America/Vancouver,0
 6048131,en,NA,"North America",CA,Canada,QC,Quebec,,,"La Guadeloupe",,America/Toronto,0
-6048148,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,LaHave,,America/Halifax,0
 6048316,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Lake Cowichan",,America/Vancouver,0
 6048347,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Lake Echo",,America/Halifax,0
 6048370,en,NA,"North America",CA,Canada,ON,Ontario,,,Lakefield,,America/Toronto,0
 6048483,en,NA,"North America",CA,Canada,AB,Alberta,,,"Lake Louise",,America/Edmonton,0
 6048673,en,NA,"North America",CA,Canada,ON,Ontario,,,Lakeshore,,America/Toronto,0
 6048676,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Lakeside,,America/Halifax,0
+6048773,en,NA,"North America",CA,Canada,ON,Ontario,,,Lakeview,,America/Toronto,0
 6048888,en,NA,"North America",CA,Canada,QC,Quebec,,,"La Macaza",,America/Toronto,0
 6049016,en,NA,"North America",CA,Canada,QC,Quebec,,,Lambton,,America/Toronto,0
 6049024,en,NA,"North America",CA,Canada,ON,Ontario,,,"Lambton Shores",,America/Toronto,0
@@ -70239,7 +70162,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6050182,en,NA,"North America",CA,Canada,MB,Manitoba,,,"La Salle",,America/Winnipeg,0
 6050194,en,NA,"North America",CA,Canada,QC,Quebec,,,"La Sarre",,America/Toronto,0
 6050216,en,NA,"North America",CA,Canada,QC,Quebec,,,L'Ascension-de-Notre-Seigneur,,America/Toronto,0
-6050218,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,LaScie,,America/St_Johns,0
 6050263,en,NA,"North America",CA,Canada,QC,Quebec,,,L'Assomption,,America/Toronto,0
 6050330,en,NA,"North America",CA,Canada,ON,Ontario,,,Latchford,,America/Toronto,0
 6050416,en,NA,"North America",CA,Canada,QC,Quebec,,,"La Tuque",,America/Toronto,0
@@ -70278,16 +70200,18 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6055060,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Little Brook",,America/Halifax,0
 6055388,en,NA,"North America",CA,Canada,ON,Ontario,,,"Little Current",,America/Toronto,0
 6057842,en,NA,"North America",CA,Canada,ON,Ontario,,,Lively,,America/Toronto,0
+6057856,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Liverpool,,America/Halifax,0
 6058024,en,NA,"North America",CA,Canada,AB,Alberta,,,Lloydminster,,America/Edmonton,0
 6058560,en,NA,"North America",CA,Canada,ON,Ontario,,,London,,America/Toronto,0
 6059800,en,NA,"North America",CA,Canada,ON,Ontario,,,"Long Sault",,America/Toronto,0
 6059891,en,NA,"North America",CA,Canada,QC,Quebec,,,Longueuil,,America/Toronto,0
+6059898,en,NA,"North America",CA,Canada,AB,Alberta,,,Longview,,America/Edmonton,0
 6060325,en,NA,"North America",CA,Canada,MB,Manitoba,,,Lorette,,America/Winnipeg,0
 6060407,en,NA,"North America",CA,Canada,QC,Quebec,,,Lorraine,,America/Toronto,0
 6060422,en,NA,"North America",CA,Canada,QC,Quebec,,,Lorrainville,,America/Toronto,0
+6060800,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Louisdale,,America/Halifax,0
 6060839,en,NA,"North America",CA,Canada,QC,Quebec,,,Louiseville,,America/Toronto,0
 6061154,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,"Lower Coverdale",,America/Moncton,0
-6061184,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Lower East Pubnico",,America/Halifax,0
 6061202,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Lower Five Islands",,America/Halifax,0
 6061598,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Lower Woods Harbour",,America/Halifax,0
 6061745,en,NA,"North America",CA,Canada,ON,Ontario,,,Lucan,,America/Toronto,0
@@ -70314,6 +70238,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6065171,en,NA,"North America",CA,Canada,MB,Manitoba,,,,,America/Winnipeg,0
 6065191,en,NA,"North America",CA,Canada,MB,Manitoba,,,Manitou,,America/Winnipeg,0
 6065253,en,NA,"North America",CA,Canada,ON,Ontario,,,Manitouwadge,,America/Toronto,0
+6065256,en,NA,"North America",CA,Canada,ON,Ontario,,,Manitowaning,,America/Toronto,0
 6065262,en,NA,"North America",CA,Canada,QC,Quebec,,,Maniwaki,,America/Toronto,0
 6065306,en,NA,"North America",CA,Canada,AB,Alberta,,,Manning,,America/Edmonton,0
 6065427,en,NA,"North America",CA,Canada,QC,Quebec,,,Manseau,,America/Toronto,0
@@ -70328,6 +70253,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6066350,en,NA,"North America",CA,Canada,QC,Quebec,,,Marieville,,America/Toronto,0
 6066504,en,NA,"North America",CA,Canada,ON,Ontario,,,Markdale,,America/Toronto,0
 6066513,en,NA,"North America",CA,Canada,ON,Ontario,,,Markham,,America/Toronto,0
+6066594,en,NA,"North America",CA,Canada,ON,Ontario,,,Markstay,,America/Toronto,0
 6066654,en,NA,"North America",CA,Canada,ON,Ontario,,,Marmora,,America/Toronto,0
 6067315,en,NA,"North America",CA,Canada,AB,Alberta,,,Marwayne,,America/Edmonton,0
 6067472,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Marystown,,America/St_Johns,0
@@ -70360,6 +70286,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6072435,en,NA,"North America",CA,Canada,QC,Quebec,,,Messines,,America/Toronto,0
 6072447,en,NA,"North America",CA,Canada,QC,Quebec,,,Métabetchouan,,America/Toronto,0
 6072470,en,NA,"North America",CA,Canada,ON,Ontario,,,Metcalfe,,America/Toronto,0
+6072486,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Meteghan,,America/Halifax,0
 6072488,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Meteghan River",,America/Halifax,0
 6072606,en,NA,"North America",CA,Canada,MB,Manitoba,,,Miami,,America/Winnipeg,0
 6072816,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,Midale,,America/Regina,0
@@ -70369,6 +70296,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6073349,en,NA,"North America",CA,Canada,ON,Ontario,,,Midhurst,,America/Toronto,0
 6073363,en,NA,"North America",CA,Canada,ON,Ontario,,,Midland,,America/Toronto,0
 6073561,en,NA,"North America",CA,Canada,ON,Ontario,,,Mildmay,,America/Toronto,0
+6073652,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Milford,,America/Halifax,0
 6073654,en,NA,"North America",CA,Canada,ON,Ontario,,,Milford,,America/Toronto,0
 6073695,en,NA,"North America",CA,Canada,AB,Alberta,,,"Milk River",,America/Edmonton,0
 6073743,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Mill Bay",,America/Vancouver,0
@@ -70433,10 +70361,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6081197,en,NA,"North America",CA,Canada,ON,Ontario,,,"Mount Hope",,America/Toronto,0
 6082231,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Mount Pearl",,America/St_Johns,0
 6082313,en,NA,"North America",CA,Canada,ON,Ontario,,,"Mount Pleasant",,America/Toronto,0
+6082834,en,NA,"North America",CA,Canada,PE,"Prince Edward Island",,,"Mount Stewart",,America/Halifax,0
 6084035,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Mulgrave,,America/Halifax,0
 6084162,en,NA,"North America",CA,Canada,ON,Ontario,,,Muncey,,America/Toronto,0
 6084170,en,NA,"North America",CA,Canada,AB,Alberta,,,Mundare,,America/Edmonton,0
-6084631,en,NA,"North America",CA,Canada,PE,"Prince Edward Island",,,"Murray Harbour",,America/Halifax,0
 6084937,en,NA,"North America",CA,Canada,ON,Ontario,,,Muskoka,,America/Toronto,0
 6085154,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Musquodoboit Harbour",,America/Halifax,0
 6085350,en,NA,"North America",CA,Canada,AB,Alberta,,,Myrnam,,America/Edmonton,0
@@ -70459,13 +70387,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6087421,en,NA,"North America",CA,Canada,MB,Manitoba,,,"New Bothwell",,America/Winnipeg,0
 6087430,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,,,America/Moncton,0
 6087434,en,NA,"North America",CA,Canada,ON,Ontario,,,Newburgh,,America/Toronto,0
-6087440,en,NA,"North America",CA,Canada,ON,Ontario,,,Newbury,,America/Toronto,0
 6087456,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Newcastle,,America/Moncton,0
 6087472,en,NA,"North America",CA,Canada,ON,Ontario,,,Newcastle,,America/Toronto,0
 6087524,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"New Denver",,America/Vancouver,0
 6087530,en,NA,"North America",CA,Canada,ON,Ontario,,,"New Dundee",,America/Toronto,0
 6087579,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"New Glasgow",,America/Halifax,0
 6087591,en,NA,"North America",CA,Canada,ON,Ontario,,,"New Hamburg",,America/Toronto,0
+6087592,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"New Harbour",,America/St_Johns,0
 6087624,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"New Hazelton",,America/Vancouver,0
 6087701,en,NA,"North America",CA,Canada,ON,Ontario,,,Newmarket,,America/Toronto,0
 6087708,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"New Minas",,America/Halifax,0
@@ -70521,8 +70449,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6092857,en,NA,"North America",CA,Canada,ON,Ontario,,,"Oil Springs",,America/Toronto,0
 6092873,en,NA,"North America",CA,Canada,QC,Quebec,,,Oka,,America/Toronto,0
 6093010,en,NA,"North America",CA,Canada,AB,Alberta,,,Okotoks,,America/Edmonton,0
-6093319,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Old Perlican",,America/St_Johns,0
 6093347,en,NA,"North America",CA,Canada,AB,Alberta,,,Olds,,America/Edmonton,0
+6093437,en,NA,"North America",CA,Canada,PE,"Prince Edward Island",,,O'Leary,,America/Halifax,0
 6093514,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Oliver,,America/Vancouver,0
 6093737,en,NA,"North America",CA,Canada,ON,Ontario,,,Ompah,,America/Toronto,0
 6093911,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,"Onion Lake",,America/Edmonton,0
@@ -70596,7 +70524,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6106158,en,NA,"North America",CA,Canada,ON,Ontario,,,Plantagenet,,America/Toronto,0
 6106255,en,NA,"North America",CA,Canada,ON,Ontario,,,Plattsville,,America/Toronto,0
 6106449,en,NA,"North America",CA,Canada,MB,Manitoba,,,"Plum Coulee",,America/Winnipeg,0
-6106518,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Plymouth,,America/Halifax,0
 6107000,en,NA,"North America",CA,Canada,ON,Ontario,,,"Pointe au Baril",,America/Toronto,0
 6107135,en,NA,"North America",CA,Canada,QC,Quebec,,,Pointe-aux-Outardes,,America/Toronto,0
 6107171,en,NA,"North America",CA,Canada,QC,Quebec,,,Pointe-aux-Trembles,,America/Toronto,0
@@ -70612,6 +70539,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6111632,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Port Alberni",,America/Vancouver,0
 6111640,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Port Alice",,America/Vancouver,0
 6111663,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Port au Choix",,America/St_Johns,0
+6111687,en,NA,"North America",CA,Canada,ON,Ontario,,,"Port Burwell",,America/Toronto,0
 6111696,en,NA,"North America",CA,Canada,QC,Quebec,,,Port-Cartier,,America/Toronto,0
 6111701,en,NA,"North America",CA,Canada,BC,"British Columbia",,,"Port Clements",,America/Vancouver,0
 6111704,en,NA,"North America",CA,Canada,ON,Ontario,,,"Port Colborne",,America/Toronto,0
@@ -70888,7 +70816,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6141242,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,,,America/Regina,0
 6141256,en,NA,"North America",CA,Canada,SK,Saskatchewan,,,Saskatoon,,America/Regina,0
 6141339,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Saturna,,America/Vancouver,0
-6141406,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Saulnierville,,America/Halifax,0
 6141439,en,NA,"North America",CA,Canada,ON,Ontario,,,"Sault Ste. Marie",,America/Toronto,0
 6141575,en,NA,"North America",CA,Canada,ON,Ontario,,,"Savant Lake",,America/Winnipeg,0
 6141600,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Savona,,America/Vancouver,0
@@ -70910,12 +70837,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6144312,en,NA,"North America",CA,Canada,QC,Quebec,,,Sept-Îles,,America/Toronto,0
 6144565,en,NA,"North America",CA,Canada,ON,Ontario,,,Severn,,America/Toronto,0
 6144602,en,NA,"North America",CA,Canada,AB,Alberta,,,Sexsmith,,America/Edmonton,0
-6145032,en,NA,"North America",CA,Canada,ON,Ontario,,,"Shallow Lake",,America/Toronto,0
 6145217,en,NA,"North America",CA,Canada,ON,Ontario,,,"Shanty Bay",,America/Toronto,0
 6145255,en,NA,"North America",CA,Canada,ON,Ontario,,,"Sharbot Lake",,America/Toronto,0
 6145464,en,NA,"North America",CA,Canada,QC,Quebec,,,Shawbridge,,America/Toronto,0
 6145489,en,NA,"North America",CA,Canada,QC,Quebec,,,Shawinigan,,America/Toronto,0
 6145668,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Shediac,,America/Moncton,0
+6145815,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"Sheet Harbour",,America/Halifax,0
 6145844,en,NA,"North America",CA,Canada,QC,Quebec,,,Shefford,,America/Toronto,0
 6145854,en,NA,"North America",CA,Canada,ON,Ontario,,,Sheguiandah,,America/Toronto,0
 6145887,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Shelburne,,America/Halifax,0
@@ -70944,6 +70871,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6151181,en,NA,"North America",CA,Canada,ON,Ontario,,,Sombra,,America/Toronto,0
 6151264,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Sooke,,America/Vancouver,0
 6151350,en,NA,"North America",CA,Canada,QC,Quebec,,,Sorel-Tracy,,America/Toronto,0
+6151455,en,NA,"North America",CA,Canada,PE,"Prince Edward Island",,,Souris,,America/Halifax,0
 6151456,en,NA,"North America",CA,Canada,MB,Manitoba,,,Souris,,America/Winnipeg,0
 6151555,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,"South Bar",,America/Glace_Bay,0
 6151762,en,NA,"North America",CA,Canada,ON,Ontario,,,"South Bruce Peninsula",,America/Toronto,0
@@ -71032,6 +70960,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6160806,en,NA,"North America",CA,Canada,AB,Alberta,,,"Sylvan Lake",,America/Edmonton,0
 6160919,en,NA,"North America",CA,Canada,AB,Alberta,,,Taber,,America/Edmonton,0
 6161139,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Tahsis,,America/Vancouver,0
+6161860,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Tatamagouche,,America/Halifax,0
 6162007,en,NA,"North America",CA,Canada,ON,Ontario,,,Tavistock,,America/Toronto,0
 6162416,en,NA,"North America",CA,Canada,ON,Ontario,,,Tecumseh,,America/Toronto,0
 6162545,en,NA,"North America",CA,Canada,ON,Ontario,,,Tehkummah,,America/Toronto,0
@@ -71067,6 +70996,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6167031,en,NA,"North America",CA,Canada,NB,"New Brunswick",,,Titusville,,America/Moncton,0
 6167034,en,NA,"North America",CA,Canada,ON,Ontario,,,Tiverton,,America/Toronto,0
 6167054,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Tlell,,America/Vancouver,0
+6167125,en,NA,"North America",CA,Canada,ON,Ontario,,,Tobermory,,America/Toronto,0
 6167254,en,NA,"North America",CA,Canada,AB,Alberta,,,Tofield,,America/Edmonton,0
 6167817,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Torbay,,America/St_Johns,0
 6167863,en,NA,"North America",CA,Canada,ON,Ontario,,,"Downtown Toronto",,America/Toronto,0
@@ -71215,6 +71145,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6182782,en,NA,"North America",CA,Canada,ON,Ontario,,,Wilsonville,,America/Toronto,0
 6182823,en,NA,"North America",CA,Canada,ON,Ontario,,,Winchester,,America/Toronto,0
 6182852,en,NA,"North America",CA,Canada,BC,"British Columbia",,,Windermere,,America/Edmonton,0
+6182958,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Windsor,,America/Halifax,0
 6182959,en,NA,"North America",CA,Canada,QC,Quebec,,,Windsor,,America/Toronto,0
 6182962,en,NA,"North America",CA,Canada,ON,Ontario,,,Windsor,,America/Toronto,0
 6183141,en,NA,"North America",CA,Canada,ON,Ontario,,,Wingham,,America/Toronto,0
@@ -71804,7 +71735,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6318766,en,SA,"South America",BR,Brazil,GO,Goiás,,,"Terezópolis de Goiás",,America/Sao_Paulo,0
 6318769,en,SA,"South America",BR,Brazil,MT,"Mato Grosso",,,"Terra Nova do Norte",,America/Cuiaba,0
 6318776,en,SA,"South America",BR,Brazil,SC,"Santa Catarina",,,"Timbó Grande",,America/Sao_Paulo,0
-6318785,en,SA,"South America",BR,Brazil,PA,Pará,,,Trairão,,America/Santarem,0
 6318788,en,SA,"South America",BR,Brazil,RS,"Rio Grande do Sul",,,Travesseiro,,America/Sao_Paulo,0
 6318793,en,SA,"South America",BR,Brazil,MG,"Minas Gerais",,,"Três Marias",,America/Sao_Paulo,0
 6318794,en,SA,"South America",BR,Brazil,RS,"Rio Grande do Sul",,,"Três Palmeiras",,America/Sao_Paulo,0
@@ -72294,18 +72224,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6534554,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona","Casale Cremasco",,Europe/Rome,1
 6534559,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Prevalle,,Europe/Rome,1
 6534565,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua",Mottella,,Europe/Rome,1
-6534570,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Bresimo,,Europe/Rome,1
-6534572,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Commezzadura,,Europe/Rome,1
-6534575,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Giovo,,Europe/Rome,1
 6534582,en,EU,Europe,IT,Italy,25,Lombardy,PV,"Province of Pavia",Rovescala,,Europe/Rome,1
-6534585,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Pieve di Bono",,Europe/Rome,1
-6534586,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Rumo,,Europe/Rome,1
 6534591,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Trambileno,,Europe/Rome,1
-6534630,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Nanno,,Europe/Rome,1
 6534631,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Nogaredo,,Europe/Rome,1
-6534634,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Pelugo,,Europe/Rome,1
-6534637,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Sarnonico,,Europe/Rome,1
-6534639,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Sfruz,,Europe/Rome,1
 6534641,en,EU,Europe,IT,Italy,36,"Friuli Venezia Giulia",UD,"Province of Udine","Reana del Rojale",,Europe/Rome,1
 6534655,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona","Colognola ai Colli",,Europe/Rome,1
 6534658,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona","Roverè Veronese",,Europe/Rome,1
@@ -72321,16 +72242,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6534733,en,EU,Europe,IT,Italy,25,Lombardy,SO,"Province of Sondrio",Valdisotto,,Europe/Rome,1
 6534738,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia",Muscoline,,Europe/Rome,1
 6534769,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Roè Volciano",,Europe/Rome,1
-6534775,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Braies,,Europe/Rome,1
-6534778,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Cornedo All'Isarco",,Europe/Rome,1
-6534781,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Magrè sulla Strada del Vino",,Europe/Rome,1
-6534785,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Rasun Anterselva - Rasen-Antholz",,Europe/Rome,1
 6534786,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Renon,,Europe/Rome,1
 6534788,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","San Martino in Badia",,Europe/Rome,1
-6534789,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Senales,,Europe/Rome,1
 6534790,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Tirolo,,Europe/Rome,1
-6534791,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Ultimo - Ulten",,Europe/Rome,1
-6534792,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Prati,,Europe/Rome,1
 6534799,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso","Cavaso del Tomba",,Europe/Rome,1
 6534827,en,EU,Europe,IT,Italy,25,Lombardy,LC,"Province of Lecco","Colle Brianza",,Europe/Rome,1
 6534830,en,EU,Europe,IT,Italy,25,Lombardy,LO,"Province of Lodi","Castiraga Vidardo",,Europe/Rome,1
@@ -72437,8 +72351,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6535240,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona",Ricengo,,Europe/Rome,1
 6535251,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Bondone,,Europe/Rome,1
 6535255,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Cavedine,,Europe/Rome,1
-6535257,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Cis,,Europe/Rome,1
-6535264,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Giustino,,Europe/Rome,1
 6535267,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Chiesanuova,,Europe/Rome,1
 6535274,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Givoletto,,Europe/Rome,1
 6535285,en,EU,Europe,IT,Italy,21,Piedmont,NO,"Province of Novara",Briona,,Europe/Rome,1
@@ -72484,7 +72396,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6535532,en,EU,Europe,IT,Italy,21,Piedmont,AL,"Province of Alessandria","Carbonara Scrivia",,Europe/Rome,1
 6535560,en,EU,Europe,IT,Italy,21,Piedmont,VB,Verbania,Loreglia,,Europe/Rome,1
 6535564,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Scurelle,,Europe/Rome,1
-6535567,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Strembo,,Europe/Rome,1
 6535572,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Caldiero,,Europe/Rome,1
 6535576,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Roverchiara,,Europe/Rome,1
 6535580,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Cartigliano,,Europe/Rome,1
@@ -72535,19 +72446,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6535854,en,EU,Europe,IT,Italy,21,Piedmont,CN,"Province of Cuneo","Ceresole Alba",,Europe/Rome,1
 6535867,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Cavagnolo,,Europe/Rome,1
 6535881,en,EU,Europe,IT,Italy,72,Campania,CE,"Province of Caserta","Trentola Ducenta",,Europe/Rome,1
-6535955,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Kastelbell-Tschars,,Europe/Rome,1
-6535976,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Ortisei,,Europe/Rome,1
-6535986,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Rifiano/Riffian,,Europe/Rome,1
-6535987,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Appiano sulla strada del vino/Eppan an der Weinstraße",,Europe/Rome,1
-6535996,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","La Val",,Europe/Rome,1
 6536000,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","Rodengo Saiano",,Europe/Rome,1
-6536004,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Aldein,,Europe/Rome,1
-6536005,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Andrian,,Europe/Rome,1
 6536006,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Barbian,,Europe/Rome,1
-6536008,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Kuens,,Europe/Rome,1
-6536013,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Proveis,,Europe/Rome,1
 6536019,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Ahrntal,,Europe/Rome,1
-6536020,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","Valle di Casies/Gsies",,Europe/Rome,1
 6536624,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza","Pojana Maggiore",,Europe/Rome,1
 6538583,en,EU,Europe,IT,Italy,52,Tuscany,PI,"Province of Pisa",Vecchiano,,Europe/Rome,1
 6538810,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno","Capaccio Paestum",,Europe/Rome,1
@@ -72563,7 +72464,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6542540,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como",Monguzzo,,Europe/Rome,1
 6542577,en,EU,Europe,IT,Italy,25,Lombardy,BG,"Province of Bergamo",Valbrembo,,Europe/Rome,1
 6542625,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Garniga Terme",,Europe/Rome,1
-6542639,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Ton,,Europe/Rome,1
 6542662,en,EU,Europe,IT,Italy,34,Veneto,TV,"Province of Treviso",Fonte,,Europe/Rome,1
 6542670,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Massanzago,,Europe/Rome,1
 6542673,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua","Villanova di Camposampiero",,Europe/Rome,1
@@ -74091,7 +73991,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7593353,en,SA,"South America",BR,Brazil,MG,"Minas Gerais",,,Centro,,America/Sao_Paulo,0
 7596286,en,EU,Europe,RU,Russia,MO,"Mordoviya Republic",,,Molniya,,Europe/Moscow,0
 7596385,en,EU,Europe,RU,Russia,MO,"Mordoviya Republic",,,Makeyevka,,Europe/Moscow,0
-7601923,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","La Villa",,Europe/Rome,1
 7602008,en,AS,Asia,TH,Thailand,80,"Nakhon Si Thammarat",,,Sichon,,Asia/Bangkok,0
 7602070,en,EU,Europe,NO,Norway,50,Trøndelag,,,Saupstad,,Europe/Oslo,0
 7602153,en,OC,Oceania,TV,Tuvalu,NKL,Nukulaelae,,,"Nukualofa Village",,Pacific/Funafuti,0
@@ -74114,6 +74013,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7602612,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,"Hohe Börde",,Europe/Berlin,1
 7602620,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,Lanitz-Hassel-Tal,,Europe/Berlin,1
 7602626,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,"Seegebiet Mansfelder Land",,Europe/Berlin,1
+7602627,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,Südharz,,Europe/Berlin,1
 7602637,en,EU,Europe,DE,Germany,TH,Thuringia,,,Hörselberg-Hainich,,Europe/Berlin,1
 7602639,en,EU,Europe,DE,Germany,TH,Thuringia,,,Nesse-Apfelstädt,,Europe/Berlin,1
 7602665,en,EU,Europe,DE,Germany,ST,Saxony-Anhalt,,,Falkenstein/Harz,,Europe/Berlin,1
@@ -74229,7 +74129,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7669232,en,EU,Europe,BE,Belgium,VLG,Flanders,VLI,"Limburg Province",Houthalen-Helchteren,,Europe/Brussels,1
 7669234,en,AS,Asia,IN,India,MH,Maharashtra,,,Wakad,,Asia/Kolkata,0
 7669241,en,EU,Europe,BE,Belgium,VLG,Flanders,VLI,"Limburg Province",Heusden-Zolder,,Europe/Brussels,1
-7669364,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Comano Terme",,Europe/Rome,1
 7669365,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Ledro,,Europe/Rome,1
 7669414,en,EU,Europe,CH,Switzerland,BE,Bern,,,Schliern,,Europe/Zurich,0
 7669421,en,EU,Europe,CH,Switzerland,GR,Grisons,,,"Davos Platz",,Europe/Zurich,0
@@ -74829,7 +74728,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8354605,en,EU,Europe,UA,Ukraine,32,"Kyiv Oblast",,,Svyatopetrivske,,Europe/Kyiv,0
 8354606,en,EU,Europe,UA,Ukraine,32,"Kyiv Oblast",,,Hatne,,Europe/Kyiv,0
 8354607,en,EU,Europe,CH,Switzerland,TI,Ticino,,,Muzzano,,Europe/Zurich,0
-8354608,en,EU,Europe,CH,Switzerland,TG,Thurgau,,,Lengwil,,Europe/Zurich,0
 8354615,en,EU,Europe,ES,Spain,AR,Aragon,HU,Huesca,"Vilas del Turbon",,Europe/Madrid,1
 8354621,en,EU,Europe,PL,Poland,14,Mazovia,,,Janki,,Europe/Warsaw,1
 8354649,en,NA,"North America",US,"United States",NJ,"New Jersey",,,"East Windsor",504,America/New_York,0
@@ -74877,7 +74775,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8400343,en,AS,Asia,CN,China,CQ,Chongqing,,,Zhengjiang,,Asia/Shanghai,0
 8400694,en,AS,Asia,CN,China,ZJ,Zhejiang,,,Taizhou,,Asia/Shanghai,0
 8407426,en,AS,Asia,IN,India,PB,Punjab,,,"S.A.S Nagar",,Asia/Kolkata,0
-8411051,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Rablà,,Europe/Rome,1
 8411059,en,EU,Europe,AT,Austria,8,Vorarlberg,,,Frastanz,,Europe/Vienna,1
 8411344,en,AS,Asia,JP,Japan,02,Aomori,,,Waseda,,Asia/Tokyo,0
 8411709,en,AS,Asia,JP,Japan,02,Aomori,,,Ishiwatari,,Asia/Tokyo,0
@@ -75310,7 +75207,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8578688,en,OC,Oceania,AU,Australia,VIC,Victoria,,,"East Sale",,Australia/Melbourne,0
 8579075,en,OC,Oceania,AU,Australia,VIC,Victoria,,,Goongerah,,Australia/Melbourne,0
 8581443,en,AS,Asia,ID,Indonesia,BT,Banten,,,"South Tangerang",,Asia/Jakarta,0
-8581453,en,EU,Europe,GB,"United Kingdom",WLS,Wales,CRF,Cardiff,Pontcanna,,Europe/London,0
 8581467,en,EU,Europe,RO,Romania,IL,"Ialomița County",,,Slobozia,,Europe/Bucharest,1
 8581570,en,AF,Africa,UG,Uganda,C,"Central Region",104,"Luwero District",Luweero,,Africa/Kampala,0
 8581595,en,EU,Europe,GB,"United Kingdom",ENG,England,HRY,Haringey,Harringay,,Europe/London,0
@@ -75345,6 +75241,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8593832,en,NA,"North America",CA,Canada,ON,Ontario,,,Magnetawan,,America/Toronto,0
 8593833,en,NA,"North America",CA,Canada,ON,Ontario,,,Orono,,America/Toronto,0
 8593834,en,NA,"North America",CA,Canada,ON,Ontario,,,"St. Jacobs",,America/Toronto,0
+8593835,en,NA,"North America",CA,Canada,ON,Ontario,,,"Providence Bay",,America/Toronto,0
 8599911,en,OC,Oceania,AU,Australia,QLD,Queensland,,,"Eight Mile",,Australia/Brisbane,0
 8601412,en,NA,"North America",DO,"Dominican Republic",32,"Santo Domingo Province",,,"Santo Domingo Este",,America/Santo_Domingo,0
 8601974,en,SA,"South America",BR,Brazil,PA,Pará,,,Maguari,,America/Belem,0
@@ -75394,6 +75291,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8616965,en,NA,"North America",CA,Canada,QC,Quebec,,,Saint-Ferdinand,,America/Toronto,0
 8616967,en,NA,"North America",CA,Canada,QC,Quebec,,,Maria,,America/Toronto,0
 8616970,en,NA,"North America",CA,Canada,QC,Quebec,,,Causapscal,,America/Toronto,0
+8616971,en,NA,"North America",CA,Canada,ON,Ontario,,,"Lion's Head",,America/Toronto,0
 8617250,en,NA,"North America",CA,Canada,MB,Manitoba,,,Shilo,,America/Winnipeg,0
 8617396,en,NA,"North America",CA,Canada,ON,Ontario,,,Embrun,,America/Toronto,0
 8617397,en,NA,"North America",CA,Canada,QC,Quebec,,,Saint-Jean-de-Dieu,,America/Toronto,0
@@ -75416,7 +75314,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8643013,en,AS,Asia,BH,Bahrain,13,Manama,,,Seef,,Asia/Bahrain,0
 8643037,en,EU,Europe,DE,Germany,SN,Saxony,,,Annaberg,,Europe/Berlin,1
 8643098,en,NA,"North America",US,"United States",PA,Pennsylvania,,,"Cranberry Township",508,America/New_York,0
-8643247,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol","San Vigilio",,Europe/Rome,1
 8643500,en,EU,Europe,RO,Romania,B,Bucharest,,,Berceni,,Europe/Bucharest,1
 8643948,en,EU,Europe,IS,Iceland,6,Northeast,THG,Þingeyjarsveit,Laugar,,Atlantic/Reykjavik,0
 8643989,en,EU,Europe,IE,Ireland,U,Ulster,DL,"County Donegal",Drumkeen,,Europe/Dublin,1
@@ -75578,7 +75475,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8949489,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RN,"Province of Rimini",Belvedere,,Europe/Rome,1
 8949612,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan",Vigano,,Europe/Rome,1
 8949682,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence",Leccio,,Europe/Rome,1
-8949708,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Villanders,,Europe/Rome,1
 8949765,en,EU,Europe,IT,Italy,78,Calabria,CS,"Province of Cosenza",Redipiano,,Europe/Rome,1
 8949787,en,EU,Europe,IT,Italy,25,Lombardy,LC,"Province of Lecco",Cortenuova,,Europe/Rome,1
 8949945,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna",Vedrana,,Europe/Rome,1
@@ -75609,12 +75505,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8953464,en,EU,Europe,IT,Italy,72,Campania,SA,"Province of Salerno","Mercato Cilento",,Europe/Rome,1
 8953620,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RE,"Province of Reggio Emilia","Corte Tegge",,Europe/Rome,1
 8953637,en,EU,Europe,IT,Italy,45,Emilia-Romagna,RA,"Province of Ravenna","Area Industriale",,Europe/Rome,1
-8953941,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Plan,,Europe/Rome,1
 8954167,en,EU,Europe,IT,Italy,45,Emilia-Romagna,FE,"Province of Ferrara",Pescara,,Europe/Rome,1
 8954361,en,EU,Europe,IT,Italy,34,Veneto,BL,"Province of Belluno",Gresal,,Europe/Rome,1
 8954506,en,EU,Europe,IT,Italy,72,Campania,BN,"Province of Benevento",Massa,,Europe/Rome,1
 8955198,en,EU,Europe,IT,Italy,62,Lazio,RI,"Province of Rieti",Caporio,,Europe/Rome,1
-8955506,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Gomion,,Europe/Rome,1
 8955728,en,EU,Europe,IT,Italy,25,Lombardy,CO,"Province of Como",Sora,,Europe/Rome,1
 8957181,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PC,"Province of Piacenza",Valle,,Europe/Rome,1
 8957262,en,EU,Europe,IT,Italy,45,Emilia-Romagna,MO,"Province of Modena",Cadorno,,Europe/Rome,1
@@ -75642,7 +75536,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8965475,en,EU,Europe,IT,Italy,34,Veneto,PD,"Province of Padua",Trento,,Europe/Rome,1
 8965714,en,EU,Europe,IT,Italy,42,Liguria,SV,"Province of Savona",Rovere,,Europe/Rome,1
 8965728,en,EU,Europe,IT,Italy,25,Lombardy,BS,"Province of Brescia","San Giorgio",,Europe/Rome,1
-8967015,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Tre Ville",,Europe/Rome,1
 8967351,en,EU,Europe,IT,Italy,45,Emilia-Romagna,PC,"Province of Piacenza",Caminata,,Europe/Rome,1
 8967712,en,EU,Europe,IT,Italy,34,Veneto,VI,"Province of Vicenza",Rossi,,Europe/Rome,1
 8968031,en,EU,Europe,IT,Italy,21,Piedmont,TO,Turin,Bicocca,,Europe/Rome,1
@@ -75693,7 +75586,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 9031679,en,EU,Europe,IT,Italy,25,Lombardy,MI,"Province of Milan","Peschiera Borromeo",,Europe/Rome,1
 9032752,en,EU,Europe,IT,Italy,34,Veneto,VR,"Province of Verona",Veneto,,Europe/Rome,1
 9033029,en,EU,Europe,IT,Italy,52,Tuscany,FI,"Province of Florence","Lucchese Ovest",,Europe/Rome,1
-9033142,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Predaia - Campodenno",,Europe/Rome,1
 9033296,en,EU,Europe,IT,Italy,25,Lombardy,CR,"Province of Cremona",Castelnuovo,,Europe/Rome,1
 9033750,en,EU,Europe,IT,Italy,65,Abruzzo,CH,"Province of Chieti","San Polo I",,Europe/Rome,1
 9034823,en,NA,"North America",CA,Canada,QC,Quebec,,,Saint-Bernard-sur-Mer,,America/Toronto,0
@@ -75701,8 +75593,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 9035353,en,EU,Europe,IT,Italy,78,Calabria,CS,"Province of Cosenza",Casello,,Europe/Rome,1
 9035395,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua",Curtatone,,Europe/Rome,1
 9035414,en,EU,Europe,IT,Italy,45,Emilia-Romagna,BO,"Province of Bologna","Poggio Piccolo",,Europe/Rome,1
-9035444,en,EU,Europe,IT,Italy,25,Lombardy,LC,"Province of Lecco",Spiazzo,,Europe/Rome,1
-9035534,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",BZ,"South Tyrol",Vöran,,Europe/Rome,1
 9035734,en,AS,Asia,IN,India,OD,Odisha,,,Jhinkiria,,Asia/Kolkata,0
 9035794,en,AS,Asia,IN,India,OD,Odisha,,,Balarampur,,Asia/Kolkata,0
 9036160,en,EU,Europe,IT,Italy,57,"The Marches",FM,"Province of Fermo","Bivio Cascinare",,Europe/Rome,1
@@ -76906,18 +76796,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11282293,en,AS,Asia,BD,Bangladesh,C,"Dhaka Division",63,Tangail,"Dhanbari Upazila",,Asia/Dhaka,0
 11287507,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Porte di Rendena",,Europe/Rome,1
 11287661,en,EU,Europe,IT,Italy,25,Lombardy,MN,"Province of Mantua","Borgo Virgilio",,Europe/Rome,1
-11287666,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Vallelaghi,,Europe/Rome,1
 11287668,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Altopiano della Vigolana",,Europe/Rome,1
 11287670,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Castel Ivano",,Europe/Rome,1
-11287674,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Ville d'Anaunia",,Europe/Rome,1
 11287678,en,EU,Europe,IT,Italy,34,Veneto,BL,"Province of Belluno",Alpago,,Europe/Rome,1
-11287680,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Cembra Lisignago",,Europe/Rome,1
 11287681,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Borgo Chiese",,Europe/Rome,1
-11287683,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente",Contà,,Europe/Rome,1
 11287684,en,EU,Europe,IT,Italy,25,Lombardy,LC,"Province of Lecco",Verderio,,Europe/Rome,1
 11287685,en,EU,Europe,IT,Italy,25,Lombardy,LC,"Province of Lecco","La Valletta Brianza",,Europe/Rome,1
-11287688,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Borgo Lares",,Europe/Rome,1
-11287693,en,EU,Europe,IT,Italy,32,"Trentino-Alto Adige",TN,"Province of Trente","Sella Giudicarie",,Europe/Rome,1
 11288006,en,SA,"South America",AR,Argentina,E,"Entre Rios",,,"Libertador San Martín",,America/Argentina/Cordoba,0
 11300372,en,EU,Europe,LT,Lithuania,VL,Vilnius,58,"Vilnius District Municipality",Galinė,,Europe/Vilnius,1
 11300569,en,EU,Europe,LT,Lithuania,VL,Vilnius,58,"Vilnius District Municipality",Geležiai,,Europe/Vilnius,1
@@ -77152,7 +77036,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11593338,en,EU,Europe,GB,"United Kingdom",ENG,England,DAL,Darlington,"Middleton St George",,Europe/London,0
 11593339,en,EU,Europe,GB,"United Kingdom",ENG,England,OXF,Oxfordshire,Milcombe,,Europe/London,0
 11593341,en,EU,Europe,GB,"United Kingdom",ENG,England,WNH,"West Northamptonshire","Milton Malsor",,Europe/London,0
-11593351,en,EU,Europe,GB,"United Kingdom",ENG,England,ERY,"East Riding of Yorkshire","North Frodingham",,Europe/London,0
 11593352,en,EU,Europe,GB,"United Kingdom",ENG,England,DOR,Dorset,"Okeford Fitzpaine",,Europe/London,0
 11593396,en,EU,Europe,GB,"United Kingdom",ENG,England,KEN,Kent,"South Darenth",,Europe/London,0
 11593422,en,EU,Europe,ES,Spain,NC,Navarre,NA,Navarre,Sarriguren,,Europe/Madrid,1
@@ -77728,6 +77611,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11809808,en,AS,Asia,JP,Japan,40,Fukuoka,,,Higashitsukiguma,,Asia/Tokyo,0
 11809821,en,AS,Asia,JP,Japan,40,Fukuoka,,,Yanagochi,,Asia/Tokyo,0
 11809901,en,AS,Asia,JP,Japan,40,Fukuoka,,,Oji,,Asia/Tokyo,0
+11810378,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,"Fogo Island",,America/St_Johns,0
 11810395,en,AS,Asia,JP,Japan,28,Hyōgo,,,Kamitsutsuidori,,Asia/Tokyo,0
 11810555,en,AS,Asia,JP,Japan,28,Hyōgo,,,Taidera,,Asia/Tokyo,0
 11810562,en,AS,Asia,JP,Japan,28,Hyōgo,,,Kosonecho,,Asia/Tokyo,0
@@ -78552,7 +78436,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12681944,en,AS,Asia,IN,India,TN,"Tamil Nadu",,,Kangeyam,,Asia/Kolkata,0
 12681950,en,AS,Asia,IN,India,TN,"Tamil Nadu",,,Udumalaipettai,,Asia/Kolkata,0
 12684413,en,AS,Asia,IN,India,AP,"Andhra Pradesh",,,"Kurnool Rural",,Asia/Kolkata,0
-12684684,en,AS,Asia,IN,India,UP,"Uttar Pradesh",,,Mugalsarai,,Asia/Kolkata,0
 12684758,en,AS,Asia,IN,India,AP,"Andhra Pradesh",,,Tiruvuru,,Asia/Kolkata,0
 12685852,en,AS,Asia,IN,India,WB,"West Bengal",,,Deshopran,,Asia/Kolkata,0
 12685938,en,AS,Asia,IN,India,OD,Odisha,,,Banaharapali,,Asia/Kolkata,0
@@ -78607,6 +78490,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12958551,en,SA,"South America",BR,Brazil,MA,Maranhão,,,Apicum-Açu,,America/Fortaleza,0
 12958562,en,SA,"South America",BR,Brazil,MA,Maranhão,,,"Junco do Maranhão",,America/Fortaleza,0
 12958623,en,SA,"South America",BR,Brazil,MA,Maranhão,,,"Centro Novo do Maranhão",,America/Fortaleza,0
+12958671,en,SA,"South America",BR,Brazil,MA,Maranhão,,,Turilândia,,America/Fortaleza,0
 12958682,en,SA,"South America",BR,Brazil,MA,Maranhão,,,"Bom Jardim",,America/Fortaleza,0
 12958725,en,SA,"South America",BR,Brazil,MA,Maranhão,,,"Santa Luzia do Paruá",,America/Fortaleza,0
 12958782,en,SA,"South America",BR,Brazil,MA,Maranhão,,,"Centro do Guilherme",,America/Fortaleza,0
@@ -78616,6 +78500,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12960457,en,SA,"South America",BR,Brazil,MA,Maranhão,,,Davinópolis,,America/Fortaleza,0
 12961189,en,SA,"South America",BR,Brazil,PA,Pará,,,"São Paulo",,America/Belem,0
 12962348,en,SA,"South America",BR,Brazil,PA,Pará,,,"Vila São José",,America/Santarem,0
+12962841,en,SA,"South America",BR,Brazil,PA,Pará,,,Trairão,,America/Santarem,0
 12968320,en,SA,"South America",BR,Brazil,RO,Rondônia,,,Tarilândia,,America/Porto_Velho,0
 12968382,en,SA,"South America",BR,Brazil,RO,Rondônia,,,"Itapuã do Oeste",,America/Porto_Velho,0
 12969193,en,SA,"South America",BR,Brazil,MT,"Mato Grosso",,,"Planalto da Serra",,America/Cuiaba,0
@@ -78648,7 +78533,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13011513,en,SA,"South America",BR,Brazil,RJ,"Rio de Janeiro",,,"Engenho Novo",,America/Sao_Paulo,0
 13011999,en,SA,"South America",BR,Brazil,RJ,"Rio de Janeiro",,,Pavuna,,America/Sao_Paulo,0
 13013741,en,SA,"South America",BR,Brazil,MG,"Minas Gerais",,,Furnas,,America/Sao_Paulo,0
-13018268,en,SA,"South America",BR,Brazil,RJ,"Rio de Janeiro",,,Grama,,America/Sao_Paulo,0
 13018938,en,SA,"South America",BR,Brazil,RJ,"Rio de Janeiro",,,Belém,,America/Sao_Paulo,0
 13022386,en,SA,"South America",BR,Brazil,MG,"Minas Gerais",,,Corumbá,,America/Sao_Paulo,0
 13025086,en,SA,"South America",BR,Brazil,RS,"Rio Grande do Sul",,,"São José do Sul",,America/Sao_Paulo,0
@@ -78995,11 +78879,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13562505,en,EU,Europe,CZ,Czechia,64,"South Moravian",642,"Město Brno",Brno-South,,Europe/Prague,1
 13571933,en,AS,Asia,TR,Türkiye,07,Antalya,,,Merkez,,Europe/Istanbul,0
 13574608,en,NA,"North America",MX,Mexico,TAM,Tamaulipas,,,"Río Bravo",,America/Monterrey,0
+13580374,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Milton,,America/St_Johns,0
 13589154,en,NA,"North America",CA,Canada,NS,"Nova Scotia",,,Shearwater,,America/Halifax,0
 13589270,en,NA,"North America",CA,Canada,ON,Ontario,,,Shuniah,,America/Toronto,0
 13589444,en,AS,Asia,TR,Türkiye,81,Düzce,,,Sariyer,,Europe/Istanbul,0
 13589445,en,AS,Asia,TR,Türkiye,81,Düzce,,,Center,,Europe/Istanbul,0
-13591687,en,NA,"North America",CA,Canada,NL,"Newfoundland and Labrador",,,Dunville,,America/St_Johns,0
 13608179,en,NA,"North America",CA,Canada,QC,Quebec,,,Saint-Raphaël,,America/Toronto,0
 13629332,en,EU,Europe,DE,Germany,BB,Brandenburg,,,Siedlung,,Europe/Berlin,1
 13632009,en,OC,Oceania,AU,Australia,NSW,"New South Wales",,,Chisholm,,Australia/Sydney,0
