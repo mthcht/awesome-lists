@@ -20,27 +20,6 @@ rule Trojan_Win32_Lycaon_Z_2147949417_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Lycaon_ZZ_2147949418_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Lycaon.ZZ!MTB"
-        threat_id = "2147949418"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Lycaon"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {33 c0 50 50 6a 05 8d 4d f4 51 6a 01 8d 8d 44 e5 ff ff 51 50 ff b5 20 e5 ff ff 43 ff 85 40 e5 ff ff ff 15 78 a0 48 00 8b f0 85 f6 0f 84 3d 04 00 00 6a 00 8d 85 2c e5 ff ff 50 56 8d 45 f4 50 8b 85 24 e5 ff ff 8b 00 ff 34 07}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Lycaon_Y_2147949419_0
 {
     meta:
