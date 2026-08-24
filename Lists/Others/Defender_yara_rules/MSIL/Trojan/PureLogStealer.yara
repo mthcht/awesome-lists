@@ -4670,3 +4670,26 @@ rule Trojan_MSIL_PureLogStealer_XYF_2147976844_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_RVH_2147976863_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RVH!MTB"
+        threat_id = "2147976863"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 95 a2 29 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 93 00 00 00 43 00 00 00 ?? 01 00 00 0f 01 00 00 85 00 00 00 6b 01 00 00 44 00 00 00 0b 00 00 00 ?? 00 00 00 01 00 00 00 03 00 00 00 04 00 00 00 3a 00 00 00 0e 00 00 00 02 00 00 00 09 00 00 00 08 00 00 00 2c 00 00 00 04 00 00 00 24}  //weight: 2, accuracy: Low
+        $x_1_2 = "D8C7F9A6-5E4B-4A3D-9F2C-8B1A7E6D5F4C" ascii //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
