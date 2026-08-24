@@ -796,3 +796,27 @@ rule Trojan_MSIL_Agenttesla_MCU_2147975444_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_MCV_2147976853_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MCV!MTB"
+        threat_id = "2147976853"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4b 65 65 70 50 69 6e 67 00 6b 65 65 70 50 69 6e 67 00 6c 61 73 74 50 69 6e 67 00 53 79 73 74 65 6d 2e 54 68 72 65 61 64 69 6e 67 00 4c 45 42 31 32 38 43}  //weight: 1, accuracy: High
+        $x_1_2 = "de344385-3a4d-45b2-a2a7-8722135f484d" ascii //weight: 1
+        $x_1_3 = {57 55 16 09 09 0a 00 00 00 fa 25 33 00 16 00 00 01}  //weight: 1, accuracy: High
+        $x_1_4 = "LEB128Coding" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

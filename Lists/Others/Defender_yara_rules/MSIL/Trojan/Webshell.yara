@@ -485,3 +485,24 @@ rule Trojan_MSIL_Webshell_EM_2147976565_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Webshell_CFF_2147976855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Webshell.CFF!MTB"
+        threat_id = "2147976855"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Webshell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 05 11 06 11 05 11 06 91 03 61 d2 9c 11 06 17 58 13 06 11 06 11 05 8e 69}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
