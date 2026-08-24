@@ -789,6 +789,29 @@ rule Trojan_MSIL_Bobik_KK_2147946820_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bobik_KK_2147946820_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.KK!MTB"
+        threat_id = "2147946820"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "] SilentRDP" ascii //weight: 3
+        $x_2_2 = "Set-MpPreference -DisableRealtimeMonitoring $true" ascii //weight: 2
+        $x_1_3 = "--TelegramFileBoundary--" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Bobik_GMT_2147961632_0
 {
     meta:

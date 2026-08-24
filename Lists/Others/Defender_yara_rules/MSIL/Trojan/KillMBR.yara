@@ -1210,6 +1210,30 @@ rule Trojan_MSIL_KillMBR_KK_2147965479_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_KK_2147965479_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.KK!MTB"
+        threat_id = "2147965479"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "$297fab79-3137-4eec-b439-fae111b1b1e3" ascii //weight: 4
+        $x_3_2 = "Your PC has been overwritten by hhc.exe TROJAN" ascii //weight: 3
+        $x_2_3 = "NO MORE PC FOR YOU :3" ascii //weight: 2
+        $x_1_4 = "\\\\.\\PhysicalDrive0" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_KillMBR_SK_2147967038_0
 {
     meta:
