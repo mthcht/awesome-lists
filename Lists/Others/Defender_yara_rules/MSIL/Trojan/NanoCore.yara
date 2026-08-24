@@ -882,3 +882,25 @@ rule Trojan_MSIL_NanoCore_PAB_2147974250_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NanoCore_SI_2147976782_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.SI!MTB"
+        threat_id = "2147976782"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {00 08 7e 03 00 00 04 09 11 04 09 59 6f 62 00 00 0a 6f 63 00 00 0a 00 11 04 72 5a 02 00 70 28 64 00 00 0a 58 0d 00 7e 03 00 00 04 72 5a 02 00 70 09 6f 65 00 00 0a 25 13 04 15 fe 01 16 fe 01 13 07 11 07 2d bb}  //weight: 1, accuracy: High
+        $x_1_2 = "SaltPan.Properties.Resources.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
