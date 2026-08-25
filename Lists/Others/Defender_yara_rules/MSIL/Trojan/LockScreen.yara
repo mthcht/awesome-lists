@@ -389,3 +389,27 @@ rule Trojan_MSIL_LockScreen_DA_2147976560_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LockScreen_MKA_2147976907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LockScreen.MKA!MTB"
+        threat_id = "2147976907"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ShowProfessionalLockScreen" ascii //weight: 10
+        $x_5_2 = "GetEmbeddedQRCode" ascii //weight: 5
+        $x_3_3 = "QXV0b21hdGljIHVubG9jayByZXF1ZXN0IHdpbGwgb3BlbiBpbiB7MH0gc2Vjb25kcw==" wide //weight: 3
+        $x_2_4 = {28 1d 00 00 0a 02 28 11 00 00 0a 6f 1e 00 00 0a 72 76 17 01 70 72 7c 17 01 70 6f 1f 00 00 0a 2a}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

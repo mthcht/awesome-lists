@@ -46,3 +46,27 @@ rule Trojan_Win64_ClickFix_GVL_2147965625_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ClickFix_AB_2147976329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClickFix.AB"
+        threat_id = "2147976329"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd.exe" wide //weight: 1
+        $x_1_2 = "s^t^a^r^t" wide //weight: 1
+        $x_1_3 = "AppData\\Local" wide //weight: 1
+        $x_1_4 = "c^u^r^l" wide //weight: 1
+        $x_1_5 = "m^s^h^t^a" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

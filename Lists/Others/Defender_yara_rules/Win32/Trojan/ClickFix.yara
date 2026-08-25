@@ -15661,3 +15661,53 @@ rule Trojan_Win32_ClickFix_XVI_2147976268_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_XZI_2147976871_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.XZI!MTB"
+        threat_id = "2147976871"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "@SSL&pu^shd" wide //weight: 5
+        $x_5_2 = "^l32" wide //weight: 5
+        $x_3_3 = "conhost --headless" wide //weight: 3
+        $x_3_4 = "/v:on /c" wide //weight: 3
+        $x_2_5 = ",Run" wide //weight: 2
+        $x_2_6 = "!s!" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_YBI_2147976872_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YBI!MTB"
+        threat_id = "2147976872"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "iex(irm" wide //weight: 4
+        $x_4_2 = "/s/psc4/pr?cl" wide //weight: 4
+        $x_4_3 = ".karburatorotzhigi" wide //weight: 4
+        $x_3_4 = "-UseBasicParsing" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

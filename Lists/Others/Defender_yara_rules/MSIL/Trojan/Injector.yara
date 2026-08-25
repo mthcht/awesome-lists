@@ -2572,3 +2572,28 @@ rule Trojan_MSIL_Injector_WVN_2147976528_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_WQT_2147976906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WQT!MTB"
+        threat_id = "2147976906"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {00 00 00 00 02 00 00 01 57 b5 02 3c 09 0f 00 00 00 00 00 00 00 00 00 00 02 00 00 00 56 00 00 00 25 00 00 00 4b 00 00 00 79 00 00 00 d4 00 00 00 65 00 00 00 24 00 00 00 04 00 00 00 07 00 00 00 0f 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 08 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 1d 00 00 00 02 00 00 00 0a 00 00 00}  //weight: 4, accuracy: High
+        $x_3_2 = "56898cc0-a4f9-4a53-88ac-7e9964bf221a" ascii //weight: 3
+        $x_1_3 = "RACE.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+        $x_1_5 = "LAUNCH" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

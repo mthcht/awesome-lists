@@ -867,6 +867,32 @@ rule Trojan_Win64_Injector_LR_2147972219_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "] Try running injector as Administrator." ascii //weight: 1
+        $x_2_2 = "[+] DLL confirmed loaded at base 0x%p" ascii //weight: 2
+        $x_3_3 = "[+] Injection successful" ascii //weight: 3
+        $x_4_4 = "=== Simple DLL Injector ===" ascii //weight: 4
+        $x_5_5 = "Usage: injector.exe <process_name> <dll_path>" ascii //weight: 5
+        $x_6_6 = "[*] Found '%s' (PID: %lu)" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_LR_2147972219_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.LR!MTB"
+        threat_id = "2147972219"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "36"
         strings_accuracy = "High"
     strings:

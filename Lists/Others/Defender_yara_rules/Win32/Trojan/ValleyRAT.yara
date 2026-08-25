@@ -357,3 +357,25 @@ rule Trojan_Win32_ValleyRAT_PGVE_2147973707_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_AB_2147976870_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.AB!MTB"
+        threat_id = "2147976870"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b c1 c1 e0 0d 33 c8 8b c1 c1 e8 11 33 c8 8b c1 c1 e0 05 33 c8 8a 04 3a 32 c1 88 07 47 83 ed}  //weight: 5, accuracy: High
+        $x_5_2 = {8b 6c 24 18 50 6a 20 68 b3 09 00 00 56 ff d5 8b 7c 24 1c 85 c0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

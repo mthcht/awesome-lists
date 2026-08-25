@@ -761,3 +761,25 @@ rule Trojan_Win64_Farfli_MKA_2147973784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Farfli_MKB_2147976908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.MKB!MTB"
+        threat_id = "2147976908"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f b6 48 ff 48 83 c2 08 49 83 c0 04 8b c1 83 e1 0f 48 c1 e8 04 42 0f b6 04 10 88 42 f6 42 0f b6 04 11 41 0f b6 48 fc 88 42 f7 8b c1 83 e1 0f 48 c1 e8 04}  //weight: 20, accuracy: High
+        $x_15_2 = "SELECT displayName FROM AntiVirusProduct" wide //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -184,6 +184,30 @@ rule Trojan_Win64_Cerbu_MK_2147954246_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_MK_2147954246_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.MK!MTB"
+        threat_id = "2147954246"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {49 63 49 3c 41 0f b7 d5 49 03 c9 44 0f b7 41 14 44 0f b7 51 06 4c 03 c1 66 45 3b ea}  //weight: 20, accuracy: High
+        $x_15_2 = {48 8d 4d 98 c7 45 a0 64 6c 6c 00 c7 45 98 6d 73 77 73 c7 45 9c 6f 63 6b 2e}  //weight: 15, accuracy: High
+        $x_3_3 = "ClearDesktopMonitorHook" ascii //weight: 3
+        $x_2_4 = "SetDesktopMonitorHook" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Cerbu_MKA_2147955285_0
 {
     meta:

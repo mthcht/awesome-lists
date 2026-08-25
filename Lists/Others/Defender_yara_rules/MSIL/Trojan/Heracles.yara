@@ -9849,6 +9849,35 @@ rule Trojan_MSIL_Heracles_MK_2147965149_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_MK_2147965149_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.MK!MTB"
+        threat_id = "2147965149"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Looking for .bin files in:" wide //weight: 15
+        $x_10_2 = "aes_key.bin" wide //weight: 10
+        $x_5_3 = "aes_iv.bin" wide //weight: 5
+        $x_3_4 = "payload_encrypted.bin" wide //weight: 3
+        $x_2_5 = "DecryptAndRunShellcode" ascii //weight: 2
+        $x_2_6 = "xor_key.bin" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_15_*) and 1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_MSIL_Heracles_GPSG_2147965228_0
 {
     meta:
