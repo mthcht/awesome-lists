@@ -2497,6 +2497,28 @@ rule Trojan_Win32_Injector_KK_2147957799_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_KK_2147957799_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.KK!MTB"
+        threat_id = "2147957799"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {66 c7 45 d8 53 00 66 c7 45 da 79 00 66 c7 45 dc 63 00 66 c7 45 de 6d 00 66 c7 45 e0 65 00 66 c7 45 e2 6e 00 66 c7 45 e4 74 00 66 c7 45 e6 65 00 66 c7 45 e8 63 00 66 c7 45 ea 2e 00 66 c7 45 ec 63 00 66 c7 45 ee 6f 00 66 c7 45 f0 6e 00 66 c7 45 f2 66 00 66 c7 45 f4 69 00 66 c7 45 f6 67 00}  //weight: 20, accuracy: High
+        $x_10_2 = "DLLshenhai.dll" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Injector_MKA_2147958985_0
 {
     meta:

@@ -4714,3 +4714,26 @@ rule Trojan_MSIL_PureLogStealer_XYH_2147976931_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_RVI_2147976936_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RVI!MTB"
+        threat_id = "2147976936"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 15 a2 09 09 0b 00 00 00 fa ?? 33 00 16 00 00 01 00 00 00 ?? 00 00 00 0a 00 00 00 52 00 00 00 ?? ?? 00 00 39 00 00 00 ?? 01 00 00 ?? 00 00 00 ?? 00 00 00 01 00 00 00 04 00 00 00 05 00 00 00 09 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 02}  //weight: 2, accuracy: Low
+        $x_1_2 = "d4a8e2b3-8c44-4827-8a62-4309e43685c2" ascii //weight: 1
+        $x_1_3 = "BellFoundry" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

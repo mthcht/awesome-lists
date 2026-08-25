@@ -2597,3 +2597,53 @@ rule Trojan_MSIL_Injector_WQT_2147976906_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_WRA_2147976950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WRA!MTB"
+        threat_id = "2147976950"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {00 00 00 00 02 00 40 01 57 fd 02 fc 09 0e 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 37 00 00 00 1c 00 00 00 55 00 00 00 77 00 00 00 bd 00 00 00 48 00 00 00 06 00 00 00 1a 00 00 00 02 00 00 00 01 00 00 00 02 00 00 00 11 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 02 00 00 00 08 00 00 00 0e 00 00 00 02 00 00 00 02 00 00 00 19 00 00 00 06 00 00 00 0f 00 00 00 bc 88 d2 8d}  //weight: 4, accuracy: High
+        $x_3_2 = "56898cc0-a4f9-4a53-88ac-7e9964bf221a" ascii //weight: 3
+        $x_1_3 = "RACE.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+        $x_1_5 = "LAUNCH" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_WRB_2147976951_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WRB!MTB"
+        threat_id = "2147976951"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {00 00 00 00 02 00 00 01 57 b5 02 3c 09 0f 00 00 00 00 00 00 00 00 00 00 01 00 00 00 53 00 00 00 25 00 00 00 4b 00 00 00 79 00 00 00 d4 00 00 00 64 00 00 00 23 00 00 00 04 00 00 00 07 00 00 00 0e 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 08 00 00 00 01 00 00 00 03 00 00 00 03 00 00 00 1d 00 00 00 02 00 00 00 0a 00 00 00}  //weight: 4, accuracy: High
+        $x_3_2 = "56898cc0-a4f9-4a53-88ac-7e9964bf221a" ascii //weight: 3
+        $x_1_3 = "RACE.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+        $x_1_5 = "LAUNCH" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

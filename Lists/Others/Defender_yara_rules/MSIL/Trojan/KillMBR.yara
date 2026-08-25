@@ -1378,3 +1378,29 @@ rule Trojan_MSIL_KillMBR_MKC_2147976438_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_AYA_2147976948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.AYA!MTB"
+        threat_id = "2147976948"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "no32\\obj\\Debug\\no32.pdb" ascii //weight: 5
+        $x_2_2 = "mbrpayload" ascii //weight: 2
+        $x_1_3 = "DisableRegistryTools" wide //weight: 1
+        $x_1_4 = "DisableTaskMgr" wide //weight: 1
+        $x_1_5 = "YOUR PC IS DONE" wide //weight: 1
+        $x_1_6 = "$13785ee1-9dd6-4328-be87-7adeb8db2666" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

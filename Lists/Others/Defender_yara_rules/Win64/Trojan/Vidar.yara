@@ -3928,3 +3928,46 @@ rule Trojan_Win64_Vidar_CN_2147976905_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_KKB_2147976954_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.KKB!MTB"
+        threat_id = "2147976954"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 c7 84 24 78 03 00 00 07 00 00 00 48 c7 84 24 80 03 00 00 04 00 00 00 48 c7 84 24 88 03 00 00 03 00 00 00 48 c7 84 24 90 03 00 00 02 00 00 00 48 c7 84 24 98 03 00 00 05 00 00 00 48 c7 84 24 a0 03 00 00 08 00 00 00 48 c7 84 24 a8 03 00 00 03 00 00 00 48 c7 84 24 40 03 00 00 05 00 00 00 48 c7 84 24 48 03 00 00 0a 00 00 00 48 c7 84 24 50 03 00 00 0f 00 00 00 48 c7 84 24 58 03 00 00 08 00 00 00 48 c7 84 24 60 03 00 00 04 00 00 00 48 c7 84 24 68 03 00 00 0c 00 00 00 48 c7 84 24 70 03 00 00 07 00 00 00 48 c7 84 24 08 03 00 00 16 00 00 00 48 c7 84 24 10 03 00 00 0f 00 00 00 48 c7 84 24 18 03 00 00 0d 00 00 00 48 c7 84 24 20 03 00 00 08 00 00 00 48 c7 84 24 28 03 00 00 11 00 00 00 48 c7 84 24 30 03 00 00 1c 00 00 00 48 c7 84 24 38 03 00 00 0c 00 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = {4c 8b 84 24 50 06 00 00 49 83 c0 10 4c 8b 8c 24 28 02 00 00 49 ff c1 89 de 48 89 c7 4c 89 c8 48 89 cb 48 89 d1 4c 89 c2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_GB_2147976955_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GB!MTB"
+        threat_id = "2147976955"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 0a 4c 89 44 24 ?? 48 8b 44 24 ?? 48 c1 e9 07 48 33 c8 0f b6 02 41 38 01 48 89 4c 24 ?? 48 8b 44 24 ?? ?? ?? 48 ff c2 49 ff c1 80 3a 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -407,3 +407,26 @@ rule Trojan_Win32_Rootkit_EK_2147920391_0
         )
 }
 
+rule Trojan_Win32_Rootkit_KK_2147976952_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rootkit.KK!MTB"
+        threat_id = "2147976952"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b7 04 4b 33 d2 c7 45 fc 34 00 00 00 f7 75 fc 66 8b 44 55 90 66 89 04 4b 41 3b ce}  //weight: 20, accuracy: High
+        $x_10_2 = {8b c1 99 f7 fe 8b c8 8d 42 30 66 89 03 8d 5b fe 83 ef 01}  //weight: 10, accuracy: High
+        $x_5_3 = "$99stager" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
