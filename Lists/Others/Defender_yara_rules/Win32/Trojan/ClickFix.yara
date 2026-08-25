@@ -3313,6 +3313,13 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_90 = "yamin4d.org" wide //weight: 1
         $x_1_91 = "seniorgapyear.cfd" wide //weight: 1
         $x_1_92 = "recaptcha-check.com" wide //weight: 1
+        $x_1_93 = "magicschoolanime.cfd" wide //weight: 1
+        $x_1_94 = "dragonspiritstar.cfd" wide //weight: 1
+        $x_1_95 = "91.92.33.156/" wide //weight: 1
+        $x_1_96 = "naturalrelief1222.com" wide //weight: 1
+        $x_1_97 = "timelevel12.com" wide //weight: 1
+        $x_1_98 = "webenvysolutions.com/composer.php" wide //weight: 1
+        $x_1_99 = "vydlje.com" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -3533,6 +3540,7 @@ rule Trojan_Win32_ClickFix_ABA_2147940468_0
         $x_1_14 = "psee.io" wide //weight: 1
         $x_1_15 = "files.catbox.moe" wide //weight: 1
         $x_1_16 = "nopaste.net/" wide //weight: 1
+        $x_1_17 = "st1-fileupload.top" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -15572,7 +15580,8 @@ rule Trojan_Win32_ClickFix_SVC_2147975953_0
         $x_11_4 = {69 00 72 00 6d 00 [0-255] 2e 00 6d 00 6f 00 6e 00 73 00 74 00 65 00 72 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 11, accuracy: Low
         $x_11_5 = {24 00 61 00 3d 00 69 00 72 00 6d 00 [0-255] 3b 00 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 11, accuracy: Low
         $x_11_6 = {24 00 73 00 3d 00 69 00 72 00 6d 00 [0-255] 3b 00 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 73 00 29 00}  //weight: 11, accuracy: Low
-        $x_10_7 = {2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 10, accuracy: Low
+        $x_11_7 = {24 00 61 00 3d 00 69 00 72 00 6d 00 [0-255] 5b 00 70 00 73 00 63 00 75 00 73 00 74 00 6f 00 6d 00 6f 00 62 00 6a 00 65 00 63 00 74 00 5d 00 40 00 7b 00 76 00 3d 00 31 00 7d 00 3b 00 [0-16] 61 00 64 00 64 00 2d 00 6d 00 65 00 6d 00 62 00 65 00 72 00 20 00 73 00 63 00 72 00 69 00 70 00 74 00 70 00 72 00 6f 00 70 00 65 00 72 00 74 00 79 00 20 00 70 00 20 00 28 00 5b 00 73 00 63 00 72 00 69 00 70 00 74 00 62 00 6c 00 6f 00 63 00 6b 00 5d 00 3a 00 3a 00 63 00 72 00 65 00 61 00 74 00 65 00 28 00 24 00 61 00 29 00 29 00 3b 00}  //weight: 11, accuracy: Low
+        $x_10_8 = {2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-48] 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 28 00 24 00 61 00 29 00}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (
@@ -15599,10 +15608,11 @@ rule Trojan_Win32_ClickFix_SVD_2147976056_0
     strings:
         $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 10, accuracy: High
         $x_10_2 = "iex(irm" wide //weight: 10
-        $x_10_3 = "-usebasicparsing)" wide //weight: 10
+        $x_10_3 = "iex([string](irm" wide //weight: 10
+        $x_10_4 = "-usebasicparsing)" wide //weight: 10
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (3 of ($x*))
 }
 
 rule Trojan_Win32_ClickFix_MMI_2147976267_0
@@ -15709,5 +15719,59 @@ rule Trojan_Win32_ClickFix_YBI_2147976872_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SVE_2147976918_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVE"
+        threat_id = "2147976918"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "110"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 100, accuracy: High
+        $x_10_2 = {69 00 65 00 78 00 28 00 69 00 72 00 6d 00 [0-255] 65 00 78 00 69 00 74 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {69 00 72 00 6d 00 [0-255] 3b 00 24 00 65 00 78 00 65 00 63 00 75 00 74 00 69 00 6f 00 6e 00 63 00 6f 00 6e 00 74 00 65 00 78 00 74 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 2e 00 69 00 6e 00 76 00 6f 00 6b 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00}  //weight: 10, accuracy: Low
+        $x_10_4 = {69 00 72 00 6d 00 [0-255] 3b 00 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-6] 69 00 6e 00 76 00 6f 00 6b 00 65 00 2d 00 63 00 6f 00 6d 00 6d 00 61 00 6e 00 64 00 [0-22] 2d 00 73 00 63 00 72 00 69 00 70 00 74 00 62 00 6c 00 6f 00 63 00 6b 00 [0-6] 28 00 5b 00 73 00 63 00 72 00 69 00 70 00 74 00 62 00 6c 00 6f 00 63 00 6b 00 5d 00 3a 00 3a 00 63 00 72 00 65 00 61 00 74 00 65 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_SVF_2147976919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVF"
+        threat_id = "2147976919"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "102"
+        strings_accuracy = "High"
+    strings:
+        $x_100_1 = {63 00 6f 00 6e 00 68 00 6f 00 73 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 100, accuracy: High
+        $x_1_2 = "--headless" wide //weight: 1
+        $x_1_3 = "=@SSL&" wide //weight: 1
+        $x_1_4 = "/v:on" wide //weight: 1
+        $x_1_5 = "iex(irm" ascii //weight: 1
+        $x_1_6 = "power=shell&power!power!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_100_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
