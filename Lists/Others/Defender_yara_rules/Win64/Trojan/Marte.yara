@@ -108,3 +108,27 @@ rule Trojan_Win64_Marte_GA_2147933923_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Marte_A_2147976964_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Marte.A!MTB"
+        threat_id = "2147976964"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Marte"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[inject] shellcode length exceeds data" ascii //weight: 1
+        $x_1_2 = "[inject] remote thread requires PID > 0" ascii //weight: 1
+        $x_1_3 = "[+] RegRun: persistence installed (HKCU Run key)" ascii //weight: 1
+        $x_1_4 = "[+] Task: scheduled task created (SYSTEM, logon trigger)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

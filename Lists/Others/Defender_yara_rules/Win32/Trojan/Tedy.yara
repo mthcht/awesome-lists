@@ -1,3 +1,25 @@
+rule Trojan_Win32_Tedy_A_2147830665_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.A!MTB"
+        threat_id = "2147830665"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {c7 45 e0 a1 0a 7c 7d c7 45 e4 37 fd 03 e6 c7 45 e8 9f 0e 3b 76}  //weight: 6, accuracy: High
+        $x_4_2 = {8a 4c 05 e0 88 8c 30 04 07 00 00 83 c0 01 83 d2 00 75 05 83 f8 0f 72 e8}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Tedy_MA_2147834060_0
 {
     meta:

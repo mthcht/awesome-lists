@@ -1438,3 +1438,28 @@ rule Trojan_Win64_Midie_NZK_2147976765_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_A_2147976963_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.A!MTB"
+        threat_id = "2147976963"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "=== WALLET TARGETS (F0004) ===" ascii //weight: 2
+        $x_2_2 = "=== SCREENSHOT (F0022) ===" ascii //weight: 2
+        $x_2_3 = "%USERPROFILE%\\Downloads\\*\\tdata" wide //weight: 2
+        $x_1_4 = "=== BROWSER CREDENTIALS ===" ascii //weight: 1
+        $x_1_5 = "WalletWasabi\\Client\\Wallets" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
