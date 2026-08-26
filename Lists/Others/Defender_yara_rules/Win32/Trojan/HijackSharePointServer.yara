@@ -77,6 +77,7 @@ rule Trojan_Win32_HijackSharePointServer_B_2147976379_0
         $n_50_26 = "\\program files" wide //weight: -50
         $n_50_27 = ".cmd" wide //weight: -50
         $n_50_28 = ".bat" wide //weight: -50
+        $n_50_29 = "https://vault.azure.net" wide //weight: -50
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
