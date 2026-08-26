@@ -409,3 +409,28 @@ rule Trojan_Win64_DiscordStealer_PLA_2147976428_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_A_2147976975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.A!MTB"
+        threat_id = "2147976975"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "DiscordInject: started %s directly" ascii //weight: 15
+        $x_10_2 = "DiscordInject: [%s] restored default index" ascii //weight: 10
+        $x_5_3 = "Collector: discord steal before inject" ascii //weight: 5
+        $x_3_4 = "discord_accounts_summary.txt" ascii //weight: 3
+        $x_2_5 = "discord_tokens_all.txt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

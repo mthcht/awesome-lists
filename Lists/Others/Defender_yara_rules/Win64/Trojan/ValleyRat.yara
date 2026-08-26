@@ -1045,3 +1045,26 @@ rule Trojan_Win64_ValleyRat_AC_2147976632_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_AK_2147976972_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AK!MTB"
+        threat_id = "2147976972"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {41 8a cf 32 0c 13 48 8b 45 c7 88 0c 10 48 ff c2 48 3b d7 72}  //weight: 5, accuracy: High
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "Failed to write shellcode to file" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -15775,3 +15775,28 @@ rule Trojan_Win32_ClickFix_SVF_2147976919_0
         )
 }
 
+rule Trojan_Win32_ClickFix_A_2147976970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.A!MSR"
+        threat_id = "2147976970"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "e^c^h^o" wide //weight: 1
+        $x_1_2 = "c^u^r^l^" wide //weight: 1
+        $x_1_3 = "juniperatlasengine.com" wide //weight: 1
+        $x_1_4 = "m^s^h^t^a^" wide //weight: 1
+        $x_1_5 = "Local\\RWERC.max" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

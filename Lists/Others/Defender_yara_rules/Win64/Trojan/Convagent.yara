@@ -615,6 +615,28 @@ rule Trojan_Win64_Convagent_A_2147939483_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_A_2147939483_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.A!MTB"
+        threat_id = "2147939483"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 c1 e2 20 89 c0 b9 01 00 00 00 41 bb 6b 00 00 00 48 89 d6 48 bb 1b 94 73 d5 41 db 27 51 49 ba 41 e5 c6 d8 79 2b 3f ae 49 b8 cf 2d b8 f1 36 5a 7e 9c 48 09 c6}  //weight: 20, accuracy: High
+        $x_15_2 = {48 bb d5 ab 0e 2a a0 d4 5e 80 b9 01 00 00 00 49 ba 41 e5 c6 d8 79 2b 3f ae 49 b8 cf 2d b8 f1 36 5a 7e 9c}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_GTM_2147939771_0
 {
     meta:
@@ -1503,6 +1525,31 @@ rule Trojan_Win64_Convagent_MKD_2147974772_0
     strings:
         $x_20_1 = {0f af d0 89 d3 83 f3 fe b9 e1 ca a0 3a b8 59 98 24 27 bf e1 ca a0 3a}  //weight: 20, accuracy: High
         $x_15_2 = {0f af d0 89 d3 83 f3 fe b9 45 ef 9d 78 b8 59 98 24 27 bf 45 ef 9d 78}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_B_2147976969_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.B!MTB"
+        threat_id = "2147976969"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Add-MpPreference -ExclusionProcess 'explorer.exe','Thunder.exe','RuntimeBroker.exe'\"" wide //weight: 15
+        $x_10_2 = "[SUCCESS] Defender exclusion added silently." wide //weight: 10
+        $x_5_3 = "[INFO] Executing hidden command..." wide //weight: 5
+        $x_3_4 = "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"" wide //weight: 3
+        $x_2_5 = "[ERROR] PowerShell timed out after 15s." wide //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))
