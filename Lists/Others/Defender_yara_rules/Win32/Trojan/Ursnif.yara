@@ -3454,37 +3454,6 @@ rule Trojan_Win32_Ursnif_PVK_2147745609_0
         (1 of ($x*))
 }
 
-rule Trojan_Win32_Ursnif_VDK_2147745610_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Ursnif.VDK!MTB"
-        threat_id = "2147745610"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Ursnif"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "Low"
-    strings:
-        $x_3_1 = {81 c2 c0 e2 5e 01 89 15 ?? ?? ?? ?? a1 ?? ?? ?? ?? 03 45 e4 8b 0d ?? ?? ?? ?? 89 88 06 00 8b 15}  //weight: 3, accuracy: Low
-        $x_3_2 = {0f b7 c0 2b e8 83 c0 f6 81 c2 10 da 07 01 03 e8 89 54 24 14 8b 44 24 10 89 15 ?? ?? ?? ?? 89 10}  //weight: 3, accuracy: Low
-        $x_3_3 = {8b d3 2b d1 81 c2 4b 3c 01 00 81 c6 e0 d1 ef 01 89 15 ?? ?? ?? ?? 89 35 ?? ?? ?? ?? 89 b4 28 05 00 a1}  //weight: 3, accuracy: Low
-        $x_1_4 = {8b 4d fc 8b 45 ?? 03 45}  //weight: 1, accuracy: Low
-        $x_1_5 = {81 c3 47 86 c8 61}  //weight: 1, accuracy: High
-        $x_1_6 = {33 c8 2b f9}  //weight: 1, accuracy: High
-        $x_3_7 = {8b 45 e8 33 d2 b9 04 00 00 00 f7 f1 8b 45 dc 0f be 0c 10 8b 55 e8 0f b6 44 15 e4 33 c1 8b 4d e8 88 44 0d e4 eb}  //weight: 3, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (
-            ((3 of ($x_1_*))) or
-            ((1 of ($x_3_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_Ursnif_RVV_2147745614_0
 {
     meta:
