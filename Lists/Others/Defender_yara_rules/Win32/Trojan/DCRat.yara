@@ -464,3 +464,24 @@ rule Trojan_Win32_DCRat_A_2147959765_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DCRat_EM_2147977031_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DCRat.EM!MTB"
+        threat_id = "2147977031"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {3f 00 80 74 05 ?? 5a 40 83 f8 0d 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
