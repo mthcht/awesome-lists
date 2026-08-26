@@ -304,3 +304,24 @@ rule Trojan_Win64_DLLSideLoad_CB_2147973628_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLSideLoad_MCV_2147977016_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.MCV!MTB"
+        threat_id = "2147977016"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {57 73 52 6d 77 78 6f 34 42 6c 4b 73 36 6d 4c 36 54 00 71 57 43 30 57 5a 57 73 4a 67 78 6c 47 45 6a 54 45 58 7a 6f 00 73 41 72 6b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
