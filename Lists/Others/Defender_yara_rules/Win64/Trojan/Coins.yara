@@ -72,3 +72,29 @@ rule Trojan_Win64_Coins_AMCI_2147971663_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Coins_A_2147977095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Coins.A!MTB"
+        threat_id = "2147977095"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Coins"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "55"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "Discord browser scan failed:" ascii //weight: 20
+        $x_15_2 = "Discord user-dir scan failed:" ascii //weight: 15
+        $x_10_3 = "Discord browser scan phase failed" ascii //weight: 10
+        $x_5_4 = "Discord user-dir scan phase failed" ascii //weight: 5
+        $x_3_5 = "cuckoomon.dll" ascii //weight: 3
+        $x_2_6 = "wpespy.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -441,3 +441,31 @@ rule Trojan_Win64_Aotera_CB_2147975326_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Aotera_GP_2147977059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.GP!MTB"
+        threat_id = "2147977059"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "InternalHijack: TgtThread = %llx, IP = %p" ascii //weight: 2
+        $x_1_2 = "InternalRedirect: TgtThread = %llx, IP = %p" ascii //weight: 1
+        $x_1_3 = "Invalid Program: attempted to call a UnmanagedCallersOnly method from managed code" ascii //weight: 1
+        $x_1_4 = "Process is terminating due to StackOverflowException" ascii //weight: 1
+        $x_2_5 = {2d 2d 2d 2d 49 6e 69 74 20 77 69 74 68 [0-16] 20 63 74 78 2d 2d 2d 2d 20 5b 20 68 69 6a 61 63 6b 20 5d}  //weight: 2, accuracy: Low
+        $x_1_6 = "----Init---- [ EH ]" ascii //weight: 1
+        $x_1_7 = "----Init---- [ StackTrace ]" ascii //weight: 1
+        $x_1_8 = "[ ex collide ] kind = %d, pass = %d, idxCurClause = %d" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7194,6 +7194,31 @@ rule Trojan_MSIL_AsyncRAT_KK_2147965481_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "BacteriaGrabber" ascii //weight: 5
+        $x_4_2 = "@BacteriaGroup" ascii //weight: 4
+        $x_3_3 = "SendDiscordWebhookWithFile" ascii //weight: 3
+        $x_2_4 = "Discord Tokens.txt" ascii //weight: 2
+        $x_1_5 = "GetGifts" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRAT_KK_2147965481_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRAT.KK!MTB"
+        threat_id = "2147965481"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "High"
     strings:

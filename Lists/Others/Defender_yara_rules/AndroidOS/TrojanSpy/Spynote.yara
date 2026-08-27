@@ -443,3 +443,30 @@ rule TrojanSpy_AndroidOS_Spynote_AC_2147962243_0
         (all of ($x*))
 }
 
+rule TrojanSpy_AndroidOS_Spynote_ARR_2147977061_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:AndroidOS/Spynote.ARR!MTB"
+        threat_id = "2147977061"
+        type = "TrojanSpy"
+        platform = "AndroidOS: Android operating system"
+        family = "Spynote"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "R8{\"backend\":\"dex\",\"compilation-mode\":\"release\",\"has-checksums\":false,\"min-api\":28,\"pg-map-id\":\"3a809d5\",\"r8-mode\":\"full\",\"version\":\"8.7.18\"}" ascii //weight: 3
+        $x_15_2 = "com.shell.myapplication.activity.AliasY" ascii //weight: 15
+        $x_10_3 = "com.shell.myapplication.activity.AliasS" ascii //weight: 10
+        $x_5_4 = "com.shell.myapplication.MainActivity" ascii //weight: 5
+        $x_4_5 = "android.content.pm.extra.STATUS" ascii //weight: 4
+        $x_2_6 = "com.example.android.apis.content.SESSION_API_PACKAGE_INSTALLED" ascii //weight: 2
+        $x_1_7 = "android.intent.extra.INTENT" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

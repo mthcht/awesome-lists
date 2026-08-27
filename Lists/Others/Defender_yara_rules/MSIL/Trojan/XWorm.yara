@@ -6296,3 +6296,26 @@ rule Trojan_MSIL_XWorm_GVN_2147976611_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_RVE_2147977033_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.RVE!MTB"
+        threat_id = "2147977033"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {08 12 1a 28 ?? 00 00 0a 6f ?? ?? 00 0a 00 11 19 72 59 1f 00 70 23 00 00 00 00 00 00 f0 3f 6f ?? ?? 00 0a 00 08 6f ?? ?? 00 0a 07 fe 04 16 fe 01 13 4a 11 4a 2c 14 00 11 18 72 13 1f 00 70 17 6f ?? ?? 00 0a 00 38 f5 00 00 00 19 13 1e 38 ed 00 00 00 08 12 1a 28 ?? ?? 00 0a 6f ?? ?? 00 0a 00 11 19 72 59 1f 00 70 23 00 00 00 00 00 00 f0 3f 6f ?? ?? 00 0a 00 08 6f ?? ?? 00 0a 07 fe 04 16 fe 01 13 4b 11 4b 2c 14 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {57 15 a2 09 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 87 00 00 00 0a 00 00 00 67 00 00 00 36 00 00 00 3b 00 00 00 3c 01 00 00 16 00 00 00 1c 00 00 00 01 00 00 00 04 00 00 00 05 00 00 00 0b 00 00 00 01 00 00 00 09 00 00 00 01 00 00 00 02 00 00 00 01}  //weight: 1, accuracy: High
+        $x_1_3 = "a3d942c5-bc5d-4fdf-bb8a-18f2e23e4522" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1116,6 +1116,27 @@ rule Trojan_Win32_ShellcodeRunner_YBJ_2147976436_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8a 26 31 c9 41 39 3c 0e 74 13 50 32 24 0e 88 64 15 00 58 41 42 38 c1 76 ec 01 ce eb e3}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ShellcodeRunner_YBJ_2147976436_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.YBJ!MTB"
+        threat_id = "2147976436"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "20"
         strings_accuracy = "Low"
     strings:
@@ -1126,7 +1147,7 @@ rule Trojan_Win32_ShellcodeRunner_YBJ_2147976436_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ShellcodeRunner_YBJ_2147976436_1
+rule Trojan_Win32_ShellcodeRunner_YBJ_2147976436_2
 {
     meta:
         author = "defender2yara"

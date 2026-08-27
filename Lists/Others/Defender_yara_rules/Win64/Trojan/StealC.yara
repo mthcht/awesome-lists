@@ -1052,3 +1052,27 @@ rule Trojan_Win64_StealC_IDK_2147973617_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_SA_2147977044_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.SA!MTB"
+        threat_id = "2147977044"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {52 47 42 00 ae ce 1c e9 00 00 00 04 67 41 4d 41 00 00 b1 8f 0b fc 61 05 00 00 00 09 70 48 59 73 00 00 0e c3 00 00 0e c3 01 c7 6f a8 64 00 00 00 b3 49 44 41 54 38 4f dd d1 4d 2b 45 51 14 c7 e1 9b 30 20 33}  //weight: 2, accuracy: High
+        $x_1_2 = "LockResource" ascii //weight: 1
+        $x_1_3 = "LoadResource" ascii //weight: 1
+        $x_1_4 = "FindResourceW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

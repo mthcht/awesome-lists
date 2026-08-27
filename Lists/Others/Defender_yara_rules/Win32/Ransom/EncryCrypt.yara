@@ -14,7 +14,7 @@ rule Ransom_Win32_EncryCrypt_PA_2147976851_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = ".encry" wide //weight: 1
-        $x_4_2 = "\\!HELP_YOUR_FILES.HTML" wide //weight: 4
+        $x_4_2 = "!HELP_YOUR_FILES.HTML" wide //weight: 4
     condition:
         (filesize < 20MB) and
         (all of ($x*))

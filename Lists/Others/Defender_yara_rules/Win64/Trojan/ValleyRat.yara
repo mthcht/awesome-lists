@@ -1068,3 +1068,76 @@ rule Trojan_Win64_ValleyRat_AK_2147976972_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_ES_2147977057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.ES!MTB"
+        threat_id = "2147977057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {44 0f b6 d8 0f b6 c0 48 01 e8 8a 10 42 8d 0c 12 44 0f b6 d1 0f b6 c9 8a 5c 0d ?? 88 18 88 54 0d ?? 02 10 49 8b 0c 24 0f b6 d2 8a 44 15 ?? 43 32 04 01 42 88 04 01 49 ff c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_GO_2147977058_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.GO!MTB"
+        threat_id = "2147977058"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 0f 11 7c 24 38 48 8d 15 96 00 00 00 48 89 54 24 38 48 89 44 24 40 48 8d 54 24 38 48 89 54 24 50 c6 44 24 2f 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_AM_2147977069_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.AM!MTB"
+        threat_id = "2147977069"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "failed to to lock creation mutex" ascii //weight: 1
+        $x_1_2 = "failed to to lock cleanup mutex" ascii //weight: 1
+        $x_1_3 = "SOFTWARE\\Microsoft\\Hyper-V" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Virtualization" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\Microsoft\\PowerShell\\" ascii //weight: 1
+        $x_1_6 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall" ascii //weight: 1
+        $x_1_7 = "virtual" ascii //weight: 1
+        $x_1_8 = "vmware" ascii //weight: 1
+        $x_1_9 = "hyper-v" ascii //weight: 1
+        $x_1_10 = "*[System[EventID=" ascii //weight: 1
+        $x_1_11 = "Event/EventData/Data[@Name='LogonType']" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

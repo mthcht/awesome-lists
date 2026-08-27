@@ -140,6 +140,27 @@ rule Trojan_Win64_Vidar_AG_2147905336_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 33 c8 89 0d ?? ?? ?? ?? 41 8b c8 48 8b ?? ?? ?? ?? ?? ?? 83 c9 ?? 8b 84 ?? ?? ?? ?? ?? 41 8d 40 bf 83 f8 ?? 41 0f 43 c8 49 83 c2 ?? 88 0a 48 ff c2 66 41 83 3a 00 0f}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_AG_2147905336_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AG!MTB"
+        threat_id = "2147905336"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -2270,6 +2291,28 @@ rule Trojan_Win64_Vidar_AH_2147965153_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {49 63 c0 48 69 c8 ?? ?? ?? ?? 41 8d 46 ?? 42 83 bc 11 ?? ?? ?? ?? ?? 44 0f 45 f0 41 8d 45 ?? 41 0f 45 c5 41 ff c0 44 8b e8 45 3b c1 7c}  //weight: 30, accuracy: Low
+        $x_20_2 = {66 0f 62 d8 66 41 0f 6f c0 66 0f 62 d1 66 0f fe c6 66 0f 6c da 66 42 0f}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_AH_2147965153_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AH!MTB"
+        threat_id = "2147965153"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -2788,6 +2831,29 @@ rule Trojan_Win64_Vidar_ITZ_2147969924_0
 }
 
 rule Trojan_Win64_Vidar_NW_2147970854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NW!MTB"
+        threat_id = "2147970854"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {c1 e9 08 81 f1 75 de 0e cd 03 c8}  //weight: 2, accuracy: High
+        $x_1_2 = {35 60 36 c8 48 2d a2 7b 63 75}  //weight: 1, accuracy: High
+        $x_1_3 = {41 0f b6 0a 48 c1 e1 04 48 33 c8 0f b6 02 48 89 8c 24 00 01 00 00 41 38 02 75 56 49 ff c2 48 ff c2 49 83 e8 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_NW_2147970854_1
 {
     meta:
         author = "defender2yara"
@@ -4030,6 +4096,34 @@ rule Trojan_Win64_Vidar_ES_2147976973_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {0f b6 34 03 48 89 c7 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 49 89 d0 48 f7 e9 48 01 ca 48 c1 fa ?? 49 89 c9 48 c1 f9 ?? 48 29 ca 48 6b d2 ?? 4d 89 ca 49 29 d1 41 31 f1 48 89 da 48 c1 e3 ?? 48 29 d3 44 31 cb 88 1c 17}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_NX_2147977046_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.NX!MTB"
+        threat_id = "2147977046"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://dev.epicgames.com/community/api/user_profiles/profile.json?hash_id=roAjr" ascii //weight: 2
+        $x_1_2 = "https://telegram.me/s11yme" ascii //weight: 1
+        $x_1_3 = "C:\\Program Files\\Mozilla Firefox" ascii //weight: 1
+        $x_1_4 = "Google\\Chrome\\User Data" ascii //weight: 1
+        $x_1_5 = "Microsoft\\Edge\\User Data" ascii //weight: 1
+        $x_1_6 = "[reg_vals] FAIL" ascii //weight: 1
+        $x_1_7 = "SystemManufacturer = QEMU" ascii //weight: 1
+        $x_1_8 = "[smbios] FAIL" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

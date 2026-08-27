@@ -322,3 +322,27 @@ rule Trojan_Win64_Disco_MKB_2147975351_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Disco_AH_2147977036_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.AH!MTB"
+        threat_id = "2147977036"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "Discord: Evet" ascii //weight: 40
+        $x_30_2 = "CraftRise: Evet" ascii //weight: 30
+        $x_20_3 = "SonoYuncu: Evet" ascii //weight: 20
+        $x_10_4 = "# isim | numara | son kullanma | tarayici" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

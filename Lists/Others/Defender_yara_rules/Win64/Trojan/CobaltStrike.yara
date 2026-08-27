@@ -10249,6 +10249,30 @@ rule Trojan_Win64_CobaltStrike_DB_2147891935_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_DB_2147891935_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.DB!MTB"
+        threat_id = "2147891935"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 48 85 c0 0f 95 c0 0f b6 c0 89 85 a8 00 00 00 48 8d 45 a0 48 8d 15 ?? ?? ?? ?? 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 48 85 c0 0f 95 c0 0f b6 c0 89 85 a4 00 00 00 48 8d 45 a0 48 8d 15 ?? ?? ?? ?? 48 89 c1 48 8b 05 ?? ?? ?? ?? ff d0 48 85 c0 0f 95 c0 0f b6 c0}  //weight: 10, accuracy: Low
+        $x_5_2 = "USERDNSDOMAIN" ascii //weight: 5
+        $x_5_3 = "CANADALIFE" ascii //weight: 5
+        $x_5_4 = "DllGetClassObject" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_DC_2147892050_0
 {
     meta:

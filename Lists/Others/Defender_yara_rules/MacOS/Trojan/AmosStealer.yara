@@ -178,3 +178,29 @@ rule Trojan_MacOS_AmosStealer_DB_2147972240_0
         (1 of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_DC_2147977093_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.DC!MTB"
+        threat_id = "2147977093"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {13 95 86 38 c6 ec 8b 49 bf ef 2a 34 f3 b6 96 ff 1d ad 0c d8 73 48 d4 72 26 21 c6 d1 62 3e 5d 4e f0 54 2a f0 f9 b1 1c d6 c9 91 a8 c0 a1 33 92 d2 a0 a6 0e e9 75 21 d2 b6 6a 75 8f 91 98 fe 78 e1 2d 4f 3b 60 83 b4 f2 74 7b be 56 0e 97 f4 30 24 c7 cb c6 ec a1 bb 7e 9a 00 62}  //weight: 1, accuracy: High
+        $x_1_2 = {52 29 e6 1f 58 29 f6 63 56 29 f4 4f 55 29 e1 17 53 29 f7 37 59 29 4e 01 80 52 ef 47 57 29 10 02 19 0b c6 00 10 4a c6 40 86 13 d6 00 16 0b d9 02 19 4a 39 53 99 13 30 03 10 0b 06 02 06 4a da 60 86 13 00 00 15 0b e6 00 00 4a c6 40 86 13 c7 00 18 0b f5 00 15 4a b8 52 95 13 00 03 00 0b 06 00 06 4a c6 60 86 13 d5 00 07 0b a7 02 18 4a e7 64 87 13 21 00 14 0b f7 02 01 4a f7 42 97}  //weight: 1, accuracy: High
+        $x_1_3 = {7e ad 9b 29 34 a9 9b 69 24 aa 9b 8a fd 5a d3 8c 65 00 12 8d 38 a8 9b 4d 34 ab 9b aa 41 2a 8b 4d fd 5a d3 4a 65 00 12 4e 3c a8 9b 0e 38 ab 9b cd 41 2d 8b ae fd 5a d3 b7 65 00 12 0d 40 a8 9b ad 36 ab 9b ad 41 2e 8b ae fd 5a d3 b4 65 00 12 a8 26 a8 9b 68 22 ab 9b 08 41 2e 8b 09 fd 5a d3 16 65 00 12 28 09 09 0b 08 01 0c 0b 19 65 00 12 58 69 48 0b 7b 03 1c 8b 5a 03 1c eb 61 f5 ff 54 06}  //weight: 1, accuracy: High
+        $x_1_4 = {53 6c 12 00 39 0c 00 0f 0b ae 7d 10 53 6e 16 00 39 ae 7d 08 53 6e 1a 00 39 6d 1e 00 39 4d 7d 18 53 6d 22 00 39 4d 7d 10 53 6d 26 00 39 4d 7d 08 53 6d 2a 00 39 6a 2e 00 39 2a 7d 18 53 6a 32 00 39 2a 7d 10 53 6a 36 00 39 2a 7d 08 53 6a 3a 00 39 69 3e 00 39 69 7d 18 53 69 42 00 39 69 7d 10 53 69 46 00 39 69 7d 08 53 69 4a 00 39 6b 4e 00 39 09 7d 18 53 69 52 00 39 09 7d 10 53 69 56 00 39 09 7d 08 53 69 5a 00 39}  //weight: 1, accuracy: High
+        $x_1_5 = {01 66 0f 3a 22 d1 02 66 0f 3a 22 d2 03 66 0f fe d1 f3 0f 7f 17 66 0f 6e c8 66 41 0f 3a 22 ca 01 66 41 0f 3a 22 c8 02 66 0f 3a 22 ce 03 66 0f fe c8 f3 0f 7f 4f 10 48 81 c4}  //weight: 1, accuracy: High
+        $x_1_6 = {6e 74 00 90 00 73 18 12 40 5f 4f 53 41 44 69 73 70 6f 73 65 00 90 00 73 20 12 40 5f 4f 53 41 45 78 65 63 75 74 65 00 90 00 73 28 12 40 5f 4f 53 41 4c 6f 61 64 00 90 00 73 30 15 40 5f 4f 70 65}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
