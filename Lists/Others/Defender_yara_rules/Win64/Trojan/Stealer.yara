@@ -1202,6 +1202,32 @@ rule Trojan_Win64_Stealer_AMX_2147974091_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_AMX_2147974091_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.AMX!MTB"
+        threat_id = "2147974091"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "master_key.txt" ascii //weight: 1
+        $x_1_2 = "_LoginData.db" ascii //weight: 1
+        $x_1_3 = "app_bound_encrypted_key" ascii //weight: 1
+        $x_1_4 = "User Data" ascii //weight: 1
+        $x_1_5 = "esentutl.exe /y" ascii //weight: 1
+        $x_1_6 = "_Cookies.db" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Stealer_ABSM_2147974861_0
 {
     meta:

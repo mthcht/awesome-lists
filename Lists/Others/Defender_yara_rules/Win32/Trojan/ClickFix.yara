@@ -15800,3 +15800,31 @@ rule Trojan_Win32_ClickFix_A_2147976970_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_YBA_2147977130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.YBA!MTB"
+        threat_id = "2147977130"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks /create" wide //weight: 5
+        $x_5_2 = "1i1e1x2i1r1m1\\" wide //weight: 5
+        $x_5_3 = "/sc minute /mo" wide //weight: 5
+        $x_4_4 = ".xyz/D" wide //weight: 4
+        $x_4_5 = ".online/D" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_5_*) and 1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+

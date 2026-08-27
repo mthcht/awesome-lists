@@ -621,6 +621,39 @@ rule Trojan_Win32_Mikey_LRD_2147965689_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mikey_LRD_2147965689_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mikey.LRD!MTB"
+        threat_id = "2147965689"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "] Payload should resolve remaining imports, or the application will crash" ascii //weight: 1
+        $x_2_2 = "Invalid payload: %p" ascii //weight: 2
+        $x_3_3 = "Resuming added thread..." ascii //weight: 3
+        $x_4_4 = "[OK] Injected into a new process" ascii //weight: 4
+        $x_5_5 = "[ERR] env %s, required by ChimeraPE loader, is not set." ascii //weight: 5
+        $x_5_6 = "You just deployed a ChimeraPE" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win32_Mikey_AHB_2147965715_0
 {
     meta:

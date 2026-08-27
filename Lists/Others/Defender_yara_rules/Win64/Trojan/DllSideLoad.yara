@@ -92,3 +92,24 @@ rule Trojan_Win64_DllSideLoad_GVH_2147977032_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllSideLoad_GVI_2147977107_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllSideLoad.GVI!MTB"
+        threat_id = "2147977107"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0f b6 14 01 83 f2 27 88 14 03 48 83 c0 01 48 3d ?? ?? ?? ?? 75 ea}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

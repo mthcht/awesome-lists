@@ -21,3 +21,24 @@ rule Trojan_Win64_CoinStealer_SX_2147948338_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinStealer_AC_2147977109_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinStealer.AC!MTB"
+        threat_id = "2147977109"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b 18 ba 60 19 00 00 48 03 d3 c7 02 6f 6c 6c 79 c7 42 04 64 62 67 2e c7 42 08 65 78 65 00 48 8d 4d 80 e8 ?? ?? ?? ?? ?? 48 8d 55 80 48 8b cf e8 ?? ?? ?? ?? ?? 48 8d 4d 80 e8 ?? ?? ?? ?? ba b8 18 00 00 48 03}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

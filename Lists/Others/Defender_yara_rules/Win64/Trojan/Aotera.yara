@@ -469,3 +469,25 @@ rule Trojan_Win64_Aotera_GP_2147977059_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Aotera_CZ_2147977129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Aotera.CZ!MTB"
+        threat_id = "2147977129"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Aotera"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {45 0f b6 5c 0f 10 45 33 d3 44 88 54 08 10 41 ff c5 41 83 fd 08 7c e0}  //weight: 10, accuracy: High
+        $x_10_2 = {44 8b c0 42 0f b6 54 02 10 30 11 ff c0 83 f8 10 7c da}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

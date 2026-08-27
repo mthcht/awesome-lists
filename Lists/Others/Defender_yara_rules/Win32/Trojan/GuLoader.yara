@@ -9306,3 +9306,28 @@ rule Trojan_Win32_GuLoader_XA_2147977055_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_XB_2147977122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.XB!MTB"
+        threat_id = "2147977122"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\cylindrella\\Uproduktive" ascii //weight: 2
+        $x_1_2 = "\\Aendringstabel\\ultravirus.ini" ascii //weight: 1
+        $x_1_3 = "forbrugslaanenes" ascii //weight: 1
+        $x_1_4 = "sulfhydric equidistributed udstiknings" ascii //weight: 1
+        $x_1_5 = "drawlingly inlets" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

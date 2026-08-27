@@ -7378,3 +7378,28 @@ rule Trojan_Win32_Vidar_YBC_2147975844_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_ZA_2147977120_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.ZA!MTB"
+        threat_id = "2147977120"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "main.MpClientUtilExportFunctions" ascii //weight: 2
+        $x_2_2 = "main.MpConfigRegisterForNotifications" ascii //weight: 2
+        $x_2_3 = "main.MpConfigGetValueAlloc" ascii //weight: 2
+        $x_2_4 = "main.MpConfigUnregisterNotifications" ascii //weight: 2
+        $x_2_5 = "main.MpConfigInitialize" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

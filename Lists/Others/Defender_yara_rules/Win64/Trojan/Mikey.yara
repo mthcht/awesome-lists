@@ -2771,3 +2771,33 @@ rule Trojan_Win64_Mikey_SXO_2147975796_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_BA_2147977106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.BA!MTB"
+        threat_id = "2147977106"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "after all hooks" ascii //weight: 1
+        $x_1_2 = "\\.stealth_hwid_seed" ascii //weight: 1
+        $x_1_3 = "ipconfig /" ascii //weight: 1
+        $x_1_4 = "cmd /c ping localhost -n 2 > nul & del /f /q" ascii //weight: 1
+        $x_1_5 = "Unknown exception during inject" ascii //weight: 1
+        $x_1_6 = "Downloaded, injecting..." ascii //weight: 1
+        $x_1_7 = "Injecting... (PID: %d)" ascii //weight: 1
+        $x_1_8 = "Inject OK!" ascii //weight: 1
+        $x_1_9 = "Both spoofed! Click INJECT" ascii //weight: 1
+        $x_1_10 = "\\company_hook_trace.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
