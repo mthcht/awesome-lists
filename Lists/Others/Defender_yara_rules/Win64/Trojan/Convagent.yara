@@ -1578,3 +1578,26 @@ rule Trojan_Win64_Convagent_B_2147976969_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_AH_2147977179_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.AH!MTB"
+        threat_id = "2147977179"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Interesting clipboard content detected (crypto, cards, keys, passwords, login URLs)" ascii //weight: 30
+        $x_20_2 = "Clipboard address swapping active" ascii //weight: 20
+        $x_10_3 = "[POSSIBLE PASSWORD INPUT --" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

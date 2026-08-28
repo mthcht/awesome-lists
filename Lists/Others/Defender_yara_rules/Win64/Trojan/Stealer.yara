@@ -1214,18 +1214,21 @@ rule Trojan_Win64_Stealer_AMX_2147974091_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
+        threshold = "14"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "master_key.txt" ascii //weight: 1
+        $x_10_1 = "master_key.txt" ascii //weight: 10
         $x_1_2 = "_LoginData.db" ascii //weight: 1
         $x_1_3 = "app_bound_encrypted_key" ascii //weight: 1
         $x_1_4 = "User Data" ascii //weight: 1
         $x_1_5 = "esentutl.exe /y" ascii //weight: 1
-        $x_1_6 = "_Cookies.db" ascii //weight: 1
+        $x_1_6 = "Cookies" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_10_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win64_Stealer_ABSM_2147974861_0

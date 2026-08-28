@@ -364,6 +364,30 @@ rule Ransom_MSIL_FileCoder_AF_2147807870_1
         (all of ($x*))
 }
 
+rule Ransom_MSIL_FileCoder_AF_2147807870_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/FileCoder.AF!MTB"
+        threat_id = "2147807870"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 07 16 13 08 2b 1c 00 11 07 11 08 11 06 11 08 91 07 11 08 07 8e 69 5d 91 61 d2 9c 00 11 08 17 58 13 08 11 08 11 06 8e 69 fe 04 13 09 11 09 2d d6 11 05 11 07 28 ?? ?? ?? 0a 00 00 11 04 17 58}  //weight: 2, accuracy: Low
+        $x_1_2 = "This is a ransomware!" ascii //weight: 1
+        $x_1_3 = "Your files have been encrypted" ascii //weight: 1
+        $x_1_4 = "Pay $1000 in Bitcoin to decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Ransom_MSIL_FileCoder_AG_2147808867_0
 {
     meta:

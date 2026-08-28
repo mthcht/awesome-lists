@@ -148,3 +148,25 @@ rule Trojan_MSIL_BPLogger_RVA_2147969654_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BPLogger_AB_2147977187_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BPLogger.AB!MTB"
+        threat_id = "2147977187"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BPLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {13 04 07 6f ?? 00 00 0a 13 05 07 6f ?? 00 00 0a 13 06 07 6f ?? 00 00 0a 13 07 03 11 04 11 05 5a 19 5a 28 ?? 00 00 0a 73 ?? 00 00 0a 13 08 16 13 09 2b 71}  //weight: 5, accuracy: Low
+        $x_5_2 = {00 11 07 11 0a 11 06 5a 11 09 19 5a 58 28 ?? 00 00 0a 13 0b 11 08 11 0b 18 28 ?? 00 00 0a 6f ?? 00 00 0a 00 11 08 11 0b 17 28 ?? 00 00 0a 6f ?? 00 00 0a 00 11 08 11 0b 16 28 ?? 00 00 0a 6f ?? 00 00 0a 00 00 11 0a 17 58 13 0a 11 0a 11 05 2f 0c 11 08}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

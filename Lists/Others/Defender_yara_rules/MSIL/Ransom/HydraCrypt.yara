@@ -121,3 +121,26 @@ rule Ransom_MSIL_HydraCrypt_AP_2147962992_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HydraCrypt_AH_2147977183_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HydraCrypt.AH!MTB"
+        threat_id = "2147977183"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HydraCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {25 16 02 a2 25 17 72 ?? 0b 00 70 a2 25 18 06 28 ?? 00 00 0a a2 25 19 72 ?? 0b 00 70 a2 25 1a 07 28 ?? 00 00 0a a2 25 1b 72 ?? 0b 00 70 a2 28 ?? 00 00 0a 28 ?? 00 00 0a 00 28 ?? 00 00 0a 13 04 00 11 04 06 6f}  //weight: 3, accuracy: Low
+        $x_1_2 = "DisableAntiSpyware" ascii //weight: 1
+        $x_2_3 = "Global\\RansomwareSimMutex" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

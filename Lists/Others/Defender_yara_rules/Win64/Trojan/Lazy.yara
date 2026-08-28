@@ -1238,6 +1238,29 @@ rule Trojan_Win64_Lazy_AH_2147909902_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AH_2147909902_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AH!MTB"
+        threat_id = "2147909902"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[UAC] VULNERABLE - limited admin token (IL=%s)" ascii //weight: 30
+        $x_20_2 = "[UAC] default token (IL=%s) - not local admin, UAC bypass unavailable" ascii //weight: 20
+        $x_10_3 = "[*] no AS-REP roastable accounts found" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_RS_2147910167_0
 {
     meta:
