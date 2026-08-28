@@ -709,3 +709,27 @@ rule Trojan_MSIL_Xworm_MRQ_2147975425_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_A_2147977157_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.A!MTB"
+        threat_id = "2147977157"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "<XWormmm>" wide //weight: 10
+        $x_5_2 = "PhantomXWorm" wide //weight: 5
+        $x_3_3 = "phantomsdk.dll" wide //weight: 3
+        $x_2_4 = "Software\\PhantomPersistence" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4576,3 +4576,26 @@ rule Trojan_Win64_Zusy_XTV_2147976351_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_MKJ_2147977155_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.MKJ!MTB"
+        threat_id = "2147977155"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 89 4c 05 70 48 8b 45 70 48 63 48 04 8d 91 58 ff ff ff 89 54 0d 6c 48 8b 45 70 48 63 48 04}  //weight: 20, accuracy: High
+        $x_10_2 = "DisableIntrusionPreventionSystem" ascii //weight: 10
+        $x_5_3 = "DisableInformationProtectionControl" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

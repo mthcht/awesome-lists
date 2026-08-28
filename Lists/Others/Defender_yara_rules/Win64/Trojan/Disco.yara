@@ -1,3 +1,25 @@
+rule Trojan_Win64_Disco_A_2147828447_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disco.A!MTB"
+        threat_id = "2147828447"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {47 33 04 96 41 ff c2 41 8b c0 c1 e8 18 42 88 44 0d e0 41 8b c0 c1 e8 10 42 88 44 0d e1 41 8b c0 c1 e8 08 42 88 44 0d e2 46 88 44 0d e3 41 83 fa 04}  //weight: 20, accuracy: High
+        $x_15_2 = {41 8a c2 41 32 c1 02 c0 32 c8 8a c2 32 c1 41 32 c1 41 32 c3 32 c3}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Disco_CM_2147908976_0
 {
     meta:

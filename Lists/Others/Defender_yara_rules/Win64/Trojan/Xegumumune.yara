@@ -44,3 +44,28 @@ rule Trojan_Win64_Xegumumune_MK_2147966745_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Xegumumune_A_2147977156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xegumumune.A!MTB"
+        threat_id = "2147977156"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xegumumune"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[CLIPJACK]%d|%d" wide //weight: 15
+        $x_10_2 = "clipjack" wide //weight: 10
+        $x_5_3 = "StealthMsgCls" wide //weight: 5
+        $x_3_4 = "deserialize_kernel_params failed" wide //weight: 3
+        $x_2_5 = "Kernel is busy..." wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
