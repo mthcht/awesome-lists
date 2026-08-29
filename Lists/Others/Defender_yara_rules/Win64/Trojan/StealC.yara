@@ -1076,3 +1076,24 @@ rule Trojan_Win64_StealC_SA_2147977044_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_NP_2147977212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.NP!MTB"
+        threat_id = "2147977212"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 34 08 31 d6 4c 8d 04 80 41 31 f0 44 88 04 01 48 ff c0 90 48 39 c3 7f e6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

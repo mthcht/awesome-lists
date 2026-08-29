@@ -909,3 +909,24 @@ rule Trojan_Win64_DLLHijack_MK_2147976437_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_DAB_2147977219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DAB!MTB"
+        threat_id = "2147977219"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 70 3d 00 00 00 00 50 41}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
