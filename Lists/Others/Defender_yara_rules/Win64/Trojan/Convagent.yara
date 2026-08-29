@@ -1601,3 +1601,26 @@ rule Trojan_Win64_Convagent_AH_2147977179_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_AZ_2147977201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.AZ!MTB"
+        threat_id = "2147977201"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "VANISH AUTH LOG:" ascii //weight: 30
+        $x_20_2 = "{\"text\": \"Strive Vanish Edition\"}}]}" ascii //weight: 20
+        $x_10_3 = "); if ($output -is [array]) { $output -join ', ' } else { $output.Trim() }" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

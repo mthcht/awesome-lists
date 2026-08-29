@@ -373,3 +373,29 @@ rule Trojan_Win64_KillAV_MX_2147974100_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_AA_2147977202_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.AA!MTB"
+        threat_id = "2147977202"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "[-] Empty embedded payload resource" ascii //weight: 6
+        $x_4_2 = "[-] Payload marker not found in embedded JPG" ascii //weight: 4
+        $x_8_3 = "[*] Kill round %d: terminated %zu target process(es)" ascii //weight: 8
+        $x_2_4 = "Phase 2: kill service host processes" ascii //weight: 2
+        $x_7_5 = "Phase 4: kill respawned processes" ascii //weight: 7
+        $x_3_6 = "Permanent disable sequence completed" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

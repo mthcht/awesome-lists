@@ -732,3 +732,28 @@ rule Trojan_Win64_Cerbu_AHM_2147973722_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AH_2147977200_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AH!MTB"
+        threat_id = "2147977200"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "/disable_task_manager" ascii //weight: 50
+        $x_40_2 = "/kill_critical" ascii //weight: 40
+        $x_30_3 = "/corrupt_registry" ascii //weight: 30
+        $x_20_4 = "/boot_bsod" ascii //weight: 20
+        $x_10_5 = "/overwrite_user_data" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
