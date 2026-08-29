@@ -184,7 +184,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 146305,es,EU,Europa,CY,Chipre,02,Limasol,,,,,Asia/Nicosia,1
 146362,es,EU,Europa,CY,Chipre,01,"distrito de Nicosia",,,,,Asia/Nicosia,1
 146375,es,EU,Europa,CY,Chipre,04,Famagusta,,,,,Asia/Famagusta,1
-146383,es,EU,Europa,CY,Chipre,02,Limasol,,,,,Asia/Nicosia,1
 146384,es,EU,Europa,CY,Chipre,02,Limasol,,,Limassol,,Asia/Nicosia,1
 146398,es,EU,Europa,CY,Chipre,03,Lárnaca,,,,,Asia/Nicosia,1
 146400,es,EU,Europa,CY,Chipre,03,Lárnaca,,,Lárnaca,,Asia/Nicosia,1
@@ -691,7 +690,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 293050,es,AS,Asia,IL,Israel,D,"Distrito Meridional",,,,,Asia/Jerusalem,0
 293067,es,AS,Asia,IL,Israel,HA,"Distrito de Haifa",,,,,Asia/Jerusalem,0
 293100,es,AS,Asia,IL,Israel,Z,"Distrito Norte",,,Safed,,Asia/Jerusalem,0
-293134,es,AS,Asia,IL,Israel,JM,"Distrito de Jerusalén",,,,,Asia/Jerusalem,0
 293153,es,AS,Asia,IL,Israel,Z,"Distrito Norte",,,,,Asia/Jerusalem,0
 293162,es,AS,Asia,IL,Israel,Z,"Distrito Norte",,,,,Asia/Jerusalem,0
 293181,es,AS,Asia,IL,Israel,Z,"Distrito Norte",,,,,Asia/Jerusalem,0
@@ -1438,6 +1436,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 443082,es,AS,Asia,IL,Israel,Z,"Distrito Norte",,,,,Asia/Jerusalem,0
 443093,es,AS,Asia,IL,Israel,,,,,Katzrin,,Asia/Jerusalem,0
 443189,es,AS,Asia,TR,Turquía,73,"Provincia de Şırnak",,,,,Europe/Istanbul,0
+443339,es,AF,África,UG,Uganda,C,"Región Central",102,"Distrito de Kampala",,,Africa/Kampala,0
+443787,es,AF,África,UG,Uganda,C,"Región Central",111,"Distrito de Sembabule",,,Africa/Kampala,0
 444178,es,AF,África,ET,Etiopía,AA,"Adís Abeba",,,,,Africa/Addis_Ababa,0
 444187,es,AF,África,ET,Etiopía,TI,Tigray,,,,,Africa/Addis_Ababa,0
 448499,es,AF,África,ER,Eritrea,DK,"Debubawi Keyih Bahri",,,,,Africa/Asmara,0
@@ -2442,6 +2442,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 597989,es,EU,Europa,LT,Lituania,KL,"Provincia de Klaipėda",22,,,,Europe/Vilnius,1
 598095,es,EU,Europa,LT,Lituania,KL,"Provincia de Klaipėda",21,,,,Europe/Vilnius,1
 598098,es,EU,Europa,LT,Lituania,KL,"Provincia de Klaipėda",20,,Klaipėda,,Europe/Vilnius,1
+598099,es,EU,Europa,LT,Lituania,KL,"Provincia de Klaipėda",20,,,,Europe/Vilnius,1
 598197,es,EU,Europa,LT,Lituania,VL,"Provincia de Vilna",47,,,,Europe/Vilnius,1
 598257,es,EU,Europa,LT,Lituania,SA,"Provincia de Šiauliai",19,,,,Europe/Vilnius,1
 598272,es,EU,Europa,LT,Lituania,KU,"Provincia de Kaunas",18,,Kėdainiai,,Europe/Vilnius,1
@@ -2468,10 +2469,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 600994,es,EU,Europa,LT,Lituania,UT,"Provincia de Utena",04,,,,Europe/Vilnius,1
 601038,es,EU,Europa,LT,Lituania,VL,"Provincia de Vilna",53,,,,Europe/Vilnius,1
 601084,es,EU,Europa,LT,Lituania,AL,"Provincia de Alytus",02,,Alytus,,Europe/Vilnius,1
+601087,es,EU,Europa,LT,Lituania,AL,"Provincia de Alytus",03,,,,Europe/Vilnius,1
+601179,es,EU,Europa,LT,Lituania,SA,"Provincia de Šiauliai",01,,,,Europe/Vilnius,1
 601294,es,AS,Asia,UZ,Uzbekistán,QR,Karakalpakistán,,,Nukus,,Asia/Samarkand,0
 601594,es,AS,Asia,TM,Turkmenistán,B,"Provincia de Balkan",,,Krasnovodsk,,Asia/Ashgabat,0
 602137,es,EU,Europa,SE,Suecia,AC,"Provincia de Västerbotten",,,,,Europe/Stockholm,1
 602150,es,EU,Europa,SE,Suecia,AC,"Provincia de Västerbotten",,,Umeå,,Europe/Stockholm,1
+602357,es,EU,Europa,SE,Suecia,AC,"Provincia de Västerbotten",,,,,Europe/Stockholm,1
 602426,es,EU,Europa,SE,Suecia,AC,"Provincia de Västerbotten",,,,,Europe/Stockholm,1
 602804,es,EU,Europa,SE,Suecia,BD,"Provincia de Norrbotten",,,,,Europe/Stockholm,1
 602909,es,EU,Europa,SE,Suecia,AC,"Provincia de Västerbotten",,,,,Europe/Stockholm,1
@@ -4460,6 +4464,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 747323,es,AS,Asia,TR,Turquía,34,"Provincia de Estambul",,,,,Europe/Istanbul,0
 747340,es,AS,Asia,TR,Turquía,34,"Provincia de Estambul",,,,,Europe/Istanbul,0
 747459,es,AS,Asia,TR,Turquía,54,"Provincia de Sakarya",,,,,Europe/Istanbul,0
+747471,es,AS,Asia,TR,Turquía,67,"Provincia de Zonguldak",,,,,Europe/Istanbul,0
 747711,es,AS,Asia,TR,Turquía,22,"Provincia de Edirne",,,,,Europe/Istanbul,0
 747712,es,AS,Asia,TR,Turquía,22,"Provincia de Edirne",,,Edirne,,Europe/Istanbul,0
 747764,es,AS,Asia,TR,Turquía,81,,,,Düzce,,Europe/Istanbul,0
@@ -4570,7 +4575,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 755719,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
 755755,es,EU,Europa,PL,Polonia,18,"Voivodato de Subcarpacia",,,,,Europe/Warsaw,1
 755775,es,EU,Europa,PL,Polonia,12,"Voivodato de Pequeña Polonia",,,,,Europe/Warsaw,1
-755859,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
+755860,es,EU,Europa,PL,Polonia,26,"Voivodato de Santa Cruz",,,,,Europe/Warsaw,1
 755861,es,EU,Europa,PL,Polonia,12,"Voivodato de Pequeña Polonia",,,,,Europe/Warsaw,1
 755876,es,EU,Europa,PL,Polonia,06,"Voivodato de Lublin",,,,,Europe/Warsaw,1
 755886,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
@@ -5018,6 +5023,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 776029,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,Bielany,,Europe/Warsaw,1
 776053,es,EU,Europa,PL,Polonia,12,"Voivodato de Pequeña Polonia",,,,,Europe/Warsaw,1
 776069,es,EU,Europa,PL,Polonia,20,Podlaquia,,,Białystok,,Europe/Warsaw,1
+776080,es,EU,Europa,PL,Polonia,12,"Voivodato de Pequeña Polonia",,,,,Europe/Warsaw,1
 776103,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
 776144,es,EU,Europa,PL,Polonia,12,"Voivodato de Pequeña Polonia",,,,,Europe/Warsaw,1
 776172,es,EU,Europa,PL,Polonia,10,"Voivodato de Łódź",,,,,Europe/Warsaw,1
@@ -5334,16 +5340,21 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 859253,es,EU,Europa,MK,"Macedonia del Norte",816,"Chucher Sandevo",,,,,Europe/Skopje,0
 859578,es,EU,Europa,MK,"Macedonia del Norte",706,"Staro Nagorichane",,,,,Europe/Skopje,0
 862735,es,EU,Europa,RS,Serbia,17,,,,Preljina,,Europe/Belgrade,0
+862995,es,EU,Europa,EE,Estonia,37,"Condado de Harju",784,,,,Europe/Tallinn,1
 863522,es,AS,Asia,KZ,Kazajstán,15,Actobe,,,,,Asia/Aqtobe,0
 863675,es,EU,Europa,MK,"Macedonia del Norte",809,,,,,,Europe/Skopje,0
 863831,es,EU,Europa,MK,"Macedonia del Norte",802,Arachinovo,,,,,Europe/Skopje,0
+863850,es,EU,Europa,MK,"Macedonia del Norte",805,,,,,,Europe/Skopje,0
+863853,es,EU,Europa,MK,"Macedonia del Norte",804,"Municipio de Gazi Baba",,,,,Europe/Skopje,0
 863891,es,EU,Europa,MK,"Macedonia del Norte",705,Rankovce,,,,,Europe/Skopje,0
+863894,es,EU,Europa,MK,"Macedonia del Norte",811,"Municipio de Saraj",,,,,Europe/Skopje,0
 863896,es,EU,Europa,MK,"Macedonia del Norte",812,,,,,,Europe/Skopje,0
 864233,es,EU,Europa,LV,Letonia,062,Marupe,,,,,Europe/Riga,1
 864389,es,EU,Europa,LT,Lituania,AL,"Provincia de Alytus",,,,,Europe/Vilnius,1
 864477,es,EU,Europa,LT,Lituania,KU,"Provincia de Kaunas",,,,,Europe/Vilnius,1
 864480,es,EU,Europa,LT,Lituania,PN,"Provincia de Panevėžys",,,,,Europe/Vilnius,1
 864485,es,EU,Europa,LT,Lituania,VL,"Provincia de Vilna",,,,,Europe/Vilnius,1
+864512,es,EU,Europa,LT,Lituania,TE,"Provincia de Telšiai",26,,,,Europe/Vilnius,1
 864553,es,EU,Europa,BG,Bulgaria,09,Kardzhali,,,,,Europe/Sofia,1
 864554,es,EU,Europa,BG,Bulgaria,10,Kyustendil,,,,,Europe/Sofia,1
 864561,es,EU,Europa,BG,Bulgaria,04,"Veliko Tarnovo",,,,,Europe/Sofia,1
@@ -5416,6 +5427,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 924572,es,AF,África,MW,Malaui,S,"Región del Sur",NS,"Distrito de Nsanje",,,Africa/Blantyre,0
 924705,es,AF,África,MW,Malaui,C,"Región Central",NK,"Distrito de Nkhotakota",,,Africa/Blantyre,0
 925475,es,AF,África,MW,Malaui,N,"Región del Norte",MZ,"Distrito de Mzimba",Mzuzu,,Africa/Blantyre,0
+925496,es,AF,África,MW,Malaui,N,"Región del Norte",MZ,"Distrito de Mzimba",,,Africa/Blantyre,0
 925498,es,AF,África,MW,Malaui,N,"Región del Norte",MZ,"Distrito de Mzimba",,,Africa/Blantyre,0
 926747,es,AF,África,MW,Malaui,C,"Región Central",MC,"Distrito de Mchinji",,,Africa/Blantyre,0
 927246,es,AF,África,MW,Malaui,S,"Región del Sur",MG,"Distrito de Mangochi",,,Africa/Blantyre,0
@@ -5831,6 +5843,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1105776,es,AF,África,ZA,Sudáfrica,GP,Gauteng,,,,,Africa/Johannesburg,0
 1105777,es,AF,África,ZA,Sudáfrica,GP,Gauteng,,,Centurion,,Africa/Johannesburg,0
 1105781,es,AF,África,ZA,Sudáfrica,GP,Gauteng,,,,,Africa/Johannesburg,0
+1105840,es,AF,África,MW,Malaui,S,"Región del Sur",BA,"Distrito de Balaka",,,Africa/Blantyre,0
 1105843,es,AF,África,ZW,Zimbawe,BU,Bulawayo,,,,,Africa/Harare,0
 1105844,es,AF,África,ZW,Zimbawe,HA,Harare,,,,,Africa/Harare,0
 1106542,es,AF,África,ZW,Zimbawe,HA,Harare,,,Chitungwiza,,Africa/Harare,0
@@ -5939,6 +5952,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1166475,es,AS,Asia,PK,Pakistán,KP,"Khyber Pakhtunkhwa",,,,,Asia/Karachi,0
 1166548,es,AS,Asia,PK,Pakistán,PB,Punyab,,,,,Asia/Karachi,0
 1166993,es,AS,Asia,PK,Pakistán,PB,Punyab,,,Rawalpindi,,Asia/Karachi,0
+1167358,es,AS,Asia,PK,Pakistán,PB,Punyab,,,,,Asia/Karachi,0
 1167380,es,AS,Asia,PK,Pakistán,PB,Punyab,,,,,Asia/Karachi,0
 1167460,es,AS,Asia,PK,Pakistán,PB,Punyab,,,,,Asia/Karachi,0
 1167507,es,AS,Asia,PK,Pakistán,PB,Punyab,,,,,Asia/Karachi,0
@@ -7777,6 +7791,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1540580,es,EU,Europa,RU,Rusia,YAN,Yamalia-Nenetsia,,,,,Asia/Yekaterinburg,0
 1541667,es,EU,Europa,RU,Rusia,NVS,Novosibirsk,,,,,Asia/Novosibirsk,0
 1545752,es,AF,África,MU,Mauricio,RO,Rodrigues,,,"Port Mathurin",,Indian/Mauritius,0
+1546102,es,AN,Antártida,TF,"Territorios Australes Franceses",,,,,,,Indian/Kerguelen,0
 1546748,es,AN,Antártida,TF,"Territorios Australes Franceses",,,,,,,Indian/Kerguelen,0
 1547314,es,AN,Antártida,HM,"Islas Heard y McDonald",,,,,,,Indian/Kerguelen,0
 1547376,es,AS,Asia,CC,"Islas Cocos",,,,,,,Indian/Cocos,0
@@ -7853,7 +7868,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1580142,es,AS,Asia,VN,Vietnam,66,"Hưng Yên",,,"Hung Yen",,Asia/Bangkok,0
 1580240,es,AS,Asia,VN,Vietnam,26,"Provincia de Thua Thien Hue",,,Hué,,Asia/Bangkok,0
 1580410,es,AS,Asia,VN,Vietnam,13,"Quảng Ninh",,,"Hạ Long",,Asia/Bangkok,0
-1580572,es,AS,Asia,VN,Vietnam,SG,"Ciudad Ho Chi Minh",,,,,Asia/Ho_Chi_Minh,0
 1580578,es,AS,Asia,VN,Vietnam,SG,"Ciudad Ho Chi Minh",,,,,Asia/Ho_Chi_Minh,0
 1580700,es,AS,Asia,VN,Vietnam,23,"Hà Tĩnh",,,,,Asia/Bangkok,0
 1580782,es,AS,Asia,VN,Vietnam,44,"An Giang",,,,,Asia/Ho_Chi_Minh,0
@@ -8159,6 +8173,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1630789,es,AS,Asia,ID,Indonesia,KB,"Kalimantan Occidental",,,,,Asia/Pontianak,0
 1630798,es,AS,Asia,ID,Indonesia,JI,"Java Oriental",,,,,Asia/Jakarta,0
 1630870,es,AS,Asia,ID,Indonesia,JK,Yakarta,,,,,Asia/Jakarta,0
+1631102,es,AS,Asia,ID,Indonesia,SN,"Sulawesi Meridional",,,,,Asia/Makassar,0
 1631103,es,AS,Asia,ID,Indonesia,SN,"Sulawesi Meridional",,,,,Asia/Makassar,0
 1631142,es,AS,Asia,ID,Indonesia,SS,"Sumatra Meridional",,,,,Asia/Jakarta,0
 1631393,es,AS,Asia,ID,Indonesia,SS,"Sumatra Meridional",,,,,Asia/Jakarta,0
@@ -8401,6 +8416,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1662534,es,AS,Asia,LA,Laos,OU,,,,,,Asia/Vientiane,0
 1665045,es,AS,Asia,LA,Laos,AT,,,,,,Asia/Vientiane,0
 1665046,es,AS,Asia,LA,Laos,AT,,,,Attapeu,,Asia/Vientiane,0
+1665148,es,AS,Asia,TW,Taiwán,NWT,,,,,,Asia/Taipei,0
 1665194,es,AS,Asia,TW,Taiwán,YUN,"Condado de Yunlin",,,,,Asia/Taipei,0
 1665196,es,AS,Asia,TW,Taiwán,YUN,"Condado de Yunlin",,,,,Asia/Taipei,0
 1665221,es,AS,Asia,TW,Taiwán,TNN,,,,,,Asia/Taipei,0
@@ -8440,6 +8456,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1667573,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
 1667665,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
 1667669,es,AS,Asia,TW,Taiwán,CHA,,,,,,Asia/Taipei,0
+1667900,es,AS,Asia,TW,Taiwán,TAO,Taoyuan,,,,,Asia/Taipei,0
 1667950,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
 1667980,es,AS,Asia,TW,Taiwán,NWT,,,,,,Asia/Taipei,0
 1668032,es,AS,Asia,TW,Taiwán,TNN,,,,,,Asia/Taipei,0
@@ -8448,12 +8465,14 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1668166,es,AS,Asia,TW,Taiwán,KHH,,,,,,Asia/Taipei,0
 1668173,es,AS,Asia,TW,Taiwán,KHH,,,,,,Asia/Taipei,0
 1668284,es,AS,Asia,TW,Taiwán,,,,,,,Asia/Taipei,0
+1668292,es,AS,Asia,TW,Taiwán,TTT,,,,,,Asia/Taipei,0
 1668295,es,AS,Asia,TW,Taiwán,TTT,,,,,,Asia/Taipei,0
 1668323,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
 1668338,es,AS,Asia,TW,Taiwán,TPE,,,,,,Asia/Taipei,0
 1668341,es,AS,Asia,TW,Taiwán,TPE,,,,Taipéi,,Asia/Taipei,0
 1668345,es,AS,Asia,TW,Taiwán,CYQ,,,,,,Asia/Taipei,0
 1668347,es,AS,Asia,TW,Taiwán,CYQ,,,,,,Asia/Taipei,0
+1668352,es,AS,Asia,TW,Taiwán,TNN,,,,,,Asia/Taipei,0
 1668353,es,AS,Asia,TW,Taiwán,TNN,,,,,,Asia/Taipei,0
 1668355,es,AS,Asia,TW,Taiwán,TNN,,,,,,Asia/Taipei,0
 1668399,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
@@ -8496,6 +8515,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1671566,es,AS,Asia,TW,Taiwán,NAN,,,,,,Asia/Taipei,0
 1671716,es,AS,Asia,TW,Taiwán,TPE,,,,,,Asia/Taipei,0
 1671929,es,AS,Asia,TW,Taiwán,NAN,,,,,,Asia/Taipei,0
+1671968,es,AS,Asia,TW,Taiwán,MIA,,,,,,Asia/Taipei,0
 1671971,es,AS,Asia,TW,Taiwán,MIA,,,,,,Asia/Taipei,0
 1672422,es,AS,Asia,TW,Taiwán,TAO,Taoyuan,,,,,Asia/Taipei,0
 1672486,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
@@ -8571,6 +8591,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1678228,es,AS,Asia,TW,Taiwán,KEE,,,,,,Asia/Taipei,0
 1678673,es,AS,Asia,TW,Taiwán,KHH,,,,,,Asia/Taipei,0
 1678721,es,AS,Asia,TW,Taiwán,HUA,,,,,,Asia/Taipei,0
+1678834,es,AS,Asia,TW,Taiwán,CYI,,,,,,Asia/Taipei,0
 1678835,es,AS,Asia,TW,Taiwán,CYQ,,,,,,Asia/Taipei,0
 1678836,es,AS,Asia,TW,Taiwán,CYI,,,,,,Asia/Taipei,0
 1678974,es,AS,Asia,TW,Taiwán,TPE,,,,,,Asia/Taipei,0
@@ -8623,6 +8644,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1685218,es,AS,Asia,PH,Filipinas,13,Caraga,SUN,,,,Asia/Manila,0
 1685391,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAS,,,,Asia/Manila,0
 1685577,es,AS,Asia,PH,Filipinas,03,"Luzón Central",ZMB,,,,Asia/Manila,0
+1685754,es,AS,Asia,PH,Filipinas,05,Bicolandia,SOR,,,,Asia/Manila,0
 1685759,es,AS,Asia,PH,Filipinas,05,Bicolandia,SOR,,,,Asia/Manila,0
 1685875,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",NUV,,,,Asia/Manila,0
 1686123,es,AS,Asia,PH,Filipinas,09,"Península de Zamboanga",ZAN,,,,Asia/Manila,0
@@ -8666,6 +8688,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1690095,es,AS,Asia,PH,Filipinas,03,"Luzón Central",NUE,,,,Asia/Manila,0
 1690313,es,AS,Asia,PH,Filipinas,03,"Luzón Central",NUE,,,,Asia/Manila,0
 1690321,es,AS,Asia,PH,Filipinas,03,"Luzón Central",ZMB,,,,Asia/Manila,0
+1690649,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",WSA,,,,Asia/Manila,0
 1690666,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAV,,Sámal,,Asia/Manila,0
 1691150,es,AS,Asia,PH,Filipinas,06,"Bisayas Occidentales",NEC,,,,Asia/Manila,0
 1691152,es,AS,Asia,PH,Filipinas,10,"Mindanao del Norte",CAM,,,,Asia/Manila,0
@@ -8678,6 +8701,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1691612,es,AS,Asia,PH,Filipinas,40,Calabarzón,LAG,,,,Asia/Manila,0
 1691911,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",ISA,,,,Asia/Manila,0
 1692192,es,AS,Asia,PH,Filipinas,00,"Metro Manila",,,"Ciudad Quezon",,Asia/Manila,0
+1692194,es,AS,Asia,PH,Filipinas,40,Calabarzón,QUE,,,,Asia/Manila,0
 1692201,es,AS,Asia,PH,Filipinas,40,Calabarzón,QUE,,,,Asia/Manila,0
 1692214,es,AS,Asia,PH,Filipinas,10,"Mindanao del Norte",BUK,,,,Asia/Manila,0
 1692489,es,AS,Asia,PH,Filipinas,06,"Bisayas Occidentales",NEC,,,,Asia/Manila,0
@@ -8725,8 +8749,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1697294,es,AS,Asia,PH,Filipinas,41,"Tagalas Sudoccidentales",ROM,,,,Asia/Manila,0
 1697456,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",NUV,,,,Asia/Manila,0
 1697473,es,AS,Asia,PH,Filipinas,03,"Luzón Central",NUE,,,,Asia/Manila,0
+1697549,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",NSA,,,,Asia/Manila,0
 1697559,es,AS,Asia,PH,Filipinas,12,"Mindanao Central",NCO,,,,Asia/Manila,0
 1697762,es,AS,Asia,PH,Filipinas,06,"Bisayas Occidentales",ILI,,,,Asia/Manila,0
+1697806,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",NER,,,,Asia/Manila,0
 1697846,es,AS,Asia,PH,Filipinas,00,"Metro Manila",,,,,Asia/Manila,0
 1697879,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",BIL,,,,Asia/Manila,0
 1697958,es,AS,Asia,PH,Filipinas,15,Cordillera,MOU,"Mountain Province",,,Asia/Manila,0
@@ -8738,6 +8764,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1699090,es,AS,Asia,PH,Filipinas,03,"Luzón Central",NUE,,,,Asia/Manila,0
 1699296,es,AS,Asia,PH,Filipinas,40,Calabarzón,RIZ,,Rodríguez,,Asia/Manila,0
 1699323,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",COM,,,,Asia/Manila,0
+1699585,es,AS,Asia,PH,Filipinas,41,"Tagalas Sudoccidentales",MDR,,,,Asia/Manila,0
 1699586,es,AS,Asia,PH,Filipinas,41,"Tagalas Sudoccidentales",MDC,,,,Asia/Manila,0
 1699596,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",CEB,,,,Asia/Manila,0
 1699720,es,AS,Asia,PH,Filipinas,05,Bicolandia,MAS,,,,Asia/Manila,0
@@ -8747,6 +8774,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1699805,es,AS,Asia,PH,Filipinas,03,"Luzón Central",PAM,,México,,Asia/Manila,0
 1700269,es,AS,Asia,PH,Filipinas,05,Bicolandia,SOR,,,,Asia/Manila,0
 1700360,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAO,,,,Asia/Manila,0
+1700711,es,AS,Asia,PH,Filipinas,05,Bicolandia,MAS,,,,Asia/Manila,0
 1700712,es,AS,Asia,PH,Filipinas,05,Bicolandia,MAS,,,,Asia/Manila,0
 1700868,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BAN,,,,Asia/Manila,0
 1700917,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BUL,,,,Asia/Manila,0
@@ -8793,6 +8821,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1706361,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BAN,,,,Asia/Manila,0
 1706383,es,AS,Asia,PH,Filipinas,09,"Península de Zamboanga",ZAN,,,,Asia/Manila,0
 1706393,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",CEB,,,,Asia/Manila,0
+1706800,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",LEY,,,,Asia/Manila,0
 1706801,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",LEY,,,,Asia/Manila,0
 1706884,es,AS,Asia,PH,Filipinas,05,Bicolandia,ALB,,"Ciudad de Legazpi",,Asia/Manila,0
 1706888,es,AS,Asia,PH,Filipinas,03,"Luzón Central",TAR,,,,Asia/Manila,0
@@ -8867,8 +8896,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1714679,es,AS,Asia,PH,Filipinas,09,"Península de Zamboanga",ZSI,,,,Asia/Manila,0
 1714700,es,AS,Asia,PH,Filipinas,03,"Luzón Central",AUR,,,,Asia/Manila,0
 1714766,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BAN,,,,Asia/Manila,0
+1714813,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",BOH,,,,Asia/Manila,0
 1714956,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAS,,,,Asia/Manila,0
 1715342,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAO,,,,Asia/Manila,0
+1715345,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAS,,,,Asia/Manila,0
+1715347,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAV,,,,Asia/Manila,0
 1715348,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DAS,,Davao,,Asia/Manila,0
 1715374,es,AS,Asia,PH,Filipinas,03,"Luzón Central",PAM,,,,Asia/Manila,0
 1715430,es,AS,Asia,PH,Filipinas,40,Calabarzón,CAV,,,,Asia/Manila,0
@@ -8884,7 +8916,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1716924,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",CEB,,,,Asia/Manila,0
 1717051,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",CEB,,,,Asia/Manila,0
 1717053,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",COM,,,,Asia/Manila,0
+1717511,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",CEB,,,,Asia/Manila,0
 1717512,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",CEB,,"Ciudad de Cebú",,Asia/Manila,0
+1717639,es,AS,Asia,PH,Filipinas,40,Calabarzón,CAV,,,,Asia/Manila,0
 1717640,es,AS,Asia,PH,Filipinas,03,"Luzón Central",NUE,,,,Asia/Manila,0
 1717641,es,AS,Asia,PH,Filipinas,40,Calabarzón,CAV,,,,Asia/Manila,0
 1717729,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",ISA,,Cauayán,,Asia/Manila,0
@@ -8914,8 +8948,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1721906,es,AS,Asia,PH,Filipinas,03,"Luzón Central",NUE,,Cabanatúan,,Asia/Manila,0
 1722167,es,AS,Asia,PH,Filipinas,09,"Península de Zamboanga",ZSI,,,,Asia/Manila,0
 1722186,es,AS,Asia,PH,Filipinas,13,Caraga,AGN,,Butuan,,Asia/Manila,0
+1723064,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BUL,,,,Asia/Manila,0
 1723066,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BUL,,,,Asia/Manila,0
 1723071,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BUL,,Bulacán,,Asia/Manila,0
+1723105,es,AS,Asia,PH,Filipinas,10,"Mindanao del Norte",BUK,,,,Asia/Manila,0
 1723510,es,AS,Asia,PH,Filipinas,14,"Mindanao Musulmán",,,,,Asia/Manila,0
 1723893,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",EAS,,,,Asia/Manila,0
 1724317,es,AS,Asia,PH,Filipinas,01,Ilocos,PAN,,,,Asia/Manila,0
@@ -8928,7 +8964,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1725115,es,AS,Asia,PH,Filipinas,40,Calabarzón,LAG,,,,Asia/Manila,0
 1725127,es,AS,Asia,PH,Filipinas,01,Ilocos,PAN,,Binalonán,,Asia/Manila,0
 1725157,es,AS,Asia,PH,Filipinas,06,"Bisayas Occidentales",NEC,,,,Asia/Manila,0
+1725260,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",BIL,,,,Asia/Manila,0
 1725572,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",ISA,,,,Asia/Manila,0
+1725582,es,AS,Asia,PH,Filipinas,15,Cordillera,BEN,,,,Asia/Manila,0
 1725684,es,AS,Asia,PH,Filipinas,13,Caraga,AGS,,,,Asia/Manila,0
 1725685,es,AS,Asia,PH,Filipinas,13,Caraga,AGS,,,,Asia/Manila,0
 1725729,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",NUV,,,,Asia/Manila,0
@@ -8937,6 +8975,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1725919,es,AS,Asia,PH,Filipinas,40,Calabarzón,LAG,,,,Asia/Manila,0
 1725953,es,AS,Asia,PH,Filipinas,15,Cordillera,MOU,"Mountain Province",,,Asia/Manila,0
 1725991,es,AS,Asia,PH,Filipinas,40,Calabarzón,BTG,,,,Asia/Manila,0
+1726279,es,AS,Asia,PH,Filipinas,40,Calabarzón,BTG,,,,Asia/Manila,0
 1726280,es,AS,Asia,PH,Filipinas,40,Calabarzón,BTG,,,,Asia/Manila,0
 1726347,es,AS,Asia,PH,Filipinas,03,"Luzón Central",BAN,,,,Asia/Manila,0
 1726349,es,AS,Asia,PH,Filipinas,40,Calabarzón,QUE,,,,Asia/Manila,0
@@ -8966,6 +9005,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1730162,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",NUV,,,,Asia/Manila,0
 1730225,es,AS,Asia,PH,Filipinas,03,"Luzón Central",PAM,,,,Asia/Manila,0
 1730413,es,AS,Asia,PH,Filipinas,03,"Luzón Central",PAM,,,,Asia/Manila,0
+1730491,es,AS,Asia,PH,Filipinas,06,"Bisayas Occidentales",ANT,,,,Asia/Manila,0
 1730501,es,AS,Asia,PH,Filipinas,40,Calabarzón,RIZ,,,,Asia/Manila,0
 1730519,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",BOH,,,,Asia/Manila,0
 1730713,es,AS,Asia,PH,Filipinas,40,Calabarzón,RIZ,,,,Asia/Manila,0
@@ -8975,6 +9015,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1731486,es,AS,Asia,PH,Filipinas,02,"Valle del Cagayán",ISA,,,,Asia/Manila,0
 1731487,es,AS,Asia,PH,Filipinas,07,"Bisayas Centrales",BOH,,,,Asia/Manila,0
 1731592,es,AS,Asia,PH,Filipinas,41,"Tagalas Sudoccidentales",ROM,,,,Asia/Manila,0
+1731616,es,AS,Asia,PH,Filipinas,05,Bicolandia,ALB,,,,Asia/Manila,0
 1731676,es,AS,Asia,PH,Filipinas,08,"Bisayas Orientales",LEY,,,,Asia/Manila,0
 1731694,es,AS,Asia,PH,Filipinas,12,"Mindanao Central",NCO,,,,Asia/Manila,0
 1731744,es,AS,Asia,PH,Filipinas,12,"Mindanao Central",SAR,,,,Asia/Manila,0
@@ -12104,7 +12145,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2146903,es,OC,Oceanía,AU,Australia,NSW,"Nueva Gales del Sur",,,,,Australia/Sydney,0
 2146971,es,OC,Oceanía,AU,Australia,QLD,Queensland,,,,,Australia/Brisbane,0
 2147085,es,OC,Oceanía,AU,Australia,NSW,"Nueva Gales del Sur",,,,,Australia/Sydney,0
-2147134,es,OC,Oceanía,AU,Australia,NSW,"Nueva Gales del Sur",,,,,Australia/Sydney,0
 2147172,es,OC,Oceanía,AU,Australia,NSW,"Nueva Gales del Sur",,,,,Australia/Sydney,0
 2147197,es,OC,Oceanía,AU,Australia,VIC,Victoria,,,,,Australia/Melbourne,0
 2147291,es,OC,Oceanía,AU,Australia,TAS,Tasmania,,,,,Australia/Hobart,0
@@ -13335,6 +13375,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2422457,es,AF,África,GN,Guinea,D,Kindia,CO,,,,Africa/Conakry,0
 2422465,es,AF,África,GN,Guinea,C,,,,Conakry,,Africa/Conakry,0
 2422488,es,AF,África,GN,Guinea,C,,,,,,Africa/Conakry,0
+2423124,es,AF,África,GN,Guinea,N,Nzérékoré,BE,Beyla,,,Africa/Conakry,0
 2424548,es,AF,África,TD,Chad,CB,"Región de Chari-Baguirmi",,,,,Africa/Ndjamena,0
 2426240,es,AF,África,TD,Chad,MO,"Región de Mayo-Kebbi Oeste",,,Pala,,Africa/Ndjamena,0
 2426784,es,AF,África,TD,Chad,KA,"Región de Kanem",,,,,Africa/Ndjamena,0
@@ -13384,6 +13425,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2460594,es,AF,África,ML,Mali,BKO,Bamako,,,,,Africa/Bamako,0
 2460596,es,AF,África,ML,Mali,BKO,Bamako,,,Bamako,,Africa/Bamako,0
 2461445,es,AF,África,EH,"Sáhara Occidental",,,,,,,Africa/El_Aaiun,0
+2462881,es,AF,África,EH,"Sáhara Occidental",,,,,"El Aaiún",,Africa/El_Aaiun,0
 2463161,es,AF,África,MA,Marruecos,12,,AOU,,,,Africa/Casablanca,0
 2463679,es,EU,Europa,GR,Grecia,F,"Islas Jónicas",,,Corfú,,Europe/Athens,1
 2464020,es,AF,África,TN,Túnez,53,"Gobernación de Mahdia",,,,,Africa/Tunis,0
@@ -14714,6 +14756,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2523423,es,EU,Europa,IT,Italia,82,Sicilia,ME,"Provincia de Mesina",,,Europe/Rome,1
 2523425,es,EU,Europa,IT,Italia,82,Sicilia,ME,"Provincia de Mesina",,,Europe/Rome,1
 2523434,es,EU,Europa,IT,Italia,88,Cerdeña,SU,"Provincia di Cerdeña del Sur",Sanluri,,Europe/Rome,1
+2523436,es,EU,Europa,IT,Italia,78,Calabria,RC,"Provincia de Reggio Calabria",,,Europe/Rome,1
 2523438,es,EU,Europa,IT,Italia,78,Calabria,CS,"Provincia de Cosenza",,,Europe/Rome,1
 2523448,es,EU,Europa,IT,Italia,82,Sicilia,CT,"Provincia de Catania",,,Europe/Rome,1
 2523456,es,EU,Europa,IT,Italia,88,Cerdeña,SU,"Provincia di Cerdeña del Sur",,,Europe/Rome,1
@@ -15095,6 +15138,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2593113,es,EU,Europa,ES,España,VC,Valencia,,,,,Europe/Madrid,1
 2594078,es,AF,África,ML,Mali,2,Kulikoró,,,,,Africa/Bamako,0
 2596686,es,AF,África,CF,"República Centroafricana",BGF,Bangui,,,,,Africa/Bangui,0
+2597248,es,AF,África,BF,"Burkina Faso",01,"Región Boucle du Mouhoun",BAL,,,,Africa/Ouagadougou,0
 2597271,es,AF,África,BJ,Benín,AL,Alibori,,,,,Africa/Porto-Novo,0
 2599415,es,EU,Europa,SE,Suecia,C,"Provincia de Upsala",,,,,Europe/Stockholm,1
 2604242,es,EU,Europa,AT,Austria,4,"Alta Austria",,,,,Europe/Vienna,1
@@ -18084,6 +18128,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2653473,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,RDG,,,,Europe/London,0
 2653490,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,ERY,"Yorkshire del Este",,,Europe/London,0
 2653493,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,LEC,,,,Europe/London,0
+2653499,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,NYK,,,,Europe/London,0
 2653503,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,ESX,,,,Europe/London,0
 2653516,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,LEW,,,,Europe/London,0
 2653520,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,SRY,,,,Europe/London,0
@@ -18487,6 +18532,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2656428,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,SOM,Somerset,,,Europe/London,0
 2656433,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,CAM,,,,Europe/London,0
 2656454,es,EU,Europa,GB,"Reino Unido",SCT,Escocia,ABD,Aberdeenshire,,,Europe/London,0
+2656474,es,EU,Europa,GB,"Reino Unido",NIR,"Irlanda del Norte",ANN,,,,Europe/London,0
 2656483,es,EU,Europa,GB,"Reino Unido",NIR,"Irlanda del Norte",NMD,,,,Europe/London,0
 2656488,es,EU,Europa,GB,"Reino Unido",NIR,"Irlanda del Norte",CCG,,,,Europe/London,0
 2656490,es,EU,Europa,GB,"Reino Unido",NIR,"Irlanda del Norte",MEA,,,,Europe/London,0
@@ -23327,6 +23373,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2789588,es,EU,Europa,BE,Bélgica,VLG,Flandes,VWV,"Flandes Occidental",,,Europe/Brussels,1
 2789635,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",,,Europe/Brussels,1
 2789654,es,EU,Europa,BE,Bélgica,VLG,Flandes,VBR,"Brabante Flamenco",,,Europe/Brussels,1
+2789733,es,EU,Europa,BE,Bélgica,VLG,Flandes,VOV,"Flandes Oriental",,,Europe/Brussels,1
 2789737,es,EU,Europa,BE,Bélgica,VLG,Flandes,VWV,"Flandes Occidental",,,Europe/Brussels,1
 2789745,es,EU,Europa,BE,Bélgica,VLG,Flandes,VAN,Amberes,,,Europe/Brussels,1
 2789751,es,EU,Europa,BE,Bélgica,VLG,Flandes,VWV,"Flandes Occidental",,,Europe/Brussels,1
@@ -23362,6 +23409,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2790447,es,EU,Europa,BE,Bélgica,WAL,Valonia,WNA,"Provincia de Namur",,,Europe/Brussels,1
 2790464,es,EU,Europa,BE,Bélgica,WAL,Valonia,WNA,"Provincia de Namur",,,Europe/Brussels,1
 2790467,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",,,Europe/Brussels,1
+2790469,es,EU,Europa,BE,Bélgica,WAL,Valonia,WNA,"Provincia de Namur",,,Europe/Brussels,1
 2790471,es,EU,Europa,BE,Bélgica,WAL,Valonia,WNA,"Provincia de Namur",Namur,,Europe/Brussels,1
 2790515,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLX,"Provincia de Luxemburgo",,,Europe/Brussels,1
 2790558,es,EU,Europa,BE,Bélgica,VLG,Flandes,VAN,Amberes,,,Europe/Brussels,1
@@ -23425,9 +23473,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2792245,es,EU,Europa,BE,Bélgica,WAL,Valonia,WHT,"Provincia de Henao",,,Europe/Brussels,1
 2792313,es,EU,Europa,BE,Bélgica,VLG,Flandes,VBR,"Brabante Flamenco",,,Europe/Brussels,1
 2792345,es,EU,Europa,BE,Bélgica,WAL,Valonia,WBR,"Brabant Wallonie",,,Europe/Brussels,1
+2792347,es,EU,Europa,BE,Bélgica,VLG,Flandes,VLI,Limburgo,,,Europe/Brussels,1
 2792348,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",,,Europe/Brussels,1
 2792360,es,EU,Europa,BE,Bélgica,VLG,Flandes,VAN,Amberes,,,Europe/Brussels,1
 2792397,es,EU,Europa,BE,Bélgica,VLG,Flandes,VAN,Amberes,,,Europe/Brussels,1
+2792411,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",,,Europe/Brussels,1
 2792413,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",Lieja,,Europe/Brussels,1
 2792423,es,EU,Europa,BE,Bélgica,VLG,Flandes,VBR,"Brabante Flamenco",,,Europe/Brussels,1
 2792428,es,EU,Europa,BE,Bélgica,VLG,Flandes,VWV,"Flandes Occidental",,,Europe/Brussels,1
@@ -23549,6 +23599,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2796637,es,EU,Europa,BE,Bélgica,VLG,Flandes,VOV,"Flandes Oriental",,,Europe/Brussels,1
 2796667,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",,,Europe/Brussels,1
 2796696,es,EU,Europa,BE,Bélgica,VLG,Flandes,VBR,"Brabante Flamenco",,,Europe/Brussels,1
+2796741,es,EU,Europa,BE,Bélgica,WAL,Valonia,WHT,"Provincia de Henao",,,Europe/Brussels,1
 2796793,es,EU,Europa,BE,Bélgica,WAL,Valonia,WHT,"Provincia de Henao",,,Europe/Brussels,1
 2796795,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLX,"Provincia de Luxemburgo",,,Europe/Brussels,1
 2796807,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLX,"Provincia de Luxemburgo",,,Europe/Brussels,1
@@ -23775,6 +23826,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2803091,es,EU,Europa,BE,Bélgica,VLG,Flandes,VWV,"Flandes Occidental",,,Europe/Brussels,1
 2803098,es,EU,Europa,BE,Bélgica,WAL,Valonia,WBR,"Brabant Wallonie",,,Europe/Brussels,1
 2803130,es,EU,Europa,BE,Bélgica,VLG,Flandes,VWV,"Flandes Occidental",Anzegem,,Europe/Brussels,1
+2803136,es,EU,Europa,BE,Bélgica,VLG,Flandes,VAN,Amberes,,,Europe/Brussels,1
 2803138,es,EU,Europa,BE,Bélgica,VLG,Flandes,VAN,Amberes,Amberes,,Europe/Brussels,1
 2803144,es,EU,Europa,BE,Bélgica,WAL,Valonia,WHT,"Provincia de Henao",,,Europe/Brussels,1
 2803148,es,EU,Europa,BE,Bélgica,WAL,Valonia,WLG,"Provincia de Lieja",,,Europe/Brussels,1
@@ -24803,6 +24855,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2847049,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
 2847079,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 2847080,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
+2847084,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 2847173,es,EU,Europa,DE,Alemania,HE,Hessen,,,,,Europe/Berlin,1
 2847198,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
 2847240,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
@@ -24824,6 +24877,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2847864,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 2848029,es,EU,Europa,DE,Alemania,SH,Schleswig-Holstein,,,,,Europe/Berlin,1
 2848110,es,EU,Europa,DE,Alemania,NI,"Baja Sajonia",,,,,Europe/Berlin,1
+2848143,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 2848169,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
 2848175,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
 2848187,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
@@ -26222,6 +26276,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2907886,es,EU,Europa,DE,Alemania,NI,"Baja Sajonia",,,,,Europe/Berlin,1
 2907887,es,EU,Europa,DE,Alemania,SN,Sachsen,,,,,Europe/Berlin,1
 2907911,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
+2907983,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 2908032,es,EU,Europa,DE,Alemania,SH,Schleswig-Holstein,,,,,Europe/Berlin,1
 2908312,es,EU,Europa,DE,Alemania,NW,"Renania del Norte-Westfalia",,,,,Europe/Berlin,1
 2908330,es,EU,Europa,DE,Alemania,NW,"Renania del Norte-Westfalia",,,,,Europe/Berlin,1
@@ -26632,6 +26687,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2925306,es,EU,Europa,DE,Alemania,SN,Sachsen,,,,,Europe/Berlin,1
 2925390,es,EU,Europa,DE,Alemania,BB,Brandenburgo,,,,,Europe/Berlin,1
 2925398,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
+2925440,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 2925507,es,EU,Europa,DE,Alemania,HE,Hessen,,,,,Europe/Berlin,1
 2925533,es,EU,Europa,DE,Alemania,HE,Hessen,,,Francfort,,Europe/Berlin,1
 2925535,es,EU,Europa,DE,Alemania,BB,Brandenburgo,,,"Fráncfort del Óder",,Europe/Berlin,1
@@ -27151,6 +27207,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2946016,es,EU,Europa,DE,Alemania,SN,Sachsen,,,,,Europe/Berlin,1
 2946022,es,EU,Europa,DE,Alemania,TH,Thüringen,,,,,Europe/Berlin,1
 2946111,es,EU,Europa,DE,Alemania,NW,"Renania del Norte-Westfalia",,,,,Europe/Berlin,1
+2946137,es,EU,Europa,DE,Alemania,ST,Sajonia-Anhalt,,,,,Europe/Berlin,1
 2946172,es,EU,Europa,DE,Alemania,SN,Sachsen,,,,,Europe/Berlin,1
 2946206,es,EU,Europa,DE,Alemania,NI,"Baja Sajonia",,,Borkum,,Europe/Berlin,1
 2946214,es,EU,Europa,DE,Alemania,BB,Brandenburgo,,,,,Europe/Berlin,1
@@ -27636,6 +27693,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2960589,es,EU,Europa,LU,Luxemburgo,DI,Diekirch,,,,,Europe/Luxembourg,1
 2960592,es,EU,Europa,LU,Luxemburgo,CL,Clervaux,,,,,Europe/Luxembourg,1
 2960596,es,EU,Europa,LU,Luxemburgo,ES,Esch-sur-Alzette,,,Esch-sur-Alzette,,Europe/Luxembourg,1
+2960627,es,EU,Europa,LU,Luxemburgo,ES,Esch-sur-Alzette,,,,,Europe/Luxembourg,1
 2960630,es,EU,Europa,LU,Luxemburgo,EC,Echternach,,,,,Europe/Luxembourg,1
 2960634,es,EU,Europa,LU,Luxemburgo,ES,Esch-sur-Alzette,,,,,Europe/Luxembourg,1
 2960651,es,EU,Europa,LU,Luxemburgo,ES,Esch-sur-Alzette,,,Differdange,,Europe/Luxembourg,1
@@ -27788,9 +27846,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2963367,es,EU,Europa,IE,Irlanda,U,Úlster,CN,,Killeshandra,,Europe/Dublin,1
 2963370,es,EU,Europa,IE,Irlanda,M,Munster,KY,,Killarney,,Europe/Dublin,1
 2963373,es,EU,Europa,IE,Irlanda,L,Leinster,WX,,,,Europe/Dublin,1
+2963397,es,EU,Europa,IE,Irlanda,L,Leinster,KK,,,,Europe/Dublin,1
 2963398,es,EU,Europa,IE,Irlanda,L,Leinster,KK,,Kilkenny,,Europe/Dublin,1
 2963400,es,EU,Europa,IE,Irlanda,M,Munster,CE,,Kilkee,,Europe/Dublin,1
 2963419,es,EU,Europa,IE,Irlanda,M,Munster,LK,,,,Europe/Dublin,1
+2963435,es,EU,Europa,IE,Irlanda,L,Leinster,KE,,,,Europe/Dublin,1
 2963436,es,EU,Europa,IE,Irlanda,L,Leinster,KE,,,,Europe/Dublin,1
 2963438,es,EU,Europa,IE,Irlanda,L,Leinster,MH,,,,Europe/Dublin,1
 2963444,es,EU,Europa,IE,Irlanda,L,Leinster,KE,,,,Europe/Dublin,1
@@ -27819,6 +27879,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2964102,es,EU,Europa,IE,Irlanda,L,Leinster,,,,,Europe/Dublin,1
 2964114,es,EU,Europa,IE,Irlanda,M,Munster,CO,,,,Europe/Dublin,1
 2964152,es,EU,Europa,IE,Irlanda,L,Leinster,,,,,Europe/Dublin,1
+2964179,es,EU,Europa,IE,Irlanda,C,Connacht,G,,,,Europe/Dublin,1
 2964180,es,EU,Europa,IE,Irlanda,C,Connacht,G,,Galway,,Europe/Dublin,1
 2964209,es,EU,Europa,IE,Irlanda,L,Leinster,KK,,,,Europe/Dublin,1
 2964260,es,EU,Europa,IE,Irlanda,L,Leinster,WH,,,,Europe/Dublin,1
@@ -27846,6 +27907,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2964661,es,EU,Europa,IE,Irlanda,L,Leinster,LH,,Drogheda,,Europe/Dublin,1
 2964710,es,EU,Europa,IE,Irlanda,M,Munster,CE,,Doonbeg,,Europe/Dublin,1
 2964717,es,EU,Europa,IE,Irlanda,M,Munster,LK,,,,Europe/Dublin,1
+2964751,es,EU,Europa,IE,Irlanda,U,Úlster,DL,,,,Europe/Dublin,1
 2964752,es,EU,Europa,IE,Irlanda,U,Úlster,DL,,Donegal,,Europe/Dublin,1
 2964764,es,EU,Europa,IE,Irlanda,L,Leinster,MH,,,,Europe/Dublin,1
 2964765,es,EU,Europa,IE,Irlanda,L,Leinster,,,Donabate,,Europe/Dublin,1
@@ -27872,10 +27934,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2965471,es,EU,Europa,IE,Irlanda,C,Connacht,MO,,,,Europe/Dublin,1
 2965474,es,EU,Europa,IE,Irlanda,C,Connacht,G,,"Baile Chláir",,Europe/Dublin,1
 2965476,es,EU,Europa,IE,Irlanda,M,Munster,CE,,,,Europe/Dublin,1
+2965479,es,EU,Europa,IE,Irlanda,M,Munster,CE,,,,Europe/Dublin,1
 2965482,es,EU,Europa,IE,Irlanda,L,Leinster,OY,,,,Europe/Dublin,1
 2965484,es,EU,Europa,IE,Irlanda,L,Leinster,KE,,,,Europe/Dublin,1
 2965516,es,EU,Europa,IE,Irlanda,M,Munster,CO,,,,Europe/Dublin,1
 2965529,es,EU,Europa,IE,Irlanda,L,Leinster,KE,,,,Europe/Dublin,1
+2965534,es,EU,Europa,IE,Irlanda,U,Úlster,CN,,,,Europe/Dublin,1
 2965535,es,EU,Europa,IE,Irlanda,U,Úlster,CN,,,,Europe/Dublin,1
 2965544,es,EU,Europa,IE,Irlanda,M,Munster,CO,,Castletownshend,,Europe/Dublin,1
 2965570,es,EU,Europa,IE,Irlanda,C,Connacht,RN,,,,Europe/Dublin,1
@@ -33422,7 +33486,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3017512,es,EU,Europa,FR,Francia,HDF,"Alta Francia",59,Norte,,,Europe/Paris,1
 3017513,es,EU,Europa,FR,Francia,NOR,Normandía,27,Eure,,,Europe/Paris,1
 3017537,es,EU,Europa,FR,Francia,BFC,Bourgogne,58,Nievre,,,Europe/Paris,1
-3017543,es,EU,Europa,FR,Francia,BFC,Bourgogne,25,"Departamento de Doubs",,,Europe/Paris,1
 3017546,es,EU,Europa,FR,Francia,NAQ,"Nueva Aquitania",17,"Charenta Marítima",,,Europe/Paris,1
 3017556,es,EU,Europa,FR,Francia,HDF,"Alta Francia",62,"Paso de Calais",,,Europe/Paris,1
 3017559,es,EU,Europa,FR,Francia,NAQ,"Nueva Aquitania",16,Charenta,,,Europe/Paris,1
@@ -35092,6 +35155,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3030660,es,EU,Europa,FR,Francia,HDF,"Alta Francia",80,Soma,,,Europe/Paris,1
 3030664,es,EU,Europa,FR,Francia,GES,"Gran Este",51,Marne,,,Europe/Paris,1
 3030668,es,EU,Europa,FR,Francia,GES,"Gran Este",57,Mosela,,,Europe/Paris,1
+3030674,es,EU,Europa,FR,Francia,OCC,Occitania,31,"Alto Garona",,,Europe/Paris,1
 3030676,es,EU,Europa,FR,Francia,OCC,Occitania,34,Herault,,,Europe/Paris,1
 3030702,es,EU,Europa,FR,Francia,PAC,"Provenza-Alpes-Costa Azul",06,"Alpes Marítimos",,,Europe/Paris,1
 3030705,es,EU,Europa,FR,Francia,GES,"Gran Este",51,Marne,,,Europe/Paris,1
@@ -37156,6 +37220,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3072234,es,EU,Europa,CZ,Chequia,31,"Región de Bohemia Meridional",311,,,,Europe/Prague,1
 3072235,es,EU,Europa,CZ,Chequia,63,Vysocina,631,,,,Europe/Prague,1
 3072268,es,EU,Europa,CZ,Chequia,52,"Región de Hradec Králové",522,,,,Europe/Prague,1
+3072319,es,EU,Europa,CZ,Chequia,64,"Región de Moravia Meridional",644,,,,Europe/Prague,1
 3072332,es,EU,Europa,CZ,Chequia,53,"Región de Pardubice",534,,,,Europe/Prague,1
 3072357,es,EU,Europa,CZ,Chequia,31,"Región de Bohemia Meridional",316,,,,Europe/Prague,1
 3072407,es,EU,Europa,CZ,Chequia,64,"Región de Moravia Meridional",645,,,,Europe/Prague,1
@@ -37209,6 +37274,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3073803,es,EU,Europa,CZ,Chequia,41,"Región de Carlsbad",412,,"Karlovy Vary",,Europe/Prague,1
 3073817,es,EU,Europa,CZ,Chequia,80,"Región de Moravia-Silesia",801,,,,Europe/Prague,1
 3073838,es,EU,Europa,CZ,Chequia,10,Praga,,,,,Europe/Prague,1
+3073848,es,EU,Europa,CZ,Chequia,32,"Región de Plzeň",326,,,,Europe/Prague,1
 3073850,es,EU,Europa,CZ,Chequia,31,"Región de Bohemia Meridional",313,,,,Europe/Prague,1
 3073862,es,EU,Europa,CZ,Chequia,31,"Región de Bohemia Meridional",312,,,,Europe/Prague,1
 3073944,es,EU,Europa,CZ,Chequia,20,"Región de Bohemia Central",209,,,,Europe/Prague,1
@@ -37241,6 +37307,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3074597,es,EU,Europa,CZ,Chequia,51,"Región de Liberec",513,,,,Europe/Prague,1
 3074598,es,EU,Europa,CZ,Chequia,53,"Región de Pardubice",534,,,,Europe/Prague,1
 3074603,es,EU,Europa,CZ,Chequia,51,"Región de Liberec",512,,,,Europe/Prague,1
+3074615,es,EU,Europa,CZ,Chequia,64,"Región de Moravia Meridional",643,,,,Europe/Prague,1
 3074626,es,EU,Europa,CZ,Chequia,52,"Región de Hradec Králové",523,,,,Europe/Prague,1
 3074636,es,EU,Europa,CZ,Chequia,72,Zlín,724,,,,Europe/Prague,1
 3074677,es,EU,Europa,CZ,Chequia,64,"Región de Moravia Meridional",644,,,,Europe/Prague,1
@@ -37492,6 +37559,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3080615,es,EU,Europa,PL,Polonia,12,"Voivodato de Pequeña Polonia",,,,,Europe/Warsaw,1
 3080636,es,EU,Europa,PL,Polonia,24,Silesia,,,,,Europe/Warsaw,1
 3080644,es,EU,Europa,PL,Polonia,08,"Voivodato de Lubusz",,,,,Europe/Warsaw,1
+3080652,es,EU,Europa,PL,Polonia,02,"Voivodato de Baja Silesia",,,,,Europe/Warsaw,1
 3080757,es,EU,Europa,PL,Polonia,28,"Voivodato de Varmia y Masuria",,,,,Europe/Warsaw,1
 3080772,es,EU,Europa,PL,Polonia,04,"Voivodato de Cuyavia y Pomerania",,,,,Europe/Warsaw,1
 3080830,es,EU,Europa,PL,Polonia,30,"Voivodato de Gran Polonia",,,,,Europe/Warsaw,1
@@ -37906,6 +37974,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3091700,es,EU,Europa,PL,Polonia,32,"Voivodato de Pomerania Occidental",,,,,Europe/Warsaw,1
 3091731,es,EU,Europa,PL,Polonia,04,"Voivodato de Cuyavia y Pomerania",,,,,Europe/Warsaw,1
 3091779,es,EU,Europa,PL,Polonia,30,"Voivodato de Gran Polonia",,,,,Europe/Warsaw,1
+3091780,es,EU,Europa,PL,Polonia,02,"Voivodato de Baja Silesia",,,,,Europe/Warsaw,1
 3091788,es,EU,Europa,PL,Polonia,02,"Voivodato de Baja Silesia",,,,,Europe/Warsaw,1
 3091817,es,EU,Europa,PL,Polonia,30,"Voivodato de Gran Polonia",,,,,Europe/Warsaw,1
 3091831,es,EU,Europa,PL,Polonia,24,Silesia,,,,,Europe/Warsaw,1
@@ -40208,6 +40277,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165412,es,EU,Europa,IT,Italia,65,"Los Abruzos",CH,,,,Europe/Rome,1
 3165435,es,EU,Europa,IT,Italia,75,Apulia,FG,"Provincia de Foggia",,,Europe/Rome,1
 3165438,es,EU,Europa,IT,Italia,34,Véneto,PD,"Provincia de Padua",,,Europe/Rome,1
+3165446,es,EU,Europa,IT,Italia,25,Lombardía,PV,"Provincia de Pavía",,,Europe/Rome,1
 3165452,es,EU,Europa,IT,Italia,25,Lombardía,CR,"Provincia de Cremona",,,Europe/Rome,1
 3165456,es,EU,Europa,IT,Italia,72,Campania,NA,"Provincia de Nápoles",,,Europe/Rome,1
 3165473,es,EU,Europa,IT,Italia,34,Véneto,VI,"Provincia de Vicenza",,,Europe/Rome,1
@@ -40449,6 +40519,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3167451,es,EU,Europa,IT,Italia,72,Campania,CE,"Provincia de Caserta",,,Europe/Rome,1
 3167509,es,EU,Europa,IT,Italia,72,Campania,NA,"Provincia de Nápoles",,,Europe/Rome,1
 3167520,es,EU,Europa,IT,Italia,62,Lacio,RM,"Provincia de Roma",,,Europe/Rome,1
+3167522,es,EU,Europa,IT,Italia,72,Campania,SA,"Provincia de Salerno","Santa Marina",,Europe/Rome,1
 3167526,es,EU,Europa,IT,Italia,57,"Las Marcas",AN,"Provincia de Ancona",,,Europe/Rome,1
 3167543,es,EU,Europa,IT,Italia,34,Véneto,VE,"Provincia de Venecia",,,Europe/Rome,1
 3167559,es,EU,Europa,IT,Italia,55,Umbría,PG,"Provincia de Perugia",,,Europe/Rome,1
@@ -41798,6 +41869,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3178726,es,EU,Europa,IT,Italia,72,Campania,NA,"Provincia de Nápoles",,,Europe/Rome,1
 3178738,es,EU,Europa,IT,Italia,62,Lacio,RM,"Provincia de Roma",,,Europe/Rome,1
 3178745,es,EU,Europa,IT,Italia,21,Piamonte,TO,"Provincia de Turín",,,Europe/Rome,1
+3178756,es,EU,Europa,IT,Italia,52,Toscana,SI,"Provincia de Siena",,,Europe/Rome,1
 3178758,es,EU,Europa,IT,Italia,72,Campania,AV,"Provincia de Avellino",,,Europe/Rome,1
 3178764,es,EU,Europa,IT,Italia,32,"Trentino-Alto Adigio",BZ,,Chiusa,,Europe/Rome,1
 3178767,es,EU,Europa,IT,Italia,34,Véneto,VI,"Provincia de Vicenza",,,Europe/Rome,1
@@ -43015,7 +43087,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3207681,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
 3207705,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
 3207709,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
-3207736,es,EU,Europa,DE,Alemania,HE,Hessen,,,,,Europe/Berlin,1
 3207742,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
 3207806,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
 3207895,es,EU,Europa,DE,Alemania,RP,Rheinland-Pfalz,,,,,Europe/Berlin,1
@@ -43310,6 +43381,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3333237,es,EU,Europa,GB,"Reino Unido",SCT,Escocia,WDU,"West Dunbartonshire",,,Europe/London,0
 3333244,es,EU,Europa,GB,"Reino Unido",WLS,Gales,MON,,,,Europe/London,0
 3333245,es,EU,Europa,GB,"Reino Unido",WLS,Gales,NTL,"Neath-Port Talbot",,,Europe/London,0
+3333250,es,EU,Europa,BE,Bélgica,VLG,Flandes,VBR,"Brabante Flamenco",,,Europe/Brussels,1
+3333251,es,EU,Europa,BE,Bélgica,WAL,Valonia,WBR,"Brabant Wallonie",,,Europe/Brussels,1
 3336585,es,EU,Europa,NO,Noruega,02,Akershus,,,,,Europe/Oslo,0
 3336586,es,EU,Europa,NO,Noruega,02,Akershus,,,,,Europe/Oslo,0
 3336588,es,EU,Europa,NO,Noruega,15,"More og Romsdal",,,,,Europe/Oslo,0
@@ -43374,6 +43447,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3345166,es,EU,Europa,GB,"Reino Unido",WLS,Gales,CMN,,,,Europe/London,0
 3345283,es,EU,Europa,GB,"Reino Unido",WLS,Gales,RCT,,Tonypandy,,Europe/London,0
 3345300,es,EU,Europa,HR,Croacia,04,Karlovac,,,,,Europe/Zagreb,1
+3345302,es,EU,Europa,SM,"San Marino",07,"San Marino",,,,,Europe/San_Marino,0
 3345303,es,EU,Europa,SM,"San Marino",01,Acquaviva,,,,,Europe/San_Marino,0
 3345316,es,EU,Europa,GB,"Reino Unido",WLS,Gales,RCT,,,,Europe/London,0
 3345317,es,EU,Europa,GB,"Reino Unido",WLS,Gales,CAY,,,,Europe/London,0
@@ -44491,6 +44565,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3412589,es,EU,Europa,IS,Islandia,8,Meridional,SOL,,,,Atlantic/Reykjavik,0
 3413604,es,EU,Europa,IS,Islandia,8,Meridional,SFA,,,,Atlantic/Reykjavik,0
 3413829,es,EU,Europa,IS,Islandia,1,"Región de la capital",RKV,,Reikiavik,,Atlantic/Reykjavik,0
+3413831,es,EU,Europa,IS,Islandia,1,"Región de la capital",RKV,,,,Atlantic/Reykjavik,0
 3415021,es,EU,Europa,IS,Islandia,1,"Región de la capital",MOS,Mosfellsbær,,,Atlantic/Reykjavik,0
 3415212,es,EU,Europa,IS,Islandia,1,"Región de la capital",KOP,,Kópavogur,,Atlantic/Reykjavik,0
 3415496,es,EU,Europa,IS,Islandia,2,Suroccidental,RKN,,Keflavík,,Atlantic/Reykjavik,0
@@ -44500,9 +44575,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3415779,es,EU,Europa,IS,Islandia,3,Occidental,BOG,,,,Atlantic/Reykjavik,0
 3416706,es,EU,Europa,IS,Islandia,1,"Región de la capital",HAF,,Hafnarfjörður,,Atlantic/Reykjavik,0
 3416888,es,EU,Europa,IS,Islandia,2,Suroccidental,GRN,,,,Atlantic/Reykjavik,0
+3417190,es,EU,Europa,IS,Islandia,1,"Región de la capital",GAR,,,,Atlantic/Reykjavik,0
 3417195,es,EU,Europa,IS,Islandia,1,"Región de la capital",GAR,,Garðabær,,Atlantic/Reykjavik,0
 3417972,es,EU,Europa,IS,Islandia,1,"Región de la capital",GAR,,,,Atlantic/Reykjavik,0
 3418653,es,EU,Europa,IS,Islandia,3,Occidental,AKN,,Akranes,,Atlantic/Reykjavik,0
+3418655,es,EU,Europa,IS,Islandia,3,Occidental,AKN,,,,Atlantic/Reykjavik,0
 3420635,es,NA,Norteamérica,GL,Groenlandia,QT,,,,,,America/Nuuk,0
 3420846,es,NA,Norteamérica,GL,Groenlandia,KU,Kujalleq,,,Qaqortoq,,America/Nuuk,0
 3421193,es,NA,Norteamérica,GL,Groenlandia,SM,Sermersooq,,,Paamiut,,America/Nuuk,0
@@ -44520,6 +44597,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3424941,es,NA,Norteamérica,PM,"San Pedro y Miquelón",M,,,,Miquelón,,America/Miquelon,0
 3425505,es,NA,Norteamérica,GL,Groenlandia,,,,,,,America/Nuuk,0
 3425682,es,NA,Norteamérica,PM,"San Pedro y Miquelón",M,,,,,,America/Miquelon,0
+3426218,es,EU,Europa,IS,Islandia,8,Meridional,SFA,,,,Atlantic/Reykjavik,0
 3426414,es,AN,Antártida,GS,"Islas Georgia del Sur y Sandwich del Sur",,,,,"King Edward Point",,Atlantic/South_Georgia,0
 3426691,es,SA,Sudamérica,FK,"Islas Malvinas",,,,,"Puerto Argentino",,Atlantic/Stanley,0
 3427208,es,SA,Sudamérica,AR,Argentina,B,"Buenos Aires",,,,,America/Argentina/Buenos_Aires,0
@@ -45281,6 +45359,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3448457,es,SA,Sudamérica,BR,Brasil,RS,"Río Grande del Sur",,,"São Miguel das Missões",,America/Sao_Paulo,0
 3448460,es,SA,Sudamérica,BR,Brasil,SP,"São Paulo",,,,,America/Sao_Paulo,0
 3448502,es,SA,Sudamérica,BR,Brasil,PR,Paraná,,,,,America/Sao_Paulo,0
+3448518,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
 3448519,es,SA,Sudamérica,BR,Brasil,ES,"Espírito Santo",,,,,America/Sao_Paulo,0
 3448524,es,SA,Sudamérica,BR,Brasil,RS,"Río Grande del Sur",,,,,America/Sao_Paulo,0
 3448525,es,SA,Sudamérica,BR,Brasil,RS,"Río Grande del Sur",,,,,America/Sao_Paulo,0
@@ -46853,6 +46932,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3466107,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
 3466115,es,SA,Sudamérica,BR,Brasil,RS,"Río Grande del Sur",,,,,America/Sao_Paulo,0
 3466118,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
+3466134,es,SA,Sudamérica,BR,Brasil,BA,Bahía,,,,,America/Bahia,0
 3466165,es,SA,Sudamérica,BR,Brasil,RS,"Río Grande del Sur",,,,,America/Sao_Paulo,0
 3466167,es,SA,Sudamérica,BR,Brasil,PR,Paraná,,,,,America/Sao_Paulo,0
 3466171,es,SA,Sudamérica,BR,Brasil,BA,Bahía,,,,,America/Bahia,0
@@ -47506,6 +47586,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3493032,es,NA,Norteamérica,DO,"Santo Domingo",23,"San Pedro de Macorís",,,"San Pedro de Macorís",,America/Santo_Domingo,0
 3493037,es,NA,Norteamérica,DO,"Santo Domingo",22,"Provincia de San Juan",,,,,America/Santo_Domingo,0
 3493081,es,NA,Norteamérica,DO,"Santo Domingo",22,"Provincia de San Juan",,,"San Juan de la Maguana",,America/Santo_Domingo,0
+3493091,es,NA,Norteamérica,DO,"Santo Domingo",22,"Provincia de San Juan",,,,,America/Santo_Domingo,0
 3493100,es,NA,Norteamérica,DO,"Santo Domingo",31,,,,"San José de Ocoa",,America/Santo_Domingo,0
 3493103,es,NA,Norteamérica,DO,"Santo Domingo",25,"Provincia de Santiago",,,,,America/Santo_Domingo,0
 3493146,es,NA,Norteamérica,DO,"Santo Domingo",06,Duarte,,,"San Francisco de Macorís",,America/Santo_Domingo,0
@@ -47769,6 +47850,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3518732,es,NA,Norteamérica,MX,México,OAX,Oaxaca,,,"Animas Trujano",,America/Mexico_City,0
 3519026,es,NA,Norteamérica,MX,México,QUE,"Querétaro de Arteaga",,,"San Joaquín",,America/Mexico_City,0
 3519055,es,NA,Norteamérica,MX,México,PUE,Puebla,,,,,America/Mexico_City,0
+3519062,es,NA,Norteamérica,MX,México,CMX,"Ciudad de México",,,,,America/Mexico_City,0
 3519214,es,NA,Norteamérica,MX,México,MEX,México,,,Cuautzingo,,America/Mexico_City,0
 3519227,es,NA,Norteamérica,MX,México,MEX,México,,,,,America/Mexico_City,0
 3519230,es,NA,Norteamérica,MX,México,PUE,Puebla,,,,,America/Mexico_City,0
@@ -47871,6 +47953,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3523619,es,NA,Norteamérica,MX,México,YUC,Yucatán,,,Mani,,America/Merida,0
 3523686,es,NA,Norteamérica,MX,México,MEX,México,,,,,America/Mexico_City,0
 3523742,es,NA,Norteamérica,MX,México,OAX,Oaxaca,,,,,America/Mexico_City,0
+3523760,es,NA,Norteamérica,MX,México,CMX,"Ciudad de México",,,,,America/Mexico_City,0
 3523791,es,NA,Norteamérica,MX,México,TAB,Tabasco,,,,,America/Mexico_City,0
 3523900,es,NA,Norteamérica,MX,México,MEX,México,,,"Reyes Acozac",,America/Mexico_City,0
 3523908,es,NA,Norteamérica,MX,México,MEX,México,,,"Los Reyes La Paz",,America/Mexico_City,0
@@ -47990,6 +48073,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3530517,es,NA,Norteamérica,MX,México,VER,Veracruz-Llave,,,"Puerto Mexico",,America/Mexico_City,0
 3530527,es,NA,Norteamérica,MX,México,MEX,México,,,,,America/Mexico_City,0
 3530531,es,NA,Norteamérica,MX,México,VER,Veracruz-Llave,,,,,America/Mexico_City,0
+3530532,es,NA,Norteamérica,MX,México,PUE,Puebla,,,"Santa Maria Coatepec",,America/Mexico_City,0
 3530569,es,NA,Norteamérica,MX,México,MEX,México,,,Coacalco,,America/Mexico_City,0
 3530580,es,NA,Norteamérica,MX,México,TAM,Tamaulipas,,,"Cd. Victoria",,America/Monterrey,0
 3530584,es,NA,Norteamérica,MX,México,PUE,Puebla,,,,,America/Mexico_City,0
@@ -48294,7 +48378,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3578682,es,NA,Norteamérica,GP,Guadalupe,,,,,,,America/Guadeloupe,1
 3578781,es,NA,Norteamérica,GP,Guadalupe,,,,,,,America/Guadeloupe,1
 3578851,es,NA,Norteamérica,MF,"San Martín",,,,,,,America/Marigot,1
-3578852,es,NA,Norteamérica,BL,"San Bartolomé",,,,,,,America/St_Barthelemy,0
 3578853,es,NA,Norteamérica,GP,Guadalupe,,,,,,,America/Guadeloupe,1
 3578959,es,NA,Norteamérica,GP,Guadalupe,,,,,,,America/Guadeloupe,1
 3578967,es,NA,Norteamérica,GP,Guadalupe,,,,,,,America/Guadeloupe,1
@@ -48540,6 +48623,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3621607,es,NA,Norteamérica,CR,"Costa Rica",G,"Provincia de Guanacaste",,,,,America/Costa_Rica,0
 3621630,es,NA,Norteamérica,CR,"Costa Rica",SJ,,,,"Santa Ana",,America/Costa_Rica,0
 3621644,es,NA,Norteamérica,CR,"Costa Rica",A,"Provincia de Alajuela",,,,,America/Costa_Rica,0
+3621655,es,NA,Norteamérica,CR,"Costa Rica",SJ,,,,,,America/Costa_Rica,0
 3621679,es,NA,Norteamérica,CR,"Costa Rica",A,"Provincia de Alajuela",,,,,America/Costa_Rica,0
 3621683,es,NA,Norteamérica,CR,"Costa Rica",H,"Provincia de Heredia",,,,,America/Costa_Rica,0
 3621689,es,NA,Norteamérica,CR,"Costa Rica",SJ,,,,,,America/Costa_Rica,0
@@ -49232,6 +49316,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3677010,es,SA,Sudamérica,CO,Colombia,QUI,"Departamento del Quindío",,,"La Tebaida",,America/Bogota,0
 3678097,es,SA,Sudamérica,CO,Colombia,HUI,Huila,,,,,America/Bogota,0
 3678118,es,SA,Sudamérica,CO,Colombia,ANT,Antioquia,,,,,America/Bogota,0
+3678510,es,SA,Sudamérica,CO,Colombia,ANT,Antioquia,,,,,America/Bogota,0
 3678565,es,SA,Sudamérica,CO,Colombia,TOL,Tolima,,,,,America/Bogota,0
 3678674,es,SA,Sudamérica,CO,Colombia,CES,Cesar,,,,,America/Bogota,0
 3678907,es,SA,Sudamérica,CO,Colombia,CES,Cesar,,,,,America/Bogota,0
@@ -49442,6 +49527,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3694112,es,SA,Sudamérica,PE,Perú,PIU,"Departamento de Piura",,,,,America/Lima,0
 3694119,es,SA,Sudamérica,PE,Perú,LAL,"Departamento de La Libertad",,,Paiján,,America/Lima,0
 3694256,es,SA,Sudamérica,PE,Perú,LAM,"Departamento de Lambayeque",,,,,America/Lima,0
+3694379,es,SA,Sudamérica,PE,Perú,ANC,Ancash,,,,,America/Lima,0
 3694564,es,SA,Sudamérica,PE,Perú,SAM,"Departamento de San Martín",,,Moyobamba,,America/Lima,0
 3694569,es,SA,Sudamérica,PE,Perú,LAM,"Departamento de Lambayeque",,,,,America/Lima,0
 3694838,es,SA,Sudamérica,PE,Perú,AMA,"Departamento de Amazonas",,,,,America/Lima,0
@@ -49633,6 +49719,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3817756,es,NA,Norteamérica,MX,México,MEX,México,,,"Santa Catarina",,America/Mexico_City,0
 3818742,es,NA,Norteamérica,MX,México,PUE,Puebla,,,"San Andrés Cholula",,America/Mexico_City,0
 3818786,es,NA,Norteamérica,MX,México,PUE,Puebla,,,,,America/Mexico_City,0
+3818810,es,NA,Norteamérica,MX,México,PUE,Puebla,,,,,America/Mexico_City,0
 3821535,es,NA,Norteamérica,MX,México,GRO,Guerrero,,,Xochimilco,,America/Mexico_City,0
 3821997,es,NA,Norteamérica,MX,México,GRO,Guerrero,,,"Las Vigas",,America/Mexico_City,0
 3822029,es,NA,Norteamérica,MX,México,GRO,Guerrero,,,,,America/Mexico_City,0
@@ -51056,6 +51143,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4030945,es,OC,Oceanía,KI,Kiribati,,,,,,,Pacific/Tarawa,0
 4031074,es,OC,Oceanía,TK,Tokelau,,,,,,,Pacific/Fakaofo,0
 4031110,es,OC,Oceanía,TK,Tokelau,F,Fakaofo,,,"Antiguo asentamiento de Fale",,Pacific/Fakaofo,0
+4031112,es,OC,Oceanía,TK,Tokelau,F,Fakaofo,,,,,Pacific/Fakaofo,0
 4031126,es,OC,Oceanía,CK,"Islas Cook",,,,,,,Pacific/Rarotonga,0
 4032279,es,OC,Oceanía,TO,Tonga,04,Tongatapu,,,,,Pacific/Tongatapu,0
 4032283,es,OC,Oceanía,TO,Tonga,,,,,,,Pacific/Tongatapu,0
@@ -51075,7 +51163,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4034763,es,OC,Oceanía,WF,"Wallis y Futuna",UV,,,,,,Pacific/Wallis,0
 4034770,es,OC,Oceanía,WF,"Wallis y Futuna",UV,,,,,,Pacific/Wallis,0
 4034778,es,OC,Oceanía,WF,"Wallis y Futuna",SG,Sigave,,,Leava,,Pacific/Wallis,0
-4034815,es,OC,Oceanía,WF,"Wallis y Futuna",AL,Alo,,,,,Pacific/Wallis,0
 4034821,es,OC,Oceanía,WF,"Wallis y Futuna",UV,,,,,,Pacific/Wallis,0
 4034831,es,OC,Oceanía,WF,"Wallis y Futuna",UV,,,,,,Pacific/Wallis,0
 4034845,es,OC,Oceanía,WF,"Wallis y Futuna",AL,Alo,,,,,Pacific/Wallis,0
@@ -52921,6 +53008,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4248205,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,,648,America/Chicago,0
 4248256,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,,581,America/Chicago,0
 4248284,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,,648,America/Chicago,0
+4248330,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,,609,America/Chicago,0
 4248341,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,,717,America/Chicago,0
 4248420,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,Roodhouse,609,America/Chicago,0
 4248482,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,Rosiclare,632,America/Chicago,0
@@ -53846,6 +53934,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4313776,es,NA,Norteamérica,US,"Estados Unidos",KY,Kentucky,,,,564,America/New_York,0
 4314026,es,NA,Norteamérica,US,"Estados Unidos",KY,Kentucky,,,,541,America/New_York,0
 4314048,es,NA,Norteamérica,US,"Estados Unidos",KY,Kentucky,,,Worthville,515,America/New_York,0
+4314072,es,NA,Norteamérica,US,"Estados Unidos",KY,Kentucky,,,Wurtland,564,America/New_York,0
 4314170,es,NA,Norteamérica,US,"Estados Unidos",KY,Kentucky,,,,541,America/New_York,0
 4314295,es,NA,Norteamérica,US,"Estados Unidos",LA,Louisiana,,,,642,America/Chicago,0
 4314388,es,NA,Norteamérica,US,"Estados Unidos",LA,Louisiana,,,,622,America/Chicago,0
@@ -54825,6 +54914,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4410813,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,,619,America/Chicago,0
 4410978,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,"Sweet Springs",616,America/Chicago,0
 4411207,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,,619,America/Chicago,0
+4411228,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,,604,America/Chicago,0
 4411477,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,Thayer,619,America/Chicago,0
 4411510,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,,619,America/Chicago,0
 4411809,es,NA,Norteamérica,US,"Estados Unidos",MO,Missouri,,,Tipton,604,America/Chicago,0
@@ -57062,6 +57152,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4670582,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,Alvarado,623,America/Chicago,0
 4670592,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,,618,America/Chicago,0
 4670605,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,,623,America/Chicago,0
+4670667,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,Ames,618,America/Chicago,0
 4670707,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,Anáhuac,618,America/Chicago,0
 4670866,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,,618,America/Chicago,0
 4670871,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,Anna,623,America/Chicago,0
@@ -61448,6 +61539,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5011900,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,,513,America/Detroit,0
 5011908,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,Taylor,505,America/Detroit,0
 5011973,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,Tecumseh,547,America/Detroit,0
+5011985,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,,563,America/Detroit,0
 5011989,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,Temperance,505,America/Detroit,0
 5012137,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,,540,America/Detroit,0
 5012194,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,"Three Rivers",563,America/Detroit,0
@@ -61546,7 +61638,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5017815,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,Belview,613,America/Chicago,0
 5017822,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,,613,America/Chicago,0
 5017882,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,,613,America/Chicago,0
-5018085,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,,613,America/Chicago,0
 5018285,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,"Big Lake",613,America/Chicago,0
 5018411,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,Bigfork,676,America/Chicago,0
 5018516,es,NA,Norteamérica,US,"Estados Unidos",MN,Minnesota,,,"Bird Island",613,America/Chicago,0
@@ -63781,6 +63872,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5134086,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,Rochester,538,America/New_York,0
 5134115,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,,501,America/New_York,0
 5134161,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,,501,America/New_York,0
+5134185,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,,501,America/New_York,0
 5134189,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,"Condado de Rockland",501,America/New_York,0
 5134203,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,,501,America/New_York,0
 5134235,es,NA,Norteamérica,US,"Estados Unidos",NY,"Nueva York",,,"Rocky Point",501,America/New_York,0
@@ -66088,6 +66180,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5278931,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,Whitewater,617,America/Chicago,0
 5279018,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,,658,America/Chicago,0
 5279098,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,,617,America/Chicago,0
+5279272,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,,702,America/Chicago,0
 5279297,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,,705,America/Chicago,0
 5279311,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,,669,America/Chicago,0
 5279356,es,NA,Norteamérica,US,"Estados Unidos",WI,Wisconsin,,,,658,America/Chicago,0
@@ -69435,7 +69528,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5883077,es,NA,Norteamérica,CA,Canadá,PE,"Isla del Príncipe Eduardo",,,,,America/Halifax,0
 5883102,es,NA,Norteamérica,CA,Canadá,AB,Alberta,,,,,America/Edmonton,0
 5883166,es,NA,Norteamérica,CA,Canadá,PE,"Isla del Príncipe Eduardo",,,,,America/Halifax,0
-5883341,es,NA,Norteamérica,CA,Canadá,AB,Alberta,,,,,America/Edmonton,0
 5883385,es,NA,Norteamérica,CA,Canadá,BC,"Columbia Británica",,,,,America/Vancouver,0
 5883490,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
 5883589,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
@@ -70370,6 +70462,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6072435,es,NA,Norteamérica,CA,Canadá,QC,Quebec,,,,,America/Toronto,0
 6072447,es,NA,Norteamérica,CA,Canadá,QC,Quebec,,,,,America/Toronto,0
 6072470,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
+6072482,es,NA,Norteamérica,CA,Canadá,BC,"Columbia Británica",,,,,America/Vancouver,0
 6072486,es,NA,Norteamérica,CA,Canadá,NS,"Nueva Escocia",,,,,America/Halifax,0
 6072488,es,NA,Norteamérica,CA,Canadá,NS,"Nueva Escocia",,,,,America/Halifax,0
 6072606,es,NA,Norteamérica,CA,Canadá,MB,Manitoba,,,,,America/Winnipeg,0
@@ -71084,7 +71177,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6167125,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,Tobermory,,America/Toronto,0
 6167254,es,NA,Norteamérica,CA,Canadá,AB,Alberta,,,,,America/Edmonton,0
 6167817,es,NA,Norteamérica,CA,Canadá,NL,"New Foundland - Labrador",,,,,America/St_Johns,0
-6167863,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
 6167865,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,Toronto,,America/Toronto,0
 6167983,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
 6168184,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
@@ -71478,6 +71570,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6316496,es,SA,Sudamérica,BR,Brasil,BA,Bahía,,,,,America/Bahia,0
 6316546,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
 6316556,es,SA,Sudamérica,BR,Brasil,SC,"Santa Catarina",,,,,America/Sao_Paulo,0
+6316561,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
 6316562,es,SA,Sudamérica,BR,Brasil,PB,Paraíba,,,,,America/Fortaleza,0
 6316567,es,SA,Sudamérica,BR,Brasil,PI,Piauí,,,,,America/Fortaleza,0
 6316570,es,SA,Sudamérica,BR,Brasil,PR,Paraná,,,,,America/Sao_Paulo,0
@@ -72385,6 +72478,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6534944,es,EU,Europa,IT,Italia,25,Lombardía,MB,,,,Europe/Rome,1
 6534947,es,EU,Europa,IT,Italia,25,Lombardía,MB,,,,Europe/Rome,1
 6534948,es,EU,Europa,IT,Italia,25,Lombardía,MI,"Provincia de Milán",,,Europe/Rome,1
+6534949,es,EU,Europa,IT,Italia,25,Lombardía,MB,,,,Europe/Rome,1
 6534950,es,EU,Europa,IT,Italia,25,Lombardía,MB,,,,Europe/Rome,1
 6534951,es,EU,Europa,IT,Italia,25,Lombardía,MI,"Provincia de Milán",,,Europe/Rome,1
 6534958,es,EU,Europa,IT,Italia,25,Lombardía,BG,"Provincia de Bérgamo",,,Europe/Rome,1
@@ -73503,6 +73597,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7051396,es,AS,Asia,ID,Indonesia,JI,"Java Oriental",,,,,Asia/Jakarta,0
 7055784,es,AS,Asia,ID,Indonesia,BA,Bali,,,,,Asia/Makassar,0
 7056266,es,EU,Europa,MK,"Macedonia del Norte",801,"Municipalidad de Aerodrom",,,,,Europe/Skopje,0
+7056273,es,AF,África,UG,Uganda,N,"Región Septentrional",314,"Distrito de Abim",,,Africa/Kampala,0
 7062138,es,SA,Sudamérica,EC,Ecuador,SE,"Provincia de Santa Elena",,,,,America/Guayaquil,0
 7064006,es,AS,Asia,CN,China,SN,Shaanxi,,,,,Asia/Shanghai,0
 7071303,es,AS,Asia,CN,China,ZJ,Zhejiang,,,,,Asia/Shanghai,0
@@ -73582,6 +73677,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7259303,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,,505,America/Detroit,0
 7259396,es,NA,Norteamérica,US,"Estados Unidos",ND,"Dakota del Norte",,,,687,America/Chicago,0
 7259489,es,NA,Norteamérica,US,"Estados Unidos",IL,Illinois,,,"Scott AFB",609,America/Chicago,0
+7259492,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,,505,America/Detroit,0
 7259551,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,"Municipio de Bloomfield",505,America/Detroit,0
 7259621,es,NA,Norteamérica,US,"Estados Unidos",MI,Michigan,,,"Municipio de West Bloomfield",505,America/Detroit,0
 7259720,es,NA,Norteamérica,US,"Estados Unidos",FL,Florida,,,,686,America/Chicago,0
@@ -74045,13 +74141,17 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7522181,es,OC,Oceanía,TK,Tokelau,N,Nukunonu,,,Nukunonu,,Pacific/Fakaofo,0
 7522183,es,OC,Oceanía,TK,Tokelau,A,,,,"Pueblo de Atafu",,Pacific/Fakaofo,0
 7522199,es,AS,Asia,JP,Japón,13,Tokio,,,,,Asia/Tokyo,0
+7522275,es,EU,Europa,EE,Estonia,37,"Condado de Harju",198,,,,Europe/Tallinn,1
 7522294,es,EU,Europa,EE,Estonia,79,"Condado de Tartu",283,,,,Europe/Tallinn,1
+7522298,es,EU,Europa,EE,Estonia,71,"Condado de Rapla",293,,,,Europe/Tallinn,1
+7522335,es,EU,Europa,EE,Estonia,45,"Condado de Ida-Viru",442,,,,Europe/Tallinn,1
 7522368,es,EU,Europa,EE,Estonia,52,"Condado de Järva",567,,,,Europe/Tallinn,1
 7522388,es,EU,Europa,EE,Estonia,81,"Condado de Valga",557,,,,Europe/Tallinn,1
 7522390,es,EU,Europa,EE,Estonia,60,"Condado de Lääne-Viru",792,,,,Europe/Tallinn,1
 7522422,es,EU,Europa,EE,Estonia,60,"Condado de Lääne-Viru",661,,,,Europe/Tallinn,1
 7522425,es,EU,Europa,EE,Estonia,37,"Condado de Harju",726,,,,Europe/Tallinn,1
 7522460,es,EU,Europa,EE,Estonia,37,"Condado de Harju",890,,,,Europe/Tallinn,1
+7522467,es,EU,Europa,EE,Estonia,64,"Condado de Põlva",622,,,,Europe/Tallinn,1
 7522474,es,EU,Europa,EE,Estonia,52,"Condado de Järva",834,,,,Europe/Tallinn,1
 7522490,es,AS,Asia,JP,Japón,13,Tokio,,,,,Asia/Tokyo,0
 7522517,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
@@ -74059,6 +74159,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7525990,es,EU,Europa,UA,Ucrania,48,"Óblast de Mikoláyiv",,,,,Europe/Kyiv,0
 7526919,es,SA,Sudamérica,CO,Colombia,MET,"Departamento del Meta",,,Cartagena,,America/Bogota,0
 7529576,es,AS,Asia,IR,Irán,17,"Kohkiluyeh y Buyer Ahmad",,,,,Asia/Tehran,0
+7530893,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
 7530901,es,EU,Europa,PL,Polonia,26,"Voivodato de Santa Cruz",,,,,Europe/Warsaw,1
 7530917,es,EU,Europa,PL,Polonia,04,"Voivodato de Cuyavia y Pomerania",,,,,Europe/Warsaw,1
 7530925,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
@@ -74459,6 +74560,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7870431,es,AF,África,ZA,Sudáfrica,NW,"Provincia del Noroeste",,,,,Africa/Johannesburg,0
 7870440,es,AF,África,ZA,Sudáfrica,GP,Gauteng,,,,,Africa/Johannesburg,0
 7870455,es,AF,África,ZA,Sudáfrica,GP,Gauteng,,,,,Africa/Johannesburg,0
+7870654,es,AS,Asia,PS,Palestina,JEM,,,,,,Asia/Hebron,0
+7870658,es,AS,Asia,PS,Palestina,HBN,,,,,,Asia/Hebron,0
 7870919,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
 7870989,es,EU,Europa,IE,Irlanda,L,Leinster,WW,,,,Europe/Dublin,1
 7871262,es,AF,África,ZA,Sudáfrica,GP,Gauteng,,,,,Africa/Johannesburg,0
@@ -74868,6 +74971,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8354605,es,EU,Europa,UA,Ucrania,32,"Oblast de Kyiv",,,,,Europe/Kyiv,0
 8354606,es,EU,Europa,UA,Ucrania,32,"Oblast de Kyiv",,,,,Europe/Kyiv,0
 8354607,es,EU,Europa,CH,Suiza,TI,Tesino,,,,,Europe/Zurich,0
+8354608,es,EU,Europa,CH,Suiza,TG,Turgovia,,,,,Europe/Zurich,0
 8354615,es,EU,Europa,ES,España,AR,Aragón,HU,Huesca,,,Europe/Madrid,1
 8354621,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
 8354649,es,NA,Norteamérica,US,"Estados Unidos",NJ,"Nueva Jersey",,,,504,America/New_York,0
@@ -74891,6 +74995,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8378779,es,EU,Europa,CZ,Chequia,10,Praga,,,,,Europe/Prague,1
 8378780,es,EU,Europa,CZ,Chequia,10,Praga,,,,,Europe/Prague,1
 8378781,es,EU,Europa,CZ,Chequia,10,Praga,,,,,Europe/Prague,1
+8378785,es,EU,Europa,CZ,Chequia,10,Praga,,,,,Europe/Prague,1
 8378911,es,EU,Europa,IT,Italia,78,Calabria,CS,"Provincia de Cosenza",,,Europe/Rome,1
 8379097,es,NA,Norteamérica,CA,Canadá,QC,Quebec,,,,,America/Toronto,0
 8379100,es,NA,Norteamérica,CA,Canadá,QC,Quebec,,,,,America/Toronto,0
@@ -74944,6 +75049,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8423783,es,AS,Asia,ID,Indonesia,KI,"Kalimantan Oriental",,,,,Asia/Makassar,0
 8425788,es,NA,Norteamérica,CA,Canadá,QC,Quebec,,,,,America/Toronto,0
 8425790,es,SA,Sudamérica,CL,Chile,AI,Aysén,,,,,America/Coyhaique,0
+8425848,es,EU,Europa,PL,Polonia,14,"Voivodato de Mazovia",,,,,Europe/Warsaw,1
 8425962,es,EU,Europa,PL,Polonia,02,"Voivodato de Baja Silesia",,,,,Europe/Warsaw,1
 8426426,es,NA,Norteamérica,CA,Canadá,ON,Ontario,,,,,America/Toronto,0
 8426434,es,EU,Europa,IT,Italia,62,Lacio,LT,"provincia de Latina",,,Europe/Rome,1
@@ -75963,6 +76069,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 9610406,es,EU,Europa,LT,Lituania,KU,"Provincia de Kaunas",16,,,,Europe/Vilnius,1
 9610677,es,EU,Europa,FI,Finlandia,18,Uusimaa,,,,,Europe/Helsinki,1
 9613001,es,EU,Europa,GB,"Reino Unido",SCT,Escocia,MLN,,,,Europe/London,0
+9613373,es,AS,Asia,TW,Taiwán,KHH,,,,,,Asia/Taipei,0
 9613500,es,AS,Asia,TW,Taiwán,TXG,,,,,,Asia/Taipei,0
 9618707,es,NA,Norteamérica,MX,México,GRO,Guerrero,,,Tecoanapa,,America/Mexico_City,0
 9631837,es,AS,Asia,JP,Japón,29,"Prefectura de Nara",,,,,Asia/Tokyo,0
@@ -76038,6 +76145,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 9818161,es,AS,Asia,JP,Japón,05,"Prefectura de Akita",,,,,Asia/Tokyo,0
 9819493,es,AS,Asia,JP,Japón,05,"Prefectura de Akita",,,,,Asia/Tokyo,0
 9827976,es,AS,Asia,BD,Bangladesh,C,Daca,13,,,,Asia/Dhaka,0
+9844901,es,AS,Asia,ID,Indonesia,RI,Riau,,,,,Asia/Jakarta,0
 9845383,es,AS,Asia,ID,Indonesia,BT,Bantén,,,,,Asia/Jakarta,0
 9845433,es,AS,Asia,ID,Indonesia,KB,"Kalimantan Occidental",,,,,Asia/Pontianak,0
 9845480,es,AS,Asia,ID,Indonesia,BT,Bantén,,,,,Asia/Jakarta,0
@@ -76316,6 +76424,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 10345206,es,AS,Asia,TR,Turquía,26,"Provincia de Eskişehir",,,,,Europe/Istanbul,0
 10345207,es,AS,Asia,TR,Turquía,26,"Provincia de Eskişehir",,,,,Europe/Istanbul,0
 10346354,es,SA,Sudamérica,BR,Brasil,GO,Goiás,,,,,America/Sao_Paulo,0
+10346724,es,EU,Europa,PL,Polonia,30,"Voivodato de Gran Polonia",,,,,Europe/Warsaw,1
 10346824,es,AS,Asia,TR,Turquía,16,"Provincia de Bursa",,,,,Europe/Istanbul,0
 10351460,es,AS,Asia,JP,Japón,40,"Prefectura de Fukuoka",,,,,Asia/Tokyo,0
 10353097,es,AS,Asia,JP,Japón,40,"Prefectura de Fukuoka",,,,,Asia/Tokyo,0
@@ -76878,6 +76987,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11185927,es,NA,Norteamérica,GP,Guadalupe,,,,,,,America/Guadeloupe,1
 11186019,es,EU,Europa,DE,Alemania,BW,Baden-Wurtemberg,,,,,Europe/Berlin,1
 11186057,es,AS,Asia,IN,India,KL,Kerala,,,,,Asia/Kolkata,0
+11189141,es,AS,Asia,PH,Filipinas,11,"Región de Dávao",DVO,,,,Asia/Manila,0
 11191505,es,AS,Asia,JP,Japón,43,"prefectura de Kumamoto",,,,,Asia/Tokyo,0
 11192331,es,AS,Asia,JP,Japón,43,"prefectura de Kumamoto",,,,,Asia/Tokyo,0
 11201380,es,NA,Norteamérica,TC,"Islas Turcas y Caicos",,,,,,,America/Grand_Turk,0
@@ -77054,6 +77164,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11524299,es,AS,Asia,SA,"Arabia Saudí",02,"Región de La Meca",,,,,Asia/Riyadh,0
 11524774,es,EU,Europa,CH,Suiza,OW,Obwalden,,,,,Europe/Zurich,0
 11524775,es,EU,Europa,CH,Suiza,SZ,Schwyz,,,,,Europe/Zurich,0
+11524780,es,AF,África,ZA,Sudáfrica,KZN,KwaZulu-Natal,,,,,Africa/Johannesburg,0
 11524805,es,EU,Europa,NO,Noruega,50,Trøndelag,,,,,Europe/Oslo,0
 11524816,es,EU,Europa,NL,Holanda,LI,Limburgo,,,,,Europe/Amsterdam,1
 11524864,es,AS,Asia,IL,Israel,M,"Distrito Central",,,,,Asia/Jerusalem,0
@@ -77213,6 +77324,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11611203,es,EU,Europa,DE,Alemania,NW,"Renania del Norte-Westfalia",,,,,Europe/Berlin,1
 11611212,es,EU,Europa,DE,Alemania,BY,Baviera,,,,,Europe/Berlin,1
 11611221,es,AS,Asia,JP,Japón,16,"Prefectura de Toyama",,,,,Asia/Tokyo,0
+11611445,es,EU,Europa,IE,Irlanda,M,Munster,LK,,,,Europe/Dublin,1
 11611475,es,AS,Asia,JP,Japón,25,"Prefectura de Shiga",,,,,Asia/Tokyo,0
 11611478,es,AS,Asia,JP,Japón,14,"prefectura de Kanagawa",,,,,Asia/Tokyo,0
 11611479,es,AS,Asia,JP,Japón,19,"Prefectura de Yamanashi",,,,,Asia/Tokyo,0
@@ -77465,6 +77577,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11776851,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,LDS,,,,Europe/London,0
 11776853,es,AS,Asia,JP,Japón,14,"prefectura de Kanagawa",,,,,Asia/Tokyo,0
 11776874,es,EU,Europa,EE,Estonia,74,"Condado de Saare",714,,,,Europe/Tallinn,1
+11776879,es,EU,Europa,EE,Estonia,45,"Condado de Ida-Viru",130,,,,Europe/Tallinn,1
 11776886,es,AS,Asia,JP,Japón,14,"prefectura de Kanagawa",,,,,Asia/Tokyo,0
 11776887,es,AS,Asia,JP,Japón,14,"prefectura de Kanagawa",,,,,Asia/Tokyo,0
 11776889,es,AS,Asia,JP,Japón,14,"prefectura de Kanagawa",,,,,Asia/Tokyo,0
@@ -77519,7 +77632,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11777513,es,AS,Asia,JP,Japón,04,"Prefectura de Miyagi",,,,,Asia/Tokyo,0
 11777514,es,AS,Asia,QA,Catar,SH,,,,,,Asia/Qatar,0
 11777624,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,ISL,,,,Europe/London,0
-11777962,es,AS,Asia,MV,Maldivas,26,,,,,,Indian/Maldives,0
 11778440,es,NA,Norteamérica,MX,México,CAM,Campeche,,,Candelaria,,America/Merida,0
 11778477,es,AS,Asia,JP,Japón,13,Tokio,,,,,Asia/Tokyo,0
 11779004,es,EU,Europa,BG,Bulgaria,14,Pernik,,,,,Europe/Sofia,1
@@ -78527,6 +78639,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12534511,es,AS,Asia,PH,Filipinas,03,"Luzón Central",PAM,,,,Asia/Manila,0
 12535198,es,EU,Europa,FR,Francia,NAQ,"Nueva Aquitania",23,Creuse,,,Europe/Paris,1
 12541728,es,NA,Norteamérica,US,"Estados Unidos",GA,Georgia,,,,524,America/New_York,0
+12542436,es,SA,Sudamérica,BR,Brasil,PB,Paraíba,,,,,America/Fortaleza,0
 12543810,es,SA,Sudamérica,EC,Ecuador,G,Guayas,,,Ayacucho,,America/Guayaquil,0
 12544743,es,SA,Sudamérica,BR,Brasil,RN,"Río Grande del Norte",,,,,America/Fortaleza,0
 12547281,es,EU,Europa,GB,"Reino Unido",ENG,Inglaterra,CMA,,,,Europe/London,0
@@ -78695,6 +78808,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13011513,es,SA,Sudamérica,BR,Brasil,RJ,"Río de Janeiro",,,,,America/Sao_Paulo,0
 13011999,es,SA,Sudamérica,BR,Brasil,RJ,"Río de Janeiro",,,,,America/Sao_Paulo,0
 13013741,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
+13016174,es,SA,Sudamérica,BR,Brasil,RJ,"Río de Janeiro",,,,,America/Sao_Paulo,0
 13018938,es,SA,Sudamérica,BR,Brasil,RJ,"Río de Janeiro",,,,,America/Sao_Paulo,0
 13022386,es,SA,Sudamérica,BR,Brasil,MG,"Minas Gerais",,,,,America/Sao_Paulo,0
 13025086,es,SA,Sudamérica,BR,Brasil,RS,"Río Grande del Sur",,,,,America/Sao_Paulo,0
@@ -78948,7 +79062,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13353810,es,NA,Norteamérica,US,"Estados Unidos",TX,Texas,,,,636,America/Chicago,0
 13353824,es,SA,Sudamérica,BR,Brasil,PE,Pernambuco,,,,,America/Recife,0
 13353864,es,NA,Norteamérica,BM,Bermudas,DS,,,,,,Atlantic/Bermuda,0
-13353866,es,NA,Norteamérica,BM,Bermudas,HA,Hamilton,,,,,Atlantic/Bermuda,0
 13353868,es,NA,Norteamérica,BM,Bermudas,PG,Paget,,,,,Atlantic/Bermuda,0
 13353869,es,NA,Norteamérica,BM,Bermudas,WA,,,,,,Atlantic/Bermuda,0
 13353985,es,SA,Sudamérica,BR,Brasil,PE,Pernambuco,,,,,America/Recife,0
