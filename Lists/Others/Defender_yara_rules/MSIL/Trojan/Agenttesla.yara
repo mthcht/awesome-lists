@@ -820,3 +820,50 @@ rule Trojan_MSIL_Agenttesla_MCV_2147976853_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_MCX_2147977231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MCX!MTB"
+        threat_id = "2147977231"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4b 65 65 70 50 69 6e 67 00 6b 65 65 70 50 69 6e 67 00 6c 61 73 74 50 69 6e 67 00 53 79 73 74 65 6d 2e 54 68 72 65 61 64 69 6e 67 00 4c 45 42 31 32 38 43}  //weight: 1, accuracy: High
+        $x_1_2 = "de344385-3a4d-45b2-a2a7-8722135f484d" ascii //weight: 1
+        $x_1_3 = "Desktop" wide //weight: 1
+        $x_1_4 = {50 61 63 6b 65 74 00 53 6f 63 6b 65 74 00 73 6f 63 6b 65 74 00 4f 66 66 73 65}  //weight: 1, accuracy: High
+        $x_1_5 = "LEB128Coding" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_MCW_2147977232_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MCW!MTB"
+        threat_id = "2147977232"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Aceoffix.Resources.file004.docx" ascii //weight: 1
+        $x_1_2 = "LX_HJqeMBMVmCq" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
