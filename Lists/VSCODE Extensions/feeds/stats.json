@@ -1,21 +1,21 @@
 {
-  "generated_utc": "2026-08-31T03:32:08+00:00",
-  "total_records": 2082,
-  "total_malicious": 2010,
+  "generated_utc": "2026-08-31T04:31:47+00:00",
+  "total_records": 2114,
+  "total_malicious": 2042,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 635,
-    "high": 1046,
+    "critical": 638,
+    "high": 1052,
     "low": 22,
-    "medium": 379
+    "medium": 402
   },
   "category_counts": {
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 1027,
+    "impersonation": 1033,
     "impersonation-malware": 5,
-    "malware": 635,
+    "malware": 638,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -31,7 +31,7 @@
     "risky-infrastructure": 4,
     "risky-remote-access": 15,
     "risky-tunnel": 5,
-    "spam": 82,
+    "spam": 105,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 222
@@ -40,13 +40,13 @@
     "copyright-violation": 15,
     "deprecated": 2,
     "expired-domain": 1,
-    "impersonation": 1027,
+    "impersonation": 1033,
     "impersonation-malware": 5,
-    "malware": 635,
+    "malware": 638,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
-    "spam": 82,
+    "spam": 105,
     "spam-malware": 5,
     "typo-squatting": 1,
     "untrustworthy": 222
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 1600,
+  "total_publishers": 1609,
   "top_publishers": [
     [
       "pit00",
@@ -78,6 +78,10 @@
     [
       "SlashMark",
       25
+    ],
+    [
+      "fj-dev",
+      23
     ],
     [
       "gh555com",
@@ -161,10 +165,6 @@
     ],
     [
       "Malkolm",
-      5
-    ],
-    [
-      "pandaexpress",
       5
     ]
   ]
