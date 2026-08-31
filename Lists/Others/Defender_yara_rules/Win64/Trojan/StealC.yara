@@ -1097,3 +1097,59 @@ rule Trojan_Win64_StealC_NP_2147977212_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_AB_2147977237_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AB!MTB"
+        threat_id = "2147977237"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 0c 3a 48 8d 42 ?? 83 e0 3f d0 c9 32 4c 28 ?? 88 0c 3a 48 ff c2 48 3b d6 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_StealC_AB_2147977237_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.AB!MTB"
+        threat_id = "2147977237"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b 0b 30 14 01 44 33 47 ?? 41 8b c8 c1 e9 ?? 41 33 c8 69 d1 ?? ?? ?? ?? 48 8b cb 44 8b c2 41 c1 e8 ?? 44 33 c2 48 83 7b 18 ?? ?? ?? 48 8b 0b 44 30 04 01 48 ff c0 48 83 f8}  //weight: 5, accuracy: Low
+        $x_2_2 = "chrome_stealer" ascii //weight: 2
+        $x_2_3 = "harvest notes" ascii //weight: 2
+        $x_2_4 = "CHROME DATA DUMP" ascii //weight: 2
+        $x_2_5 = "payment methods" ascii //weight: 2
+        $x_2_6 = "discord worm" ascii //weight: 2
+        $x_2_7 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 2
+        $x_2_8 = "SELECT guid, name_on_card, card_number_encrypted" ascii //weight: 2
+        $x_1_9 = "vboxservice.exe" ascii //weight: 1
+        $x_1_10 = "fiddler.exe" ascii //weight: 1
+        $x_1_11 = "sandbox" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 6 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 7 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -3319,7 +3319,8 @@ rule Trojan_Win32_ClickFix_AB_2147940112_0
         $x_1_96 = "naturalrelief1222.com" wide //weight: 1
         $x_1_97 = "timelevel12.com" wide //weight: 1
         $x_1_98 = "webenvysolutions.com/composer.php" wide //weight: 1
-        $x_1_99 = "vydlje.com" ascii //weight: 1
+        $x_1_99 = "vydlje.com" wide //weight: 1
+        $x_1_100 = "dragonphoenixstar.cfd" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
@@ -15824,6 +15825,55 @@ rule Trojan_Win32_ClickFix_YBA_2147977130_0
         (filesize < 20MB) and
         (
             ((3 of ($x_5_*) and 1 of ($x_4_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_SVG_2147977245_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVG"
+        threat_id = "2147977245"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 10, accuracy: High
+        $x_10_2 = "iwr" wide //weight: 10
+        $x_10_3 = "-outfile $env:temp\\" wide //weight: 10
+        $x_10_4 = {2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 3b 00 [0-16] 24 00 65 00 6e 00 76 00 3a 00 74 00 65 00 6d 00 70 00 5c 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_SVH_2147977246_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.SVH"
+        threat_id = "2147977246"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "powershell.exe" wide //weight: 1
+        $x_10_2 = {3d 00 69 00 72 00 6d 00 [0-255] 3d 00 40 00 7b 00 73 00 63 00 72 00 69 00 70 00 74 00 62 00 6c 00 6f 00 63 00 6b 00 3d 00 5b 00 73 00 63 00 72 00 69 00 70 00 74 00 62 00 6c 00 6f 00 63 00 6b 00 5d 00 3a 00 3a 00 63 00 72 00 65 00 61 00 74 00 65 00 28 00 24 00 61 00 29 00 3b 00 6e 00 61 00 6d 00 65 00 3d 00 27 00 63 00 27 00 7d 00 3b 00 6e 00 65 00 77 00 2d 00 6d 00 6f 00 64 00 75 00 6c 00 65 00 20 00 40 00 68 00 7c 00 6f 00 75 00 74 00 2d 00 6e 00 75 00 6c 00 6c 00 3b 00 65 00 78 00 69 00 74 00}  //weight: 10, accuracy: Low
+        $x_10_3 = {3d 00 69 00 72 00 6d 00 [0-255] 3d 00 5b 00 63 00 6f 00 6e 00 76 00 65 00 72 00 74 00 5d 00 3a 00 3a 00 74 00 6f 00 62 00 61 00 73 00 65 00 36 00 34 00 73 00 74 00 72 00 69 00 6e 00 67 00 28 00 5b 00 74 00 65 00 78 00 74 00 2e 00 65 00 6e 00 63 00 6f 00 64 00 69 00 6e 00 67 00 5d 00 3a 00 3a 00 75 00 6e 00 69 00 63 00 6f 00 64 00 65 00 2e 00 67 00 65 00 74 00 62 00 79 00 74 00 65 00 73 00 28 00 24 00 61 00 29 00 29 00 3b 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
             (all of ($x*))
         )
 }
