@@ -355,3 +355,66 @@ rule VirTool_Win32_CobaltStrike_I_2147782908_0
         (all of ($x*))
 }
 
+rule VirTool_Win32_CobaltStrike_J_2147977259_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/CobaltStrike.J"
+        threat_id = "2147977259"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {83 ec 10 8b 5d 08 8b 75 0c 8b 55 10 39 f0 7d 0e 89 c1 83 e1 03 8a 0c 0a 30 0c 03 40 eb ee 89 1c 24 e8 ?? ?? ?? ?? 89 75 0c 89 5d 08 c7 45 10 ?? ?? ?? ?? 83 c4 10 5b 5e 5d e9}  //weight: 1, accuracy: Low
+        $x_1_2 = {31 c0 41 89 d1 41 39 c1 7e 12 48 89 c2 83 e2 03 41 8a 14 10 30 14 01 48 ff c0 eb e9 e8 ?? ?? ?? ?? 4c 8d ?? ?? ?? ?? ?? 44 89 ca 48 83 c4 28 e9}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule VirTool_Win32_CobaltStrike_J_2147977259_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/CobaltStrike.J"
+        threat_id = "2147977259"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c7 44 24 0c 04 00 00 00 c7 44 24 08 00 30 00 00 89 5c 24 04 c7 04 24 00 00 00 00 ff 15 ?? ?? ?? ?? 89 c6 83 ec 10 31 c0 39 d8 7d 17 8b 4d 10 89 c2 83 e2 03 8a 14 11 8b 4d 08 32 14 01 88 14 06 40 eb e5 89 34 24 e8 ?? ?? ?? ?? 8d 45 f4 89 34 24 89 5c 24 04 89 44 24 0c c7 44 24 08 20 00 00 00 ff 15 ?? ?? ?? ?? 83 ec 10 89 74 24 0c c7 44 24 14 00 00 00 00 c7 44 24 10 00 00 00 00 c7 44 24 08 ?? ?? ?? ?? c7 44 24 04 00 00 00 00 c7 04 24 00 00 00 00 ff 15}  //weight: 1, accuracy: Low
+        $x_1_2 = {41 b9 04 00 00 00 4c 63 e2 48 89 cf 4c 89 c5 31 c9 41 b8 00 30 00 00 4c 89 e2 4c 89 e6 ff 15 ?? ?? ?? ?? 48 89 c3 31 c0 39 c6 7e 15 48 89 c2 83 e2 03 8a 54 15 00 32 14 07 88 14 03 48 ff c0 eb e7 48 89 d9 4c 8d 4c 24 3c 41 b8 20 00 00 00 e8 ?? ?? ?? ?? 4c 89 e2 ff 15 ?? ?? ?? ?? 49 89 d9 31 d2 31 c9 48 c7 44 24 28 00 00 00 00 4c 8d ?? ?? ?? ?? ?? c7 44 24 20 00 00 00 00 ff 15}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule VirTool_Win32_CobaltStrike_K_2147977260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/CobaltStrike.K"
+        threat_id = "2147977260"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {33 c0 bf 00 18 00 00 80 b0 ?? ?? ?? ?? ?? 40 3b c7 7c ?? 6a 09 59 e8 ?? ?? ?? ?? 8b f0 85 f6 74 ?? 33 c9 8b c1 99 6a 03 5b f7 fb 0f be b9 ?? ?? ?? ?? 81 e7 ff 00 00 00 42 0f af fa 03 7d f4 33 d2 8b c7 bf ff e0 f5 05}  //weight: 1, accuracy: Low
+        $x_1_2 = {41 bf 01 00 00 00 48 8d ?? ?? ?? ?? ?? 41 be 00 18 00 00 80 34 30 ?? 49 03 c7 49 3b c6 7c ?? b9 09 00 00 00 e8 ?? ?? ?? ?? 8b d8 85 c0 74 ?? 45 8b c5 4c 8b ce b8 56 55 55 55 41 f7 e8 8b ca c1 e9 1f 03 d1 8d 04 52 41 8b d0 45 03 c7 2b d0 41 0f be 01 4d 03 cf 41 03 d7 0f b6 c8 b8 2f 77 cc ab}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

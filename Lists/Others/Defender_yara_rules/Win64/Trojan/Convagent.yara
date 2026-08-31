@@ -1057,6 +1057,30 @@ rule Trojan_Win64_Convagent_KK_2147957569_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "InitializeNtFunctions: gAVEvasion.Initialize..." ascii //weight: 4
+        $x_3_2 = "InitializeNtFunctions: gAVEvasion OK" ascii //weight: 3
+        $x_2_3 = "[psspoof] FAILED nt=0x%08X explorer=%lu psPath=%s" ascii //weight: 2
+        $x_1_4 = "AV evasion initialization failed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_KK_2147957569_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.KK!MTB"
+        threat_id = "2147957569"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "41"
         strings_accuracy = "High"
     strings:

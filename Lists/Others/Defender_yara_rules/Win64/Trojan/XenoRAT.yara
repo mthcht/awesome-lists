@@ -49,3 +49,25 @@ rule Trojan_Win64_XenoRAT_GVA_2147975311_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XenoRAT_AA_2147977271_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XenoRAT.AA!MTB"
+        threat_id = "2147977271"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XenoRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_16_1 = {8b 4c 24 50 41 0f b6 44 11 e0 41 32 04 10 0f b6 c0 09 c8 89 44 24 50 48 83 c2}  //weight: 16, accuracy: High
+        $x_4_2 = {4c 0f be 01 48 83 c1 ?? 4c 31 c0 49 0f af c1 48 39 d1 75}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

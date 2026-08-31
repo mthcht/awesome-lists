@@ -4737,3 +4737,25 @@ rule Trojan_MSIL_PureLogStealer_RVI_2147976936_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_AV_2147977263_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.AV!MTB"
+        threat_id = "2147977263"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {11 03 05 61 11 04 61 13 05 38 83 00 00 00 11 02 11 01 fe 04 13 06 38 3f 00 00 00 11 00 04 28 ?? 00 00 06 13 00}  //weight: 4, accuracy: Low
+        $x_2_2 = {02 02 8e 69 17 59 91 13 00 38 0a 00 00 00 38 11 00 00 00 38 0c 00 00 00 11 00 1f 70 61 13 01}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

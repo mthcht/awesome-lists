@@ -312,3 +312,26 @@ rule Trojan_Win64_Remus_NY_2147976974_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remus_KK_2147977266_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.KK!MTB"
+        threat_id = "2147977266"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 c7 00 ce 02 00 00 48 c7 40 08 df 02 00 00 48 c7 40 10 ed 02 00 00 48 c7 40 18 fb 02 00 00 48 c7 40 20 0a 03 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = {48 c7 00 24 03 00 00 48 c7 40 08 30 03 00 00 48 c7 40 10 3d 03 00 00 48 c7 40 18 49 03 00 00 48 c7 40 20 55 03 00 00}  //weight: 10, accuracy: High
+        $x_5_3 = {48 c1 e0 04 48 89 bc 04 f0 0a 00 00 48 89 8c 04 e8 0a 00 00 49 8d 42 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

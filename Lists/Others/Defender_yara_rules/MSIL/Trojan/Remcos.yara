@@ -15234,3 +15234,26 @@ rule Trojan_MSIL_Remcos_RVO_2147976310_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Remcos_AT_2147977261_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Remcos.AT!MTB"
+        threat_id = "2147977261"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Remcos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {57 df b6 ff 09 0f 00 00 00 fa 25 33 00 16 00 00 02 00 00 00 9b 00 00 00 2c 00 00 00 b3 00 00 00 b2 01 00 00 a0 00 00 00 05 00 00 00 73 01 00 00 0e 00 00 00 d2 00 00 00 01 00 00 00 01 00 00 00 2a}  //weight: 4, accuracy: High
+        $x_2_2 = "CardGame.Properties.Resources" ascii //weight: 2
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4361,6 +4361,32 @@ rule Trojan_MSIL_Lazy_KK_2147975224_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_KK_2147975224_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.KK!MTB"
+        threat_id = "2147975224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "my16bytekey!!!!" ascii //weight: 6
+        $x_5_2 = "BROWSER_WALLET_KEYWORDS" ascii //weight: 5
+        $x_4_3 = "scan_chromium_extensions" ascii //weight: 4
+        $x_3_4 = "scan_desktop_wallets" ascii //weight: 3
+        $x_2_5 = "WalletScanner" ascii //weight: 2
+        $x_1_6 = "load_from_memory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_BGV_2147975283_0
 {
     meta:
