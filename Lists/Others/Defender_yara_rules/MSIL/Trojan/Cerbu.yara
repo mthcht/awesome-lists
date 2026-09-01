@@ -583,3 +583,24 @@ rule Trojan_MSIL_Cerbu_SXA_2147976797_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cerbu_GPKA_2147977276_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cerbu.GPKA!MTB"
+        threat_id = "2147977276"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {59 26 28 01 00 00 0a 13 06 11 06 11 06 17 58 5a 17 58}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

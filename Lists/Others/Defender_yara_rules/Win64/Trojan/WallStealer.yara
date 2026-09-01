@@ -19,3 +19,24 @@ rule Trojan_Win64_WallStealer_PGWS_2147964752_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_WallStealer_CZ_2147977275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/WallStealer.CZ!MTB"
+        threat_id = "2147977275"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "WallStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b c8 49 2b c8 83 e1 ?? 0f b6 8c 0d ?? ?? ?? ?? 30 08 48 ff c0 48 83 ea 01 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

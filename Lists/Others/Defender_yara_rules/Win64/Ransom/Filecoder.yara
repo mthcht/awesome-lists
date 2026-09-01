@@ -2078,27 +2078,3 @@ rule Ransom_Win64_Filecoder_PGBH_2147972457_0
         (all of ($x*))
 }
 
-rule Ransom_Win64_Filecoder_VDB_2147977177_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Ransom:Win64/Filecoder.VDB!MTB"
-        threat_id = "2147977177"
-        type = "Ransom"
-        platform = "Win64: Windows 64-bit platform"
-        family = "Filecoder"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_3_1 = "vssadmin delete shadows /all /quiet" wide //weight: 3
-        $x_1_2 = "CurrentVersion\\Run" wide //weight: 1
-        $x_2_3 = "YOUR FILES HAVE BEEN ENCRYPTED" wide //weight: 2
-        $x_1_4 = "payment" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-

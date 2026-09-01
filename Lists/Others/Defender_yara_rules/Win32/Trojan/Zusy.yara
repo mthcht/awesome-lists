@@ -5198,6 +5198,29 @@ rule Trojan_Win32_Zusy_GA_2147925881_0
         )
 }
 
+rule Trojan_Win32_Zusy_GA_2147925881_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Zusy.GA!MTB"
+        threat_id = "2147925881"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {c7 00 5c 76 69 72 c7 40 04 75 73 5f 6c c7 40 08 6f 67 2e 74 c7 40 0b 74 78 74 00 c7 44 24 04}  //weight: 4, accuracy: High
+        $x_2_2 = {4c 6f 61 64 4c 69 62 72 61 72 79 41 00 00 7d 04 51 75 65 72 79 50 65 72 66 6f 72 6d 61 6e 63 65 46 72 65 71 75 65 6e 63 79 00 84 04 51 75 65 72 79 55 6e 62 69 61 73 65 64 49 6e 74 65 72 72 75 70 74 54 69 6d}  //weight: 2, accuracy: High
+        $x_1_3 = {4e 74 57 61 69 74 46 6f 72 53 69 6e 67 6c 65 4f 62 6a 65 63 74 00 bd 03 52 74 6c 44 6c 6c 53 68 75 74 64 6f 77 6e 49 6e 50 72 6f 67 72 65 73 73}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Zusy_E_2147926605_0
 {
     meta:

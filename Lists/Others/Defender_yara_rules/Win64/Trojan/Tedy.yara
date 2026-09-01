@@ -490,6 +490,33 @@ rule Trojan_Win64_Tedy_NT_2147899511_7
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_NT_2147899511_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.NT!MTB"
+        threat_id = "2147899511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "start /min cmd.exe /c powershell -WindowStyle Hidden -Command" ascii //weight: 1
+        $x_2_2 = "iwr -Uri 'https://exo-api.tf/Stb/Retev.php" ascii //weight: 2
+        $x_1_3 = {2d 00 4f 00 75 00 74 00 46 00 69 00 6c 00 65 00 20 00 24 00 65 00 6e 00 76 00 3a 00 41 00 50 00 50 00 44 00 41 00 54 00 41 00 5c 00 [0-47] 2e 00 65 00 78 00 65 00 3b 00 20 00 53 00 74 00 61 00 72 00 74 00 2d 00 50 00 72 00 6f 00 63 00 65 00 73 00 73 00 20 00 2d 00 46 00 69 00 6c 00 65 00 50 00 61 00 74 00 68 00 20 00 24 00 65 00 6e 00 76 00 3a 00 41 00 50 00 50 00 44 00 41 00 54 00 41 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {2d 4f 75 74 46 69 6c 65 20 24 65 6e 76 3a 41 50 50 44 41 54 41 5c [0-47] 2e 65 78 65 3b 20 53 74 61 72 74 2d 50 72 6f 63 65 73 73 20 2d 46 69 6c 65 50 61 74 68 20 24 65 6e 76 3a 41 50 50 44 41 54 41}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Tedy_AMBE_2147903244_0
 {
     meta:
