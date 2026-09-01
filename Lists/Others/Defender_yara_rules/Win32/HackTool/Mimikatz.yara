@@ -667,8 +667,10 @@ rule HackTool_Win32_Mimikatz_I_2147741009_0
         $x_2_28 = "kerberos::ptt" wide //weight: 2
         $x_2_29 = "kerberos::list" wide //weight: 2
         $x_2_30 = "kerberos::golden" wide //weight: 2
+        $n_50_31 = "Microsoft\\Documents\\Microsoft Scout\\SecondBrain\\log.md" wide //weight: -50
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (
             ((1 of ($x_2_*))) or
             (all of ($x*))

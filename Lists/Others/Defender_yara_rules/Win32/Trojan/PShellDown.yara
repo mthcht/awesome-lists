@@ -24,6 +24,7 @@ rule Trojan_Win32_PShellDown_SC_2147942141_0
         $n_500_10 = "function checkscript" wide //weight: -500
         $n_100_11 = "https://dev-shell.gaiacloud.jpmchase.net/api/install/v1" wide //weight: -100
         $n_100_12 = "http://169.254." ascii //weight: -100
+        $n_100_13 = "https://repo.viacom.com/artifactory/cloudeng-library/ecm/chef-client/windows" ascii //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

@@ -42,3 +42,26 @@ rule Trojan_Win64_ShellCodeExec_DB_2147923764_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeExec_Z_2147977299_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeExec.Z!MTB"
+        threat_id = "2147977299"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeExec"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Decryption FAILED" ascii //weight: 1
+        $x_1_2 = "Shellcode size" ascii //weight: 1
+        $x_1_3 = "executing shellcode" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

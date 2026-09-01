@@ -242,3 +242,50 @@ rule Trojan_Win64_RemusStealer_SI_2147976372_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RemusStealer_Z_2147977287_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.Z!MTB"
+        threat_id = "2147977287"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {45 31 c0 ff d0 48 83 c4 30 85 c0 0f 99 c0 66 8b 4d f8 66 83 e9 03 0f 94 c1 20 c8 0f b6 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {8b 44 24 54 48 98 ff 44 24 54 8b 4c 24 54 c0 e1 03 32 4c 04 58 88 4c 04 58 8b 44 24 54 83 f8 0d}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_RemusStealer_Z_2147977287_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemusStealer.Z!MTB"
+        threat_id = "2147977287"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "REMUS LOG" ascii //weight: 1
+        $x_1_2 = "OpenClipboard" ascii //weight: 1
+        $x_1_3 = "GetComputerNameA" ascii //weight: 1
+        $x_1_4 = "BitBlt" ascii //weight: 1
+        $x_1_5 = "GetUserNameA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

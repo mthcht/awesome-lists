@@ -370,3 +370,27 @@ rule Ransom_Win64_LockBit_PK_2147964644_0
         )
 }
 
+rule Ransom_Win64_LockBit_A_2147977289_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/LockBit.A!MTB"
+        threat_id = "2147977289"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LockBit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "REAPER RANSOMWARE" wide //weight: 10
+        $x_5_2 = "YOUR FILES HAVE BEEN ENCRYPTED" wide //weight: 5
+        $x_3_3 = "cmd.exe /c vssadmin delete shadows /all /quiet" wide //weight: 3
+        $x_2_4 = "cmd.exe /c bcdedit /set {default} recoveryenabled No" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
