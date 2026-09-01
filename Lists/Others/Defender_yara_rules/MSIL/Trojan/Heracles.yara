@@ -11102,6 +11102,27 @@ rule Trojan_MSIL_Heracles_AX_2147972660_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {09 17 58 d2 0d 07 06 09 91 58 d2 0b 06 09 91 0c 06 09 06 07 91 9c 06 07 08 9c 03 11 06 8f ?? 00 00 01 25 47 06 06 09 91 06 07 91 58 20 00 01 00 00 5d 91 61 d2 52 11 06 17 58 13 06 11 06 03 8e 69 32 bd}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AX_2147972660_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AX!MTB"
+        threat_id = "2147972660"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
         strings_accuracy = "High"
     strings:
