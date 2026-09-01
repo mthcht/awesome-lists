@@ -2672,3 +2672,52 @@ rule Trojan_MSIL_Injector_WE_2147977070_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_WE_2147977070_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WE!MTB"
+        threat_id = "2147977070"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_3_1 = {00 00 00 00 02 00 00 01 57 b5 02 3c 09 0f 00 00 00 00 00 00 00 00 00 00 ?? 00 00 00 ?? 00 00 00 27 00 00 00 4b 00 00 00 7a 00 00 00 d4 00 00 00 ?? 00 00 00 ?? 00 00 00 04 00 00 00 07 00 00 00 ?? 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 08 00 00 00 ?? 00 00 00 ?? 00 00 00 03 00 00 00 1f 00 00 00 02 00 00 00 0a 00 00 00}  //weight: 3, accuracy: Low
+        $x_3_2 = "6ab8d6dd-ddbf-4439-8137-dad745e3fe98" ascii //weight: 3
+        $x_1_3 = "RACERRR.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+        $x_1_5 = "LAUNCH" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_A_2147977348_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.A!MTB"
+        threat_id = "2147977348"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "RS6b2b loader ready - process suspended" wide //weight: 2
+        $x_2_2 = "RS6b4 WriteBootImage ok" wide //weight: 2
+        $x_1_3 = "RS6b6 SMOKE shell ExitProcess@" wide //weight: 1
+        $x_1_4 = "RS6b6 NtResumeProcess nt=0x" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

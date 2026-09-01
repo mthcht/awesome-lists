@@ -1666,6 +1666,31 @@ rule Trojan_MSIL_Jalapeno_A_2147935980_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_A_2147935980_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.A!MTB"
+        threat_id = "2147935980"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "<Main>g__DecryptPassword" ascii //weight: 2
+        $x_2_2 = "<Run>g__DecryptPassword" ascii //weight: 2
+        $x_2_3 = "pasc.txt" wide //weight: 2
+        $x_1_4 = "\\Default\\Network\\Cookies" wide //weight: 1
+        $x_1_5 = "\\Google\\Chrome\\User Data" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Jalapeno_ZHA_2147936058_0
 {
     meta:

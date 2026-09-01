@@ -13127,15 +13127,20 @@ rule Trojan_Win32_ClickFix_SZAA_2147961454_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
+        threshold = "21"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = "powershell.exe" wide //weight: 1
-        $x_1_2 = {69 00 65 00 78 00 28 00 69 00 77 00 72 00 [0-16] 2d 00 75 00 72 00 69 00 [0-48] 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00}  //weight: 1, accuracy: Low
-        $x_1_3 = "-useb" wide //weight: 1
+        $x_10_1 = "powershell.exe" wide //weight: 10
+        $x_10_2 = {69 00 65 00 78 00 28 00 69 00 77 00 72 00 [0-16] 2d 00 75 00 72 00 69 00 [0-48] 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00 2e 00 29 03 03 00}  //weight: 10, accuracy: Low
+        $x_11_3 = {69 00 65 00 78 00 28 00 28 00 69 00 77 00 72 00 [0-255] 2d 00 75 00 73 00 65 00 62 00 61 00 73 00 69 00 63 00 70 00 61 00 72 00 73 00 69 00 6e 00 67 00 [0-16] 2d 00 75 00 73 00 65 00 72 00 61 00 67 00 65 00 6e 00 74 00 [0-48] 29 00 2e 00 63 00 6f 00 6e 00 74 00 65 00 6e 00 74 00 29 00}  //weight: 11, accuracy: Low
+        $x_1_4 = "-useb" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_11_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_SKJ_2147961455_0

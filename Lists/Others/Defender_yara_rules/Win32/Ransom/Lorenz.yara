@@ -119,3 +119,28 @@ rule Ransom_Win32_Lorenz_PGLR_2147964432_0
         (2 of ($x*))
 }
 
+rule Ransom_Win32_Lorenz_PA_2147977326_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Lorenz.PA!MTB"
+        threat_id = "2147977326"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lorenz"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Lorenz. Welcome. Again" ascii //weight: 5
+        $x_1_2 = ".sz40" ascii //weight: 1
+        $x_1_3 = "POST" wide //weight: 1
+        $x_1_4 = ".onion/" ascii //weight: 1
+        $x_1_5 = "Your files are downloaded, encrypted, and currently unavailable" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

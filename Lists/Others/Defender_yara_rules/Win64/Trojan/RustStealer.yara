@@ -73,3 +73,53 @@ rule Trojan_Win64_RustStealer_GTT_2147926858_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustStealer_YDR_2147977329_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustStealer.YDR!MTB"
+        threat_id = "2147977329"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "loader/src/main.rs" ascii //weight: 1
+        $x_1_2 = "Auto-chain mode: C2 at" ascii //weight: 1
+        $x_1_3 = "stealer_raw.exe" ascii //weight: 1
+        $x_1_4 = "hvnc_raw.exe" ascii //weight: 1
+        $x_1_5 = "Sandbox evasion check passed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_RustStealer_GVC_2147977334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustStealer.GVC!MTB"
+        threat_id = "2147977334"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "collect_telegram:" ascii //weight: 2
+        $x_2_2 = "write_tokens:" ascii //weight: 2
+        $x_2_3 = "bundle_       _send:" ascii //weight: 2
+        $x_2_4 = "install_       _injection:" ascii //weight: 2
+        $x_2_5 = "uespemosH1" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

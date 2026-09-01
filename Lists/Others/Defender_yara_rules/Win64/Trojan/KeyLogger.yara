@@ -322,3 +322,27 @@ rule Trojan_Win64_KeyLogger_LRN_2147974151_0
         )
 }
 
+rule Trojan_Win64_KeyLogger_AE_2147977335_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.AE!MTB"
+        threat_id = "2147977335"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Keylogger started" ascii //weight: 1
+        $x_1_2 = "[+] Keylogger stopped" ascii //weight: 1
+        $x_1_3 = "[+] Persistence installed" ascii //weight: 1
+        $x_1_4 = "schtasks /delete /tn \"WindowsUpdate\" /f" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

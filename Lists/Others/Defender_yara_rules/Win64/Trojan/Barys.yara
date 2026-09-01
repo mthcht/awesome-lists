@@ -894,3 +894,29 @@ rule Trojan_Win64_Barys_SXA_2147975238_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_GVAA_2147977333_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.GVAA!MTB"
+        threat_id = "2147977333"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/api/license/login?license=" ascii //weight: 2
+        $x_2_2 = "/api/license/activate?license=" ascii //weight: 2
+        $x_2_3 = "/api/license/heartbeat?license=" ascii //weight: 2
+        $x_2_4 = "/api/license/unbind?license=" ascii //weight: 2
+        $x_2_5 = "/api/license/announcements" ascii //weight: 2
+        $x_2_6 = "loginCount" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

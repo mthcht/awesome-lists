@@ -7602,3 +7602,33 @@ rule Trojan_MSIL_DarkTortilla_ARA_2147974388_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkTortilla_SA_2147977330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkTortilla.SA!MTB"
+        threat_id = "2147977330"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkTortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "set_IV" ascii //weight: 1
+        $x_1_2 = "RijndaelManaged" ascii //weight: 1
+        $x_1_3 = "CryptoStreamMode" ascii //weight: 1
+        $x_1_4 = "FlushFinalBlock" ascii //weight: 1
+        $x_1_5 = "CryptoStream" ascii //weight: 1
+        $x_1_6 = "MemoryStream" ascii //weight: 1
+        $x_2_7 = "Et6e7odMpeP9x0.My.Resources" ascii //weight: 2
+        $x_1_8 = "11bb87534692b3.Resources.resources" ascii //weight: 1
+        $x_1_9 = "set_Key" ascii //weight: 1
+        $x_4_10 = "fizarke.ttf" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
