@@ -21,3 +21,24 @@ rule Trojan_Win64_Abyssos_PAA_2147976073_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Abyssos_ABS_2147977360_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Abyssos.ABS!MTB"
+        threat_id = "2147977360"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Abyssos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {44 31 ce 89 c8 31 d2 f7 f6 48 63 c2 42 0f b6 44 00 ?? 89 c2 01 ca 44 20 da 00 d2 41 00 c3 41 28 d3 41 0f b6 c3 01 c8 42 88 04 11 8d 41 01}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

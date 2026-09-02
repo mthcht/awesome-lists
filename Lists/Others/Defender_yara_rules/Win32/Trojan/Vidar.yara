@@ -7403,3 +7403,33 @@ rule Trojan_Win32_Vidar_ZA_2147977120_0
         (3 of ($x*))
 }
 
+rule Trojan_Win32_Vidar_DG_2147977372_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.DG!MTB"
+        threat_id = "2147977372"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.IC40BlltCnerAe" ascii //weight: 1
+        $x_1_2 = "main.SoN5znw3VqMlm" ascii //weight: 1
+        $x_1_3 = "main.vcAc6TRyDuU" ascii //weight: 1
+        $x_1_4 = "main.x1zGhSfXe" ascii //weight: 1
+        $x_1_5 = "main.y1Z9O6Kfu" ascii //weight: 1
+        $x_1_6 = "main.gQ8YyanQkn9UNj" ascii //weight: 1
+        $x_1_7 = "main.jiWl9I9kifV" ascii //weight: 1
+        $x_1_8 = "main.bMYslcV7P8" ascii //weight: 1
+        $x_1_9 = "main.tVozN6p" ascii //weight: 1
+        $x_1_10 = "main.tyDTExY" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (5 of ($x*))
+}
+

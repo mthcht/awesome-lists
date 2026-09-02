@@ -19,6 +19,30 @@ rule Trojan_Win64_Tedy_A_2147828733_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_A_2147828733_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.A!MTB"
+        threat_id = "2147828733"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "=== Zshell Built-in Commands ===" ascii //weight: 10
+        $x_5_2 = "EXE hollow injection failed" ascii //weight: 5
+        $x_3_3 = "keylogger started" ascii //weight: 3
+        $x_2_4 = "PE data truncated" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_GHN_2147845256_0
 {
     meta:

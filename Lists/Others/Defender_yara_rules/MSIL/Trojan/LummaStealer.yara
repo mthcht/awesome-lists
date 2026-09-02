@@ -3244,3 +3244,25 @@ rule Trojan_MSIL_LummaStealer_AH_2147973731_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LummaStealer_AC_2147977353_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LummaStealer.AC!MTB"
+        threat_id = "2147977353"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_9_1 = {11 08 11 0f 91 13 10 06 11 0a 91 13 11 11 07 11 09 11 10 11 11 61 d2 9c 11 09 17 58 13 09 11 0a 17 58 13 0a 11 0a 07 32 03 16 13 0a 11 0f 17 58 13 0f 11 0f 11 05 32 c8}  //weight: 9, accuracy: High
+        $x_1_2 = "XOR_Loader.build_main.exe.bmp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

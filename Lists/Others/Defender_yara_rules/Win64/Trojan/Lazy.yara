@@ -2710,6 +2710,29 @@ rule Trojan_Win64_Lazy_AB_2147939489_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {4c 89 c2 4c 31 ca 4c 21 c2 49 89 c9 49 21 d1 48 31 d1 49 09 c9 48 89 c1}  //weight: 10, accuracy: High
+        $x_8_2 = {48 89 c2 4c 21 c2 48 09 d1 48 83 f1 ?? 4d 89 cb 49 31 cb 4d 21 cb 4c 89 c9 48 83 f1 ?? 48 ba ?? ?? ?? ?? ?? ?? ?? ?? 48 21 d1 49 c7 c0}  //weight: 8, accuracy: Low
+        $x_2_3 = "CAlibre-LAuncher.dll" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_AB_2147939489_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AB!MTB"
+        threat_id = "2147939489"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

@@ -2721,3 +2721,27 @@ rule Trojan_MSIL_Injector_A_2147977348_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_A_2147977348_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.A!MTB"
+        threat_id = "2147977348"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "<HideOwnConsoleAfterInject>b__0" ascii //weight: 10
+        $x_5_2 = "RS6c handoff_dbg missing (boot not writing / crash before entry)" wide //weight: 5
+        $x_3_3 = "RS6b6h no pld - payload not started (kill unused hollow)" wide //weight: 3
+        $x_2_4 = "CreateSuspendedHollowHost" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

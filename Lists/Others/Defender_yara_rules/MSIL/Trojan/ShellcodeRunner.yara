@@ -456,3 +456,25 @@ rule Trojan_MSIL_ShellcodeRunner_GPAW_2147976258_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_A_2147977359_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.A!MTB"
+        threat_id = "2147977359"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {28 05 00 00 0a 72 ?? ?? ?? 70 28 06 00 00 0a 0a 06 28 07 00 00 0a 0b 00 06 28 08 00 00 0a 00 00 de 05}  //weight: 20, accuracy: Low
+        $x_15_2 = "kernel32.dllVirtualAllocCreateThreadWaitForSingleObject" wide //weight: 15
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

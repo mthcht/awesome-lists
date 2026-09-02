@@ -222,3 +222,29 @@ rule Trojan_MSIL_InjectorNetT_ARWB_2147971722_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_InjectorNetT_AZ_2147977382_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InjectorNetT.AZ!MTB"
+        threat_id = "2147977382"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InjectorNetT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0d 02 09 25 13 04 02 11 04 6f ?? 00 00 0a 17 58 6f ?? 00 00 0a 7e ?? 00 00 04 09 7e ?? 00 00 04 09 6f ?? 00 00 0a 02 09 6f ?? 00 00 0a 6b 22 00 00 80 3f 58 5b 6f ?? 00 00 0a 7e ?? 00 00 04 17 58 80 ?? 00 00 04 08 17 58 0c 08 04 32 9e}  //weight: 5, accuracy: Low
+        $x_1_2 = "_privateVar" ascii //weight: 1
+        $x_1_3 = "the_key_code" ascii //weight: 1
+        $x_1_4 = "CamelCaseToo" ascii //weight: 1
+        $x_1_5 = "GetTheSCUBANow" ascii //weight: 1
+        $x_1_6 = "PrivacyShield.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
