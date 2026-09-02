@@ -9331,3 +9331,30 @@ rule Trojan_Win32_GuLoader_XB_2147977122_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_SB_2147977409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.SB!MTB"
+        threat_id = "2147977409"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "\\Markrbjlken.zip" ascii //weight: 5
+        $x_1_2 = "Stjes25.ini" ascii //weight: 1
+        $x_2_3 = "\\cirkumpolart.lnk" ascii //weight: 2
+        $x_1_4 = "\\erindringsliste\\Stubbiest.jpg" ascii //weight: 1
+        $x_1_5 = "Kraterrand.rer" ascii //weight: 1
+        $x_1_6 = "Udfrittedes.sta" ascii //weight: 1
+        $x_1_7 = "\\tynd\\klimakterierne.gif" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

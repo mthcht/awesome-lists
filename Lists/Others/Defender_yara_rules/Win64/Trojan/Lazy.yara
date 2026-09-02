@@ -2542,6 +2542,31 @@ rule Trojan_Win64_Lazy_A_2147936261_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_A_2147936261_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.A!MTB"
+        threat_id = "2147936261"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Successfully injected" ascii //weight: 1
+        $x_1_2 = "[*] Scanning for processes..." ascii //weight: 1
+        $x_1_3 = "\\.lunarclient\\settings\\game\\accounts.json" ascii //weight: 1
+        $x_1_4 = "curl -s -X POST -F \"file=@" ascii //weight: 1
+        $x_1_5 = "canary.discord.com" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_GVA_2147936311_0
 {
     meta:
