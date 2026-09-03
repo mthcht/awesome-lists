@@ -48,6 +48,30 @@ rule Trojan_Win64_Cerbu_NC_2147901579_0
         )
 }
 
+rule Trojan_Win64_Cerbu_A_2147925122_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.A!MTB"
+        threat_id = "2147925122"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b6 44 0c 50 34 ?? 88 44 0c 78 48 ff c1 48 83 f9 0c}  //weight: 20, accuracy: Low
+        $x_15_2 = {49 63 c2 48 8b ce c7 44 24 50 ?? ?? ?? ?? c7 44 24 54 ?? ?? ?? ?? c7 44 24 58 ?? ?? ?? ?? 40 88 74 05 98}  //weight: 15, accuracy: Low
+        $x_3_3 = "CopyFileA(selfDll)" ascii //weight: 3
+        $x_2_4 = "CopyFileA(hostExe)" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Cerbu_GTT_2147926640_0
 {
     meta:

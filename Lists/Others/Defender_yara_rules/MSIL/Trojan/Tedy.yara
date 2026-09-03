@@ -2988,3 +2988,27 @@ rule Trojan_MSIL_Tedy_LVN_2147976617_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_A_2147977444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.A!MTB"
+        threat_id = "2147977444"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Injected into PID {0} using {1}" wide //weight: 10
+        $x_5_2 = "get_C2ProfileName" ascii //weight: 5
+        $x_3_3 = "GetC2ProfileManager" ascii //weight: 3
+        $x_2_4 = "GetInjectionManager" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
