@@ -473,3 +473,25 @@ rule Trojan_MSIL_Disco_CAT_2147971309_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_LRA_2147977421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.LRA!MTB"
+        threat_id = "2147977421"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {2a 06 72 d6 1e 00 70 6f 57 00 00 0a 2c 0e 02 06 1c 6f fa 00 00 0a 28 69 00 00 06 2a 06 72 e4 1e 00 70 6f 57 00 00 0a 2c 60 06 1d 6f fa 00 00 0a 0d 09 1f 7c 6f fb 00 00 0a 13 04 11 04 16 31 49 02 09 16 11 04 6f b9 00 00 0a 09 11 04 17 58 6f fa 00 00 0a 28 6a 00 00 06 2a 02 7b 30 00 00 04 2c 27 04 2c 24 02 7b 30 00 00 04 04 6f 70 00 00 06 2a 02 1f 70 28 4c 00 00 0a 28 46 00 00 0a 6f 4d 00 00 0a 28 5a 00 00 06 2a}  //weight: 20, accuracy: High
+        $x_10_2 = {11 06 28 32 00 00 06 6f ac 00 00 0a 13 0b 2b 76 12 0b 28 ad 00 00 0a 13 0c 14 13 0d 11 0c 72 dd 0e 00 70 6f 57 00 00 0a 2c 11 11 08 2c 0d 11 0c 11 08 28 35 00 00 06 13 0d 2b 12 11 0c 72 dd 0e 00 70 6f 57 00 00 0a 2d 04 11 0c 13 0d 11 0d 28 5a 00 00 0a 2d 30 11 04 72 dc 05 00 70 6f 57 00 00 0a 2d 0e 11 04 72 3a 06 00 70 28 58 00 00 0a 2c 0b 06 11 0d 6f ae 00 00 0a 26 2b 09 07 11 0d 6f ae 00 00 0a 26 12 0b 28 af 00 00 0a 2d 81 de 0e}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

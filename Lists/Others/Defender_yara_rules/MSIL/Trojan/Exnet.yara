@@ -500,3 +500,25 @@ rule Trojan_MSIL_Exnet_MKD_2147970410_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Exnet_LRC_2147977423_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Exnet.LRC!MTB"
+        threat_id = "2147977423"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Exnet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {28 08 00 00 0a 11 07 09 11 06 28 04 00 00 06 13 08 11 08 2c 05 11 08 8e 2d 05 dd ab 00 00 00 28 09 00 00 0a 28 0a 00 00 0a 13 0a 12 0a 72 01 00 00 70 28 0b 00 00 0a 72 05 00 00 70 28 0c 00 00 0a 28 0d 00 00 0a 13 09 11 09 11 08 28 0e 00 00 0a 06 11 09 28 0f 00 00 0a 28 10 00 00 0a 7d 03 00 00 04 11 09 28 11 00 00 0a de 03}  //weight: 20, accuracy: High
+        $x_10_2 = {11 09 11 04 9a 6f 2b 00 00 0a 6f 2c 00 00 0a 13 0a 11 0a 72 59 00 00 70 6f 2d 00 00 0a 2d 38 11 0a 72 6d 00 00 70 6f 2d 00 00 0a 2d 2a 11 0a 72 7d 00 00 70 6f 2d 00 00 0a 2d 1c 11 0a 72 8b 00 00 70 6f 2d 00 00 0a 2d 0e 11 0a 72 9b 00 00 70 6f 2d 00 00 0a 2c 04 17 0c de 37 11 04 17 58 13 04 11 04 11 09 8e 69 32 97}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

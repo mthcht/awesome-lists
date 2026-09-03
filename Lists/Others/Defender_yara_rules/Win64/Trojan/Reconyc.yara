@@ -101,3 +101,24 @@ rule Trojan_Win64_Reconyc_GVC_2147963305_0
         )
 }
 
+rule Trojan_Win64_Reconyc_AB_2147977426_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Reconyc.AB!MTB"
+        threat_id = "2147977426"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Reconyc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 d0 48 83 c1 ?? c1 e0 ?? 31 d0 89 c2 c1 ea ?? 31 d0 89 c2 c1 e2 ?? 31 c2 0f b6 41 ?? 31 d0 44 31 c8 88 41 ?? 49 39 ca}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
