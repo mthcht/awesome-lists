@@ -2541,6 +2541,31 @@ rule Trojan_Win64_Tedy_KK_2147943868_4
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_KK_2147943868_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.KK!MTB"
+        threat_id = "2147943868"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "@everyone **NEW IMPLANT ONLINE**" ascii //weight: 5
+        $x_4_2 = "Authorization: Bot %s" ascii //weight: 4
+        $x_3_3 = "**TOKEN** SYSTEM" ascii //weight: 3
+        $x_2_4 = "C:\\Windows\\Temp\\cam.jpg" ascii //weight: 2
+        $x_1_5 = "C:\\Windows\\Temp\\wifi.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_GVD_2147944553_0
 {
     meta:

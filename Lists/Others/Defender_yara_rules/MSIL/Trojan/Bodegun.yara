@@ -86,3 +86,26 @@ rule Trojan_MSIL_Bodegun_PGB_2147936853_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bodegun_AB_2147977480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bodegun.AB!MTB"
+        threat_id = "2147977480"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bodegun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "-Nvirus.Program+<CreateFsocietyWallpaper>d_" ascii //weight: 30
+        $x_20_2 = ",Nvirus.Program+<EnvoyerMessageTelegram>d" ascii //weight: 20
+        $x_10_3 = ",Nvirus.Program+<EnvoyerLogsDoubleCanal>d_" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
