@@ -2767,3 +2767,73 @@ rule Trojan_MSIL_Injector_LR_2147977425_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_AA_2147977487_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.AA!MTB"
+        threat_id = "2147977487"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {2b 0f 06 07 20 ?? ?? ?? ?? 07 61 d2 9c 07 17 58 0b 07 06 8e 69 32 eb}  //weight: 15, accuracy: Low
+        $x_5_2 = {02 11 0f 91 07 11 0f 91 2e 0d 16 8d ?? ?? ?? 01 13 10 dd ?? ?? ?? ?? 11 0f 17 58 13 0f 11 0f 1e}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_WZ_2147977527_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WZ!MTB"
+        threat_id = "2147977527"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {00 00 00 00 02 00 00 01 57 3d 02 1c 09 0f 00 00 00 fa 01 33 00 02 00 00 01 00 00 00 3e 00 00 00 19 00 00 00 36 00 00 00 4b 00 00 00 9c 00 00 00 55 00 00 00 06 00 00 00 1a 00 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 01 00 00 00 02 00 00 00 01 00 00 00 0e 00 00 00 01 00 00 00 0a 00 00 00}  //weight: 3, accuracy: High
+        $x_3_2 = "$75e6a5f1-bce2-42f2-969b-fc9cb7cfe3d1" ascii //weight: 3
+        $x_1_3 = "RAC.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_WY_2147977528_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WY!MTB"
+        threat_id = "2147977528"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {00 00 00 00 02 00 00 01 57 bd 02 3c 09 0e 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 37 00 00 00 1c 00 00 00 55 00 00 00 77 00 00 00 bd 00 00 00 48 00 00 00 06 00 00 00 1a 00 00 00 02 00 00 00 02 00 00 00 11 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 02 00 00 00 19 00 00 00 06 00 00 00 0f 00 00 00}  //weight: 3, accuracy: High
+        $x_3_2 = "$75e6a5f1-bce2-42f2-969b-fc9cb7cfe3d1" ascii //weight: 3
+        $x_1_3 = "RAC.dll" ascii //weight: 1
+        $x_1_4 = "EXECUTE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

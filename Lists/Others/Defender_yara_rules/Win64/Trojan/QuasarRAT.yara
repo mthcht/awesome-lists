@@ -318,3 +318,32 @@ rule Trojan_Win64_QuasarRAT_BAA_2147974391_0
         (3 of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_AA_2147977486_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.AA!MTB"
+        threat_id = "2147977486"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = "/sc ONLOGON /delay 0001:00 /f" ascii //weight: 8
+        $x_2_2 = "/create /tn WindowsUpdateService_check /tr" ascii //weight: 2
+        $x_6_3 = {5f 00 32 00 30 00 32 00 36 00 30 00 38 00 32 00 34 00 5f 00 30 00 37 00 [0-5] 5f 00 [0-20] 2e 00 65 00 78 00 65 00}  //weight: 6, accuracy: Low
+        $x_6_4 = {5f 32 30 32 36 30 38 32 34 5f 30 37 [0-5] 5f [0-20] 2e 65 78 65}  //weight: 6, accuracy: Low
+        $x_4_5 = "/sc MINUTE /mo 30 /f" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 2 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

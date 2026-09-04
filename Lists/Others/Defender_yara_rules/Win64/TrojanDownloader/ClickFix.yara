@@ -57,3 +57,63 @@ rule TrojanDownloader_Win64_ClickFix_WebDAV_2147977449_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_ClickFix_CURL_2147977558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/ClickFix.CURL"
+        threat_id = "2147977558"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "c^u^r^l" wide //weight: 1
+        $x_1_2 = "c^u^rl" wide //weight: 1
+        $x_1_3 = "c^ur^l" wide //weight: 1
+        $x_1_4 = "cu^r^l" wide //weight: 1
+        $x_1_5 = "c^url" wide //weight: 1
+        $x_1_6 = "cu^rl" wide //weight: 1
+        $x_1_7 = "cur^l" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule TrojanDownloader_Win64_ClickFix_START_2147977559_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/ClickFix.START"
+        threat_id = "2147977559"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "s^t^a^r^t" wide //weight: 1
+        $x_1_2 = "s^t^a^rt" wide //weight: 1
+        $x_1_3 = "s^t^ar^t" wide //weight: 1
+        $x_1_4 = "s^ta^r^t" wide //weight: 1
+        $x_1_5 = "st^a^r^t" wide //weight: 1
+        $x_1_6 = "s^t^art" wide //weight: 1
+        $x_1_7 = "s^ta^rt" wide //weight: 1
+        $x_1_8 = "s^tar^t" wide //weight: 1
+        $x_1_9 = "st^a^rt" wide //weight: 1
+        $x_1_10 = "st^ar^t" wide //weight: 1
+        $x_1_11 = "sta^r^t" wide //weight: 1
+        $x_1_12 = "s^tart" wide //weight: 1
+        $x_1_13 = "st^art" wide //weight: 1
+        $x_1_14 = "sta^rt" wide //weight: 1
+        $x_1_15 = "star^t" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

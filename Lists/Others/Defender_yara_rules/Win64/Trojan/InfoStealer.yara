@@ -291,3 +291,33 @@ rule Trojan_Win64_InfoStealer_AAB_2147973532_0
         )
 }
 
+rule Trojan_Win64_InfoStealer_PAI_2147977554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.PAI!MTB"
+        threat_id = "2147977554"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "MicrosoftEdgeUpdateService" ascii //weight: 1
+        $x_1_2 = "Software\\Classes\\CLSID\\{603D3800-BD81-11d0-A3A5-00C04FD706EC}\\InprocServer32" ascii //weight: 1
+        $x_1_3 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 1
+        $x_1_4 = "[+] EdgeDatabase could be copied" ascii //weight: 1
+        $x_1_5 = "SAM\\SAM\\Domains\\Account\\Users" ascii //weight: 1
+        $x_1_6 = "Elevation:Administrator!new:" ascii //weight: 1
+        $x_1_7 = "{3E5FC7F9-9A51-4367-9063-A120244FBEC7}" ascii //weight: 1
+        $x_1_8 = "To continue, enter an admin user name and password." ascii //weight: 1
+        $x_1_9 = "vupdates.org/mw/tools/o365/o365.exe" ascii //weight: 1
+        $x_1_10 = "CreateProcessA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

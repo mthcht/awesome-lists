@@ -130,3 +130,29 @@ rule TrojanDownloader_Win64_Small_AMTB_2147973692_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Small_PAHK_2147977524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Small.PAHK!MTB"
+        threat_id = "2147977524"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\User Data\\Default\\Login Data" ascii //weight: 1
+        $x_1_2 = "\\User Data\\Default\\Cookies" ascii //weight: 1
+        $x_2_3 = "DisableRealtimeMonitoring" ascii //weight: 2
+        $x_2_4 = "DisableBehaviorMonitoring" ascii //weight: 2
+        $x_2_5 = "%s\\wallets" ascii //weight: 2
+        $x_2_6 = "%s\\Bitcoin" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

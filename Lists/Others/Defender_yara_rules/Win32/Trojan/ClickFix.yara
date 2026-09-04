@@ -11516,8 +11516,10 @@ rule Trojan_Win32_ClickFix_HHP_2147950732_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-32] 73 00 74 00 61 00 72 00 74 00 [0-255] 2d 00 72 00 65 00 70 00 6c 00 61 00 63 00 65 00 27 00 [0-32] 27 00 2c 00 20 00 27 00 27 00 29 00}  //weight: 1, accuracy: Low
+        $n_10_2 = "msedge.exe" wide //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -11542,8 +11544,10 @@ rule Trojan_Win32_ClickFix_HHP_2147950732_1
         $x_1_4 = "[object[]]@($" wide //weight: 1
         $x_1_5 = "Net.WebClient" wide //weight: 1
         $x_1_6 = "}.DownloadString" wide //weight: 1
+        $n_10_7 = "msedge.exe" wide //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
@@ -15881,5 +15885,30 @@ rule Trojan_Win32_ClickFix_SVH_2147977246_0
             ((2 of ($x_10_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_Win32_ClickFix_MBK_2147977546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.MBK!MTB"
+        threat_id = "2147977546"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "conhost --headless" wide //weight: 3
+        $x_3_2 = "cmd /v:on" wide //weight: 3
+        $x_3_3 = "iex(irm" wide //weight: 3
+        $x_2_4 = "!power!" wide //weight: 2
+        $x_2_5 = "!a!!" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

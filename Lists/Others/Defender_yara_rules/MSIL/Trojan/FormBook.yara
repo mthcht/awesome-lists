@@ -18904,3 +18904,48 @@ rule Trojan_MSIL_FormBook_RZ_2147977388_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_XA_2147977503_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.XA!MTB"
+        threat_id = "2147977503"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {00 03 2c 16 03 17 2e 09 0f 00 28 ?? 00 00 0a 2b 07 0f 00 28 ?? 00 00 0a 2b 07 0f 00 28 ?? 00 00 0a 0a 7e ?? 00 00 04 06 03 1f 29 5a 58 7e ?? 00 00 04 8e 69 5d 91 0b 7e ?? 00 00 04 07 6a 58 80 ?? 00 00 04 06 0c 2b 00}  //weight: 2, accuracy: Low
+        $x_1_2 = {57 1d a2 09 09 0b 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 79 00 00 00 0e 00 00 00 9b 00 00 00 5b 00 00 00 62 00 00 00 bc 00 00 00 06 00 00 00 19 00 00 00 1c 00 00 00 07 00 00 00 0b 00 00 00 13 00 00 00 04 00 00 00 01 00 00 00 07 00 00 00 05 00 00 00 01 00 00 00 02}  //weight: 1, accuracy: High
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_FN_2147977526_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.FN!MTB"
+        threat_id = "2147977526"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {19 6a 2b 02 1d 6a 61 11 11 1f 0b 6a 5a 61 11 12 16}  //weight: 3, accuracy: High
+        $x_1_2 = {13 19 11 06 1f 1f 6a 5a 11 07 1f 11 6a 5a 61 11 0c 1f 0d 6a 5a 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

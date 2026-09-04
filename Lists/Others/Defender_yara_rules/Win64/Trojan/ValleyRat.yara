@@ -1206,3 +1206,27 @@ rule Trojan_Win64_ValleyRat_DR_2147977137_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_YAJ_2147977563_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.YAJ!MTB"
+        threat_id = "2147977563"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "cef_translator_test_ref_ptr_library_create" ascii //weight: 3
+        $x_3_2 = {5c 00 4f 00 70 00 65 00 6e 00 72 00 61 00 56 00 50 00 4e}  //weight: 3, accuracy: High
+        $x_3_3 = "TVRjd0xqWXlMakV6TUM0ME53PT0=" ascii //weight: 3
+        $x_3_4 = "\\GhostSystemDriver" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

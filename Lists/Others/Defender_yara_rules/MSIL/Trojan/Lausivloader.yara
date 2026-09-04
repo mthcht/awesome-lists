@@ -130,3 +130,34 @@ rule Trojan_MSIL_Lausivloader_W_2147977060_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lausivloader_WQ_2147977541_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lausivloader.WQ!MTB"
+        threat_id = "2147977541"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lausivloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "OtnmpxnddVnptbN" ascii //weight: 10
+        $x_4_2 = "ChaveSecretaGlobal" ascii //weight: 4
+        $x_1_3 = "ZwUnmapViewOfSection" ascii //weight: 1
+        $x_1_4 = "SetThreadContext" ascii //weight: 1
+        $x_1_5 = "CreateProcess" ascii //weight: 1
+        $x_1_6 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_7 = "FromBase64String" ascii //weight: 1
+        $x_1_8 = "CreateDecryptor" ascii //weight: 1
+        $x_1_9 = "RegisterTaskDefinition" ascii //weight: 1
+        $x_1_10 = "BootTrigger" ascii //weight: 1
+        $x_1_11 = "Microsoft.Win32.TaskScheduler.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

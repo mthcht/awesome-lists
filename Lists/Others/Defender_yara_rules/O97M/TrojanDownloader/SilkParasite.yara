@@ -26,3 +26,25 @@ rule TrojanDownloader_O97M_SilkParasite_GV_2147977381_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_O97M_SilkParasite_VG_2147977537_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/SilkParasite.VG!MTB"
+        threat_id = "2147977537"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "SilkParasite"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "taskID = Shell(\"\"\"\" & programPath & \"\"\"\", vbNormalFocus)" ascii //weight: 1
+        $x_1_2 = "appdatapath&\"\\c\"+_\"al\"+_\"ibr\"+_\"e\"+_\"-la\"+_\"un\"+_\"c\"+_\"h\"+_\"er.d\"+_\"ll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

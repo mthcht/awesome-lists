@@ -806,3 +806,26 @@ rule Trojan_MSIL_WebShell_SX_2147973774_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_A_2147977533_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.A!MTB"
+        threat_id = "2147977533"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {13 06 02 6f ?? 00 00 0a 6f ?? 00 00 0a 08 16 1f 10 6f ?? 00 00 0a 6f ?? 00 00 0a 02}  //weight: 20, accuracy: Low
+        $x_10_2 = "silverlight_shell_aspx" ascii //weight: 10
+        $x_5_3 = "silverlight_ml_aspx" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -116,6 +116,31 @@ rule Trojan_Win32_FileCoder_XU_2147769690_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FileCoder_A_2147810244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FileCoder.A!MTB"
+        threat_id = "2147810244"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "Software\\Classes\\.bl4ck" ascii //weight: 15
+        $x_10_2 = "Global\\bl4ck_rt_up1" ascii //weight: 10
+        $x_5_3 = "DisableAntiVirus" ascii //weight: 5
+        $x_3_4 = "DisableBehaviorMonitoring" ascii //weight: 3
+        $x_2_5 = "DisableAntiSpyware" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_FileCoder_EC_2147850522_0
 {
     meta:

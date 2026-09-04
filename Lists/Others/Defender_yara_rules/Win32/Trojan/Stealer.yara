@@ -1718,3 +1718,30 @@ rule Trojan_Win32_Stealer_Z_2147974281_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Stealer_NT_2147977588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Stealer.NT!MTB"
+        threat_id = "2147977588"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon" ascii //weight: 1
+        $x_2_2 = "http://bublikiadministrator.com" ascii //weight: 2
+        $x_1_3 = "InternetOpenUrlA" ascii //weight: 1
+        $x_1_4 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_5 = "exefile\\shell\\open\\command" ascii //weight: 1
+        $x_1_6 = "bo#Pfwwjmdp_Bssoj" ascii //weight: 1
+        $x_1_7 = "reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Browser Helper Objects" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
