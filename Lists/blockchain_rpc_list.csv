@@ -1,6 +1,6 @@
 dest,root_domain,metadata_comment,metadata_severity
 *.1rpc.io,1rpc.io,"Collapsed from 2 specific hosts (1rpc.io, 1rpc.io). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Live IOC, the fake-CAPTCHA payload is read through it.",critical
-bsc-testnet.4everland.org,4everland.org,"BSC testnet via 4EVERLAND. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
+bsc-testnet.4everland.org,4everland.org,"BSC testnet via 4EVERLAND. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
 *.binance.org,binance.org,"Collapsed from 11 specific hosts (bsc-dataseed.binance.org, bsc-dataseed1.binance.org, bsc-dataseed2.binance.org, ...). Blocks any future sibling on the same apex without a list update. Collateral: apex is legacy Binance Chain, not binance.com - low collateral. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
 *.bnbchain.org,bnbchain.org,"Collapsed from 13 specific hosts (bsc-dataseed1.bnbchain.org, bsc-dataseed2.bnbchain.org, bsc-dataseed3.bnbchain.org, ...). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves BNB Chain docs and the testnet faucet - blocking the faucet is a bonus, not a cost. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
 *.bscscan.com,bscscan.com,"Collapsed from 3 specific hosts (api-testnet.bscscan.com, api.bscscan.com, testnet.bscscan.com). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves the explorer web UI - EXEMPT SOC. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
@@ -20,7 +20,7 @@ api.avax-test.network,avax-test.network,Avalanche Fuji testnet RPC. Free faucet 
 *.blockjoy.com,blockjoy.com,"BlockJoy node hosting. One aggregator reaches every chain the loader needs, no signup.",high
 *.blockpi.network,blockpi.network,BlockPI multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
 *.blxrbdn.com,blxrbdn.com,bloXroute RPC and MEV relay. Used as fallback when a chain's own endpoint throttles.,high
-sns-sdk-proxy.bonfida.workers.dev,bonfida.workers.dev,"Bonfida SNS resolution proxy. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
+sns-sdk-proxy.bonfida.workers.dev,bonfida.workers.dev,Bonfida SNS resolution proxy. Stands in for DNS on a chain-hosted C2 name.,high
 builder0x69.io,builder0x69.io,Ethereum block builder RPC. ChainDrop packages pull their C2 pointer from mainnet here.,high
 matic-mainnet-full-rpc.bwarelabs.com,bwarelabs.com,"Polygon RPC via Bware Labs. Same contracts as the IOC endpoints, different door.",high
 *.callstaticrpc.com,callstaticrpc.com,CallStatic public RPC. Used as fallback when a chain's own endpoint throttles.,high
@@ -33,8 +33,8 @@ cloudflare-eth.com,cloudflare-eth.com,"Ethereum public RPC via Cloudflare. Reads
 *.drpc.org,drpc.org,"Multi-chain decentralised RPC aggregator. Keyless public tier, enough to read an attacker contract.",high
 *.dwellir.com,dwellir.com,"Dwellir RPC provider. Keyless public tier, enough to read an attacker contract.",high
 *.envio.dev,envio.dev,Envio HyperRPC and indexing. Covers BSC and Polygon without a dedicated endpoint.,high
-*.eth.limo,eth.limo,ENS gateway subdomains. Stands in for DNS on a chain-hosted C2 name.,high
-eth.link,eth.link,ENS to IPFS resolution gateway. Stands in for DNS on a chain-hosted C2 name.,high
+*.eth.limo,eth.limo,"ENS gateway subdomains. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
+eth.link,eth.link,"ENS to IPFS resolution gateway. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
 *.etherscan.io,etherscan.io,"Collapsed from 3 specific hosts (api-sepolia.etherscan.io, api.etherscan.io, api.optimistic.etherscan.io). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves the explorer web UI - EXEMPT SOC or they lose their evidence source. Free faucet gas and light filtering make it easy contract hosting.",high
 *.everstake.one,everstake.one,"Everstake node services. Keyless public tier, enough to read an attacker contract.",high
 *.extrnode.com,extrnode.com,"Extrnode Solana RPC. Keyless public tier, enough to read an attacker contract.",high
@@ -85,7 +85,7 @@ api.securerpc.com,securerpc.com,"Ethereum private RPC. Reads cost no gas, so mai
 rpc.sepolia.org,sepolia.org,Ethereum Sepolia testnet RPC. Proof-of-concept resolvers get deployed here first.,high
 *.sequence.app,sequence.app,"Sequence node gateway. One aggregator reaches every chain the loader needs, no signup.",high
 *.shyft.to,shyft.to,Shyft Solana RPC and API. Covers BSC and Polygon without a dedicated endpoint.,high
-*.sol-domain.org,sol-domain.org,SNS proxy subdomains - blackice.sol-domain[.]org was the observed host. Stands in for DNS on a chain-hosted C2 name.,high
+*.sol-domain.org,sol-domain.org,"SNS proxy subdomains - blackice.sol-domain[.]org was the observed host. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
 *.solana.com,solana.com,"Collapsed from 3 specific hosts (api.testnet.solana.com, api.mainnet-beta.solana.com, api.devnet.solana.com). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves Solana docs and marketing - devs will notice. Read via getSignaturesForAddress then getTransaction, not eth_call.",high
 *.stackup.sh,stackup.sh,Stackup account-abstraction RPC. Used as fallback when a chain's own endpoint throttles.,high
 *.subquery.network,subquery.network,"SubQuery public RPC network. One aggregator reaches every chain the loader needs, no signup.",high
@@ -154,18 +154,25 @@ api.tzkt.io,tzkt.io,Tezos indexer API. Non-EVM but the dead-drop pattern ports o
 zkevm-rpc.com,zkevm-rpc.com,Polygon zkEVM official RPC. Contract storage works the same on this chain if the operator moves.,medium
 rpc.zora.energy,zora.energy,Zora official RPC. Contract storage works the same on this chain if the operator moves.,medium
 *.4everland.io,4everland.io,"4EVERLAND subdomain gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-ar-io.net,ar-io.net,"Arweave gateway network. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-*.arweave.dev,arweave.dev,Arweave dev gateways. Serves attacker content and ordinary site images from the same host.,low
-*.arweave.net,arweave.net,"Arweave subdomain gateways. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+ar-io.net,ar-io.net,Arweave gateway network. Serves attacker content and ordinary site images from the same host.,low
+*.arweave.dev,arweave.dev,"Arweave dev gateways. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.arweave.net,arweave.net,Arweave subdomain gateways. Serves attacker content and ordinary site images from the same host.,low
+cf-ipfs.com,cf-ipfs.com,"Cloudflare IPFS gateway, third domain form. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
 cloudflare-ipfs.com,cloudflare-ipfs.com,"Cloudflare IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+cloudflareipfs.com,cloudflareipfs.com,"Cloudflare IPFS gateway, unhyphenated form - served XMRig via /ipns/. Serves attacker content and ordinary site images from the same host.",low
 *.dweb.link,dweb.link,"IPFS subdomain-style gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.ipfs.dweb.link,dweb.link,dweb subdomain gateway - served XLoader order.exe. Serves attacker content and ordinary site images from the same host.,low
 ipfs.filebase.io,filebase.io,"Filebase IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-infura-ipfs.io,infura-ipfs.io,"Infura IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.on.fleek.co,fleek.co,Fleek subdomain gateway. Serves attacker content and ordinary site images from the same host.,low
+ipfs.fleek.co,fleek.co,"Fleek IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.infura-ipfs.io,infura-ipfs.io,"Infura subdomain gateway - hosted Metasploit and Dark Utilities payloads. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
 *.ipfs.io,ipfs.io,IPFS gateway subdomains. Serves attacker content and ordinary site images from the same host.,low
+gateway.ipfsscan.io,ipfsscan.io,"IPFSScan public gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
 *.mypinata.cloud,mypinata.cloud,Pinata dedicated customer gateways. Serves attacker content and ordinary site images from the same host.,low
 *.nftstorage.link,nftstorage.link,NFT.Storage subdomain gateway. Serves attacker content and ordinary site images from the same host.,low
 gateway.pinata.cloud,pinata.cloud,"Pinata IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-w3s.link,w3s.link,web3.storage gateway. Serves attacker content and ordinary site images from the same host.,low
+ipfs.runfission.com,runfission.com,Fission public gateway. Serves attacker content and ordinary site images from the same host.,low
+*.w3s.link,w3s.link,"web3.storage subdomain gateway - CID becomes the hostname, apex rule misses it. Serves attacker content and ordinary site images from the same host.",low
 chainid.network,chainid.network,"Chain and RPC metadata directory. Endpoint directory. Malware never reads it, people do.",info
 chainlist.org,chainlist.org,"RPC endpoint directory. Endpoint directory. Malware never reads it, people do.",info
 chainlist.wtf,chainlist.wtf,"RPC endpoint directory. Endpoint directory. Malware never reads it, people do.",info
