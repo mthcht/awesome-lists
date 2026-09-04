@@ -111,7 +111,7 @@ api.avax.network,avax.network,Avalanche official RPC. Contract storage works the
 api.basescan.org,basescan.org,"Explorer API, Base. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
 *.bitquery.io,bitquery.io,Blockchain GraphQL data API. Read path that survives an RPC block. Exempt analysts.,medium
 rpc.blast.io,blast.io,"Blast official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-blockchain.info,blockchain.info,Bitcoin explorer and API. Slower and pricier than EVM but a working dead drop.,medium
+blockchain.info,blockchain.info,Bitcoin explorer and API. Slower and pricier than EVM but a working dead drop.,info
 api.blockcypher.com,blockcypher.com,Multi-chain blockchain API. Slower and pricier than EVM but a working dead drop.,medium
 *.blockfrost.io,blockfrost.io,Blockfrost multi-chain API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
 *.blockscout.com,blockscout.com,Blockscout self-hosted instances. Read path that survives an RPC block. Exempt analysts.,medium
