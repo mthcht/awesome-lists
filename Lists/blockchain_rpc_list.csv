@@ -1,276 +1,173 @@
 dest,root_domain,metadata_comment,metadata_severity
-*.publicnode.com,publicnode.com,"Multi-chain public RPC (Allnodes). One aggregator reaches every chain the loader needs, no signup.",high
-*.drpc.org,drpc.org,"Multi-chain decentralised RPC aggregator. Keyless public tier, enough to read an attacker contract.",high
-*.ankr.com,ankr.com,Multi-chain public RPC; wildcard also blocks marketing site. Used as fallback when a chain's own endpoint throtles.,high
-1rpc.io,1rpc.io,Automata multi-chain privacy RPC gateway. Covers BSC and Polygon without a dedicated endpoint.,high
-*.blastapi.io,blastapi.io,"Bware Labs multi-chain RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.nodereal.io,nodereal.io,"NodeReal RPC, heavy BSC coverage. Keyless public tier, enough to read an attacker contract.",high
-*.quiknode.pro,quiknode.pro,QuickNode managed RPC endpoints. Used as fallback when a chain's own endpoint throttles.,high
-*.quicknode.pro,quicknode.pro,QuickNode alternate domain. Covers BSC and Polygon without a dedicated endpoint.,high
+*.1rpc.io,1rpc.io,"Collapsed from 2 specific hosts (1rpc.io, 1rpc.io). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Live IOC, the fake-CAPTCHA payload is read through it.",critical
+bsc-testnet.4everland.org,4everland.org,"BSC testnet via 4EVERLAND. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
+*.binance.org,binance.org,"Collapsed from 11 specific hosts (bsc-dataseed.binance.org, bsc-dataseed1.binance.org, bsc-dataseed2.binance.org, ...). Blocks any future sibling on the same apex without a list update. Collateral: apex is legacy Binance Chain, not binance.com - low collateral. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
+*.bnbchain.org,bnbchain.org,"Collapsed from 13 specific hosts (bsc-dataseed1.bnbchain.org, bsc-dataseed2.bnbchain.org, bsc-dataseed3.bnbchain.org, ...). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves BNB Chain docs and the testnet faucet - blocking the faucet is a bonus, not a cost. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
+*.bscscan.com,bscscan.com,"Collapsed from 3 specific hosts (api-testnet.bscscan.com, api.bscscan.com, testnet.bscscan.com). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves the explorer web UI - EXEMPT SOC. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
+*.48.club,48.club,"Collapsed from 2 specific hosts (koge-rpc-bsc.48.club, rpc-bsc.48.club). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Original EtherHiding chain, payload lives in contract storage.",high
 *.alchemy.com,alchemy.com,"Alchemy RPC; wildcard also blocks docs and dashboard. One aggregator reaches every chain the loader needs, no signup.",high
 *.alchemyapi.io,alchemyapi.io,"Alchemy legacy domain. Keyless public tier, enough to read an attacker contract.",high
-*.infura.io,infura.io,Infura RPC; wildcard also blocks docs and dashboard. Used as fallback when a chain's own endpoint throttles.,high
-*.onfinality.io,onfinality.io,OnFinality multi-chain RPC. Covers BSC and Polygon without a dedicated endpoint.,high
-*.subquery.network,subquery.network,"SubQuery public RPC network. One aggregator reaches every chain the loader needs, no signup.",high
-*.tenderly.co,tenderly.co,"Tenderly gateway plus dev tooling and dashboard. Keyless public tier, enough to read an attacker contract.",high
-*.lava.build,lava.build,Lava Network RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.omniatech.io,omniatech.io,OMNIA multi-chain RPC. Covers BSC and Polygon without a dedicated endpoint.,high
-*.pokt.network,pokt.network,"Pocket Network decentralised RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.grove.city,grove.city,"Grove gateway for Pocket Network. Keyless public tier, enough to read an attacker contract.",high
-*.getblock.io,getblock.io,GetBlock multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.moralis.io,moralis.io,Moralis web3 API and RPC. Covers BSC and Polygon without a dedicated endpoint.,high
-*.moralis-nodes.com,moralis-nodes.com,"Moralis node infrastructure. One aggregator reaches every chain the loader needs, no signup.",high
-*.chainnodes.org,chainnodes.org,"ChainNodes RPC provider. Keyless public tier, enough to read an attacker contract.",high
-*.nownodes.io,nownodes.io,NOWNodes multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.thirdweb.com,thirdweb.com,thirdweb RPC; wildcard also blocks docs. Covers BSC and Polygon without a dedicated endpoint.,high
-*.zan.top,zan.top,"ZAN multi-chain RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.dwellir.com,dwellir.com,"Dwellir RPC provider. Keyless public tier, enough to read an attacker contract.",high
-*.blockpi.network,blockpi.network,BlockPI multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.unifra.io,unifra.io,Unifra RPC provider. Covers BSC and Polygon without a dedicated endpoint.,high
-*.chainstacklabs.com,chainstacklabs.com,"Chainstack public endpoints. One aggregator reaches every chain the loader needs, no signup.",high
-*.p2pify.com,p2pify.com,"Chainstack managed endpoints. Keyless public tier, enough to read an attacker contract.",high
-*.stackup.sh,stackup.sh,Stackup account-abstraction RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.gateway.fm,gateway.fm,Gateway.fm RPC provider. Covers BSC and Polygon without a dedicated endpoint.,high
-*.blockdaemon.com,blockdaemon.com,"Blockdaemon node infrastructure. One aggregator reaches every chain the loader needs, no signup.",high
-*.bdnodes.net,bdnodes.net,"Blockdaemon node domain. Keyless public tier, enough to read an attacker contract.",high
-*.chainbase.online,chainbase.online,Chainbase data and RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.tatum.io,tatum.io,Tatum multi-chain API. Covers BSC and Polygon without a dedicated endpoint.,high
-*.llamarpc.com,llamarpc.com,"LlamaNodes public RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.merkle.io,merkle.io,"Merkle private RPC. Keyless public tier, enough to read an attacker contract.",high
-*.blxrbdn.com,blxrbdn.com,bloXroute RPC and MEV relay. Used as fallback when a chain's own endpoint throttles.,high
-*.rpcpool.com,rpcpool.com,Triton Solana RPC pool. Covers BSC and Polygon without a dedicated endpoint.,high
-*.helius-rpc.com,helius-rpc.com,"Helius Solana RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.everstake.one,everstake.one,"Everstake node services. Keyless public tier, enough to read an attacker contract.",high
-*.callstaticrpc.com,callstaticrpc.com,CallStatic public RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.rpcfast.com,rpcfast.com,RPC Fast provider. Covers BSC and Polygon without a dedicated endpoint.,high
-*.blockjoy.com,blockjoy.com,"BlockJoy node hosting. One aggregator reaches every chain the loader needs, no signup.",high
-*.validationcloud.io,validationcloud.io,"Validation Cloud RPC. Keyless public tier, enough to read an attacker contract.",high
-*.rockx.com,rockx.com,RockX node services. Used as fallback when a chain's own endpoint throttles.,high
-*.figment.io,figment.io,Figment node infrastructure. Covers BSC and Polygon without a dedicated endpoint.,high
 *.allthatnode.com,allthatnode.com,"All That Node multi-chain RPC (ChainUp). One aggregator reaches every chain the loader needs, no signup.",high
-*.blockeden.xyz,blockeden.xyz,"BlockEden multi-chain RPC. Keyless public tier, enough to read an attacker contract.",high
-*.syndica.io,syndica.io,Syndica Solana RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.shyft.to,shyft.to,Shyft Solana RPC and API. Covers BSC and Polygon without a dedicated endpoint.,high
-*.instantnodes.io,instantnodes.io,"InstantNodes Solana RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.extrnode.com,extrnode.com,"Extrnode Solana RPC. Keyless public tier, enough to read an attacker contract.",high
-*.ironforge.cloud,ironforge.cloud,Ironforge Solana RPC. Used as fallback when a chain's own endpoint throttles.,high
-*.envio.dev,envio.dev,Envio HyperRPC and indexing. Covers BSC and Polygon without a dedicated endpoint.,high
-*.sequence.app,sequence.app,"Sequence node gateway. One aggregator reaches every chain the loader needs, no signup.",high
-*.chainup.com,chainup.com,"ChainUp node infrastructure. Keyless public tier, enough to read an attacker contract.",high
-*.tokenview.io,tokenview.io,Tokenview multi-chain API. Used as fallback when a chain's own endpoint throttles.,high
-*.polkachu.com,polkachu.com,Polkachu Cosmos ecosystem RPC. Covers BSC and Polygon without a dedicated endpoint.,high
-*.lavenderfive.com,lavenderfive.com,"Lavender.Five Cosmos RPC. One aggregator reaches every chain the loader needs, no signup.",high
-*.kingnodes.com,kingnodes.com,"Kingnodes Cosmos RPC. Keyless public tier, enough to read an attacker contract.",high
-*.publicnode.io,publicnode.io,PublicNode alternate TLD. Used as fallback when a chain's own endpoint throttles.,high
-*.gashawk.io,gashawk.io,GasHawk RPC relay. Covers BSC and Polygon without a dedicated endpoint.,high
-*.rpc.tools,rpc.tools,"Generic public RPC aggregator domain. One aggregator reaches every chain the loader needs, no signup.",high
-bsc-dataseed.binance.org,binance.org,BNB Smart Chain official seed node. Reads the C2 contract that survives every takedown attempt.,high
-bsc-dataseed1.binance.org,binance.org,BNB Smart Chain official seed node. eth_call on the attacker contract hands back the next-stage URL.,high
-bsc-dataseed2.binance.org,binance.org,"BNB Smart Chain official seed node. Original EtherHiding chain, payload lives in contract storage.",high
-bsc-dataseed3.binance.org,binance.org,BNB Smart Chain official seed node. Reads the C2 contract that survives every takedown attempt.,high
-bsc-dataseed4.binance.org,binance.org,BNB Smart Chain official seed node. eth_call on the attacker contract hands back the next-stage URL.,high
-bsc-dataseed1.bnbchain.org,bnbchain.org,"BNB Smart Chain official seed node. Original EtherHiding chain, payload lives in contract storage.",high
-bsc-dataseed2.bnbchain.org,bnbchain.org,BNB Smart Chain official seed node. Reads the C2 contract that survives every takedown attempt.,high
-bsc-dataseed3.bnbchain.org,bnbchain.org,BNB Smart Chain official seed node. eth_call on the attacker contract hands back the next-stage URL.,high
-bsc-dataseed4.bnbchain.org,bnbchain.org,"BNB Smart Chain official seed node. Original EtherHiding chain, payload lives in contract storage.",high
-bsc-dataseed1.defibit.io,defibit.io,BNB Smart Chain community seed node. Reads the C2 contract that survives every takedown attempt.,high
-bsc-dataseed2.defibit.io,defibit.io,BNB Smart Chain community seed node. eth_call on the attacker contract hands back the next-stage URL.,high
-bsc-dataseed3.defibit.io,defibit.io,"BNB Smart Chain community seed node. Original EtherHiding chain, payload lives in contract storage.",high
-bsc-dataseed4.defibit.io,defibit.io,BNB Smart Chain community seed node. Reads the C2 contract that survives every takedown attempt.,high
-bsc-dataseed1.ninicoin.io,ninicoin.io,BNB Smart Chain community seed node. eth_call on the attacker contract hands back the next-stage URL.,high
-bsc-dataseed2.ninicoin.io,ninicoin.io,"BNB Smart Chain community seed node. Original EtherHiding chain, payload lives in contract storage.",high
-bsc-dataseed3.ninicoin.io,ninicoin.io,BNB Smart Chain community seed node. Reads the C2 contract that survives every takedown attempt.,high
-bsc-dataseed4.ninicoin.io,ninicoin.io,BNB Smart Chain community seed node. eth_call on the attacker contract hands back the next-stage URL.,high
-bsc.nodereal.io,nodereal.io,"BSC RPC via NodeReal. Original EtherHiding chain, payload lives in contract storage.",high
-binance.nodereal.io,nodereal.io,BSC RPC via NodeReal. Reads the C2 contract that survives every takedown attempt.,high
-bsc.rpc.blxrbdn.com,blxrbdn.com,BSC RPC via bloXroute. eth_call on the attacker contract hands back the next-stage URL.,high
-koge-rpc-bsc.48.club,48.club,"BSC community RPC. Original EtherHiding chain, payload lives in contract storage.",high
-rpc-bsc.48.club,48.club,BSC community RPC. Reads the C2 contract that survives every takedown attempt.,high
-polygon-bor-rpc.publicnode.com,publicnode.com,Polygon RPC via PublicNode. Compromised sites resolve their C2 pointer here.,critical
-polygon.gateway.tenderly.co,tenderly.co,Polygon RPC via Tenderly. Confirmed retrival host for the ClickFix campaign currently running.,critical
-gateway.tenderly.co,tenderly.co,Tenderly public gateway root. Injected loader polls it roughly every 60s for the next stage.,critical
-1rpc.io/matic,1rpc.io,"Polygon RPC via 1RPC; needs URL filtering with TLS inspection to match. Live IOC, the fake-CAPTCHA payload is read through it.",critical
-polygon.api.onfinality.io,onfinality.io,Polygon RPC via OnFinality. Compromised sites resolve their C2 pointer here.,critical
-polygon.rpc.subquery.network,subquery.network,Polygon RPC via SubQuery. Confirmed retrieval host for the ClickFix campaign currently running.,critical
-polygon.drpc.org,drpc.org,Polygon RPC via dRPC. Injected loader polls it roughly every 60s for the next stage.,critical
-polygon.lava.build,lava.build,"Polygon RPC via Lava. Live IOC, the fake-CAPTCHA payload is read through it.",critical
-polygon-rpc.com,polygon-rpc.com,Polygon official public RPC. Alternate route to the Polygon contract this campaign uses.,high
-rpc-mainnet.matic.network,matic.network,"Polygon legacy public RPC. Same contracts as the IOC endpoints, different door.",high
-rpc-mainnet.maticvigil.com,maticvigil.com,Polygon public RPC. Alternate route to the Polygon contract this campaign uses.,high
-rpc-mainnet.matic.quiknode.pro,quiknode.pro,"Polygon RPC via QuickNode. Same contracts as the IOC endpoints, different door.",high
-matic-mainnet.chainstacklabs.com,chainstacklabs.com,Polygon RPC via Chainstack. Alternate route to the Polygon contract this campaign uses.,high
-matic-mainnet-full-rpc.bwarelabs.com,bwarelabs.com,"Polygon RPC via Bware Labs. Same contracts as the IOC endpoints, different door.",high
-cloudflare-eth.com,cloudflare-eth.com,"Ethereum public RPC via Cloudflare. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
-eth.llamarpc.com,llamarpc.com,Ethereum public RPC - ChainDrop fan-out endpoint 1 of 3. ChainDrop rotates through this one when a sibling rate-limits.,high
-rpc.flashbots.net,flashbots.net,"Ethereum MEV-protected RPC. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
-rpc.mevblocker.io,mevblocker.io,Ethereum MEV-protected RPC. ChainDrop packages pull their C2 pointer from mainnet here.,high
-api.securerpc.com,securerpc.com,"Ethereum private RPC. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
-builder0x69.io,builder0x69.io,Ethereum block builder RPC. ChainDrop packages pull their C2 pointer from mainnet here.,high
-eth.merkle.io,merkle.io,"Ethereum private RPC. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
-arb1.arbitrum.io,arbitrum.io,Arbitrum One official RPC. Contract storage works the same on this chain if the operator moves.,medium
-nova.arbitrum.io,arbitrum.io,"Arbitrum Nova official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-mainnet.optimism.io,optimism.io,Optimism official RPC. Contract storage works the same on this chain if the operator moves.,medium
-mainnet.base.org,base.org,"Base official RPC. Cheap L2 with heavy legit trafic, good cover for a dead drop.",high
-base-rpc.publicnode.com,publicnode.com,Base RPC via PublicNode. Observed hosting resolver contracts alongside Polygon.,high
-base.drpc.org,drpc.org,"Base RPC via dRPC. Cheap L2 with heavy legit traffic, good cover for a dead drop.",high
-base.llamarpc.com,llamarpc.com,Base public RPC. Observed hosting resolver contracts alongside Polygon.,high
-bsc-testnet-rpc.publicnode.com,publicnode.com,"BSC testnet RPC - named by Trend Micro as the ClearFake query path. Rarely filtered, which is the whole reason the loader picked it.",critical
-bsc-testnet.publicnode.com,publicnode.com,"BSC testnet RPC via PublicNode. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-data-seed-prebsc-1-s1.binance.org,binance.org,"BSC testnet official seed node. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-data-seed-prebsc-2-s1.binance.org,binance.org,"BSC testnet official seed node. 5,400+ hacked sites beacon here for stage two.",critical
-data-seed-prebsc-1-s2.binance.org,binance.org,"BSC testnet official seed node. Rarely filtered, which is the whole reason the loader picked it.",critical
-data-seed-prebsc-2-s2.binance.org,binance.org,"BSC testnet official seed node. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-data-seed-prebsc-1-s3.binance.org,binance.org,"BSC testnet official seed node. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-data-seed-prebsc-2-s3.binance.org,binance.org,"BSC testnet official seed node. 5,400+ hacked sites beacon here for stage two.",critical
-bsc-testnet.public.blastapi.io,blastapi.io,"BSC testnet via Bware Labs. Rarely filtered, which is the whole reason the loader picked it.",critical
-bsc-testnet.drpc.org,drpc.org,"BSC testnet via dRPC. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-bsc-testnet-dataseed.bnbchain.org,bnbchain.org,"BSC testnet official seed node. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-rpc-amoy.polygon.technology,polygon.technology,Polygon Amoy testnet official RPC. Free faucet gas and light filtering make it easy contract hosting.,high
-polygon-amoy.api.onfinality.io,onfinality.io,Polygon Amoy via OnFinality. Proof-of-concept resolvers get deployed here first.,high
-polygon-amoy-bor-rpc.publicnode.com,publicnode.com,Polygon Amoy via PublicNode. Free faucet gas and light filtering make it easy contract hosting.,high
-polygon-amoy.drpc.org,drpc.org,Polygon Amoy via dRPC. Proof-of-concept resolvers get deployed here first.,high
-rpc-mumbai.maticvigil.com,maticvigil.com,Polygon Mumbai testnet - deprecated but still reachable. Free faucet gas and light filtering make it easy contract hosting.,high
-rpc.sepolia.org,sepolia.org,Ethereum Sepolia testnet RPC. Proof-of-concept resolvers get deployed here first.,high
-sepolia.drpc.org,drpc.org,Ethereum Sepolia via dRPC. Free faucet gas and light filtering make it easy contract hosting.,high
-ethereum-sepolia-rpc.publicnode.com,publicnode.com,Ethereum Sepolia via PublicNode. Proof-of-concept resolvers get deployed here first.,high
-ethereum-holesky-rpc.publicnode.com,publicnode.com,Ethereum Holesky testnet via PublicNode. Free faucet gas and light filtering make it easy contract hosting.,high
-sepolia.base.org,base.org,Base Sepolia testnet RPC. Proof-of-concept resolvers get deployed here first.,high
-sepolia-rollup.arbitrum.io,arbitrum.io,Arbitrum Sepolia testnet RPC. Free faucet gas and light filtering make it easy contract hosting.,high
-sepolia.optimism.io,optimism.io,Optimism Sepolia testnet RPC. Proof-of-concept resolvers get deployed here first.,high
+*.ankr.com,ankr.com,Multi-chain public RPC; wildcard also blocks marketing site. Used as fallback when a chain's own endpoint throtles.,high
+*.aptoslabs.com,aptoslabs.com,"Collapsed from 3 specific hosts (fullnode.mainnet.aptoslabs.com, api.mainnet.aptoslabs.com, rpc.mainnet.aptoslabs.com). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Staging layer of the same three-chain resolver chain.",high
+*.arbitrum.io,arbitrum.io,"Collapsed from 3 specific hosts (arb1.arbitrum.io, nova.arbitrum.io, sepolia-rollup.arbitrum.io). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves the Arbitrum bridge and docs. Free faucet gas and light filtering make it easy contract hosting.",high
 api.avax-test.network,avax-test.network,Avalanche Fuji testnet RPC. Free faucet gas and light filtering make it easy contract hosting.,high
-api.testnet.solana.com,solana.com,Solana testnet RPC. Proof-of-concept resolvers get deployed here first.,high
-api-testnet.bscscan.com,bscscan.com,"Explorer API - BSC testnet read path. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-api-amoy.polygonscan.com,polygonscan.com,Explorer API - Polygon Amoy read path. Proof-of-concept resolvers get deployed here first.,high
-api-sepolia.etherscan.io,etherscan.io,Explorer API - Sepolia read path. Free faucet gas and light filtering make it easy contract hosting.,high
-rpc.linea.build,linea.build,"Linea official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-zkevm-rpc.com,zkevm-rpc.com,Polygon zkEVM official RPC. Contract storage works the same on this chain if the operator moves.,medium
-rpc.scroll.io,scroll.io,"Scroll official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-rpc.zora.energy,zora.energy,Zora official RPC. Contract storage works the same on this chain if the operator moves.,medium
-rpc.blast.io,blast.io,"Blast official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-mantle-rpc.publicnode.com,publicnode.com,Mantle RPC via PublicNode. Contract storage works the same on this chain if the operator moves.,medium
-rpc.mantle.xyz,mantle.xyz,"Mantle official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-api.avax.network,avax.network,Avalanche official RPC. Contract storage works the same on this chain if the operator moves.,medium
-rpc.ftm.tools,ftm.tools,"Fantom public RPC. No campaign seen yet, blocked to close the substitution path.",medium
-rpcapi.fantom.network,fantom.network,Fantom official RPC. Contract storage works the same on this chain if the operator moves.,medium
-evm.cronos.org,cronos.org,"Cronos official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-rpc.gnosischain.com,gnosischain.com,Gnosis Chain official RPC. Contract storage works the same on this chain if the operator moves.,medium
-rpc.gnosis.gateway.fm,gateway.fm,"Gnosis RPC via Gateway.fm. No campaign seen yet, blocked to close the substitution path.",medium
-forno.celo.org,celo.org,Celo official RPC. Contract storage works the same on this chain if the operator moves.,medium
-rpc.api.moonbeam.network,moonbeam.network,"Moonbeam official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-rpc.api.moonriver.moonbeam.network,moonbeam.network,Moonriver official RPC. Contract storage works the same on this chain if the operator moves.,medium
-api.harmony.one,harmony.one,"Harmony official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-public-en.node.kaia.io,kaia.io,Kaia (ex-Klaytn) official RPC. Contract storage works the same on this chain if the operator moves.,medium
-klaytn.blockpi.network,blockpi.network,"Klaytn RPC via BlockPI. No campaign seen yet, blocked to close the substitution path.",medium
-rpc.pulsechain.com,pulsechain.com,PulseChain official RPC. Contract storage works the same on this chain if the operator moves.,medium
-mainnet.aurora.dev,aurora.dev,"Aurora official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-evmos.lava.build,lava.build,Evmos RPC via Lava. Contract storage works the same on this chain if the operator moves.,medium
-rpc.opbnb.bnbchain.org,bnbchain.org,"opBNB official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-rpc.coredao.org,coredao.org,Core DAO official RPC. Contract storage works the same on this chain if the operator moves.,medium
-rpc.mainnet.oasys.games,oasys.games,"Oasys official RPC. No campaign seen yet, blocked to close the substitution path.",medium
-rpc.metis.io,metis.io,Metis official RPC. Contract storage works the same on this chain if the operator moves.,medium
-emerald.oasis.dev,oasis.dev,"Oasis Emerald RPC. No campaign seen yet, blocked to close the substitution path.",medium
-api.mainnet-beta.solana.com,solana.com,Solana official mainnet RPC. GlassWorm hides its payload URL in transaction memos.,high
-api.devnet.solana.com,solana.com,"Solana devnet RPC. Read via getSignaturesForAddress then getTransaction, not eth_call.",high
+*.base.org,base.org,"Collapsed from 2 specific hosts (mainnet.base.org, sepolia.base.org). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves Base docs and the bridge. Cheap L2 with heavy legit trafic, good cover for a dead drop.",high
+*.bdnodes.net,bdnodes.net,"Blockdaemon node domain. Keyless public tier, enough to read an attacker contract.",high
+*.blastapi.io,blastapi.io,"Bware Labs multi-chain RPC. One aggregator reaches every chain the loader needs, no signup.",high
+*.blockdaemon.com,blockdaemon.com,"Blockdaemon node infrastructure. One aggregator reaches every chain the loader needs, no signup.",high
+*.blockeden.xyz,blockeden.xyz,"BlockEden multi-chain RPC. Keyless public tier, enough to read an attacker contract.",high
+*.blockjoy.com,blockjoy.com,"BlockJoy node hosting. One aggregator reaches every chain the loader needs, no signup.",high
+*.blockpi.network,blockpi.network,BlockPI multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.blxrbdn.com,blxrbdn.com,bloXroute RPC and MEV relay. Used as fallback when a chain's own endpoint throttles.,high
+sns-sdk-proxy.bonfida.workers.dev,bonfida.workers.dev,"Bonfida SNS resolution proxy. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
+builder0x69.io,builder0x69.io,Ethereum block builder RPC. ChainDrop packages pull their C2 pointer from mainnet here.,high
+matic-mainnet-full-rpc.bwarelabs.com,bwarelabs.com,"Polygon RPC via Bware Labs. Same contracts as the IOC endpoints, different door.",high
+*.callstaticrpc.com,callstaticrpc.com,CallStatic public RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.chainbase.online,chainbase.online,Chainbase data and RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.chainnodes.org,chainnodes.org,"ChainNodes RPC provider. Keyless public tier, enough to read an attacker contract.",high
+*.chainstacklabs.com,chainstacklabs.com,"Chainstack public endpoints. One aggregator reaches every chain the loader needs, no signup.",high
+*.chainup.com,chainup.com,"ChainUp node infrastructure. Keyless public tier, enough to read an attacker contract.",high
+cloudflare-eth.com,cloudflare-eth.com,"Ethereum public RPC via Cloudflare. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
+*.defibit.io,defibit.io,"Collapsed from 4 specific hosts (bsc-dataseed1.defibit.io, bsc-dataseed2.defibit.io, bsc-dataseed3.defibit.io, ...). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. eth_call on the attacker contract hands back the next-stage URL.",high
+*.drpc.org,drpc.org,"Multi-chain decentralised RPC aggregator. Keyless public tier, enough to read an attacker contract.",high
+*.dwellir.com,dwellir.com,"Dwellir RPC provider. Keyless public tier, enough to read an attacker contract.",high
+*.envio.dev,envio.dev,Envio HyperRPC and indexing. Covers BSC and Polygon without a dedicated endpoint.,high
+*.eth.limo,eth.limo,ENS gateway subdomains. Stands in for DNS on a chain-hosted C2 name.,high
+eth.link,eth.link,ENS to IPFS resolution gateway. Stands in for DNS on a chain-hosted C2 name.,high
+*.etherscan.io,etherscan.io,"Collapsed from 3 specific hosts (api-sepolia.etherscan.io, api.etherscan.io, api.optimistic.etherscan.io). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves the explorer web UI - EXEMPT SOC or they lose their evidence source. Free faucet gas and light filtering make it easy contract hosting.",high
+*.everstake.one,everstake.one,"Everstake node services. Keyless public tier, enough to read an attacker contract.",high
+*.extrnode.com,extrnode.com,"Extrnode Solana RPC. Keyless public tier, enough to read an attacker contract.",high
+*.figment.io,figment.io,Figment node infrastructure. Covers BSC and Polygon without a dedicated endpoint.,high
+rpc.flashbots.net,flashbots.net,"Ethereum MEV-protected RPC. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
+*.gashawk.io,gashawk.io,GasHawk RPC relay. Covers BSC and Polygon without a dedicated endpoint.,high
+*.gateway.fm,gateway.fm,Gateway.fm RPC provider. Covers BSC and Polygon without a dedicated endpoint.,high
+*.getblock.io,getblock.io,GetBlock multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.grove.city,grove.city,"Grove gateway for Pocket Network. Keyless public tier, enough to read an attacker contract.",high
+*.helius-rpc.com,helius-rpc.com,"Helius Solana RPC. One aggregator reaches every chain the loader needs, no signup.",high
+*.infura.io,infura.io,Infura RPC; wildcard also blocks docs and dashboard. Used as fallback when a chain's own endpoint throttles.,high
+*.instantnodes.io,instantnodes.io,"InstantNodes Solana RPC. One aggregator reaches every chain the loader needs, no signup.",high
+*.ironforge.cloud,ironforge.cloud,Ironforge Solana RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.kingnodes.com,kingnodes.com,"Kingnodes Cosmos RPC. Keyless public tier, enough to read an attacker contract.",high
+*.lava.build,lava.build,Lava Network RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.lavenderfive.com,lavenderfive.com,"Lavender.Five Cosmos RPC. One aggregator reaches every chain the loader needs, no signup.",high
+*.llamarpc.com,llamarpc.com,"LlamaNodes public RPC. One aggregator reaches every chain the loader needs, no signup.",high
+rpc-mainnet.matic.network,matic.network,"Polygon legacy public RPC. Same contracts as the IOC endpoints, different door.",high
+*.maticvigil.com,maticvigil.com,"Collapsed from 2 specific hosts (rpc-mainnet.maticvigil.com, rpc-mumbai.maticvigil.com). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Free faucet gas and light filtering make it easy contract hosting.",high
+*.merkle.io,merkle.io,"Merkle private RPC. Keyless public tier, enough to read an attacker contract.",high
+rpc.mevblocker.io,mevblocker.io,Ethereum MEV-protected RPC. ChainDrop packages pull their C2 pointer from mainnet here.,high
+*.moralis-nodes.com,moralis-nodes.com,"Moralis node infrastructure. One aggregator reaches every chain the loader needs, no signup.",high
+*.moralis.io,moralis.io,Moralis web3 API and RPC. Covers BSC and Polygon without a dedicated endpoint.,high
+*.ninicoin.io,ninicoin.io,"Collapsed from 4 specific hosts (bsc-dataseed1.ninicoin.io, bsc-dataseed2.ninicoin.io, bsc-dataseed3.ninicoin.io, ...). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. eth_call on the attacker contract hands back the next-stage URL.",high
+*.nodereal.io,nodereal.io,"NodeReal RPC, heavy BSC coverage. Keyless public tier, enough to read an attacker contract.",high
+*.nownodes.io,nownodes.io,NOWNodes multi-chain RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.omniatech.io,omniatech.io,OMNIA multi-chain RPC. Covers BSC and Polygon without a dedicated endpoint.,high
+*.onfinality.io,onfinality.io,OnFinality multi-chain RPC. Covers BSC and Polygon without a dedicated endpoint.,high
+*.optimism.io,optimism.io,"Collapsed from 2 specific hosts (mainnet.optimism.io, sepolia.optimism.io). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves Optimism docs. Contract storage works the same on this chain if the operator moves.",high
+ton.access.orbs.network,orbs.network,TON decentralised RPC gateway. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
+*.p2pify.com,p2pify.com,"Chainstack managed endpoints. Keyless public tier, enough to read an attacker contract.",high
+*.pokt.network,pokt.network,"Pocket Network decentralised RPC. One aggregator reaches every chain the loader needs, no signup.",high
+*.polkachu.com,polkachu.com,Polkachu Cosmos ecosystem RPC. Covers BSC and Polygon without a dedicated endpoint.,high
+polygon-rpc.com,polygon-rpc.com,Polygon official public RPC. Alternate route to the Polygon contract this campaign uses.,high
+rpc-amoy.polygon.technology,polygon.technology,Polygon Amoy testnet official RPC. Free faucet gas and light filtering make it easy contract hosting.,high
+*.polygonscan.com,polygonscan.com,"Collapsed from 2 specific hosts (api-amoy.polygonscan.com, api.polygonscan.com). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves the explorer web UI - EXEMPT SOC. Read path that survives an RPC block. Exempt analysts.",high
+aptos-mainnet.pontem.network,pontem.network,Aptos RPC via Pontem. Staging layer of the same three-chain resolver chain.,high
 solana-api.projectserum.com,projectserum.com,Solana public RPC. GlassWorm hides its payload URL in transaction memos.,high
-api.trongrid.io,trongrid.io,Tron official API and RPC. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
-api.tronstack.io,tronstack.io,Tron public API. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
-nile.trongrid.io,trongrid.io,Tron testnet API. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
-horizon.stellar.org,stellar.org,Stellar Horizon API. Contract or memo fields on this chain can hold a C2 pointer.,medium
-api.tzkt.io,tzkt.io,Tezos indexer API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
-mainnet.tezos.marigold.dev,marigold.dev,Tezos public RPC. Contract or memo fields on this chain can hold a C2 pointer.,medium
-api.koios.rest,koios.rest,Cardano public API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
-cardano-mainnet.blockfrost.io,blockfrost.io,Cardano API via Blockfrost. Contract or memo fields on this chain can hold a C2 pointer.,medium
-*.blockfrost.io,blockfrost.io,Blockfrost multi-chain API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
-fullnode.mainnet.sui.io,sui.io,Sui official RPC. Contract or memo fields on this chain can hold a C2 pointer.,medium
-mainnet-api.algonode.cloud,algonode.cloud,Algorand public API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
-*.algonode.cloud,algonode.cloud,Algorand public node network. Contract or memo fields on this chain can hold a C2 pointer.,medium
-rpc.mainnet.near.org,near.org,NEAR official RPC. Non-EVM but the dead-drop pattern ports over unchanged.,medium
+*.publicnode.com,publicnode.com,"Multi-chain public RPC (Allnodes). One aggregator reaches every chain the loader needs, no signup.",high
+*.publicnode.io,publicnode.io,PublicNode alternate TLD. Used as fallback when a chain's own endpoint throttles.,high
+*.quicknode.pro,quicknode.pro,QuickNode alternate domain. Covers BSC and Polygon without a dedicated endpoint.,high
+*.quiknode.pro,quiknode.pro,QuickNode managed RPC endpoints. Used as fallback when a chain's own endpoint throttles.,high
+*.rockx.com,rockx.com,RockX node services. Used as fallback when a chain's own endpoint throttles.,high
+*.rpc.tools,rpc.tools,"Generic public RPC aggregator domain. One aggregator reaches every chain the loader needs, no signup.",high
+*.rpcfast.com,rpcfast.com,RPC Fast provider. Covers BSC and Polygon without a dedicated endpoint.,high
+*.rpcpool.com,rpcpool.com,Triton Solana RPC pool. Covers BSC and Polygon without a dedicated endpoint.,high
+api.securerpc.com,securerpc.com,"Ethereum private RPC. Reads cost no gas, so mainnet is as cheap as anywhere for a dead drop.",high
+rpc.sepolia.org,sepolia.org,Ethereum Sepolia testnet RPC. Proof-of-concept resolvers get deployed here first.,high
+*.sequence.app,sequence.app,"Sequence node gateway. One aggregator reaches every chain the loader needs, no signup.",high
+*.shyft.to,shyft.to,Shyft Solana RPC and API. Covers BSC and Polygon without a dedicated endpoint.,high
+*.sol-domain.org,sol-domain.org,SNS proxy subdomains - blackice.sol-domain[.]org was the observed host. Stands in for DNS on a chain-hosted C2 name.,high
+*.solana.com,solana.com,"Collapsed from 3 specific hosts (api.testnet.solana.com, api.mainnet-beta.solana.com, api.devnet.solana.com). Blocks any future sibling on the same apex without a list update. Collateral: apex also serves Solana docs and marketing - devs will notice. Read via getSignaturesForAddress then getTransaction, not eth_call.",high
+*.stackup.sh,stackup.sh,Stackup account-abstraction RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.subquery.network,subquery.network,"SubQuery public RPC network. One aggregator reaches every chain the loader needs, no signup.",high
+*.syndica.io,syndica.io,Syndica Solana RPC. Used as fallback when a chain's own endpoint throttles.,high
+*.tatum.io,tatum.io,Tatum multi-chain API. Covers BSC and Polygon without a dedicated endpoint.,high
+*.tenderly.co,tenderly.co,"Tenderly gateway plus dev tooling and dashboard. Keyless public tier, enough to read an attacker contract.",high
+*.thirdweb.com,thirdweb.com,thirdweb RPC; wildcard also blocks docs. Covers BSC and Polygon without a dedicated endpoint.,high
+*.tokenview.io,tokenview.io,Tokenview multi-chain API. Used as fallback when a chain's own endpoint throttles.,high
 *.ton.org,ton.org,TON official infrastructure. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
-toncenter.com,toncenter.com,TON public API. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
 tonapi.io,tonapi.io,TON public API. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
-blockchain.info,blockchain.info,Bitcoin explorer and API. Slower and pricier than EVM but a working dead drop.,medium
-blockstream.info,blockstream.info,"Bitcoin explorer and API. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
-mempool.space,mempool.space,Bitcoin mempool explorer and API. Slower and pricier than EVM but a working dead drop.,medium
-*.mempool.space,mempool.space,"Bitcoin mempool explorer subdomains. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
-api.blockcypher.com,blockcypher.com,Multi-chain blockchain API. Slower and pricier than EVM but a working dead drop.,medium
-ordinals.com,ordinals.com,"Bitcoin Ordinals inscription hosting. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
-*.ordinals.com,ordinals.com,Bitcoin Ordinals subdomains. Slower and pricier than EVM but a working dead drop.,medium
-api.hiro.so,hiro.so,"Bitcoin and Stacks API with Ordinals data. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
-ordapi.xyz,ordapi.xyz,Ordinals inscription API. Slower and pricier than EVM but a working dead drop.,medium
-btcscan.org,btcscan.org,"Bitcoin explorer. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
-api.etherscan.io,etherscan.io,"Explorer API, Ethereum. Read path that survives an RPC block. Exempt analysts.",medium
-api.bscscan.com,bscscan.com,"Explorer API, BSC. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
-api.polygonscan.com,polygonscan.com,"Explorer API, Polygon; closest bypass to this campaign. Read path that survives an RPC block. Exempt analysts.",medium
+toncenter.com,toncenter.com,TON public API. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
+*.tonhubapi.com,tonhubapi.com,"Collapsed from 2 specific hosts (api.mainnet.tonhubapi.com, mainnet-v4.tonhubapi.com). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. TONResolver calls get_domain on a contract to fetch the C2 domain.",high
+api.tron.network,tron.network,Tron public API. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
+*.trongrid.io,trongrid.io,"Collapsed from 2 specific hosts (api.trongrid.io, nile.trongrid.io). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.",high
+api.tronstack.io,tronstack.io,Tron public API. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
+*.unifra.io,unifra.io,Unifra RPC provider. Covers BSC and Polygon without a dedicated endpoint.,high
+*.validationcloud.io,validationcloud.io,"Validation Cloud RPC. Keyless public tier, enough to read an attacker contract.",high
+*.zan.top,zan.top,"ZAN multi-chain RPC. One aggregator reaches every chain the loader needs, no signup.",high
+*.algonode.cloud,algonode.cloud,Algorand public node network. Contract or memo fields on this chain can hold a C2 pointer.,medium
 api.arbiscan.io,arbiscan.io,"Explorer API, Arbitrum. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
-api.snowtrace.io,snowtrace.io,"Explorer API, Avalanche. Read path that survives an RPC block. Exempt analysts.",medium
+mainnet.aurora.dev,aurora.dev,"Aurora official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+api.avax.network,avax.network,Avalanche official RPC. Contract storage works the same on this chain if the operator moves.,medium
 api.basescan.org,basescan.org,"Explorer API, Base. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
-api.optimistic.etherscan.io,etherscan.io,"Explorer API, Optimism. Read path that survives an RPC block. Exempt analysts.",medium
-api.ftmscan.com,ftmscan.com,"Explorer API, Fantom. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
-api.cronoscan.com,cronoscan.com,"Explorer API, Cronos. Read path that survives an RPC block. Exempt analysts.",medium
-api.gnosisscan.io,gnosisscan.io,"Explorer API, Gnosis. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
-api.lineascan.build,lineascan.build,"Explorer API, Linea. Read path that survives an RPC block. Exempt analysts.",medium
-api.blockscout.com,blockscout.com,"Open-source explorer API. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
-*.blockscout.com,blockscout.com,Blockscout self-hosted instances. Read path that survives an RPC block. Exempt analysts.,medium
-api.covalenthq.com,covalenthq.com,"Multi-chain data API. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
 *.bitquery.io,bitquery.io,Blockchain GraphQL data API. Read path that survives an RPC block. Exempt analysts.,medium
+rpc.blast.io,blast.io,"Blast official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+blockchain.info,blockchain.info,Bitcoin explorer and API. Slower and pricier than EVM but a working dead drop.,medium
+api.blockcypher.com,blockcypher.com,Multi-chain blockchain API. Slower and pricier than EVM but a working dead drop.,medium
+*.blockfrost.io,blockfrost.io,Blockfrost multi-chain API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
+*.blockscout.com,blockscout.com,Blockscout self-hosted instances. Read path that survives an RPC block. Exempt analysts.,medium
+blockstream.info,blockstream.info,"Bitcoin explorer and API. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
+btcscan.org,btcscan.org,"Bitcoin explorer. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
+forno.celo.org,celo.org,Celo official RPC. Contract storage works the same on this chain if the operator moves.,medium
+rpc.coredao.org,coredao.org,Core DAO official RPC. Contract storage works the same on this chain if the operator moves.,medium
+api.covalenthq.com,covalenthq.com,"Multi-chain data API. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
+evm.cronos.org,cronos.org,"Cronos official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+api.cronoscan.com,cronoscan.com,"Explorer API, Cronos. Read path that survives an RPC block. Exempt analysts.",medium
 api.dune.com,dune.com,"Blockchain analytics API. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
+rpcapi.fantom.network,fantom.network,Fantom official RPC. Contract storage works the same on this chain if the operator moves.,medium
+rpc.ftm.tools,ftm.tools,"Fantom public RPC. No campaign seen yet, blocked to close the substitution path.",medium
+api.ftmscan.com,ftmscan.com,"Explorer API, Fantom. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
+rpc.gnosischain.com,gnosischain.com,Gnosis Chain official RPC. Contract storage works the same on this chain if the operator moves.,medium
+api.gnosisscan.io,gnosisscan.io,"Explorer API, Gnosis. Returns the same contract state as an RPC node, no node needed. SOC exception required.",medium
+api.harmony.one,harmony.one,"Harmony official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+api.hiro.so,hiro.so,"Bitcoin and Stacks API with Ordinals data. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
+public-en.node.kaia.io,kaia.io,Kaia (ex-Klaytn) official RPC. Contract storage works the same on this chain if the operator moves.,medium
+api.koios.rest,koios.rest,Cardano public API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
+rpc.linea.build,linea.build,"Linea official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+api.lineascan.build,lineascan.build,"Explorer API, Linea. Read path that survives an RPC block. Exempt analysts.",medium
+rpc.mantle.xyz,mantle.xyz,"Mantle official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+mainnet.tezos.marigold.dev,marigold.dev,Tezos public RPC. Contract or memo fields on this chain can hold a C2 pointer.,medium
+*.mempool.space,mempool.space,"Bitcoin mempool explorer subdomains. Inscriptions and OP_RETURN carry payloads, Ordinals tooling reads them back.",medium
+rpc.metis.io,metis.io,Metis official RPC. Contract storage works the same on this chain if the operator moves.,medium
+*.moonbeam.network,moonbeam.network,"Collapsed from 2 specific hosts (rpc.api.moonbeam.network, rpc.api.moonriver.moonbeam.network). Blocks any future sibling on the same apex without a list update. Collateral: no known non-RPC content on this apex. Contract storage works the same on this chain if the operator moves.",medium
+rpc.mainnet.near.org,near.org,NEAR official RPC. Non-EVM but the dead-drop pattern ports over unchanged.,medium
 *.nodit.io,nodit.io,Multi-chain node and data API. Read path that survives an RPC block. Exempt analysts.,medium
-ipfs.io,ipfs.io,"Protocol Labs public IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-*.ipfs.io,ipfs.io,IPFS gateway subdomains. Serves attacker content and ordinary site images from the same host.,low
-gateway.pinata.cloud,pinata.cloud,"Pinata IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-*.mypinata.cloud,mypinata.cloud,Pinata dedicated customer gateways. Serves attacker content and ordinary site images from the same host.,low
-cloudflare-ipfs.com,cloudflare-ipfs.com,"Cloudflare IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-dweb.link,dweb.link,Protocol Labs IPFS gateway. Serves attacker content and ordinary site images from the same host.,low
-*.dweb.link,dweb.link,"IPFS subdomain-style gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-w3s.link,w3s.link,web3.storage gateway. Serves attacker content and ordinary site images from the same host.,low
-nftstorage.link,nftstorage.link,"NFT.Storage gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-*.nftstorage.link,nftstorage.link,NFT.Storage subdomain gateway. Serves attacker content and ordinary site images from the same host.,low
-infura-ipfs.io,infura-ipfs.io,"Infura IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-4everland.io,4everland.io,4EVERLAND IPFS gateway. Serves attacker content and ordinary site images from the same host.,low
+emerald.oasis.dev,oasis.dev,"Oasis Emerald RPC. No campaign seen yet, blocked to close the substitution path.",medium
+rpc.mainnet.oasys.games,oasys.games,"Oasys official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+ordapi.xyz,ordapi.xyz,Ordinals inscription API. Slower and pricier than EVM but a working dead drop.,medium
+*.ordinals.com,ordinals.com,Bitcoin Ordinals subdomains. Slower and pricier than EVM but a working dead drop.,medium
+rpc.pulsechain.com,pulsechain.com,PulseChain official RPC. Contract storage works the same on this chain if the operator moves.,medium
+rpc.scroll.io,scroll.io,"Scroll official RPC. No campaign seen yet, blocked to close the substitution path.",medium
+api.snowtrace.io,snowtrace.io,"Explorer API, Avalanche. Read path that survives an RPC block. Exempt analysts.",medium
+horizon.stellar.org,stellar.org,Stellar Horizon API. Contract or memo fields on this chain can hold a C2 pointer.,medium
+fullnode.mainnet.sui.io,sui.io,Sui official RPC. Contract or memo fields on this chain can hold a C2 pointer.,medium
+api.tzkt.io,tzkt.io,Tezos indexer API. Non-EVM but the dead-drop pattern ports over unchanged.,medium
+zkevm-rpc.com,zkevm-rpc.com,Polygon zkEVM official RPC. Contract storage works the same on this chain if the operator moves.,medium
+rpc.zora.energy,zora.energy,Zora official RPC. Contract storage works the same on this chain if the operator moves.,medium
 *.4everland.io,4everland.io,"4EVERLAND subdomain gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-gateway.ipfs.io,ipfs.io,IPFS public gateway. Serves attacker content and ordinary site images from the same host.,low
-ipfs.filebase.io,filebase.io,"Filebase IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-arweave.net,arweave.net,Arweave permanent storage gateway. Serves attacker content and ordinary site images from the same host.,low
-*.arweave.net,arweave.net,"Arweave subdomain gateways. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
-*.arweave.dev,arweave.dev,Arweave dev gateways. Serves attacker content and ordinary site images from the same host.,low
 ar-io.net,ar-io.net,"Arweave gateway network. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.arweave.dev,arweave.dev,Arweave dev gateways. Serves attacker content and ordinary site images from the same host.,low
+*.arweave.net,arweave.net,"Arweave subdomain gateways. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+cloudflare-ipfs.com,cloudflare-ipfs.com,"Cloudflare IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.dweb.link,dweb.link,"IPFS subdomain-style gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+ipfs.filebase.io,filebase.io,"Filebase IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+infura-ipfs.io,infura-ipfs.io,"Infura IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+*.ipfs.io,ipfs.io,IPFS gateway subdomains. Serves attacker content and ordinary site images from the same host.,low
+*.mypinata.cloud,mypinata.cloud,Pinata dedicated customer gateways. Serves attacker content and ordinary site images from the same host.,low
+*.nftstorage.link,nftstorage.link,NFT.Storage subdomain gateway. Serves attacker content and ordinary site images from the same host.,low
+gateway.pinata.cloud,pinata.cloud,"Pinata IPFS gateway. Hosts stage-two payloads pinned by CID. Heavy legit use, expect noise.",low
+w3s.link,w3s.link,web3.storage gateway. Serves attacker content and ordinary site images from the same host.,low
+chainid.network,chainid.network,"Chain and RPC metadata directory. Endpoint directory. Malware never reads it, people do.",info
 chainlist.org,chainlist.org,"RPC endpoint directory. Endpoint directory. Malware never reads it, people do.",info
 chainlist.wtf,chainlist.wtf,"RPC endpoint directory. Endpoint directory. Malware never reads it, people do.",info
 ethereumnodes.com,ethereumnodes.com,"RPC endpoint directory. Endpoint directory. Malware never reads it, people do.",info
 rpc.info,rpc.info,"RPC endpoint directory. Endpoint directory. Malware never reads it, people do.",info
-chainid.network,chainid.network,"Chain and RPC metadata directory. Endpoint directory. Malware never reads it, people do.",info
-fullnode.mainnet.aptoslabs.com,aptoslabs.com,Aptos official fullnode RPC. Staging layer of the same three-chain resolver chain.,high
-api.mainnet.aptoslabs.com,aptoslabs.com,Aptos official API. Staging layer of the same three-chain resolver chain.,high
-aptos-mainnet.pontem.network,pontem.network,Aptos RPC via Pontem. Staging layer of the same three-chain resolver chain.,high
-rpc.ankr.com/http/aptos,ankr.com,Aptos RPC via Ankr. Staging layer of the same three-chain resolver chain.,high
-sol-domain.org,sol-domain.org,"Solana Naming System browser proxy - observed as C2 dead drop by Darktrace. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
-*.sol-domain.org,sol-domain.org,SNS proxy subdomains - blackice.sol-domain[.]org was the observed host. Stands in for DNS on a chain-hosted C2 name.,high
-sns-sdk-proxy.bonfida.workers.dev,bonfida.workers.dev,"Bonfida SNS resolution proxy. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
-eth.link,eth.link,ENS to IPFS resolution gateway. Stands in for DNS on a chain-hosted C2 name.,high
-eth.limo,eth.limo,"ENS to IPFS resolution gateway. Resolves .sol and .eth names for browsers that cannot, C2 seen behind it.",high
-*.eth.limo,eth.limo,ENS gateway subdomains. Stands in for DNS on a chain-hosted C2 name.,high
-api.mainnet.tonhubapi.com,tonhubapi.com,TON public API. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
-ton.access.orbs.network,orbs.network,TON decentralised RPC gateway. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
-mainnet-v4.tonhubapi.com,tonhubapi.com,TON public API. TONResolver calls get_domain on a contract to fetch the C2 domain.,high
-api.tron.network,tron.network,Tron public API. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
-trx.getblock.io,getblock.io,Tron RPC via GetBlock. Holds the encrypted C2 URL in the Tron/BSC/Aptos resolver chain.,high
-rpc.mainnet.aptoslabs.com,aptoslabs.com,Aptos RPC endpoint. Staging layer of the same three-chain resolver chain.,high
-go.getblock.io,getblock.io,GetBlock shared endpoint - ChainDrop fan-out endpoint 2 of 3. ChainDrop rotates through this one when a sibling rate-limits.,high
-eth-mainnet.nodereal.io,nodereal.io,NodeReal keyless endpoint - ChainDrop fan-out endpoint 3 of 3. One of three endpoints the npm loader falls back across.,high
-polygon.publicnode.com,publicnode.com,"Named IOC in the GuidePoint campaign AND the TroyDen retrieval endpoint per Netskope - two independent clusters on one host. Live IOC, the fake-CAPTCHA payload is read through it.",critical
-data-seed-prebsc-1-s1.bnbchain.org,bnbchain.org,"BSC testnet seed on bnbchain.org. Rarely filtered, which is the whole reason the loader picked it.",critical
-data-seed-prebsc-2-s1.bnbchain.org,bnbchain.org,"BSC testnet seed on bnbchain.org. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-data-seed-prebsc-1-s2.bnbchain.org,bnbchain.org,"BSC testnet seed on bnbchain.org. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-data-seed-prebsc-2-s2.bnbchain.org,bnbchain.org,"BSC testnet seed on bnbchain.org. 5,400+ hacked sites beacon here for stage two.",critical
-data-seed-prebsc-1-s3.bnbchain.org,bnbchain.org,"BSC testnet seed on bnbchain.org. Rarely filtered, which is the whole reason the loader picked it.",critical
-data-seed-prebsc-2-s3.bnbchain.org,bnbchain.org,"BSC testnet seed on bnbchain.org. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-bsc-prebsc-dataseed.bnbchain.org,bnbchain.org,"BSC testnet seed node. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-bsc-testnet.nodereal.io,nodereal.io,"BSC testnet via NodeReal. 5,400+ hacked sites beacon here for stage two.",critical
-bsc-testnet.blockpi.network,blockpi.network,"BSC testnet via BlockPI. Rarely filtered, which is the whole reason the loader picked it.",critical
-bsc-testnet.4everland.org,4everland.org,"BSC testnet via 4EVERLAND. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-endpoints.omniatech.io,omniatech.io,"OMNIA public endpoints incl. BSC testnet path. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-api.zan.top,zan.top,"ZAN public endpoints incl. bsc-testnet path. 5,400+ hacked sites beacon here for stage two.",critical
-rpc.ankr.com/bsc_testnet_chapel,ankr.com,"BSC testnet Chapel via Ankr. Rarely filtered, which is the whole reason the loader picked it.",critical
-97.rpc.thirdweb.com,thirdweb.com,"BSC testnet by chain ID via thirdweb. Testnet gas comes free from a faucet, so the C2 contract costs nothing to host.",critical
-bnbsmartchain-testnet.gateway.tatum.io,tatum.io,"BSC testnet via Tatum. Contract holding the ClickFix payload sits on testnet, out of most filters.",critical
-testnet.bscscan.com,bscscan.com,"BSC testnet explorer web UI. 5,400+ hacked sites beacon here for stage two.",critical
