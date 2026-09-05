@@ -4621,3 +4621,34 @@ rule Trojan_Win64_Zusy_AA_2147977203_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_AA_2147977203_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AA!MTB"
+        threat_id = "2147977203"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "90"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Remove-Item \"$ud\\SingletonLock\",\"$ud\\SingletonSocket\",\"$ud\\SingletonCookie\",\"$ud\\lockfile\" -Force -EA SilentlyContinue" ascii //weight: 50
+        $x_40_2 = "$r=$ws.ReceiveAsync([ArraySegment[byte]]::new($buf),$cts.Token).GetAwaiter().GetResult()" ascii //weight: 40
+        $x_30_3 = "_keys_init.txt" ascii //weight: 30
+        $x_20_4 = "_clip_init.txt" ascii //weight: 20
+        $x_10_5 = "_ss_init.jpg" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_40_*) and 1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_30_*) and 1 of ($x_10_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_30_*) and 1 of ($x_20_*))) or
+            ((1 of ($x_50_*) and 1 of ($x_40_*))) or
+            (all of ($x*))
+        )
+}
+

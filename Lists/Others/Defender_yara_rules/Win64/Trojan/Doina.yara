@@ -525,3 +525,49 @@ rule Trojan_Win64_Doina_LR_2147976091_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_AA_2147977618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.AA!MTB"
+        threat_id = "2147977618"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_12_1 = {0f b6 c9 0f b6 4c 0c ?? 41 30 08 49 83 c0 ?? 4d 39 c2 75}  //weight: 12, accuracy: Low
+        $x_2_2 = {41 0f b6 0c 02 30 0c 02 48 83 c0 ?? 49 39 c3 77}  //weight: 2, accuracy: Low
+        $x_6_3 = {89 c1 83 c0 ?? 83 e1 07 0f b6 4c 0c 48 41 8d 4c 08 a5 41 83 c0 ?? 30 0a 48 83 c2}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_SA_2147977621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.SA!MTB"
+        threat_id = "2147977621"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "C:\\INTERNAL\\REMOTE.EXE" ascii //weight: 1
+        $x_1_2 = "kg.cwisuz.com" ascii //weight: 1
+        $x_1_3 = "/data/service/v2" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -24,3 +24,24 @@ rule Trojan_Win64_SquidLoader_A_2147955255_0
         (6 of ($x*))
 }
 
+rule Trojan_Win64_SquidLoader_PS_2147977624_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SquidLoader.PS!MTB"
+        threat_id = "2147977624"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SquidLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4e 8d 24 3f 4d 87 ea 45 8a 34 24 41 5b 4d 89 dd 41 55 41 80 f6 31 49 c7 c2 a1 00 00 00 41 80 c6 31 45 0f 5c c6 45 88 34 24 48 c1 e8 36 49 ff c7 49 09 c2 49 39 df 49 93 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

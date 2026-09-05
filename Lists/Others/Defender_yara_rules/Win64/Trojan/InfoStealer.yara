@@ -321,3 +321,27 @@ rule Trojan_Win64_InfoStealer_PAI_2147977554_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_AA_2147977627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.AA!MTB"
+        threat_id = "2147977627"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {42 0f b6 0c 0a 49 ff c1 48 33 c1 49 0f af c2 4d 3b c8 72}  //weight: 4, accuracy: High
+        $x_10_2 = "[a-zA-Z0-9_-]{24,26}\\.[a-zA-Z0-9_-]{6}\\.[a-zA-Z0-9_-]{27,38}" ascii //weight: 10
+        $x_5_3 = "\"encrypted_key\":}" ascii //weight: 5
+        $x_6_4 = "deeepseek discord v3.pdb" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

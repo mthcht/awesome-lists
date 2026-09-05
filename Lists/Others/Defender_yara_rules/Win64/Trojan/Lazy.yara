@@ -7529,3 +7529,26 @@ rule Trojan_Win64_Lazy_LRQ_2147976895_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AA_2147977614_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AA!MTB"
+        threat_id = "2147977614"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "This program must be run as Administrator to decrypt Chrome data." ascii //weight: 30
+        $x_20_2 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 20
+        $x_10_3 = "Failed to impersonate lsass for v20" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

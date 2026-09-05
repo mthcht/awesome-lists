@@ -7229,8 +7229,10 @@ rule Trojan_Win32_ClickFix_DEK_2147944815_0
         $x_10_2 = "[guid]::NewGuid().ToString()" wide //weight: 10
         $x_10_3 = "$env:TEMP" wide //weight: 10
         $x_10_4 = "-OutFile $" wide //weight: 10
+        $n_10_5 = "philips.com/tfs-mcp.cjs" wide //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

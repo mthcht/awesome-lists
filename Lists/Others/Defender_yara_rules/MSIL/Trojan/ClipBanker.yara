@@ -4902,3 +4902,28 @@ rule Trojan_MSIL_ClipBanker_VDC_2147975313_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ClipBanker_KK_2147977615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.KK!MTB"
+        threat_id = "2147977615"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "VantaClipper" ascii //weight: 5
+        $x_4_2 = "CLIPPER:START:" ascii //weight: 4
+        $x_3_3 = "KEYLOG:START" ascii //weight: 3
+        $x_2_4 = "OUTPUT::UAC:BYPASSED" ascii //weight: 2
+        $x_1_5 = "^(bc1|[13])[a-zA-Z0-9]{25,39}$" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

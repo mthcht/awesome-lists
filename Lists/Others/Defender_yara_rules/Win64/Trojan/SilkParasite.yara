@@ -35,8 +35,9 @@ rule Trojan_Win64_SilkParasite_GC_2147977596_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = {8b 8d ec fd ff ff 03 c2 0f b6 c0 0f b6 84 05 fc fe ff ff 30 04 0b 43 81 fb e3 54 02 00 72 96}  //weight: 1, accuracy: High
+        $x_1_2 = "{EBrOZ0m8mY4hSP3NNWq2NAtiE1WYSly61oMaTyokADkhkh}" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (1 of ($x*))
 }
 
