@@ -3013,3 +3013,27 @@ rule Trojan_Win64_LummaStealer_PAIA_2147975188_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_LR_2147977648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.LR!MTB"
+        threat_id = "2147977648"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Victim Infected\\n" ascii //weight: 4
+        $x_3_2 = "Waiting For Malware to Procces\"}" ascii //weight: 3
+        $x_2_3 = "Active\\n\\n" ascii //weight: 2
+        $x_1_4 = "{\"content\":\"**Discord Tokens**\\n" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

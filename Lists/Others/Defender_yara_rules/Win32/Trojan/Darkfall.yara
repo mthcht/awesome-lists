@@ -1,10 +1,10 @@
-rule Ransom_Win32_Darkfall_LR_2147977531_0
+rule Trojan_Win32_Darkfall_LR_2147977647_0
 {
     meta:
         author = "defender2yara"
-        detection_name = "Ransom:Win32/Darkfall.LR!MTB"
-        threat_id = "2147977531"
-        type = "Ransom"
+        detection_name = "Trojan:Win32/Darkfall.LR!MTB"
+        threat_id = "2147977647"
+        type = "Trojan"
         platform = "Win32: Windows 32-bit platform"
         family = "Darkfall"
         severity = "Critical"
