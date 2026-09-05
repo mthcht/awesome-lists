@@ -43,6 +43,31 @@ rule Trojan_Win64_Tedy_A_2147828733_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_A_2147828733_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.A!MTB"
+        threat_id = "2147828733"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Stealers executed" ascii //weight: 2
+        $x_1_2 = "Keylogger started" ascii //weight: 1
+        $x_1_3 = "Webcam frame captured and uploaded" ascii //weight: 1
+        $x_1_4 = "Microphone recording uploaded" ascii //weight: 1
+        $x_1_5 = "Screenshot captured and uploaded" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_GHN_2147845256_0
 {
     meta:

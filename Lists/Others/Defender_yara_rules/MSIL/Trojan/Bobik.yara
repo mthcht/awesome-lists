@@ -1001,3 +1001,25 @@ rule Trojan_MSIL_Bobik_YYQ_2147976217_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bobik_A_2147977597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bobik.A!MTB"
+        threat_id = "2147977597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bobik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {11 08 06 07 16 16 11 05 11 06 73 13 00 00 0a 20 20 00 cc 00 6f 14 00 00 0a de 0c}  //weight: 6, accuracy: High
+        $x_4_2 = {1f 46 6a 73 1c 00 00 0a a2 11 07 02 16 9a 11 09 11 0a 6f 1d 00 00 0a de 0c}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
