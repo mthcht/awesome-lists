@@ -22,3 +22,32 @@ rule Trojan_MSIL_UACBypassExp_AU_2147896150_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_UACBypassExp_NU_2147977652_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/UACBypassExp.NU!MTB"
+        threat_id = "2147977652"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "UACBypassExp"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Dropper" ascii //weight: 1
+        $x_2_2 = "InjectPayload" ascii //weight: 2
+        $x_1_3 = "transfer job /download /priority high" wide //weight: 1
+        $x_2_4 = "ExecutionPolicy Bypass" wide //weight: 2
+        $x_1_5 = "DownloadWithPowerShell" ascii //weight: 1
+        $x_1_6 = "payload.bin" wide //weight: 1
+        $x_1_7 = "BypassUAC" ascii //weight: 1
+        $x_2_8 = "Invoke-WebRequest" wide //weight: 2
+        $x_2_9 = "REMOTE_URL" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
