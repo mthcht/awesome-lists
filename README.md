@@ -400,6 +400,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [joesandbox](https://www.joesandbox.com/analysispaged/0)
 - [filescan.io](https://www.filescan.io/)
 - [Hybrid Analysis](https://www.hybrid-analysis.com/)
+- [Malwagon](https://malwagon.com/)
 - [virustotal](https://www.virustotal.com)
 - [threat zone](https://app.threat.zone/scan)
 - [vmray](https://www.vmray.com/)
