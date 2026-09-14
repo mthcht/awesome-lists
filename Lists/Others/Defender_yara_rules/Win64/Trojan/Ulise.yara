@@ -146,6 +146,29 @@ rule Trojan_Win64_Ulise_A_2147906573_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {48 63 44 24 50 48 8b 4c 24 60 0f be 04 01 83 c0 20 89 84 24 88}  //weight: 15, accuracy: High
+        $x_3_2 = "CopyFileA(selfDll)" ascii //weight: 3
+        $x_2_3 = "CopyFileA(hostExe)" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Ulise_A_2147906573_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.A!MTB"
+        threat_id = "2147906573"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "Low"
     strings:

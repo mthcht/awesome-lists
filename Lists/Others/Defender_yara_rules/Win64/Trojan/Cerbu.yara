@@ -803,3 +803,31 @@ rule Trojan_Win64_Cerbu_AH_2147977200_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_B_2147978152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.B!MTB"
+        threat_id = "2147978152"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "103"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "main.StealTrustedInstallerToken" ascii //weight: 20
+        $x_18_2 = "main.DumpLSASSNTAPI" ascii //weight: 18
+        $x_15_3 = "main.PassTheHash" ascii //weight: 15
+        $x_15_4 = "main.SilentKillEDR" ascii //weight: 15
+        $x_12_5 = "main.RegisterFakeAMSIProvider" ascii //weight: 12
+        $x_10_6 = "main.StartHVNC" ascii //weight: 10
+        $x_8_7 = "main.StartKeylogger" ascii //weight: 8
+        $x_5_8 = "main.StartReverseProxy" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -435,3 +435,27 @@ rule Trojan_MSIL_BypassUAC_MKD_2147972687_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_A_2147978155_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.A!MTB"
+        threat_id = "2147978155"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "UAC.Resources" wide //weight: 10
+        $x_5_2 = "ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v EnableLUA /t REG_DWORD /d 0 /f" wide //weight: 5
+        $x_3_3 = "-Command Add-MpPreference -ExclusionPath \"C:\"" wide //weight: 3
+        $x_2_4 = "\\Debug\\UAC.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
