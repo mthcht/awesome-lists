@@ -26537,6 +26537,29 @@ rule Trojan_MSIL_AgentTesla_XA_2147785013_0
         threshold = "4"
         strings_accuracy = "Low"
     strings:
+        $x_2_1 = {03 19 5d 17 2e 0d 02 7c ?? 00 00 04 28 ?? ?? 00 0a 2b 0b 02 7c ?? 00 00 04 28 ?? ?? 00 0a 2b 0b 02 7c ?? 00 00 04 28 ?? ?? 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_1_2 = "4b1f7b4e-3142-4a77-9e9c-10928ab4532b" ascii //weight: 1
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AgentTesla_XA_2147785013_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.XA!MTB"
+        threat_id = "2147785013"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
         $x_1_1 = {11 07 11 08 6f ?? ?? ?? 0a 13 09 11 04 11 09 28 ?? ?? ?? 0a 11 05 da 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 13 04 00 11 08 17 d6 13 08 11 08 11 07 6f ?? ?? ?? 0a fe 04 13 0a 11 0a 2d c0}  //weight: 1, accuracy: Low
         $x_1_2 = "CreateImageFromBase64" ascii //weight: 1
         $x_1_3 = "Base64Data" ascii //weight: 1

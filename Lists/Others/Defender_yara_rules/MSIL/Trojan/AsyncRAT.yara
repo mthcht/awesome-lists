@@ -7447,14 +7447,19 @@ rule Trojan_MSIL_AsyncRAT_RX_2147977925_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
+        threshold = "8"
         strings_accuracy = "Low"
     strings:
-        $x_2_1 = {2a 00 00 00 11 ?? 17 3b 11 00 00 00 0f 00 7c ?? 00 00 04 28 ?? 00 00 0a 38 0c 00 00 00 0f 00 7c ?? 00 00 04 28 ?? 00 00 0a 38 0c 00 00 00 0f 00 7c ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 38}  //weight: 2, accuracy: Low
-        $x_1_2 = "8f7a9d3e-1b2c-4e5f-9a8b-7c6d5e4f3a2b" ascii //weight: 1
-        $x_1_3 = "GetPixel" ascii //weight: 1
+        $x_5_1 = {2a 00 00 00 11 ?? 17 3b 11 00 00 00 0f 00 7c ?? 00 00 04 28 ?? 00 00 0a 38 0c 00 00 00 0f 00 7c ?? 00 00 04 28 ?? 00 00 0a 38 0c 00 00 00 0f 00 7c ?? 00 00 04 28 ?? 00 00 0a 6f ?? 00 00 0a 38}  //weight: 5, accuracy: Low
+        $x_2_2 = "8f7a9d3e-1b2c-4e5f-9a8b-7c6d5e4f3a2b" ascii //weight: 2
+        $x_2_3 = "b7e43598-a764-4d87-991f-2e452140a3d4" ascii //weight: 2
+        $x_1_4 = "GetPixel" ascii //weight: 1
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((1 of ($x_5_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_5_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

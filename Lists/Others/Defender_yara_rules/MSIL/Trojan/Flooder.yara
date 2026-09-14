@@ -34,3 +34,29 @@ rule Trojan_MSIL_Flooder_GPA_2147947036_0
         )
 }
 
+rule Trojan_MSIL_Flooder_PAHP_2147978143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Flooder.PAHP!MTB"
+        threat_id = "2147978143"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Flooder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<ListenForCommands>" ascii //weight: 1
+        $x_1_2 = "<ExecuteAttack>" ascii //weight: 1
+        $x_2_3 = "<TcpAttack>" ascii //weight: 2
+        $x_2_4 = "<UdpAttack>" ascii //weight: 2
+        $x_2_5 = "<HttpAttack>" ascii //weight: 2
+        $x_2_6 = "<SynFloodAttack>" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
