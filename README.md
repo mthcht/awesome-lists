@@ -481,6 +481,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Sigma](https://github.com/mthcht/sigma/tree/master/rules)
 - [Splunk Rules](https://research.splunk.com/detections/)
 - [Elastic Rules](https://github.com/elastic/detection-rules)
+- [Agent Threat Rules (ATR)](https://github.com/Agent-Threat-Rule/agent-threat-rules) - open detection rules for AI-agent & MCP attacks (prompt injection, tool poisoning, exfiltration), Sigma/YARA for the agent layer
 - [DFIR-Report Sigma-Rules](https://github.com/The-DFIR-Report/Sigma-Rules)
 - [JoeSecurity Sigma-Rules](https://github.com/joesecurity/sigma-rules/tree/master/rules)
 - [mdecrevoisier Sigma-Rules](https://github.com/mdecrevoisier/SIGMA-detection-rules)
