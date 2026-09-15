@@ -4824,3 +4824,48 @@ rule Trojan_MSIL_PureLogStealer_AF_2147978098_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLogStealer_RX_2147978194_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RX!MTB"
+        threat_id = "2147978194"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 97 a2 2b 09 0f 00 00 00 fa 01 33 00 16 00 00 01 00 00 00 a6 00 00 00 53 00 00 00 a5 01 00 00 d0 01 00 00 f6 00 00 00 2b 00 00 00 41 02 00 00 ad 03 00 00 01 00 00 00 6d 00 00 00 15 00 00 00 6c 00 00 00 bc 00 00 00 4f 00 00 00 af 00 00 00 01 00 00 00 01 00 00 00 0e 00 00 00 07 00 00 00 2f 00 00 00 16 00 00 00 ec}  //weight: 2, accuracy: High
+        $x_1_2 = "ProjectCafe.Properties" ascii //weight: 1
+        $x_1_3 = "get_Fee" ascii //weight: 1
+        $x_1_4 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_PureLogStealer_RY_2147978211_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLogStealer.RY!MTB"
+        threat_id = "2147978211"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLogStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {13 07 02 02 7b ?? 00 00 04 11 06 11 07 6f ?? 00 00 0a 7d ?? 00 00 04 02 06 7d ?? 00 00 04 00 02 07 2c 1e 07 17 2e 0d 02 7c ?? 00 00 04 28 ?? 00 00 0a 2b 0b 02 7c ?? 00 00 04 28 ?? 00 00 0a 2b 0b 02 7c ?? 00 00 04 28 ?? 00 00 0a 7d ?? 00 00 04 17 0d 2b 00 09 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

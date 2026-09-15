@@ -1283,3 +1283,28 @@ rule Trojan_Win64_CoinMiner_NX_2147977119_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_PA_2147978210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.PA!MTB"
+        threat_id = "2147978210"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 b8 0e 00 00 00 48 8d 15 ?? ?? ?? ?? 48 8b cb e8 ?? ?? ?? ?? 85 c0 75 ?? 41 c7 46 04 01 00 00 00 eb ?? 41 b8 0e 00 00 00 48 8d 15 ?? ?? ?? ?? 48 8b cb e8 ?? ?? ?? ?? 85 c0 75 ?? 41 c7 46 04 01 00 00 00 41 c6 06 01 eb ?? 41 b8 09 00 00 00 48 8d 15 ?? ?? ?? ?? 48 8b cb e8 ?? ?? ?? ?? 85 c0 0f 85 ?? ?? ?? ?? 41 c7 46 04 03 00 00 00 41 c6 06 00 48 8d 6f 03 48 c7 c6 ff ff ff ff}  //weight: 10, accuracy: Low
+        $x_1_2 = "submit-to-origin" ascii //weight: 1
+        $x_1_3 = "stratum+tcp://" ascii //weight: 1
+        $x_1_4 = "stratum+ssl://" ascii //weight: 1
+        $x_1_5 = "socks5://" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

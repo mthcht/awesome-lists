@@ -7371,3 +7371,26 @@ rule Trojan_Win32_OffLoader_XYL_2147977243_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_AB_2147978201_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.AB!MTB"
+        threat_id = "2147978201"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "://reasonhaven.xyz/" ascii //weight: 3
+        $x_3_2 = "://summittrack.info/" ascii //weight: 3
+        $x_2_3 = "Do you want to reboot now?" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
