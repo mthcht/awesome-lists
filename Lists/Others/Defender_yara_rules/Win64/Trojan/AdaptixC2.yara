@@ -154,3 +154,28 @@ rule Trojan_Win64_AdaptixC2_MK_2147975890_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AdaptixC2_BO_2147978184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AdaptixC2.BO!MTB"
+        threat_id = "2147978184"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AdaptixC2"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 89 c8 49 f7 e1 48 89 d0 48 83 e2 fc 48 c1 e8 02 48 01 c2 48 89 c8 48 29 d0 41 0f b6 04 03 41 32 04 0a 41 88 04 08 48 83 c1 01 48 83 f9 0e 75}  //weight: 5, accuracy: High
+        $x_1_2 = "persisted via service" ascii //weight: 1
+        $x_1_3 = "persisted via run key" ascii //weight: 1
+        $x_1_4 = "/bin/bash" ascii //weight: 1
+        $x_1_5 = "/cagent/" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
