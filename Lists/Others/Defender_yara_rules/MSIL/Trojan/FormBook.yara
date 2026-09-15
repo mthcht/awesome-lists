@@ -753,6 +753,27 @@ rule Trojan_MSIL_FormBook_GO_2147782497_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_ST_2147782682_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.ST!MTB"
+        threat_id = "2147782682"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 02 12 1a 28 ad 00 00 0a 6f 69 00 00 0a 38 86 f1 ff ff 00 11 15 72 c3 07 00 70 11 06 28 64 00 00 0a 72 75 05 00 70 72 79 05 00 70 6f 65 00 00 0a 6f 66 00 00 0a 20 18 00 00 00 38 40 eb ff ff 38 ca f1 ff ff 38 ff f8 ff ff 11 44 13 43 38 49 fa ff ff 11 3f 02 6f 6d 00 00 0a fe 04 16 fe 01 13 46 38 13 ec ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_FV_2147783089_0
 {
     meta:
@@ -18746,6 +18767,28 @@ rule Trojan_MSIL_FormBook_RSP_2147975143_0
 }
 
 rule Trojan_MSIL_FormBook_SL_2147975275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SL!MTB"
+        threat_id = "2147975275"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {73 d9 00 00 0a 0c 07 16 31 17 02 6f da 00 00 0a 16 31 0e 02 6f db 00 00 0a 16 fe 02 16 fe 01 2b 01 17 13 21 11 21 2c 0d 08 6f dc 00 00 0a 13 22 38 a4 0d 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = "BellFoundry.Properties.Resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_SL_2147975275_1
 {
     meta:
         author = "defender2yara"
