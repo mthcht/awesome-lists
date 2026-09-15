@@ -77,3 +77,24 @@ rule Backdoor_Win64_ToneShell_D_2147957208_0
         (1 of ($x*))
 }
 
+rule Backdoor_Win64_ToneShell_E_2147978175_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Win64/ToneShell.E!dha"
+        threat_id = "2147978175"
+        type = "Backdoor"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ToneShell"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".?AVNetWebsocket@@" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
