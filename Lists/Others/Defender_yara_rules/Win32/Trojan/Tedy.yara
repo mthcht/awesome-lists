@@ -1797,3 +1797,24 @@ rule Trojan_Win32_Tedy_FVN_2147976618_0
         )
 }
 
+rule Trojan_Win32_Tedy_CH_2147978230_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.CH!MTB"
+        threat_id = "2147978230"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8b 45 ec 83 c0 01 89 45 ec 81 7d ec ?? ?? ?? ?? 73 ?? 8b 45 ec 0f b6 88 ?? ?? ?? ?? 83 f1 16 8b 55 f8 03 55 ec 88 0a eb}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

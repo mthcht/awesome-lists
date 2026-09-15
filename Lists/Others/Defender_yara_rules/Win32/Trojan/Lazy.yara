@@ -3298,3 +3298,24 @@ rule Trojan_Win32_Lazy_2147976554_0
         )
 }
 
+rule Trojan_Win32_Lazy_HAU_2147978220_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.HAU!MTB"
+        threat_id = "2147978220"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {3d 3d 22 0a 20 20 20 20 0a 20 20 20 20 24 [0-32] 20 3d 20 40 22 0a}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

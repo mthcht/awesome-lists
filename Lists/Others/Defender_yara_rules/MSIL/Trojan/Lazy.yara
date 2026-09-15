@@ -4498,3 +4498,31 @@ rule Trojan_MSIL_Lazy_XYI_2147977012_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_A_2147978222_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.A!MTB"
+        threat_id = "2147978222"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "--- UC Agent start" wide //weight: 1
+        $x_1_2 = "Device enrolled with persistent identity" wide //weight: 1
+        $x_1_3 = "Credential save error:" wide //weight: 1
+        $x_1_4 = "&deviceCredential=" wide //weight: 1
+        $x_1_5 = "File exceeds the 512 MB transfer limit." wide //weight: 1
+        $x_1_6 = "delete \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v" wide //weight: 1
+        $x_1_7 = "/api/screenshot" wide //weight: 1
+        $x_1_8 = "\\Documents\\My Videos" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
