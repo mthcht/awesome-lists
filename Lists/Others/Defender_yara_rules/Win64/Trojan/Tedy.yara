@@ -1698,6 +1698,32 @@ rule Trojan_Win64_Tedy_ASU_2147927476_0
         (2 of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AG_2147927957_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AG!MTB"
+        threat_id = "2147927957"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-I <file>   Targets file (IP or IP:port per line)" ascii //weight: 1
+        $x_1_2 = "[*] Results saved to: %s" ascii //weight: 1
+        $x_1_3 = "-w <file>   Passwords file" ascii //weight: 1
+        $x_1_4 = "-U <file>   Usernames file" ascii //weight: 1
+        $x_1_5 = "[+] Mode: ULTRAGOD" ascii //weight: 1
+        $x_1_6 = "[+] Targets: %d | Users: %d | Passwords: %d" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_GB_2147928064_0
 {
     meta:

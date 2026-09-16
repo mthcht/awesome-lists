@@ -22,3 +22,28 @@ rule Trojan_Win32_RemusStealer_SL_2147975254_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemusStealer_GV_2147978297_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemusStealer.GV!MTB"
+        threat_id = "2147978297"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 48 b1 32 4c 04 20 80 c1 9e 88 4c 04 20 48 ff c0 48 83 f8 0c 75 e9}  //weight: 1, accuracy: High
+        $x_1_2 = "GetClipboardData" ascii //weight: 1
+        $x_1_3 = "GetClipboardSequenceNumber" ascii //weight: 1
+        $x_1_4 = "OpenClipboard" ascii //weight: 1
+        $x_1_5 = "SetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

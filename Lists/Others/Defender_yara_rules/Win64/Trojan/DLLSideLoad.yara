@@ -347,3 +347,28 @@ rule Trojan_Win64_DLLSideLoad_BA_2147978267_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_DLLSideLoad_PK_2147978303_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLSideLoad.PK!MTB"
+        threat_id = "2147978303"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLSideLoad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8a 44 0c 50 34 4b 88 44 0c ?? 48 ff c1 48 83 f9 0c 72 ed}  //weight: 5, accuracy: Low
+        $x_3_2 = {43 8b 1c 8b 45 33 d2 49 03 d8 44 38 13 74 ?? 0f b6 0b 48 ff c3 41 c1 ca 0d 44 03 d1 80 3b ?? 75}  //weight: 3, accuracy: Low
+        $x_1_3 = "download_started" ascii //weight: 1
+        $x_1_4 = "msiexec_started" ascii //weight: 1
+        $x_1_5 = "https://" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

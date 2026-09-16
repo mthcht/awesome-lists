@@ -526,3 +526,28 @@ rule Trojan_MSIL_Cassandra_FN_2147978212_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_HN_2147978290_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.HN!MTB"
+        threat_id = "2147978290"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "GetExecutingAssembly" ascii //weight: 1
+        $x_1_2 = "CreateEncryptor" ascii //weight: 1
+        $x_2_3 = "1dbf094e-807a-4b4a-bba9-539f5141b9c1" ascii //weight: 2
+        $x_1_4 = "Vaccine only HIV tested individuals" ascii //weight: 1
+        $x_1_5 = "The effectiveness of the vaccine in stopping HIV transmission" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
