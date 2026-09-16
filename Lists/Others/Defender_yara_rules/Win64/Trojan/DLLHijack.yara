@@ -996,3 +996,25 @@ rule Trojan_Win64_DLLHijack_A_2147978154_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_DAI_2147978265_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DAI!MTB"
+        threat_id = "2147978265"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {a7 ce 6a 81 e3 af 04 d2 e3 af 04 d2 e3 af 04 d2 9a 2e 01 d3 6a af 04 d2 9a 2e 00 d3 ef af 04 d2 9a 2e 07 d3 eb af 04 d2 64 26 07 d3 ea af 04 d2 64 26 00 d3 ec af 04 d2 64 26 01 d3 c3 af 04 d2 9a 2e 05 d3 e6 af 04 d2 e3 af 05 d2 8c af 04 d2 e3 af 04 d2 e6 af 04 d2 75 26 07 d3 e2 af 04 d2 75 26 04 d3 e2 af 04 d2 75 26 06 d3 e2 af 04 d2 52 69 63 68 e3 af 04 d2 00 00 00 00 00 00 00 00}  //weight: 10, accuracy: High
+        $x_10_2 = {01 5c fb e1 45 3d 95 b2 45 3d 95 b2 45 3d 95 b2 3c bc 90 b3 cc 3d 95 b2 3c bc 91 b3 49 3d 95 b2 3c bc 96 b3 4d 3d 95 b2 c2 b4 96 b3 4c 3d 95 b2 c2 b4 91 b3 4a 3d 95 b2 c2 b4 90 b3 65 3d 95 b2 3c bc 94 b3 42 3d 95 b2 45 3d 94 b2 34 3d 95 b2 45 3d 95 b2 46 3d 95 b2 d3 b4 96 b3 44 3d 95 b2 d3 b4 95 b3 44 3d 95 b2 d3 b4 97 b3 44 3d 95 b2 52 69 63 68 45 3d 95 b2 00 00 00 00 00 00 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

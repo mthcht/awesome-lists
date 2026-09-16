@@ -815,6 +815,29 @@ rule Trojan_Win64_Cerbu_B_2147978152_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "Send payment via PIX to continue." ascii //weight: 30
+        $x_20_2 = "{\"type\":\"device-list\",\"webcams\":" ascii //weight: 20
+        $x_10_3 = "mirai_c2_trace.txt" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Cerbu_B_2147978152_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.B!MTB"
+        threat_id = "2147978152"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "103"
         strings_accuracy = "High"
     strings:

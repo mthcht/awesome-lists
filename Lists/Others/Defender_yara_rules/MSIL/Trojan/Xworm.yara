@@ -45,6 +45,30 @@ rule Trojan_MSIL_Xworm_NEAB_2147844543_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_B_2147904800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.B!MTB"
+        threat_id = "2147904800"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 04 73 8a 00 00 0a 6f 8b 00 00 0a 19 33 18 07 11 04 6f 62 00 00 0a 72 01 04 00 70 28 33 00 00 0a}  //weight: 10, accuracy: High
+        $x_5_2 = "\\WizWorm\\" ascii //weight: 5
+        $x_3_3 = "Select * from AntivirusProduct" wide //weight: 3
+        $x_2_4 = "SELECT * FROM FirewallProduct" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Xworm_KAD_2147905524_0
 {
     meta:

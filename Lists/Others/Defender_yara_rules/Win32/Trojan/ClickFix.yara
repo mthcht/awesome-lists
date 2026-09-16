@@ -401,8 +401,8 @@ rule Trojan_Win32_ClickFix_DE_2147932647_0
     strings:
         $x_10_1 = "powershell" wide //weight: 10
         $x_10_2 = "http" wide //weight: 10
-        $x_10_3 = "\\1" wide //weight: 10
-        $x_10_4 = "verif" wide //weight: 10
+        $x_10_3 = "'\\1" wide //weight: 10
+        $x_10_4 = "verification" wide //weight: 10
         $x_1_5 = " ray" wide //weight: 1
         $x_1_6 = " recaptcha" wide //weight: 1
         $x_1_7 = " re captcha" wide //weight: 1
