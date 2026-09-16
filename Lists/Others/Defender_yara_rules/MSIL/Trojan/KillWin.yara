@@ -151,3 +151,36 @@ rule Trojan_MSIL_KillWin_ARR_2147969211_0
         )
 }
 
+rule Trojan_MSIL_KillWin_A_2147978315_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillWin.A!MTB"
+        threat_id = "2147978315"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "HACKED" wide //weight: 20
+        $x_20_2 = "Hacked by" wide //weight: 20
+        $x_11_3 = "Global\\MG_Prank_8B2F" wide //weight: 11
+        $x_2_4 = "/create /f /sc minute /mo 1 /tn" wide //weight: 2
+        $x_2_5 = "/f /im svchost.exe" wide //weight: 2
+        $x_2_6 = "mbr.bin" wide //weight: 2
+        $x_2_7 = "\\\\.\\GLOBALROOT\\Device\\Harddisk3\\DR3" wide //weight: 2
+        $x_2_8 = ":\\EFI\\Microsoft\\Boot\\bootmgr.efi" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_11_*) and 5 of ($x_2_*))) or
+            ((2 of ($x_20_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_20_*) and 1 of ($x_11_*))) or
+            (all of ($x*))
+        )
+}
+

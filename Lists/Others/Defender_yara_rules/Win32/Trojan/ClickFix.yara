@@ -15914,3 +15914,30 @@ rule Trojan_Win32_ClickFix_MBK_2147977546_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_CW_2147978323_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CW!MTB"
+        threat_id = "2147978323"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "61"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell.exe" wide //weight: 10
+        $x_10_2 = "-nop -noni -ep bypass -c" wide //weight: 10
+        $x_10_3 = "Get-Command '?ex'" wide //weight: 10
+        $x_10_4 = "-CommandType Function" wide //weight: 10
+        $x_10_5 = "-ErrorAction SilentlyContinue)[0]" wide //weight: 10
+        $x_10_6 = ".DownloadString" wide //weight: 10
+        $x_1_7 = "moonstone-lgtm/" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

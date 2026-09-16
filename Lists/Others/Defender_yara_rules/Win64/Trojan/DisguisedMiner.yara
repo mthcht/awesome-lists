@@ -50,3 +50,29 @@ rule Trojan_Win64_DisguisedMiner_GMX_2147970683_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DisguisedMiner_DMX_2147978312_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DisguisedMiner.DMX!MTB"
+        threat_id = "2147978312"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DisguisedMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "MoonFreeExternal" wide //weight: 10
+        $x_1_2 = "GoonHUB Free" ascii //weight: 1
+        $x_1_3 = "Waiting.." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

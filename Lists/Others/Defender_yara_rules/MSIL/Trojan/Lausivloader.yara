@@ -230,3 +230,41 @@ rule Trojan_MSIL_Lausivloader_MC_2147977943_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lausivloader_DC_2147978318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lausivloader.DC!MTB"
+        threat_id = "2147978318"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lausivloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "ChaveSecretaGlobal" ascii //weight: 4
+        $x_2_2 = "VerificarMinutos" ascii //weight: 2
+        $x_2_3 = "cpiNcystvbmomsM" ascii //weight: 2
+        $x_2_4 = "vzuwobbatvffzyN" ascii //weight: 2
+        $x_2_5 = "powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command \"[System.Net.WebClient]::New().DownloadFile('" ascii //weight: 2
+        $x_1_6 = "ZwUnmapViewOfSection" ascii //weight: 1
+        $x_1_7 = "SetThreadContext" ascii //weight: 1
+        $x_1_8 = "CreateProcess" ascii //weight: 1
+        $x_1_9 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_10 = "FromBase64String" ascii //weight: 1
+        $x_1_11 = "CreateDecryptor" ascii //weight: 1
+        $x_1_12 = "RegisterTaskDefinition" ascii //weight: 1
+        $x_1_13 = "BootTrigger" ascii //weight: 1
+        $x_1_14 = "SendEmail" ascii //weight: 1
+        $x_1_15 = "get_UserPassword" ascii //weight: 1
+        $x_1_16 = "vboxservice" ascii //weight: 1
+        $x_1_17 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_18 = "Microsoft.Win32.TaskScheduler.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

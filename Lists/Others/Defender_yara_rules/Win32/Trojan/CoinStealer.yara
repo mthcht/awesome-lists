@@ -203,3 +203,25 @@ rule Trojan_Win32_CoinStealer_AMTB_2147959262_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_CoinStealer_BA_2147978321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinStealer.BA!MTB"
+        threat_id = "2147978321"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 0f b6 04 11 45 89 c1 45 30 c1 41 f6 d1 44 22 4d ?? 45 30 c1 44 88 8c 0d ?? ?? ?? ?? 49 89 c0 49 f7 d0}  //weight: 5, accuracy: Low
+        $x_5_2 = {45 0f b6 0c 10 45 89 ca 45 30 ca 41 f6 d2 44 22 55 ?? 45 30 ca 46 88 94 05}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
