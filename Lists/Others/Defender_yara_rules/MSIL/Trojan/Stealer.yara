@@ -3828,3 +3828,31 @@ rule Trojan_MSIL_Stealer_AAV_2147973527_0
         )
 }
 
+rule Trojan_MSIL_Stealer_H_2147978238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.H!AMTB"
+        threat_id = "2147978238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Neolodium.pdb" ascii //weight: 2
+        $x_2_2 = "Tdata sent, installing backdoor" ascii //weight: 2
+        $x_2_3 = "StealAndSend" ascii //weight: 2
+        $x_1_4 = "Stealer started" ascii //weight: 1
+        $x_1_5 = "Tdata stolen and sent successfully." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

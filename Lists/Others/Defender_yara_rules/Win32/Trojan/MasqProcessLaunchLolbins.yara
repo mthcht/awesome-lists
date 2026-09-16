@@ -25,6 +25,7 @@ rule Trojan_Win32_MasqProcessLaunchLolbins_B_2147778155_0
         $n_10_10 = "iCloudMigrate.exe" wide //weight: -10
         $n_10_11 = "LvfInstallService" wide //weight: -10
         $n_10_12 = "AcerQAAgentSvis" wide //weight: -10
+        $n_10_13 = "\\QtsUpdater.exe" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
