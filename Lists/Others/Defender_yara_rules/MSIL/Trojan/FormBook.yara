@@ -19079,3 +19079,27 @@ rule Trojan_MSIL_FormBook_XE_2147978281_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_XF_2147978385_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.XF!MTB"
+        threat_id = "2147978385"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {57 95 a2 29 09 0b 00 00 00 00 00 00 00 00 00 00 02 00 00 00 94 00 00 00 21 00 00 00 ?? 01 00 00 8f 00 00 00 5b 00 00 00 09 01 00 00 5d 00 00 00 0b 00 00 00 ?? 00 00 00 03 00 00 00 0a 00 00 00 10 00 00 00 08 00 00 00 0e 00 00 00 02 00 00 00 06 00 00 00 03 00 00 00 0f 00 00 00 01}  //weight: 2, accuracy: Low
+        $x_1_2 = "ca99aa2e-aa3b-4154-b1ef-a29fd954e6f4" ascii //weight: 1
+        $x_1_3 = "get_Bi" ascii //weight: 1
+        $x_1_4 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

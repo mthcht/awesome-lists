@@ -928,3 +928,27 @@ rule Trojan_MSIL_NanoCore_PAC_2147977024_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NanoCore_PAD_2147978397_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NanoCore.PAD!MTB"
+        threat_id = "2147978397"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NanoCore"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "1c4363a9-86a1-482c-aa2f-dc1fbb633999" ascii //weight: 1
+        $x_1_2 = "c6d4cd4c-f3fc-41df-ac27-78e40684eee4" ascii //weight: 1
+        $x_2_3 = "7a8649e2-8511-41a3-9f99-93b0f5f90708" ascii //weight: 2
+        $x_1_4 = "WriteProcessMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -468,6 +468,28 @@ rule Trojan_MSIL_ShellcodeRunner_A_2147977359_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {28 01 00 00 06 13 08 11 07 16 11 08 11 07 8e 69 28 14 00 00 0a 00 7e 13 00 00 0a 16 11 08 7e 13 00 00 0a 16 7e 13 00 00 0a 28 02 00 00 06}  //weight: 20, accuracy: High
+        $x_10_2 = {09 11 04 08 11 04 18 5a 18 6f 0e 00 00 0a 1f 10 28 0f 00 00 0a 9c 11 04 17 58 13 04}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ShellcodeRunner_A_2147977359_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.A!MTB"
+        threat_id = "2147977359"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "Low"
     strings:

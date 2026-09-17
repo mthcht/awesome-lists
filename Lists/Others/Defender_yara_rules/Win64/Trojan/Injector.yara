@@ -893,6 +893,33 @@ rule Trojan_Win64_Injector_LR_2147972219_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+]   INJECTION SUCCESSFUL!" ascii //weight: 1
+        $x_2_2 = "[+] DLL loaded into svchost.exe (PID: %d)" ascii //weight: 2
+        $x_3_3 = "[+] Check Process Hacker for verification" ascii //weight: 3
+        $x_4_4 = "[+] Randomly selected PID: %d" ascii //weight: 4
+        $x_5_5 = "[*] Starting injection..." ascii //weight: 5
+        $x_6_6 = "[DEBUG] Starting hybrid injection (Manual Map + Driver Thread)..." ascii //weight: 6
+        $x_7_7 = "[DEBUG] Preparing shellcode and data for pure driver-based injection..." ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_LR_2147972219_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.LR!MTB"
+        threat_id = "2147972219"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "36"
         strings_accuracy = "High"
     strings:

@@ -264,3 +264,26 @@ rule Trojan_MSIL_Ursu_SN_2147975030_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Ursu_YB_2147978398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Ursu.YB!MTB"
+        threat_id = "2147978398"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Ursu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0a 16 0b 2b 1a 06 07 8f ?? 00 00 01 25 71 ?? 00 00 01 1f 7a 61 d2 81 ?? 00 00 01 07 17 58 0b 07 06 8e 69 32 e0 28 ?? 00 00 0a 06 6f ?? 00 00 0a 2a}  //weight: 6, accuracy: Low
+        $x_4_2 = {11 13 11 14 91 11 14 20 ff 00 00 00 5f 61 d2 13 15 11 12 11 14 11 05 11 14 91 11 15 61 11 14 1f 11 5d 7e ?? 00 00 04 58 61 d2 9c 11 14 17 58 13 14 11 14 11 05 8e 69 32 c7}  //weight: 4, accuracy: Low
+        $x_2_3 = "FromBase64String" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

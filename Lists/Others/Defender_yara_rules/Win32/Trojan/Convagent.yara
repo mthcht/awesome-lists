@@ -2445,3 +2445,29 @@ rule Trojan_Win32_Convagent_LRG_2147973741_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Convagent_LR_2147978399_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.LR!MTB"
+        threat_id = "2147978399"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "39"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0f b7 44 1f 18 be 0b 01 00 00 66 3b c6 75 ?? 8b 44 1f 34 89 45 d8 8b 84 1f a0 00 00 00 89 45 dc 8b 84 1f a4 00 00 00 eb 22}  //weight: 20, accuracy: Low
+        $x_1_2 = "[Launcher][pe] tag=%s bad_opt_magic=0x%04x" ascii //weight: 1
+        $x_3_3 = "dll cache MISS slot=%d -> download" ascii //weight: 3
+        $x_4_4 = "[Launcher][PULL] try host=%s port=%u slot=%d" ascii //weight: 4
+        $x_5_5 = "PACK_LAUNCH_PULL_HOST" ascii //weight: 5
+        $x_6_6 = "tcp connect ok (v4 fallback) %s:%u -> %s" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

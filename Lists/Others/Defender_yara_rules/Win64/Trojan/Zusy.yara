@@ -1221,6 +1221,30 @@ rule Trojan_Win64_Zusy_GPS_2147927297_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_C_2147927562_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.C!MTB"
+        threat_id = "2147927562"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "  Firewall:   DISABLED or unknown" ascii //weight: 40
+        $x_30_2 = "  EDR/AV Processes: none detected" ascii //weight: 30
+        $x_20_3 = "  EDR/AV Processes Detected:" ascii //weight: 20
+        $x_10_4 = "  Firewall:   ENABLED" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_YAC_2147927681_0
 {
     meta:
