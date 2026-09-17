@@ -7455,3 +7455,47 @@ rule Trojan_Win32_Vidar_YBD_2147977921_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_YBK_2147978364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.YBK!MTB"
+        threat_id = "2147978364"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {00 44 89 74 24 6c 2b ff 45 33 ff 2b f6 33 ed}  //weight: 2, accuracy: High
+        $x_2_2 = {4c 8b e0 49 8b cd 48 f7 d9 49 8b cc 1b c0 25 80 00 00 00 48 f7 d9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Vidar_YBJ_2147978365_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.YBJ!MTB"
+        threat_id = "2147978365"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {66 89 84 24 c0 00 00 00 0f b7 94 24 c0 00 00 00 8b 84 24 c4 00 00 00 33 d0 89 94 24 c4 00 00 00 8b 84 24 c4 00 00 00 c6 44 24 7b 03}  //weight: 4, accuracy: High
+        $x_4_2 = {48 03 c8 48 8b 44 d5 c0 48 33 c8 48 89 4c d5 c0 48 8b 4c d5 c8 48 8b 44 d5 c8 48 c1 e0 06 48 c1 e9 17 48 0b c8}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
