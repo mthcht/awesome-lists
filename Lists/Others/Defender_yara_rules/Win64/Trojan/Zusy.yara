@@ -2430,6 +2430,31 @@ rule Trojan_Win64_Zusy_KK_2147946085_8
         )
 }
 
+rule Trojan_Win64_Zusy_KK_2147946085_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.KK!MTB"
+        threat_id = "2147946085"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Rose C2 Stealth" ascii //weight: 5
+        $x_4_2 = "Global\\RoseC2AgentMtx" ascii //weight: 4
+        $x_3_3 = "**New Windows Bot Connected" ascii //weight: 3
+        $x_2_4 = "/api/webhooks/1541017308888178801/rRnt2WVl-gCFSkjADKwECOXQo-L--6HZr47U30gJc-lCHGihLJ_k_6W5443mKOuLDdUJ" ascii //weight: 2
+        $x_1_5 = "schtasks /create /tn \"Windows Security Update\" /tr \"%s\" /sc onlogon /f" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_SXC_2147947640_0
 {
     meta:

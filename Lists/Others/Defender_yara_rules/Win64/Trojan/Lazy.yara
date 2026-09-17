@@ -3155,6 +3155,32 @@ rule Trojan_Win64_Lazy_KK_2147944057_3
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "HVNC_Desktop" ascii //weight: 6
+        $x_5_2 = "hvnc_native.log" ascii //weight: 5
+        $x_4_3 = "] [HVNC_INJECT]" ascii //weight: 4
+        $x_3_4 = "ReflectiveLoader" ascii //weight: 3
+        $x_2_5 = "StartAndInject:" ascii //weight: 2
+        $x_1_6 = "InjectDll:" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_KK_2147944057_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.KK!MTB"
+        threat_id = "2147944057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "45"
         strings_accuracy = "Low"
     strings:
@@ -3169,7 +3195,7 @@ rule Trojan_Win64_Lazy_KK_2147944057_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_KK_2147944057_4
+rule Trojan_Win64_Lazy_KK_2147944057_5
 {
     meta:
         author = "defender2yara"
@@ -3192,7 +3218,7 @@ rule Trojan_Win64_Lazy_KK_2147944057_4
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_KK_2147944057_5
+rule Trojan_Win64_Lazy_KK_2147944057_6
 {
     meta:
         author = "defender2yara"

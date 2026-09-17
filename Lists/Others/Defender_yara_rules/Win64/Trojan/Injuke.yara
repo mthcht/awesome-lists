@@ -304,3 +304,24 @@ rule Trojan_Win64_Injuke_GB_2147977583_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Injuke_AB_2147978343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injuke.AB!MTB"
+        threat_id = "2147978343"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {49 39 c5 74 ?? 89 c1 83 e1 0f 8a 8c 0c ?? ?? ?? ?? 30 4c 05 00 48 ff c0 eb}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

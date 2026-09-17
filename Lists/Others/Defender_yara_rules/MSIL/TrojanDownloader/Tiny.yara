@@ -943,3 +943,27 @@ rule TrojanDownloader_MSIL_Tiny_MVF_2147902433_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_Tiny_KK_2147978332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Tiny.KK!MTB"
+        threat_id = "2147978332"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "ENCCN_Encryption" ascii //weight: 4
+        $x_3_2 = "ezQ2MDJlM2Q1LWY3MDQtNGJkNC1hZTQ3LWVjODQyYzM4OGQ2OH0=" ascii //weight: 3
+        $x_2_3 = "ConnectDrive" ascii //weight: 2
+        $x_1_4 = "A.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

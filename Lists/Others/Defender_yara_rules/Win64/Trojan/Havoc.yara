@@ -341,6 +341,29 @@ rule Trojan_Win64_Havoc_KK_2147969209_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 89 c2 48 8d 3d 52 38 00 00 83 e2 0f 8a 14 17 00 e2 41 89 d0 8a 14 06 29 ca 44 01 c1 44 29 c2 88 14 06 48 ff c0 39 d8}  //weight: 20, accuracy: High
+        $x_10_2 = "appdata.bin" ascii //weight: 10
+        $x_5_3 = "app\\*_app.exe" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Havoc_KK_2147969209_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.KK!MTB"
+        threat_id = "2147969209"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "26"
         strings_accuracy = "High"
     strings:

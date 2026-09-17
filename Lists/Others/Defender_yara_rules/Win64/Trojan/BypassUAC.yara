@@ -185,6 +185,30 @@ rule Trojan_Win64_BypassUAC_MKB_2147975270_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_A_2147977633_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.A!MTB"
+        threat_id = "2147977633"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "=== PHASE 3 STEALTH INJECTION ENGINE ===" ascii //weight: 10
+        $x_5_2 = "Global\\WndSvcHostMtx_v2" ascii //weight: 5
+        $x_3_3 = "Shellcode thread executed." ascii //weight: 3
+        $x_2_4 = "VirtualAlloc for shellcode failed." ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_BypassUAC_PAHM_2147977724_0
 {
     meta:

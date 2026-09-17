@@ -2523,6 +2523,43 @@ rule Trojan_MSIL_Stealer_NITA_2147926210_2
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stealer_BA_2147926428_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.BA!MTB"
+        threat_id = "2147926428"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "PaymentMethods" ascii //weight: 1
+        $x_1_2 = "SqliteCommand" ascii //weight: 1
+        $x_1_3 = "VideoCapture" ascii //weight: 1
+        $x_1_4 = "DebuggerBrowsableState" ascii //weight: 1
+        $x_1_5 = "ExtraerPasswordsChromium" ascii //weight: 1
+        $x_1_6 = "ExtraerCookiesChromium" ascii //weight: 1
+        $x_1_7 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_8 = "_historial.txt" ascii //weight: 1
+        $x_1_9 = "_cookies.txt" ascii //weight: 1
+        $x_1_10 = "_passwords.txt" ascii //weight: 1
+        $x_1_11 = "encrypted_key" ascii //weight: 1
+        $x_1_12 = "screenshot" ascii //weight: 1
+        $x_1_13 = "webcam" ascii //weight: 1
+        $x_1_14 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_15 = "hostname" ascii //weight: 1
+        $x_1_16 = "encryptedUsername" ascii //weight: 1
+        $x_1_17 = "encryptedPassword" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Stealer_AJEA_2147926954_0
 {
     meta:

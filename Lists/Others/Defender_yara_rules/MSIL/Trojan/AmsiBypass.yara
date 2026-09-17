@@ -166,3 +166,27 @@ rule Trojan_MSIL_AmsiBypass_A_2147978156_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AmsiBypass_B_2147978334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AmsiBypass.B!MTB"
+        threat_id = "2147978334"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AmsiBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "DisablingAMSI=============================================" wide //weight: 10
+        $x_5_2 = "[+] Patching DLL Entry Point at 0x{0:x}" wide //weight: 5
+        $x_3_3 = "[+] Blocked DLL" wide //weight: 3
+        $x_2_4 = "[+] in-proc amsi 0x{0:x16}" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
