@@ -6479,3 +6479,26 @@ rule Trojan_MSIL_XWorm_RX_2147978148_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AJ_2147978368_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AJ!MTB"
+        threat_id = "2147978368"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {28 45 00 00 0a 02 28 46 00 00 0a 6f 47 00 00 0a 0a 16 0b 38 e3 00 00 00 06 07 6f 6e 00 00 0a 0d 12 03 28 62 00 00 0a 28 48 00 00 0a 0c 08 1e 2e 08 08 1f 0d 40 8f 00 00 00 28 34 00 00 06 20 00 01 00 00 72 3d 06 00 70 06 07 6f 6e 00 00 0a 0d 12 03 28 62 00 00 0a 28 48 00 00 0a 28 49 00 00 0a 28 12 00 00 0a 28 4a 00 00 0a 28 31 00 00 0a 17 1f 1e}  //weight: 6, accuracy: High
+        $x_1_2 = "GZipStream" ascii //weight: 1
+        $x_1_3 = "TransformFinalBlock" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

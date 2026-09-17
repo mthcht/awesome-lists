@@ -2978,6 +2978,38 @@ rule Trojan_Win64_Tedy_NY_2147951209_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_NY_2147951209_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.NY!MTB"
+        threat_id = "2147951209"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "Chrome_WidgetWin_1" ascii //weight: 1
+        $x_1_2 = "--deadstar-morphed" ascii //weight: 1
+        $x_1_3 = "Registry\\Machine\\System\\CurrentControlSet\\Services" ascii //weight: 1
+        $x_1_4 = "ROOT\\CIMV2\\Security\\MicrosoftTpm" ascii //weight: 1
+        $x_1_5 = "F1 start  /  F2 stop  ->  loot_dump.txt" ascii //weight: 1
+        $x_1_6 = "security features disabled" ascii //weight: 1
+        $x_5_7 = {44 00 3a 00 5c 00 50 00 52 00 4f 00 4a 00 45 00 43 00 54 00 53 00 5c 00 [0-111] 5c 00 78 00 36 00 34 00 5c 00 52 00 65 00 6c 00 65 00 61 00 73 00 65 00 5c 00 44 00 65 00 61 00 64 00 73 00 74 00 61 00 72 00 2e 00 70 00 64 00 62 00}  //weight: 5, accuracy: Low
+        $x_5_8 = {44 3a 5c 50 52 4f 4a 45 43 54 53 5c [0-111] 5c 78 36 34 5c 52 65 6c 65 61 73 65 5c 44 65 61 64 73 74 61 72 2e 70 64 62}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 6 of ($x_1_*))) or
+            ((2 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_Tedy_CB_2147951250_0
 {
     meta:
