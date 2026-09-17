@@ -967,6 +967,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Chrome Addon for TI checks](https://chromewebstore.google.com/detail/osintlytics/kfpbbegdghffnakhgcbonaglepgoedmm)
 - [sms verification](textverified.com)
 - [temp mail](https://temp-mail.org)
+- [Mailfo](https://mailfo.pages.dev) - Disposable temporary burner email & OTP receiver
 - [10 minute mail](https://10minutemail.com/)
 
 </details>
