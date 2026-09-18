@@ -39,3 +39,26 @@ rule Trojan_Win32_PapCut_B_2147846688_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_PapCut_C_2147978439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/PapCut.C"
+        threat_id = "2147978439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "PapCut"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_100_1 = {6a 00 61 00 76 00 61 00 2e 00 65 00 78 00 65 00 02 00 30 00 5c 00 70 00 61 00 70 00 65 00 72 00 63 00 75 00 74 00 20 00 6d 00 66 00 5c 00 02 00 30 00 2e 00 70 00 61 00 79 00 6c 00 6f 00 61 00 64 00}  //weight: 100, accuracy: Low
+        $x_100_2 = {6a 00 61 00 76 00 61 00 77 00 2e 00 65 00 78 00 65 00 02 00 30 00 5c 00 70 00 61 00 70 00 65 00 72 00 63 00 75 00 74 00 20 00 6d 00 66 00 5c 00 02 00 30 00 2e 00 70 00 61 00 79 00 6c 00 6f 00 61 00 64 00}  //weight: 100, accuracy: Low
+        $x_100_3 = {6a 00 61 00 76 00 61 00 2e 00 65 00 78 00 65 00 02 00 30 00 5c 00 70 00 61 00 70 00 65 00 72 00 63 00 75 00 74 00 20 00 6e 00 67 00 5c 00 02 00 30 00 2e 00 70 00 61 00 79 00 6c 00 6f 00 61 00 64 00}  //weight: 100, accuracy: Low
+        $x_100_4 = {6a 00 61 00 76 00 61 00 77 00 2e 00 65 00 78 00 65 00 02 00 30 00 5c 00 70 00 61 00 70 00 65 00 72 00 63 00 75 00 74 00 20 00 6e 00 67 00 5c 00 02 00 30 00 2e 00 70 00 61 00 79 00 6c 00 6f 00 61 00 64 00}  //weight: 100, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

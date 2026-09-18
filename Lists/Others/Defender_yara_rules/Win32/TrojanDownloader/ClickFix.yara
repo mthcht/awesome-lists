@@ -43,11 +43,13 @@ rule TrojanDownloader_Win32_ClickFix_MS_2147977560_0
         $x_1_7 = "downloadstring" wide //weight: 1
         $x_1_8 = "downloaddata" wide //weight: 1
         $x_1_9 = "curl" wide //weight: 1
-        $x_1_10 = "[scriptblock]::create" wide //weight: 1
-        $x_1_11 = "iex" wide //weight: 1
-        $x_1_12 = "invoke-expression" wide //weight: 1
-        $x_1_13 = "start-process" wide //weight: 1
-        $x_1_14 = "11e56648-a9b4-446c-9b49-19d979841d85" wide //weight: 1
+        $x_1_10 = "mshta" wide //weight: 1
+        $x_1_11 = "[scriptblock]::create" wide //weight: 1
+        $x_1_12 = "iex" wide //weight: 1
+        $x_1_13 = "invoke-expression" wide //weight: 1
+        $x_1_14 = "start-process" wide //weight: 1
+        $x_1_15 = "start-job" wide //weight: 1
+        $x_1_16 = "5048177c-51f8-4cdb-9338-c55cde761abf" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (
