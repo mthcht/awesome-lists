@@ -399,3 +399,27 @@ rule Trojan_Win64_KillAV_AA_2147977202_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillAV_AB_2147978463_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillAV.AB!MTB"
+        threat_id = "2147978463"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 98 48 8b 55 f0 48 01 d0 0f b6 00 0f b6 c0 8b 55 ec 31 d0 89 45 ec 8b 45 ec 69 c0 ?? ?? ?? ?? 89 45 ec 8b 45 ec c1 e8 ?? 89 c2 8b 45 ec 31 d0 89 45 ec ff 45 fc 83 7d fc}  //weight: 10, accuracy: Low
+        $x_3_2 = {8b 45 e4 48 98 0f b6 84 05 ?? ?? ?? ?? 83 f0 38 89 c2 8b 45 e4 48 98 88 94 05}  //weight: 3, accuracy: Low
+        $x_5_3 = "%s\\AcroUpd_%08X.tmp" ascii //weight: 5
+        $x_2_4 = "jusched" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

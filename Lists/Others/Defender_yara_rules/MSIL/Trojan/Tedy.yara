@@ -2299,6 +2299,31 @@ rule Trojan_MSIL_Tedy_AB_2147945009_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_AB_2147945009_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.AB!MTB"
+        threat_id = "2147945009"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Skype_Windows.Form1.resources" ascii //weight: 3
+        $x_2_2 = "Skype Windows" ascii //weight: 2
+        $x_7_3 = "$b5f9c2d8-71e4-4a3f-8c96-2d1e7b4a9f53" ascii //weight: 7
+        $x_8_4 = "-WindowStyle Hidden -Command Set-MpPreference -DisableRealtimeMonitoring $true -SubmitSamplesConsent 2 -MAPSReporting 0 -Force" ascii //weight: 8
+        $x_5_5 = "Skype_Windows.Resources" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Tedy_ARR_2147957141_0
 {
     meta:

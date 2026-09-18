@@ -415,3 +415,26 @@ rule Trojan_Win64_Redcap_SXA_2147964414_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Redcap_AA_2147978462_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Redcap.AA!MTB"
+        threat_id = "2147978462"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Redcap"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 04 24 8b 54 24 6c 89 54 24 04 8b 5c 24 70 89 5c 24 08 e8 ?? ?? ?? ?? 8b 44 24 0c 8d 0d c0 f2 52 00 89 8c 24}  //weight: 10, accuracy: Low
+        $x_7_2 = {89 14 24 89 44 24 04 8d 05 17 de 55 00 89 44 24 08 c7 44 24 0c}  //weight: 7, accuracy: High
+        $x_3_3 = "ejconv.exe" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

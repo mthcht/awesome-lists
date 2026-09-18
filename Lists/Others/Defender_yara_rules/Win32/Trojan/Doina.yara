@@ -1078,3 +1078,30 @@ rule Trojan_Win32_Doina_LR_2147967297_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_Doina_VA_2147978458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Doina.VA!MTB"
+        threat_id = "2147978458"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\libtemp.bat" ascii //weight: 1
+        $x_1_2 = "\\Haloonoroff.exe" ascii //weight: 1
+        $x_1_3 = "\\....\\TemporaryFile" ascii //weight: 1
+        $x_1_4 = "\\qvlnk.bro" ascii //weight: 1
+        $x_1_5 = "SOFTWARE\\AButfiRunVer\\BuffErrRun" ascii //weight: 1
+        $x_1_6 = "ping -n 3 127.1 >nul" ascii //weight: 1
+        $x_1_7 = "del  /s /q /f" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
