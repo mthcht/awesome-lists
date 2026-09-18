@@ -15917,3 +15917,28 @@ rule Trojan_Win32_ClickFix_CW_2147978323_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_ML_2147978425_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.ML!MTB"
+        threat_id = "2147978425"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "22"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "c^U^r^l -Lks" wide //weight: 5
+        $x_5_2 = "po*r*e*l.*e" wide //weight: 5
+        $x_4_3 = "^W^h^E^r^E" wide //weight: 4
+        $x_4_4 = "b^ypa^ss" wide //weight: 4
+        $x_4_5 = "-f %tmp%\\" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

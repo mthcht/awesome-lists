@@ -11717,3 +11717,30 @@ rule Trojan_MSIL_Heracles_AA_2147977488_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_B_2147978416_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.B!MTB"
+        threat_id = "2147978416"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "80"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = "FakeBackupCheck" ascii //weight: 25
+        $x_20_2 = "ETWAMISIBypass" ascii //weight: 20
+        $x_15_3 = "PatchAMSI" ascii //weight: 15
+        $x_10_4 = "PatchETW" ascii //weight: 10
+        $x_5_5 = "DetectSandbox" ascii //weight: 5
+        $x_3_6 = "CheckVMProcesses" ascii //weight: 3
+        $x_2_7 = "DetectAnalysisTools" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

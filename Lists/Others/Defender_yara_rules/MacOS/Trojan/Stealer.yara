@@ -95,3 +95,29 @@ rule Trojan_MacOS_Stealer_A_2147973689_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_Stealer_B_2147978429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Stealer.B!AMTB"
+        threat_id = "2147978429"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "radr://5614542" ascii //weight: 2
+        $x_1_2 = "payload-55554944" ascii //weight: 1
+        $x_1_3 = "_dlsym" ascii //weight: 1
+        $x_1_4 = "/dev/urandom" ascii //weight: 1
+        $x_1_5 = ".xyz" ascii //weight: 1
+        $x_1_6 = ".site" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

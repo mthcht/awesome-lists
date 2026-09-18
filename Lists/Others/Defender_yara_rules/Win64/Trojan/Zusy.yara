@@ -1245,6 +1245,30 @@ rule Trojan_Win64_Zusy_C_2147927562_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_C_2147927562_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.C!MTB"
+        threat_id = "2147927562"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[AntiDebug] PEB successfully patched." ascii //weight: 10
+        $x_5_2 = "Attempting to grab browser:" ascii //weight: 5
+        $x_3_3 = "] Starting capture routine. Exe:" ascii //weight: 3
+        $x_2_4 = "termux-for-brawser.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_YAC_2147927681_0
 {
     meta:
@@ -1687,6 +1711,29 @@ rule Trojan_Win64_Zusy_A_2147936264_0
         family = "Zusy"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "%s HMAC check failed: wrong key, or file corrupted." wide //weight: 7
+        $x_2_2 = "Start decrypting files..." wide //weight: 2
+        $x_1_3 = "Files decrypted!" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Zusy_A_2147936264_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.A!MTB"
+        threat_id = "2147936264"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
@@ -1697,7 +1744,7 @@ rule Trojan_Win64_Zusy_A_2147936264_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_A_2147936264_1
+rule Trojan_Win64_Zusy_A_2147936264_2
 {
     meta:
         author = "defender2yara"
@@ -1719,7 +1766,7 @@ rule Trojan_Win64_Zusy_A_2147936264_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_A_2147936264_2
+rule Trojan_Win64_Zusy_A_2147936264_3
 {
     meta:
         author = "defender2yara"
@@ -1741,7 +1788,7 @@ rule Trojan_Win64_Zusy_A_2147936264_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_A_2147936264_3
+rule Trojan_Win64_Zusy_A_2147936264_4
 {
     meta:
         author = "defender2yara"
@@ -1764,7 +1811,7 @@ rule Trojan_Win64_Zusy_A_2147936264_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Zusy_A_2147936264_4
+rule Trojan_Win64_Zusy_A_2147936264_5
 {
     meta:
         author = "defender2yara"

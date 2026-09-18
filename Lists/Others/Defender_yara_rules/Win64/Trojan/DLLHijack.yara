@@ -1018,3 +1018,25 @@ rule Trojan_Win64_DLLHijack_DAI_2147978265_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_WV_2147978414_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.WV!MTB"
+        threat_id = "2147978414"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {40 fe c7 40 88 7d 50 40 0f b6 ff 44 02 44 3c ?? 44 88 45 51 41 0f b6 d0 8a 4c 3c 50 8a 44 14 50 88 44 3c 50 88 4c 14 50 44 0f b6 45 ?? 0f b6 7d 50 42 0f b6 54 04 ?? 0f b6 44 3c ?? 48 03 d0 0f b6 c2 8a 4c 04 ?? 43 32 0c 39 43 88 0c 31 49 ff c1 4c 3b cb 72}  //weight: 5, accuracy: Low
+        $x_2_2 = "SecurityGuardSDK64\\x64\\Release\\SecurityGuardSDK64.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

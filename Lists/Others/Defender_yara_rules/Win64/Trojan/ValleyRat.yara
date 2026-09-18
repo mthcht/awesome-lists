@@ -1364,3 +1364,26 @@ rule Trojan_Win64_ValleyRat_BM_2147978157_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_DA_2147978424_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.DA!MTB"
+        threat_id = "2147978424"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 b1 b1 a8 ee ba de b2 7a be b9 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 00 00 00 00 00 00 b5 4c aa 6b b0 b1 a5 ce aa 41 b0 c8 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 aa 41 b0 c8 a4 77 b8 67 a4 a3 ac 4f b9 42 a6 e6 aa ac ba 41 a1 43 00 00 b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 b1 b1 a8 ee ba de b2 7a be b9 a1 41 bf f9 bb 7e bd 58 a1 47}  //weight: 10, accuracy: High
+        $x_10_2 = {b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 b1 b1 a8 ee ba de b2 7a be b9 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 00 00 00 00 00 00 b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 b1 b1 a8 ee ba de b2 7a be b9 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 00 00 00 00 00 00 b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 a1 41 bf f9 bb 7e bd}  //weight: 10, accuracy: High
+        $x_10_3 = {b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 b5 4c aa 6b c0 f2 a8 fa b3 5d b3 c6 ab 48 ae a7 b6 b0 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 00 00 b5 4c aa 6b b1 d2 b0 ca aa 41 b0 c8 a1 41 bf f9 bb 7e bd 58 a1 47 00 00 b5 4c aa 6b a5 b4 b6 7d aa 41 b0 c8 b1 b1 a8 ee ba de b2 7a be b9 a1 41 bf f9 bb 7e bd 58 a1 47}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
