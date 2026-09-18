@@ -1170,3 +1170,30 @@ rule Trojan_Win32_ShellcodeRunner_YBJ_2147976436_2
         (all of ($x*))
 }
 
+rule Trojan_Win32_ShellcodeRunner_A_2147978465_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeRunner.A!MTB"
+        threat_id = "2147978465"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {25 00 73 00 6a 00 50 c7 45 ?? 5c 00 25 00 c7 45 ?? 73 00 00 00}  //weight: 10, accuracy: Low
+        $x_5_2 = "WMyUniqueAppMutexx" wide //weight: 5
+        $x_1_3 = "cnima.xml" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*))) or
+            ((1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
