@@ -829,3 +829,27 @@ rule Trojan_MSIL_WebShell_A_2147977533_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_WebShell_AC_2147978453_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/WebShell.AC!MTB"
+        threat_id = "2147978453"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "WebShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {20 00 00 04 00 7e 0b 00 00 0a 7e 0b 00 00 0a 28 01 00 00 06 0b 07 7e 0c 00 00 0a 28 0d 00 00 0a 16 fe 01 13 04 11 04 2d 03 00 2b 4c 16 0c 2b 28 00 06 08 06 08 91 20 fa 00 00 00 61 d2 9c 28 0e 00 00 0a 16 fe 01 16 fe 01 13 04 11 04 2d 04 00 16 0d 00 00 08 17 58 0c 08 06 8e 69 fe 04 13 04 11 04 2d cc 06 16 07 06 8e 69 28 0f 00 00 0a 00 07 16 28 02 00 00 06 26}  //weight: 6, accuracy: High
+        $x_2_2 = {41 70 70 5f 57 65 62 5f ?? ?? ?? ?? ?? ?? (61|2d|7a|30|2d|39) (61|2d|7a|30|2d|39) 2e 64 6c 6c}  //weight: 2, accuracy: Low
+        $x_1_3 = "Marshal" ascii //weight: 1
+        $x_1_4 = "EnumSystemLocalesA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
