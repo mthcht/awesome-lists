@@ -945,3 +945,26 @@ rule Trojan_Win64_Dacic_KK_2147978330_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_KK_2147978330_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.KK!MTB"
+        threat_id = "2147978330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8a 54 05 00 89 d1 83 f2 36 83 f1 5c 88 94 03 d0 00 00 00 88 8c 03 10 01 00 00 48 ff c0 48 83 f8 40}  //weight: 20, accuracy: High
+        $x_10_2 = "@Inside checkIn, got exception" ascii //weight: 10
+        $x_5_3 = "@file browser issued listing" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
