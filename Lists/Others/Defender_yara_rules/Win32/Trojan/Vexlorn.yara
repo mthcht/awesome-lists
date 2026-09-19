@@ -25,3 +25,33 @@ rule Trojan_Win32_Vexlorn_DA_2147978115_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vexlorn_DB_2147978506_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vexlorn.DB!MTB"
+        threat_id = "2147978506"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vexlorn"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "46"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[AppDataFolder]SoftwareTools\\PDF Municipal 7.3.4\\install" ascii //weight: 10
+        $x_10_2 = "3208CBC\\PDF Municipal.7z" ascii //weight: 10
+        $x_10_3 = "\\\\?\\C:\\TEMP\\3208CBC" ascii //weight: 10
+        $x_10_4 = "PDF Municipal.ini" ascii //weight: 10
+        $x_1_5 = "CreateProcessW" ascii //weight: 1
+        $x_1_6 = "ShellExecuteW" ascii //weight: 1
+        $x_1_7 = "InternetOpenW" ascii //weight: 1
+        $x_1_8 = "HttpOpenRequestW" ascii //weight: 1
+        $x_1_9 = "HttpSendRequestW" ascii //weight: 1
+        $x_1_10 = "VirtualAlloc" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
