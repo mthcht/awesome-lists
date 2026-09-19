@@ -58,3 +58,30 @@ rule TrojanDownloader_Win32_ClickFix_MS_2147977560_0
         )
 }
 
+rule TrojanDownloader_Win32_ClickFix_JX_2147978481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/ClickFix.JX"
+        threat_id = "2147978481"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {66 00 6f 00 72 00 20 00 2f 00 22 01 01 02 66 6b 20 00 23 02 02 01 25 2a 01 01 00 20 00 69 00 6e 00 20 00 28 00 27 00 77 00 68 00 65 00 72 00 65 00 20 00 23 20 20 0c 61 2d 7a 41 2d 5a 30 2d 39 2e 5f 2d 22 01 01 02 3f 2a 23 20 20 0e 61 2d 7a 41 2d 5a 30 2d 39 2e 5f 3f 2a 2d 27 00 29 00}  //weight: 4, accuracy: Low
+        $x_1_2 = {3d 00 68 00 74 00 74 00 70 00 73 00 3a 00 23 ff ff 19 61 2d 7a 41 2d 5a 30 2d 39 20 21 22 25 26 27 28 29 2e 2f 3a 3d 3f 5f 2a 2d 7c 00 23 02 02 01 25 2a 01 01 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {3d 00 68 00 74 00 74 00 70 00 73 00 3a 00 23 ff ff 19 61 2d 7a 41 2d 5a 30 2d 39 20 21 22 25 26 27 28 29 2e 2f 3a 3d 3f 5f 2a 2d 7c 00 20 00 23 02 02 01 25 2a 01 01 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {3d 00 68 00 74 00 74 00 70 00 73 00 3a 00 23 ff ff 19 61 2d 7a 41 2d 5a 30 2d 39 20 21 22 25 26 27 28 29 2e 2f 3a 3d 3f 5f 2a 2d 7c 00 23 80 80 12 61 2d 7a 41 2d 5a 30 2d 39 20 22 25 2e 2f 3a 5c 5f 2d 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {3d 00 68 00 74 00 74 00 70 00 73 00 3a 00 23 ff ff 19 61 2d 7a 41 2d 5a 30 2d 39 20 21 22 25 26 27 28 29 2e 2f 3a 3d 3f 5f 2a 2d 7c 00 63 00 6d 00 64 00 2e 00 65 00 78 00 65 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
