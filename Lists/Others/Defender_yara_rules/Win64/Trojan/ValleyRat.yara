@@ -1387,3 +1387,25 @@ rule Trojan_Win64_ValleyRat_DA_2147978424_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_BT_2147978531_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.BT!MTB"
+        threat_id = "2147978531"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {43 0f b6 14 03 49 8b c0 83 e0 03 8a ca 32 4c 04 10 41 32 c9 44 0f af cb 43 88 0c 03 41 8a ca 49 ff c0 44 03 ca 41 d3 c1 49 81 f8 00 10 00 00 75}  //weight: 5, accuracy: High
+        $x_4_2 = {41 69 c9 b9 79 37 9e 33 4c 24 50 8b c1 35 10 1e 17 0b c1 e0 0d 33 c8 8b c1 35 10 1e 17 0b c1 e8 11 33 c8 81 f1 10 1e 17 0b 69 c9 6b ca eb 85 41 8b d1 8b c1 c1 e8 10 33 c1 30 04 17 41 ff c1 45 3b c8 72}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
