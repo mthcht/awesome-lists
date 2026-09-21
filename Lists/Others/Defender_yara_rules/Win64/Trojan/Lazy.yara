@@ -2793,6 +2793,34 @@ rule Trojan_Win64_Lazy_AB_2147939489_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AB_2147939489_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AB!MTB"
+        threat_id = "2147939489"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "no-sandbox --allow-no-sandbox-job" ascii //weight: 2
+        $x_2_2 = "disable-3d-apis --disable-gpu --disable-d3d11" ascii //weight: 2
+        $x_2_3 = "allow-profiles-outside-user-dir --no-first-run" ascii //weight: 2
+        $x_2_4 = "browser_stealer+discord_stealer+system_info+screenshot" ascii //weight: 2
+        $x_2_5 = "keylogger+clipboard+screen+audio+webcam+wallets+sessions" ascii //weight: 2
+        $x_2_6 = "OperaGX" ascii //weight: 2
+        $x_2_7 = "\\MultiMC" ascii //weight: 2
+        $x_1_8 = "id_ed25519" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_AC_2147939494_0
 {
     meta:

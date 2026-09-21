@@ -8844,3 +8844,25 @@ rule Trojan_Win32_LummaStealer_AZP_2147972096_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_LummaStealer_VA_2147978546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/LummaStealer.VA!MTB"
+        threat_id = "2147978546"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {01 f3 0f b7 08 83 c0 02 66 85 c9 74 24 0f b7 e9 31 c9 81 fd 00 08 00 00 0f 92 c2 be 01 00 00 00 81 fd 80 00 00 00 72 d8 88 d1 83 f1 03 89 ce eb cf}  //weight: 1, accuracy: High
+        $x_1_2 = {88 08 89 f1 c1 e9 06 80 e1 3f 80 c9 80 88 48 01 80 e2 3f 80 ca 80 88 50 02 be 03 00 00 00 e9 71 ff ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
