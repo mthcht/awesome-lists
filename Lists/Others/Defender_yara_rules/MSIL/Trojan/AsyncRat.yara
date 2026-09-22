@@ -4410,3 +4410,26 @@ rule Trojan_MSIL_AsyncRat_MX_2147978218_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRat_MY_2147978576_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.MY!MTB"
+        threat_id = "2147978576"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {53 00 61 00 6d 00 73 00 75 00 6e 00 67 00 46 00 52 00 50 00 54 00 6f 00 6f 00 6c 00 5f 00 76 00 31 00 2e 00 36 00 2e 00 65 00 78 00 65}  //weight: 1, accuracy: High
+        $x_1_2 = "906a-49fc-b2fa-cc999e328640" ascii //weight: 1
+        $x_1_3 = "SamsungFRP_v1._1.Properties.Resources.resource" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
