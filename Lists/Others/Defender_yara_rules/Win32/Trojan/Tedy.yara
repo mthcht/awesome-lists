@@ -124,28 +124,6 @@ rule Trojan_Win32_Tedy_MBJV_2147893180_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_Tedy_GPC_2147893868_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Tedy.GPC!MTB"
-        threat_id = "2147893868"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Tedy"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_2_1 = "cungu.oss-cn-beijing.aliyuncs.com/payload.bin" wide //weight: 2
-        $x_2_2 = "DownloadShellcode" wide //weight: 2
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_Tedy_GK_2147894383_0
 {
     meta:

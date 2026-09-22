@@ -455,3 +455,26 @@ rule Trojan_MSIL_Masslogger_AMS_2147969185_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Masslogger_AG_2147978552_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Masslogger.AG!MTB"
+        threat_id = "2147978552"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Masslogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 06 02 7d ?? 00 00 04 06 03 7d ?? 00 00 04 16 02 7b ?? 00 00 04 6f ?? 00 00 0a 28 ?? 00 00 0a 06 fe ?? ?? 00 00 06 73 ?? ?? 00 0a 28 ?? 00 00 2b 2a}  //weight: 5, accuracy: Low
+        $x_4_2 = {25 16 0f 01 28 ?? ?? 00 0a 9c 25 17 0f 01 28 ?? ?? 00 0a 9c 25 18 0f 01 28 ?? ?? 00 0a 9c 2a}  //weight: 4, accuracy: Low
+        $x_1_3 = "GetPixel" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

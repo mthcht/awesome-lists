@@ -1031,3 +1031,25 @@ rule Trojan_Win32_Rozena_AHA_2147972092_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rozena_SRW_2147978551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rozena.SRW!MTB"
+        threat_id = "2147978551"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8b 31 33 c0 03 f2 83 c1 04 89 4d e4 8b d0 8a 0e c1 ca 0d 0f be c1 03 d0 46 84 c9 75}  //weight: 3, accuracy: High
+        $x_1_2 = {8b c8 80 36 99 46 83 e9 01 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

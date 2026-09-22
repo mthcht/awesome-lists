@@ -643,6 +643,32 @@ rule Trojan_MSIL_KeyLogger_AB_2147977993_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {25 0c 12 01 28 ?? 00 00 0a 02 28 ?? 00 00 06 02 7b ?? 00 00 04 02 12 00 7b}  //weight: 5, accuracy: Low
+        $x_8_2 = {a2 09 1a 06 a2 09 1b 72 ?? ?? ?? ?? a2 09 1c 07 a2 09 1d 72 ?? ?? ?? ?? a2 09 1e 28}  //weight: 8, accuracy: Low
+        $x_15_3 = "Keylogger" ascii //weight: 15
+        $x_6_4 = "ScreenCap" ascii //weight: 6
+        $x_4_5 = "gjqcz7ayos.localto.net" ascii //weight: 4
+        $x_2_6 = {63 6c 69 65 6e 74 5f ?? ?? ?? ?? ?? ?? 2e 65 78 65}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_KeyLogger_AB_2147977993_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KeyLogger.AB!MTB"
+        threat_id = "2147977993"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "25"
         strings_accuracy = "Low"
     strings:

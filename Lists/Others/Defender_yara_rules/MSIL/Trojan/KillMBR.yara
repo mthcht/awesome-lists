@@ -79,6 +79,30 @@ rule Trojan_MSIL_KillMBR_SV_2147819192_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillMBR_AB_2147822444_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillMBR.AB!MTB"
+        threat_id = "2147822444"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillMBR"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0c 08 07 6f ?? ?? ?? ?? 00 06 07 16 20 ?? 02 00 00 6f ?? ?? ?? ?? 00 00 de 0b 06 2c 07 06}  //weight: 5, accuracy: Low
+        $x_2_2 = {26 11 0a 1f 0f fe 04 13 0d 11 0d 2c 06 11 0a 17 58 13 0a 11 0a 1f 41 fe 04 13 0e 11 0e 2c 06}  //weight: 2, accuracy: High
+        $x_15_3 = "Freemasonry.Properties.Resources" ascii //weight: 15
+        $x_8_4 = "$4aef2298-2f30-4b01-89be-2c1630723904" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_KillMBR_ARA_2147837128_0
 {
     meta:
