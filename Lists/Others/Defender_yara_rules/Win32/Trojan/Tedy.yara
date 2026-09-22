@@ -1889,3 +1889,33 @@ rule Trojan_Win32_Tedy_E_2147978478_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tedy_CVN_2147978599_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.CVN!MTB"
+        threat_id = "2147978599"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {48 8b 4c 24 38 48 85 c9 74 ?? f6 41 07 40 75}  //weight: 4, accuracy: Low
+        $x_3_2 = "@[main] === PROGRAM START ===" ascii //weight: 3
+        $x_3_3 = "@[main] === DECISION POINT ===" ascii //weight: 3
+        $x_3_4 = "@[main] before activation date, monitor only" ascii //weight: 3
+        $x_3_5 = "@[main] warmup failed, falling back to monitor" ascii //weight: 3
+        $x_3_6 = "@[warmup] server time unavailable, using local clock fallback" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((4 of ($x_3_*))) or
+            ((1 of ($x_4_*) and 2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

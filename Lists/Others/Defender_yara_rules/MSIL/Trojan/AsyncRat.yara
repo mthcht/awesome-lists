@@ -4433,3 +4433,48 @@ rule Trojan_MSIL_AsyncRat_MY_2147978576_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AsyncRat_AVN_2147978597_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.AVN!MTB"
+        threat_id = "2147978597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {06 11 04 11 08 58 03 11 04 11 08 58 91 09 11 08 91 61 d2 9c 11 08 17 58 13 08 11 08 11 07 32 e0}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AsyncRat_AVN_2147978597_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AsyncRat.AVN!MTB"
+        threat_id = "2147978597"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "DiscordTokens" ascii //weight: 10
+        $x_10_2 = "BrowserGrab" ascii //weight: 10
+        $x_10_3 = "TelegramGrab" ascii //weight: 10
+        $x_10_4 = "WifiPasswords" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -605,14 +605,14 @@ rule Trojan_Win32_ShellcodeRunner_GVE_2147957420_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_2_1 = "Start-Process notepad.exe" ascii //weight: 2
         $x_1_2 = "Stop-Process -Name calculator" ascii //weight: 1
         $x_1_3 = "New-Item -Path C:\\temp -ItemType Directory -Force" ascii //weight: 1
         $x_1_4 = "Remove-Item -Path C:\\temp\\*.tmp -Force" ascii //weight: 1
         $x_1_5 = "Copy-Item -Path C:\\file1.txt -Destination C:\\file2.txt" ascii //weight: 1
-        $x_1_6 = "Invoke-WebRequest -Uri http://example.com -OutFile test.html" ascii //weight: 1
+        $x_1_6 = {49 6e 76 6f 6b 65 2d 57 65 62 52 65 71 75 65 73 74 20 2d 55 72 69 [0-76] 2d 4f 75 74 46 69 6c 65 20 74 65 73 74 2e 68 74 6d 6c}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

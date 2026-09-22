@@ -10289,9 +10289,9 @@ rule TrojanDownloader_O97M_Powdow_RVBB_2147818488_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
         threshold = "4"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
-        $x_1_1 = "C:\\\\ProgramData\\\\ddond.com https://taxfile.mediafire.com/\" + \"file/vix2glog75u2ikg/30.htm/file\"" ascii //weight: 1
+        $x_1_1 = {43 3a 5c 5c 50 72 6f 67 72 61 6d 44 61 74 61 5c 5c 64 64 6f 6e 64 2e 63 6f 6d 20 68 74 74 70 73 3a 2f 2f [0-20] 2e 63 6f 6d 2f 22 20 2b 20 22 66 69 6c 65 2f 76 69 78 32 67 6c 6f 67 37 35 75 32 69 6b 67 2f 33 30 2e 68 74 6d 2f 66 69 6c 65}  //weight: 1, accuracy: Low
         $x_1_2 = "Chr$(Asc(Mid$(EoPY6GWVej, I, 1)) + Asc(Mid$(GuSqwMIoE88F, J, 1)))" ascii //weight: 1
         $x_1_3 = "Replace(solingerimo, \"5\", \"i\")" ascii //weight: 1
         $x_1_4 = "VBA.GetObject(Finkolachomati).Get(solingerimo).Create makwakabeer, Null, Null, pid" ascii //weight: 1

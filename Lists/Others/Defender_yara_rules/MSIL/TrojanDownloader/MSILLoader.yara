@@ -14,13 +14,8 @@ rule TrojanDownloader_MSIL_MSILLoader_CSWF_2147845026_0
         strings_accuracy = "High"
     strings:
         $x_5_1 = {03 06 91 15 2d 15 26 03 06 03 07 91 9c 03 07 08 9c 06 17 58 0a 07 17 59 0b 2b 03 0c 2b e9 06 07 32}  //weight: 5, accuracy: High
-        $x_1_2 = "http://downloadserver.duckdns.org/SystemEnv/uploads" wide //weight: 1
-        $x_1_3 = "http://maloymez.beget.tech/panel/uploads/" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_5_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 

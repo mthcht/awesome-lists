@@ -219,26 +219,21 @@ rule Trojan_Win32_PrivateLoader_LMAA_2147908638_0
         threshold = "13"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "://dsepc5ud74wta.cloudfront.net/load/load.php" wide //weight: 2
-        $x_2_2 = "://representativestem.xyz/ir/sreb.php" wide //weight: 2
-        $x_1_3 = "/silent" wide //weight: 1
-        $x_1_4 = "/weaksecurity" wide //weight: 1
-        $x_1_5 = "/nocookies" wide //weight: 1
-        $x_1_6 = "/username" wide //weight: 1
-        $x_1_7 = "/popup" wide //weight: 1
-        $x_1_8 = "/resume" wide //weight: 1
-        $x_1_9 = "/useragent" wide //weight: 1
-        $x_1_10 = "/connecttimeout" wide //weight: 1
-        $x_1_11 = "/header" wide //weight: 1
-        $x_1_12 = "/tostackconv" wide //weight: 1
-        $x_1_13 = "/tostack" wide //weight: 1
+        $x_2_1 = "://representativestem.xyz/ir/sreb.php" wide //weight: 2
+        $x_1_2 = "/silent" wide //weight: 1
+        $x_1_3 = "/weaksecurity" wide //weight: 1
+        $x_1_4 = "/nocookies" wide //weight: 1
+        $x_1_5 = "/username" wide //weight: 1
+        $x_1_6 = "/popup" wide //weight: 1
+        $x_1_7 = "/resume" wide //weight: 1
+        $x_1_8 = "/useragent" wide //weight: 1
+        $x_1_9 = "/connecttimeout" wide //weight: 1
+        $x_1_10 = "/header" wide //weight: 1
+        $x_1_11 = "/tostackconv" wide //weight: 1
+        $x_1_12 = "/tostack" wide //weight: 1
     condition:
         (filesize < 20MB) and
-        (
-            ((1 of ($x_2_*) and 11 of ($x_1_*))) or
-            ((2 of ($x_2_*) and 9 of ($x_1_*))) or
-            (all of ($x*))
-        )
+        (all of ($x*))
 }
 
 rule Trojan_Win32_PrivateLoader_AMMF_2147909498_0

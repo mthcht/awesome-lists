@@ -6357,6 +6357,27 @@ rule Trojan_MSIL_XWorm_GVN_2147976611_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {00 07 11 04 11 06 58 91 08 11 06 91 fe 01 13 0e 11 0e 2d 06 00 16 13 05 2b 12 00 11 06 17 58 13 06 11 06 1a fe 04 13 0e 11 0e 2d d4}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_GVN_2147976611_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.GVN!MTB"
+        threat_id = "2147976611"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:
@@ -6539,6 +6560,27 @@ rule Trojan_MSIL_XWorm_SD_2147978550_0
         strings_accuracy = "Low"
     strings:
         $x_3_1 = {0b 14 0c 06 07 7e ?? ?? ?? 04 28 ?? ?? ?? 06 6f ?? ?? ?? 0a 6f ?? ?? ?? 0a 06 18 6f ?? ?? ?? 0a 06 6f ?? ?? ?? 0a 02 16 02 8e 69 6f ?? ?? ?? 0a 0c 08 0d de}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_AVN_2147978598_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AVN!MTB"
+        threat_id = "2147978598"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 0c 93 13 05 11 0a 75 0d 00 00 1b 11 0c 17 58 93 11 05 61 13 06 1f 0b 13 0e}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

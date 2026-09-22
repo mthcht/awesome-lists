@@ -378,3 +378,43 @@ rule Trojan_Win64_Remus_MY_2147978577_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remus_ZZ_2147978600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.ZZ"
+        threat_id = "2147978600"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 83 ec 28 48 8d 0d ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 4c 8d 05 ?? ?? ?? ?? 45 31 c9 e8 ?? ?? ?? ?? b0 01 48 83 c4 28 c3}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_ZY_2147978602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.ZY"
+        threat_id = "2147978602"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8d 4c 24 30 31 d2 ff d0 48 89 05 ?? ?? ?? ?? 48 85 c0 74 3d 48 83 3d ?? ?? ?? ?? 00 74 33 48 83 3d ?? ?? ?? ?? 00 74 29 e8 ?? ?? ?? ?? 84 c0 74 20 e8 ?? ?? ?? ?? 84 c0 75 17 e8 ?? ?? ?? ?? 84 c0 74 0e e8 ?? ?? ?? ?? 84 c0 74 05 e8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
