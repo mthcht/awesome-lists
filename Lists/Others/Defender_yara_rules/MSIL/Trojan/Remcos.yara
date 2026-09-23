@@ -3199,37 +3199,6 @@ rule Trojan_MSIL_Remcos_JHOR_2147811648_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Remcos_TRIMB_2147812166_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Remcos.TRIMB!MTB"
-        threat_id = "2147812166"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Remcos"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "51"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "GetMethod" ascii //weight: 10
-        $x_10_2 = "Replace" ascii //weight: 10
-        $x_10_3 = "Invoke" ascii //weight: 10
-        $x_10_4 = "Reverse" ascii //weight: 10
-        $x_10_5 = "ToArray" ascii //weight: 10
-        $x_1_6 = "http://trietlongvinhvien.info/.tmb/" ascii //weight: 1
-        $x_1_7 = "https://www.uplooder.net/img/image/40/e36bebd22260c03f3a40b6348976fa5b/WMI-Provider-Host.jpg" ascii //weight: 1
-        $x_1_8 = "https://cdn.discordapp.com/attachments/932413459872747544/933098893019861042/Jdnpanki.bin" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((5 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_MSIL_Remcos_GHAZ_2147812168_0
 {
     meta:
@@ -5125,27 +5094,6 @@ rule Trojan_MSIL_Remcos_AU_2147831374_0
         $x_1_5 = "GetBytes" ascii //weight: 1
         $x_1_6 = "GetMethod" ascii //weight: 1
         $x_1_7 = "Names/Name" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Remcos_EJN_2147831543_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Remcos.EJN!MTB"
-        threat_id = "2147831543"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Remcos"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {20 c8 00 00 00 59 1f 64 59 1f 1e 58 20 ?? ?? ?? 00 59 13 04 11 04 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 13 05 06 11 05 28 ?? ?? ?? 0a 28 ?? ?? ?? 0a 0a 07 17 58}  //weight: 1, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

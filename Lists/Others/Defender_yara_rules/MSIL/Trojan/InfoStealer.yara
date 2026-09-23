@@ -183,6 +183,30 @@ rule Trojan_MSIL_InfoStealer_AMTB_2147971772_0
         threshold = "5"
         strings_accuracy = "High"
     strings:
+        $x_1_1 = "\\InfoStealer\\obj\\Release\\net8.0-windows\\win-x64\\SystemRuntimeBroker.pdb" ascii //weight: 1
+        $x_1_2 = "crash_log.txt" ascii //weight: 1
+        $x_1_3 = "ExecuteStealer" ascii //weight: 1
+        $x_1_4 = "TakeWebcamPictures" ascii //weight: 1
+        $x_1_5 = "StealDirectory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_InfoStealer_AMTB_2147971772_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/InfoStealer!AMTB"
+        threat_id = "2147971772"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "InfoStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "StealDesktopFiles" ascii //weight: 1
         $x_1_2 = "Infostealer.Program+<CollectSystemInfo>" ascii //weight: 1
         $x_1_3 = "Stealer executed successfully." ascii //weight: 1

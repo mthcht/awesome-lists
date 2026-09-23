@@ -21,6 +21,30 @@ rule Trojan_MSIL_XenoRAT_MBYF_2147909691_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XenoRAT_A_2147909694_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XenoRAT.A!MTB"
+        threat_id = "2147909694"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "<activeProxyPort>5__4" ascii //weight: 10
+        $x_5_2 = "<ConnectAndSetupAsync>d__13" ascii //weight: 5
+        $x_3_3 = "<AutoProvisionTorAsync>b__0" ascii //weight: 3
+        $x_2_4 = "<GetAndSendInfo>d__5" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XenoRAT_RDA_2147912880_0
 {
     meta:

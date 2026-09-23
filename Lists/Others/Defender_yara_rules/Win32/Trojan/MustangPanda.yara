@@ -84,20 +84,19 @@ rule Trojan_Win32_MustangPanda_AMP_2147971331_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "11"
+        threshold = "10"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "SmartPrint" wide //weight: 1
         $x_1_2 = "BelievemeIamMustang-Panda" wide //weight: 1
         $x_1_3 = "DaDaBar" wide //weight: 1
         $x_1_4 = "info/faq/v6" wide //weight: 1
-        $x_1_5 = "forms.microsoft.com" wide //weight: 1
-        $x_1_6 = "Hi,Mustang_Panda" ascii //weight: 1
-        $x_1_7 = "please believe me" ascii //weight: 1
-        $x_1_8 = "DadaBank" ascii //weight: 1
-        $x_1_9 = "BankChina" ascii //weight: 1
-        $x_1_10 = "BankofChina" ascii //weight: 1
-        $x_1_11 = "Bankofchinaunionpaycard" ascii //weight: 1
+        $x_1_5 = "Hi,Mustang_Panda" ascii //weight: 1
+        $x_1_6 = "please believe me" ascii //weight: 1
+        $x_1_7 = "DadaBank" ascii //weight: 1
+        $x_1_8 = "BankChina" ascii //weight: 1
+        $x_1_9 = "BankofChina" ascii //weight: 1
+        $x_1_10 = "Bankofchinaunionpaycard" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -401,3 +401,27 @@ rule Trojan_MSIL_SpyAgent_G_2147972532_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SpyAgent_H_2147978702_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SpyAgent.H!AMTB"
+        threat_id = "2147978702"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SpyAgent"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "lord-sk-grabber" ascii //weight: 2
+        $x_1_2 = "RunGrabber" ascii //weight: 1
+        $x_1_3 = "WM_CAP_GRAB_FRAME" ascii //weight: 1
+        $x_1_4 = "CaptureScreenshot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

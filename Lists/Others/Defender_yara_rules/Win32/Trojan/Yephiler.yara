@@ -40,3 +40,29 @@ rule Trojan_Win32_Yephiler_AHB_2147969665_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Yephiler_KK_2147978618_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Yephiler.KK!MTB"
+        threat_id = "2147978618"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Yephiler"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b c8 83 e1 03 8a 8c 0d 28 fd ff ff 30 0c 06 40 3b c2}  //weight: 20, accuracy: High
+        $x_10_2 = "bypassbot\\server\\builds\\sl_6213215270_178" ascii //weight: 10
+        $x_10_3 = "bypassbot\\server\\builds\\sl_7757956761_178" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

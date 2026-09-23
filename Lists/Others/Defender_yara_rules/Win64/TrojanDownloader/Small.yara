@@ -156,3 +156,26 @@ rule TrojanDownloader_Win64_Small_PAHK_2147977524_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Small_KK_2147978649_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Small.KK!MTB"
+        threat_id = "2147978649"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 44 24 20 c1 e0 03 8b 4c 24 20 c1 e9 1d 0b c1 89 44 24 20 8b 44 24 20 35 55 55 55 55 89 44 24 20}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b6 44 24 50 48 8b 4c 24 20 48 8b 54 24 40 48 03 d1 48 8b ca 0f b6 09 33 c8 8b c1 48 8b 4c 24 20 48 8b 54 24 40 48 03 d1 48 8b ca 88 01}  //weight: 10, accuracy: High
+        $x_5_3 = "/create /tn \"WinUpdateService\" /tr \"%s\" /sc onlogon /rl highest /f" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

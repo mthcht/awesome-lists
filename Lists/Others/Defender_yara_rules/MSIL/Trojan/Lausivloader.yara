@@ -268,3 +268,39 @@ rule Trojan_MSIL_Lausivloader_DC_2147978318_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lausivloader_UC_2147978617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lausivloader.UC!MTB"
+        threat_id = "2147978617"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lausivloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "ChaveSecretaGlobal" ascii //weight: 4
+        $x_3_2 = "HackForums.gigajew" ascii //weight: 3
+        $x_1_3 = "System.Net.Http" ascii //weight: 1
+        $x_1_4 = "ZwUnmapViewOfSection" ascii //weight: 1
+        $x_1_5 = "SetThreadContext" ascii //weight: 1
+        $x_1_6 = "CreateProcess" ascii //weight: 1
+        $x_1_7 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_8 = "FromBase64String" ascii //weight: 1
+        $x_1_9 = "CreateDecryptor" ascii //weight: 1
+        $x_1_10 = "RegisterTaskDefinition" ascii //weight: 1
+        $x_1_11 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_12 = "GetThreadContext" ascii //weight: 1
+        $x_1_13 = "ResumeThread" ascii //weight: 1
+        $x_1_14 = "CloseHandle" ascii //weight: 1
+        $x_1_15 = "get_UserName" ascii //weight: 1
+        $x_1_16 = "Microsoft.Win32.TaskScheduler.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

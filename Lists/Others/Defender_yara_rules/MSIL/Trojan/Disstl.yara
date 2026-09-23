@@ -1114,32 +1114,6 @@ rule Trojan_MSIL_Disstl_BK_2147809805_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Disstl_GLT_2147810915_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Disstl.GLT!MTB"
-        threat_id = "2147810915"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Disstl"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "DownloadString" ascii //weight: 1
-        $x_1_2 = "https://dis{0}d.com/api/webhooks/899278272179863642/CrPrQqbWb4570Liu_vjmMrD629ImSKwpErk9b88TdmewCdhF8z_IWH1L3AmqV5mHpPkX" ascii //weight: 1
-        $x_1_3 = "https://discordapp.com/api/v6/users/@me" ascii //weight: 1
-        $x_1_4 = "https://discordapp.com/api/v6/users/@me/billing/payments" ascii //weight: 1
-        $x_1_5 = "https://discordapp.com/api/v6/users/@me/guilds" ascii //weight: 1
-        $x_1_6 = "https://discordapp.com/api/v6/users/@me/relationships" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Disstl_AN_2147814343_0
 {
     meta:

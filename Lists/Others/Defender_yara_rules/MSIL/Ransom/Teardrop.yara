@@ -22,3 +22,26 @@ rule Ransom_MSIL_Teardrop_AA_2147895897_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_Teardrop_AMTB_2147978703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/Teardrop!AMTB"
+        threat_id = "2147978703"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Teardrop"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "teardrop.Form1.resources" ascii //weight: 1
+        $x_2_2 = "hackthedev/teardrop" ascii //weight: 2
+        $x_2_3 = ".fallentear" ascii //weight: 2
+        $x_2_4 = "teardrop.pdb" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

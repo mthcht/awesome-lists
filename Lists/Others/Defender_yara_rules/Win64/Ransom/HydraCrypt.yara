@@ -22,3 +22,26 @@ rule Ransom_Win64_HydraCrypt_KK_2147978333_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_HydraCrypt_AMTB_2147978705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/HydraCrypt!AMTB"
+        threat_id = "2147978705"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "HydraCrypt"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Global\\RANSOM_LOCK_A9F3E1" ascii //weight: 2
+        $x_1_2 = "ransomware.murphy" ascii //weight: 1
+        $x_1_3 = " YOUR FILES HAVE BEEN ENCRYPTED" ascii //weight: 1
+        $x_1_4 = "You have 72 hours before the price doubles." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

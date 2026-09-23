@@ -101,3 +101,44 @@ rule Trojan_PowerShell_ClickFix_SVL_2147978583_0
         )
 }
 
+rule Trojan_PowerShell_ClickFix_SVM_2147978684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:PowerShell/ClickFix.SVM"
+        threat_id = "2147978684"
+        type = "Trojan"
+        platform = "PowerShell: "
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 20 00 2d 00 77 00 20 00 68 00 [0-16] 69 00 72 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_2 = "|powershell -w h" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_PowerShell_ClickFix_SVN_2147978685_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:PowerShell/ClickFix.SVN"
+        threat_id = "2147978685"
+        type = "Trojan"
+        platform = "PowerShell: "
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 69 00 72 00 6d 00 20 00 [0-80] 7c 00 70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-16] 2d 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -14,7 +14,7 @@ rule Trojan_MSIL_Marsilia_GNC_2147850670_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = {13 05 11 04 17 59 13 04 2b 23 08 2d 20 06 11 05 02 7b 21 00 00 04 11 06 91 09 17 59 1f 1f 5f 63 20 ff 00 00 00 09 1f 1f 5f 63 5f d2 9c 11 06 15 58 13 06 11 06 03 2f 87}  //weight: 10, accuracy: High
-        $x_1_2 = "nnjnnml.github.io" ascii //weight: 1
+        $x_1_2 = "nnjnnml.github.io" wide //weight: 1
         $x_1_3 = "\\browserPasswords" ascii //weight: 1
         $x_1_4 = "encrypted_key" ascii //weight: 1
     condition:

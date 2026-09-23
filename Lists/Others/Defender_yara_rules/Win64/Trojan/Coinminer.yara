@@ -39,6 +39,29 @@ rule Trojan_Win64_Coinminer_A_2147760675_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Coinminer_A_2147760675_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Coinminer.A!MTB"
+        threat_id = "2147760675"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Coinminer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "/Create /F /TN WindowsUpdateBoot /SC ONSTART /RU SYSTEM /RL HIGHEST" ascii //weight: 30
+        $x_20_2 = "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\WindowsUpdate.vbs" ascii //weight: 20
+        $x_10_3 = "runtime_donate_phase.json" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Coinminer_SBR_2147772781_0
 {
     meta:

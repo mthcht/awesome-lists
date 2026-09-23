@@ -1017,34 +1017,6 @@ rule Trojan_MSIL_Downloader_RPJ_2147810768_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Downloader_PST_2147810914_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.PST!MTB"
-        threat_id = "2147810914"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "8"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "https://cdn.discordapp.com/attachments/910787806748639245/910902346681315338/Onana_Hospital_Management_System.dll" ascii //weight: 1
-        $x_1_2 = "DownloadData" ascii //weight: 1
-        $x_1_3 = "Reverse" ascii //weight: 1
-        $x_1_4 = "exe.xeyap/035889365047555019/107329403492824019/stnemhcatta/moc.ppadrocsid.ndc//:sptth" ascii //weight: 1
-        $x_1_5 = "GetMethod" ascii //weight: 1
-        $x_1_6 = "GetType" ascii //weight: 1
-        $x_1_7 = "Invoke" ascii //weight: 1
-        $x_1_8 = "ToCharArray" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Downloader_BO_2147811618_0
 {
     meta:
@@ -1196,42 +1168,6 @@ rule Trojan_MSIL_Downloader_HMV_2147812860_0
         (filesize < 20MB) and
         (
             ((5 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule Trojan_MSIL_Downloader_SDR_2147813525_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Downloader.SDR!MTB"
-        threat_id = "2147813525"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Downloader"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "66"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "Reverse" ascii //weight: 10
-        $x_10_2 = "GetAssemblies" ascii //weight: 10
-        $x_10_3 = "GetTypes" ascii //weight: 10
-        $x_10_4 = "GetMethods" ascii //weight: 10
-        $x_10_5 = "Invoke" ascii //weight: 10
-        $x_10_6 = "ToArray" ascii //weight: 10
-        $x_2_7 = "/c ping bing.com" wide //weight: 2
-        $x_2_8 = "/c ping yahoo.com" wide //weight: 2
-        $x_4_9 = "cdn.discordapp.com" ascii //weight: 4
-        $x_4_10 = "transfer.sh/get/BSlGm8/SKM-2001112100.png" ascii //weight: 4
-        $x_4_11 = "esalog-bg.com/images1/book/gig/a/Criyop.jpg" ascii //weight: 4
-    condition:
-        (filesize < 20MB) and
-        (
-            ((5 of ($x_10_*) and 3 of ($x_4_*) and 2 of ($x_2_*))) or
-            ((6 of ($x_10_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
-            ((6 of ($x_10_*) and 2 of ($x_4_*))) or
             (all of ($x*))
         )
 }

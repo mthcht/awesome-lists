@@ -179,3 +179,29 @@ rule Trojan_Win64_AdaptixC2_BO_2147978184_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AdaptixC2_C_2147978622_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AdaptixC2.C!MTB"
+        threat_id = "2147978622"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AdaptixC2"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "generateImplantUUID" ascii //weight: 5
+        $x_5_2 = "isAdminProcess" ascii //weight: 5
+        $x_5_3 = "taskShell" ascii //weight: 5
+        $x_5_4 = "taskScreenshot" ascii //weight: 5
+        $x_5_5 = "taskLoadAssembly" ascii //weight: 5
+        $x_5_6 = "taskSelfDelete" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

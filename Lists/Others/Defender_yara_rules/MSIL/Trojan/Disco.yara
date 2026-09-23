@@ -453,6 +453,31 @@ rule Trojan_MSIL_Disco_KK_2147967952_2
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_KK_2147967952_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.KK!MTB"
+        threat_id = "2147967952"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "TokenGrabber+<Run>d__3" ascii //weight: 5
+        $x_4_2 = "TokenGrabber+<SendToWebhook>d__4" ascii //weight: 4
+        $x_3_3 = "WEBHOOK_URL" ascii //weight: 3
+        $x_2_4 = "[\\w-]{24,28}\\.[\\w-]{6}\\.[\\w-]{27,40}" ascii //weight: 2
+        $x_1_5 = "discord\\Local Storage\\leveldb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Disco_KKA_2147970440_0
 {
     meta:

@@ -184,3 +184,29 @@ rule Trojan_MSIL_KillWin_A_2147978315_0
         )
 }
 
+rule Trojan_MSIL_KillWin_AMTB_2147978704_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillWin!AMTB"
+        threat_id = "2147978704"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillWin"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "HACKED BY quraish" ascii //weight: 1
+        $x_3_2 = "Global\\MG_Prank_8B2F" ascii //weight: 3
+        $x_3_3 = "abolhb.com" ascii //weight: 3
+        $x_1_4 = "StartBomb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

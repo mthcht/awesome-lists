@@ -22898,7 +22898,7 @@ rule Trojan_MSIL_AgentTesla_SB_2147782929_0
         strings_accuracy = "Low"
     strings:
         $x_10_1 = {04 06 91 20 ?? ?? ?? ?? 59 d2 9c 00 06 17 58 0a 06 7e ?? ?? ?? ?? 8e 69 fe 04 0b 07 2d d7}  //weight: 10, accuracy: Low
-        $x_1_2 = "nadjodo.duckdns.org" ascii //weight: 1
+        $x_1_2 = {6e 00 61 00 64 00 6a 00 6f 00 64 00 6f 00 2e 00 64 00 75 00 63 00 6b 00 64 00 6e 00 73 00 2e 00 6f 00 72 00 67}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -10,7 +10,7 @@ rule Trojan_Win32_WebClipPaste_A_2147977447_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "120"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_100_1 = "powershell" wide //weight: 100
         $x_100_2 = "pwsh" wide //weight: 100
@@ -56,9 +56,10 @@ rule Trojan_Win32_WebClipPaste_A_2147977447_0
         $x_20_42 = "-w h " wide //weight: 20
         $x_20_43 = "[scriptblock]::Create" wide //weight: 20
         $x_20_44 = "[PowerShell]::Create()" wide //weight: 20
-        $n_1000_45 = "/install" wide //weight: -1000
-        $n_1000_46 = ".ps1" wide //weight: -1000
-        $n_1000_47 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
+        $x_120_45 = {6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 120, accuracy: Low
+        $n_1000_46 = "/install" wide //weight: -1000
+        $n_1000_47 = ".ps1" wide //weight: -1000
+        $n_1000_48 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -66,6 +67,7 @@ rule Trojan_Win32_WebClipPaste_A_2147977447_0
             ((6 of ($x_20_*))) or
             ((1 of ($x_100_*) and 1 of ($x_20_*))) or
             ((2 of ($x_100_*))) or
+            ((1 of ($x_120_*))) or
             (all of ($x*))
         )
 }

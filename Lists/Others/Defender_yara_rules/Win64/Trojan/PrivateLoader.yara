@@ -179,3 +179,28 @@ rule Trojan_Win64_PrivateLoader_NPL_2147952190_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PrivateLoader_NP_2147978615_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PrivateLoader.NP!MTB"
+        threat_id = "2147978615"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PrivateLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 83 c2 02 48 39 c1 48 0f 44 d1 31 c9 48 39 c2 0f 95 c1 48 01 d1 41 80 f8 f0 72 96 31 d2 48 39 c1 0f 95 c2 48 01 d1 eb 89 bb 01 00 00 00 4d 85 c0 0f 84 c4 01 00 00 4a 8d 04 07 49 89 f9 eb 1e 49 83 c1 02 48 39 c2 49 0f 45 d1 0f 1f 80 00 00 00 00}  //weight: 2, accuracy: High
+        $x_2_2 = {0f b6 07 45 31 d2 3c 2b 41 0f 94 c2 4c 89 c2 4c 29 d2 4e 8d 0c 17 48 83 fa 05 73 1a 48 85 d2 75 70 31 c0 c1 e0 10 89 c3 48 85 c9 0f 85 f0 00 00 00 e9 fd 00 00 00 49 f7 da 4d 01 d0 49 f7 d8 45 31 d2 66 41 bb 0a 00 31 c0}  //weight: 2, accuracy: High
+        $x_1_3 = "C2_HOSTC2_PORT" ascii //weight: 1
+        $x_1_4 = "powershellregaddHKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_5 = "schtasks/create" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

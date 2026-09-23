@@ -262,3 +262,25 @@ rule Trojan_Win64_FileCoder_MKA_2147974884_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_A_2147978620_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.A!MTB"
+        threat_id = "2147978620"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {44 0f b6 d9 88 45 d8 0f b6 f9 66 0f 7e d0 44 0f b6 f1 44 0f b6 e1 41 32 c2}  //weight: 20, accuracy: High
+        $x_15_2 = {41 32 c2 44 30 55 03 88 45 f7 44 30 55 04 41 32 ca 44 30 55 05 41 32 d2 44 30 55 06}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
