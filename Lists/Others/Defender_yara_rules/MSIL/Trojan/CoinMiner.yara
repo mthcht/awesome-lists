@@ -1474,6 +1474,28 @@ rule Trojan_MSIL_CoinMiner_AC_2147838076_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CoinMiner_AC_2147838076_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CoinMiner.AC!MTB"
+        threat_id = "2147838076"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {12 00 12 01 1a 12 02 6f ?? 00 00 06 26 04 8d ?? 00 00 01 0d 16 13 04 2b 12 09 11 04 03 11 04 91 1f 73 61 d2 9c 11 04 17 58 13 04 11 04 04 32 e9 09 16 02 04}  //weight: 2, accuracy: Low
+        $x_1_2 = {07 5a 6a 59 73 ?? 00 00 0a 06 16 1e 28 ?? 00 00 0a 06 16 91 1f 4c 33 2b 06 17 91 20 ?? 00 00 00 33 21 06 18 91 20 ?? 00 00 00 33 17 06 19 91 20 ?? 00 00 00 33 0d 06 1a 91 06 1b}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_CoinMiner_EC_2147838089_0
 {
     meta:
@@ -3120,5 +3142,27 @@ rule Trojan_MSIL_CoinMiner_VD_2147964543_0
     condition:
         (filesize < 20MB) and
         (4 of ($x*))
+}
+
+rule Trojan_MSIL_CoinMiner_AM_2147978728_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CoinMiner.AM!MTB"
+        threat_id = "2147978728"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0a 16 0b 2b 11 06 07 02 07 91 20 ab 00 00 00 61 d1 9d 07 17 58 0b 07 02 8e 69 32 e9}  //weight: 1, accuracy: High
+        $x_2_2 = {a2 25 17 7e ?? 00 00 04 a2 25 18 7e ?? 00 00 04 2d 07 28 ?? 00 00 06 2b 05 28 ?? 01 00 06 a2 25 19 7e ?? 00 00 04 a2 25 1a 7e ?? 00 00 04 2d 07 28 ?? 00 00 06 2b 05 28 ?? 01 00 06 a2 25 1b 7e}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

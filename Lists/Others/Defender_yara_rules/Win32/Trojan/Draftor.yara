@@ -64,3 +64,25 @@ rule Trojan_Win32_Draftor_KK_2147978619_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Draftor_LR_2147978724_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Draftor.LR!MTB"
+        threat_id = "2147978724"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Draftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {45 0c 8b d0 8b 75 10 83 e0 3f 8b 5d 18 6b c8 38 c1 fa 06 89 75 9c 89 5d c4 89 55 bc 8b 04 95 80 12 43 00 89 4d b4}  //weight: 20, accuracy: High
+        $x_10_2 = {80 38 00 74 07 41 40 83 f9 05 7c f4 8b 7d b0 2b fa 89 4d cc 85 c9 0f 8e a6 00 ?? ?? 8b 45 ac 0f b6 00 0f be 80 20 08 43 00 40 89 45 c8 2b c1}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

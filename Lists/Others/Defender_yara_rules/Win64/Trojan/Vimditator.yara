@@ -81,3 +81,30 @@ rule Trojan_Win64_Vimditator_NZA_2147975388_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vimditator_LR_2147978726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vimditator.LR!MTB"
+        threat_id = "2147978726"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vimditator"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "33"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cookies          - steal browser cookies" ascii //weight: 1
+        $x_2_2 = "keylog start|stop|dump - keylogger" ascii //weight: 2
+        $x_4_3 = "location         - IP-based geolocation" ascii //weight: 4
+        $x_5_4 = "powershell <cmd> - run powershell command" ascii //weight: 5
+        $x_6_5 = "[keylog nie dziala]" ascii //weight: 6
+        $x_7_6 = "[keylog juz dziala]" ascii //weight: 7
+        $x_8_7 = "[error: nie mozna utworzyc watku]" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

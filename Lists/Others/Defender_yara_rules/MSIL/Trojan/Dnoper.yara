@@ -644,3 +644,25 @@ rule Trojan_MSIL_Dnoper_A_2147973687_0
         )
 }
 
+rule Trojan_MSIL_Dnoper_LR_2147978725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Dnoper.LR!MTB"
+        threat_id = "2147978725"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Dnoper"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {02 28 3c 01 00 06 0a 06 2c 12 02 7b a9 00 00 04 16 31 09 02 7b aa 00 00 04 16 30 08 14 13 05 dd ac 00 00 00 02 7b a9 00 00 04 02 7b aa 00 00 04 20 08 18 02 00 73 b6 00 00 0a 0b 07 16 16 02 7b a9 00 00 04 02 7b aa 00 00 04 73 d8 01 00 0a 18 20 08 18 02 00 6f d9 01 00 0a 0c 02 7b a9 00 00 04 19 5a 0d 08 6f da 01 00 0a 13 04 09 11 04 33 12 06 16 08 6f db 01 00 0a 06 8e 69 28 dc 01 00 0a 2b 34 16 13 06 2b 25 08 6f db 01 00 0a 11 06 11 04 5a 28 dd 01 00 0a 13 07 06 11 06 09 5a 11 07 09 28 dc 01 00 0a 11 06 17 58 13 06 11 06 02 7b aa 00 00 04 32 d1 07 08 6f de 01 00 0a 07 1c 6f df 01 00 0a 07 13 05 de 06 26 14 13 05 de 00 11 05 2a}  //weight: 20, accuracy: High
+        $x_10_2 = {02 28 3d 01 00 06 0a 06 2d 07 14 0b dd a1 00 00 00 73 c1 00 00 0a 0c 17 73 bd 00 00 0a 0d 09 6f be 00 00 0a 16 7e bf 00 00 0a 03 6a 73 c0 00 00 0a a2 14 13 04 28 cb 00 00 0a 13 05 16 13 06 2b 2b 11 05 11 06 9a 13 07 11 07 6f cc 00 00 0a 28 bc 00 00 0a 6f cd 00 00 0a 28 ce 00 00 0a 2c 06 11 07 13 04 2b 0e 11 06 17 58 13 06 11 06 11 05 8e 69 32 cd 11 04 2c 0c 06 08 11 04 09 6f c2 00 00 0a 2b 0c 06 08 28 bc 00 00 0a 6f e0 01 00 0a 08 6f c3 00 00 0a 0b de 19 08 2c 06 08 6f 4e 00 00 0a dc 06 2c 06 06 6f 4e 00 00 0a dc 26 14 0b de 00 07 2a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

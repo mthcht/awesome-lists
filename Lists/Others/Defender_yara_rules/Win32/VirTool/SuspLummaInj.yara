@@ -33,6 +33,30 @@ rule VirTool_Win32_SuspLummaInj_C_2147976849_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {c7 44 24 20 e0 93 04 00 ba 98 3a 00 00 48 89 f9 41 b8 30 75 00 00 41 b9 e0 93 04 00 ff d6 b8 01 00 00 00}  //weight: 1, accuracy: High
+        $x_1_2 = {c7 44 24 20 e0 93 04 00 ba 98 3a 00 00 48 89 f9 41 b9 e0 93 04 00 41 b8 30 75 00 00 ff d6 b8 01 00 00 00}  //weight: 1, accuracy: High
+        $x_1_3 = {c7 44 24 20 e0 93 04 00 ba 98 3a 00 00 41 b9 e0 93 04 00 48 89 f9 41 b8 30 75 00 00 ff d6 b8 01 00 00 00}  //weight: 1, accuracy: High
+        $x_1_4 = {72 69 70 7c 60 67 76 76 7f 3d 70 7c 7e}  //weight: 1, accuracy: High
+        $x_1_5 = {5a 4e 47 44 54 56 52 19 54 58 5a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+
+rule VirTool_Win32_SuspLummaInj_C_2147976849_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/SuspLummaInj.C"
+        threat_id = "2147976849"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SuspLummaInj"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {48 83 7c 24 28 2a 75 ?? 4b 8d 04 3c 80 38 30 75 ?? 4b 8d 04 3c 80 78 01 78 75 ?? b8 02 00 00 00 48 83 f8 2a 0f 84 ?? ?? ?? ?? 4b 8d 0c 3c 8a 0c 01 48 ff c0 8d 51 d0 80 e1 df 80 c1 bf 80 f9 06 0f 92 c1 80 fa 0a 0f 92 c2 08 ca 75}  //weight: 1, accuracy: Low
@@ -43,7 +67,7 @@ rule VirTool_Win32_SuspLummaInj_C_2147976849_0
         (all of ($x*))
 }
 
-rule VirTool_Win32_SuspLummaInj_C_2147976849_1
+rule VirTool_Win32_SuspLummaInj_C_2147976849_2
 {
     meta:
         author = "defender2yara"
@@ -66,7 +90,7 @@ rule VirTool_Win32_SuspLummaInj_C_2147976849_1
         (all of ($x*))
 }
 
-rule VirTool_Win32_SuspLummaInj_C_2147976849_2
+rule VirTool_Win32_SuspLummaInj_C_2147976849_3
 {
     meta:
         author = "defender2yara"

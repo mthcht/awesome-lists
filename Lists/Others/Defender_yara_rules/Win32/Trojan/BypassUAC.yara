@@ -173,3 +173,26 @@ rule Trojan_Win32_BypassUAC_KK_2147976398_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_BypassUAC_AA_2147978719_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/BypassUAC.AA!MTB"
+        threat_id = "2147978719"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {0f b6 04 06 03 c8 0f b6 c1 8b 4d 08 8a 04 06 32 04 1f 88 04 0f 47 3b 7d 0c 72}  //weight: 15, accuracy: High
+        $x_10_2 = {fe c0 0f b6 f0 88 87 ?? ?? ?? ?? 8a 04 37 02 87 ?? ?? ?? ?? 0f b6 c8 88 87 ?? ?? ?? ?? 8a 14 37 8a 04 0f 88 04 37 88 14 0f}  //weight: 10, accuracy: Low
+        $x_5_3 = "TPLumina.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
