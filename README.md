@@ -262,6 +262,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Threat-Hunting with Splunk](https://github.com/mthcht/ThreatHunting-Keywords)
 - [Detection Lists](https://github.com/mthcht/awesome-lists/Lists)
 - [PurpleTeam atomics](https://github.com/redcanaryco/atomic-red-team)
+- [Vigil - Open source AI SOC](https://github.com/Vigil-SOC/vigil)
 
 </details> 
 
