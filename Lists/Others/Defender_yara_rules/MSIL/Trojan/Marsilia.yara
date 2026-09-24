@@ -1779,3 +1779,25 @@ rule Trojan_MSIL_Marsilia_SN_2147977513_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Marsilia_B_2147978735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Marsilia.B!MTB"
+        threat_id = "2147978735"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Marsilia"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {18 17 73 3a 00 00 0a 13 08 00 11 07 11 08 6f 25 00 00 0a}  //weight: 20, accuracy: High
+        $x_10_2 = {28 19 00 00 0a 13 13 11 13 11 0e 28 27 00 00 0a 00 11 08 ?? ?? ?? ?? ?? 28 19 00 00 0a 13 14 11 14 28 28 00 00 0a 16}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

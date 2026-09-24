@@ -15942,3 +15942,62 @@ rule Trojan_Win32_ClickFix_ML_2147978425_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_CL_2147978745_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.CL!MTB"
+        threat_id = "2147978745"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "proxy-negotiate -U :" wide //weight: 2
+        $x_2_2 = "cmd /v /c" wide //weight: 2
+        $x_2_3 = "headless %b /v /c ^" wide //weight: 2
+        $x_2_4 = "do start /b %h" wide //weight: 2
+        $x_2_5 = "cm?.e??" wide //weight: 2
+        $x_2_6 = "cu??.e??" wide //weight: 2
+        $x_2_7 = "conh???.e??" wide //weight: 2
+        $x_2_8 = "&for /f %h" wide //weight: 2
+        $x_1_9 = ".com/b?t=" wide //weight: 1
+        $x_1_10 = ".tld/b?t=" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((8 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DL_2147978746_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DL!MTB"
+        threat_id = "2147978746"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "/v:on /c" wide //weight: 2
+        $x_2_2 = "FilePII_" wide //weight: 2
+        $x_2_3 = ".hta" wide //weight: 2
+        $x_2_4 = ".com/lj" wide //weight: 2
+        $x_2_5 = "!a!!b!" wide //weight: 2
+        $x_2_6 = "-sLko" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
