@@ -6631,3 +6631,26 @@ rule Trojan_MSIL_XWorm_AK_2147978710_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_RZ_2147978816_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.RZ!MTB"
+        threat_id = "2147978816"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {57 1d b6 09 09 1f 00 00 00 fa 25 33 00 16 00 00 01 00 00 00 e8 00 00 00 68 00 00 00 ff 01 00 00 a8 03 00 00 58 02 00 00 05 03 00 00 64 00 00 00 01 05 00 00 aa 00 00 00 01 00 00 00 01 00 00 00 33 00 00 00 21 01 00 00 3a 02 00 00 7b 00 00 00 01 00 00 00 07 00 00 00 03 00 00 00 5a 00 00 00 05 00 00 00 35}  //weight: 2, accuracy: High
+        $x_1_2 = "Lestenarosh.56738245.webp" ascii //weight: 1
+        $x_1_3 = "StringBuilder" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

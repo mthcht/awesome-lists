@@ -815,7 +815,7 @@ rule Trojan_MSIL_CryptInject_PH_2147765752_1
         strings_accuracy = "High"
     strings:
         $x_1_1 = "C:\\CacheSnort" wide //weight: 1
-        $x_1_2 = "https://www.facebook.com/bassam.hesham.mahmoud" wide //weight: 1
+        $x_1_2 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 77 00 77 00 77 00 2e 00 66 00 61 00 63 00 65 00 62 00 6f 00 6f 00 6b 00 2e 00 63 00 6f 00 6d 00 2f 00 62 00 61 00 73 00 73 00 61 00 6d 00 2e 00 68 00 65 00 73 00 68 00 61 00 6d 00 2e 00 6d 00 61 00 68 00 6d 00 6f 00 75 00 64}  //weight: 1, accuracy: High
         $x_1_3 = "E-Mails : bssam2012@gmail.com, bssam1996@yahoo.com" wide //weight: 1
         $x_1_4 = "\\update\\copier.exe" wide //weight: 1
         $x_1_5 = "https://raw.githubusercontent.com/bssam1996/Copier/master/EXE%20File/Copier.exe" wide //weight: 1

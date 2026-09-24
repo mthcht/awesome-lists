@@ -4498,3 +4498,45 @@ rule Trojan_Win64_Vidar_WV_2147978625_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_GO_2147978801_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GO!MTB"
+        threat_id = "2147978801"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 34 08 31 d6 48 8d 3c 80 31 f7 40 88 3c 01 48 ff c0 48 39 c3 7f e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_ID_2147978802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.ID!MTB"
+        threat_id = "2147978802"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 0f b6 04 10 41 31 f0 4c 8d 0c 80 45 31 c8 44 88 04 02 48 ff c0 48 39 c7 7f e5}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

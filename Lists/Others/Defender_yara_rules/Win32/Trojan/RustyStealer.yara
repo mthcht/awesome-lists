@@ -61,3 +61,48 @@ rule Trojan_Win32_RustyStealer_ARY_2147962538_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RustyStealer_2147978812_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RustyStealer!atmn"
+        threat_id = "2147978812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "storm_launcher.pdb" ascii //weight: 1
+        $x_1_2 = "where client.exefiddler everywher everywhere.exee" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_RustyStealer_2147978812_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RustyStealer!atmn"
+        threat_id = "2147978812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "/still.rpc.Audio/RegisterAudioMachinestill.rpc.AudioRegisterAudioMachineService was not ready:" ascii //weight: 3
+        $x_3_2 = "voice_2.pdb" ascii //weight: 3
+        $x_2_3 = "libmp3lame.dllMZ" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

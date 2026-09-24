@@ -605,3 +605,27 @@ rule Trojan_Win32_XWorm_RB_2147972928_0
         (2 of ($x*))
 }
 
+rule Trojan_Win32_XWorm_2147978810_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/XWorm!atmn"
+        threat_id = "2147978810"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Capture thread on hidden desktop, fps=" ascii //weight: 3
+        $x_3_2 = "keylog_rH" ascii //weight: 3
+        $x_2_3 = "clone requested but profile not found, using fresh" ascii //weight: 2
+        $x_2_4 = "uploaded and executed:" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

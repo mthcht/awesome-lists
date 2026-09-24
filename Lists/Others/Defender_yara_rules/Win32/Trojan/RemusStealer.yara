@@ -47,3 +47,27 @@ rule Trojan_Win32_RemusStealer_GV_2147978297_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemusStealer_2147978811_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemusStealer!atmn"
+        threat_id = "2147978811"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "crtloader/caller_go/payload.LoadPacked" ascii //weight: 1
+        $x_1_2 = "crtloader/caller_go/native.PreparePayloadIO" ascii //weight: 1
+        $x_1_3 = "crtloader/caller_go/sysc.isHookedStub" ascii //weight: 1
+        $x_1_4 = "I:/11DD/caller-master/payload/selfload.go" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

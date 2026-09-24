@@ -60,7 +60,7 @@ rule Trojan_MSIL_SnakeLogger_PB_2147773657_1
     strings:
         $x_1_1 = "\\I$s#$lT3ssl.exe" wide //weight: 1
         $x_1_2 = "Twice Baked Potatoes" wide //weight: 1
-        $x_1_3 = "http://tempuri.org/SampleProductsDataSet.xsd" wide //weight: 1
+        $x_1_3 = {68 00 74 00 74 00 70 00 3a 00 2f 00 2f 00 74 00 65 00 6d 00 70 00 75 00 72 00 69 00 2e 00 6f 00 72 00 67 00 2f 00 53 00 61 00 6d 00 70 00 6c 00 65 00 50 00 72 00 6f 00 64 00 75 00 63 00 74 00 73 00 44 00 61 00 74 00 61 00 53 00 65 00 74 00 2e 00 78 00 73}  //weight: 1, accuracy: High
         $x_1_4 = "$6d529811-80e9-4938-b015-f47e98aaa9d7" ascii //weight: 1
     condition:
         (filesize < 20MB) and

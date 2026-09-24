@@ -20,3 +20,30 @@ rule Trojan_Win32_DarkMe_MBWQ_2147931704_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkMe_GV_2147978808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkMe.GV!MTB"
+        threat_id = "2147978808"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkMe"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_RUNDOS" ascii //weight: 1
+        $x_1_2 = "= \"msiexec" ascii //weight: 1
+        $x_1_3 = "= \" /i " ascii //weight: 1
+        $x_1_4 = "= \"https://" ascii //weight: 1
+        $x_1_5 = "= \"/propi.msi" ascii //weight: 1
+        $x_1_6 = "= \" /quiet" ascii //weight: 1
+        $x_1_7 = "= \" /norestart" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

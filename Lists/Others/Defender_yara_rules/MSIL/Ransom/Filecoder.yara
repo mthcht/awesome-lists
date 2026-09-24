@@ -616,7 +616,7 @@ rule Ransom_MSIL_Filecoder_PF_2147762645_0
         $x_1_3 = "Looks like your files have been encrypted" ascii //weight: 1
         $x_1_4 = "\\Desktop\\README.txt" ascii //weight: 1
         $x_1_5 = "C:\\Windows\\Logs\\kekw.exe" ascii //weight: 1
-        $x_1_6 = "https://cdn.discordapp.com/attachments/734517412287873038/746088022356918463/" ascii //weight: 1
+        $x_1_6 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 63 00 64 00 6e 00 2e 00 64 00 69 00 73 00 63 00 6f 00 72 00 64 00 61 00 70 00 70 00 2e 00 63 00 6f 00 6d 00 2f 00 61 00 74 00 74 00 61 00 63 00 68 00 6d 00 65 00 6e 00 74 00 73 00 2f 00 37 00 33 00 34 00 35 00 31 00 37 00 34 00 31 00 32 00 32 00 38 00 37 00 38 00 37 00 33 00 30 00 33 00 38 00 2f 00 37 00 34 00 36 00 30 00 38 00 38 00 30 00 32 00 32 00 33 00 35 00 36 00 39 00 31 00 38 00 34 00 36 00 33}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (5 of ($x*))
