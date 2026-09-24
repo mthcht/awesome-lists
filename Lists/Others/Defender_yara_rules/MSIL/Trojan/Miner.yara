@@ -56,3 +56,27 @@ rule Trojan_MSIL_Miner_HNA_2147907537_0
         )
 }
 
+rule Trojan_MSIL_Miner_DMX_2147978750_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Miner.DMX!MTB"
+        threat_id = "2147978750"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Miner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "loader.hollow_ok" ascii //weight: 1
+        $x_1_2 = "payload.start" ascii //weight: 1
+        $x_1_3 = "stealer-upload" ascii //weight: 1
+        $x_1_4 = "RuntimeHost.lnk" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
