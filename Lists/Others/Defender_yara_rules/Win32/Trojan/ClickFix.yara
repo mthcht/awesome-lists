@@ -5076,6 +5076,7 @@ rule Trojan_Win32_ClickFix_DAD_2147943081_0
         $n_200_20 = "--property=app.muleApi.port:8081" wide //weight: -200
         $n_800_21 = "C:\\Workspace\\codex\\tools" wide //weight: -800
         $n_800_22 = "[Console]::OutputEncoding" wide //weight: -800
+        $n_800_23 = ".codex\\" wide //weight: -800
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

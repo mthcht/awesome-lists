@@ -174,6 +174,27 @@ rule Trojan_Win32_VidarStealer_Z_2147955452_0
         family = "VidarStealer"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {93 04 04 bf 04 01 08 04 04 13 13 13 13 cb 05 02 dd 03 93 04 05}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_Z_2147955452_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.Z!MTB"
+        threat_id = "2147955452"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
@@ -188,7 +209,7 @@ rule Trojan_Win32_VidarStealer_Z_2147955452_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_VidarStealer_Z_2147955452_1
+rule Trojan_Win32_VidarStealer_Z_2147955452_2
 {
     meta:
         author = "defender2yara"
@@ -215,7 +236,7 @@ rule Trojan_Win32_VidarStealer_Z_2147955452_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_VidarStealer_Z_2147955452_2
+rule Trojan_Win32_VidarStealer_Z_2147955452_3
 {
     meta:
         author = "defender2yara"
@@ -244,7 +265,7 @@ rule Trojan_Win32_VidarStealer_Z_2147955452_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_VidarStealer_Z_2147955452_3
+rule Trojan_Win32_VidarStealer_Z_2147955452_4
 {
     meta:
         author = "defender2yara"
