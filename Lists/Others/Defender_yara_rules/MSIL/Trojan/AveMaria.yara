@@ -2949,27 +2949,6 @@ rule Trojan_MSIL_AveMaria_NEEW_2147842282_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_AveMaria_RE_2147842330_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/AveMaria.RE!MTB"
-        threat_id = "2147842330"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "AveMaria"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "7"
-        strings_accuracy = "High"
-    strings:
-        $x_7_1 = {0d 06 08 94 13 04 06 08 06 09 94 9e 06 09 11 04 9e 00 08 17 59 0c 08 16 fe 02 13 05 11 05 2d d6 06 13 06 2b 00 11 06 2a}  //weight: 7, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_AveMaria_NEEY_2147843077_0
 {
     meta:

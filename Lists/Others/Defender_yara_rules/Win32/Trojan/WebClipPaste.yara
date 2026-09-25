@@ -84,7 +84,7 @@ rule Trojan_Win32_WebClipPaste_B_2147977448_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "110"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_100_1 = "powershell" wide //weight: 100
         $x_100_2 = "pwsh" wide //weight: 100
@@ -124,18 +124,19 @@ rule Trojan_Win32_WebClipPaste_B_2147977448_0
         $x_110_36 = "rundll32 javascript:" wide //weight: 110
         $x_10_37 = "scrobj" wide //weight: 10
         $x_110_38 = "mshta" wide //weight: 110
-        $x_10_39 = "--headless" wide //weight: 10
-        $x_10_40 = "/v:on" wide //weight: 10
-        $x_10_41 = "for /f" wide //weight: 10
-        $x_10_42 = "delims=" wide //weight: 10
-        $x_10_43 = "invokescript" wide //weight: 10
-        $x_10_44 = "invokecommand" wide //weight: 10
-        $x_10_45 = "-w 1 " wide //weight: 10
-        $x_10_46 = "-w h " wide //weight: 10
-        $x_10_47 = "[scriptblock]::Create" wide //weight: 10
-        $x_10_48 = "[PowerShell]::Create()" wide //weight: 10
-        $n_1000_49 = "/install" wide //weight: -1000
-        $n_1000_50 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
+        $x_110_39 = {6d 00 73 00 69 00 65 00 78 00 65 00 63 00 2e 00 65 00 78 00 65 00 [0-255] 68 00 74 00 74 00 70 00}  //weight: 110, accuracy: Low
+        $x_10_40 = "--headless" wide //weight: 10
+        $x_10_41 = "/v:on" wide //weight: 10
+        $x_10_42 = "for /f" wide //weight: 10
+        $x_10_43 = "delims=" wide //weight: 10
+        $x_10_44 = "invokescript" wide //weight: 10
+        $x_10_45 = "invokecommand" wide //weight: 10
+        $x_10_46 = "-w 1 " wide //weight: 10
+        $x_10_47 = "-w h " wide //weight: 10
+        $x_10_48 = "[scriptblock]::Create" wide //weight: 10
+        $x_10_49 = "[PowerShell]::Create()" wide //weight: 10
+        $n_1000_50 = "/install" wide //weight: -1000
+        $n_1000_51 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
