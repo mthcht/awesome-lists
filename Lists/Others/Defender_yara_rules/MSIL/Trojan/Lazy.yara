@@ -4526,6 +4526,30 @@ rule Trojan_MSIL_Lazy_A_2147978222_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_A_2147978222_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.A!MTB"
+        threat_id = "2147978222"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "NizaAgent" ascii //weight: 10
+        $x_5_2 = "<EnsureAutoStartPersistence>b__11" ascii //weight: 5
+        $x_3_3 = "<ExecuteRemoteInput>b__44" ascii //weight: 3
+        $x_2_4 = "CaptureScreenJpegBinary" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_YB_2147978319_0
 {
     meta:

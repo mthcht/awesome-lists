@@ -47,3 +47,58 @@ rule Trojan_Win32_DarkMe_GV_2147978808_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkMe_GC_2147978832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkMe.GC!MTB"
+        threat_id = "2147978832"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkMe"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "41505044415441" ascii //weight: 1
+        $x_1_2 = "5C436F6D706F6E656E7473466F6C6465725C636F6D70616E792E636572" ascii //weight: 1
+        $x_1_3 = "4E6F626F6479676F696E676F7574" ascii //weight: 1
+        $x_1_4 = "5C4D6963726F736F66745C636C737061636B2E657865" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DarkMe_GD_2147978846_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkMe.GD!MTB"
+        threat_id = "2147978846"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkMe"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "KillTimer" ascii //weight: 1
+        $x_1_2 = "\\root\\SecurityCenter2" ascii //weight: 1
+        $x_1_3 = "Wallets:" ascii //weight: 1
+        $x_1_4 = "\\Blockchain Wallet" ascii //weight: 1
+        $x_1_5 = "\\MyEtherWallet" ascii //weight: 1
+        $x_1_6 = "\\nkbihfbeogaeaoehlefnkodbefgpgknn" ascii //weight: 1
+        $x_1_7 = "NeverEndingStoryWithYou" ascii //weight: 1
+        $x_1_8 = "soft\\Windows\\Exp" ascii //weight: 1
+        $x_1_9 = "tuttidati" ascii //weight: 1
+        $x_1_10 = "onlywayhere23" ascii //weight: 1
+        $x_1_11 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -713,3 +713,25 @@ rule Trojan_Win32_SalatStealer_FG_2147977851_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_DV_2147978829_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.DV!MTB"
+        threat_id = "2147978829"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {52 31 d2 88 45 8f 89 d1 89 f8 83 e1 03 c1 e1 03 d3 e8 89 d9 32 45 8f 03 5d 90 83 f1 1b 01 c8 8b 4d 08 32 04 32 88 04 11 42 83 fa 10 75}  //weight: 5, accuracy: High
+        $x_2_2 = {8a 14 01 30 14 06 40 39 45 08 77 ee}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

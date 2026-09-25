@@ -1425,6 +1425,30 @@ rule Trojan_Win64_Vidar_RR_2147959846_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_B_2147960156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.B!MTB"
+        threat_id = "2147960156"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "RunPE: payload has no relocations and cannot load at 0x%llx" ascii //weight: 40
+        $x_30_2 = "RunPE allocated %s payload at 0x%llx (preferred 0x%llx)" ascii //weight: 30
+        $x_20_3 = "PNG payload converted to exe: %s" ascii //weight: 20
+        $x_10_4 = "dDownloading payload %Iu/%Iu: %s" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_MMV_2147960262_0
 {
     meta:

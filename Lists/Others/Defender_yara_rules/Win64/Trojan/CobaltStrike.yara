@@ -3526,6 +3526,29 @@ rule Trojan_Win64_CobaltStrike_E_2147828566_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {44 0f b6 0c 06 44 32 8c 04 ?? ?? ?? ?? 45 88 4c 05 00 48 83 c0 01 49}  //weight: 20, accuracy: Low
+        $x_5_2 = ".bmp" ascii //weight: 5
+        $x_5_3 = "\\*.lnk" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_E_2147828566_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.E!MTB"
+        threat_id = "2147828566"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
@@ -16295,6 +16318,28 @@ rule Trojan_Win64_CobaltStrike_GB_2147928172_0
     strings:
         $x_1_1 = {45 8a 14 10}  //weight: 1, accuracy: High
         $x_1_2 = {44 30 14 0f 48 ff c1 48 89 c8 48 81 f9 [0-4] 0f 86}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_GB_2147928172_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GB!MTB"
+        threat_id = "2147928172"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {49 8b c7 0f 1f 00 80 34 38 2e 48 ff c0 48 83 f8 0f}  //weight: 5, accuracy: High
+        $x_5_2 = {33 d2 48 8b c1 49 f7 f1 42 0f b6 04 02 41 30 04 0e 48 ff c1 48 3b cb 72}  //weight: 5, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

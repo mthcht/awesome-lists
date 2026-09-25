@@ -22,3 +22,30 @@ rule Trojan_Win64_VectraRat_DA_2147978356_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_VectraRat_AMTB_2147978855_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VectraRat!AMTB"
+        threat_id = "2147978855"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VectraRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "VectraRun" ascii //weight: 2
+        $x_2_2 = "Vectra.exe" ascii //weight: 2
+        $x_2_3 = "Vectra client" ascii //weight: 2
+        $x_1_4 = "targetExe" ascii //weight: 1
+        $x_1_5 = "Vectra DataCollector" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

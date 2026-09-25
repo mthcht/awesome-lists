@@ -364,6 +364,27 @@ rule Trojan_Win32_VidarStealer_ZA_2147956457_0
         family = "VidarStealer"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "5BID@PhX" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_VidarStealer_ZA_2147956457_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VidarStealer.ZA!MTB"
+        threat_id = "2147956457"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VidarStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "29"
         strings_accuracy = "High"

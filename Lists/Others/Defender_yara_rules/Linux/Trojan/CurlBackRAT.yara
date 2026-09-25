@@ -55,3 +55,35 @@ rule Trojan_Linux_CurlBackRAT_AC_2147978560_0
         )
 }
 
+rule Trojan_Linux_CurlBackRAT_LZ_2147978828_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/CurlBackRAT.LZ!MTB"
+        threat_id = "2147978828"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "CurlBackRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8b 5d e4 8b 45 e4 48 98 0f b6 80 1f 34 40 00 83 f0 88 89 c1 48 8b 55 c0 48 63 c3 88 0c 02 83 45 e4 01}  //weight: 3, accuracy: High
+        $x_3_2 = {8b 5d e4 8b 45 e4 48 98 0f b6 80 30 3f 40 00 83 f0 28 89 c1 48 8b 55 90 48 63 c3 88 0c 02 83 45 e4 01}  //weight: 3, accuracy: High
+        $x_3_3 = {8b 4d e0 8b 45 e0 0f b6 80 a2 c7 04 08 83 f0 28 89 c2 8b 45 d0 88 14 08 83 45 e0 01}  //weight: 3, accuracy: High
+        $x_1_4 = "/proc/%d/cmdline" ascii //weight: 1
+        $x_1_5 = "/root/.bash_history" ascii //weight: 1
+        $x_1_6 = "/tmp/jasper-log" ascii //weight: 1
+        $x_1_7 = "/var/log/auth.log" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

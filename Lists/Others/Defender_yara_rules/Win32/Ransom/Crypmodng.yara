@@ -68,3 +68,27 @@ rule Ransom_Win32_Crypmodng_PGU_2147960307_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Crypmodng_MR_2147978845_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Crypmodng.MR!MTB"
+        threat_id = "2147978845"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crypmodng"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Hallo, dies ist eine Demo-Ransomware" ascii //weight: 2
+        $x_2_2 = "All Ihre Dateien wurden verschl" ascii //weight: 2
+        $x_2_3 = "LRW_readme.txt" ascii //weight: 2
+        $x_2_4 = "temp.bin.LRW" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

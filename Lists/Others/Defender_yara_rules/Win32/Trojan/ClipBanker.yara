@@ -102,6 +102,28 @@ rule Trojan_Win32_ClipBanker_RA_2147755650_1
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClipBanker_A_2147756641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker.A!MTB"
+        threat_id = "2147756641"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b7 07 50 53 ff 15 ?? ?? ?? ?? 33 c9 41 85 c0 0f 45 f1 83 c7 02 81 ff ?? ?? ?? ?? 7c e2}  //weight: 10, accuracy: Low
+        $x_5_2 = {50 6a 40 ff 15 ?? ?? ?? ?? 8b d0 85 f6 7e 13 8b ca 2b fa 66 8b 04 0f 66 89 01 8d 49 02 83 ee 01 75 f1}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ClipBanker_GA_2147773591_0
 {
     meta:

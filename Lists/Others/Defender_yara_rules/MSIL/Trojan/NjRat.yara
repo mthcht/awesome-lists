@@ -4081,3 +4081,33 @@ rule Trojan_MSIL_NjRat_AGYB_2147974889_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_AV_2147978824_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.AV.MTB"
+        threat_id = "2147978824"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "njRAT.Resources.resources" ascii //weight: 3
+        $x_3_2 = "njRAT.Pass.resources" ascii //weight: 3
+        $x_3_3 = "njRAT.Manager.resources" ascii //weight: 3
+        $x_3_4 = "njRAT.Chat.resources" ascii //weight: 3
+        $x_3_5 = "njRAT.Cam.resources" ascii //weight: 3
+        $x_3_6 = "njRAT.RGv.resources" ascii //weight: 3
+        $x_3_7 = "njRAT.notf.resources" ascii //weight: 3
+        $x_3_8 = "Q8GhostXRAT" ascii //weight: 3
+        $x_3_9 = "njRAT.FURL.resources" ascii //weight: 3
+        $x_3_10 = "njRAT.Form1.resources" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

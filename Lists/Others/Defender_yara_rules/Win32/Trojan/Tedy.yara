@@ -1919,3 +1919,24 @@ rule Trojan_Win32_Tedy_CVN_2147978599_0
         )
 }
 
+rule Trojan_Win32_Tedy_BA_2147978847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tedy.BA!MTB"
+        threat_id = "2147978847"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8b 4d f8 c1 e1 03 8b 45 1c d3 e8 0f b6 c8 8b 55 08 03 55 fc 0f b6 02 33 c1 8b 4d 08 03 4d fc 88 01 8b 55 fc 83 c2 01 89 55 fc eb}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

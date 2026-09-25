@@ -968,3 +968,26 @@ rule Trojan_Win64_Dacic_KK_2147978330_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_B_2147978857_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.B!MTB"
+        threat_id = "2147978857"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "ProgramData\\SmithGuard\\SmithGuard.exe" ascii //weight: 30
+        $x_20_2 = "+%d path(s), +%d proc(s), behavior-monitor-off=%s" ascii //weight: 20
+        $x_10_3 = "{\"type\":\"hello\",\"host\":\"%s\",\"user\":\"%s\",\"mac\":\"%s\",\"admin\":%d,\"ver\":\"%s\"}" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

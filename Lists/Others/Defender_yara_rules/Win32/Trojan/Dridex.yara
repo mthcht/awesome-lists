@@ -962,6 +962,28 @@ rule Trojan_Win32_Dridex_A_2147750565_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {66 8b 44 24 1a 66 03 44 24 1a 66 89 44 24 1a 8b 4c 24 20 81 f1 b4 23 57 26 8a 54 24 0f 80 f2 1e 88 54 24 27 8b 75 08 8a 16}  //weight: 20, accuracy: High
+        $x_15_2 = {8a 4c 24 0f 80 f1 d8 88 4c 24 27 c7 44 24 14 00 00 00 00 8b 54 24 1c 83 f2 ff 89 54 24 1c}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Dridex_A_2147750565_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dridex.A!MTB"
+        threat_id = "2147750565"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dridex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:

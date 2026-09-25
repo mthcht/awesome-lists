@@ -210,3 +210,29 @@ rule Trojan_Win64_BroPass_A_2147978471_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BroPass_AG_2147978833_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BroPass.AG!MTB"
+        threat_id = "2147978833"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BroPass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 89 c8 31 d2 48 f7 f3 48 89 c8 49 89 d0 31 d2 48 f7 f6 42 0f b6 44 05 ?? 41 32 04 14 88 04 0f 48 ff c1 49 39 cd 75}  //weight: 5, accuracy: Low
+        $x_1_2 = "VirtualBox" ascii //weight: 1
+        $x_1_3 = "Debug or sandbox detected, exiting" ascii //weight: 1
+        $x_1_4 = "amsi.dll" ascii //weight: 1
+        $x_1_5 = "AmsiScanBuffer" ascii //weight: 1
+        $x_1_6 = "DecryptPayload started" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

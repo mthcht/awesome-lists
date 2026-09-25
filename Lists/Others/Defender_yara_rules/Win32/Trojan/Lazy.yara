@@ -3319,3 +3319,26 @@ rule Trojan_Win32_Lazy_HAU_2147978220_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_D_2147978858_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.D!MTB"
+        threat_id = "2147978858"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "ok: stealer spawned async id=" ascii //weight: 30
+        $x_20_2 = "ok: screenshot spawned async id=" ascii //weight: 20
+        $x_10_3 = "ok: shell spawned async id=" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

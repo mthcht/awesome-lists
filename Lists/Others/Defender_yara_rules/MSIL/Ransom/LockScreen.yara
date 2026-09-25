@@ -234,3 +234,29 @@ rule Ransom_MSIL_LockScreen_AMTB_2147973602_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_LockScreen_AMTB_2147973602_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/LockScreen!AMTB"
+        threat_id = "2147973602"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LockScreen"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "LockyForms.Form1.resources" ascii //weight: 2
+        $x_2_2 = "Your network was hacked and encrypted." ascii //weight: 2
+        $x_1_3 = "Email us at attacker@hacker.com to get the ransom amount." ascii //weight: 1
+        $x_2_4 = "your data will be lost beyond decryption" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

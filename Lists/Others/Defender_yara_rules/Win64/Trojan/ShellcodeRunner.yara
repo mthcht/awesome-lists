@@ -3807,3 +3807,28 @@ rule Trojan_Win64_ShellcodeRunner_AA_2147977753_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_LR_2147978825_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.LR!MTB"
+        threat_id = "2147978825"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Shellcode decrypted (%zu bytes)" ascii //weight: 1
+        $x_2_2 = "[-] shellcode injection failed, exiting..." ascii //weight: 2
+        $x_3_3 = "[+] shellcode injection was successful" ascii //weight: 3
+        $x_4_4 = "[+] Found process '%s' with PID: %lu" ascii //weight: 4
+        $x_5_5 = "[+] [0x%p] [RW-] allocated a buffer with PAGE_READWRITE [RW-] permissions" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
