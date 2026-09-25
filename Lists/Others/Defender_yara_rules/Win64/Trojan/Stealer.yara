@@ -1306,3 +1306,32 @@ rule Trojan_Win64_Stealer_EM_2147976305_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_CN_2147978889_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.CN!MTB"
+        threat_id = "2147978889"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://txrouteuifbfewfubewfbhgrabbing.xyz/api/log" ascii //weight: 2
+        $x_1_2 = "%APPDATA%\\monero-wallet-gui" ascii //weight: 1
+        $x_1_3 = "yami_payload" ascii //weight: 1
+        $x_1_4 = "PayloadMain" ascii //weight: 1
+        $x_1_5 = "decrypted_seco.txt" ascii //weight: 1
+        $x_1_6 = "decrypted_trust_keystore.txt" ascii //weight: 1
+        $x_1_7 = "Microsoft\\Edge\\User Data" ascii //weight: 1
+        $x_1_8 = "Global\\YamiABEDone" ascii //weight: 1
+        $x_1_9 = "exodus.wallet/seed.seco + storage.seco" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

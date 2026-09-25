@@ -44,3 +44,28 @@ rule Trojan_Win64_RemcosRAT_NA_2147970236_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RemcosRAT_NP_2147978887_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RemcosRAT.NP!MTB"
+        threat_id = "2147978887"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Software\\StanleyRAT\\UACElevated" wide //weight: 2
+        $x_1_2 = "Client info sent" ascii //weight: 1
+        $x_1_3 = "Persistence: starting deploy" ascii //weight: 1
+        $x_2_4 = "TEMP\\srat_debug.log" wide //weight: 2
+        $x_1_5 = "schtasks.exe /delete" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

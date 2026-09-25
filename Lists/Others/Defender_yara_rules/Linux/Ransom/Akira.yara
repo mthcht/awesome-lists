@@ -143,3 +143,31 @@ rule Ransom_Linux_Akira_E_2147948261_0
         (all of ($x*))
 }
 
+rule Ransom_Linux_Akira_NA_2147978888_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Linux/Akira.NA!MTB"
+        threat_id = "2147978888"
+        type = "Ransom"
+        platform = "Linux: Linux platform"
+        family = "Akira"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vim-cmd vmsvc/power.off" ascii //weight: 1
+        $x_1_2 = "vmware -v 2>/dev/" ascii //weight: 1
+        $x_2_3 = "Failed to make full encrypt!" ascii //weight: 2
+        $x_1_4 = "lock.locked()" ascii //weight: 1
+        $x_1_5 = "read_some_at" ascii //weight: 1
+        $x_1_6 = "Trend Micro" ascii //weight: 1
+        $x_1_7 = "vim-cmd vmsvc/getallvms 2>&1" ascii //weight: 1
+        $x_1_8 = "aes256/aes256-encrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
