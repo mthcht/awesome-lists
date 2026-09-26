@@ -16002,3 +16002,26 @@ rule Trojan_Win32_ClickFix_DL_2147978746_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_B_2147978915_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.B!MSR"
+        threat_id = "2147978915"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {61 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 6c 00 6f 00 63 00 61 00 6c 00 5c 00 [0-64] 2e 00 68 00 74 00 61 00}  //weight: 1, accuracy: Low
+        $x_1_2 = {63 00 5e 00 75 00 5e 00 72 00 5e 00 6c 00 [0-255] 73 00 74 00 61 00 72 00 74 00}  //weight: 1, accuracy: Low
+        $x_1_3 = "-sLko" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

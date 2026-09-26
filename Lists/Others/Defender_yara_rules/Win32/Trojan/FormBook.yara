@@ -2684,6 +2684,28 @@ rule Trojan_Win32_FormBook_PRF_2147786870_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_FormBook_PAA_2147788172_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FormBook.PAA!MTB"
+        threat_id = "2147788172"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {8a 0a 4e 88 0c 17 8d 52 01 85 f6}  //weight: 3, accuracy: High
+        $x_2_2 = {c6 85 c4 fd ff ff 00 6a 6a 6a 00 8d 8d c5 fd ff ff 51}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_FormBook_RVB_2147794757_0
 {
     meta:

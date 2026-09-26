@@ -91,3 +91,26 @@ rule Trojan_Win64_Xegumumune_B_2147977816_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Xegumumune_MX_2147978909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xegumumune.MX!MTB"
+        threat_id = "2147978909"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xegumumune"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "SecurityLab" ascii //weight: 2
+        $x_1_2 = "Task Scheduler + Run + RunOnce registry keys" ascii //weight: 1
+        $x_1_3 = "Startup persistence registered" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
