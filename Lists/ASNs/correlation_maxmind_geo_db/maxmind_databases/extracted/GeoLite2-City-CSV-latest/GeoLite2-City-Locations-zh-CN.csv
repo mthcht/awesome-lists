@@ -188,7 +188,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 146445,zh-CN,EU,欧洲,CY,塞浦路斯,03,拉纳卡区,,,,,Asia/Nicosia,1
 146615,zh-CN,EU,欧洲,CY,塞浦路斯,04,法马古斯塔区,,,,,Asia/Famagusta,1
 146617,zh-CN,EU,欧洲,CY,塞浦路斯,04,法马古斯塔区,,,法马古斯塔,,Asia/Famagusta,1
-146638,zh-CN,EU,欧洲,CY,塞浦路斯,04,法马古斯塔区,,,,,Asia/Famagusta,1
+146637,zh-CN,EU,欧洲,CY,塞浦路斯,01,尼科西亚区,,,,,Asia/Nicosia,1
 146669,zh-CN,EU,欧洲,CY,塞浦路斯,,,,,,,Asia/Nicosia,1
 146692,zh-CN,EU,欧洲,CY,塞浦路斯,03,拉纳卡区,,,,,Asia/Nicosia,1
 146732,zh-CN,EU,欧洲,CY,塞浦路斯,01,尼科西亚区,,,,,Asia/Nicosia,1
@@ -263,6 +263,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 174018,zh-CN,AS,亚洲,SY,叙利亚,HL,阿勒颇省,,,,,Asia/Damascus,0
 174448,zh-CN,AS,亚洲,SY,叙利亚,DY,代尔祖尔省,,,,,Asia/Damascus,0
 174710,zh-CN,AS,亚洲,AM,亚美尼亚,VD,,,,,,Asia/Yerevan,0
+174725,zh-CN,AS,亚洲,AM,亚美尼亚,AR,,,,,,Asia/Yerevan,0
 174828,zh-CN,AS,亚洲,AM,亚美尼亚,VD,,,,,,Asia/Yerevan,0
 174875,zh-CN,AS,亚洲,AM,亚美尼亚,SU,休尼克省,,,卡潘,,Asia/Yerevan,0
 174884,zh-CN,AS,亚洲,AM,亚美尼亚,VD,,,,,,Asia/Yerevan,0
@@ -1249,7 +1250,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 352262,zh-CN,AF,非洲,EG,埃及,C,开罗省,,,,,Africa/Cairo,0
 352352,zh-CN,AF,非洲,EG,埃及,SHR,,,,,,Africa/Cairo,0
 352354,zh-CN,AF,非洲,EG,埃及,MNF,米努夫省,,,,,Africa/Cairo,0
-352603,zh-CN,AF,非洲,EG,埃及,MT,,,,,,Africa/Cairo,0
 352951,zh-CN,AF,非洲,EG,埃及,MN,,,,,,Africa/Cairo,0
 353219,zh-CN,AF,非洲,EG,埃及,GZ,,,,,,Africa/Cairo,0
 353223,zh-CN,AF,非洲,EG,埃及,BH,布海拉省,,,,,Africa/Cairo,0
@@ -1321,6 +1321,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 361468,zh-CN,AF,非洲,EG,埃及,BA,红海省,,,,,Africa/Cairo,0
 361495,zh-CN,AF,非洲,EG,埃及,GZ,,,,,,Africa/Cairo,0
 361546,zh-CN,AF,非洲,EG,埃及,SIN,北西奈省,,,阿里什,,Africa/Cairo,0
+361612,zh-CN,AF,非洲,EG,埃及,MT,,,,阿莱曼,,Africa/Cairo,0
 361628,zh-CN,AF,非洲,EG,埃及,ALX,,,,,,Africa/Cairo,0
 361702,zh-CN,AF,非洲,EG,埃及,DK,代盖赫利耶省,,,,,Africa/Cairo,0
 361849,zh-CN,AF,非洲,EG,埃及,DK,代盖赫利耶省,,,,,Africa/Cairo,0
@@ -1919,7 +1920,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 529073,zh-CN,EU,欧洲,RU,俄罗斯联邦,SAR,萨拉托夫州,,,,,Europe/Saratov,0
 529193,zh-CN,EU,欧洲,RU,俄罗斯联邦,MO,莫尔多瓦共和国,,,,,Europe/Moscow,0
 529505,zh-CN,EU,欧洲,RU,俄罗斯联邦,KOS,科斯特罗马州,,,,,Europe/Moscow,0
-530615,zh-CN,EU,欧洲,RU,俄罗斯联邦,VLG,沃洛格达州,,,,,Europe/Moscow,0
 530849,zh-CN,EU,欧洲,RU,俄罗斯联邦,KLU,卡卢加州,,,,,Europe/Moscow,0
 531098,zh-CN,EU,欧洲,RU,俄罗斯联邦,MOS,莫斯科州,,,,,Europe/Moscow,0
 531128,zh-CN,EU,欧洲,RU,俄罗斯联邦,SE,北奥塞梯-阿兰共和国,,,,,Europe/Moscow,0
@@ -3453,6 +3453,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 690288,zh-CN,EU,欧洲,UA,乌克兰,65,赫尔松州,,,,,Europe/Kyiv,0
 690412,zh-CN,EU,欧洲,UA,乌克兰,32,基辅州,,,瓦西里基夫,,Europe/Kyiv,0
 690469,zh-CN,EU,欧洲,UA,乌克兰,74,,,,,,Europe/Kyiv,0
+690526,zh-CN,EU,欧洲,UA,乌克兰,05,文尼察州,,,,,Europe/Kyiv,0
 690545,zh-CN,EU,欧洲,UA,乌克兰,32,基辅州,,,,,Europe/Kyiv,0
 690548,zh-CN,EU,欧洲,UA,乌克兰,21,,,,乌日霍罗德,,Europe/Kyiv,0
 690688,zh-CN,EU,欧洲,UA,乌克兰,71,,,,,,Europe/Kyiv,0
@@ -3940,6 +3941,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 720905,zh-CN,EU,欧洲,HU,匈牙利,BZ,,,,,,Europe/Budapest,1
 720988,zh-CN,EU,欧洲,HU,匈牙利,SZ,,,,,,Europe/Budapest,1
 720995,zh-CN,EU,欧洲,HU,匈牙利,HE,,,,,,Europe/Budapest,1
+721100,zh-CN,EU,欧洲,HU,匈牙利,SZ,,,,,,Europe/Budapest,1
 721159,zh-CN,EU,欧洲,HU,匈牙利,BZ,,,,恩奇,,Europe/Budapest,1
 721189,zh-CN,EU,欧洲,HU,匈牙利,BE,,,,,,Europe/Budapest,1
 721239,zh-CN,EU,欧洲,HU,匈牙利,HE,,,,,,Europe/Budapest,1
@@ -5078,6 +5080,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 784141,zh-CN,EU,欧洲,RS,塞尔维亚,18,,,,,,Europe/Belgrade,0
 784227,zh-CN,EU,欧洲,RS,塞尔维亚,24,,,,弗拉涅,,Europe/Belgrade,0
 784236,zh-CN,EU,欧洲,RS,塞尔维亚,00,,,,,,Europe/Belgrade,0
+784241,zh-CN,EU,欧洲,RS,塞尔维亚,16,,,,,,Europe/Belgrade,0
 784318,zh-CN,EU,欧洲,RS,塞尔维亚,23,,,,弗拉索廷采,,Europe/Belgrade,0
 784424,zh-CN,EU,欧洲,MK,前南马其顿,202,,,,,,Europe/Skopje,0
 784434,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,06,,,,Europe/Belgrade,0
@@ -5088,7 +5091,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 784779,zh-CN,EU,欧洲,RS,塞尔维亚,00,,,,,,Europe/Belgrade,0
 784795,zh-CN,EU,欧洲,RS,塞尔维亚,09,,,,,,Europe/Belgrade,0
 784800,zh-CN,EU,欧洲,RS,塞尔维亚,18,,,,,,Europe/Belgrade,0
-784820,zh-CN,EU,欧洲,RS,塞尔维亚,11,,,,,,Europe/Belgrade,0
 784873,zh-CN,EU,欧洲,RS,塞尔维亚,19,,,,特雷斯塔尼克,,Europe/Belgrade,0
 785013,zh-CN,EU,欧洲,RS,塞尔维亚,12,,,,,,Europe/Belgrade,0
 785058,zh-CN,EU,欧洲,MK,前南马其顿,101,,,,,,Europe/Skopje,0
@@ -5129,6 +5131,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 786935,zh-CN,EU,欧洲,RS,塞尔维亚,16,,,,,,Europe/Belgrade,0
 787016,zh-CN,EU,欧洲,MK,前南马其顿,311,普拉斯尼察市镇,,,,,Europe/Skopje,0
 787050,zh-CN,EU,欧洲,RS,塞尔维亚,22,,,,皮罗特,,Europe/Belgrade,0
+787078,zh-CN,EU,欧洲,RS,塞尔维亚,11,,,,,,Europe/Belgrade,0
 787157,zh-CN,EU,欧洲,XK,科索沃,,,,,,,Europe/Belgrade,0
 787215,zh-CN,EU,欧洲,RS,塞尔维亚,13,,,,,,Europe/Belgrade,0
 787237,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,04,,潘切沃,,Europe/Belgrade,0
@@ -5219,7 +5222,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 791606,zh-CN,EU,欧洲,MK,前南马其顿,303,,,,,,Europe/Skopje,0
 791646,zh-CN,EU,欧洲,XK,科索沃,,,,,,,Europe/Belgrade,0
 791678,zh-CN,EU,欧洲,RS,塞尔维亚,13,,,,丘普里亚,,Europe/Belgrade,0
-791864,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,03,,,,Europe/Belgrade,0
 791885,zh-CN,EU,欧洲,MK,前南马其顿,804,,,,,,Europe/Skopje,0
 791900,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,03,,措卡,,Europe/Belgrade,0
 792034,zh-CN,EU,欧洲,MK,前南马其顿,109,查什卡市镇,,,,,Europe/Skopje,0
@@ -5314,6 +5316,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 833260,zh-CN,EU,欧洲,MK,前南马其顿,803,布泰尔区,,,,,Europe/Skopje,0
 833262,zh-CN,EU,欧洲,MK,前南马其顿,815,查伊尔区,,,,,Europe/Skopje,0
 833357,zh-CN,EU,欧洲,MK,前南马其顿,807,伊林登市镇,,,,,Europe/Skopje,0
+836243,zh-CN,EU,欧洲,RS,塞尔维亚,17,,,,,,Europe/Belgrade,0
 837120,zh-CN,EU,欧洲,RS,塞尔维亚,00,,,,,,Europe/Belgrade,0
 839784,zh-CN,EU,欧洲,RU,俄罗斯联邦,KDA,克拉斯诺达尔边疆区,,,,,Europe/Moscow,0
 840203,zh-CN,EU,欧洲,FI,芬兰,09,屈米河谷区,,,,,Europe/Helsinki,1
@@ -5363,7 +5366,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 865540,zh-CN,AS,亚洲,GE,格鲁吉亚,SK,,,,,,Asia/Tbilisi,0
 865541,zh-CN,AS,亚洲,GE,格鲁吉亚,MM,姆茨赫塔-姆季阿涅季州,,,,,Asia/Tbilisi,0
 865730,zh-CN,EU,欧洲,AL,阿尔巴尼亚,01,,,,,,Europe/Tirane,0
-865930,zh-CN,EU,欧洲,RS,塞尔维亚,00,,,,,,Europe/Belgrade,0
 866153,zh-CN,AS,亚洲,AM,亚美尼亚,ER,,,,,,Asia/Yerevan,0
 866245,zh-CN,EU,欧洲,RU,俄罗斯联邦,KDA,克拉斯诺达尔边疆区,,,,,Europe/Moscow,0
 873909,zh-CN,EU,欧洲,MD,摩尔多瓦,BA,,,,,,Europe/Chisinau,0
@@ -6176,7 +6178,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1235806,zh-CN,AS,亚洲,LK,斯里兰卡,1,西部省,13,,,,Asia/Colombo,0
 1235846,zh-CN,AS,亚洲,LK,斯里兰卡,3,南部省,32,,,,Asia/Colombo,0
 1236571,zh-CN,AS,亚洲,LK,斯里兰卡,1,西部省,11,,,,Asia/Colombo,0
-1236854,zh-CN,AS,亚洲,LK,斯里兰卡,1,西部省,11,,,,Asia/Colombo,0
+1236853,zh-CN,AS,亚洲,LK,斯里兰卡,1,西部省,12,,,,Asia/Colombo,0
 1237980,zh-CN,AS,亚洲,LK,斯里兰卡,6,西北省,,,,,Asia/Colombo,0
 1238427,zh-CN,AS,亚洲,LK,斯里兰卡,6,西北省,61,,,,Asia/Colombo,0
 1238973,zh-CN,AS,亚洲,LK,斯里兰卡,1,西部省,12,,,,Asia/Colombo,0
@@ -7141,6 +7143,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1276574,zh-CN,AS,亚洲,IN,印度,UP,北方邦,,,,,Asia/Kolkata,0
 1276609,zh-CN,AS,亚洲,IN,印度,BR,比哈尔邦,,,贝古萨赖,,Asia/Kolkata,0
 1276630,zh-CN,AS,亚洲,IN,印度,GJ,古吉拉特邦,,,,,Asia/Kolkata,0
+1276634,zh-CN,AS,亚洲,IN,印度,RJ,拉贾斯坦邦,,,,,Asia/Kolkata,0
 1276660,zh-CN,AS,亚洲,IN,印度,HR,哈里亚纳邦,,,,,Asia/Kolkata,0
 1276666,zh-CN,AS,亚洲,IN,印度,HR,哈里亚纳邦,,,,,Asia/Kolkata,0
 1276687,zh-CN,AS,亚洲,IN,印度,GJ,古吉拉特邦,,,,,Asia/Kolkata,0
@@ -7332,8 +7335,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1336142,zh-CN,AS,亚洲,BD,孟加拉国,B,,04,,,,Asia/Dhaka,0
 1336143,zh-CN,AS,亚洲,BD,孟加拉国,E,,49,,,,Asia/Dhaka,0
 1336144,zh-CN,AS,亚洲,BD,孟加拉国,C,,63,,,,Asia/Dhaka,0
+1337155,zh-CN,AS,亚洲,BD,孟加拉国,F,朗布尔专区,14,,,,Asia/Dhaka,0
 1337164,zh-CN,AS,亚洲,BD,孟加拉国,E,,45,,,,Asia/Dhaka,0
 1337166,zh-CN,AS,亚洲,BD,孟加拉国,E,,,,,,Asia/Dhaka,0
+1337178,zh-CN,AS,亚洲,BD,孟加拉国,C,,13,,,,Asia/Dhaka,0
 1337179,zh-CN,AS,亚洲,BD,孟加拉国,C,,,,,,Asia/Dhaka,0
 1337193,zh-CN,AS,亚洲,BD,孟加拉国,B,,08,,,,Asia/Dhaka,0
 1337204,zh-CN,AS,亚洲,BD,孟加拉国,D,,23,,,,Asia/Dhaka,0
@@ -7751,6 +7756,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1526395,zh-CN,AS,亚洲,KZ,哈萨克斯坦,75,,,,,,Asia/Almaty,0
 1526573,zh-CN,AS,亚洲,KZ,哈萨克斯坦,35,卡拉干達州,,,,,Asia/Almaty,0
 1526578,zh-CN,AS,亚洲,KZ,哈萨克斯坦,35,卡拉干達州,,,,,Asia/Almaty,0
+1526582,zh-CN,AS,亚洲,KZ,哈萨克斯坦,33,,,,,,Asia/Almaty,0
 1526659,zh-CN,AS,亚洲,KZ,哈萨克斯坦,39,,,,,,Asia/Qostanay,0
 1526922,zh-CN,AS,亚洲,KZ,哈萨克斯坦,,,,,,,Asia/Almaty,0
 1527004,zh-CN,AS,亚洲,KG,吉尔吉斯斯坦,Y,伊塞克湖州,,,巴雷克奇,,Asia/Bishkek,0
@@ -7896,7 +7902,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1581529,zh-CN,AS,亚洲,VN,越南,46,前江省,,,,,Asia/Ho_Chi_Minh,0
 1581834,zh-CN,AS,亚洲,VN,越南,72,,,,,,Asia/Ho_Chi_Minh,0
 1582720,zh-CN,AS,亚洲,VN,越南,39,同奈省,,,,,Asia/Ho_Chi_Minh,0
-1582723,zh-CN,AS,亚洲,VN,越南,23,,,,,,Asia/Bangkok,0
 1582926,zh-CN,AS,亚洲,VN,越南,25,,,,,,Asia/Bangkok,0
 1583478,zh-CN,AS,亚洲,VN,越南,27,,,,,,Asia/Ho_Chi_Minh,0
 1583518,zh-CN,AS,亚洲,VN,越南,57,,,,,,Asia/Ho_Chi_Minh,0
@@ -7980,7 +7985,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1607541,zh-CN,AS,亚洲,TH,泰国,10,曼谷,,,,,Asia/Bangkok,0
 1607542,zh-CN,AS,亚洲,TH,泰国,10,曼谷,,,,,Asia/Bangkok,0
 1607552,zh-CN,AS,亚洲,TH,泰国,54,帕府,,,,,Asia/Bangkok,0
-1607606,zh-CN,AS,亚洲,TH,泰国,43,,,,,,Asia/Bangkok,0
 1607707,zh-CN,AS,亚洲,TH,泰国,65,彭世洛府,,,,,Asia/Bangkok,0
 1607708,zh-CN,AS,亚洲,TH,泰国,65,彭世洛府,,,彭世洛,,Asia/Bangkok,0
 1607725,zh-CN,AS,亚洲,TH,泰国,66,披集府,,,,,Asia/Bangkok,0
@@ -8130,6 +8134,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1625822,zh-CN,AS,亚洲,ID,印度尼西亚,JI,东爪哇省,,,泗水,,Asia/Jakarta,0
 1625850,zh-CN,AS,亚洲,ID,印度尼西亚,JK,,,,,,Asia/Jakarta,0
 1625929,zh-CN,AS,亚洲,ID,印度尼西亚,JA,,,,,,Asia/Jakarta,0
+1626087,zh-CN,AS,亚洲,ID,印度尼西亚,JT,中爪哇省,,,,,Asia/Jakarta,0
 1626099,zh-CN,AS,亚洲,ID,印度尼西亚,JI,东爪哇省,,,,,Asia/Jakarta,0
 1626103,zh-CN,AS,亚洲,ID,印度尼西亚,JB,西爪哇省,,,,,Asia/Jakarta,0
 1626185,zh-CN,AS,亚洲,ID,印度尼西亚,NB,,,,,,Asia/Makassar,0
@@ -8696,17 +8701,18 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1687965,zh-CN,AS,亚洲,PH,菲律宾,07,中米沙鄢,CEB,,,,Asia/Manila,0
 1688016,zh-CN,AS,亚洲,PH,菲律宾,01,,ILS,,,,Asia/Manila,0
 1688023,zh-CN,AS,亚洲,PH,菲律宾,01,,PAN,,,,Asia/Manila,0
+1688042,zh-CN,AS,亚洲,PH,菲律宾,03,中央吕宋,BUL,,,,Asia/Manila,0
 1688055,zh-CN,AS,亚洲,PH,菲律宾,13,卡拉加区,AGS,,,,Asia/Manila,0
 1688058,zh-CN,AS,亚洲,PH,菲律宾,11,达沃区,DVO,,,,Asia/Manila,0
 1688066,zh-CN,AS,亚洲,PH,菲律宾,08,,WSA,,,,Asia/Manila,0
 1688164,zh-CN,AS,亚洲,PH,菲律宾,41,民马罗巴区,ROM,,,,Asia/Manila,0
-1688232,zh-CN,AS,亚洲,PH,菲律宾,03,中央吕宋,ZMB,,,,Asia/Manila,0
+1688216,zh-CN,AS,亚洲,PH,菲律宾,00,,,,,,Asia/Manila,0
 1688253,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,LAG,,,,Asia/Manila,0
 1688321,zh-CN,AS,亚洲,PH,菲律宾,11,达沃区,DAS,,,,Asia/Manila,0
 1688382,zh-CN,AS,亚洲,PH,菲律宾,06,西米沙鄢,ILI,,,,Asia/Manila,0
 1688749,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,LAG,,,,Asia/Manila,0
 1688830,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,LAG,,,,Asia/Manila,0
-1688859,zh-CN,AS,亚洲,PH,菲律宾,01,,ILN,,,,Asia/Manila,0
+1688857,zh-CN,AS,亚洲,PH,菲律宾,00,,,,,,Asia/Manila,0
 1688887,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,BTG,,,,Asia/Manila,0
 1689056,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,RIZ,,,,Asia/Manila,0
 1689099,zh-CN,AS,亚洲,PH,菲律宾,03,中央吕宋,ZMB,,,,Asia/Manila,0
@@ -8840,6 +8846,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1702540,zh-CN,AS,亚洲,PH,菲律宾,03,中央吕宋,BUL,,,,Asia/Manila,0
 1702934,zh-CN,AS,亚洲,PH,菲律宾,10,北棉兰老,BUK,,,,Asia/Manila,0
 1702953,zh-CN,AS,亚洲,PH,菲律宾,06,西米沙鄢,AKL,,,,Asia/Manila,0
+1702996,zh-CN,AS,亚洲,PH,菲律宾,00,,,,,,Asia/Manila,0
 1703010,zh-CN,AS,亚洲,PH,菲律宾,01,,PAN,,,,Asia/Manila,0
 1703320,zh-CN,AS,亚洲,PH,菲律宾,00,,,,,,Asia/Manila,0
 1703352,zh-CN,AS,亚洲,PH,菲律宾,14,棉兰老穆斯林自治区,LAS,,,,Asia/Manila,0
@@ -8911,7 +8918,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1710515,zh-CN,AS,亚洲,PH,菲律宾,02,卡加延河谷,ISA,,,,Asia/Manila,0
 1710519,zh-CN,AS,亚洲,PH,菲律宾,14,棉兰老穆斯林自治区,BAS,,,,Asia/Manila,0
 1710544,zh-CN,AS,亚洲,PH,菲律宾,05,,CAS,,,,Asia/Manila,0
-1710643,zh-CN,AS,亚洲,PH,菲律宾,14,棉兰老穆斯林自治区,SLU,,,,Asia/Manila,0
+1710642,zh-CN,AS,亚洲,PH,菲律宾,00,,,,,,Asia/Manila,0
 1710666,zh-CN,AS,亚洲,PH,菲律宾,08,,LEY,,,,Asia/Manila,0
 1710908,zh-CN,AS,亚洲,PH,菲律宾,07,中米沙鄢,BOH,保和省,,,Asia/Manila,0
 1710914,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,CAV,,,,Asia/Manila,0
@@ -9681,7 +9688,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1818209,zh-CN,AS,亚洲,HK,香港,NTW,,,,,,Asia/Hong_Kong,0
 1818211,zh-CN,AS,亚洲,HK,香港,NIS,,,,榕树湾,,Asia/Hong_Kong,0
 1818222,zh-CN,AS,亚洲,HK,香港,NYL,,,,元朗新墟,,Asia/Hong_Kong,0
-1818223,zh-CN,AS,亚洲,HK,香港,NYL,,,,元朗旧墟,,Asia/Hong_Kong,0
 1818224,zh-CN,AS,亚洲,HK,香港,NYL,,,,,,Asia/Hong_Kong,0
 1818225,zh-CN,AS,亚洲,HK,香港,NYL,,,,元朗,,Asia/Hong_Kong,0
 1818266,zh-CN,AS,亚洲,HK,香港,KKT,,,,,,Asia/Hong_Kong,0
@@ -9703,7 +9709,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1818616,zh-CN,AS,亚洲,HK,香港,NTP,,,,太和,,Asia/Hong_Kong,0
 1818628,zh-CN,AS,亚洲,HK,香港,NST,,,,,,Asia/Hong_Kong,0
 1818673,zh-CN,AS,亚洲,HK,香港,NTP,,,,大埔墟,,Asia/Hong_Kong,0
-1818684,zh-CN,AS,亚洲,HK,香港,NIS,,,,大澳,,Asia/Hong_Kong,0
 1818721,zh-CN,AS,亚洲,HK,香港,KYT,,,,大角咀,,Asia/Hong_Kong,0
 1818734,zh-CN,AS,亚洲,HK,香港,HEA,,,,大坑,,Asia/Hong_Kong,0
 1818775,zh-CN,AS,亚洲,HK,香港,NIS,,,,索罟湾,,Asia/Hong_Kong,0
@@ -9724,7 +9729,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 1819049,zh-CN,AS,亚洲,HK,香港,NSK,,,,,,Asia/Hong_Kong,0
 1819050,zh-CN,AS,亚洲,HK,香港,NSK,,,,西贡,,Asia/Hong_Kong,0
 1819064,zh-CN,AS,亚洲,HK,香港,HEA,,,,鲗鱼涌,,Asia/Hong_Kong,0
-1819101,zh-CN,AS,亚洲,HK,香港,NYL,,,,屏山,,Asia/Hong_Kong,0
 1819184,zh-CN,AS,亚洲,HK,香港,HEA,,,,,,Asia/Hong_Kong,0
 1819230,zh-CN,AS,亚洲,HK,香港,NIS,,,,,,Asia/Hong_Kong,0
 1819248,zh-CN,AS,亚洲,HK,香港,KKT,,,,牛头角,,Asia/Hong_Kong,0
@@ -12925,7 +12929,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2261008,zh-CN,AF,非洲,CG,刚果共和国,12,,,,,,Africa/Brazzaville,0
 2261577,zh-CN,EU,欧洲,PT,葡萄牙,07,,,,,,Europe/Lisbon,1
 2261578,zh-CN,EU,欧洲,PT,葡萄牙,02,,,,,,Europe/Lisbon,1
-2261583,zh-CN,EU,欧洲,PT,葡萄牙,11,里斯本區,,,,,Europe/Lisbon,1
 2261584,zh-CN,EU,欧洲,PT,葡萄牙,05,,,,,,Europe/Lisbon,1
 2261598,zh-CN,EU,欧洲,PT,葡萄牙,08,,,,,,Europe/Lisbon,1
 2261620,zh-CN,EU,欧洲,PT,葡萄牙,14,,,,,,Europe/Lisbon,1
@@ -13101,6 +13104,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2269128,zh-CN,EU,欧洲,PT,葡萄牙,02,,,,,,Europe/Lisbon,1
 2269142,zh-CN,EU,欧洲,PT,葡萄牙,11,里斯本區,,,,,Europe/Lisbon,1
 2269282,zh-CN,EU,欧洲,PT,葡萄牙,15,,,,,,Europe/Lisbon,1
+2269294,zh-CN,EU,欧洲,PT,葡萄牙,14,,,,,,Europe/Lisbon,1
 2269295,zh-CN,EU,欧洲,PT,葡萄牙,10,,,,,,Europe/Lisbon,1
 2269306,zh-CN,EU,欧洲,PT,葡萄牙,10,,,,,,Europe/Lisbon,1
 2269494,zh-CN,EU,欧洲,PT,葡萄牙,02,,,,,,Europe/Lisbon,1
@@ -13138,7 +13142,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2271268,zh-CN,EU,欧洲,PT,葡萄牙,14,,,,,,Europe/Lisbon,1
 2271337,zh-CN,EU,欧洲,PT,葡萄牙,11,里斯本區,,,,,Europe/Lisbon,1
 2271348,zh-CN,EU,欧洲,PT,葡萄牙,10,,,,,,Europe/Lisbon,1
-2271356,zh-CN,EU,欧洲,PT,葡萄牙,14,,,,,,Europe/Lisbon,1
+2271357,zh-CN,EU,欧洲,PT,葡萄牙,11,里斯本區,,,,,Europe/Lisbon,1
 2271407,zh-CN,EU,欧洲,PT,葡萄牙,12,,,,,,Europe/Lisbon,1
 2271473,zh-CN,EU,欧洲,PT,葡萄牙,15,,,,,,Europe/Lisbon,1
 2271488,zh-CN,EU,欧洲,PT,葡萄牙,07,,,,,,Europe/Lisbon,1
@@ -13764,6 +13768,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2509934,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2509947,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,,,Europe/Madrid,1
 2509950,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,巴伦西亚德亚尔坎塔拉,,Europe/Madrid,1
+2509951,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2509954,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2509974,zh-CN,EU,欧洲,ES,西班牙,AN,,MA,,,,Europe/Madrid,1
 2509980,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
@@ -13806,6 +13811,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2510349,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,,,Europe/Madrid,1
 2510392,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,托梅略索,,Europe/Madrid,1
 2510394,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
+2510407,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,,,Europe/Madrid,1
 2510409,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,,,Europe/Madrid,1
 2510419,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2510485,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,,,Atlantic/Canary,1
@@ -13848,6 +13854,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2510880,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2510895,zh-CN,EU,欧洲,ES,西班牙,AN,,MA,,,,Europe/Madrid,1
 2510896,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
+2510910,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2510911,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,塞维利亚,,Europe/Madrid,1
 2510936,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
 2510940,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
@@ -13872,11 +13879,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2511138,zh-CN,EU,欧洲,ES,西班牙,IB,,PM,,,,Europe/Madrid,1
 2511143,zh-CN,EU,欧洲,ES,西班牙,IB,,PM,,,,Europe/Madrid,1
 2511150,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,圣卢西亚,,Atlantic/Canary,1
-2511158,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,,,Europe/Madrid,1
 2511160,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 2511162,zh-CN,EU,欧洲,ES,西班牙,IB,,PM,,滨河圣埃乌拉利亚,,Europe/Madrid,1
 2511166,zh-CN,EU,欧洲,ES,西班牙,IB,,PM,,,,Europe/Madrid,1
 2511170,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
+2511173,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,,,Atlantic/Canary,1
 2511174,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,圣克鲁斯-德特内里费,,Atlantic/Canary,1
 2511175,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,,,Europe/Madrid,1
 2511178,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,圣克鲁斯德拉萨尔萨,,Europe/Madrid,1
@@ -14063,7 +14070,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2513395,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2513403,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,,,Europe/Madrid,1
 2513406,zh-CN,EU,欧洲,ES,西班牙,IB,,PM,,,,Europe/Madrid,1
-2513413,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,,,,,Europe/Madrid,1
 2513416,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,穆尔西亚,,Europe/Madrid,1
 2513421,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,AB,,,,Europe/Madrid,1
 2513436,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
@@ -14143,6 +14149,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2514225,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,马尔帕尔蒂达德普拉森西亚,,Europe/Madrid,1
 2514227,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,马尔帕尔蒂达德卡塞雷斯,,Europe/Madrid,1
 2514252,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,马拉贡,,Europe/Madrid,1
+2514254,zh-CN,EU,欧洲,ES,西班牙,AN,,MA,,,,Europe/Madrid,1
 2514256,zh-CN,EU,欧洲,ES,西班牙,AN,,MA,,马拉加,,Europe/Madrid,1
 2514287,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,迈雷纳德拉尔哈拉费,,Europe/Madrid,1
 2514288,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
@@ -14167,7 +14174,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2514601,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2514651,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,洛斯利亚诺斯德亚里达内,,Atlantic/Canary,1
 2514709,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
-2514716,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
+2514717,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,,,Europe/Madrid,1
 2514741,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,,,Atlantic/Canary,1
 2514824,zh-CN,EU,欧洲,ES,西班牙,AN,,CA,,洛斯巴里奥斯,,Europe/Madrid,1
 2514868,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
@@ -14200,6 +14207,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2515219,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
 2515261,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CU,,,,Europe/Madrid,1
 2515270,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,拉斯帕尔马斯,,Atlantic/Canary,1
+2515271,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,,,Atlantic/Canary,1
 2515284,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,,,Europe/Madrid,1
 2515303,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,,,Europe/Madrid,1
 2515352,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
@@ -14263,6 +14271,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2516346,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 2516372,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2516386,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
+2516394,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
 2516395,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
 2516404,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
 2516406,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
@@ -14287,6 +14296,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2516507,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,韦斯卡尔,,Europe/Madrid,1
 2516542,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,韦尔卡尔-奥韦拉,,Europe/Madrid,1
 2516543,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,,,Europe/Madrid,1
+2516547,zh-CN,EU,欧洲,ES,西班牙,AN,,H,,,,Europe/Madrid,1
 2516548,zh-CN,EU,欧洲,ES,西班牙,AN,,H,,,,Europe/Madrid,1
 2516549,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
 2516630,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
@@ -14318,6 +14328,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2517056,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,,,Atlantic/Canary,1
 2517059,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,,,Europe/Madrid,1
 2517111,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,格拉纳迪利亚德亚沃纳,,Atlantic/Canary,1
+2517115,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 2517117,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,格林纳达,,Europe/Madrid,1
 2517197,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 2517199,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
@@ -14372,7 +14383,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2517903,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2518011,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2518040,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
-2518054,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2518061,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,,,Europe/Madrid,1
 2518078,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,埃尔托沃索,,Europe/Madrid,1
 2518113,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
@@ -14395,7 +14405,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2518559,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,,,Europe/Madrid,1
 2518575,zh-CN,EU,欧洲,ES,西班牙,AN,,H,,,,Europe/Madrid,1
 2518607,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
-2518642,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
+2518645,zh-CN,EU,欧洲,ES,西班牙,AN,,H,,,,Europe/Madrid,1
 2518678,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2518729,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2518736,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,,,Europe/Madrid,1
@@ -14435,6 +14445,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2519232,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2519233,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2519234,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
+2519239,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
 2519240,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
 2519264,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,,,Europe/Madrid,1
 2519277,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,孔苏埃格拉,,Europe/Madrid,1
@@ -14539,8 +14550,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2520570,zh-CN,EU,欧洲,ES,西班牙,IB,,PM,,,,Europe/Madrid,1
 2520573,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 2520592,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
+2520597,zh-CN,EU,欧洲,ES,西班牙,AN,,CA,,,,Europe/Madrid,1
 2520600,zh-CN,EU,欧洲,ES,西班牙,AN,,CA,,加的斯,,Europe/Madrid,1
 2520601,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
+2520610,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
 2520611,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,卡塞雷斯,,Europe/Madrid,1
 2520645,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
 2520651,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
@@ -14613,11 +14626,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2521335,zh-CN,EU,欧洲,ES,西班牙,AN,,CA,,,,Europe/Madrid,1
 2521357,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,,,Europe/Madrid,1
 2521382,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,,,Europe/Madrid,1
-2521383,zh-CN,EU,欧洲,ES,西班牙,IB,,,,,,Europe/Madrid,1
 2521390,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,AB,,,,Europe/Madrid,1
 2521410,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,拜伦,,Europe/Madrid,1
 2521413,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
 2521415,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,拜纳,,Europe/Madrid,1
+2521419,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,,,Europe/Madrid,1
 2521420,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,,,Europe/Madrid,1
 2521436,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,阿苏阿加,,Europe/Madrid,1
 2521439,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
@@ -14666,6 +14679,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2521864,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
 2521867,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
 2521869,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,,,Europe/Madrid,1
+2521883,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,,,Europe/Madrid,1
 2521886,zh-CN,EU,欧洲,ES,西班牙,AN,,AL,,阿尔梅里亚,,Europe/Madrid,1
 2521887,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
 2521893,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,阿尔门德拉莱霍,,Europe/Madrid,1
@@ -14677,6 +14691,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2521938,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,阿尔马登,,Europe/Madrid,1
 2521945,zh-CN,EU,欧洲,ES,西班牙,AN,,MA,,,,Europe/Madrid,1
 2521964,zh-CN,EU,欧洲,ES,西班牙,AN,,H,,,,Europe/Madrid,1
+2521976,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,,,Europe/Madrid,1
 2521978,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,阿利坎特,,Europe/Madrid,1
 2521984,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 2521985,zh-CN,EU,欧洲,ES,西班牙,AN,,MA,,阿尔奥里内尔格兰德,,Europe/Madrid,1
@@ -14707,6 +14722,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2522098,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,阿尔科伊,,Europe/Madrid,1
 2522110,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,BA,,,,Europe/Madrid,1
 2522117,zh-CN,EU,欧洲,ES,西班牙,AN,,SE,,,,Europe/Madrid,1
+2522120,zh-CN,EU,欧洲,ES,西班牙,AN,,CO,,,,Europe/Madrid,1
 2522124,zh-CN,EU,欧洲,ES,西班牙,VC,,A,,,,Europe/Madrid,1
 2522129,zh-CN,EU,欧洲,ES,西班牙,VC,,V,,阿尔西拉,,Europe/Madrid,1
 2522131,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CR,,阿尔卡萨尔德圣胡安,,Europe/Madrid,1
@@ -14781,6 +14797,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2522849,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,EN,,,,Europe/Rome,1
 2522857,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 2522865,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
+2522875,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,TP,特拉帕尼省,,,Europe/Rome,1
 2522876,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,TP,特拉帕尼省,,,Europe/Rome,1
 2522885,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,ME,墨西拿省,,,Europe/Rome,1
 2522886,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
@@ -14791,7 +14808,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2522960,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,,,Europe/Rome,1
 2522964,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2522968,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
-2522969,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CZ,,塔韦尔纳,,Europe/Rome,1
 2522971,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,RC,,,,Europe/Rome,1
 2522975,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,ME,墨西拿省,陶尔米纳,,Europe/Rome,1
 2522997,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,RC,,斯蒂洛,,Europe/Rome,1
@@ -14800,6 +14816,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2523043,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CZ,,,,Europe/Rome,1
 2523045,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CZ,,,,Europe/Rome,1
 2523049,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,SR,,,,Europe/Rome,1
+2523082,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,SR,,,,Europe/Rome,1
 2523083,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,SR,,锡拉库扎,,Europe/Rome,1
 2523087,zh-CN,EU,欧洲,IT,意大利,88,,CA,,,,Europe/Rome,1
 2523088,zh-CN,EU,欧洲,IT,意大利,88,,OR,,,,Europe/Rome,1
@@ -14859,11 +14876,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2523618,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,VV,,,,Europe/Rome,1
 2523619,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2523623,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
+2523629,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,RC,,,,Europe/Rome,1
 2523630,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,RC,,雷焦卡拉布里亚,,Europe/Rome,1
 2523632,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,EN,,,,Europe/Rome,1
 2523638,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2523641,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
 2523644,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
+2523649,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,RG,,,,Europe/Rome,1
 2523650,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,RG,,,,Europe/Rome,1
 2523654,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2523665,zh-CN,EU,欧洲,IT,意大利,88,,CA,,,,Europe/Rome,1
@@ -14891,6 +14910,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2523890,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,TP,特拉帕尼省,,,Europe/Rome,1
 2523902,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,RC,,,,Europe/Rome,1
 2523908,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
+2523918,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,,,Europe/Rome,1
 2523920,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,巴勒莫市,,Europe/Rome,1
 2523922,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,SR,,,,Europe/Rome,1
 2523927,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
@@ -14918,6 +14938,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2524145,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
 2524155,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,ME,墨西拿省,,,Europe/Rome,1
 2524160,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
+2524169,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,ME,墨西拿省,,,Europe/Rome,1
 2524170,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,ME,墨西拿省,墨西拿,,Europe/Rome,1
 2524172,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,KR,,,,Europe/Rome,1
 2524179,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
@@ -14989,6 +15010,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2524801,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,ME,墨西拿省,,,Europe/Rome,1
 2524808,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,VV,,,,Europe/Rome,1
 2524815,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,TP,特拉帕尼省,,,Europe/Rome,1
+2524818,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,EN,,,,Europe/Rome,1
 2524819,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,EN,,,,Europe/Rome,1
 2524820,zh-CN,EU,欧洲,IT,意大利,88,,CA,,,,Europe/Rome,1
 2524862,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CL,,,,Europe/Rome,1
@@ -15003,6 +15025,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2524880,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,KR,,,,Europe/Rome,1
 2524881,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,KR,,,,Europe/Rome,1
 2524882,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
+2524906,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
 2524907,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
 2524955,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,RG,,,,Europe/Rome,1
 2524964,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,,,Europe/Rome,1
@@ -15015,7 +15038,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2525032,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,EN,,,,Europe/Rome,1
 2525037,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
 2525041,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,,,Europe/Rome,1
+2525058,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CZ,,,,Europe/Rome,1
 2525059,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CZ,,,,Europe/Rome,1
+2525065,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
 2525068,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
 2525070,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
 2525075,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
@@ -15051,6 +15076,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2525459,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
 2525460,zh-CN,EU,欧洲,IT,意大利,88,,SU,,,,Europe/Rome,1
 2525468,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,,,,,Europe/Rome,1
+2525471,zh-CN,EU,欧洲,IT,意大利,88,,CA,,,,Europe/Rome,1
 2525473,zh-CN,EU,欧洲,IT,意大利,88,,CA,,卡利亚里,,Europe/Rome,1
 2525475,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,KR,,,,Europe/Rome,1
 2525476,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,,,Europe/Rome,1
@@ -15090,6 +15116,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2525729,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,PA,巴勒莫省,,,Europe/Rome,1
 2525749,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2525755,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,TP,特拉帕尼省,,,Europe/Rome,1
+2525763,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2525764,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,AG,,,,Europe/Rome,1
 2525767,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,EN,,,,Europe/Rome,1
 2525769,zh-CN,EU,欧洲,IT,意大利,82,西西里岛,CT,,,,Europe/Rome,1
@@ -15161,6 +15188,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2556464,zh-CN,AF,非洲,MA,摩洛哥,03,,IFR,,,,Africa/Casablanca,0
 2558545,zh-CN,AF,非洲,MA,摩洛哥,01,,HOC,,,,Africa/Casablanca,0
 2559217,zh-CN,AF,非洲,MA,摩洛哥,07,,HAO,,,,Africa/Casablanca,0
+2561633,zh-CN,AF,非洲,MA,摩洛哥,07,,CHI,,,,Africa/Casablanca,0
 2561668,zh-CN,AF,非洲,MA,摩洛哥,09,,AGD,,阿加迪尔,,Africa/Casablanca,0
 2562055,zh-CN,AF,非洲,MA,摩洛哥,04,,SKH,,,,Africa/Casablanca,0
 2562258,zh-CN,EU,欧洲,MT,马耳他,67,,,,榟橔,,Europe/Malta,1
@@ -15232,9 +15260,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2591410,zh-CN,AF,非洲,NG,尼日利亚,OY,奥约州,,,,,Africa/Lagos,0
 2593105,zh-CN,EU,欧洲,PT,葡萄牙,30,,,,,,Atlantic/Madeira,1
 2593109,zh-CN,EU,欧洲,ES,西班牙,AN,,,,,,Europe/Madrid,1
-2593110,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,,,,,Atlantic/Canary,1
-2593111,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,,,,,Europe/Madrid,1
-2593112,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,,,,,Europe/Madrid,1
 2593113,zh-CN,EU,欧洲,ES,西班牙,VC,,,,,,Europe/Madrid,1
 2594078,zh-CN,AF,非洲,ML,马里,2,库利科罗区,,,,,Africa/Bamako,0
 2595222,zh-CN,AF,非洲,SN,塞内加尔,TH,,,,,,Africa/Dakar,0
@@ -15536,7 +15561,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2619809,zh-CN,EU,欧洲,DK,丹麦,85,西兰大区,,,,,Europe/Copenhagen,1
 2619844,zh-CN,EU,欧洲,DK,丹麦,85,西兰大区,,,,,Europe/Copenhagen,1
 2619856,zh-CN,EU,欧洲,DK,丹麦,84,,,,,,Europe/Copenhagen,1
-2619859,zh-CN,EU,欧洲,DK,丹麦,82,中日德兰大区,,,,,Europe/Copenhagen,1
 2619860,zh-CN,EU,欧洲,DK,丹麦,82,中日德兰大区,,,,,Europe/Copenhagen,1
 2619882,zh-CN,EU,欧洲,DK,丹麦,85,西兰大区,,,,,Europe/Copenhagen,1
 2619908,zh-CN,EU,欧洲,DK,丹麦,82,中日德兰大区,,,,,Europe/Copenhagen,1
@@ -15948,7 +15972,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2634603,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NFK,,,,Europe/London,0
 2634608,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,ESS,,,,Europe/London,0
 2634613,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WNH,,,,Europe/London,0
-2634614,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,BKM,,,,Europe/London,0
 2634616,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WLV,,,,Europe/London,0
 2634617,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,SAW,,,,Europe/London,0
 2634618,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,SOM,,,,Europe/London,0
@@ -16405,6 +16428,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2638311,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,ESX,,西福德,,Europe/London,0
 2638324,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NLN,北林肯郡,斯肯索普,,Europe/London,0
 2638325,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NFK,,,,Europe/London,0
+2638360,zh-CN,EU,欧洲,GB,英国,SCT,苏格兰,,,,,Europe/London,0
 2638368,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,CON,,,,Europe/London,0
 2638379,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NFK,,,,Europe/London,0
 2638384,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,IOS,,,,Europe/London,0
@@ -17429,7 +17453,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2646523,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,CBF,,,,Europe/London,0
 2646525,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,SND,,,,Europe/London,0
 2646542,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,BOL,,,,Europe/London,0
-2646548,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WNM,,,,Europe/London,0
+2646546,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WNH,,,,Europe/London,0
 2646557,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WSX,,,,Europe/London,0
 2646558,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,LDS,,霍斯福斯,,Europe/London,0
 2646583,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,ERY,东约克郡,,,Europe/London,0
@@ -19076,7 +19100,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2658577,zh-CN,EU,欧洲,CH,瑞士,AG,,,,,,Europe/Zurich,0
 2658581,zh-CN,EU,欧洲,CH,瑞士,VS,瓦莱州,,,,,Europe/Zurich,0
 2658588,zh-CN,EU,欧洲,CH,瑞士,GR,,,,,,Europe/Zurich,0
-2658589,zh-CN,EU,欧洲,CH,瑞士,GR,,,,,,Europe/Zurich,0
 2658592,zh-CN,EU,欧洲,CH,瑞士,UR,烏里州,,,,,Europe/Zurich,0
 2658597,zh-CN,EU,欧洲,CH,瑞士,BE,伯恩州,,,,,Europe/Zurich,0
 2658600,zh-CN,EU,欧洲,CH,瑞士,BE,伯恩州,,,,,Europe/Zurich,0
@@ -19739,7 +19762,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2660911,zh-CN,EU,欧洲,CH,瑞士,LU,卢塞恩州,,,,,Europe/Zurich,0
 2660913,zh-CN,EU,欧洲,CH,瑞士,ZH,苏黎世州,,,恩布拉赫,,Europe/Zurich,0
 2660916,zh-CN,EU,欧洲,CH,瑞士,ZH,苏黎世州,,,,,Europe/Zurich,0
-2660918,zh-CN,EU,欧洲,CH,瑞士,ZH,苏黎世州,,,,,Europe/Zurich,0
 2660920,zh-CN,EU,欧洲,CH,瑞士,ZH,苏黎世州,,,,,Europe/Zurich,0
 2660925,zh-CN,EU,欧洲,CH,瑞士,SZ,,,,,,Europe/Zurich,0
 2660926,zh-CN,EU,欧洲,CH,瑞士,BE,伯恩州,,,,,Europe/Zurich,0
@@ -20166,7 +20188,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2670044,zh-CN,EU,欧洲,SE,瑞典,O,西约塔兰省,,,,,Europe/Stockholm,1
 2670061,zh-CN,EU,欧洲,SE,瑞典,Z,耶姆特兰省,,,,,Europe/Stockholm,1
 2670128,zh-CN,EU,欧洲,SE,瑞典,M,斯科讷省,,,,,Europe/Stockholm,1
-2670226,zh-CN,EU,欧洲,SE,瑞典,AB,,,,,,Europe/Stockholm,1
 2670426,zh-CN,EU,欧洲,SE,瑞典,S,韦姆兰省,,,,,Europe/Stockholm,1
 2670446,zh-CN,EU,欧洲,SE,瑞典,AC,西博滕省,,,,,Europe/Stockholm,1
 2670470,zh-CN,EU,欧洲,SE,瑞典,K,,,,,,Europe/Stockholm,1
@@ -20763,6 +20784,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2732265,zh-CN,EU,欧洲,PT,葡萄牙,18,,,,,,Europe/Lisbon,1
 2732285,zh-CN,EU,欧洲,PT,葡萄牙,18,,,,,,Europe/Lisbon,1
 2732326,zh-CN,EU,欧洲,PT,葡萄牙,03,,,,,,Europe/Lisbon,1
+2732335,zh-CN,EU,欧洲,PT,葡萄牙,09,,,,,,Europe/Lisbon,1
 2732348,zh-CN,EU,欧洲,PT,葡萄牙,18,,,,,,Europe/Lisbon,1
 2732420,zh-CN,EU,欧洲,PT,葡萄牙,09,,,,,,Europe/Lisbon,1
 2732438,zh-CN,EU,欧洲,PT,葡萄牙,17,,,,,,Europe/Lisbon,1
@@ -20916,6 +20938,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2738785,zh-CN,EU,欧洲,PT,葡萄牙,09,,,,,,Europe/Lisbon,1
 2738795,zh-CN,EU,欧洲,PT,葡萄牙,03,,,,,,Europe/Lisbon,1
 2738890,zh-CN,EU,欧洲,PT,葡萄牙,13,,,,,,Europe/Lisbon,1
+2738891,zh-CN,EU,欧洲,PT,葡萄牙,09,,,,,,Europe/Lisbon,1
 2738925,zh-CN,EU,欧洲,PT,葡萄牙,13,,,,,,Europe/Lisbon,1
 2738983,zh-CN,EU,欧洲,PT,葡萄牙,17,,,,,,Europe/Lisbon,1
 2739034,zh-CN,EU,欧洲,PT,葡萄牙,13,,,,,,Europe/Lisbon,1
@@ -20954,7 +20977,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2740593,zh-CN,EU,欧洲,PT,葡萄牙,06,,,,,,Europe/Lisbon,1
 2740637,zh-CN,EU,欧洲,PT,葡萄牙,06,,,,科英布拉,,Europe/Lisbon,1
 2740761,zh-CN,EU,欧洲,PT,葡萄牙,17,,,,,,Europe/Lisbon,1
-2740788,zh-CN,EU,欧洲,PT,葡萄牙,18,,,,,,Europe/Lisbon,1
 2740824,zh-CN,EU,欧洲,PT,葡萄牙,13,,,,,,Europe/Lisbon,1
 2740829,zh-CN,EU,欧洲,PT,葡萄牙,01,,,,,,Europe/Lisbon,1
 2740886,zh-CN,EU,欧洲,PT,葡萄牙,09,,,,,,Europe/Lisbon,1
@@ -25517,6 +25539,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2864089,zh-CN,EU,欧洲,DE,德国,SN,萨克森自由州,,,,,Europe/Berlin,1
 2864091,zh-CN,EU,欧洲,DE,德国,HE,黑森州,,,,,Europe/Berlin,1
 2864118,zh-CN,EU,欧洲,DE,德国,NW,北莱茵-威斯特法伦,,,诺伊斯,,Europe/Berlin,1
+2864131,zh-CN,EU,欧洲,DE,德国,BY,巴伐利亚州,,,诺伊索尔格,,Europe/Berlin,1
 2864141,zh-CN,EU,欧洲,DE,德国,BY,巴伐利亚州,,,诺伊西茨,,Europe/Berlin,1
 2864192,zh-CN,EU,欧洲,DE,德国,BB,勃兰登堡,,,,,Europe/Berlin,1
 2864252,zh-CN,EU,欧洲,DE,德国,BY,巴伐利亚州,,,诺伊塞斯,,Europe/Berlin,1
@@ -27079,7 +27102,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2931871,zh-CN,EU,欧洲,DE,德国,SN,萨克森自由州,,,艾伦堡,,Europe/Berlin,1
 2931985,zh-CN,EU,欧洲,DE,德国,NI,下萨克森,,,艾克林根,,Europe/Berlin,1
 2932010,zh-CN,EU,欧洲,DE,德国,NW,北莱茵-威斯特法伦,,,,,Europe/Berlin,1
-2932040,zh-CN,EU,欧洲,DE,德国,BB,勃兰登堡,,,,,Europe/Berlin,1
 2932069,zh-CN,EU,欧洲,DE,德国,BY,巴伐利亚州,,,艾希斯特,,Europe/Berlin,1
 2932070,zh-CN,EU,欧洲,DE,德国,BY,巴伐利亚州,,,,,Europe/Berlin,1
 2932266,zh-CN,EU,欧洲,DE,德国,HE,黑森州,,,艾兴策尔,,Europe/Berlin,1
@@ -28283,8 +28305,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2967180,zh-CN,EU,欧洲,FR,法国,CVL,,41,卢瓦-谢尔省,伊瓦莱马尔龙,,Europe/Paris,1
 2967189,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 2967192,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
+2967196,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
 2967201,zh-CN,EU,欧洲,FR,法国,ARA,,15,,,,Europe/Paris,1
 2967203,zh-CN,EU,欧洲,FR,法国,ARA,,43,,伊桑若,,Europe/Paris,1
+2967222,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,,,Europe/Paris,1
 2967228,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 2967232,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,,,Europe/Paris,1
 2967234,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,伊菲尼阿克,,Europe/Paris,1
@@ -28391,6 +28415,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2967654,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,,,Europe/Paris,1
 2967667,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
 2967669,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
+2967681,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
 2967693,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 2967695,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,沃雷普,,Europe/Paris,1
 2967698,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
@@ -28530,7 +28555,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2968575,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
 2968614,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,04,上普罗旺斯阿尔卑斯省,,,Europe/Paris,1
 2968620,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
-2968622,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,,,Europe/Paris,1
 2968624,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,大维勒诺,,Europe/Paris,1
 2968626,zh-CN,EU,欧洲,FR,法国,OCC,,31,,塔尔恩河畔维莱米,,Europe/Paris,1
 2968629,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
@@ -28556,12 +28580,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2968755,zh-CN,EU,欧洲,FR,法国,OCC,,12,,鲁埃格自由城,,Europe/Paris,1
 2968758,zh-CN,EU,欧洲,FR,法国,OCC,,31,,洛拉盖自由城,,Europe/Paris,1
 2968764,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
-2968766,zh-CN,EU,欧洲,FR,法国,OCC,,32,,,,Europe/Paris,1
 2968768,zh-CN,EU,欧洲,FR,法国,OCC,,48,,,,Europe/Paris,1
 2968771,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,维莱丰坦,,Europe/Paris,1
 2968788,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 2968793,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
 2968797,zh-CN,EU,欧洲,FR,法国,CVL,,37,安德尔-卢瓦尔省,,,Europe/Paris,1
+2968815,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,75,,,,Europe/Paris,1
 2968819,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,,,Europe/Paris,1
 2968823,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,维莱克雷纳,,Europe/Paris,1
 2968836,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
@@ -28576,8 +28600,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2968906,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
 2968912,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 2968917,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
+2968924,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
 2968935,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,,,Europe/Paris,1
-2968936,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,,,Europe/Paris,1
 2968950,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 2968952,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 2968954,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
@@ -28608,6 +28632,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2969257,zh-CN,EU,欧洲,FR,法国,CVL,,18,谢尔省,维耶尔宗,,Europe/Paris,1
 2969273,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,,,Europe/Paris,1
 2969278,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,,,Europe/Paris,1
+2969280,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
 2969284,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 2969285,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
 2969287,zh-CN,EU,欧洲,FR,法国,BFC,,21,,维耶尔韦尔格,,Europe/Paris,1
@@ -28730,6 +28755,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2970121,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 2970128,zh-CN,EU,欧洲,FR,法国,GES,,67,,旺德南,,Europe/Paris,1
 2970132,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
+2970140,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
 2970143,zh-CN,EU,欧洲,FR,法国,ARA,,03,阿列省,旺达,,Europe/Paris,1
 2970144,zh-CN,EU,欧洲,FR,法国,OCC,,34,,旺达尔盖,,Europe/Paris,1
 2970148,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,旺克,,Europe/Paris,1
@@ -28775,6 +28801,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2970527,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
 2970540,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,沃克雷松,,Europe/Paris,1
 2970546,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,,,Europe/Paris,1
+2970554,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,,,Europe/Paris,1
 2970562,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 2970586,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,,,Europe/Paris,1
 2970593,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
@@ -28796,6 +28823,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2970735,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,瓦尔塞斯-阿利埃和里塞,,Europe/Paris,1
 2970739,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,瓦朗热维尔,,Europe/Paris,1
 2970741,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
+2970749,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,,,Europe/Paris,1
 2970761,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,旺夫,,Europe/Paris,1
 2970773,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,科松河畔瓦内,,Europe/Paris,1
 2970777,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,瓦讷,,Europe/Paris,1
@@ -28815,7 +28843,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2970865,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 2970885,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
 2970902,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
-2970910,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
 2970911,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 2970923,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
 2970932,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
@@ -28835,8 +28862,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2971053,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 2971054,zh-CN,EU,欧洲,FR,法国,OCC,,82,,,,Europe/Paris,1
 2971056,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,瓦朗赛,,Europe/Paris,1
+2971071,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,,,Europe/Paris,1
 2971072,zh-CN,EU,欧洲,FR,法国,BFC,,90,贝尔福地区省,瓦尔杜瓦,,Europe/Paris,1
 2971074,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
+2971090,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,,,Europe/Paris,1
 2971100,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
 2971117,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,瓦尔邦,,Europe/Paris,1
 2971129,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,瓦洛里耶,,Europe/Paris,1
@@ -28985,6 +29014,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2972317,zh-CN,EU,欧洲,FR,法国,OCC,,66,,图卢热,,Europe/Paris,1
 2972320,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 2972322,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
+2972327,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
 2972328,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,土伦,,Europe/Paris,1
 2972339,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 2972342,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
@@ -29052,7 +29082,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2972826,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2972831,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2972851,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,默斯河畔蒂耶尔维尔,,Europe/Paris,1
-2972856,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
+2972853,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,泰夫河畔蒂耶尔,,Europe/Paris,1
 2972857,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
 2972882,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 2972886,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,蒂奥库尔雷尼埃维尔,,Europe/Paris,1
@@ -29106,6 +29136,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2973340,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,,,Europe/Paris,1
 2973346,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,塔尔萨,,Europe/Paris,1
 2973355,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,塔尔诺,,Europe/Paris,1
+2973357,zh-CN,EU,欧洲,FR,法国,OCC,,82,,,,Europe/Paris,1
+2973362,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 2973365,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,塔尔贡,,Europe/Paris,1
 2973385,zh-CN,EU,欧洲,FR,法国,OCC,,65,,塔布,,Europe/Paris,1
 2973393,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,塔拉斯孔,,Europe/Paris,1
@@ -29191,7 +29223,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2974066,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 2974067,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
 2974077,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
-2974082,zh-CN,EU,欧洲,FR,法国,CVL,,41,卢瓦-谢尔省,,,Europe/Paris,1
+2974083,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,,,Europe/Paris,1
 2974086,zh-CN,EU,欧洲,FR,法国,GES,,67,,苏夫勒南,,Europe/Paris,1
 2974087,zh-CN,EU,欧洲,FR,法国,GES,,67,,苏弗尔韦埃尔桑,,Europe/Paris,1
 2974091,zh-CN,EU,欧洲,FR,法国,OCC,,65,,,,Europe/Paris,1
@@ -29223,6 +29255,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2974295,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,,,Europe/Paris,1
 2974299,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,,,Europe/Paris,1
 2974301,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,索梅凯斯,,Europe/Paris,1
+2974304,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
 2974324,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2974338,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,索利耶蓬,,Europe/Paris,1
 2974345,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,,,Europe/Paris,1
@@ -29342,6 +29375,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2975220,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2975233,zh-CN,EU,欧洲,FR,法国,GES,,67,,塞莱斯塔,,Europe/Paris,1
 2975237,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
+2975246,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,93,塞纳-圣但尼省,,,Europe/Paris,1
+2975248,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
+2975249,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 2975265,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,塞朗,,Europe/Paris,1
 2975268,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,,,Europe/Paris,1
 2975269,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
@@ -29371,11 +29407,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2975445,zh-CN,EU,欧洲,FR,法国,GES,,67,,斯希尔梅,,Europe/Paris,1
 2975446,zh-CN,EU,欧洲,FR,法国,GES,,67,,希尔蒂盖姆,,Europe/Paris,1
 2975449,zh-CN,EU,欧洲,FR,法国,GES,,67,,斯舍尔维莱,,Europe/Paris,1
-2975465,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
+2975467,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
 2975469,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,,,Europe/Paris,1
 2975485,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,斯卡厄,,Europe/Paris,1
 2975495,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,赛阿,,Europe/Paris,1
 2975513,zh-CN,EU,欧洲,FR,法国,CVL,,37,安德尔-卢瓦尔省,萨沃尼埃,,Europe/Paris,1
+2975517,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 2975525,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,奥尔日河畔萨维尼,,Europe/Paris,1
 2975530,zh-CN,EU,欧洲,FR,法国,GES,,08,阿登省,,,Europe/Paris,1
 2975535,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,萨维尼莱弗斯科尔,,Europe/Paris,1
@@ -29435,6 +29472,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2975908,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,萨瑟纳格,,Europe/Paris,1
 2975916,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,萨尔佐,,Europe/Paris,1
 2975921,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
+2975926,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
 2975931,zh-CN,EU,欧洲,FR,法国,20R,,2A,南科西嘉,,,Europe/Paris,1
 2975953,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,萨尔里昂,,Europe/Paris,1
 2975957,zh-CN,EU,欧洲,FR,法国,GES,,67,,萨尔于尼翁,,Europe/Paris,1
@@ -29446,13 +29484,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2975996,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,,,Europe/Paris,1
 2976006,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,利斯尔河畔萨尔利阿克,,Europe/Paris,1
 2976007,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,萨拉拉卡内达,,Europe/Paris,1
-2976009,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,,,Europe/Paris,1
 2976021,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,萨尔,,Europe/Paris,1
 2976043,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,,,Europe/Paris,1
 2976050,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,,,Europe/Paris,1
 2976051,zh-CN,EU,欧洲,FR,法国,OCC,,32,,,,Europe/Paris,1
 2976055,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
 2976056,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
+2976082,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 2976084,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 2976108,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,桑特,,Europe/Paris,1
 2976109,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,,,Europe/Paris,1
@@ -29541,7 +29579,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2976783,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
 2976794,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 2976798,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
-2976807,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
+2976801,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,,,Europe/Paris,1
 2976820,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
 2976827,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
 2976833,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
@@ -29564,6 +29602,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2976986,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 2976996,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,圣萨维尼安,,Europe/Paris,1
 2976997,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
+2977000,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
 2977001,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 2977033,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
 2977034,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
@@ -29628,7 +29667,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2977546,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 2977568,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2977569,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
-2977574,zh-CN,EU,欧洲,FR,法国,ARA,,15,,,,Europe/Paris,1
 2977581,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,04,上普罗旺斯阿尔卑斯省,,,Europe/Paris,1
 2977587,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 2977602,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,圣菲尔贝尔德格朗德-利厄,,Europe/Paris,1
@@ -29679,7 +29717,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2977997,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
 2978004,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,圣米舍谢谢,,Europe/Paris,1
 2978017,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
-2978033,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,,,Europe/Paris,1
+2978023,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 2978056,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2978067,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,大圣梅昂,,Europe/Paris,1
 2978072,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,雅莱地区圣梅达尔,,Europe/Paris,1
@@ -29739,7 +29777,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2978621,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,圣芒代,,Europe/Paris,1
 2978622,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 2978631,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,,,Europe/Paris,1
-2978636,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,圣马洛德盖尔萨克,,Europe/Paris,1
+2978632,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
 2978640,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,圣马洛,,Europe/Paris,1
 2978642,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,维耶河畔圣迈克桑,,Europe/Paris,1
 2978643,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
@@ -29815,7 +29853,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2979103,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 2979109,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,圣瑞利安德孔瑟莱,,Europe/Paris,1
 2979128,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,,,Europe/Paris,1
-2979130,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
 2979148,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 2979153,zh-CN,EU,欧洲,FR,法国,NAQ,,87,,,,Europe/Paris,1
 2979158,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
@@ -29886,7 +29923,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2979554,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
 2979574,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 2979578,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
-2979579,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
 2979590,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
 2979596,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,圣埃昂,,Europe/Paris,1
 2979602,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
@@ -29929,7 +29965,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2979933,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
 2979941,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,圣若尔热德迪东,,Europe/Paris,1
 2979959,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
-2979965,zh-CN,EU,欧洲,FR,法国,ARA,,15,,,,Europe/Paris,1
 2979983,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,圣热尼－普伊,,Europe/Paris,1
 2979985,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 2979993,zh-CN,EU,欧洲,FR,法国,OCC,,66,,,,Europe/Paris,1
@@ -29972,6 +30007,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2980270,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 2980289,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2980291,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,圣艾蒂安,,Europe/Paris,1
+2980294,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 2980304,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,,,Europe/Paris,1
 2980305,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 2980313,zh-CN,EU,欧洲,FR,法国,OCC,,66,,圣埃斯泰夫,,Europe/Paris,1
@@ -29994,12 +30030,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2980410,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 2980429,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,圣玛丽德雷,,Europe/Paris,1
 2980432,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
+2980435,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 2980438,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
 2980439,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,圣玛丽-奥谢内,,Europe/Paris,1
 2980446,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
 2980447,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 2980449,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
-2980451,zh-CN,EU,欧洲,FR,法国,ARA,,15,,,,Europe/Paris,1
 2980476,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
 2980488,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,卢瓦尔河畔圣吕克,,Europe/Paris,1
 2980492,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
@@ -30042,7 +30078,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2980885,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,瓦地区圣德尼,,Europe/Paris,1
 2980898,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 2980902,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,圣德尼德约泰,,Europe/Paris,1
-2980912,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
 2980916,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,93,塞纳-圣但尼省,,,Europe/Paris,1
 2980932,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 2980933,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,滨海圣西,,Europe/Paris,1
@@ -30055,7 +30090,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2980972,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 2980974,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
 2980982,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,,,Europe/Paris,1
-2980983,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 2980984,zh-CN,EU,欧洲,FR,法国,OCC,,66,,,,Europe/Paris,1
 2980996,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 2981018,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,圣孔泰斯,,Europe/Paris,1
@@ -30090,6 +30124,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2981249,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,圣卡普赖斯德拉兰德,,Europe/Paris,1
 2981259,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,圣卡纳,,Europe/Paris,1
 2981275,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,圣布里代布瓦,,Europe/Paris,1
+2981276,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
 2981280,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,圣布里厄,,Europe/Paris,1
 2981283,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,圣布里斯苏福雷,,Europe/Paris,1
 2981284,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
@@ -30130,7 +30165,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2981574,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,圣奥班代沙托,,Europe/Paris,1
 2981591,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
 2981609,zh-CN,EU,欧洲,FR,法国,BFC,,39,汝拉省,,,Europe/Paris,1
-2981622,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,,,Europe/Paris,1
+2981618,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,05,上阿尔卑斯省,,,Europe/Paris,1
 2981623,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,,,Europe/Paris,1
 2981629,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
 2981639,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
@@ -30149,7 +30184,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2981760,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,圣昂德雷德屈布扎克,,Europe/Paris,1
 2981762,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 2981779,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,圣安德烈莱里尔,,Europe/Paris,1
-2981782,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 2981783,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,,,Europe/Paris,1
 2981791,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,圣昂迪奥,,Europe/Paris,1
 2981792,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
@@ -30261,7 +30295,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2982757,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,93,塞纳-圣但尼省,罗尼丛林,,Europe/Paris,1
 2982774,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,罗西埃普雷特鲁瓦埃,,Europe/Paris,1
 2982775,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,罗西耶尔-昂桑泰尔,,Europe/Paris,1
-2982782,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
+2982781,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 2982790,zh-CN,EU,欧洲,FR,法国,GES,,67,,罗塞姆,,Europe/Paris,1
 2982798,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
 2982806,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
@@ -30275,6 +30309,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2982855,zh-CN,EU,欧洲,FR,法国,OCC,,32,,,,Europe/Paris,1
 2982856,zh-CN,EU,欧洲,FR,法国,OCC,,12,,苏尔宗河畔罗屈埃福尔,,Europe/Paris,1
 2982859,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,罗屈埃福尔拉贝杜尔,,Europe/Paris,1
+2982862,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
 2982863,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,,,Europe/Paris,1
 2982873,zh-CN,EU,欧洲,FR,法国,OCC,,81,,罗屈埃库尔布,,Europe/Paris,1
 2982875,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,阿尔冈河畔罗屈埃布吕纳,,Europe/Paris,1
@@ -30297,7 +30332,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2983005,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,龙巴,,Europe/Paris,1
 2983011,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,伊塞尔河畔罗芒,,Europe/Paris,1
 2983012,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
-2983013,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 2983019,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 2983026,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,93,塞纳-圣但尼省,罗曼维尔,,Europe/Paris,1
 2983043,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
@@ -30361,7 +30395,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2983534,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2983536,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 2983559,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
-2983568,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
+2983566,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 2983580,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,04,上普罗旺斯阿尔卑斯省,里耶,,Europe/Paris,1
 2983584,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2983590,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,,,Europe/Paris,1
@@ -30518,12 +30552,15 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2984874,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2984879,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 2984881,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
+2984885,zh-CN,EU,欧洲,FR,法国,OCC,,66,,,,Europe/Paris,1
+2984887,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,,,Europe/Paris,1
 2984895,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,皮伊弗尔,,Europe/Paris,1
 2984904,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,05,上阿尔卑斯省,,,Europe/Paris,1
 2984929,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,皮伊穆瓦昂,,Europe/Paris,1
 2984948,zh-CN,EU,欧洲,FR,法国,OCC,,46,,皮伊莱韦屈埃,,Europe/Paris,1
 2984965,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,皮伊吉洛姆,,Europe/Paris,1
 2984969,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
+2984986,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
 2984990,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,,,Europe/Paris,1
 2984993,zh-CN,EU,欧洲,FR,法国,OCC,,82,,,,Europe/Paris,1
 2985005,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
@@ -30550,7 +30587,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2985205,zh-CN,EU,欧洲,FR,法国,CVL,,41,卢瓦-谢尔省,,,Europe/Paris,1
 2985229,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,普罗万,,Europe/Paris,1
 2985231,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,普罗维尔,,Europe/Paris,1
-2985241,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
+2985240,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 2985244,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,,,,,Europe/Paris,1
 2985251,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2985259,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,普鲁伊利,,Europe/Paris,1
@@ -30730,6 +30767,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2986649,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,普卢马戈阿,,Europe/Paris,1
 2986653,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,普卢伊盖奥,,Europe/Paris,1
 2986655,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,,,Europe/Paris,1
+2986656,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,,,Europe/Paris,1
 2986658,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,,,Europe/Paris,1
 2986660,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,普卢阿,,Europe/Paris,1
 2986662,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,,,Europe/Paris,1
@@ -30856,6 +30894,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2987404,zh-CN,EU,欧洲,FR,法国,20R,,2A,南科西嘉,,,Europe/Paris,1
 2987408,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
 2987409,zh-CN,EU,欧洲,FR,法国,OCC,,66,,,,Europe/Paris,1
+2987410,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 2987421,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,法尔斯布尔,,Europe/Paris,1
 2987423,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,法朗潘,,Europe/Paris,1
 2987428,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,普费特鲁斯,,Europe/Paris,1
@@ -30942,6 +30981,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2988309,zh-CN,EU,欧洲,FR,法国,OCC,,32,,,,Europe/Paris,1
 2988320,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,波纳,,Europe/Paris,1
 2988323,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
+2988335,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
 2988339,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 2988343,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 2988350,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,波亚克,,Europe/Paris,1
@@ -30952,6 +30992,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2988396,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 2988416,zh-CN,EU,欧洲,FR,法国,OCC,,66,,,,Europe/Paris,1
 2988422,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,帕斯利埃,,Europe/Paris,1
+2988430,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 2988445,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
 2988447,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
 2988457,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
@@ -31080,6 +31121,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2989645,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 2989646,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 2989652,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,瓦斯蒙,,Europe/Paris,1
+2989663,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 2989667,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2989680,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 2989689,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
@@ -31142,6 +31184,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2990087,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,诺尔凯尔克,,Europe/Paris,1
 2990091,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 2990124,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,诺尔多斯克,,Europe/Paris,1
+2990129,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2990133,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,诺尔佩讷,,Europe/Paris,1
 2990136,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 2990140,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,农特龙,,Europe/Paris,1
@@ -31162,6 +31205,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2990263,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,塞纳河畔诺让,,Europe/Paris,1
 2990264,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,瓦斯河畔诺让,,Europe/Paris,1
 2990265,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,马恩河畔诺让,,Europe/Paris,1
+2990269,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 2990272,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,诺让莱罗特鲁,,Europe/Paris,1
 2990273,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,诺让莱鲁瓦,,Europe/Paris,1
 2990280,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
@@ -31293,6 +31337,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2991119,zh-CN,EU,欧洲,FR,法国,OCC,,34,,米尔维耶莱贝济耶,,Europe/Paris,1
 2991128,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,米尔埃里涅,,Europe/Paris,1
 2991142,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
+2991148,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
 2991153,zh-CN,EU,欧洲,FR,法国,OCC,,31,,米雷,,Europe/Paris,1
 2991164,zh-CN,EU,欧洲,FR,法国,OCC,,81,,韦布勒河畔米拉,,Europe/Paris,1
 2991187,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,曼特泽南,,Europe/Paris,1
@@ -31351,9 +31396,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2991583,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,莫蒂耶,,Europe/Paris,1
 2991606,zh-CN,EU,欧洲,FR,法国,GES,,67,,莫泰尔恩,,Europe/Paris,1
 2991623,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
+2991627,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 2991630,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 2991632,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
-2991688,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
+2991689,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 2991691,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
 2991692,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,莫尔托,,Europe/Paris,1
 2991695,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
@@ -31386,6 +31432,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2991870,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
 2991872,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 2991877,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,莫尔桑,,Europe/Paris,1
+2991879,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,,,Europe/Paris,1
 2991880,zh-CN,EU,欧洲,FR,法国,BFC,,39,汝拉省,,,Europe/Paris,1
 2991881,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2991891,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,,,Europe/Paris,1
@@ -31521,6 +31568,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2992862,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 2992863,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 2992870,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,蒙特卡雷,,Europe/Paris,1
+2992887,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 2992890,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,,,Europe/Paris,1
 2992905,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 2992908,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
@@ -31543,6 +31591,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2992991,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 2992995,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 2992996,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
+2992997,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 2992998,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,蒙托邦德布雷塔尼,,Europe/Paris,1
 2993002,zh-CN,EU,欧洲,FR,法国,OCC,,82,,蒙托邦,,Europe/Paris,1
 2993004,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,蒙塔泰尔,,Europe/Paris,1
@@ -31559,16 +31608,16 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2993103,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,蒙塔格里耶,,Europe/Paris,1
 2993116,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 2993117,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
-2993123,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
+2993124,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 2993144,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 2993147,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 2993160,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 2993166,zh-CN,EU,欧洲,FR,法国,OCC,,34,,蒙塔迪,,Europe/Paris,1
-2993189,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,,,Europe/Paris,1
 2993207,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 2993209,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 2993223,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
 2993228,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
+2993230,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 2993245,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
 2993248,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 2993250,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
@@ -31681,6 +31730,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2994094,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,梅克西米厄,,Europe/Paris,1
 2994096,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 2994109,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
+2994111,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 2994113,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 2994116,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,默尔萨克,,Europe/Paris,1
 2994126,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,卢瓦尔河畔默恩,,Europe/Paris,1
@@ -31733,7 +31783,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2994428,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
 2994446,zh-CN,EU,欧洲,FR,法国,OCC,,09,,,,Europe/Paris,1
 2994447,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
-2994448,zh-CN,EU,欧洲,FR,法国,ARA,,03,阿列省,,,Europe/Paris,1
+2994449,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 2994460,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,梅尔克圣利埃万,,Europe/Paris,1
 2994481,zh-CN,EU,欧洲,FR,法国,CVL,,41,卢瓦-谢尔省,,,Europe/Paris,1
 2994492,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,梅奥贝,,Europe/Paris,1
@@ -31779,6 +31829,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2994901,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,,,Europe/Paris,1
 2994902,zh-CN,EU,欧洲,FR,法国,OCC,,81,,马扎默,,Europe/Paris,1
 2994908,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
+2994932,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,,,Europe/Paris,1
 2994935,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,,,Europe/Paris,1
 2994951,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,马克塞维尔,,Europe/Paris,1
 2994952,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
@@ -31858,11 +31909,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2995561,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 2995563,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 2995571,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,于雷普瓦地区马罗勒,,Europe/Paris,1
-2995572,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
+2995573,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,,,Europe/Paris,1
 2995582,zh-CN,EU,欧洲,FR,法国,CVL,,41,卢瓦-谢尔省,,,Europe/Paris,1
 2995586,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,马勒伊,,Europe/Paris,1
 2995597,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,马尔纳拉科屈埃特,,Europe/Paris,1
 2995598,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
+2995603,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 2995606,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 2995607,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
 2995610,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
@@ -31886,7 +31938,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2995744,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 2995747,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
 2995750,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,马里尼昂,,Europe/Paris,1
-2995759,zh-CN,EU,欧洲,FR,法国,OCC,,82,,,,Europe/Paris,1
+2995760,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 2995762,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 2995769,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,,,Europe/Paris,1
 2995782,zh-CN,EU,欧洲,FR,法国,OCC,,30,,马尔盖里泰,,Europe/Paris,1
@@ -31950,6 +32002,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2996255,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,,,Europe/Paris,1
 2996263,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 2996264,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
+2996268,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,50,芒什省,,,Europe/Paris,1
 2996275,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 2996286,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,马米罗尔,,Europe/Paris,1
 2996288,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
@@ -31984,6 +32037,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2996655,zh-CN,EU,欧洲,FR,法国,NAQ,,23,,,,Europe/Paris,1
 2996657,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 2996660,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,曼村,,Europe/Paris,1
+2996663,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
 2996674,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 2996693,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,,,Europe/Paris,1
 2996727,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,迈克,,Europe/Paris,1
@@ -32017,7 +32071,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2996995,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,克瑟伊萊班,,Europe/Paris,1
 2997000,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,75,,圣叙尔比斯教堂,,Europe/Paris,1
 2997001,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,吕克塞,,Europe/Paris,1
-2997002,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 2997008,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 2997010,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,吕泰尔巴克,,Europe/Paris,1
 2997012,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
@@ -32051,6 +32104,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2997248,zh-CN,EU,欧洲,FR,法国,20R,,2B,上科西嘉,,,Europe/Paris,1
 2997262,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
 2997279,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,吕昂,,Europe/Paris,1
+2997288,zh-CN,EU,欧洲,FR,法国,OCC,,48,,,,Europe/Paris,1
 2997295,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 2997297,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,洛耶特,,Europe/Paris,1
 2997300,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,卢瓦阿,,Europe/Paris,1
@@ -32080,6 +32134,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2997465,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,卢代阿克,,Europe/Paris,1
 2997479,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 2997514,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,,,Europe/Paris,1
+2997523,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
+2997524,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 2997547,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,洛尔里,,Europe/Paris,1
 2997556,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,洛尔蒙,,Europe/Paris,1
 2997566,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,洛尔迈松,,Europe/Paris,1
@@ -32128,6 +32184,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 2997819,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 2997841,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 2997845,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
+2997861,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
+2997870,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,,,Europe/Paris,1
 2997889,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
 2997904,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 2997925,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,洛夫尔,,Europe/Paris,1
@@ -32354,6 +32412,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3001617,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,莱斯卡,,Europe/Paris,1
 3001626,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 3001698,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,莱斯布鲁齐尔,,Europe/Paris,1
+3001817,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,,,Europe/Paris,1
 3001822,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,,,Europe/Paris,1
 3001861,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,,,Europe/Paris,1
 3001899,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
@@ -32554,6 +32613,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3005269,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,93,塞纳-圣但尼省,勒布朗-梅尼尔,,Europe/Paris,1
 3005270,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,,,Europe/Paris,1
 3005277,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,勒比尼翁米拉博,,Europe/Paris,1
+3005278,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,,,Europe/Paris,1
 3005282,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,勒比尼翁,,Europe/Paris,1
 3005305,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,05,上阿尔卑斯省,勒贝尔萨克,,Europe/Paris,1
 3005326,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,勒博塞,,Europe/Paris,1
@@ -32574,7 +32634,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3005623,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,拉韦龙,,Europe/Paris,1
 3005632,zh-CN,EU,欧洲,FR,法国,OCC,,34,,拉韦兰,,Europe/Paris,1
 3005639,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
-3005640,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
 3005651,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,拉韦尔皮利埃,,Europe/Paris,1
 3005657,zh-CN,EU,欧洲,FR,法国,OCC,,31,,拉韦尔诺斯拉卡斯,,Europe/Paris,1
 3005673,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
@@ -32663,6 +32722,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3006767,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,永河畔拉罗什,,Europe/Paris,1
 3006770,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 3006775,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,拉罗舍波赛,,Europe/Paris,1
+3006784,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,,,Europe/Paris,1
 3006787,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,拉罗歇尔,,Europe/Paris,1
 3006793,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 3006798,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
@@ -32757,6 +32817,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3007854,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
 3007858,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,朗代旺,,Europe/Paris,1
 3007860,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
+3007866,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,,,Europe/Paris,1
 3007869,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
 3007870,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
 3007874,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,朗代尔诺,,Europe/Paris,1
@@ -32834,7 +32895,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3008719,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,朗克,,Europe/Paris,1
 3008725,zh-CN,EU,欧洲,FR,法国,OCC,,32,,,,Europe/Paris,1
 3008751,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
-3008756,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3008757,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3008809,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,拉艾埃富阿西埃,,Europe/Paris,1
 3008854,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
@@ -32998,6 +33058,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3011258,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 3011264,zh-CN,EU,欧洲,FR,法国,OCC,,82,,,,Europe/Paris,1
 3011268,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,拉巴斯蒂代代茹尔当,,Europe/Paris,1
+3011275,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 3011283,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 3011299,zh-CN,EU,欧洲,FR,法国,OCC,,65,,,,Europe/Paris,1
 3011307,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,拉巴塞,,Europe/Paris,1
@@ -33036,7 +33097,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3012066,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3012094,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 3012099,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
-3012106,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
+3012107,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 3012109,zh-CN,EU,欧洲,FR,法国,OCC,,65,,瑞伊朗,,Europe/Paris,1
 3012114,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 3012119,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
@@ -33132,6 +33193,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3012780,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,安格雷,,Europe/Paris,1
 3012788,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 3012790,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
+3012804,zh-CN,EU,欧洲,FR,法国,CVL,,37,安德尔-卢瓦尔省,,,Europe/Paris,1
 3012810,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 3012812,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,安希昂纳图瓦,,Europe/Paris,1
 3012813,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
@@ -33143,10 +33205,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3012834,zh-CN,EU,欧洲,FR,法国,GES,,67,,伊尔基尔克格拉方斯塔当,,Europe/Paris,1
 3012845,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
 3012848,zh-CN,EU,欧洲,FR,法国,OCC,,66,,泰河畔伊尔,,Europe/Paris,1
+3012849,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,,,Europe/Paris,1
 3012874,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,,,,,Europe/Paris,1
 3012885,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3012887,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,伊贡,,Europe/Paris,1
 3012889,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,,,Europe/Paris,1
+3012893,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 3012894,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
 3012903,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 3012905,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,伊方迪克,,Europe/Paris,1
@@ -33220,6 +33284,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3013365,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,埃丹,,Europe/Paris,1
 3013380,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 3013381,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
+3013386,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,埃尔利桑普雷科尔马,,Europe/Paris,1
 3013387,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
 3013402,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 3013403,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,埃鲁维尔圣克莱,,Europe/Paris,1
@@ -33242,6 +33307,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3013478,zh-CN,EU,欧洲,FR,法国,GES,,67,,埃尔比特赞,,Europe/Paris,1
 3013484,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,埃尔比尼亚克,,Europe/Paris,1
 3013496,zh-CN,EU,欧洲,FR,法国,CVL,,41,卢瓦-谢尔省,埃尔博尔,,Europe/Paris,1
+3013500,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3013504,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,昂维克,,Europe/Paris,1
 3013507,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,昂里维尔,,Europe/Paris,1
 3013514,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,,,Europe/Paris,1
@@ -33265,12 +33331,20 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3013627,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,艾昂格,,Europe/Paris,1
 3013644,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3013647,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
+3013657,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,,,Europe/Paris,1
+3013663,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
 3013681,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,欧蒙,,Europe/Paris,1
 3013701,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,伊于特,,Europe/Paris,1
 3013707,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,50,芒什省,奥特维尔拉吉沙尔,,Europe/Paris,1
 3013714,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
+3013719,zh-CN,EU,欧洲,FR,法国,NAQ,,87,,,,Europe/Paris,1
+3013736,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
+3013737,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 3013747,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,,,Europe/Paris,1
+3013757,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
+3013760,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 3013766,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,奥特古兰,,Europe/Paris,1
+3013767,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 3013845,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
 3013854,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,,,Europe/Paris,1
 3013855,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
@@ -33486,6 +33560,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3015926,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,吉索尔,,Europe/Paris,1
 3015937,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 3015945,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
+3015948,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 3015953,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 3015958,zh-CN,EU,欧洲,FR,法国,BFC,,90,贝尔福地区省,吉罗马尼,,Europe/Paris,1
 3015965,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
@@ -33501,7 +33576,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3016048,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3016070,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,吉尼亚克拉内尔特,,Europe/Paris,1
 3016071,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
-3016072,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,84,沃克吕兹省,,,Europe/Paris,1
 3016073,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3016076,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3016078,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,伊维特河畔吉夫,,Europe/Paris,1
@@ -33525,6 +33599,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3016177,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,热尔扎,,Europe/Paris,1
 3016191,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
 3016192,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
+3016194,zh-CN,EU,欧洲,FR,法国,OCC,,32,,,,Europe/Paris,1
 3016247,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 3016264,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,热尔贝维莱,,Europe/Paris,1
 3016274,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,热拉尔德梅,,Europe/Paris,1
@@ -33579,6 +33654,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3016637,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3016648,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,加尔东,,Europe/Paris,1
 3016667,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,,,Europe/Paris,1
+3016670,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
 3016675,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,加尔舍,,Europe/Paris,1
 3016702,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,05,上阿尔卑斯省,加普,,Europe/Paris,1
 3016711,zh-CN,EU,欧洲,FR,法国,ARA,,03,阿列省,,,Europe/Paris,1
@@ -33651,6 +33727,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3017236,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
 3017242,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,弗雷梅库尔,,Europe/Paris,1
 3017248,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,,,Europe/Paris,1
+3017252,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,05,上阿尔卑斯省,,,Europe/Paris,1
 3017253,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,弗雷瑞斯,,Europe/Paris,1
 3017256,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 3017262,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
@@ -33731,8 +33808,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3017946,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 3017967,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 3017971,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
-3017981,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
-3017982,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
+3017983,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3017994,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 3018001,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3018028,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
@@ -33771,7 +33847,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3018276,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,,,Europe/Paris,1
 3018279,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,弗勒里梅罗吉,,Europe/Paris,1
 3018280,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,弗勒里莱奥布赖,,Europe/Paris,1
-3018289,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
+3018291,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 3018296,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
 3018297,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 3018317,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
@@ -33791,6 +33867,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3018453,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,菲斯梅,,Europe/Paris,1
 3018455,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,菲尔米尼,,Europe/Paris,1
 3018456,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
+3018471,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,,,Europe/Paris,1
 3018481,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 3018489,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 3018506,zh-CN,EU,欧洲,FR,法国,OCC,,46,,菲雅克,,Europe/Paris,1
@@ -33885,6 +33962,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3019302,zh-CN,EU,欧洲,FR,法国,BFC,,39,汝拉省,,,Europe/Paris,1
 3019304,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
 3019308,zh-CN,EU,欧洲,FR,法国,GES,,55,默兹省,,,Europe/Paris,1
+3019317,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3019329,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3019331,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 3019335,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,埃蒂佩,,Europe/Paris,1
@@ -33903,7 +33981,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3019385,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3019402,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,埃蒂瓦克莱雷丰泰纳,,Europe/Paris,1
 3019406,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,埃蒂奥莱,,Europe/Paris,1
-3019416,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
+3019415,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 3019425,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
 3019433,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 3019434,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,埃托利耶尔,,Europe/Paris,1
@@ -33926,6 +34004,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3019572,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
 3019578,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,埃斯泰尔,,Europe/Paris,1
 3019584,zh-CN,EU,欧洲,FR,法国,OCC,,66,,埃斯塔热,,Europe/Paris,1
+3019599,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,,,Europe/Paris,1
 3019601,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
 3019604,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
 3019607,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,埃塞莱南西,,Europe/Paris,1
@@ -34090,6 +34169,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3020747,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
 3020758,zh-CN,EU,欧洲,FR,法国,NAQ,,87,,,,Europe/Paris,1
 3020770,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,德鲁埃特河畔德鲁埃,,Europe/Paris,1
+3020781,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 3020801,zh-CN,EU,欧洲,FR,法国,GES,,08,阿登省,,,Europe/Paris,1
 3020810,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,德勒,,Europe/Paris,1
 3020825,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
@@ -34120,12 +34200,14 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3020971,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3020980,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,杜希莱米讷,,Europe/Paris,1
 3020983,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,,,Europe/Paris,1
+3020989,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3020996,zh-CN,EU,欧洲,FR,法国,BRE,,29,菲尼斯泰尔省,杜阿尔纳纳,,Europe/Paris,1
 3020998,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3021000,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,杜埃,,Europe/Paris,1
 3021010,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
 3021034,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,多尔芒,,Europe/Paris,1
 3021035,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
+3021042,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,,,Europe/Paris,1
 3021045,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,多尔迪韦,,Europe/Paris,1
 3021049,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
 3021058,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,东齐,,Europe/Paris,1
@@ -34201,6 +34283,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3021484,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3021493,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3021498,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
+3021501,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
 3021516,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,德伊-拉巴尔,,Europe/Paris,1
 3021518,zh-CN,EU,欧洲,FR,法国,GES,,67,,代特维莱,,Europe/Paris,1
 3021524,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,代夫勒,,Europe/Paris,1
@@ -34422,7 +34505,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3023209,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,,,Europe/Paris,1
 3023214,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,库卢涅伊沙米耶尔,,Europe/Paris,1
 3023223,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
-3023229,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
+3023228,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 3023238,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
 3023240,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 3023252,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
@@ -34447,13 +34530,17 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3023404,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3023408,zh-CN,EU,欧洲,FR,法国,ARA,,42,卢瓦尔省,,,Europe/Paris,1
 3023410,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,科蒂尼亚,,Europe/Paris,1
+3023414,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,,,Europe/Paris,1
+3023423,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 3023466,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,科塞莱维维安,,Europe/Paris,1
 3023476,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,卢瓦尔河畔科斯内-库尔,,Europe/Paris,1
 3023503,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 3023506,zh-CN,EU,欧洲,FR,法国,20R,,2B,上科西嘉,,,Europe/Paris,1
 3023511,zh-CN,EU,欧洲,FR,法国,BRE,,22,阿摩尔滨海省,科尔瑟,,Europe/Paris,1
 3023512,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,科尔塞普,,Europe/Paris,1
+3023514,zh-CN,EU,欧洲,FR,法国,20R,,2A,南科西嘉,,,Europe/Paris,1
 3023519,zh-CN,EU,欧洲,FR,法国,20R,,,,,,Europe/Paris,1
+3023532,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,,,Europe/Paris,1
 3023534,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,,,Europe/Paris,1
 3023540,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 3023545,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,科尔普尼德,,Europe/Paris,1
@@ -34687,6 +34774,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3025466,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,50,芒什省,瑟堡-奥克特维尔,,Europe/Paris,1
 3025468,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
 3025478,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,谢拉克,,Europe/Paris,1
+3025480,zh-CN,EU,欧洲,FR,法国,CVL,,18,谢尔省,,,Europe/Paris,1
 3025484,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,谢普坦维尔,,Europe/Paris,1
 3025495,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 3025496,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
@@ -34810,6 +34898,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3026532,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 3026534,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 3026537,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
+3026567,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 3026568,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3026574,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
 3026588,zh-CN,EU,欧洲,FR,法国,GES,,88,孚日省,,,Europe/Paris,1
@@ -34825,6 +34914,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3026636,zh-CN,EU,欧洲,FR,法国,CVL,,18,谢尔省,,,Europe/Paris,1
 3026637,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,94,马恩河谷省,沙朗通勒蓬,,Europe/Paris,1
 3026641,zh-CN,EU,欧洲,FR,法国,CVL,,37,安德尔-卢瓦尔省,,,Europe/Paris,1
+3026644,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
+3026646,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 3026691,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,沙尔比伊,,Europe/Paris,1
 3026698,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,沙尔博尼埃莱瓦雷内,,Europe/Paris,1
 3026700,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
@@ -34884,8 +34975,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3027242,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 3027243,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,95,瓦兹河谷省,瓦兹河畔香槟,,Europe/Paris,1
 3027255,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
-3027259,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 3027260,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
+3027263,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,,,Europe/Paris,1
 3027275,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,尚帕尼亚克-德伯莱尔,,Europe/Paris,1
 3027278,zh-CN,EU,欧洲,FR,法国,ARA,,15,,,,Europe/Paris,1
 3027295,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
@@ -34918,7 +35009,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3027521,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,沙利尼,,Europe/Paris,1
 3027527,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3027531,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,卢万河畔沙莱特,,Europe/Paris,1
-3027550,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,,,Europe/Paris,1
 3027553,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,,,Europe/Paris,1
 3027557,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 3027562,zh-CN,EU,欧洲,FR,法国,GES,,08,阿登省,,,Europe/Paris,1
@@ -34952,7 +35042,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3027830,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 3027836,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,,,Europe/Paris,1
 3027847,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
-3027855,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 3027857,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,,,Europe/Paris,1
 3027866,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
 3027875,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,,,Europe/Paris,1
@@ -35093,6 +35182,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3028819,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,50,芒什省,卡尼西,,Europe/Paris,1
 3028824,zh-CN,EU,欧洲,FR,法国,CVL,,37,安德尔-卢瓦尔省,,,Europe/Paris,1
 3028825,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,卡内特蒙,,Europe/Paris,1
+3028830,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3028831,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
 3028832,zh-CN,EU,欧洲,FR,法国,OCC,,66,,鲁西隆地区卡内,,Europe/Paris,1
 3028838,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,卡内让,,Europe/Paris,1
@@ -35112,6 +35202,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3029012,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,卡米耶,,Europe/Paris,1
 3029030,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,康布雷,,Europe/Paris,1
 3029038,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
+3029039,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 3029041,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,康博莱班,,Europe/Paris,1
 3029044,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,康布拉内和梅纳克,,Europe/Paris,1
 3029046,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
@@ -35119,6 +35210,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3029075,zh-CN,EU,欧洲,FR,法国,OCC,,65,,,,Europe/Paris,1
 3029080,zh-CN,EU,欧洲,FR,法国,OCC,,30,,卡尔维松,,Europe/Paris,1
 3029090,zh-CN,EU,欧洲,FR,法国,20R,,2B,上科西嘉,卡尔维,,Europe/Paris,1
+3029094,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 3029096,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 3029102,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,卡隆热,,Europe/Paris,1
 3029108,zh-CN,EU,欧洲,FR,法国,OCC,,31,,,,Europe/Paris,1
@@ -35132,6 +35224,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3029171,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
 3029174,zh-CN,EU,欧洲,FR,法国,OCC,,30,,凯萨尔盖,,Europe/Paris,1
 3029178,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,凯龙,,Europe/Paris,1
+3029183,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3029185,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3029213,zh-CN,EU,欧洲,FR,法国,OCC,,46,,卡奥尔,,Europe/Paris,1
 3029223,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
@@ -35155,7 +35248,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3029306,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,,,Europe/Paris,1
 3029309,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,卡巴里奥,,Europe/Paris,1
 3029312,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,,,Europe/Paris,1
-3029317,zh-CN,EU,欧洲,FR,法国,OCC,,12,,,,Europe/Paris,1
+3029318,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 3029333,zh-CN,EU,欧洲,FR,法国,NAQ,,64,,,,Europe/Paris,1
 3029336,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3029338,zh-CN,EU,欧洲,FR,法国,OCC,,31,,塔尔恩河畔比泽,,Europe/Paris,1
@@ -35359,6 +35452,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3030953,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,布尔圣昂代奥,,Europe/Paris,1
 3030958,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,53,马耶讷省,布尔贡,,Europe/Paris,1
 3030960,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
+3030970,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,雷特地区布尔盖于,,Europe/Paris,1
 3030983,zh-CN,EU,欧洲,FR,法国,OCC,,66,,,,Europe/Paris,1
 3030985,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,布尔莱瓦朗克,,Europe/Paris,1
 3030990,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,皇后镇,,Europe/Paris,1
@@ -35517,7 +35611,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3032450,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 3032452,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,奥尔恩河畔布兰维尔,,Europe/Paris,1
 3032454,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
-3032456,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
 3032461,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,布兰库尔莱普雷西,,Europe/Paris,1
 3032462,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
 3032469,zh-CN,EU,欧洲,FR,法国,OCC,,31,,布拉尼亚克,,Europe/Paris,1
@@ -35615,6 +35708,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3033267,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
 3033268,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
 3033269,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
+3033291,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
 3033292,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 3033308,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 3033312,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,贝尔纳维尔,,Europe/Paris,1
@@ -35691,7 +35785,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3033971,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 3033975,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 3033988,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,,,Europe/Paris,1
-3033999,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 3034006,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,博韦,,Europe/Paris,1
 3034024,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,博蒂朗,,Europe/Paris,1
 3034038,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
@@ -35724,7 +35817,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3034238,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,滨海博略,,Europe/Paris,1
 3034240,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,莱翁河畔博利厄,,Europe/Paris,1
 3034246,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,博利厄莱丰泰内,,Europe/Paris,1
-3034261,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,博利厄,,Europe/Paris,1
 3034272,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 3034274,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3034287,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
@@ -35771,7 +35863,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3034538,zh-CN,EU,欧洲,FR,法国,BRE,,35,伊勒-维莱讷省,博隆,,Europe/Paris,1
 3034543,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,,,Europe/Paris,1
 3034554,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
-3034563,zh-CN,EU,欧洲,FR,法国,CVL,,45,卢瓦雷省,,,Europe/Paris,1
+3034562,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 3034571,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 3034582,zh-CN,EU,欧洲,FR,法国,BRE,,56,莫尔比昂省,,,Europe/Paris,1
 3034585,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,滨海巴特,,Europe/Paris,1
@@ -35787,6 +35879,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3034699,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,巴斯古兰,,Europe/Paris,1
 3034713,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
 3034714,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
+3034720,zh-CN,EU,欧洲,FR,法国,GES,,67,,,,Europe/Paris,1
 3034733,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 3034737,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 3034738,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,59,北部省,巴略,,Europe/Paris,1
@@ -35804,6 +35897,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3034915,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
 3034918,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,巴尔若尔,,Europe/Paris,1
 3034921,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
+3034922,zh-CN,EU,欧洲,FR,法国,OCC,,09,,,,Europe/Paris,1
 3034930,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,巴里耶,,Europe/Paris,1
 3034939,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,巴尔热蒙,,Europe/Paris,1
 3034950,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,50,芒什省,巴朗通,,Europe/Paris,1
@@ -35861,6 +35955,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3035396,zh-CN,EU,欧洲,FR,法国,OCC,,30,,塞兹河畔巴尔尼奥尔,,Europe/Paris,1
 3035398,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,福雷地区巴尼奥尔,,Europe/Paris,1
 3035400,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
+3035401,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
 3035403,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,93,塞纳-圣但尼省,巴尼奥雷,,Europe/Paris,1
 3035409,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,92,上塞纳省,,,Europe/Paris,1
 3035416,zh-CN,EU,欧洲,FR,法国,OCC,,31,,巴涅尔-德吕雄,,Europe/Paris,1
@@ -35886,6 +35981,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3035589,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
 3035594,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
 3035612,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
+3035613,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
 3035616,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,阿夫里尼,,Europe/Paris,1
 3035620,zh-CN,EU,欧洲,FR,法国,BFC,,70,上索恩省,,,Europe/Paris,1
 3035628,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
@@ -35977,6 +36073,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3036234,zh-CN,EU,欧洲,FR,法国,OCC,,09,,奥德雷桑,,Europe/Paris,1
 3036240,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,奥丹库尔,,Europe/Paris,1
 3036256,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,奥当格,,Europe/Paris,1
+3036264,zh-CN,EU,欧洲,FR,法国,OCC,,11,,,,Europe/Paris,1
 3036270,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
 3036278,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,欧谢勒,,Europe/Paris,1
 3036281,zh-CN,EU,欧洲,FR,法国,OCC,,32,,欧什,,Europe/Paris,1
@@ -36005,6 +36102,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3036402,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
 3036412,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 3036418,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,奥伯纳,,Europe/Paris,1
+3036420,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,,,Europe/Paris,1
 3036430,zh-CN,EU,欧洲,FR,法国,OCC,,30,,奥拜,,Europe/Paris,1
 3036433,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,13,罗讷河口省,欧巴涅,,Europe/Paris,1
 3036439,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
@@ -36080,6 +36178,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3036942,zh-CN,EU,欧洲,FR,法国,BFC,,39,汝拉省,阿尔莱,,Europe/Paris,1
 3036946,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,阿尔朗,,Europe/Paris,1
 3036955,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
+3036965,zh-CN,EU,欧洲,FR,法国,OCC,,09,,,,Europe/Paris,1
 3036987,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 3036992,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,,,Europe/Paris,1
 3037012,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
@@ -36235,6 +36334,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3037998,zh-CN,EU,欧洲,FR,法国,OCC,,46,,阿尔维尼亚克,,Europe/Paris,1
 3038012,zh-CN,EU,欧洲,FR,法国,GES,,68,上莱茵省,阿尔特基克,,Europe/Paris,1
 3038013,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,阿尔蒂拉克,,Europe/Paris,1
+3038049,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,06,滨海阿尔卑斯省,,,Europe/Paris,1
+3038050,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,04,上普罗旺斯阿尔卑斯省,,,Europe/Paris,1
 3038065,zh-CN,EU,欧洲,FR,法国,OCC,,81,,,,Europe/Paris,1
 3038073,zh-CN,EU,欧洲,FR,法国,CVL,,18,谢尔省,,,Europe/Paris,1
 3038075,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,阿卢涅,,Europe/Paris,1
@@ -36288,11 +36389,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3038363,zh-CN,EU,欧洲,FR,法国,GES,,54,默尔特-摩泽尔省,,,Europe/Paris,1
 3038368,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 3038371,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
+3038375,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,,,Europe/Paris,1
 3038381,zh-CN,EU,欧洲,FR,法国,BFC,,21,,,,Europe/Paris,1
 3038384,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
 3038393,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,利斯河畔艾尔,,Europe/Paris,1
 3038394,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,,,Europe/Paris,1
 3038400,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,艾赖讷,,Europe/Paris,1
+3038422,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 3038426,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 3038427,zh-CN,EU,欧洲,FR,法国,OCC,,30,,艾马尔格,,Europe/Paris,1
 3038428,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,索姆河畔阿伊,,Europe/Paris,1
@@ -36300,6 +36403,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3038442,zh-CN,EU,欧洲,FR,法国,GES,,10,奥布省,阿耶维尔,,Europe/Paris,1
 3038459,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,艾居伊纳,,Europe/Paris,1
 3038466,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
+3038488,zh-CN,EU,欧洲,FR,法国,OCC,,30,,,,Europe/Paris,1
 3038490,zh-CN,EU,欧洲,FR,法国,OCC,,11,,艾格维沃,,Europe/Paris,1
 3038493,zh-CN,EU,欧洲,FR,法国,OCC,,30,,艾格莫尔特,,Europe/Paris,1
 3038498,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
@@ -36341,7 +36445,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3038762,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,阿布兰泽韦尔,,Europe/Paris,1
 3038784,zh-CN,EU,欧洲,FR,法国,BFC,,25,杜省,,,Europe/Paris,1
 3038789,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,80,索姆省,阿布维尔,,Europe/Paris,1
-3038793,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,02,埃纳省,阿贝库尔,,Europe/Paris,1
+3038794,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 3038799,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,阿巴雷特,,Europe/Paris,1
 3039163,zh-CN,EU,欧洲,AD,安道尔,06,圣胡利娅-德洛里亚,,,圣胡利娅-德洛里亚,,Europe/Andorra,0
 3039181,zh-CN,EU,欧洲,AD,安道尔,07,,,,,,Europe/Andorra,0
@@ -36981,7 +37085,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3062432,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,201,,,,Europe/Prague,1
 3062434,zh-CN,EU,欧洲,CZ,捷克,71,,713,,,,Europe/Prague,1
 3062439,zh-CN,EU,欧洲,CZ,捷克,52,,525,,,,Europe/Prague,1
-3062486,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,202,,,,Europe/Prague,1
+3062487,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,201,,,,Europe/Prague,1
 3062497,zh-CN,EU,欧洲,CZ,捷克,80,,806,,,,Europe/Prague,1
 3062511,zh-CN,EU,欧洲,CZ,捷克,64,,643,,,,Europe/Prague,1
 3062533,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,20A,,,,Europe/Prague,1
@@ -37166,7 +37270,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3066659,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,20B,,,,Europe/Prague,1
 3066719,zh-CN,EU,欧洲,CZ,捷克,64,,646,,,,Europe/Prague,1
 3066727,zh-CN,EU,欧洲,CZ,捷克,42,,423,,,,Europe/Prague,1
-3066757,zh-CN,EU,欧洲,CZ,捷克,53,,531,,,,Europe/Prague,1
+3066756,zh-CN,EU,欧洲,CZ,捷克,53,,532,,,,Europe/Prague,1
 3066759,zh-CN,EU,欧洲,CZ,捷克,64,,643,,羅西采,,Europe/Prague,1
 3066786,zh-CN,EU,欧洲,CZ,捷克,71,,714,,,,Europe/Prague,1
 3066794,zh-CN,EU,欧洲,CZ,捷克,32,,326,,,,Europe/Prague,1
@@ -37269,6 +37373,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3069248,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,209,,,,Europe/Prague,1
 3069253,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,20A,,,,Europe/Prague,1
 3069290,zh-CN,EU,欧洲,CZ,捷克,71,,715,,,,Europe/Prague,1
+3069304,zh-CN,EU,欧洲,CZ,捷克,80,,804,,,,Europe/Prague,1
 3069305,zh-CN,EU,欧洲,CZ,捷克,80,,804,,,,Europe/Prague,1
 3069308,zh-CN,EU,欧洲,CZ,捷克,72,,723,,,,Europe/Prague,1
 3069377,zh-CN,EU,欧洲,CZ,捷克,52,,521,,新比焦夫,,Europe/Prague,1
@@ -37314,6 +37419,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3070339,zh-CN,EU,欧洲,CZ,捷克,80,,802,,,,Europe/Prague,1
 3070353,zh-CN,EU,欧洲,CZ,捷克,42,,427,,,,Europe/Prague,1
 3070356,zh-CN,EU,欧洲,CZ,捷克,64,,643,,,,Europe/Prague,1
+3070357,zh-CN,EU,欧洲,CZ,捷克,64,,645,,,,Europe/Prague,1
 3070363,zh-CN,EU,欧洲,CZ,捷克,53,,533,,,,Europe/Prague,1
 3070409,zh-CN,EU,欧洲,CZ,捷克,71,,715,,莫海爾尼采,,Europe/Prague,1
 3070416,zh-CN,EU,欧洲,CZ,捷克,64,,643,,莫德日采,,Europe/Prague,1
@@ -37333,6 +37439,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3070720,zh-CN,EU,欧洲,CZ,捷克,64,,644,,,,Europe/Prague,1
 3070724,zh-CN,EU,欧洲,CZ,捷克,64,,645,,,,Europe/Prague,1
 3070725,zh-CN,EU,欧洲,CZ,捷克,42,,421,,,,Europe/Prague,1
+3070774,zh-CN,EU,欧洲,CZ,捷克,52,,523,,,,Europe/Prague,1
 3070814,zh-CN,EU,欧洲,CZ,捷克,32,,325,,,,Europe/Prague,1
 3070819,zh-CN,EU,欧洲,CZ,捷克,80,,801,,,,Europe/Prague,1
 3070822,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,208,,,,Europe/Prague,1
@@ -37398,6 +37505,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3072463,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,205,,库特纳霍拉,,Europe/Prague,1
 3072476,zh-CN,EU,欧洲,CZ,捷克,64,,643,,,,Europe/Prague,1
 3072486,zh-CN,EU,欧洲,CZ,捷克,64,,641,,昆什塔特,,Europe/Prague,1
+3072496,zh-CN,EU,欧洲,CZ,捷克,72,,723,,,,Europe/Prague,1
 3072497,zh-CN,EU,欧洲,CZ,捷克,72,,722,,,,Europe/Prague,1
 3072557,zh-CN,EU,欧洲,CZ,捷克,72,,722,,,,Europe/Prague,1
 3072577,zh-CN,EU,欧洲,CZ,捷克,31,南波希米亚州,315,,,,Europe/Prague,1
@@ -37500,7 +37608,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3074967,zh-CN,EU,欧洲,CZ,捷克,52,,521,,赫拉德茨-克拉洛韦,,Europe/Prague,1
 3074975,zh-CN,EU,欧洲,CZ,捷克,80,,805,,,,Europe/Prague,1
 3074978,zh-CN,EU,欧洲,CZ,捷克,32,,324,,,,Europe/Prague,1
-3074989,zh-CN,EU,欧洲,CZ,捷克,71,,713,,,,Europe/Prague,1
+3074988,zh-CN,EU,欧洲,CZ,捷克,71,,714,,,,Europe/Prague,1
 3075012,zh-CN,EU,欧洲,CZ,捷克,71,,715,,,,Europe/Prague,1
 3075025,zh-CN,EU,欧洲,CZ,捷克,72,,723,,,,Europe/Prague,1
 3075037,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,205,,,,Europe/Prague,1
@@ -38656,6 +38764,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3105935,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,比拉德坎斯,,Europe/Madrid,1
 3105936,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3105957,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
+3105974,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,,,Europe/Madrid,1
 3105976,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3105994,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
 3106021,zh-CN,EU,欧洲,ES,西班牙,CT,,GI,,,,Europe/Madrid,1
@@ -38683,6 +38792,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3106515,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3106526,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3106664,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
+3106671,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,VA,,,,Europe/Madrid,1
 3106672,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,VA,,巴利亚多利德,,Europe/Madrid,1
 3106718,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,LE,,巴伦西亚德东胡安,,Europe/Madrid,1
 3106742,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
@@ -38743,6 +38853,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3108269,zh-CN,EU,欧洲,ES,西班牙,AR,,Z,,陶斯特,,Europe/Madrid,1
 3108285,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
 3108286,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
+3108287,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
 3108288,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
 3108308,zh-CN,EU,欧洲,ES,西班牙,AR,,Z,,塔拉索纳,,Europe/Madrid,1
 3108317,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CU,,塔兰孔,,Europe/Madrid,1
@@ -38775,6 +38886,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3109139,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SG,,,,Europe/Madrid,1
 3109143,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
 3109165,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
+3109254,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SG,,,,Europe/Madrid,1
 3109256,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SG,,塞哥维亚,,Europe/Madrid,1
 3109369,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,萨里亚,,Europe/Madrid,1
 3109380,zh-CN,EU,欧洲,ES,西班牙,AR,,HU,,,,Europe/Madrid,1
@@ -38797,6 +38909,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3109680,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3109689,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3109693,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
+3109716,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,S,,,,Europe/Madrid,1
 3109718,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,S,,桑坦德,,Europe/Madrid,1
 3109721,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SA,,,,Europe/Madrid,1
 3109764,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
@@ -38918,7 +39031,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3112154,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3112188,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,,,Europe/Madrid,1
 3112325,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,S,,拉马莱斯德拉维克托里亚,,Europe/Madrid,1
-3112388,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3112403,zh-CN,EU,欧洲,ES,西班牙,AR,,Z,,,,Europe/Madrid,1
 3112494,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,BU,,,,Europe/Madrid,1
 3112509,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,BU,,,,Europe/Madrid,1
@@ -38947,6 +39059,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3112989,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,波苏埃洛德亚拉尔孔,,Europe/Madrid,1
 3113082,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,波尔图加莱特,,Europe/Madrid,1
 3113157,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
+3113208,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3113209,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3113225,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
 3113231,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
@@ -38968,6 +39081,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3113577,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,S,,,,Europe/Madrid,1
 3113582,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
 3113596,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,AV,,,,Europe/Madrid,1
+3113646,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3113674,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,VA,,,,Europe/Madrid,1
 3113675,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,S,,,,Europe/Madrid,1
 3113738,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,OR,奥伦塞省,,,Europe/Madrid,1
@@ -39023,6 +39137,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3115162,zh-CN,EU,欧洲,ES,西班牙,NC,,NA,,奥利特,,Europe/Madrid,1
 3115171,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3115177,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,奥莱罗斯,,Europe/Madrid,1
+3115178,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3115252,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3115307,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,TO,,,,Europe/Madrid,1
 3115314,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,新巴斯坦,,Europe/Madrid,1
@@ -39047,6 +39162,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3115665,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
 3115696,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SG,,,,Europe/Madrid,1
 3115739,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,,,Europe/Madrid,1
+3115740,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3115780,zh-CN,EU,欧洲,ES,西班牙,RI,拉里奥哈,LO,,纳赫拉,,Europe/Madrid,1
 3115824,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,,,Europe/Madrid,1
 3115855,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,S,,,,Europe/Madrid,1
@@ -39056,6 +39172,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3116018,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,,,Europe/Madrid,1
 3116025,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,莫斯托莱斯,,Europe/Madrid,1
 3116057,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
+3116058,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,莫斯,,Europe/Madrid,1
 3116121,zh-CN,EU,欧洲,ES,西班牙,VC,,CS,卡斯特利翁,,,Europe/Madrid,1
 3116122,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
 3116138,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
@@ -39128,6 +39245,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3117735,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,马德里,,Europe/Madrid,1
 3117798,zh-CN,EU,欧洲,ES,西班牙,AR,,Z,,,,Europe/Madrid,1
 3117811,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
+3117813,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3117814,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3117862,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
 3117982,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
@@ -39195,6 +39313,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3119739,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
 3119746,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3119779,zh-CN,EU,欧洲,ES,西班牙,CT,,GI,,,,Europe/Madrid,1
+3119840,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,,,Europe/Madrid,1
 3119841,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,,,Europe/Madrid,1
 3119867,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
 3119889,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
@@ -39228,6 +39347,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3120485,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,,,Europe/Madrid,1
 3120501,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
 3120511,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,CU,,韦特,,Europe/Madrid,1
+3120513,zh-CN,EU,欧洲,ES,西班牙,AR,,HU,,,,Europe/Madrid,1
 3120514,zh-CN,EU,欧洲,ES,西班牙,AR,,HU,,韦斯卡,,Europe/Madrid,1
 3120567,zh-CN,EU,欧洲,ES,西班牙,NC,,NA,,,,Europe/Madrid,1
 3120603,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
@@ -39245,6 +39365,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3120874,zh-CN,EU,欧洲,ES,西班牙,RI,拉里奥哈,LO,,,,Europe/Madrid,1
 3120928,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3120929,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
+3120935,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,,,Europe/Madrid,1
 3120963,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SA,,吉胡埃洛,,Europe/Madrid,1
 3120989,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,,,Europe/Madrid,1
 3121007,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,,,Europe/Madrid,1
@@ -39348,7 +39469,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3123773,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,,,Europe/Madrid,1
 3123786,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,P,,杜埃尼亚斯,,Europe/Madrid,1
 3123801,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,多斯留斯,,Europe/Madrid,1
-3123871,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,,,Europe/Madrid,1
+3123872,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3123910,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,德瓦,,Europe/Madrid,1
 3123921,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,,,Europe/Madrid,1
 3123969,zh-CN,EU,欧洲,ES,西班牙,AR,,Z,,,,Europe/Madrid,1
@@ -39363,7 +39484,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3124200,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
 3124201,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3124215,zh-CN,EU,欧洲,ES,西班牙,AR,,Z,,,,Europe/Madrid,1
-3124287,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
 3124408,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,科斯拉达,,Europe/Madrid,1
 3124473,zh-CN,EU,欧洲,ES,西班牙,NC,,NA,,,,Europe/Madrid,1
 3124568,zh-CN,EU,欧洲,ES,西班牙,CT,,GI,,,,Europe/Madrid,1
@@ -39413,6 +39533,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3125523,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,,,Europe/Madrid,1
 3125526,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,塞埃,,Europe/Madrid,1
 3125537,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,C,,塞德拉,,Europe/Madrid,1
+3125538,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3125548,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,AV,,,,Europe/Madrid,1
 3125604,zh-CN,EU,欧洲,ES,西班牙,CT,,T,,,,Europe/Madrid,1
 3125616,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,LU,,,,Europe/Madrid,1
@@ -39548,6 +39669,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3128477,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
 3128640,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 3128651,zh-CN,EU,欧洲,ES,西班牙,EX,埃斯特雷马杜拉,CC,,,,Europe/Madrid,1
+3128759,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 3128760,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,巴塞罗那,,Europe/Madrid,1
 3128795,zh-CN,EU,欧洲,ES,西班牙,AR,,HU,,巴尔瓦斯特罗,,Europe/Madrid,1
 3128824,zh-CN,EU,欧洲,ES,西班牙,NC,,NA,,,,Europe/Madrid,1
@@ -40097,7 +40219,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3156804,zh-CN,EU,欧洲,NO,挪威,46,,,,,,Europe/Oslo,0
 3156829,zh-CN,EU,欧洲,NO,挪威,46,,,,,,Europe/Oslo,0
 3156860,zh-CN,EU,欧洲,NO,挪威,46,,,,,,Europe/Oslo,0
-3156881,zh-CN,EU,欧洲,NO,挪威,08,泰勒马克郡,,,,,Europe/Oslo,0
+3156879,zh-CN,EU,欧洲,NO,挪威,15,,,,,,Europe/Oslo,0
 3156900,zh-CN,EU,欧洲,NO,挪威,50,,,,,,Europe/Oslo,0
 3156978,zh-CN,EU,欧洲,NO,挪威,46,,,,,,Europe/Oslo,0
 3156980,zh-CN,EU,欧洲,NO,挪威,46,,,,,,Europe/Oslo,0
@@ -40306,6 +40428,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164402,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
 3164407,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 3164409,zh-CN,EU,欧洲,IT,意大利,75,普利亚,FG,,,,Europe/Rome,1
+3164418,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 3164419,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 3164422,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 3164433,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,LU,,,,Europe/Rome,1
@@ -40321,6 +40444,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164506,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 3164515,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,BI,,,,Europe/Rome,1
 3164523,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
+3164526,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 3164527,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,维罗纳,,Europe/Rome,1
 3164530,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
 3164531,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
@@ -40350,6 +40474,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3164672,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,CH,,,,Europe/Rome,1
 3164685,zh-CN,EU,欧洲,IT,意大利,25,,PV,,,,Europe/Rome,1
 3164691,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
+3164697,zh-CN,EU,欧洲,IT,意大利,25,,VA,,,,Europe/Rome,1
 3164699,zh-CN,EU,欧洲,IT,意大利,25,,VA,,,,Europe/Rome,1
 3164702,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
 3164709,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,SV,,,,Europe/Rome,1
@@ -40382,8 +40507,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165031,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 3165033,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
 3165035,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,PU,,,,Europe/Rome,1
-3165048,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,,,,,Europe/Rome,1
 3165052,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,PG,,,,Europe/Rome,1
+3165071,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
 3165072,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
 3165083,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,VT,,,,Europe/Rome,1
 3165094,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,,,Europe/Rome,1
@@ -40400,12 +40525,14 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165165,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,VC,,,,Europe/Rome,1
 3165166,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BT,,,,Europe/Rome,1
 3165178,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,,,Europe/Rome,1
+3165184,zh-CN,EU,欧洲,IT,意大利,36,,TS,,,,Europe/Rome,1
 3165185,zh-CN,EU,欧洲,IT,意大利,36,,TS,,的里雅斯特,,Europe/Rome,1
 3165189,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
 3165194,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3165197,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3165198,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3165199,zh-CN,EU,欧洲,IT,意大利,25,,MI,,特雷扎诺罗萨,,Europe/Rome,1
+3165200,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3165201,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3165205,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
 3165206,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
@@ -40414,6 +40541,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165210,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 3165222,zh-CN,EU,欧洲,IT,意大利,45,,FE,,,,Europe/Rome,1
 3165233,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
+3165241,zh-CN,EU,欧洲,IT,意大利,32,,TN,,,,Europe/Rome,1
 3165243,zh-CN,EU,欧洲,IT,意大利,32,,TN,,特伦托,,Europe/Rome,1
 3165244,zh-CN,EU,欧洲,IT,意大利,32,,,,,,Europe/Rome,1
 3165261,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
@@ -40455,6 +40583,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165498,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 3165507,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
 3165512,zh-CN,EU,欧洲,IT,意大利,25,,CR,,,,Europe/Rome,1
+3165523,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 3165524,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,都灵,,Europe/Rome,1
 3165530,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3165542,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
@@ -40504,6 +40633,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3165912,zh-CN,EU,欧洲,IT,意大利,36,,UD,,塔尔维肖,,Europe/Rome,1
 3165919,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,VT,,,,Europe/Rome,1
 3165923,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
+3165924,zh-CN,EU,欧洲,IT,意大利,75,普利亚,TA,,,,Europe/Rome,1
 3165926,zh-CN,EU,欧洲,IT,意大利,75,普利亚,TA,,,,Europe/Rome,1
 3165928,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,CN,,,,Europe/Rome,1
 3165959,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
@@ -40652,6 +40782,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3167053,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3167062,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
 3167085,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,BN,,,,Europe/Rome,1
+3167094,zh-CN,EU,欧洲,IT,意大利,88,,SS,,,,Europe/Rome,1
 3167096,zh-CN,EU,欧洲,IT,意大利,88,,SS,,,,Europe/Rome,1
 3167097,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 3167104,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,SP,,,,Europe/Rome,1
@@ -40700,7 +40831,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3167439,zh-CN,EU,欧洲,IT,意大利,25,,LO,,,,Europe/Rome,1
 3167450,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3167451,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,CE,,,,Europe/Rome,1
-3167481,zh-CN,EU,欧洲,IT,意大利,45,,FC,,,,Europe/Rome,1
 3167509,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 3167510,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,CE,,,,Europe/Rome,1
 3167520,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
@@ -40831,6 +40961,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3168658,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 3168660,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3168669,zh-CN,EU,欧洲,IT,意大利,36,,TS,,,,Europe/Rome,1
+3168670,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 3168673,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 3168676,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 3168687,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
@@ -40849,6 +40980,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3168827,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
 3168837,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3168839,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,罗沃隆,,Europe/Rome,1
+3168842,zh-CN,EU,欧洲,IT,意大利,34,威尼托,RO,,,,Europe/Rome,1
 3168843,zh-CN,EU,欧洲,IT,意大利,34,威尼托,RO,,,,Europe/Rome,1
 3168854,zh-CN,EU,欧洲,IT,意大利,32,,TN,,,,Europe/Rome,1
 3168858,zh-CN,EU,欧洲,IT,意大利,36,,PN,,,,Europe/Rome,1
@@ -40883,6 +41015,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3169059,zh-CN,EU,欧洲,IT,意大利,25,,CR,,罗马嫩戈,,Europe/Rome,1
 3169061,zh-CN,EU,欧洲,IT,意大利,88,,SS,,,,Europe/Rome,1
 3169064,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
+3169069,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
 3169070,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,罗马市,,Europe/Rome,1
 3169072,zh-CN,EU,欧洲,IT,意大利,45,,RE,,,,Europe/Rome,1
 3169093,zh-CN,EU,欧洲,IT,意大利,25,,MN,曼托瓦省,,,Europe/Rome,1
@@ -40918,6 +41051,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3169392,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 3169395,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
 3169409,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
+3169411,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RI,,,,Europe/Rome,1
 3169412,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RI,,,,Europe/Rome,1
 3169414,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3169424,zh-CN,EU,欧洲,IT,意大利,45,,RN,,里乔内,,Europe/Rome,1
@@ -40994,6 +41128,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3170017,zh-CN,EU,欧洲,IT,意大利,45,,RE,,,,Europe/Rome,1
 3170019,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 3170023,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
+3170025,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,PZ,,,,Europe/Rome,1
 3170027,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,PZ,,,,Europe/Rome,1
 3170040,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
 3170067,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,LI,,,,Europe/Rome,1
@@ -41071,6 +41206,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3170604,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3170621,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PT,,,,Europe/Rome,1
 3170622,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,MT,,,,Europe/Rome,1
+3170646,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PI,,,,Europe/Rome,1
 3170647,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PI,,比萨,,Europe/Rome,1
 3170655,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 3170657,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
@@ -41111,6 +41247,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3170988,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,PE,,,,Europe/Rome,1
 3171016,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,SI,,,,Europe/Rome,1
 3171017,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
+3171057,zh-CN,EU,欧洲,IT,意大利,45,,PC,,,,Europe/Rome,1
 3171058,zh-CN,EU,欧洲,IT,意大利,45,,PC,,皮亚琴察,,Europe/Rome,1
 3171095,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
 3171097,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,PG,,,,Europe/Rome,1
@@ -41121,9 +41258,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3171148,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PT,,,,Europe/Rome,1
 3171152,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 3171159,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,AQ,,,,Europe/Rome,1
+3171163,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,PE,,,,Europe/Rome,1
 3171168,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,PE,,,,Europe/Rome,1
 3171169,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
+3171172,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,PU,,,,Europe/Rome,1
 3171173,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,PU,,,,Europe/Rome,1
+3171179,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,PG,,,,Europe/Rome,1
 3171180,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,PG,,佩鲁贾,,Europe/Rome,1
 3171199,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,佩尔努米亚,,Europe/Rome,1
 3171205,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
@@ -41148,6 +41288,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3171418,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,PG,,,,Europe/Rome,1
 3171432,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
 3171449,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
+3171456,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
 3171457,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
 3171468,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,帕尔奇内斯,,Europe/Rome,1
 3171484,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
@@ -41175,6 +41316,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3171710,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3171718,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 3171721,zh-CN,EU,欧洲,IT,意大利,88,,SS,,,,Europe/Rome,1
+3171727,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
 3171728,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,帕多瓦,,Europe/Rome,1
 3171736,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
 3171737,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
@@ -41235,6 +41377,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3172116,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3172128,zh-CN,EU,欧洲,IT,意大利,34,威尼托,RO,,,,Europe/Rome,1
 3172133,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
+3172153,zh-CN,EU,欧洲,IT,意大利,88,,NU,,,,Europe/Rome,1
 3172154,zh-CN,EU,欧洲,IT,意大利,88,,NU,,,,Europe/Rome,1
 3172157,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,AN,,,,Europe/Rome,1
 3172168,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
@@ -41248,6 +41391,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3172177,zh-CN,EU,欧洲,IT,意大利,45,,RE,,,,Europe/Rome,1
 3172184,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3172187,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,MT,,,,Europe/Rome,1
+3172188,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
 3172189,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
 3172190,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,诺瓦波嫩泰,,Europe/Rome,1
 3172191,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
@@ -41279,6 +41423,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3172377,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,TR,,,,Europe/Rome,1
 3172379,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 3172380,zh-CN,EU,欧洲,IT,意大利,88,,OR,,,,Europe/Rome,1
+3172391,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 3172394,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,那不勒斯,,Europe/Rome,1
 3172400,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
 3172402,zh-CN,EU,欧洲,IT,意大利,32,,TN,,纳戈-托尔博莱,,Europe/Rome,1
@@ -41396,9 +41541,11 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173276,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
 3173287,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,,,Europe/Rome,1
 3173302,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,,,Europe/Rome,1
+3173311,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,BN,,,,Europe/Rome,1
 3173314,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3173315,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
 3173326,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,,,Europe/Rome,1
+3173330,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3173331,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3173350,zh-CN,EU,欧洲,IT,意大利,25,,LC,,,,Europe/Rome,1
 3173351,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
@@ -41416,6 +41563,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173405,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 3173407,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
 3173410,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,SV,,,,Europe/Rome,1
+3173434,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3173435,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3173454,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,CH,,,,Europe/Rome,1
 3173473,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
@@ -41451,6 +41599,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3173682,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 3173711,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 3173714,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
+3173718,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,MT,,,,Europe/Rome,1
 3173720,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,AP,,,,Europe/Rome,1
 3173721,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,MT,,,,Europe/Rome,1
 3173722,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
@@ -41508,6 +41657,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3174037,zh-CN,EU,欧洲,IT,意大利,88,,SS,,,,Europe/Rome,1
 3174039,zh-CN,EU,欧洲,IT,意大利,45,,RA,,,,Europe/Rome,1
 3174045,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
+3174050,zh-CN,EU,欧洲,IT,意大利,25,,MN,曼托瓦省,,,Europe/Rome,1
 3174051,zh-CN,EU,欧洲,IT,意大利,25,,MN,曼托瓦省,曼托瓦,,Europe/Rome,1
 3174056,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,PE,,,,Europe/Rome,1
 3174057,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
@@ -41551,6 +41701,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3174515,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 3174523,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PI,,,,Europe/Rome,1
 3174526,zh-CN,EU,欧洲,IT,意大利,75,普利亚,FG,,,,Europe/Rome,1
+3174529,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,LU,,,,Europe/Rome,1
 3174530,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,LU,,卢卡,,Europe/Rome,1
 3174536,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,VC,,,,Europe/Rome,1
 3174557,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
@@ -41604,6 +41755,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3174921,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3174922,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 3174945,zh-CN,EU,欧洲,IT,意大利,25,,LC,,,,Europe/Rome,1
+3174952,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 3174953,zh-CN,EU,欧洲,IT,意大利,75,普利亚,LE,,,,Europe/Rome,1
 3174975,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 3174976,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,,,,,Europe/Rome,1
@@ -41614,6 +41766,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3175030,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3175038,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,劳雷尼奥,,Europe/Rome,1
 3175055,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
+3175057,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,LT,,,,Europe/Rome,1
 3175058,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,LT,,,,Europe/Rome,1
 3175061,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BR,,,,Europe/Rome,1
 3175064,zh-CN,EU,欧洲,IT,意大利,75,普利亚,TA,,,,Europe/Rome,1
@@ -41623,7 +41776,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3175105,zh-CN,EU,欧洲,IT,意大利,67,莫利塞,CB,,拉里诺,,Europe/Rome,1
 3175108,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PI,,,,Europe/Rome,1
 3175113,zh-CN,EU,欧洲,IT,意大利,25,,PV,,,,Europe/Rome,1
-3175117,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 3175121,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,AQ,,,,Europe/Rome,1
 3175128,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3175156,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
@@ -41692,6 +41844,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3175772,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3175773,zh-CN,EU,欧洲,IT,意大利,75,普利亚,TA,,,,Europe/Rome,1
 3175775,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
+3175784,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,GR,,,,Europe/Rome,1
 3175786,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,GR,,,,Europe/Rome,1
 3175812,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,IM,,,,Europe/Rome,1
 3175818,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
@@ -41779,7 +41932,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3176504,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 3176510,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,AL,,,,Europe/Rome,1
 3176515,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,FR,,,,Europe/Rome,1
-3176525,zh-CN,EU,欧洲,IT,意大利,36,,,,,,Europe/Rome,1
 3176533,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3176560,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 3176561,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
@@ -41807,6 +41959,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3176734,zh-CN,EU,欧洲,IT,意大利,25,,CR,,,,Europe/Rome,1
 3176738,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,LT,,,,Europe/Rome,1
 3176739,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
+3176745,zh-CN,EU,欧洲,IT,意大利,45,,FC,,,,Europe/Rome,1
 3176746,zh-CN,EU,欧洲,IT,意大利,45,,FC,,,,Europe/Rome,1
 3176748,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 3176780,zh-CN,EU,欧洲,IT,意大利,55,翁布里亚,PG,,,,Europe/Rome,1
@@ -41832,6 +41985,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3176923,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
 3176946,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,FR,,,,Europe/Rome,1
 3176949,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
+3176958,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 3176959,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,佛罗伦萨,,Europe/Rome,1
 3176964,zh-CN,EU,欧洲,IT,意大利,45,,PC,,,,Europe/Rome,1
 3176966,zh-CN,EU,欧洲,SM,圣马力诺,05,菲奥伦蒂诺,,,菲奥伦蒂诺,,Europe/San_Marino,0
@@ -41886,7 +42040,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177372,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 3177400,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 3177401,zh-CN,EU,欧洲,IT,意大利,45,,,,,,Europe/Rome,1
-3177424,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,TE,,,,Europe/Rome,1
+3177419,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,PE,,,,Europe/Rome,1
 3177431,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
 3177438,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 3177450,zh-CN,EU,欧洲,IT,意大利,36,,TS,,,,Europe/Rome,1
@@ -41929,6 +42083,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177692,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,CH,,,,Europe/Rome,1
 3177695,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 3177698,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,AT,,,,Europe/Rome,1
+3177699,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,CN,,,,Europe/Rome,1
 3177700,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,CN,,,,Europe/Rome,1
 3177720,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3177726,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
@@ -41938,6 +42093,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3177822,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,NO,,,,Europe/Rome,1
 3177827,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
 3177833,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,VC,,,,Europe/Rome,1
+3177837,zh-CN,EU,欧洲,IT,意大利,25,,CR,,,,Europe/Rome,1
 3177838,zh-CN,EU,欧洲,IT,意大利,25,,CR,,克雷莫納,,Europe/Rome,1
 3177841,zh-CN,EU,欧洲,IT,意大利,25,,CR,,,,Europe/Rome,1
 3177845,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
@@ -41987,6 +42143,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3178202,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3178218,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 3178221,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,AP,,,,Europe/Rome,1
+3178227,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 3178229,zh-CN,EU,欧洲,IT,意大利,25,,CO,,科莫,,Europe/Rome,1
 3178237,zh-CN,EU,欧洲,IT,意大利,25,,VA,,科梅廖,,Europe/Rome,1
 3178245,zh-CN,EU,欧洲,IT,意大利,45,,FE,,科马基奥,,Europe/Rome,1
@@ -42045,6 +42202,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3178766,zh-CN,EU,欧洲,IT,意大利,25,,SO,,,,Europe/Rome,1
 3178767,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 3178784,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VE,,,,Europe/Rome,1
+3178795,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,CH,,,,Europe/Rome,1
 3178796,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,CH,,,,Europe/Rome,1
 3178801,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PT,,,,Europe/Rome,1
 3178808,zh-CN,EU,欧洲,IT,意大利,25,,SO,,基耶萨伊恩瓦尔马伦科,,Europe/Rome,1
@@ -42198,6 +42356,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3179835,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 3179836,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3179837,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
+3179865,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,CE,,,,Europe/Rome,1
 3179866,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,CE,,,,Europe/Rome,1
 3179911,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 3179912,zh-CN,EU,欧洲,IT,意大利,25,,LO,,,,Europe/Rome,1
@@ -42382,12 +42541,14 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181504,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
 3181507,zh-CN,EU,欧洲,IT,意大利,25,,PV,,,,Europe/Rome,1
 3181521,zh-CN,EU,欧洲,IT,意大利,45,,RA,,,,Europe/Rome,1
+3181526,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BR,,,,Europe/Rome,1
 3181528,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BR,,,,Europe/Rome,1
 3181532,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 3181548,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3181549,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 3181550,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
 3181551,zh-CN,EU,欧洲,IT,意大利,25,,PV,,,,Europe/Rome,1
+3181553,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
 3181554,zh-CN,EU,欧洲,IT,意大利,25,,BS,,布雷西亚,,Europe/Rome,1
 3181555,zh-CN,EU,欧洲,IT,意大利,45,,RE,,,,Europe/Rome,1
 3181559,zh-CN,EU,欧洲,IT,意大利,32,,TN,,,,Europe/Rome,1
@@ -42440,6 +42601,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3181903,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3181910,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 3181913,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,波尔查诺,,Europe/Rome,1
+3181927,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
 3181928,zh-CN,EU,欧洲,IT,意大利,45,,BO,,博洛尼亚,,Europe/Rome,1
 3181931,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 3181934,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,SP,,,,Europe/Rome,1
@@ -42476,6 +42638,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3182151,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 3182153,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,MT,,,,Europe/Rome,1
 3182154,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
+3182163,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 3182164,zh-CN,EU,欧洲,IT,意大利,25,,BG,,贝尔加莫,,Europe/Rome,1
 3182167,zh-CN,EU,欧洲,IT,意大利,25,,PV,,,,Europe/Rome,1
 3182170,zh-CN,EU,欧洲,IT,意大利,88,,SS,,,,Europe/Rome,1
@@ -42509,6 +42672,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3182341,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
 3182343,zh-CN,EU,欧洲,IT,意大利,77,巴斯利卡塔,PZ,,,,Europe/Rome,1
 3182348,zh-CN,EU,欧洲,IT,意大利,45,,BO,,巴里切拉,,Europe/Rome,1
+3182350,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,,,Europe/Rome,1
 3182351,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BA,,巴里,,Europe/Rome,1
 3182355,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
 3182356,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,CN,,,,Europe/Rome,1
@@ -42619,6 +42783,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3183072,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BT,,,,Europe/Rome,1
 3183073,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,AV,,,,Europe/Rome,1
 3183078,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,BI,,,,Europe/Rome,1
+3183087,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,AN,,,,Europe/Rome,1
 3183089,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,AN,,安科纳,,Europe/Rome,1
 3183098,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,FR,,,,Europe/Rome,1
 3183099,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
@@ -42769,6 +42934,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3188532,zh-CN,EU,欧洲,BA,波黑,SRP,,,,,,Europe/Sarajevo,0
 3188582,zh-CN,EU,欧洲,BA,波黑,BIH,,,,图兹拉,,Europe/Sarajevo,0
 3188606,zh-CN,EU,欧洲,SI,斯洛文尼亚,132,,,,,,Europe/Ljubljana,1
+3188622,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,06,,,,Europe/Belgrade,0
 3188668,zh-CN,EU,欧洲,HR,克罗地亚,02,,,,,,Europe/Zagreb,1
 3188684,zh-CN,EU,欧洲,SI,斯洛文尼亚,186,,,,,,Europe/Ljubljana,1
 3188688,zh-CN,EU,欧洲,SI,斯洛文尼亚,131,,,,,,Europe/Ljubljana,1
@@ -42790,6 +42956,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3189146,zh-CN,EU,欧洲,BA,波黑,BIH,,,,泰沙尼,,Europe/Sarajevo,0
 3189166,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,06,,泰梅林,,Europe/Belgrade,0
 3189227,zh-CN,EU,欧洲,SI,斯洛文尼亚,184,,,,,,Europe/Ljubljana,1
+3189254,zh-CN,EU,欧洲,RS,塞尔维亚,08,,,,,,Europe/Belgrade,0
 3189465,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,06,,,,Europe/Belgrade,0
 3189492,zh-CN,EU,欧洲,HR,克罗地亚,17,,,,,,Europe/Zagreb,1
 3189595,zh-CN,EU,欧洲,RS,塞尔维亚,VO,伏伊伏丁那,01,,,,Europe/Belgrade,0
@@ -43037,6 +43204,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3198214,zh-CN,EU,欧洲,HR,克罗地亚,17,,,,,,Europe/Zagreb,1
 3198227,zh-CN,EU,欧洲,HR,克罗地亚,08,,,,卡斯塔夫,,Europe/Zagreb,1
 3198365,zh-CN,EU,欧洲,SI,斯洛文尼亚,043,,,,卡姆尼克,,Europe/Ljubljana,1
+3198410,zh-CN,EU,欧洲,RS,塞尔维亚,09,,,,,,Europe/Belgrade,0
 3198459,zh-CN,EU,欧洲,BA,波黑,BIH,,,,,,Europe/Sarajevo,0
 3198490,zh-CN,EU,欧洲,BA,波黑,BIH,,,,卡卡尼,,Europe/Sarajevo,0
 3198531,zh-CN,EU,欧洲,SI,斯洛文尼亚,042,,,,,,Europe/Ljubljana,1
@@ -43113,6 +43281,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3202326,zh-CN,EU,欧洲,HR,克罗地亚,,,,,,,Europe/Zagreb,1
 3202333,zh-CN,EU,欧洲,SI,斯洛文尼亚,017,奇尔诺梅利市镇,,,,,Europe/Ljubljana,1
 3202467,zh-CN,EU,欧洲,ME,黑山,15,,,,,,Europe/Podgorica,0
+3202477,zh-CN,EU,欧洲,RS,塞尔维亚,08,,,,,,Europe/Belgrade,0
 3202507,zh-CN,EU,欧洲,HR,克罗地亚,08,,,,茨里克韋尼察,,Europe/Zagreb,1
 3202524,zh-CN,EU,欧洲,SI,斯洛文尼亚,015,,,,,,Europe/Ljubljana,1
 3202535,zh-CN,EU,欧洲,HR,克罗地亚,03,,,,,,Europe/Zagreb,1
@@ -43356,6 +43525,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3219079,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3219085,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
 3219101,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VE,,,,Europe/Rome,1
+3219111,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VE,,,,Europe/Rome,1
 3219114,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VE,,,,Europe/Rome,1
 3219303,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
 3219973,zh-CN,EU,欧洲,IT,意大利,36,,UD,,,,Europe/Rome,1
@@ -43555,7 +43725,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3336895,zh-CN,EU,欧洲,DE,德国,HE,黑森州,,,考丰根,,Europe/Berlin,1
 3336898,zh-CN,EU,欧洲,ES,西班牙,CB,坎塔布里亚,,,,,Europe/Madrid,1
 3336899,zh-CN,EU,欧洲,ES,西班牙,AR,,,,,,Europe/Madrid,1
-3336900,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,,,,,Europe/Madrid,1
 3336901,zh-CN,EU,欧洲,ES,西班牙,CT,,,,,,Europe/Madrid,1
 3336902,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,,,,,Europe/Madrid,1
 3336903,zh-CN,EU,欧洲,ES,西班牙,PV,,,,,,Europe/Madrid,1
@@ -43583,7 +43752,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3339120,zh-CN,EU,欧洲,SI,斯洛文尼亚,144,兹雷切市镇,,,,,Europe/Ljubljana,1
 3339128,zh-CN,EU,欧洲,SI,斯洛文尼亚,178,,,,,,Europe/Ljubljana,1
 3339537,zh-CN,EU,欧洲,CZ,捷克,31,南波希米亚州,,,,,Europe/Prague,1
-3339573,zh-CN,EU,欧洲,CZ,捷克,80,,,,,,Europe/Prague,1
 3339576,zh-CN,EU,欧洲,CZ,捷克,20,中波希米亚州,,,,,Europe/Prague,1
 3343505,zh-CN,EU,欧洲,SI,斯洛文尼亚,050,科佩尔,,,,,Europe/Ljubljana,1
 3343512,zh-CN,EU,欧洲,SI,斯洛文尼亚,090,,,,,,Europe/Ljubljana,1
@@ -43801,14 +43969,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3384987,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3385022,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
 3385049,zh-CN,SA,南美洲,BR,巴西,AP,,,,,,America/Belem,0
-3385077,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 3385088,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
 3385106,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3385109,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,维索萨,,America/Maceio,0
 3385110,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
 3385118,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3385122,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
-3385209,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3385230,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3385469,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3385504,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
@@ -43913,7 +44079,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3388267,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3388269,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3388270,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
-3388272,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 3388301,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,圣米格尔,,America/Fortaleza,0
 3388307,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
 3388318,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
@@ -43956,7 +44121,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3388892,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
 3388925,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3388926,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
-3388931,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3388949,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
 3388955,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3388991,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
@@ -43976,7 +44140,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3389361,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3389381,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
 3389384,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
-3389386,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3389445,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
 3389459,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
 3389462,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Bahia,0
@@ -44280,7 +44443,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3397544,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3397546,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3397560,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
-3397562,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
 3397577,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3397629,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3397647,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
@@ -44448,7 +44610,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3401845,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
 3401876,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 3401963,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
-3401980,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3401992,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
 3402000,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
 3402043,zh-CN,SA,南美洲,BR,巴西,PI,,,,,,America/Fortaleza,0
@@ -44607,7 +44768,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3407003,zh-CN,SA,南美洲,BR,巴西,PI,,,,,,America/Fortaleza,0
 3407010,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3407091,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
-3407128,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3407194,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
 3407210,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 3407216,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
@@ -44642,7 +44802,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3407693,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3407703,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3407755,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
-3407756,zh-CN,SA,南美洲,BR,巴西,PI,,,,,,America/Fortaleza,0
 3407758,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3407762,zh-CN,SA,南美洲,BR,巴西,AP,,,,,,America/Belem,0
 3407787,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
@@ -44663,7 +44822,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3408094,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 3408096,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3408097,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
-3408100,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 3408132,zh-CN,SA,南美洲,BR,巴西,CE,,,,,,America/Fortaleza,0
 3408166,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
 3408175,zh-CN,SA,南美洲,BR,巴西,PE,伯南布哥州,,,,,America/Recife,0
@@ -45606,7 +45764,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3449319,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 3449324,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 3449333,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
-3449339,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3449340,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 3449344,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 3449350,zh-CN,SA,南美洲,BR,巴西,SC,圣卡塔琳娜州,,,,,America/Sao_Paulo,0
@@ -45636,6 +45793,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3449747,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 3449749,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
 3449764,zh-CN,SA,南美洲,BR,巴西,BA,,,,,,America/Bahia,0
+3449765,zh-CN,SA,南美洲,BR,巴西,BA,,,,,,America/Bahia,0
 3449767,zh-CN,SA,南美洲,BR,巴西,MT,马托格罗索州,,,,,America/Cuiaba,0
 3449775,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 3449777,zh-CN,SA,南美洲,BR,巴西,PR,巴拉那州,,,,,America/Sao_Paulo,0
@@ -45732,6 +45890,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3450846,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 3450873,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 3450876,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
+3450879,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
 3450909,zh-CN,SA,南美洲,BR,巴西,MT,马托格罗索州,,,,,America/Cuiaba,0
 3450912,zh-CN,SA,南美洲,BR,巴西,PR,巴拉那州,,,,,America/Sao_Paulo,0
 3450917,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
@@ -46476,6 +46635,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3459909,zh-CN,SA,南美洲,BR,巴西,ES,,,,,,America/Sao_Paulo,0
 3459922,zh-CN,SA,南美洲,BR,巴西,BA,,,,,,America/Bahia,0
 3459925,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,热基蒂尼奥尼亚,,America/Sao_Paulo,0
+3459933,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
 3459940,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
 3459943,zh-CN,SA,南美洲,BR,巴西,BA,,,,热基耶,,America/Bahia,0
 3459944,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
@@ -46698,7 +46858,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3461469,zh-CN,SA,南美洲,BR,巴西,BA,,,,,,America/Bahia,0
 3461477,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 3461481,zh-CN,SA,南美洲,BR,巴西,RS,,,,伊格雷日尼亚,,America/Sao_Paulo,0
-3461484,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3461488,zh-CN,SA,南美洲,BR,巴西,BA,,,,,,America/Bahia,0
 3461495,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 3461498,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
@@ -46870,7 +47029,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3463376,zh-CN,SA,南美洲,BR,巴西,PR,巴拉那州,,,,,America/Sao_Paulo,0
 3463422,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 3463432,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
-3463446,zh-CN,SA,南美洲,BR,巴西,AL,阿拉戈斯州,,,,,America/Maceio,0
 3463447,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
 3463449,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 3463450,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
@@ -47806,6 +47964,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3508222,zh-CN,NA,北美洲,DO,多米尼加,13,,,,,,America/Santo_Domingo,0
 3508590,zh-CN,NA,北美洲,DO,多米尼加,13,,,,,,America/Santo_Domingo,0
 3508694,zh-CN,NA,北美洲,DO,多米尼加,10,,,,,,America/Santo_Domingo,0
+3508718,zh-CN,NA,北美洲,DO,多米尼加,06,杜阿尔特省,,,,,America/Santo_Domingo,0
 3508796,zh-CN,NA,北美洲,DO,多米尼加,,,,,,,America/Santo_Domingo,0
 3508951,zh-CN,NA,北美洲,DO,多米尼加,05,,,,,,America/Santo_Domingo,0
 3508952,zh-CN,NA,北美洲,DO,多米尼加,05,,,,,,America/Santo_Domingo,0
@@ -48283,6 +48442,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3532565,zh-CN,NA,北美洲,MX,墨西哥,VER,,,,,,America/Mexico_City,0
 3532569,zh-CN,NA,北美洲,MX,墨西哥,PUE,普埃布拉州,,,,,America/Mexico_City,0
 3532576,zh-CN,NA,北美洲,MX,墨西哥,HID,,,,,,America/Mexico_City,0
+3532577,zh-CN,NA,北美洲,MX,墨西哥,HID,,,,,,America/Mexico_City,0
 3532592,zh-CN,NA,北美洲,MX,墨西哥,PUE,普埃布拉州,,,阿特利斯科,,America/Mexico_City,0
 3532601,zh-CN,NA,北美洲,MX,墨西哥,MEX,墨西哥州,,,,,America/Mexico_City,0
 3532603,zh-CN,NA,北美洲,MX,墨西哥,MOR,莫雷洛斯州,,,,,America/Mexico_City,0
@@ -49357,7 +49517,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 3669346,zh-CN,SA,南美洲,CO,哥伦比亚,SUC,苏克雷省,,,,,America/Bogota,0
 3669382,zh-CN,SA,南美洲,CO,哥伦比亚,SAN,桑坦德省,,,,,America/Bogota,0
 3669383,zh-CN,SA,南美洲,CO,哥伦比亚,ANT,安蒂奥基亚省,,,,,America/Bogota,0
-3669469,zh-CN,SA,南美洲,CO,哥伦比亚,LAG,瓜希拉省,,,,,America/Bogota,0
 3669623,zh-CN,SA,南美洲,CO,哥伦比亚,CAL,卡尔达斯省,,,,,America/Bogota,0
 3669736,zh-CN,SA,南美洲,CO,哥伦比亚,BOL,,,,,,America/Bogota,0
 3669767,zh-CN,SA,南美洲,CO,哥伦比亚,VAC,考卡山谷省,,,,,America/Bogota,0
@@ -51253,7 +51412,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4011119,zh-CN,NA,北美洲,MX,墨西哥,JAL,哈利斯科州,,,,,America/Mexico_City,0
 4011122,zh-CN,NA,北美洲,MX,墨西哥,SIN,锡那罗亚州,,,,,America/Mazatlan,0
 4011493,zh-CN,NA,北美洲,MX,墨西哥,BCN,,,,,,America/Tijuana,0
-4011741,zh-CN,NA,北美洲,MX,墨西哥,DUR,,,,,,America/Monterrey,0
 4011743,zh-CN,NA,北美洲,MX,墨西哥,DUR,,,,杜兰戈,,America/Monterrey,0
 4012045,zh-CN,NA,北美洲,MX,墨西哥,JAL,哈利斯科州,,,,,America/Mexico_City,0
 4012121,zh-CN,NA,北美洲,MX,墨西哥,JAL,哈利斯科州,,,,,America/Mexico_City,0
@@ -55089,6 +55247,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4405358,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,619,America/Chicago,0
 4405418,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,604,America/Chicago,0
 4405434,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,619,America/Chicago,0
+4405487,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,604,America/Chicago,0
 4405516,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,616,America/Chicago,0
 4405558,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,619,America/Chicago,0
 4405588,zh-CN,NA,北美洲,US,美国,MO,密苏里州,,,,616,America/Chicago,0
@@ -56647,6 +56806,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4558668,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,566,America/New_York,0
 4558752,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,574,America/New_York,0
 4558838,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,566,America/New_York,0
+4558843,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,508,America/New_York,0
 4558942,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,504,America/New_York,0
 4558986,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,566,America/New_York,0
 4559070,zh-CN,NA,北美洲,US,美国,PA,宾夕法尼亚州,,,,504,America/New_York,0
@@ -56865,7 +57025,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4577570,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,519,America/New_York,0
 4577612,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,570,America/New_York,0
 4577653,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,546,America/New_York,0
-4577686,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,546,America/New_York,0
 4577727,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,546,America/New_York,0
 4577825,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,567,America/New_York,0
 4577897,zh-CN,NA,北美洲,US,美国,SC,南卡罗来纳州,,,,507,America/New_York,0
@@ -58733,6 +58892,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 4798572,zh-CN,NA,北美洲,US,美国,WV,,,,,597,America/New_York,0
 4798588,zh-CN,NA,北美洲,US,美国,WV,,,,伯蒙特,597,America/New_York,0
 4798597,zh-CN,NA,北美洲,US,美国,WV,,,,,559,America/New_York,0
+4798663,zh-CN,NA,北美洲,US,美国,WV,,,,,554,America/New_York,0
 4798697,zh-CN,NA,北美洲,US,美国,WV,,,,,511,America/New_York,0
 4799268,zh-CN,NA,北美洲,US,美国,WV,,,,,564,America/New_York,0
 4799335,zh-CN,NA,北美洲,US,美国,WV,,,,,564,America/New_York,0
@@ -70005,6 +70165,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 5916567,zh-CN,NA,北美洲,CA,加拿大,ON,安大略,,,,,America/Toronto,0
 5916711,zh-CN,NA,北美洲,CA,加拿大,AB,艾伯塔,,,,,America/Edmonton,0
 5916722,zh-CN,NA,北美洲,CA,加拿大,NL,,,,,,America/St_Johns,0
+5916776,zh-CN,NA,北美洲,CA,加拿大,PE,,,,,,America/Halifax,0
 5916786,zh-CN,NA,北美洲,CA,加拿大,ON,安大略,,,,,America/Toronto,0
 5916821,zh-CN,NA,北美洲,CA,加拿大,AB,艾伯塔,,,,,America/Edmonton,0
 5916883,zh-CN,NA,北美洲,CA,加拿大,ON,安大略,,,,,America/Toronto,0
@@ -72305,6 +72466,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6355199,zh-CN,EU,欧洲,NO,挪威,34,,,,,,Europe/Oslo,0
 6355214,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,,,Atlantic/Canary,1
 6355222,zh-CN,OC,大洋洲,AU,澳大利亚,NT,,,,,,Australia/Darwin,0
+6355230,zh-CN,EU,欧洲,ES,西班牙,CT,,GI,,,,Europe/Madrid,1
+6355231,zh-CN,EU,欧洲,ES,西班牙,CT,,L,,,,Europe/Madrid,1
+6355233,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
+6355234,zh-CN,EU,欧洲,ES,西班牙,MC,穆尔西亚自治区,MU,,,,Europe/Madrid,1
 6355236,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
 6355256,zh-CN,EU,欧洲,ES,西班牙,PV,,VI,,西戈伊蒂亚,,Europe/Madrid,1
 6355316,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,AB,,,,Europe/Madrid,1
@@ -72332,7 +72497,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6357687,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 6357718,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 6357733,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
+6357777,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,圣费,,Europe/Madrid,1
 6357792,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
+6357795,zh-CN,EU,欧洲,ES,西班牙,AN,,GR,,,,Europe/Madrid,1
 6357863,zh-CN,EU,欧洲,ES,西班牙,CM,卡斯蒂利亚-拉曼恰,GU,,,,Europe/Madrid,1
 6358148,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,奥尼亚蒂,,Europe/Madrid,1
 6358157,zh-CN,EU,欧洲,ES,西班牙,PV,,SS,吉普斯夸省,,,Europe/Madrid,1
@@ -72355,6 +72522,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6359921,zh-CN,EU,欧洲,ES,西班牙,AS,阿斯图里亚斯,O,,,,Europe/Madrid,1
 6360190,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,,,Atlantic/Canary,1
 6360192,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,GC,,,,Atlantic/Canary,1
+6360216,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,,,Europe/Madrid,1
 6360238,zh-CN,EU,欧洲,ES,西班牙,GA,加利西亚,PO,,奥波里尼奥,,Europe/Madrid,1
 6360349,zh-CN,EU,欧洲,ES,西班牙,CL,卡斯蒂利亚-莱昂,SA,,塞斯佩多萨德托尔梅斯,,Europe/Madrid,1
 6360630,zh-CN,EU,欧洲,ES,西班牙,CN,加那利群岛,TF,,,,Atlantic/Canary,1
@@ -72387,6 +72555,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6362408,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,乌高-米拉瓦列斯,,Europe/Madrid,1
 6362428,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,,,Europe/Madrid,1
 6362987,zh-CN,EU,欧洲,ES,西班牙,CE,休达,,,,,Europe/Madrid,1
+6362994,zh-CN,EU,欧洲,ES,西班牙,AN,,J,,,,Europe/Madrid,1
 6363003,zh-CN,EU,欧洲,ES,西班牙,PV,,BI,,,,Europe/Madrid,1
 6363696,zh-CN,AS,亚洲,KR,韩国,41,京畿道,,,京畿道,,Asia/Seoul,0
 6363700,zh-CN,AS,亚洲,KR,韩国,28,,,,,,Asia/Seoul,0
@@ -72501,6 +72670,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6441714,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 6441724,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 6441730,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
+6441744,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 6442260,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 6442530,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 6442887,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
@@ -72577,7 +72747,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6455402,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
 6455762,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,拉克鲁瓦圣勒夫鲁瓦,,Europe/Paris,1
 6455803,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
+6455948,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,,,Europe/Paris,1
 6456081,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,拉波默赖埃,,Europe/Paris,1
+6456117,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,50,芒什省,拉艾埃迪皮伊特,,Europe/Paris,1
 6456243,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 6456283,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,,,Europe/Paris,1
 6456456,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
@@ -72589,9 +72761,15 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6457195,zh-CN,EU,欧洲,FR,法国,ARA,,38,伊泽尔省,莱萨布雷特,,Europe/Paris,1
 6457267,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WSX,,,,Europe/London,0
 6457398,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,VB,,,,Europe/Rome,1
+6457404,zh-CN,EU,欧洲,IT,意大利,45,,RN,,,,Europe/Rome,1
+6457405,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,VV,,,,Europe/Rome,1
 6457721,zh-CN,EU,欧洲,CH,瑞士,VS,瓦莱州,,,,,Europe/Zurich,0
 6458596,zh-CN,EU,欧洲,GB,英国,SCT,苏格兰,HLD,高地,,,Europe/London,0
 6458612,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,POR,朴次茅斯,,,Europe/London,0
+6458615,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,KR,,,,Europe/Rome,1
+6458616,zh-CN,EU,欧洲,IT,意大利,25,,LC,,,,Europe/Rome,1
+6458617,zh-CN,EU,欧洲,IT,意大利,25,,LO,,,,Europe/Rome,1
+6458618,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PO,,,,Europe/Rome,1
 6458625,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
 6458638,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
 6458640,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
@@ -72679,7 +72857,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6534466,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 6534467,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 6534468,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
-6534471,zh-CN,EU,欧洲,IT,意大利,25,,LC,,,,Europe/Rome,1
 6534473,zh-CN,EU,欧洲,IT,意大利,25,,CO,,法洛皮奥,,Europe/Rome,1
 6534486,zh-CN,EU,欧洲,IT,意大利,25,,SO,,卡斯蒂奥内亚恩德文诺,,Europe/Rome,1
 6534490,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
@@ -72718,6 +72895,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6534697,zh-CN,EU,欧洲,IT,意大利,25,,CR,,,,Europe/Rome,1
 6534705,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,GR,,,,Europe/Rome,1
 6534707,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,MS,,,,Europe/Rome,1
+6534712,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PT,,,,Europe/Rome,1
 6534721,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,GE,,,,Europe/Rome,1
 6534733,zh-CN,EU,欧洲,IT,意大利,25,,SO,,,,Europe/Rome,1
 6534738,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
@@ -72782,6 +72960,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6535018,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
 6535021,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
 6535022,zh-CN,EU,欧洲,IT,意大利,34,威尼托,RO,,,,Europe/Rome,1
+6535029,zh-CN,EU,欧洲,IT,意大利,45,,MO,,,,Europe/Rome,1
 6535036,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,AP,,,,Europe/Rome,1
 6535046,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
 6535053,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
@@ -72819,6 +72998,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6535159,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 6535162,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 6535164,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
+6535165,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 6535170,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 6535173,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 6535176,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
@@ -72979,6 +73159,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6542378,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 6542482,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 6542500,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,SV,,,,Europe/Rome,1
+6542534,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 6542540,zh-CN,EU,欧洲,IT,意大利,25,,CO,,,,Europe/Rome,1
 6542577,zh-CN,EU,欧洲,IT,意大利,25,,BG,,,,Europe/Rome,1
 6542639,zh-CN,EU,欧洲,IT,意大利,32,,TN,,,,Europe/Rome,1
@@ -73225,6 +73406,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6613863,zh-CN,EU,欧洲,FR,法国,BFC,,89,约讷省,沙尔尼,,Europe/Paris,1
 6614422,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 6614477,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
+6614554,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 6614722,zh-CN,EU,欧洲,FR,法国,ARA,,73,萨瓦省,,,Europe/Paris,1
 6614871,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,拉弗尔里耶,,Europe/Paris,1
 6614877,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
@@ -73252,6 +73434,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6617267,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,,,Europe/Paris,1
 6617691,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
 6618385,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,62,加来海峡省,,,Europe/Paris,1
+6618450,zh-CN,EU,欧洲,FR,法国,OCC,,66,,圣昂德雷,,Europe/Paris,1
 6618486,zh-CN,EU,欧洲,LT,立陶宛,KU,考纳斯县,15,,,,Europe/Vilnius,1
 6618617,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,75,,,,Europe/Paris,1
 6618619,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,75,,,,Europe/Paris,1
@@ -73299,6 +73482,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6620118,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
 6620128,zh-CN,EU,欧洲,FR,法国,GES,,52,上马恩省,,,Europe/Paris,1
 6620150,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,61,,,,Europe/Paris,1
+6620167,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 6620172,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,72,萨尔特省,,,Europe/Paris,1
 6620175,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 6620193,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,,,Europe/Paris,1
@@ -73855,6 +74039,8 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 6954929,zh-CN,AS,亚洲,IN,印度,UP,北方邦,,,,,Asia/Kolkata,0
 6955478,zh-CN,NA,北美洲,CA,加拿大,QC,,,,,,America/Toronto,0
 6955677,zh-CN,AS,亚洲,TR,土耳其,06,安卡拉省,,,,,Europe/Istanbul,0
+6955699,zh-CN,EU,欧洲,IT,意大利,75,普利亚,BT,,,,Europe/Rome,1
+6955700,zh-CN,EU,欧洲,IT,意大利,25,,MB,,,,Europe/Rome,1
 6956026,zh-CN,EU,欧洲,CH,瑞士,AG,,,,,,Europe/Zurich,0
 6956379,zh-CN,EU,欧洲,SI,斯洛文尼亚,206,,,,,,Europe/Ljubljana,1
 6956382,zh-CN,EU,欧洲,SI,斯洛文尼亚,160,,,,,,Europe/Ljubljana,1
@@ -74156,7 +74342,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7290554,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,HAM,,,,Europe/London,0
 7290591,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,LIN,林肯郡,,,Europe/London,0
 7290619,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NTT,,,,Europe/London,0
-7290718,zh-CN,SA,南美洲,BR,巴西,RJ,,,,巴拉达蒂茹卡,,America/Sao_Paulo,0
 7290737,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NLN,北林肯郡,,,Europe/London,0
 7290889,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NBL,,,,Europe/London,0
 7290933,zh-CN,EU,欧洲,LU,卢森堡,LU,,,,,,Europe/Luxembourg,1
@@ -74570,6 +74755,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7602862,zh-CN,SA,南美洲,AR,阿根廷,B,布宜诺斯艾利斯省,,,,,America/Argentina/Buenos_Aires,0
 7602863,zh-CN,SA,南美洲,AR,阿根廷,B,布宜诺斯艾利斯省,,,,,America/Argentina/Buenos_Aires,0
 7603205,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,GE,,,,Europe/Rome,1
+7603219,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,GE,,,,Europe/Rome,1
 7603251,zh-CN,AF,非洲,TD,乍得,HL,,,,,,Africa/Ndjamena,0
 7604447,zh-CN,SA,南美洲,BR,巴西,SP,,,,,,America/Sao_Paulo,0
 7609695,zh-CN,NA,北美洲,SX,圣马丁岛,,,,,,,America/Lower_Princes,0
@@ -74803,7 +74989,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 7670888,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WOR,,,,Europe/London,0
 7670890,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,HAM,,,,Europe/London,0
 7670941,zh-CN,AS,亚洲,AM,亚美尼亚,ER,,,,肯特隆区,,Asia/Yerevan,0
-7671048,zh-CN,AS,亚洲,BD,孟加拉国,F,朗布尔专区,,,,,Asia/Dhaka,0
 7680915,zh-CN,AS,亚洲,TH,泰国,41,,,,,,Asia/Bangkok,0
 7683974,zh-CN,AS,亚洲,BD,孟加拉国,C,,13,,,,Asia/Dhaka,0
 7688114,zh-CN,AS,亚洲,ID,印度尼西亚,JT,中爪哇省,,,,,Asia/Jakarta,0
@@ -75660,7 +75845,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8542188,zh-CN,AF,非洲,MA,摩洛哥,09,,AGD,,,,Africa/Casablanca,0
 8542938,zh-CN,AS,亚洲,TR,土耳其,16,布尔萨省,,,,,Europe/Istanbul,0
 8543269,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Belem,0
-8543780,zh-CN,SA,南美洲,BR,巴西,MA,马拉尼昂州,,,,,America/Fortaleza,0
 8549215,zh-CN,EU,欧洲,MK,前南马其顿,801,艾罗德隆区,,,,,Europe/Skopje,0
 8550580,zh-CN,SA,南美洲,BR,巴西,PA,帕拉州,,,,,America/Santarem,0
 8552453,zh-CN,AS,亚洲,ID,印度尼西亚,LA,,,,,,Asia/Jakarta,0
@@ -76014,14 +76198,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8928685,zh-CN,AS,亚洲,IN,印度,BR,比哈尔邦,,,,,Asia/Kolkata,0
 8948704,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 8948751,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
-8948775,zh-CN,EU,欧洲,IT,意大利,34,威尼托,PD,,,,Europe/Rome,1
 8948778,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 8948794,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VR,,,,Europe/Rome,1
 8948797,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
 8948808,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,SA,,,,Europe/Rome,1
 8948832,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,PE,,,,Europe/Rome,1
 8948849,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,FM,,,,Europe/Rome,1
-8948898,zh-CN,EU,欧洲,IT,意大利,72,坎帕尼亚,NA,,,,Europe/Rome,1
+8948853,zh-CN,EU,欧洲,IT,意大利,78,卡拉布里亚,CS,,,,Europe/Rome,1
 8948899,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 8948901,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,RM,,,,Europe/Rome,1
 8948903,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,CN,,,,Europe/Rome,1
@@ -76039,12 +76222,10 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8949328,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,AR,,,,Europe/Rome,1
 8949341,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
 8949400,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,AR,,,,Europe/Rome,1
-8949424,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
 8949498,zh-CN,EU,欧洲,IT,意大利,25,,MN,曼托瓦省,,,Europe/Rome,1
 8949641,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,CN,,,,Europe/Rome,1
 8949682,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,FI,,,,Europe/Rome,1
 8949708,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,维兰德罗,,Europe/Rome,1
-8949787,zh-CN,EU,欧洲,IT,意大利,25,,LC,,,,Europe/Rome,1
 8949897,zh-CN,EU,欧洲,IT,意大利,65,阿布鲁佐,CH,,,,Europe/Rome,1
 8949945,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
 8950003,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
@@ -76114,6 +76295,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8969992,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 8970671,zh-CN,EU,欧洲,IT,意大利,32,,BZ,,,,Europe/Rome,1
 8971347,zh-CN,EU,欧洲,IT,意大利,34,威尼托,TV,,,,Europe/Rome,1
+8971392,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
 8971459,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
 8971655,zh-CN,EU,欧洲,IT,意大利,21,皮埃蒙特,TO,,,,Europe/Rome,1
 8972163,zh-CN,EU,欧洲,IT,意大利,62,拉齐奥,FR,,,,Europe/Rome,1
@@ -76121,10 +76303,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8972629,zh-CN,EU,欧洲,IT,意大利,45,,RE,,,,Europe/Rome,1
 8972710,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,MC,,,,Europe/Rome,1
 8974610,zh-CN,EU,欧洲,IT,意大利,45,,RE,,,,Europe/Rome,1
+8976723,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VE,,,,Europe/Rome,1
 8976858,zh-CN,EU,欧洲,IT,意大利,45,,FE,,,,Europe/Rome,1
+8977649,zh-CN,EU,欧洲,IT,意大利,45,,FE,,,,Europe/Rome,1
+8978959,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
 8979567,zh-CN,EU,欧洲,IT,意大利,25,,BS,,,,Europe/Rome,1
 8979823,zh-CN,EU,欧洲,IT,意大利,45,,BO,,,,Europe/Rome,1
-8980919,zh-CN,EU,欧洲,IT,意大利,42,利古里亞,SP,,,,Europe/Rome,1
 8980972,zh-CN,EU,欧洲,IT,意大利,25,,CR,,,,Europe/Rome,1
 8983844,zh-CN,EU,欧洲,IT,意大利,25,,MI,,,,Europe/Rome,1
 8983883,zh-CN,EU,欧洲,IT,意大利,45,,PR,,,,Europe/Rome,1
@@ -76143,6 +76327,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 8989527,zh-CN,EU,欧洲,SI,斯洛文尼亚,038,伊利爾斯卡比斯特里察,,,,,Europe/Ljubljana,1
 8990067,zh-CN,AS,亚洲,IN,印度,OD,,,,,,Asia/Kolkata,0
 8990077,zh-CN,AS,亚洲,IN,印度,OD,,,,,,Asia/Kolkata,0
+8991503,zh-CN,AS,亚洲,VN,越南,35,林同省,,,,,Asia/Ho_Chi_Minh,0
 8991889,zh-CN,AS,亚洲,JP,日本,07,,,,,,Asia/Tokyo,0
 8992027,zh-CN,AS,亚洲,JP,日本,07,,,,,,Asia/Tokyo,0
 8992266,zh-CN,AS,亚洲,JP,日本,07,,,,,,Asia/Tokyo,0
@@ -76928,6 +77113,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 10798601,zh-CN,AS,亚洲,JP,日本,22,,,,,,Asia/Tokyo,0
 10800404,zh-CN,AS,亚洲,JP,日本,19,,,,,,Asia/Tokyo,0
 10801447,zh-CN,AS,亚洲,IN,印度,GJ,古吉拉特邦,,,,,Asia/Kolkata,0
+10806906,zh-CN,AS,亚洲,IN,印度,UK,,,,,,Asia/Kolkata,0
 10812197,zh-CN,AS,亚洲,IN,印度,BR,比哈尔邦,,,,,Asia/Kolkata,0
 10815485,zh-CN,AS,亚洲,IN,印度,BR,比哈尔邦,,,,,Asia/Kolkata,0
 10816175,zh-CN,AS,亚洲,IN,印度,RJ,拉贾斯坦邦,,,,,Asia/Kolkata,0
@@ -77383,6 +77569,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11238838,zh-CN,AS,亚洲,TR,土耳其,20,代尼兹利省,,,,,Europe/Istanbul,0
 11238842,zh-CN,AF,非洲,EG,埃及,ALX,,,,,,Africa/Cairo,0
 11239590,zh-CN,NA,北美洲,CR,哥斯达黎加,SJ,,,,,,America/Costa_Rica,0
+11239662,zh-CN,EU,欧洲,AT,奥地利,8,福拉尔贝格州,,,,,Europe/Vienna,1
 11239788,zh-CN,AS,亚洲,PH,菲律宾,40,卡拉巴松,RIZ,,,,Asia/Manila,0
 11242156,zh-CN,AS,亚洲,JP,日本,43,,,,,,Asia/Tokyo,0
 11243280,zh-CN,AS,亚洲,JP,日本,43,,,,,,Asia/Tokyo,0
@@ -77536,6 +77723,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 11549797,zh-CN,EU,欧洲,ES,西班牙,CT,,B,,,,Europe/Madrid,1
 11549939,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
 11549983,zh-CN,EU,欧洲,ES,西班牙,MD,马德里自治区,M,,,,Europe/Madrid,1
+11550038,zh-CN,EU,欧洲,IT,意大利,88,,SU,,,,Europe/Rome,1
 11550073,zh-CN,EU,欧洲,IT,意大利,57,马尔凯,PU,,,,Europe/Rome,1
 11550074,zh-CN,EU,欧洲,IT,意大利,52,托斯卡纳,PT,,,,Europe/Rome,1
 11550076,zh-CN,EU,欧洲,IT,意大利,34,威尼托,VI,,,,Europe/Rome,1
@@ -78868,29 +79056,29 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12266600,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,GLS,格洛斯特郡,,,Europe/London,0
 12266716,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NTT,,,,Europe/London,0
 12276980,zh-CN,EU,欧洲,SE,瑞典,AB,,,,,,Europe/Stockholm,1
-12277605,zh-CN,EU,欧洲,FR,法国,NAQ,,24,,,,Europe/Paris,1
 12279227,zh-CN,NA,北美洲,PA,巴拿马,8,,,,,,America/Panama,0
 12291939,zh-CN,NA,北美洲,CR,哥斯达黎加,A,阿拉胡埃拉省,,,,,America/Costa_Rica,0
-12305597,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,91,埃松省,,,Europe/Paris,1
 12305691,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
+12305703,zh-CN,EU,欧洲,FR,法国,GES,,57,摩泽尔省,,,Europe/Paris,1
 12306119,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,,,Europe/Paris,1
 12306220,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,,,Europe/Paris,1
 12306224,zh-CN,EU,欧洲,FR,法国,CVL,,36,安德尔省,,,Europe/Paris,1
+12306262,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
+12306518,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 12306595,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
+12306605,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 12306613,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,27,厄尔省,,,Europe/Paris,1
 12307100,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,78,伊夫林省,,,Europe/Paris,1
+12307274,zh-CN,EU,欧洲,FR,法国,ARA,,07,阿尔代什省,,,Europe/Paris,1
 12307487,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
+12308437,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,49,曼恩-卢瓦尔省,,,Europe/Paris,1
 12309362,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
-12309746,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,14,,,,Europe/Paris,1
 12309853,zh-CN,EU,欧洲,FR,法国,OCC,,46,,,,Europe/Paris,1
 12310121,zh-CN,EU,欧洲,FR,法国,CVL,,28,厄尔-卢瓦省,,,Europe/Paris,1
-12310849,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
-12310952,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,85,旺代省,,,Europe/Paris,1
 12311077,zh-CN,EU,欧洲,FR,法国,NAQ,,40,,,,Europe/Paris,1
+12312940,zh-CN,EU,欧洲,FR,法国,PDL,卢瓦尔河地区大区,44,大西洋卢瓦尔省,,,Europe/Paris,1
 12313385,zh-CN,EU,欧洲,FR,法国,CVL,,37,安德尔-卢瓦尔省,,,Europe/Paris,1
 12313482,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
-12313644,zh-CN,EU,欧洲,FR,法国,NAQ,,17,滨海夏朗德省,,,Europe/Paris,1
-12314024,zh-CN,EU,欧洲,FR,法国,BFC,,71,索恩-卢瓦尔省,,,Europe/Paris,1
 12314396,zh-CN,EU,欧洲,FR,法国,HDF,上法兰西大区,60,瓦兹省,,,Europe/Paris,1
 12314742,zh-CN,EU,欧洲,FR,法国,NAQ,,16,,,,Europe/Paris,1
 12315184,zh-CN,EU,欧洲,FR,法国,OCC,,34,,,,Europe/Paris,1
@@ -78900,19 +79088,13 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12316218,zh-CN,EU,欧洲,FR,法国,NAQ,,33,,,,Europe/Paris,1
 12317061,zh-CN,EU,欧洲,FR,法国,NAQ,,86,,,,Europe/Paris,1
 12317557,zh-CN,EU,欧洲,FR,法国,NOR,诺曼底大区,76,滨海塞纳省,,,Europe/Paris,1
-12318245,zh-CN,EU,欧洲,FR,法国,GES,,51,马恩省,,,Europe/Paris,1
-12318451,zh-CN,EU,欧洲,FR,法国,ARA,,74,上萨瓦省,,,Europe/Paris,1
 12318884,zh-CN,EU,欧洲,FR,法国,BFC,,58,涅夫勒省,,,Europe/Paris,1
 12319315,zh-CN,EU,欧洲,FR,法国,PAC,普罗旺斯-阿尔卑斯-蔚蓝海岸大区,83,瓦尔省,,,Europe/Paris,1
+12320552,zh-CN,EU,欧洲,FR,法国,NAQ,,47,,,,Europe/Paris,1
 12320827,zh-CN,EU,欧洲,FR,法国,NAQ,,19,,,,Europe/Paris,1
-12321754,zh-CN,EU,欧洲,FR,法国,ARA,,03,阿列省,,,Europe/Paris,1
 12321962,zh-CN,EU,欧洲,FR,法国,ARA,,03,阿列省,,,Europe/Paris,1
 12322131,zh-CN,EU,欧洲,FR,法国,ARA,,43,,,,Europe/Paris,1
 12322751,zh-CN,EU,欧洲,FR,法国,NAQ,,79,,,,Europe/Paris,1
-12323567,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
-12323862,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
-12323867,zh-CN,EU,欧洲,FR,法国,ARA,,63,多姆山省,,,Europe/Paris,1
-12323918,zh-CN,EU,欧洲,FR,法国,IDF,法兰西岛,77,塞纳-马恩省,,,Europe/Paris,1
 12324556,zh-CN,AS,亚洲,CN,中国,NX,宁夏,,,石嘴山市,,Asia/Shanghai,0
 12336772,zh-CN,AS,亚洲,CN,中国,SD,山东,,,幸福,,Asia/Shanghai,0
 12344296,zh-CN,AS,亚洲,ID,印度尼西亚,BT,万丹省,,,,,Asia/Jakarta,0
@@ -78944,7 +79126,6 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12432982,zh-CN,SA,南美洲,BR,巴西,DF,,,,,,America/Sao_Paulo,0
 12439890,zh-CN,NA,北美洲,MX,墨西哥,YUC,尤卡坦州,,,,,America/Merida,0
 12451407,zh-CN,SA,南美洲,BR,巴西,DF,,,,,,America/Sao_Paulo,0
-12470174,zh-CN,AS,亚洲,AE,阿联酋,AZ,阿布扎比,,,,,Asia/Dubai,0
 12470311,zh-CN,EU,欧洲,SE,瑞典,G,克鲁努贝里省,,,,,Europe/Stockholm,1
 12471708,zh-CN,AS,亚洲,SA,沙特阿拉伯,01,利雅得省,,,,,Asia/Riyadh,0
 12490589,zh-CN,AF,非洲,NG,尼日利亚,OY,奥约州,,,,,Africa/Lagos,0
@@ -78955,7 +79136,9 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12500959,zh-CN,EU,欧洲,HR,克罗地亚,05,,,,,,Europe/Zagreb,1
 12501153,zh-CN,AS,亚洲,IN,印度,KL,喀拉拉邦,,,,,Asia/Kolkata,0
 12501504,zh-CN,EU,欧洲,DE,德国,NW,北莱茵-威斯特法伦,,,,,Europe/Berlin,1
+12503511,zh-CN,AS,亚洲,ID,印度尼西亚,PT,,,,,,Asia/Jayapura,0
 12503548,zh-CN,EU,欧洲,HR,克罗地亚,19,,,,,,Europe/Zagreb,1
+12503683,zh-CN,EU,欧洲,FR,法国,ARA,,01,安省,,,Europe/Paris,1
 12505068,zh-CN,SA,南美洲,BO,玻利维亚,C,,,,,,America/La_Paz,0
 12513387,zh-CN,AF,非洲,NG,尼日利亚,NA,纳萨拉瓦州,,,,,Africa/Lagos,0
 12513970,zh-CN,AS,亚洲,JP,日本,40,,,,,,Asia/Tokyo,0
@@ -78983,10 +79166,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12534511,zh-CN,AS,亚洲,PH,菲律宾,03,中央吕宋,PAM,,,,Asia/Manila,0
 12535198,zh-CN,EU,欧洲,FR,法国,NAQ,,23,,,,Europe/Paris,1
 12540080,zh-CN,SA,南美洲,AR,阿根廷,Y,胡胡伊省,,,,,America/Argentina/Jujuy,0
+12541710,zh-CN,EU,欧洲,FR,法国,ARA,,26,德龙省,,,Europe/Paris,1
 12541728,zh-CN,NA,北美洲,US,美国,GA,乔治亚,,,,524,America/New_York,0
 12542436,zh-CN,SA,南美洲,BR,巴西,PB,,,,,,America/Fortaleza,0
 12543810,zh-CN,SA,南美洲,EC,厄瓜多尔,G,瓜亚斯省,,,,,America/Guayaquil,0
 12544743,zh-CN,SA,南美洲,BR,巴西,RN,北里奥格兰德州,,,,,America/Fortaleza,0
+12547262,zh-CN,EU,欧洲,FR,法国,ARA,,69,罗讷省,,,Europe/Paris,1
 12547281,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,CMA,坎布里亞郡,,,Europe/London,0
 12549963,zh-CN,SA,南美洲,AR,阿根廷,Q,内乌肯省,,,,,America/Argentina/Salta,0
 12550103,zh-CN,EU,欧洲,BY,白俄罗斯,VI,维捷布斯克州,,,,,Europe/Minsk,0
@@ -79021,6 +79206,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 12644170,zh-CN,AS,亚洲,TH,泰国,13,巴吞他尼府,,,,,Asia/Bangkok,0
 12644663,zh-CN,AS,亚洲,TH,泰国,20,春武里府,,,,,Asia/Bangkok,0
 12644691,zh-CN,AS,亚洲,TH,泰国,20,春武里府,,,,,Asia/Bangkok,0
+12644920,zh-CN,AS,亚洲,TH,泰国,26,那空那育府,,,,,Asia/Bangkok,0
 12645618,zh-CN,AS,亚洲,TH,泰国,35,益梭通府,,,,,Asia/Bangkok,0
 12645688,zh-CN,AS,亚洲,TH,泰国,35,益梭通府,,,,,Asia/Bangkok,0
 12646109,zh-CN,AS,亚洲,TH,泰国,45,黎逸府,,,,,Asia/Bangkok,0
@@ -79158,14 +79344,12 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13006766,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13007682,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13010156,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
-13011513,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13011999,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13013336,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13013741,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
 13016174,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13018938,zh-CN,SA,南美洲,BR,巴西,RJ,,,,,,America/Sao_Paulo,0
 13022386,zh-CN,SA,南美洲,BR,巴西,MG,米纳斯吉拉斯州,,,,,America/Sao_Paulo,0
-13023854,zh-CN,SA,南美洲,BR,巴西,ES,,,,,,America/Sao_Paulo,0
 13025086,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 13025116,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
 13025344,zh-CN,SA,南美洲,BR,巴西,RS,,,,,,America/Sao_Paulo,0
@@ -79239,6 +79423,7 @@ geoname_id,locale_code,continent_code,continent_name,country_iso_code,country_na
 13175216,zh-CN,EU,欧洲,FI,芬兰,15,北萨沃,,,,,Europe/Helsinki,1
 13192010,zh-CN,EU,欧洲,DE,德国,NI,下萨克森,,,,,Europe/Berlin,1
 13192061,zh-CN,EU,欧洲,CH,瑞士,NE,,,,,,Europe/Zurich,0
+13192427,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,WNH,,,,Europe/London,0
 13192429,zh-CN,EU,欧洲,GB,英国,ENG,英格兰,NNH,,,,Europe/London,0
 13192483,zh-CN,SA,南美洲,BR,巴西,GO,戈亚斯州,,,,,America/Sao_Paulo,0
 13202056,zh-CN,EU,欧洲,FI,芬兰,13,北卡累利阿區,,,,,Europe/Helsinki,1
