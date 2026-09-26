@@ -4564,3 +4564,29 @@ rule Trojan_Win64_Vidar_ID_2147978802_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_SB_2147978937_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.SB"
+        threat_id = "2147978937"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {44 89 4c 24 ?? 4c 89 44 24 ?? 89 54 24 ?? 48 89 4c 24 ?? 48 83 ec 18 c7 04 24 ?? ?? ?? ?? c7 44 24 ?? ?? ?? ?? ?? eb ?? 8b 44 24 ?? ff c0 89 44 24 ?? 8b 44 24 ?? 39 44 24 ?? 73 ?? 8b 44 24 ?? 48 8b 4c 24 ?? 0f b6 04 01 8b 0c 24 33 c8 8b c1 89 04 24 69 04 24 93 01 00 01}  //weight: 2, accuracy: Low
+        $x_1_2 = {48 c7 04 c1 00 00 00 00 eb db b8 08 00 00 00 2c 00 00 74 05 e9 ?? 01 00 00 c7 04 ?? 00 00 00 00 eb 08 8b 04 ?? ff c0 89 04 ?? 81 3c ?? 00 01 00 00 73 14 8b 04 ?? 48 8d ?? ?? ?? ?? ?? 48 c7 04 c1 00 00 00 00 eb db b8 08 00 00 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {b8 08 00 00 00 48 ?? ?? ?? [0-3] 48 8d 0d ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 89 14 01 b8 08 00 00 00 48 ?? ?? ?? [0-3] 48 8d 0d ?? ?? ?? ?? 48 8d 15 ?? ?? ?? ?? 48 89 14 01 b8 08 00 00 00}  //weight: 1, accuracy: Low
+        $x_2_4 = {48 69 df 43 02 00 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
