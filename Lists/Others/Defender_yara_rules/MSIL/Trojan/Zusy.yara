@@ -3267,6 +3267,29 @@ rule Trojan_MSIL_Zusy_B_2147936263_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_B_2147936263_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.B!MTB"
+        threat_id = "2147936263"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 0f 11 0d 09 28 03 00 00 06 11 0f 6f 1a 00 00 0a 15 2e 0b}  //weight: 10, accuracy: High
+        $x_10_2 = {6f 24 00 00 0a 0d 09 2d 06 73 25 00 00 0a 7a 03 06 16 09 6f 27 00 00 0a 07}  //weight: 10, accuracy: High
+        $x_5_3 = "Launcher payload metadata is invalid." wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_AD_2147936271_0
 {
     meta:
