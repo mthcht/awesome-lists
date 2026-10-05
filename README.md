@@ -449,6 +449,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [MXToolbox EmailHeaders](https://mxtoolbox.com/EmailHeaders.aspx)
 - [Email Header Analyzer](https://emailheaders.verification-check.com/)
 - [Email Header Analysis](https://www.email-format.com/header-analysis/)
+- [Email Header Analyzer (browser-only)](https://rafaelpfister.ch/en/tools/header-analyzer)
 - [Gitlab dashboard from Excel](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
 - [uncoder](https://uncoder.io/)
 - [DeHashed](https://dehashed.com/)
