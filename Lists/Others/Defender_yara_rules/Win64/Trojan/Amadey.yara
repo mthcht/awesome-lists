@@ -1043,3 +1043,61 @@ rule Trojan_Win64_Amadey_AG_2147979080_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Amadey_AD_2147979922_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.AD!MTB"
+        threat_id = "2147979922"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"%s\"" ascii //weight: 1
+        $x_1_2 = "\"type\":\"pong\"" ascii //weight: 1
+        $x_1_3 = "\"type\":\"frame\",\"jpg\":\"%s\"" ascii //weight: 1
+        $x_1_4 = "\"type\":\"result\",\"reqId\":\"%s\",\"ok\":%d,\"data\":\"%s\"" ascii //weight: 1
+        $x_1_5 = "\"type\":\"progress\",\"op\":\"%s\",\"pct\":%d,\"note\":\"%s\"" ascii //weight: 1
+        $x_1_6 = ".xmid" ascii //weight: 1
+        $x_1_7 = "downloading module" ascii //weight: 1
+        $x_1_8 = "loading module" ascii //weight: 1
+        $x_1_9 = "ScreenInit" ascii //weight: 1
+        $x_1_10 = "ScreenShot" ascii //weight: 1
+        $x_1_11 = "ScreenFree" ascii //weight: 1
+        $x_1_12 = "shell" ascii //weight: 1
+        $x_1_13 = "launched" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Amadey_KZ_2147980129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Amadey.KZ!MTB"
+        threat_id = "2147980129"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Amadey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {02 c0 8d 14 38 80 e2 07 b9 08 00 00 00 2a ca 41 b8 ?? ?? ?? ?? 41 d2 e8 8a ca b8 ?? ?? ?? ?? d2 e0 44 0a c0 40 0f b6 c7 6b c8 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 44 8a 0c 37 45 32 c8 48 8b 4b 10}  //weight: 4, accuracy: Low
+        $x_1_2 = "DARKCORE01" ascii //weight: 1
+        $x_1_3 = "IAT patcher" ascii //weight: 1
+        $x_1_4 = "ANTI_SANDBOX" ascii //weight: 1
+        $x_1_5 = "NtCreateThreadEx" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

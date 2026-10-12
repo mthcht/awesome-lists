@@ -17,6 +17,7 @@ rule VirTool_Win32_SuspMsiExec_A_2147949206_0
         $x_1_3 = " https://" wide //weight: 1
         $x_1_4 = " http:\\\\" wide //weight: 1
         $x_1_5 = " http:/\\" wide //weight: 1
+        $x_1_6 = " http:\\/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (

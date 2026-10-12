@@ -1436,3 +1436,28 @@ rule Trojan_Win64_Stealer_DMX_2147979598_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_C_2147980143_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.C!AMTB"
+        threat_id = "2147980143"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "bebrat" ascii //weight: 1
+        $x_1_2 = "steal sent" ascii //weight: 1
+        $x_1_3 = "$env:TEMP ('steal_' + [guid]" ascii //weight: 1
+        $x_1_4 = "nothing to steal" ascii //weight: 1
+        $x_1_5 = "\\UserInformation.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

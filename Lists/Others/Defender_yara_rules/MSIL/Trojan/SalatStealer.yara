@@ -62,3 +62,25 @@ rule Trojan_MSIL_SalatStealer_APRB_2147964218_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_SalatStealer_AS_2147980133_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/SalatStealer.AS!MTB"
+        threat_id = "2147980133"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {a2 25 17 72 ?? 00 00 70 a2 25 18 72 ?? 01 00 70 a2 25 19 72 ?? 01 00 70 a2 0b 16 0c 2b 20 07 08 9a 0d 06 72 ?? 01 00 70 09 28 ?? 00 00 0a 28 ?? 00 00 0a 2c 05 17 13 04 de 1e 08 17 58 0c 08 07 8e 69}  //weight: 1, accuracy: Low
+        $x_2_2 = {a2 25 17 06 a2 25 18 72 ?? 01 00 70 a2 25 19 06 a2 25 1a 72 ?? 01 00 70 a2 25 1b 07 a2 25 1c 72 ?? 01 00 70 a2 28 ?? 00 00 0a 0c 07 08 28 ?? 00 00 0a 73 ?? 00 00 0a 25 07 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 17 6f ?? 00 00 0a 25 17 6f}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

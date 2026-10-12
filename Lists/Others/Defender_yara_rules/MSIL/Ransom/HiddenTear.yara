@@ -1419,3 +1419,28 @@ rule Ransom_MSIL_HiddenTear_G_2147973601_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_H_2147980142_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.H!AMTB"
+        threat_id = "2147980142"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "=== WORM EXECUTION STARTED ===" ascii //weight: 1
+        $x_1_2 = "GenerateRansomNote" ascii //weight: 1
+        $x_1_3 = "run_worm.bat" ascii //weight: 1
+        $x_1_4 = "[STOLEN] User" ascii //weight: 1
+        $x_1_5 = "Copied ransom note" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

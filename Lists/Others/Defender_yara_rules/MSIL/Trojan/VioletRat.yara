@@ -20,3 +20,31 @@ rule Trojan_MSIL_VioletRat_CB_2147978872_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VioletRat_AMTB_2147980141_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VioletRat!AMTB"
+        threat_id = "2147980141"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VioletRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "WormExploit" ascii //weight: 2
+        $x_2_2 = "Worm.Common" ascii //weight: 2
+        $x_1_3 = "Sa6oR is manipulating you" ascii //weight: 1
+        $x_1_4 = "ObfuscatedBySa6oR" ascii //weight: 1
+        $x_2_5 = "Worm.Helper" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_2_*) and 2 of ($x_1_*))) or
+            ((3 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+
