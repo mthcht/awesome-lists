@@ -1,6 +1,6 @@
 {
   "branch": "master",
-  "changed_files": 21,
+  "changed_files": 0,
   "downloaded_files": 62,
   "files": [
     {
@@ -19,7 +19,7 @@
       "source_path": "feeds/DNSC2Domains.csv",
       "source_sha256": "16cb414f8e996819a5d6679c54fe3e96f0699e0b143f2790479c60f4dd3f64b1",
       "source_size_bytes": 2321,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "IPC2s-30day.csv",
@@ -46,7 +46,7 @@
       "source_path": "feeds/IPC2s.csv",
       "source_sha256": "d6166907ad8f59d65f860ea25b4204ead3d8aa3c2a807badd6a8ae28b0f07185",
       "source_size_bytes": 5795,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "IPPortC2s-30day.csv",
@@ -73,7 +73,7 @@
       "source_path": "feeds/IPPortC2s.csv",
       "source_sha256": "5005ebe788fb6b730ff097c438e973ef55348a75bc68ff2fbf35b005867a811e",
       "source_size_bytes": 7210,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "domainC2s-30day-filter-abused.csv",
@@ -244,7 +244,7 @@
       "source_path": "feeds/unverified/DomainC2s-30day.csv",
       "source_sha256": "1150fb4506a7854e4a3944df2fbd4b449a918e54d1815b4e62941926ca4d9fbe",
       "source_size_bytes": 115616,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainC2s-90day.csv",
@@ -253,7 +253,7 @@
       "source_path": "feeds/unverified/DomainC2s-90day.csv",
       "source_sha256": "b72d6f905e30fa3bceef4c8193f1de89f5a311c5aa3d4c924afcef9a03f5b557",
       "source_size_bytes": 200438,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainC2s.csv",
@@ -262,7 +262,7 @@
       "source_path": "feeds/unverified/DomainC2s.csv",
       "source_sha256": "caf762ffa66045d792fbbfa227139f71324ee3d0f44ebab2154088379599cc6c",
       "source_size_bytes": 94219,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainKVM-30day.csv",
@@ -271,7 +271,7 @@
       "source_path": "feeds/unverified/DomainKVM-30day.csv",
       "source_sha256": "afb9c125066c92e8dd1bab2ef120c2bded6d8dfae0da60a6f4e39908e15e57c2",
       "source_size_bytes": 37533,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainKVM-90day.csv",
@@ -280,7 +280,7 @@
       "source_path": "feeds/unverified/DomainKVM-90day.csv",
       "source_sha256": "81d4b18b9d2e2641969e7f0ecd2853078aa4aa145266cbf6903fd69585b9e88c",
       "source_size_bytes": 44172,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainKVM.csv",
@@ -289,7 +289,7 @@
       "source_path": "feeds/unverified/DomainKVM.csv",
       "source_sha256": "171f9f63a3b93764ad3bf4b1bf48614f8cb9803fc8648114933665904e7137f5",
       "source_size_bytes": 34241,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortC2s-30day.csv",
@@ -298,7 +298,7 @@
       "source_path": "feeds/unverified/DomainPortC2s-30day.csv",
       "source_sha256": "e1cb299779066586944ce82b723ddfe4b19d93a9d7b99a7bf27f6357d2fccbf2",
       "source_size_bytes": 170935,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortC2s-90day.csv",
@@ -307,7 +307,7 @@
       "source_path": "feeds/unverified/DomainPortC2s-90day.csv",
       "source_sha256": "e564ac75c4df48e351f1373605ab423e791906546376196cb1a454275af437a7",
       "source_size_bytes": 355292,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortC2s.csv",
@@ -316,7 +316,7 @@
       "source_path": "feeds/unverified/DomainPortC2s.csv",
       "source_sha256": "9aa688e6358bdbfbe9162bedc8372c32d4055c300783ea29a9e7924883f9ff69",
       "source_size_bytes": 138158,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortKVM-30day.csv",
@@ -325,7 +325,7 @@
       "source_path": "feeds/unverified/DomainPortKVM-30day.csv",
       "source_sha256": "927451f55df80fd5260cdefa0db0f416aee29aafa8472ed5c11df01bdd2c2470",
       "source_size_bytes": 48019,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortKVM-90day.csv",
@@ -334,7 +334,7 @@
       "source_path": "feeds/unverified/DomainPortKVM-90day.csv",
       "source_sha256": "3ba4ae3a979fa75a8a151663cf2aa3158d66241ae669c2b9ab5a613b73df883c",
       "source_size_bytes": 57772,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortKVM.csv",
@@ -343,7 +343,7 @@
       "source_path": "feeds/unverified/DomainPortKVM.csv",
       "source_sha256": "9ebe90a4e3eacbf7ab6638cdb548769c9cd1540b429567bba41561a6a71953f3",
       "source_size_bytes": 43433,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortRMM-30day.csv",
@@ -352,7 +352,7 @@
       "source_path": "feeds/unverified/DomainPortRMM-30day.csv",
       "source_sha256": "1d35067d21a3cd3c7b5d037ba4f93e7d22892833f963bde5a742d6afc136bdbd",
       "source_size_bytes": 2142377,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortRMM-90day.csv",
@@ -361,7 +361,7 @@
       "source_path": "feeds/unverified/DomainPortRMM-90day.csv",
       "source_sha256": "3abd90247ef41e2cd322dccb24e20fd7512e924217742f17f6212b505c31881c",
       "source_size_bytes": 2482063,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainPortRMM.csv",
@@ -370,7 +370,7 @@
       "source_path": "feeds/unverified/DomainPortRMM.csv",
       "source_sha256": "d0e6194f106447a89209d45e4b70594f05a2b2baf0b6be644baa90dfbaa8b4ed",
       "source_size_bytes": 1906760,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainRMM-30day.csv",
@@ -379,7 +379,7 @@
       "source_path": "feeds/unverified/DomainRMM-30day.csv",
       "source_sha256": "e2ce5331c3165cd0b7cee791dbc9be83efd5337502d0972ee3155e0c6c0317f4",
       "source_size_bytes": 1550720,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainRMM-90day.csv",
@@ -388,7 +388,7 @@
       "source_path": "feeds/unverified/DomainRMM-90day.csv",
       "source_sha256": "bb655b0baaf16d130d2ae5936516265ad33772f4e5d3c7301d459c66a835bf11",
       "source_size_bytes": 1793332,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__DomainRMM.csv",
@@ -397,7 +397,7 @@
       "source_path": "feeds/unverified/DomainRMM.csv",
       "source_sha256": "b4322fbe9c8bbe481a6889bf6b46b270518963b6880df4bd348446cc0d548805",
       "source_size_bytes": 1371159,
-      "status": "updated"
+      "status": "unchanged"
     },
     {
       "saved_as": "unverified/unverified__IPC2s-30day.csv",
@@ -564,5 +564,5 @@
   ],
   "source": "drb-ra/C2IntelFeeds",
   "source_dir": "feeds",
-  "updated_at_utc": "2026-10-12T15:05:46+00:00"
+  "updated_at_utc": "2026-10-12T16:02:23+00:00"
 }
