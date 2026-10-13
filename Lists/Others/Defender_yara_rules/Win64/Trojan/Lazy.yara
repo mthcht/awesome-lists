@@ -7939,6 +7939,34 @@ rule Trojan_Win64_Lazy_AA_2147977614_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AA_2147977614_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AA!MTB"
+        threat_id = "2147977614"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_9_1 = "c2_host=[%s] len=%d" ascii //weight: 9
+        $x_8_2 = "=== init ok (admin=%d elevated=%d) ===" ascii //weight: 8
+        $x_2_3 = "elevate: denied (%lu), continue" ascii //weight: 2
+        $x_7_4 = "/get_commands" ascii //weight: 7
+        $x_3_5 = "dbg: entering poll loop" ascii //weight: 3
+        $x_6_6 = "stream: started mode=%d target=%d" ascii //weight: 6
+        $x_4_7 = "dbg http: session ok" ascii //weight: 4
+        $x_1_8 = "clipboard: open failed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_ZX_2147977859_0
 {
     meta:

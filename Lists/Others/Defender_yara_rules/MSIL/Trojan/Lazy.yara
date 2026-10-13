@@ -4409,6 +4409,34 @@ rule Trojan_MSIL_Lazy_KK_2147975224_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lazy_KK_2147975224_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.KK!MTB"
+        threat_id = "2147975224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_8_1 = "SOFTWARE\\$SNRStager" wide //weight: 8
+        $x_7_2 = "$22029a55-2c43-4283-90a4-19982f8650fb" ascii //weight: 7
+        $x_6_3 = "ExecutePluginFromMemory" ascii //weight: 6
+        $x_5_4 = "RunShellcodeInSeparateThread" ascii //weight: 5
+        $x_4_5 = "SaveShellcodeToRegistry" ascii //weight: 4
+        $x_3_6 = "InstallVBSWatchdog" ascii //weight: 3
+        $x_2_7 = "ExecuteRootkit" ascii //weight: 2
+        $x_1_8 = "Add-MpPreference -ExclusionPath $env:SystemDrive/" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Lazy_BGV_2147975283_0
 {
     meta:

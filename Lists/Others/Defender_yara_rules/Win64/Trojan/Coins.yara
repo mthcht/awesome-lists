@@ -10,6 +10,29 @@ rule Trojan_Win64_Coins_MK_2147959565_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {48 b8 4b 65 79 20 62 6c 6f 62 48 89 04 33 66 c7 44 33 08 3a 20 c6 44 33 0a 00 48 8d 8d e0 04 00 00 4c 8d 85 a0 07 00 00 4c 89 fa}  //weight: 30, accuracy: High
+        $x_3_2 = "=== ABE v7 Full Extraction (Handle Duplication) ===" ascii //weight: 3
+        $x_2_3 = "ABE Key Extract - Passwords" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Coins_MK_2147959565_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Coins.MK!MTB"
+        threat_id = "2147959565"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Coins"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "40"
         strings_accuracy = "High"
     strings:

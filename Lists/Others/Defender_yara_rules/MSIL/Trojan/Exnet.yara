@@ -466,6 +466,28 @@ rule Trojan_MSIL_Exnet_KK_2147968283_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {08 09 91 0b 06 07 [0-6] 61 d1 6f 06 00 00 0a 26 09 17 58 0d 09 08 8e 69 32}  //weight: 20, accuracy: Low
+        $x_10_2 = {11 07 11 08 11 07 11 08 91 11 06 11 08 1f 20 5d 91 61 d2 9c 11 08 17 58 13 08 11 08 11 07 8e 69 32 de}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Exnet_KK_2147968283_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Exnet.KK!MTB"
+        threat_id = "2147968283"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Exnet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "High"
     strings:

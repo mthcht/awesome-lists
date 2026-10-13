@@ -185,6 +185,30 @@ rule Trojan_Win64_Remus_MK_2147973798_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {8b 44 24 30 ff 44 24 30 8b 44 24 30 69 c0 08 d6 64 35 31 c2 8b 44 24 30 85 c0}  //weight: 15, accuracy: High
+        $x_5_2 = "GetComputerNameA" ascii //weight: 5
+        $x_3_3 = "GetUserNameA" ascii //weight: 3
+        $x_2_4 = "GetKeyboardLayoutNameA" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_MK_2147973798_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.MK!MTB"
+        threat_id = "2147973798"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "Low"
     strings:

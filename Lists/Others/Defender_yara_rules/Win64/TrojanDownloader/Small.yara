@@ -191,6 +191,29 @@ rule TrojanDownloader_Win64_Small_KK_2147978649_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {30 01 8d 04 0a 4c 39 c1}  //weight: 20, accuracy: High
+        $x_10_2 = {83 f8 02 48 8b 4c 24 20 48 8b 54 24 38 41 b8 04 00 00 00 b8 40 00 00 00 44 0f 45 c0 48 03 3d ?? ?? 01 00 48 89 4f 08 49 89 f9 48 89 57 10 ff 15}  //weight: 10, accuracy: Low
+        $x_5_3 = "ghostloader.xyz" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win64_Small_KK_2147978649_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Small.KK!MTB"
+        threat_id = "2147978649"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Small"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
         strings_accuracy = "High"
     strings:
         $x_20_1 = {8b 44 24 20 c1 e0 03 8b 4c 24 20 c1 e9 1d 0b c1 89 44 24 20 8b 44 24 20 35 55 55 55 55 89 44 24 20}  //weight: 20, accuracy: High

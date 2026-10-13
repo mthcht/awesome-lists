@@ -247,3 +247,26 @@ rule Trojan_Win32_Tasker_LR_2147973749_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tasker_ARA_2147980149_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tasker.ARA!MTB"
+        threat_id = "2147980149"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {e8 f9 7e 00 00 89 c1 ba ?? ?? ?? ?? 89 c8 f7 ea c1 fa ?? 89 c8 c1 f8 1f 29 c2 89 d0}  //weight: 2, accuracy: Low
+        $x_2_2 = {8b 45 f4 69 c0 e8 03 00 00 89 04 24 e8 ?? 7f 00 00 83 ec 04 e8}  //weight: 2, accuracy: Low
+        $x_2_3 = "schtasks.exe /Create /tn" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

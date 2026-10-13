@@ -990,6 +990,31 @@ rule Trojan_Win64_Dacic_KK_2147978330_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_KK_2147978330_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.KK!MTB"
+        threat_id = "2147978330"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "WinRateStealer" ascii //weight: 5
+        $x_4_2 = "[StartChromiumGrabber] ABE get key" ascii //weight: 4
+        $x_3_3 = "[CryptoExtensionsGrabber]" ascii //weight: 3
+        $x_2_4 = "[StartGeckoGrabber] Starting Gecko grabber..." ascii //weight: 2
+        $x_1_5 = "[LootCollector] total cap reached, skipping" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Dacic_B_2147978857_0
 {
     meta:
