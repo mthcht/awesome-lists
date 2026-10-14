@@ -117,6 +117,29 @@ rule TrojanDownloader_Win32_Zusy_KK_2147970711_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 44 24 0c 00 00 00 00 8b 44 24 10 c7 44 24 08 00 00 00 00 c7 44 24 04 10 00 00 00 89 2c 24 ff d0 83 ec 10}  //weight: 20, accuracy: High
+        $x_10_2 = {89 c8 31 f2 83 e0 03 c1 ca 0f 8b 04 85 c0 a2 fd 62 33 04 8d 60 a2 fd 62 31 f0 29 d0 c1 c0 07 89 c6 83 e9 01}  //weight: 10, accuracy: High
+        $x_5_3 = "\"%s\",GetArphaConfig" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win32_Zusy_KK_2147970711_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Zusy.KK!MTB"
+        threat_id = "2147970711"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
         strings_accuracy = "Low"
     strings:
         $x_20_1 = {6a 00 8d 8d d8 d9 ff ff 51 50 8d 85 f4 d9 ff ff 50 57 ff 15 ?? ?? ?? ?? 8d 85 ec d9 ff ff 50 68 00 20 00 00 8d 85 f4 d9 ff ff 50 56 ff 15}  //weight: 20, accuracy: Low

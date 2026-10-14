@@ -903,13 +903,34 @@ rule Trojan_Win64_DLLHijack_MK_2147976437_0
         threshold = "35"
         strings_accuracy = "High"
     strings:
-        $x_35_1 = {48 8b 85 c8 04 00 00 48 8d 4c 24 50 48 89 85 e8 00 00 00 33 d2 48 8d 85 c8 04 00 00 41 b8 98 00 00 00 48 83 c0 08 48 89 85 88 00 00 00 e8 45 9e 01 00 48 8b 85 c8 04 00 00 48 89 44 24 60 c7 44 24 50 15 00 00 40 c7 44 24 54 01}  //weight: 35, accuracy: High
+        $x_35_1 = {8b 44 24 1c 48 8b 4c 24 08 48 8b 14 24 4c 8b 44 24 10 4c 63 c8 47 8a 04 08 41 89 c1 41 83 e1 0f 4d 63 c9 46 32 04 0a 48 63 d0 44 88 04 11 83 c0 01 83 f8 0a}  //weight: 35, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win64_DLLHijack_MK_2147976437_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.MK!MTB"
+        threat_id = "2147976437"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {48 8b 85 c8 04 00 00 48 8d 4c 24 50 48 89 85 e8 00 00 00 33 d2 48 8d 85 c8 04 00 00 41 b8 98 00 00 00 48 83 c0 08 48 89 85 88 00 00 00 e8 45 9e 01 00 48 8b 85 c8 04 00 00 48 89 44 24 60 c7 44 24 50 15 00 00 40 c7 44 24 54 01}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_MK_2147976437_2
 {
     meta:
         author = "defender2yara"

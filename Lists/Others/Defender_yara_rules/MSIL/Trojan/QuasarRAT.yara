@@ -1145,3 +1145,27 @@ rule Trojan_MSIL_QuasarRAT_QN_2147979632_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_QuasarRAT_KK_2147980314_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/QuasarRAT.KK!MTB"
+        threat_id = "2147980314"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Quasar Rat is Online" ascii //weight: 4
+        $x_3_2 = "cookie_dump" ascii //weight: 3
+        $x_2_3 = "Cookies file sent to Discord" ascii //weight: 2
+        $x_1_4 = "Command executed. Check Discord" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

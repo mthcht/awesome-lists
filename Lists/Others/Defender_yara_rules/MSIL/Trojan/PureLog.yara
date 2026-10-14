@@ -343,3 +343,27 @@ rule Trojan_MSIL_PureLog_ABVC_2147974644_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PureLog_AC_2147980321_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PureLog.AC!MTB"
+        threat_id = "2147980321"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PureLog"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "$0039b98f-f414-409e-8cea-47245ab4aa3c" ascii //weight: 10
+        $x_7_2 = "vtwNXdOgZ2bG7m3hMm.qe4nAsrwfMbsViYrhQ" ascii //weight: 7
+        $x_5_3 = "QiTmKUc11CrE9WqNe10.M9FJS1cxqD9pO1g9vd9+wipvS2lDO3CaaTRy4r8+RjaSaslI93wGEXG78OW" ascii //weight: 5
+        $x_8_4 = "Biruglp.Properties.Resources" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

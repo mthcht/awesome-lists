@@ -163,3 +163,25 @@ rule Trojan_Win64_Yogi_C_2147980022_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_AA_2147980320_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.AA!MTB"
+        threat_id = "2147980320"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {8b 44 24 18 05 ?? ?? ?? ?? 0f b6 00 0f b6 c0 01 44 24 1c 83 44 24 18}  //weight: 15, accuracy: Low
+        $x_5_2 = {8b 04 24 8d 50 ?? 89 14 24 8b 54 24 0c 88 10}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
