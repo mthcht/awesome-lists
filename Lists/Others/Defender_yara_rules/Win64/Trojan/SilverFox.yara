@@ -172,3 +172,47 @@ rule Trojan_Win64_SilverFox_AH_2147977037_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SilverFox_B_2147980235_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SilverFox.B!AMTB"
+        threat_id = "2147980235"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SilverFox"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "active_desktop_render_x64.dll" ascii //weight: 3
+        $x_3_2 = "ClearDesktopMonitorHook" ascii //weight: 3
+        $x_3_3 = "SetDesktopMonitorHook" ascii //weight: 3
+        $x_2_4 = "ReleaseFromExplorer" ascii //weight: 2
+        $x_1_5 = "_ipcfr_wqkqzk" ascii //weight: 1
+        $x_1_6 = "_vzgxh_rowbve" ascii //weight: 1
+        $x_1_7 = "_apla_aqbtu" ascii //weight: 1
+        $x_1_8 = "_cbddo_gkxzthr" ascii //weight: 1
+        $x_1_9 = "_dstqe_kjeku" ascii //weight: 1
+        $x_1_10 = "_ehb_fmsbo" ascii //weight: 1
+        $x_1_11 = "_ffyh_znwr" ascii //weight: 1
+        $x_1_12 = "_fmvy_kqfvb" ascii //weight: 1
+        $x_1_13 = "_hnats_aoyex" ascii //weight: 1
+        $x_1_14 = "_hxyz_oesqvb" ascii //weight: 1
+        $x_1_15 = "_hgaey_gltpwgq" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_2_*) and 10 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 9 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 1 of ($x_2_*) and 7 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 6 of ($x_1_*))) or
+            ((2 of ($x_3_*) and 1 of ($x_2_*) and 4 of ($x_1_*))) or
+            ((3 of ($x_3_*) and 3 of ($x_1_*))) or
+            ((3 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

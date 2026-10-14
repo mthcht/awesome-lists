@@ -1461,3 +1461,31 @@ rule Trojan_Win64_Stealer_C_2147980143_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_SN_2147980167_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.SN!MTB"
+        threat_id = "2147980167"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "synthesized properties both claim instance variable declared super class" ascii //weight: 2
+        $x_1_2 = "file that been closed rejected" ascii //weight: 1
+        $x_1_3 = "send crypto data with level" ascii //weight: 1
+        $x_1_4 = "C:\\Program Files" ascii //weight: 1
+        $x_1_5 = "AppPolicyGetProcessTerminationMethod" ascii //weight: 1
+        $x_1_6 = "build.pdb" ascii //weight: 1
+        $x_1_7 = "LLD PDB" ascii //weight: 1
+        $x_1_8 = "IsProcessorFeaturePresent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

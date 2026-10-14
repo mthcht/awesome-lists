@@ -525,6 +525,28 @@ rule Trojan_Win64_Doina_LR_2147976091_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_LR_2147976091_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.LR!MTB"
+        threat_id = "2147976091"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f be c1 49 8b d1 6b c8 70 80 c1 07 02 cb 43 32 4c 19 01 43 88 0c 01 49 ff c1 48 8d 4a 02 49 3b ca}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b6 0b 48 ff c3 41 c1 ca 0d 44 03 d1 80 3b 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Doina_AA_2147977618_0
 {
     meta:

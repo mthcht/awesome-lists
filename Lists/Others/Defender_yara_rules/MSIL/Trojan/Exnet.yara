@@ -570,3 +570,25 @@ rule Trojan_MSIL_Exnet_AA_2147977992_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Exnet_A_2147980245_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Exnet.A!MTB"
+        threat_id = "2147980245"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Exnet"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {8d 0a 00 00 01 0d 06 16 09 16 1f 14 28 57 00 00 0a 08 16 09 1f 14 07 28 57 00 00 0a 09 28 16 00 00 06 13 04 11 04 2d 06}  //weight: 10, accuracy: High
+        $x_2_2 = "del /f /q \"%~f0\"" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

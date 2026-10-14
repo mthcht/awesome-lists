@@ -1094,6 +1094,29 @@ rule Trojan_Win64_ShellcodeRunner_NR_2147936333_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {0f b6 14 0f 4c 8b 04 24 4c 8b 4c 24 08 4d 89 c2 49 c1 e0 17 4d 31 d0 4d 89 c2 49 c1 e8 11 4d 31 d0 4d 31 c8 4d 89 ca 49 c1 e1 1a 4d 31 c1}  //weight: 2, accuracy: High
+        $x_2_2 = {4c 89 0c 24 48 b9 b9 e5 e4 1c 6d 47 58 bf 49 31 c9 4d 85 d2 4d 0f 44 d1 4c 89 54 24 08 31 c9 eb 06}  //weight: 2, accuracy: High
+        $x_1_3 = "Go build ID" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_NR_2147936333_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.NR!MTB"
+        threat_id = "2147936333"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -1929,6 +1952,32 @@ rule Trojan_Win64_ShellcodeRunner_AC_2147955226_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {49 63 c3 45 33 c0 49 3b c1 49 63 d2 45 0f 45 c3 41 ff c2 49 63 c0 ?? ?? ?? ?? 0f b6 0c 38 30 0c 32 49 63 c2 48 3b c3}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AC_2147955226_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AC!MTB"
+        threat_id = "2147955226"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "40"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "[+]  Launching shellcode..." ascii //weight: 10
+        $x_13_2 = "[+]  realStart called" ascii //weight: 13
+        $x_5_3 = "[!] Executing..." ascii //weight: 5
+        $x_6_4 = "[!] Copying if necessary..." ascii //weight: 6
+        $x_4_5 = "[!] Failed to find a page to execute" ascii //weight: 4
+        $x_2_6 = "failed to to lock cleanup mutex" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

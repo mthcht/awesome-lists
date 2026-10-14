@@ -693,3 +693,27 @@ rule Trojan_Win64_RustyStealer_AA_2147977752_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_RustyStealer_NB_2147980223_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.NB!MTB"
+        threat_id = "2147980223"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {b9 ce 00 00 00 48 89 d7 48 89 c6 f3 a4 8b 03 8b 4b 03 89 8d ?? ?? 00 00 89 85 ?? ?? 00 00 48 8d 85 7a 3a 00 00 4c 89 40 f6 44 88 70 fe 44 88 78 ff b9 ce 00 00 00 48 89 c7 48 89 d6 f3 a4 8a 8d ?? ?? 00 00 88 88 ce 00 00 00}  //weight: 2, accuracy: Low
+        $x_2_2 = {4c 8b 40 9d 44 8a 70 a5 44 8a 78 a6 48 8d b5 ?? ?? 00 00 48 8d 85 ?? ?? 00 00 b9 d6 00 00 00 48 89 c7 f3 a4 48 8d bd f0 3d 00 00 b9 d6 00 00 00 48 89 c6 f3 a4 49 83 f8 03}  //weight: 2, accuracy: Low
+        $x_1_3 = "Login Data" ascii //weight: 1
+        $x_1_4 = "uploaded screenshot" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

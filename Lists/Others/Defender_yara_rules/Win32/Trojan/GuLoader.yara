@@ -9535,3 +9535,28 @@ rule Trojan_Win32_GuLoader_XH_2147979878_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_XI_2147980188_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.XI!MTB"
+        threat_id = "2147980188"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\unpoetically\\lejerets" ascii //weight: 2
+        $x_1_2 = "%rabbish%\\Veriscope" ascii //weight: 1
+        $x_1_3 = "unmiasmatical snuffiness" ascii //weight: 1
+        $x_1_4 = "testar stadsdyrlgernes luncheon" ascii //weight: 1
+        $x_1_5 = "hydrosulphocyanic uncomprehensiveness.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

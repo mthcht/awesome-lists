@@ -11861,3 +11861,47 @@ rule Trojan_MSIL_Heracles_AC_2147979857_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_D_2147980180_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.D!MTB"
+        threat_id = "2147980180"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {02 8e 69 1f 10 59 11 04 16 1f 10 28 19 00 00 0a 07 08 09 11 04 28 2b 00 00 06 13 05 11 05 2d 06}  //weight: 15, accuracy: High
+        $x_10_2 = {06 28 27 00 00 06 13 0a 11 0a e0 8d 0d 00 00 01 13 0b 06 11 0b 16 11 0a 28 11 00 00 0a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_LR_2147980244_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.LR!MTB"
+        threat_id = "2147980244"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {16 11 04 8e 69 28 12 00 00 0a 11 04 28 02 00 00 06 13 04 11 04 18 28 01 00 00 06 13 04 11 04 8e 69 18 3f 07 01 00 00 11 04 16 91 1f 4d 40 fc 00 00 00 11 04 17 91 1f 5a 40 f1 00 00 00 08 72 35 05 00 70 6f 74 00 00 0a 2d 17 08 72 35 05 00 70 11 04 28 75 00 00 0a 6f 76 00 00 0a dd 21 02 00 00 73 14 00 00 0a 13 05 08 72 35 05 00 70 6f 74 00 00 0a 74 3b 00 00 01 72 47 05 00 70 6f 77 00 00 0a 13 06 11 06 11 04 6f 78 00 00 0a 26 11 06 11 05 6f 78 00 00 0a 26 11 06 6f 1d 00 00 0a 26 11 05 6f 20 00 00 0a 13 07 11 05 16 6a 6f 79 00 00 0a 11 07 28 03 00 00 06 13 07 28 37 00 00 0a 11 07 28 66 00 00 0a 6f 18 00 00 0a 13 07 11 05 73 65 00 00 0a 13 08 11 08 72 a5 02 00 70}  //weight: 20, accuracy: High
+        $x_10_2 = {28 37 00 00 0a 06 6f 38 00 00 0a 0c 07 2d 07 72 65 00 00 70 2b 0b 28 37 00 00 0a 07 6f 38 00 00 0a 0d 73 53 00 00 0a 13 04 09 28 3a 00 00 0a 2c 45 08 1f 5c 6f 54 00 00 0a 16 2f 3a 08 1f 2f 6f 54 00 00 0a 16 2f 2f 08 72 51 02 00 70 1b 6f 55 00 00 0a 16 2f 20 11 04 72 5b 02 00 70 6f 56 00 00 0a 11 04 72 6b 02 00 70 08 28 29 00 00 0a 6f 57 00 00 0a 2b 5f 09 28 3a 00 00 0a 2c 47 08 1f 20 6f 54 00 00 0a 16 31 3c 08 72 51 02 00 70 1b 6f 55 00 00 0a 16 31 2d 08 1f 20 6f 54 00 00 0a 13 05 11 04 08 16 11 05 6f 58 00 00 0a 6f 56 00 00 0a 11 04 08 11 05 17 58 6f 59 00 00 0a 6f 57 00 00 0a 2b 10 11 04 08 6f 56 00 00 0a 11 04 09 6f 57 00 00 0a 11 04 16 6f 5a 00 00 0a 11 04 17 6f 5b 00 00 0a}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

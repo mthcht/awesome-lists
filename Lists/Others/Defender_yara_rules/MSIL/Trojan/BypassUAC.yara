@@ -459,3 +459,28 @@ rule Trojan_MSIL_BypassUAC_A_2147978155_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_BypassUAC_A_2147978155_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/BypassUAC.A!MTB"
+        threat_id = "2147978155"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "if ($null -ne $px) { $px.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials" ascii //weight: 1
+        $x_1_2 = "Write-InstallLog \"PROBE: NOT ELEVATED - PERFORMING CMSTPLUA COM UAC BYPASS" ascii //weight: 1
+        $x_1_3 = "void ShellExec([MarshalAs(UnmanagedType.LPWStr)] string f," ascii //weight: 1
+        $x_1_4 = "char[] m = {'E','l','e','v','a','t','i','o','n',':','A','d','m','i','n','i','s','t','r','a','t','o','r','" ascii //weight: 1
+        $x_1_5 = "if (-not ('CMSTPLUA.Elev' -as [type])) {" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

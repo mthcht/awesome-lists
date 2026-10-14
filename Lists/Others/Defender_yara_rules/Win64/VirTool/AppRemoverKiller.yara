@@ -9,7 +9,7 @@ rule VirTool_Win64_AppRemoverKiller_A_2147974343_0
         family = "AppRemoverKiller"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "20"
+        threshold = "21"
         strings_accuracy = "High"
     strings:
         $x_1_1 = "AppRemover" ascii //weight: 1
@@ -19,7 +19,7 @@ rule VirTool_Win64_AppRemoverKiller_A_2147974343_0
     condition:
         (filesize < 20MB) and
         (
-            ((2 of ($x_10_*))) or
+            ((2 of ($x_10_*) and 1 of ($x_1_*))) or
             (all of ($x*))
         )
 }

@@ -103,3 +103,45 @@ rule Trojan_Win64_GoCrypt_CQ_2147979832_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GoCrypt_CM_2147980184_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GoCrypt.CM!MTB"
+        threat_id = "2147980184"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GoCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 0f b6 d2 4d 01 da 44 0f b6 1c 3b 45 31 da 44 88 14 1e 48 ff c3 48 81 fb ?? ?? ?? ?? 7d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_GoCrypt_CN_2147980234_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GoCrypt.CN!MTB"
+        threat_id = "2147980234"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GoCrypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {45 31 c2 49 89 d8 48 c1 e3 ?? 4c 29 c3 44 31 d3 42 88 1c 06 4c 89 c3 e9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

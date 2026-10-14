@@ -1035,3 +1035,38 @@ rule Trojan_Win32_Phorpiex_ABP_2147965176_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Phorpiex_AP_2147980191_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.AP!MTB"
+        threat_id = "2147980191"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Unfortunately there is some bad news for you" ascii //weight: 1
+        $x_1_2 = "Some time ago, your device was infected with my private Trojan, R.A.T" ascii //weight: 1
+        $x_1_3 = "If you want to find out more about it, simply use Google" ascii //weight: 1
+        $x_1_4 = "My Trojan allowed me to access your files, accounts, and your camera" ascii //weight: 1
+        $x_1_5 = "Check the sender of this email - I have sent it from your email account!" ascii //weight: 1
+        $x_1_6 = "I RECORDED YOU (through your camera) MASTURBATING!" ascii //weight: 1
+        $x_1_7 = "If you still doubt my serious intentions, it only takes a couple of mouse clicks" ascii //weight: 1
+        $x_1_8 = "After that I removed my malware to leave no traces" ascii //weight: 1
+        $x_1_9 = "To ensure you read this email, you will receive it multiple times" ascii //weight: 1
+        $x_1_10 = "USD in Bitcoin (BTC), transferred to my wallet address" ascii //weight: 1
+        $x_1_11 = "After the transaction is successful - I will proceed to delete everything" ascii //weight: 1
+        $x_1_12 = "You can purchase Bitcoin (BTC) from reputable exchanges here" ascii //weight: 1
+        $x_1_13 = "Once purchased, you can send the Bitcoin (BTC) directly to my wallet address" ascii //weight: 1
+        $x_1_14 = "A piece of advice from me - regularly change all your passwords and update your device with the latest security patches" ascii //weight: 1
+        $x_1_15 = "YOU GOT RECORDED!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -184,3 +184,25 @@ rule TrojanDropper_O97M_EncDoc_PAA_2147963592_0
         (all of ($x*))
 }
 
+rule TrojanDropper_O97M_EncDoc_AA_2147980209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:O97M/EncDoc.AA!MTB"
+        threat_id = "2147980209"
+        type = "TrojanDropper"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {73 65 74 6f 62 6a 72 65 67 69 73 74 72 79 67 65 74 6f 62 6a 65 63 74 77 69 6e 6d 67 6d 74 73 72 6f 6f 74 64 65 66 61 75 6c 74 73 74 64 72 65 67 70 72 6f 76 6f 62 6a 72 65 67 69 73 74 72 79 73 65 74 73 74 72 69 6e 67 76 61 6c 75 65 68 38 30 30 30 30 30 30 31 [0-80] 65 6e 64 73 75 62 66 75 6e 63 74 69 6f 6e [0-30] 61 63 74 69 76 65 77 69 6e 64 6f 77 61 63 74 69 76 65 70 61 6e 65 76 69 65 77 73 68 6f 77 68 69 64 64 65 6e 74 65 78 74 74 72 75 65 65 6e 64 66 75 6e 63 74 69 6f 6e 66 75 6e 63 74 69 6f 6e [0-50] 61 63 74 69 76 65 64 6f 63 75 6d 65 6e 74 73 61 76 65 65 6e 64 66 75 6e 63 74 69 6f 6e}  //weight: 4, accuracy: Low
+        $x_6_2 = {69 6e 6c 69 6e 65 73 68 61 70 65 73 63 6f 75 6e 74 30 74 68 65 6e 64 69 6d 70 69 63 61 73 69 6e 6c 69 6e 65 73 68 61 70 65 73 65 74 70 69 63 [0-30] 69 6e 6c 69 6e 65 73 68 61 70 65 73 32 38 32 36 33 34 33 31 32 69 66 70 69 63 74 79 70 65 77 64 69 6e 6c 69 6e 65 73 68 61 70 65 70 69 63 74 75 72 65 61 6e 64 69 6e 73 74 72 70 69 63 72 61 6e 67 65 69 6e 6c 69 6e 65 73 68 61 70 65 73 31 33 35 38 61 6c 74 65 72 6e 61 74 69 76 65 74 65 78 74 6a 70 67 30 74 68 65 6e 70 69 63 64 65 6c 65 74 65 65 6e 64}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
