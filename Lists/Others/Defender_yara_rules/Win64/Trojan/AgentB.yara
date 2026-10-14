@@ -318,3 +318,25 @@ rule Trojan_Win64_AgentB_B_2147980109_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_D_2147980294_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.D!MTB"
+        threat_id = "2147980294"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 42 04 35 ?? 00 00 00 44 0f b6 4a 03 41 81 f1 ?? 00 00 00 44 0f b6 42 02 41 81 f0 ?? 00 00 00 48 8b 95 88 00 00 00 0f b6 12 81 f2}  //weight: 30, accuracy: Low
+        $x_20_2 = "[DecryptPayload] LoadOverlayPayload FAILED" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

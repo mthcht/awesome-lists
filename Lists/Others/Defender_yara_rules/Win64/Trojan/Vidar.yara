@@ -5007,3 +5007,45 @@ rule Trojan_Win64_Vidar_SK_2147980220_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_AT_2147980277_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AT!MTB"
+        threat_id = "2147980277"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 34 01 31 d6 31 ce 40 88 34 08 48 ff c1 48 39 cb 7f ec}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_AL_2147980302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.AL!MTB"
+        threat_id = "2147980302"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 02 4d 8d 40 04 8b 4a fc 48 8d 52 04 05 20 f7 39 d3 33 c8 41 89 48 fc 8b 4a fc 8b 42 fc c1 e0 04 c1 e9 1b 0b c1 41 89 00 49 83 e9 01 75 d1}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -876,3 +876,25 @@ rule Trojan_Win64_Cerbu_B_2147978152_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_D_2147980295_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.D!MTB"
+        threat_id = "2147980295"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 8b 06 49 01 d0 48 83 c2 ?? 41 30 18 83 c3 ?? 48 3b 56 08 72}  //weight: 30, accuracy: Low
+        $x_20_2 = "installer: implant staged" ascii //weight: 20
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

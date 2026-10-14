@@ -1088,3 +1088,32 @@ rule Trojan_Win64_Dacic_AA_2147979619_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_NAS_2147980292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.NAS!MTB"
+        threat_id = "2147980292"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {76 61 6c 6f 72 61 6e 74 2d 61 70 69 2e 63 6f 6d ?? ?? ?? ?? ?? ?? ?? ?? 72 69 6f 74 43 6c 69 65 6e 74 56 65 72 73 69 6f 6e ?? ?? ?? ?? ?? ?? ?? 58 2d 52 69 6f 74 2d 45 6e 74 69 74 6c 65 6d 65 6e 74 73 2d 4a 57 54 3a 20}  //weight: 2, accuracy: Low
+        $x_1_2 = {58 2d 52 69 6f 74 2d 43 6c 69 65 6e 74 50 6c 61 74 66 6f 72 6d 3a 20 ?? 58 2d 52 69 6f 74 2d 43 6c 69 65 6e 74 56 65 72 73 69 6f 6e 3a 20}  //weight: 1, accuracy: Low
+        $x_1_3 = "/parties/v1/players/" ascii //weight: 1
+        $x_1_4 = "CurrentPartyID" ascii //weight: 1
+        $x_1_5 = "OIKQt0IJMWWHU+GuSz4d27lqt72nMFAk1yBe6VWJsbcBW+I4xxj/ZKpbCQcCAwEA" ascii //weight: 1
+        $x_1_6 = "/parties/v1/parties/" ascii //weight: 1
+        $x_1_7 = "MFA Bypass: searching session..." ascii //weight: 1
+        $x_1_8 = "MFA Bypass: session ready" ascii //weight: 1
+        $x_1_9 = "T73MmXfxP4Hv3pI9+9ydnkzc3uZ+4LZbONVCyjJHcndeOcTzw2VIcJP5gVAxgaW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

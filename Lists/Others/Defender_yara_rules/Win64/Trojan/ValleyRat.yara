@@ -1665,3 +1665,26 @@ rule Trojan_Win64_ValleyRat_CR_2147980131_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_CT_2147980275_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.CT!MTB"
+        threat_id = "2147980275"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {44 8d 40 fe 41 83 e0 0f 45 0f b6 04 10 44 32 44 08 fe 44 88 84 05 ?? ?? ?? ?? 44 8d 40 ff 41 83 e0 0f 45 0f b6 04 10 44 32 44 08 ff 44 88 84 05 ?? ?? ?? ?? 41 89 c0 41 83 e0 0f 45 0f b6 04 10 44 32 04 08 44 88 84 05 ?? ?? ?? ?? 48 83 c0 03 48 83 f8 50 75}  //weight: 5, accuracy: Low
+        $x_2_2 = {45 0f b7 34 7a 45 8d 7e bf 45 89 f4 41 83 cc 20 66 41 83 ff 1a 45 0f 43 e6 41 c1 c3 07 45 0f b6 f4 45 31 de 45 0f b7 5c 7a 02 45 8d 7b bf 45 89 dc 41 83 cc 20 66 41 83 ff 1a 45 0f 43 e3 41 c1 c6 07 45 0f b6 dc 45 31 f3 48 83 c7 02 48 39 fb 75}  //weight: 2, accuracy: High
+        $x_2_3 = {44 0f b7 14 51 45 8d 5a bf 44 89 d6 83 ce 20 66 41 83 fb 1a 41 0f 43 f2 c1 c0 07 44 0f b6 d6 41 31 c2 0f b7 44 51 02 44 8d 58 bf 89 c6 83 ce 20 66 41 83 fb 1a 0f 43 f0 41 c1 c2 07 40 0f b6 c6 44 31 d0 48 83 c2 02 49 39 d1 75}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

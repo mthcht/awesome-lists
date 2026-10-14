@@ -618,6 +618,34 @@ rule Trojan_Win64_Tedy_NT_2147899511_8
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "regedit.exe" ascii //weight: 1
+        $x_1_2 = "FortniteClient-Win64-Shipping.exe" ascii //weight: 1
+        $x_5_3 = {43 00 3a 00 5c 00 55 00 73 00 65 00 72 00 73 00 5c 00 [0-79] 5c 00 78 00 36 00 34 00 5c 00 52 00 65 00 6c 00 65 00 61 00 73 00 65 00 5c 00 6e 00 6f 00 67 00 69 00 62 00 6f 00 67 00 69 00 2e 00 70 00 64 00 62 00}  //weight: 5, accuracy: Low
+        $x_5_4 = {43 3a 5c 55 73 65 72 73 5c [0-79] 5c 78 36 34 5c 52 65 6c 65 61 73 65 5c 6e 6f 67 69 62 6f 67 69 2e 70 64 62}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 2 of ($x_1_*))) or
+            ((2 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Tedy_NT_2147899511_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.NT!MTB"
+        threat_id = "2147899511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
