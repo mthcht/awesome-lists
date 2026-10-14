@@ -376,3 +376,24 @@ rule Trojan_MSIL_Agensla_NIT_2147945429_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agensla_PA_2147980260_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agensla.PA!MTB"
+        threat_id = "2147980260"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agensla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {02 11 04 11 05 6f ?? ?? 00 0a 13 06 2b 00 07 12 06 28 ?? ?? 00 0a 6f ?? ?? 00 0a 00 07 6f ?? ?? 00 0a 03 fe 04 16 fe 01 13 0e 11 0e 2c 02 2b 3f 2b 00 07 12 06 28 ?? ?? 00 0a 6f ?? ?? 00 0a 00 07 6f ?? ?? 00 0a 03 fe 04 16 fe 01 13 0f 11 0f 2c 02}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
