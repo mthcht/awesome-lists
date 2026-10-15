@@ -422,3 +422,24 @@ rule Trojan_Win64_DCRat_C_2147973691_0
         )
 }
 
+rule Trojan_Win64_DCRat_AB_2147980403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DCRat.AB!MTB"
+        threat_id = "2147980403"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {48 89 03 44 89 f8 48 03 03 8b 4c 24 6c 48 8b 74 24 48 48 89 c7 f3 a4 44 03 7c 24 6c 4c 8b 4c 24 50 48 8b 54 24 48 41 b8 00 20 00 00 4c 89 e1 ff 54 24 58 85 c0 74 4e 8b 44 24 6c 85 c0 74 46 44 01 f8 41 39 c6 73 bc 48 8b 0b 8d 90 00 20 00 00 49 89 d6 e8 a4 18 00 00 48 85 c0 75 a3}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6861,3 +6861,25 @@ rule Trojan_MSIL_XWorm_SJ_2147980312_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_CW_2147980411_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.CW!MTB"
+        threat_id = "2147980411"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 13 04 00 73 ?? 00 00 0a 13 05 09 6f ?? 00 00 0a 1e 5b 13 06 16 13 07 2b 7d 20 00 10 00 00 02 8e 69 11 07 da 28 ?? 00 00 0a 13 08 11 07 11 08 d6 02 8e 69 fe 04 16 fe 01 13 09 11 09 2c 20 11 04 02 11 07 11 08 6f ?? 00 00 0a 13 0a 11 05 11 0a 16 11 0a 8e 69 6f ?? 00 00 0a 00 00 2b 30 00 11 08 11 06 d6 17 da 17 d6 8d ?? 00 00 01 13 0b 11 04 02 11 07 11 08 11 0b 16 6f ?? 00 00 0a 13 0c 11 05 11 0b 16 11 0c 6f ?? 00 00 0a 00 00 11 07 11 08 d6 13 07 00 11 07 02 8e 69 fe 04 13 0d 11 0d 3a ?? ff ff ff 11 05 6f ?? 00 00 0a 0a de 28}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

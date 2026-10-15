@@ -17281,6 +17281,30 @@ rule Trojan_MSIL_FormBook_SI_2147956636_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_SI_2147956636_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SI!MTB"
+        threat_id = "2147956636"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {28 12 00 00 06 0a 03 16 31 12 02 6f ?? ?? ?? ?? 17 32 09 02 6f ?? ?? ?? ?? 17 2f 06 73 63 00 00 0a 2a 02 6f ?? ?? ?? ?? 0b 02 6f ?? ?? ?? ?? 0c 03 73 64 00 00 0a 0d 16 13 04 16 13 05 2b 5b}  //weight: 2, accuracy: Low
+        $x_4_2 = {02 11 04 11 05 6f ?? ?? ?? ?? 13 08 09 12 08 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 09 6f ?? ?? ?? ?? 03 6a 2f 47 09 12 08 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 09 6f ?? ?? ?? ?? 03 6a 2f 30 09 12 08 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 11 05 17 58 13 05 11 05 08 32 09 16 13 05 11 04 17 58 13 04 11 04 07 2f 0a 09 6f ?? ?? ?? ?? 03 6a 32 96 09 6f ?? ?? ?? ?? 13 06 11 06 73 6c 00 00 0a 13 07 06 21 00 00 00 00 00 00 00 80 33 07 11 07 6f ?? ?? ?? ?? 11 07 13 09 de 0a 09 2c 06 09 6f ?? ?? ?? ?? dc}  //weight: 4, accuracy: Low
+        $x_1_3 = "DOANHEQTCSDL" ascii //weight: 1
+        $x_1_4 = "DangNhap" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_MCP_2147957322_0
 {
     meta:
