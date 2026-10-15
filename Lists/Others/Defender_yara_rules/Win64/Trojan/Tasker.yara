@@ -154,3 +154,24 @@ rule Trojan_Win64_Tasker_PAA_2147969029_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tasker_AF_2147980366_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tasker.AF!MTB"
+        threat_id = "2147980366"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 31 d0 49 63 c9 48 01 c1 31 c0 39 c2 ?? ?? 45 8a 1c 02 45 31 c3 41 31 c3 44 88 1c 01 48 ff c0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

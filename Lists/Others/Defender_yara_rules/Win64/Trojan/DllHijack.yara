@@ -1385,3 +1385,25 @@ rule Trojan_Win64_DllHijack_D_2147978856_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_E_2147980364_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.E!MTB"
+        threat_id = "2147980364"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f b6 04 01 48 8b 4c 24 60 8b 54 24 34 44 0f b6 04 11 41 31 c0 44 88 04 11 8b 44 24 34 83 c0 ?? 89 44 24 34 eb}  //weight: 30, accuracy: Low
+        $x_20_2 = {8b 54 24 4c 41 89 d0 41 83 c0 ?? 44 89 44 24 4c 89 d2 88 04 11 8b 44 24 44 83 c0 ?? 89 44 24 44 eb}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

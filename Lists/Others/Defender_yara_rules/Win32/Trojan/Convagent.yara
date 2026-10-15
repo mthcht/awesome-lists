@@ -2480,6 +2480,30 @@ rule Trojan_Win32_Convagent_LR_2147978399_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Crashing main Thread of parent process" ascii //weight: 1
+        $x_2_2 = "[*] Increasing SizeOfImage in PE Header to: 0x100000" ascii //weight: 2
+        $x_3_3 = "Checking process of malware analysis tool: %s:" ascii //weight: 3
+        $x_4_4 = "Patching/hooking detected" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_LR_2147978399_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.LR!MTB"
+        threat_id = "2147978399"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "39"
         strings_accuracy = "Low"
     strings:

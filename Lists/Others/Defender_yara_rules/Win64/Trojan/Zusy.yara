@@ -1291,6 +1291,31 @@ rule Trojan_Win64_Zusy_C_2147927562_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_D_2147927563_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.D!MTB"
+        threat_id = "2147927563"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "Local\\HVNCAgentSingleton_v1" ascii //weight: 50
+        $x_40_2 = "=== Installing persistence (flags=0x%02x) ===" ascii //weight: 40
+        $x_30_3 = "[*] Persistence: AppData copy    ->  %s" ascii //weight: 30
+        $x_20_4 = "[*] Persistence: Startup folder  ->  %s" ascii //weight: 20
+        $x_10_5 = "[*] Persistence: Task Scheduler   ->  %s" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_YAC_2147927681_0
 {
     meta:

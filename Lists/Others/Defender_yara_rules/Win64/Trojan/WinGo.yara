@@ -19,24 +19,3 @@ rule Trojan_Win64_WinGo_GA_2147896253_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_WinGo_CCJR_2147923576_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win64/WinGo.CCJR!MTB"
-        threat_id = "2147923576"
-        type = "Trojan"
-        platform = "Win64: Windows 64-bit platform"
-        family = "WinGo"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {45 0f b6 14 11 44 31 d7 41 88 3c 30 48 ff c6 4c 89 c0 4c 89 ca 48 39 f3 7e ?? 0f b6 3c 30 48 85 c9 74 ?? 49 89 c0 48 89 f0 49 89 d1 48 99 48 f7 f9 48 39 d1 77}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
