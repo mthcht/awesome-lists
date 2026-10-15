@@ -322,3 +322,31 @@ rule Trojan_Win64_BypassUAC_PN_2147979800_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_AB_2147980398_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.AB!MTB"
+        threat_id = "2147980398"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "UACME method 41 - Elevated COM interface" ascii //weight: 1
+        $x_1_2 = "3E5FC7F9-9A51-4367-9063-A120244FBEC7" ascii //weight: 1
+        $x_1_3 = "Elevation:Administrator!new" ascii //weight: 1
+        $x_1_4 = "may already be hardened" ascii //weight: 1
+        $x_1_5 = "Is the current process already elevated? Then this is not a bypass" ascii //weight: 1
+        $x_1_6 = "On fully up-to-date Windows the vulnerable CMSTPLUA object" ascii //weight: 1
+        $x_1_7 = "Target launched elevated" ascii //weight: 1
+        $x_1_8 = "Masquerading as %%SystemRoot%%" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
