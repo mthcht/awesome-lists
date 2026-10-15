@@ -216,3 +216,25 @@ rule Trojan_Win64_SilverFox_B_2147980235_0
         )
 }
 
+rule Trojan_Win64_SilverFox_AC_2147980421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SilverFox.AC!MTB"
+        threat_id = "2147980421"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SilverFox"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {4c 89 ca 42 8d 04 09 49 83 c1 ?? 83 e2 0f 41 32 04 10 41 88 44 31 ff 49 81 f9}  //weight: 11, accuracy: Low
+        $x_9_2 = {01 d0 c1 c2 ?? 41 33 41 fc 31 c2 4d 39 c8 75}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5652,27 +5652,6 @@ rule Trojan_Win32_Farfli_KK_2147949264_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "20"
-        strings_accuracy = "High"
-    strings:
-        $x_20_1 = {8d 85 30 fe ff ff 50 ff d7 8d 85 30 fe ff ff 50 ff d3 6a 00 6a 00 6a 00 8d 85 30 fe ff ff 50 ff d6 85 c0}  //weight: 20, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_Farfli_KK_2147949264_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/Farfli.KK!MTB"
-        threat_id = "2147949264"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Farfli"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:
@@ -5683,7 +5662,7 @@ rule Trojan_Win32_Farfli_KK_2147949264_1
         (all of ($x*))
 }
 
-rule Trojan_Win32_Farfli_KK_2147949264_2
+rule Trojan_Win32_Farfli_KK_2147949264_1
 {
     meta:
         author = "defender2yara"
@@ -5705,7 +5684,7 @@ rule Trojan_Win32_Farfli_KK_2147949264_2
         (all of ($x*))
 }
 
-rule Trojan_Win32_Farfli_KK_2147949264_3
+rule Trojan_Win32_Farfli_KK_2147949264_2
 {
     meta:
         author = "defender2yara"
@@ -5728,7 +5707,7 @@ rule Trojan_Win32_Farfli_KK_2147949264_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_Farfli_KK_2147949264_4
+rule Trojan_Win32_Farfli_KK_2147949264_3
 {
     meta:
         author = "defender2yara"
