@@ -8866,38 +8866,3 @@ rule Trojan_Win32_LummaStealer_VA_2147978546_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_LummaStealer_DO_2147979701_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/LummaStealer.DO!MTB"
-        threat_id = "2147979701"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "LummaStealer"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "202"
-        strings_accuracy = "High"
-    strings:
-        $n_200_1 = "TacticalDetector" ascii //weight: -200
-        $n_200_2 = "Microsoft.Cyber.TacticalDetection" ascii //weight: -200
-        $x_100_3 = "wallet.dat" ascii //weight: 100
-        $x_100_4 = "logins.json" ascii //weight: 100
-        $x_100_5 = "cookies.sqlite" ascii //weight: 100
-        $x_100_6 = "Passwords.txt" ascii //weight: 100
-        $x_100_7 = "Screen.jpg" ascii //weight: 100
-        $x_1_8 = "User Data" ascii //weight: 1
-        $x_1_9 = "wallets" ascii //weight: 1
-        $n_1000_10 = "jv16PT.exe" ascii //weight: -1000
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (
-            ((2 of ($x_100_*) and 2 of ($x_1_*))) or
-            ((3 of ($x_100_*))) or
-            (all of ($x*))
-        )
-}
-
