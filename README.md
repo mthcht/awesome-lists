@@ -559,6 +559,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [hunt.io blog](https://hunt.io/blog)
 - [huntress blog feed](https://www.huntress.com/blog/rss.xml)
 - [IC3 CSA feed](https://www.ic3.gov/CSA/rss)
+- [ICHI - Internet Cyber Health Index](https://ichi.global) — free, source-transparent daily barometer of internet cyber health; aggregates threat alerts, CVEs, and telemetry across 20+ public sources; outside-in directional signal (not an org-specific risk score)
 - [Infostealers Hub News Feed](https://www.infostealers.com/learn-info-stealers/feed/)
 - [infostealers reports feed](https://www.infostealers.com/info-stealers-reports/feed/)
 - [Intrinsec feed](https://www.intrinsec.com/feed/)
