@@ -2277,6 +2277,27 @@ rule Trojan_Win32_GCleaner_PG_2147979439_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {b8 12 16 05 00 8b 0b 89 0b 01 33 8b 4d cc 81 c1 8a a5 08 00 03 ce 03 c1 2d 12 16 05 00 31 03 83 c6 04 83 c3 04 3b 75 d0 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_GCleaner_PG_2147979439_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.PG!MTB"
+        threat_id = "2147979439"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {b8 12 16 05 00 8b 16 89 16 01 1e 8b 7d cc 81 c7 8a a5 08 00 03 fb 03 f8 81 ef 12 16 05 00 6a 00 e8 ?? ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? 6a 00 e8 ?? ?? ?? ?? 31 3e 83 c3 04 83 c6 04 3b 5d d0 72}  //weight: 5, accuracy: Low

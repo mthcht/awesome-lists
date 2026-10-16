@@ -346,3 +346,25 @@ rule Trojan_MSIL_DonutLoader_AO_2147979622_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DonutLoader_AO_2147979622_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DonutLoader.AO!MTB"
+        threat_id = "2147979622"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DonutLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {14 0b 0c 16 0d 2b 2a 08 09 9a 13 04 11 04 72 ?? 03 00 70 6f ?? 00 00 0a 2d 0e 11 04 72 ?? 03 00 70 6f ?? 00 00 0a 2c 05 11 04 0b 2b 0a 09 17 58 0d 09 08 8e}  //weight: 2, accuracy: Low
+        $x_1_2 = {0d 09 2c 07 09 8e 69 1f 64 2f 02 de 6a 7e ?? 00 00 0a 09 8e 69 20 00 30 00 00 1f 40 28 ?? 00 00 06 13 04 11 04 7e ?? 00 00 0a 28 ?? 00 00 0a 2c 02 de 44 09 16 11 04 09 8e 69 28}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

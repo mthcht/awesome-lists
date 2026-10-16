@@ -856,6 +856,27 @@ rule Trojan_Win64_Midie_ARA_2147962153_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 8b 8d 70 bf 01 00 8b c0 48 33 c8 48 89 8d 70 bf 01 00 48 83 eb 01 75 e1}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_ARA_2147962153_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.ARA!MTB"
+        threat_id = "2147962153"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:

@@ -42,3 +42,24 @@ rule Trojan_Win64_Crysan_GMF_2147973025_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Crysan_ARA_2147980479_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Crysan.ARA!MTB"
+        threat_id = "2147980479"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {48 33 c1 48 f7 f6 48 ff ce 48 63 ca 0f b6 04 19 41 88 43 01 44 88 ?? 19 85 ff 7f b2}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -45,3 +45,26 @@ rule Trojan_Linux_Xorddos_AA_2147817653_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Xorddos_MK_2147980481_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Xorddos.MK!MTB"
+        threat_id = "2147980481"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Xorddos"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "sed -i '/\\/etc\\/cron.hourly\\/gcc4.sh/d' /etc/crontab && echo '*/3 * * * * root /etc/cron.hourly/gcc4.sh' >> /etc/crontab" ascii //weight: 5
+        $x_3_2 = "cp /lib/libudev4.so /lib/libudev4.so.6" ascii //weight: 3
+        $x_2_3 = "m4S4nAC/nA" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

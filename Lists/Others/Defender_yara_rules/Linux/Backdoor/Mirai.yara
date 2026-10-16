@@ -9609,3 +9609,28 @@ rule Backdoor_Linux_Mirai_ME_2147971273_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_MK_2147980482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.MK!MTB"
+        threat_id = "2147980482"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "[od_ftp] ftp injection fired at %s:%d" ascii //weight: 15
+        $x_10_2 = "[od_http] http cgi injection fired at %s:%d %s" ascii //weight: 10
+        $x_5_3 = "[od_telnet] telnet injection fired at %s:%d" ascii //weight: 5
+        $x_3_4 = "[od_rdp] rdp injection fired at %s:%d" ascii //weight: 3
+        $x_2_5 = "[od_ssh] ssh probe fired at %s:%d" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

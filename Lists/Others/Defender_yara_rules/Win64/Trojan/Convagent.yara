@@ -1765,6 +1765,36 @@ rule Trojan_Win64_Convagent_C_2147977990_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_VX_2147980285_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.VX!MTB"
+        threat_id = "2147980285"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main.sendInventory" ascii //weight: 1
+        $x_1_2 = "main.polyFingerprint" ascii //weight: 1
+        $x_1_3 = "BrowserProfiles" ascii //weight: 1
+        $x_1_4 = "sysinfo.HostInfo" ascii //weight: 1
+        $x_1_5 = "sysinfo.vmwareBackdoorRaw" ascii //weight: 1
+        $x_1_6 = "sysinfo.windowsProcessArtifacts" ascii //weight: 1
+        $x_1_7 = "sysinfo.windowsDeviceArtifacts" ascii //weight: 1
+        $x_1_8 = "sysinfo.windowsServiceArtifacts" ascii //weight: 1
+        $x_1_9 = "sysinfo.probeVMwarePortIsolated" ascii //weight: 1
+        $x_1_10 = "client/sysinfo.windowsRegistryArtifacts" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_KKA_2147980316_0
 {
     meta:

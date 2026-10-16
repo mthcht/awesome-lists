@@ -112,6 +112,27 @@ rule Trojan_Win64_Yogi_ARA_2147978982_0
         threshold = "4"
         strings_accuracy = "High"
     strings:
+        $x_4_1 = {49 8b 06 88 14 30 48 ff c6 49 3b f4 72 89}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_ARA_2147978982_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.ARA!MTB"
+        threat_id = "2147978982"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
         $x_2_1 = "Kernel base leaks" ascii //weight: 2
         $x_2_2 = "--print-timings" ascii //weight: 2
     condition:
