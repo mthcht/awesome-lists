@@ -445,3 +445,47 @@ rule Trojan_Win32_DLLHijack_DAN_2147980112_0
         )
 }
 
+rule Trojan_Win32_DLLHijack_DAO_2147980457_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.DAO!MTB"
+        threat_id = "2147980457"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {fa 94 d2 a6 6c 77 3c 81 fa 48 60 f4 4f 75 0c 8d 15 00 7a 16 6b 39 d0 74 64 eb 69 81 fa 43 22 29 66 75 0c 8d 15 c0 77 16 6b 39 d0 74 50 eb 55 81 fa 94 d2 a6 6c 75 4d 8d 15 c0 79 16 6b 39 d0 74}  //weight: 10, accuracy: High
+        $x_10_2 = {f0 8d 35 60 34 c1 6d eb 50 81 fe de 9d d4 6d 75 0c 8d 35 60 34 c1 6d 39 f5 74 64 eb 3c 8d 35 60 34 c1 6d eb 34 81 fe d7 76 7c 91 75 12 8d 35 e0 34 c1 6d 39 f5 74 48 8d 35 20 36 c1 6d eb 1a 81 fe a4 6a 5e c7 75 0c 8d}  //weight: 10, accuracy: High
+        $x_10_3 = {95 74 36 95 80 f8 22 95 74 1b 95 80 f8 26 95 75 d8 8b 2d 68 7f 56 65 8b 35 6c 7f 56 65 8b 3d 70 7f 56 65 eb 77 8b 2d 48 7f 56 65 8b 35 4c 7f 56 65 8b 3d 50 7f 56 65 eb 63 8b 2d 98 7f 56 65 8b 35 9c 7f 56 65 8b 3d a0 7f 56 65 eb 4f 95 80 f8 27 95 74 36 95 80 f8 3c 95 74 1b 95 80 f8 3e 95 75 87 8b 2d 88 7f 56 65 8b 35 8c 7f 56 65 8b 3d 90 7f 56 65 eb 26 8b 2d 78 7f 56 65 8b 35 7c 7f 56 65 8b 3d 80 7f 56 65 eb 12 8b 2d 58 7f 56 65 8b 35 5c 7f 56 65}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_DLLHijack_DAP_2147980458_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DLLHijack.DAP!MTB"
+        threat_id = "2147980458"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {3f 69 70 35 33 2d 3e 32 35 20 5b 28 22 22 29 29 20 29 0a 20 40 73 20 20 50 6e 3d 5d 5b 7d 0a 5d 0a 3e 20 0a 20 09 20 20 2b 22 0a 5d 29 5c 5c 4c 6c 4c 74 4c 75 4d 6e 43 63 5c 22 54 6f 41 34 56 31 56 36 56 32 56 33 56 35 41 33 69 64 30 62 30 78 30 58 30 6f 4f 55 43 4e 53 54 3d 23 6f 73}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

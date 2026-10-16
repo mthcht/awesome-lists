@@ -63,6 +63,54 @@ rule Trojan_Win64_Clipbanker_AHC_2147948331_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Clipbanker_MX_2147954635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Clipbanker.MX!MTB"
+        threat_id = "2147954635"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {85 c0 75 0b 48 83 c3 08 48 3b df 75 e6 33 c0 48 8b 5c 24 30 48 83 c4 20}  //weight: 1, accuracy: High
+        $x_1_2 = "AudioHelper\\x64\\Release\\AudioHelper.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Clipbanker_MX_2147954635_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Clipbanker.MX!MTB"
+        threat_id = "2147954635"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "xv-clipper" ascii //weight: 1
+        $x_1_2 = "main.getClipAddresses" ascii //weight: 1
+        $x_1_3 = "$GetClipboardData" ascii //weight: 1
+        $x_1_4 = "runMutexCheck" ascii //weight: 1
+        $x_1_5 = "TelegramPayload" ascii //weight: 1
+        $x_1_6 = "SendSeedNotification" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Clipbanker_ARR_2147962420_0
 {
     meta:

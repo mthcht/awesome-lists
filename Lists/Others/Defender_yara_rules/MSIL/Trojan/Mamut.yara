@@ -621,3 +621,25 @@ rule Trojan_MSIL_Mamut_MK_2147963539_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mamut_HLN_2147980441_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mamut.HLN!MTB"
+        threat_id = "2147980441"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mamut"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {6a 5f b7 95 61 86 9c 11 07 17 d6 13 07}  //weight: 2, accuracy: High
+        $x_2_2 = "ToBase64String" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

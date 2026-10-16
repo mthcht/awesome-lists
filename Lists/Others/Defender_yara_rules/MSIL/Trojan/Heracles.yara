@@ -11905,3 +11905,25 @@ rule Trojan_MSIL_Heracles_LR_2147980244_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_HLN_2147980442_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.HLN!MTB"
+        threat_id = "2147980442"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {03 02 7b 47 00 00 04 04 02 7b 47 00 00 04 6f ?? 00 00 0a 5d 6f ?? 00 00 0a 61 d2 2a}  //weight: 2, accuracy: Low
+        $x_2_2 = "MCQTestApp.exe" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

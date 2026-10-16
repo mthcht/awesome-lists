@@ -45,3 +45,26 @@ rule Trojan_Win64_WinLolRAT_PC_2147980359_0
         )
 }
 
+rule Trojan_Win64_WinLolRAT_PB_2147980429_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/WinLolRAT.PB!MTB"
+        threat_id = "2147980429"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "WinLolRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[payload-c] agent downloaded" ascii //weight: 1
+        $x_1_2 = "RiotClientServices\\payload.log" ascii //weight: 1
+        $x_3_3 = "[payload-c] shellcode running in memory" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

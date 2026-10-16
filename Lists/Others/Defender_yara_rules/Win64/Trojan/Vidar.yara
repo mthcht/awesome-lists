@@ -3930,6 +3930,29 @@ rule Trojan_Win64_Vidar_AHG_2147974285_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_MX_2147974403_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.MX!MTB"
+        threat_id = "2147974403"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 c1 e0 02 48 01 d0 48 c1 e0 03 48 89 c2 48 8b 45 08 48 01 d0 8b 40 08 41 89 c2 0f b7 55 46 48 89 d0 48 c1 e0 02 48 01 d0 48 c1 e0 03 48 89 c2}  //weight: 1, accuracy: High
+        $x_1_2 = {c7 45 c4 00 00 00 00 c7 85 68 1a 00 00 00 00 00 00 c7 85 64 1a 00 00 00 00 10 00 8b 85 64 1a 00 00 48 89 c1 e8 18 75 00 00 48 89 85 58 1a 00 00 48 83 bd 58 1a 00 00 00 75 43}  //weight: 1, accuracy: High
+        $x_1_3 = "_Z10DownloadPEPKcPm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_GXT_2147974652_0
 {
     meta:

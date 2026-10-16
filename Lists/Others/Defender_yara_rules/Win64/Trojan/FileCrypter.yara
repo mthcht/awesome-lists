@@ -44,3 +44,26 @@ rule Trojan_Win64_FileCrypter_SX_2147974673_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCrypter_LR_2147980460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCrypter.LR!MTB"
+        threat_id = "2147980460"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCrypter"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 8b c2 41 f7 e1 c1 ea 04 0f b7 c2 6b c8 31 41 0f b7 c1 66 2b c1 66 41 03 c3 66 42 31 44 4d a0 44 03 cb}  //weight: 20, accuracy: High
+        $x_2_2 = "%s\\wallhaven-%s.png" ascii //weight: 2
+        $x_3_3 = "%s\\spray-%016llx.png" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

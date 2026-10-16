@@ -1489,3 +1489,27 @@ rule Trojan_Win64_Stealer_SN_2147980167_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_NMX_2147980430_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.NMX!MTB"
+        threat_id = "2147980430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "main.clipMonitorStart" ascii //weight: 5
+        $x_5_2 = "main.captureScreen" ascii //weight: 5
+        $x_5_3 = "main.RunReverseShell" ascii //weight: 5
+        $x_5_4 = "main.StartKeylogger" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (3 of ($x*))
+}
+

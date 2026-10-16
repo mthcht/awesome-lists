@@ -1196,3 +1196,27 @@ rule Trojan_Win64_DLLHijack_DAS_2147980370_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_DAT_2147980451_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DAT!MTB"
+        threat_id = "2147980451"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {4c 24 0b 44 30 f1 88 4c 24 0b 45 30 e6 4c 89 b4 24 f8 00 00 00 45 89 e2 41 30 ca 44 30 54 24 06 44 32 54 24 28 41 30 e9 40 88 6c 24 0c 45 89 cc 41 c0 fc 07 41 80 e4 1b 47 8d 04 09 45 30 c4 44 30 db 4c 8b 74 24 38 42 32 74 34 38 40 30 de 48 89 74 24 28 30 d3 30 5c 24 07 32 5c 24 18}  //weight: 10, accuracy: High
+        $x_10_2 = {ff 07 40 80 e7 1b 40 30 d7 43 8d 14 1b 41 c0 fb 07 41 80 e3 1b 41 30 d3 0f b6 4c 24 05 89 ca 44 30 c2 8d 2c 12 c0 fa 07 80 e2 1b 48 8b 8c 24 30 01 00 00 42 32 4c 34 32 40 30 ea 41 30 ca 4c 89 ce 44 88 54 24 0a 4c 8b 8c}  //weight: 10, accuracy: High
+        $x_10_3 = {38 0f b6 d2 44 0f b6 24 3a 45 89 fe 88 44 24 06 41 30 c6 88 5c 24 0b 43 8d 14 36 45 89 f0 41 c0 f8 07 41 80 e0 1b 41 30 d0 44 88 44 24 0f 45 89 e0 41 30 d8 44 30 fb 8d 14 1b c0 fb 07 80 e3 1b 30 d3 48 89 9c}  //weight: 10, accuracy: High
+        $x_10_4 = {45 0f af d5 47 8d 0c 92 41 89 ca 45 0f af d3 45 89 c3 45 0f af da 47 8d 14 9b 44 0f af c6 47 8d 04 80 41 89 cb 44 0f af df 47 8d 1c 9b 01 d8 44 01 c8 42 8d 04 50 46 8d 04 40 45 01 d8 31 c0 44 29 c2 0f 94}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -601,3 +601,47 @@ rule Trojan_Win64_Remus_RF_2147980412_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Remus_MX_2147980431_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.MX!MTB"
+        threat_id = "2147980431"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 34 08 31 d6 4c 8d 04 80 44 31 c6 40 88 34 01 48 ff c0 48 39 c3 7f e7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_DC_2147980459_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.DC!MTB"
+        threat_id = "2147980459"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {75 7b 48 83 fa 04 72 75 45 0f b7 50 02 49 83 c0 04 c1 e6 0a 46 8d 1c 16 41 81 c3 00 24 a0 fc 44 89 de c1 ee 12 40 80 ce f0 40 88 30 44 89 de c1 ee 0c 40 80 e6 3f 40 80 ce 80 40 88 70 01 41 c1 eb 06 41 80 e3 3f 41 80 cb 80 44 88 58 02 41 80 e2 3f 41 80 ca 80 48 8d 70 04 44 88 50 03 4d 89 c3 48 01 c2 48 29 f2 48 89 f0 45 0f b7 13 4d 89 d8 66 45 85 d2 0f 85 06 ff ff ff eb 47 44 0f b7 c7 41 81 f8 00 dc 00 00 74 e0 48 83 fa 03 72 2f 41 89 f0 41 c1 e8 0c 41 80 c8 e0 44 88 00 c1 ee 06 40 80 e6 3f 40 80 ce 80 40 88 70 01 41 80 e2 3f 41 80 ca}  //weight: 10, accuracy: High
+        $x_10_2 = {23 49 83 fc 02 72 1d 44 89 ea c1 ea 06 80 ca c0 88 10 41 80 e5 3f 41 80 cd 80 4c 8d 40 02 44 88 68 01 eb 70 45 89 e9 41 81 e1 00 fc 00 00 41 81 f9 00 d8 00 00 75 79 49 83 fc 04 72 73 0f b7 4a 02 48 83 c2 04 41 c1 e0 0a 41 01 c8 41 81 c0 00 24 a0 fc 45 89 c1 41 c1 e9 12 41 80 c9 f0 44 88 08 45 89 c1 41 c1 e9 0c 41 80 e1 3f 41 80 c9 80 44 88 48 01 41 c1 e8 06 41 80 e0 3f 41 80 c8 80 44 88 40 02 80 e1 3f 80 c9 80 4c 8d 40 04 88 48 03 48 89 d1 49 01 c4 4d 29 c4 4c 89 c0 44 0f b7 29 48 89 ca 66 45}  //weight: 10, accuracy: High
+        $x_10_3 = "pOctNovDecUTCEET+00+01CATWATEATGMTHSTHDT-03-04-05ESTCSTCDTMSTMDT-02EDTASTADTPSTPDTNSTNDT+06+03+04+07IST+09+08IDT+12PKT+11KST+05JST+10-01-11-12-08-09+13CETBSTMSK-06+14StdDltnettrueeEp" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
