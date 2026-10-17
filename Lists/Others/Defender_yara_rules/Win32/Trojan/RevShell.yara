@@ -74,3 +74,31 @@ rule Trojan_Win32_RevShell_MUB_2147979872_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RevShell_MUC_2147980505_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RevShell.MUC!MTB"
+        threat_id = "2147980505"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RevShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "array_filter(" wide //weight: 1
+        $x_1_2 = "rawurldecode(" wide //weight: 1
+        $x_1_3 = "is_writable(" wide //weight: 1
+        $x_1_4 = "file_put_contents(" wide //weight: 1
+        $x_1_5 = "include" wide //weight: 1
+        $x_1_6 = "finally" wide //weight: 1
+        $x_1_7 = "@unlink(" wide //weight: 1
+        $x_1_8 = "die(" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
