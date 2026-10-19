@@ -404,6 +404,27 @@ rule Trojan_MSIL_FormBook_FD_2147771275_1
         )
 }
 
+rule Trojan_MSIL_FormBook_AL_2147771980_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.AL!MTB"
+        threat_id = "2147771980"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {13 0d 02 7b ?? 00 00 04 11 0c 11 0d 6f ?? ?? 00 0a 13 0e 11 06 16 12 0e 28 ?? ?? 00 0a 9c 11 06 17 12 0e 28 ?? ?? 00 0a 9c 11 06 18 12 0e 28 ?? ?? 00 0a 9c 11 04 11 07 59 13 0f 11 0f 19 32 03}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_KK_2147773748_0
 {
     meta:

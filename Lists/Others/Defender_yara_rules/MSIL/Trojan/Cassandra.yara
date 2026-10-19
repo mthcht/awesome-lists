@@ -693,3 +693,25 @@ rule Trojan_MSIL_Cassandra_AN_2147980293_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cassandra_BF_2147980570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cassandra.BF!MTB"
+        threat_id = "2147980570"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cassandra"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Advanced SystemCare Ultimate.dll" ascii //weight: 1
+        $x_1_2 = "All-in-one Windows maintenance and protection suite" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

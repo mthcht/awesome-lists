@@ -95,3 +95,27 @@ rule Trojan_Win64_KillWin_KK_2147975046_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_KillWin_AA_2147980585_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KillWin.AA!MTB"
+        threat_id = "2147980585"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KillWin"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {8b 45 f4 89 45 f8 8b 45 f0 35 ?? ?? ?? ?? 89 c2 8b 45 f8 c1 e8 ?? 01 d0 89 45 f4 8b 45 f8 2d ?? ?? ?? ?? 89 45 f0 ff 45 fc 83 7d fc}  //weight: 8, accuracy: Low
+        $x_12_2 = "%s\\upd_%08X.tmp" ascii //weight: 12
+        $x_6_3 = "[%02d:%02d:%02d] init ok" ascii //weight: 6
+        $x_4_4 = "[%02d:%02d:%02d] done" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

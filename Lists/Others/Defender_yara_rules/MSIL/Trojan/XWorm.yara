@@ -425,6 +425,59 @@ rule Trojan_MSIL_XWorm_CCHT_2147903438_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_B_2147904800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.B!MTB"
+        threat_id = "2147904800"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {11 04 73 8a 00 00 0a 6f 8b 00 00 0a 19 33 18 07 11 04 6f 62 00 00 0a 72 01 04 00 70 28 33 00 00 0a}  //weight: 10, accuracy: High
+        $x_5_2 = "\\WizWorm\\" ascii //weight: 5
+        $x_3_3 = "Select * from AntivirusProduct" wide //weight: 3
+        $x_2_4 = "SELECT * FROM FirewallProduct" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_XWorm_B_2147904800_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.B!MTB"
+        threat_id = "2147904800"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Plugins\\Stealer" ascii //weight: 1
+        $x_1_2 = "XWorm" ascii //weight: 1
+        $x_1_3 = "Stealer.dll" wide //weight: 1
+        $x_1_4 = "sitemanager.xml" wide //weight: 1
+        $x_1_5 = "recentservers.xml" wide //weight: 1
+        $x_1_6 = "os_crypt" wide //weight: 1
+        $x_1_7 = "\\discord\\Local State" wide //weight: 1
+        $x_1_8 = "\\Telegram Desktop\\tdata" wide //weight: 1
+        $x_1_9 = "\\Google\\Chrome\\User Data" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_RDF_2147904897_0
 {
     meta:

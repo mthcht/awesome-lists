@@ -416,6 +416,29 @@ rule Trojan_Win64_DllHijack_KK_2147951029_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_KK_2147951029_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.KK!MTB"
+        threat_id = "2147951029"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {c6 44 24 30 90 c6 44 24 31 90 c6 44 24 32 90 c6 44 24 33 90 48 8d 44 24 48 48 89 44 24 20 41 b9 04 00 00 00 4c 8d 44 24 30 48 8b 54 24 38 48 8b 4c 24 40}  //weight: 20, accuracy: High
+        $x_10_2 = {48 8b 44 24 30 48 63 40 3c 48 8b 0d ?? ?? ?? ?? 48 03 c8 48 8b c1 48 89 44 24 40 b8 08 00 00 00 48 6b c0 00 48 8b 4c 24 40 48 8b 84 01 88 00 00 00 48 89 44 24 38 83 7c 24 3c 00}  //weight: 10, accuracy: Low
+        $x_5_3 = "lpinfos.dll" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_DllHijack_GVB_2147951939_0
 {
     meta:

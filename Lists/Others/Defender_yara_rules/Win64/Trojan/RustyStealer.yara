@@ -1,3 +1,27 @@
+rule Trojan_Win64_RustyStealer_GB_2147907926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/RustyStealer.GB!MTB"
+        threat_id = "2147907926"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "pastebin.com/raw/" ascii //weight: 5
+        $x_5_2 = {73 6e 69 70 70 65 74 2e 68 6f 73 74 2f ?? ?? ?? ?? ?? ?? 2f 72 61 77 75 ?? 5b 44 45 42 55 47 5d}  //weight: 5, accuracy: Low
+        $x_1_3 = "cmd.exe /e:ON /v:OFF /d /c" ascii //weight: 1
+        $x_1_4 = "upd152b_rs.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_RustyStealer_A_2147912272_0
 {
     meta:
