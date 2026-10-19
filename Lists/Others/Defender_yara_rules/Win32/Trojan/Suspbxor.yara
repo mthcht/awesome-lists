@@ -325,3 +325,146 @@ rule Trojan_Win32_Suspbxor_BN_2147980396_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Suspbxor_CA_2147980546_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CA!MTB"
+        threat_id = "2147980546"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-bxor $" wide //weight: 1
+        $x_1_2 = "[Convert]::ToByte(([Convert]::ToString($" wide //weight: 1
+        $x_1_3 = "Reflection.Assembly]::Load(" wide //weight: 1
+        $x_1_4 = ".Invoke($" wide //weight: 1
+        $x_1_5 = "[Convert]::ToByte($_" wide //weight: 1
+        $x_1_6 = ".GetMethod" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Suspbxor_CB_2147980547_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CB!MTB"
+        threat_id = "2147980547"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[Convert]::FromBase64String" wide //weight: 1
+        $x_1_2 = "-bxor [byte][char]$" wide //weight: 1
+        $x_1_3 = "Iex $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Suspbxor_CC_2147980548_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CC!MTB"
+        threat_id = "2147980548"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[char]($_-bxor" wide //weight: 1
+        $x_1_2 = ";iwr -Uri $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Suspbxor_CD_2147980549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CD!MTB"
+        threat_id = "2147980549"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[sYSteM.Io.FilE]::REaDALlbYTES(" wide //weight: 1
+        $x_1_2 = "[sySTEM.refLecTiON.aSsemblY]::loAD($" wide //weight: 1
+        $x_1_3 = "FOR($" wide //weight: 1
+        $x_1_4 = "-gE $" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Suspbxor_CF_2147980550_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CF!MTB"
+        threat_id = "2147980550"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "([scriptblock]::Create" wide //weight: 1
+        $x_1_2 = "Reflection.AssemblyName]" wide //weight: 1
+        $x_1_3 = "-bor[Reflection" wide //weight: 1
+        $x_1_4 = "-bxor $" wide //weight: 1
+        $x_1_5 = "byte[]($" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Suspbxor_CG_2147980551_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CG!MTB"
+        threat_id = "2147980551"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".EntryPoint.Invoke($" wide //weight: 1
+        $x_1_2 = "+''+[Char" wide //weight: 1
+        $x_1_3 = "Reflection.Assembly]::Load" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

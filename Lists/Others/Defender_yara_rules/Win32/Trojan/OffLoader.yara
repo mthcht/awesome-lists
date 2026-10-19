@@ -7463,3 +7463,26 @@ rule Trojan_Win32_OffLoader_PO_2147980004_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_OffLoader_PP_2147980558_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/OffLoader.PP!MTB"
+        threat_id = "2147980558"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "OffLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 72 00 69 00 76 00 65 00 72 00 72 00 69 00 64 00 67 00 65 00 2e 00 63 00 66 00 64 00 2f}  //weight: 5, accuracy: High
+        $x_5_2 = {68 00 74 00 74 00 70 00 73 00 3a 00 2f 00 2f 00 66 00 61 00 6c 00 6c 00 68 00 61 00 72 00 62 00 6f 00 72 00 2e 00 69 00 6e 00 66 00 6f 00 2f}  //weight: 5, accuracy: High
+        $x_5_3 = "Do you want to reboot now?" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

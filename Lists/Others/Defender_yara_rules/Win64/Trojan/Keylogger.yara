@@ -261,6 +261,33 @@ rule Trojan_Win64_Keylogger_LR_2147968428_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Keylogger_LR_2147968428_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.LR!MTB"
+        threat_id = "2147968428"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Failed to install hook!" ascii //weight: 1
+        $x_2_2 = "%Y-%m-%d__%H-%M-%S.log" ascii //weight: 2
+        $x_3_3 = "D:\\log\\%s" ascii //weight: 3
+        $x_4_4 = "Logging output to" ascii //weight: 4
+        $x_5_5 = "ConsoleWindowClass" ascii //weight: 5
+        $x_6_6 = "System is still booting up. Waiting 10 seconds to check again..." ascii //weight: 6
+        $x_7_7 = "KeyboardMonitoring" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Keylogger_LVD_2147972172_0
 {
     meta:

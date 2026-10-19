@@ -105,6 +105,29 @@ rule Trojan_Win32_DllHijack_A_2147927936_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DllHijack_A_2147927936_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DllHijack.A!MTB"
+        threat_id = "2147927936"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {8d 44 24 18 0f 57 c0 50 6a 00 8d 44 24 30 68 00 00 00 08 50 0f 11 44 24 28 e8}  //weight: 30, accuracy: High
+        $x_20_2 = "Global\\LabPyHost_%08X" ascii //weight: 20
+        $x_10_3 = "g%s\\labpdf_%08X.ok" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_DllHijack_BZ_2147944777_0
 {
     meta:

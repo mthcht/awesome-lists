@@ -383,7 +383,7 @@ rule Trojan_Win64_InfoStealer_PAJ_2147980084_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = "/sendDocument" ascii //weight: 1
-        $x_1_2 = ".wallet" ascii //weight: 1
+        $x_1_2 = "wallet" ascii //weight: 1
         $x_1_3 = ".openai" ascii //weight: 1
         $x_1_4 = "\"app_bound_encrypted_key\"" ascii //weight: 1
         $x_1_5 = "SELECT origin_url, username_value, password_value FROM logins" ascii //weight: 1
