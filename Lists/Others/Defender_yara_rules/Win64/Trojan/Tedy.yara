@@ -5925,6 +5925,50 @@ rule Trojan_Win64_Tedy_LR_2147964862_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 8b 4b 1c 49 03 c9 44 8b 14 91 4d 03 d1 4d 3b d3 76 ?? 49 8d 04 2b 4c 3b d0 73 ?? 41 be c5 9d 1c 81 49 8b ff 44 89 74 24 70 44 89 74 24 74 4c 8b 54 24 70 49 c1 ea 20}  //weight: 20, accuracy: Low
+        $x_10_2 = {0f 10 47 58 66 0f 7e c0 66 83 e8 08 45 85 f6 74 ?? 66 0f 73 d8 08 ba c5 9d 1c 81 66 48 0f 7e c1 0f b7 c0 48 d1 e8 4c 8d 04 41 49 3b c8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LR_2147964862_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LR!MTB"
+        threat_id = "2147964862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {49 b9 ca b2 d4 80 2f 67 24 6b 4c 89 8c 24 c8 08 00 00 c7 84 24 fc 04 00 00 1c dd 7b 9d 49 b9 54 f2 4b a2 2d c7 c7 e4 4c 89 8c 24 d0 08 00 00 66 c7 84 24 16 01 00 00 74 48 4c 8d 8c 24 90 03 00 00 41 c6 01 ac 4c 8d 1d a7 81 03 00 4c 89 9c 24 00 05 00 00 48 c7 84 24 08 05 00 00 5d 00 00 00 4c 89 8c 24 10 05 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = {0f b7 74 24 2e 44 29 f6 66 c1 ce 04 01 ee 40 88 74 24 30}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LR_2147964862_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LR!MTB"
+        threat_id = "2147964862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "28"
         strings_accuracy = "High"
     strings:

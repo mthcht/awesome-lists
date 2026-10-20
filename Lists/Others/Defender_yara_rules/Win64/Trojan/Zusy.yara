@@ -1291,6 +1291,32 @@ rule Trojan_Win64_Zusy_C_2147927562_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_C_2147927562_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.C!MTB"
+        threat_id = "2147927562"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[-] Failed to create persistence file. Exiting." ascii //weight: 1
+        $x_1_2 = "[-] Failed to create kernel timer." ascii //weight: 1
+        $x_1_3 = "[-] Connecting to unlockmyfiles.biz:443..." ascii //weight: 1
+        $x_1_4 = "[-] Connection timed out. Unable to download secret_key.txt" ascii //weight: 1
+        $x_1_5 = "[-] Connecting to unlockmyfiles.biz:80..." ascii //weight: 1
+        $x_1_6 = "ntuser_cache.dat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_D_2147927563_0
 {
     meta:

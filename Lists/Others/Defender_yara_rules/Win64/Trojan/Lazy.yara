@@ -6180,6 +6180,50 @@ rule Trojan_Win64_Lazy_LR_2147964502_6
         threshold = "30"
         strings_accuracy = "Low"
     strings:
+        $x_20_1 = {89 4b 10 0f b7 4c 24 44 66 89 4b 14 41 ff c0 48 8b c3 44 89 ?? ?? ?? ?? ?? 48 8b 5c 24 60 48 83 c4 50 5f c3 48 8b 5c 24 60 33 c0 48 83 c4 50}  //weight: 20, accuracy: Low
+        $x_10_2 = {49 ff c0 48 8d 52 01 48 c1 e8 18 0f b6 c8 49 8b c1 48 c1 e8 10 49 81 e9 95 35 14 00 42 32 04 19 32 42 ff 34 a5 88 42 ff 49 83 ea 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_LR_2147964502_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LR!MTB"
+        threat_id = "2147964502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {80 34 10 69 48 03 c3 48 83 f8 48 72 ?? 4c 8d 05 f1 3a 04 00 41 bc 0f 00 00 00 4c 3b c1 74 ?? 48 8b 79 10 4c 39 61 18}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 8b 55 a8 49 3b d4 76 ?? 48 8b 4d 90 48 ff c2 48 8b c1 48 3b d6 72 ?? 48 8b 49 f8 48 83 c2 27 48 2b c1 48 83 e8 08 48 83 f8 1f}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_LR_2147964502_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.LR!MTB"
+        threat_id = "2147964502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
         $x_20_1 = {80 74 0d b7 a4 48 ff c1 48 3b ce 7c ?? 48 8d 4d b7 ff d0 48 8b d8 48 85 c0}  //weight: 20, accuracy: Low
         $x_10_2 = {66 83 74 45 c7 39 48 ff c0 49 3b c1 7c ?? c7 45 d7 02 00 29 00 41 b8 0c 00 00 00 c7 45 db 20 00 28 00 48 8b c2 c7 45 df 2f 00 28 00 c7 45 e3 2f 00 26 00 c7 45 e7 0c 00 2e 00 c7 45 eb 25 00 24 00 66 89 55 ef}  //weight: 10, accuracy: Low
     condition:
@@ -6187,7 +6231,7 @@ rule Trojan_Win64_Lazy_LR_2147964502_6
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_LR_2147964502_7
+rule Trojan_Win64_Lazy_LR_2147964502_9
 {
     meta:
         author = "defender2yara"
@@ -6209,7 +6253,7 @@ rule Trojan_Win64_Lazy_LR_2147964502_7
         (all of ($x*))
 }
 
-rule Trojan_Win64_Lazy_LR_2147964502_8
+rule Trojan_Win64_Lazy_LR_2147964502_10
 {
     meta:
         author = "defender2yara"
@@ -8178,6 +8222,28 @@ rule Trojan_Win64_Lazy_E_2147980179_0
     strings:
         $x_30_1 = {42 8a 0c 02 8a 44 24 20 32 c8 8a 44 24 20 41 88 08 02 c1 49 ff c0 88 44 24 20 49 83 eb ?? 75}  //weight: 30, accuracy: Low
         $x_20_2 = {0f 57 ca 0f 57 ?? ?? ?? 00 00 f3 0f 7f 44 04 20 f3 0f 7f 4c 05 a0 48 83 c0 ?? 48 83 f8 ?? 7c}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Lazy_C_2147980611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.C!MTB"
+        threat_id = "2147980611"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {88 44 24 04 48 63 04 24 48 63 4c 24 08 0f b6 44 04 20 88 44 0c 20 48 63 04 24 0f b6 4c 24 04 88 4c 04 20 eb}  //weight: 30, accuracy: High
+        $x_20_2 = {0f b6 4c 0c 20 48 8b 94 24 30 02 00 00 0f b6 04 02 33 c1 48 63 0c 24 48 8b 94 24 30 02 00 00 88 04 0a e9}  //weight: 20, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

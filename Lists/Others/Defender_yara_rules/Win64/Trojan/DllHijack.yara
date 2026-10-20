@@ -713,6 +713,28 @@ rule Trojan_Win64_DllHijack_LR_2147964863_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 0f b6 04 08 48 33 f8 48 0f af fe 48 ff c1 49 3b cb 72 ?? 48 8b 74 24 20}  //weight: 20, accuracy: Low
+        $x_10_2 = {44 89 45 97 89 55 9b 8b 4d 7f 8b d1 0f ba f2 0f 0f ba e1 0f 0f 43 d1 8b ca 0f ba f1 0e 0f ba e2 0e 0f 43 ca 44 8b d9 41 0f ba f3 12 0f ba e1 12}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_LR_2147964863_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.LR!MTB"
+        threat_id = "2147964863"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
         strings_accuracy = "High"
     strings:
         $x_20_1 = {45 08 c8 80 ca 1b 41 80 f0 ff 41 20 d0 48 63 d0 44 88 04 11 2d 92 06 17 42 83 c0 01 05 92 06 17 42 83 f8 12 89 44 24 04}  //weight: 20, accuracy: High
@@ -722,7 +744,7 @@ rule Trojan_Win64_DllHijack_LR_2147964863_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_LR_2147964863_1
+rule Trojan_Win64_DllHijack_LR_2147964863_2
 {
     meta:
         author = "defender2yara"
@@ -744,7 +766,7 @@ rule Trojan_Win64_DllHijack_LR_2147964863_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_LR_2147964863_2
+rule Trojan_Win64_DllHijack_LR_2147964863_3
 {
     meta:
         author = "defender2yara"
@@ -769,7 +791,7 @@ rule Trojan_Win64_DllHijack_LR_2147964863_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_LR_2147964863_3
+rule Trojan_Win64_DllHijack_LR_2147964863_4
 {
     meta:
         author = "defender2yara"
@@ -1447,6 +1469,52 @@ rule Trojan_Win64_DllHijack_E_2147980364_0
     strings:
         $x_30_1 = {0f b6 04 01 48 8b 4c 24 60 8b 54 24 34 44 0f b6 04 11 41 31 c0 44 88 04 11 8b 44 24 34 83 c0 ?? 89 44 24 34 eb}  //weight: 30, accuracy: Low
         $x_20_2 = {8b 54 24 4c 41 89 d0 41 83 c0 ?? 44 89 44 24 4c 89 d2 88 04 11 8b 44 24 44 83 c0 ?? 89 44 24 44 eb}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_L_2147980604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.L!MTB"
+        threat_id = "2147980604"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 8b c0 4d 8d 49 01 33 c2 c1 e2 05 41 03 c0 45 0f be 41 ff 03 d0 45 85 c0 75 ?? 81 fa ae 7c ab a3 75 ?? 41 0f b7 02 8b 5c 85 00 48 03 de}  //weight: 20, accuracy: Low
+        $x_10_2 = {8b ca 4d 8d 40 01 33 c8 c1 e0 05 03 ca 41 0f be 50 ff 03 c1 85 d2}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_B_2147980612_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.B!MTB"
+        threat_id = "2147980612"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "__ProxyDll_PayloadEntryPoint" ascii //weight: 40
+        $x_30_2 = "__ProxyDll_PatchUPXOEP" ascii //weight: 30
+        $x_20_3 = "__ProxyDLL_PatchRegion" ascii //weight: 20
+        $x_10_4 = "__ProxyDLL_ShimModule" ascii //weight: 10
     condition:
         (filesize < 20MB) and
         (all of ($x*))
