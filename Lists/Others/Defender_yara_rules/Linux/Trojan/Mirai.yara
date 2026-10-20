@@ -1111,3 +1111,29 @@ rule Trojan_Linux_Mirai_GV_2147975950_0
         (4 of ($x*))
 }
 
+rule Trojan_Linux_Mirai_MKA_2147980590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.MKA!MTB"
+        threat_id = "2147980590"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "boatnet-unit-v2" ascii //weight: 15
+        $x_10_2 = "boat_mutex_v4" ascii //weight: 10
+        $x_5_3 = "/tmp/.bot_updating" ascii //weight: 5
+        $x_3_4 = "/data/gitea/.c2" ascii //weight: 3
+        $x_2_5 = "/dev/shm/.upd_boat" ascii //weight: 2
+        $x_1_6 = "xmrig" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
