@@ -21,3 +21,29 @@ rule Trojan_Win32_StormAttack_KK_2147970796_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_StormAttack_AT_2147980625_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StormAttack.AT!MTB"
+        threat_id = "2147980625"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StormAttack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "StormServer.dll" ascii //weight: 1
+        $x_1_2 = "Storm ddos Server" ascii //weight: 1
+        $x_1_3 = "Welcome to use storm ddos" ascii //weight: 1
+        $x_1_4 = "Thank you" ascii //weight: 1
+        $x_1_5 = "/c  del" ascii //weight: 1
+        $x_1_6 = "SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

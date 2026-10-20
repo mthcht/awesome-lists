@@ -1621,3 +1621,27 @@ rule Ransom_Win64_FileCoder_ARR_2147976250_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCoder_I_2147980617_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCoder.I!AMTB"
+        threat_id = "2147980617"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Global\\RatMutex" ascii //weight: 2
+        $x_2_2 = "YOUR_FILES_ARE_ENCRYPTED.txt" ascii //weight: 2
+        $x_1_3 = ".locked" ascii //weight: 1
+        $x_1_4 = "Payment required in Bitcoin." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

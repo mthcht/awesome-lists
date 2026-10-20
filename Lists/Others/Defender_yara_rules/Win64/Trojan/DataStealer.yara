@@ -36,3 +36,30 @@ rule Trojan_Win64_DataStealer_GVN_2147964043_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DataStealer_A_2147980619_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DataStealer.A!AMTB"
+        threat_id = "2147980619"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DataStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Neww Data Stealer" ascii //weight: 3
+        $x_3_2 = "stealer" ascii //weight: 3
+        $x_1_3 = "Rust Stealer" ascii //weight: 1
+        $x_1_4 = "passwords decrypted" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
