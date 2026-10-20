@@ -41,3 +41,45 @@ rule Trojan_NPM_PolinRider_SG_2147979880_0
         (1 of ($x*))
 }
 
+rule Trojan_NPM_PolinRider_SD_2147980600_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:NPM/PolinRider.SD"
+        threat_id = "2147980600"
+        type = "Trojan"
+        platform = "NPM: "
+        family = "PolinRider"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {6e 00 6f 00 64 00 65 00 20 00 2d 00 65 00 [0-255] 67 00 6c 00 6f 00 62 00 61 00 6c 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_NPM_PolinRider_SF_2147980601_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:NPM/PolinRider.SF"
+        threat_id = "2147980601"
+        type = "Trojan"
+        platform = "NPM: "
+        family = "PolinRider"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {6e 00 6f 00 64 00 65 00 20 00 2d 00 65 00 [0-255] 67 00 6c 00 6f 00 62 00 61 00 6c 00 5b 00 27 00 5f 00 76 00 27 00 5d 00}  //weight: 5, accuracy: Low
+        $n_100_2 = "clearTokens" ascii //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

@@ -57,11 +57,12 @@ rule Trojan_Win32_WebClipPaste_A_2147977447_0
         $x_20_43 = "[scriptblock]::Create" wide //weight: 20
         $x_20_44 = "[PowerShell]::Create()" wide //weight: 20
         $x_20_45 = {66 00 6f 00 72 00 [0-255] 63 00 6f 00 70 00 79 00 [0-48] 25 00 74 00 65 00 6d 00 70 00 25 00 5c 00}  //weight: 20, accuracy: Low
-        $x_120_46 = {6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 120, accuracy: Low
-        $n_1000_47 = "/install" wide //weight: -1000
-        $n_1000_48 = ".ps1" wide //weight: -1000
-        $n_1000_49 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
-        $n_1000_50 = "windows defender advanced threat protection" wide //weight: -1000
+        $x_20_46 = {73 00 74 00 61 00 72 00 74 00 02 00 20 00 2f 00 6d 00 69 00 6e 00 02 00 30 00 2f 00 76 00 3a 00 6f 00 6e 00 02 00 ff 00 25 00 74 00 65 00 6d 00 70 00 25 00}  //weight: 20, accuracy: Low
+        $x_120_47 = {6d 00 73 00 68 00 74 00 61 00 [0-16] 68 00 74 00 74 00 70 00}  //weight: 120, accuracy: Low
+        $n_1000_48 = "/install" wide //weight: -1000
+        $n_1000_49 = ".ps1" wide //weight: -1000
+        $n_1000_50 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
+        $n_1000_51 = "windows defender advanced threat protection" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
@@ -138,9 +139,10 @@ rule Trojan_Win32_WebClipPaste_B_2147977448_0
         $x_10_48 = "[scriptblock]::Create" wide //weight: 10
         $x_10_49 = "[PowerShell]::Create()" wide //weight: 10
         $x_110_50 = {66 00 6f 00 72 00 [0-255] 63 00 6f 00 70 00 79 00 [0-48] 25 00 74 00 65 00 6d 00 70 00 25 00 5c 00}  //weight: 110, accuracy: Low
-        $n_1000_51 = "/install" wide //weight: -1000
-        $n_1000_52 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
-        $n_1000_53 = "windows defender advanced threat protection" wide //weight: -1000
+        $x_110_51 = {73 00 74 00 61 00 72 00 74 00 02 00 20 00 2f 00 6d 00 69 00 6e 00 02 00 30 00 2f 00 76 00 3a 00 6f 00 6e 00 02 00 ff 00 25 00 74 00 65 00 6d 00 70 00 25 00}  //weight: 110, accuracy: Low
+        $n_1000_52 = "/install" wide //weight: -1000
+        $n_1000_53 = "(get-wmiobject -class win32_operatingsystem).caption" wide //weight: -1000
+        $n_1000_54 = "windows defender advanced threat protection" wide //weight: -1000
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
