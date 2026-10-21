@@ -3062,3 +3062,29 @@ rule Trojan_Win64_LummaStealer_PAIC_2147977723_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_AA_2147980726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.AA!MTB"
+        threat_id = "2147980726"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "**ChickenStealer Log Report**" ascii //weight: 10
+        $x_6_2 = "Telegram: <b>Captured</b>" ascii //weight: 6
+        $x_4_3 = "\\\"([a-p]{32})\\\":\\s*\\" ascii //weight: 4
+        $x_8_4 = "Cognosphere_Registry.txt" ascii //weight: 8
+        $x_2_5 = "Signal: <b>Captured</b>" ascii //weight: 2
+        $x_5_6 = "miHoYo_Registry.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

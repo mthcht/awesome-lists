@@ -19,3 +19,25 @@ rule Trojan_AndroidOS_BTMOBRat_AMTB_2147971924_0
         (all of ($x*))
 }
 
+rule Trojan_AndroidOS_BTMOBRat_MK_2147980710_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:AndroidOS/BTMOBRat.MK!MTB"
+        threat_id = "2147980710"
+        type = "Trojan"
+        platform = "AndroidOS: Android operating system"
+        family = "BTMOBRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_DEXHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "/yaarsa/private/" ascii //weight: 6
+        $x_4_2 = "BTMOB" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

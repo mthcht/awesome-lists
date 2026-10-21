@@ -126,3 +126,24 @@ rule Trojan_MacOS_Infostealer_K_2147974248_0
         (10 of ($x*))
 }
 
+rule Trojan_MacOS_Infostealer_MK_2147980709_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/Infostealer.MK!MTB"
+        threat_id = "2147980709"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "Infostealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = {41 89 c0 41 83 e0 0f 46 8a 04 02 44 32 04 07 44 88 04 01 48 ff c0}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

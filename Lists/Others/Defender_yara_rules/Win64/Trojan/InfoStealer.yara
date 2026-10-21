@@ -367,6 +367,28 @@ rule Trojan_Win64_InfoStealer_AA_2147977627_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_AA_2147977627_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.AA!MTB"
+        threat_id = "2147977627"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {4d 8b 1c 0a 4c 33 d8 44 8b 05 ?? ?? ?? ?? 65 48 8b 34 25 ?? ?? ?? ?? 4e 8b 04 c6 4f 89 9c 10 ?? ?? ?? ?? 4c 01 c8 ff c2 49 83 ea}  //weight: 15, accuracy: Low
+        $x_5_2 = "zKKkJ18KVfP2d7LXKRWrQjYd14qpWzAPPoqJvEkaHCytbQO2rRxvnFeOuhMqC8bH3hNyCVBmBFdL5jsWWTOXCF1hk9jL" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_InfoStealer_PAJ_2147980084_0
 {
     meta:

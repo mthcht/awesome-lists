@@ -16063,6 +16063,30 @@ rule Trojan_Win64_CobaltStrike_GV_2147923799_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_GV_2147923799_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.GV!MTB"
+        threat_id = "2147923799"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {41 8a 2b 40 30 fd 44 0f b6 f5 c1 ef 08 43 33 3c b1 49 ff c3 eb e4 4d 8d 5a 01 81 ff ?? ?? ?? ?? 48 8b 74 24 58 75 9e}  //weight: 1, accuracy: Low
+        $x_1_2 = "DAT.bRR.dll" ascii //weight: 1
+        $x_1_3 = "RRSVC" ascii //weight: 1
+        $x_1_4 = "RR_FORCE_IMAGE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_ZGG_2147924315_0
 {
     meta:
