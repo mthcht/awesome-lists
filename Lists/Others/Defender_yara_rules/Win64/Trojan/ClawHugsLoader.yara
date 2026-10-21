@@ -43,3 +43,24 @@ rule Trojan_Win64_ClawHugsLoader_C_2147959428_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_ClawHugsLoader_L_2147980678_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ClawHugsLoader.L!dha"
+        threat_id = "2147980678"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ClawHugsLoader"
+        severity = "Critical"
+        info = "dha: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = " ServiceDll /t REG_EXPAND_SZ /d c:\\windows\\system32\\scdev.dll" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

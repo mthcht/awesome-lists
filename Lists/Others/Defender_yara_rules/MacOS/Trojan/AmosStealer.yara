@@ -200,3 +200,67 @@ rule Trojan_MacOS_AmosStealer_A_2147980613_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_B_2147980675_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.B!MTB"
+        threat_id = "2147980675"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {89 4d fc 69 45 fc ?? ?? 00 00 8b 4d f8 c1 f9 ?? 01 c1 89 4d fc b8 ?? ?? 00 00 03 45 f8 31 45 fc b8 ?? ?? 00 00 0b 45 fc b9 ?? ?? 00 00 23 4d fc 31 c1 89 4d f8}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_AmosStealer_C_2147980676_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.C!MTB"
+        threat_id = "2147980676"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 c1 89 8d b4 fe ff ff 8b 85 b4 fe ff ff 25 ?? ?? 00 00 8b 8d a4 fe ff ff 29 c1 81 c1 ?? ?? ?? ?? 89 8d a4 fe ff ff}  //weight: 30, accuracy: Low
+        $x_20_2 = {ff 01 c1 89 ?? ?? fe ff ff 8b ?? ?? fe ff ff 0d ?? ?? 00 00 8b ?? ?? fe ff ff 81 e1 ?? ?? 00 00 31 c1 89 ?? ?? fe ff ff}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_AmosStealer_D_2147980677_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.D!MTB"
+        threat_id = "2147980677"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {31 f9 01 d1 81 f1 ?? ?? ?? ?? 89 c2 81 f2 ?? ?? ?? ?? 89 ce 29 d6 69 d6 ?? ?? ?? ?? 89 c6 81 f6 ?? ?? ?? ?? 01 c6 01 d6 69 d6 ?? ?? ?? ?? 01 c1 01 d1 81 f1 ?? ?? ?? ?? 89 c2 81 f2}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

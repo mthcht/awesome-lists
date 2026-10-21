@@ -397,3 +397,47 @@ rule Trojan_Win64_InfoStealer_PAJ_2147980084_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_PA_2147980705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer.PA!MTB"
+        threat_id = "2147980705"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ROOT\\SecurityCenter2" ascii //weight: 1
+        $x_1_2 = "SELECT displayName FROM AntiVirusProduct" ascii //weight: 1
+        $x_1_3 = "app_bound_encrypted_key" ascii //weight: 1
+        $x_1_4 = "\\Google\\Chrome\\User Data" ascii //weight: 1
+        $x_1_5 = "\\Microsoft\\Edge\\User Data" ascii //weight: 1
+        $x_1_6 = "\\BraveSoftware\\Brave-Browser\\User Data" ascii //weight: 1
+        $x_1_7 = "\\Vivaldi\\User Data" ascii //weight: 1
+        $x_1_8 = "\\Chromium\\User Data" ascii //weight: 1
+        $x_1_9 = "\\Yandex\\YandexBrowser\\User Data" ascii //weight: 1
+        $x_1_10 = "\\CentBrowser\\User Data" ascii //weight: 1
+        $x_1_11 = "\\Iridium\\User Data" ascii //weight: 1
+        $x_1_12 = "\\CocCoc\\Browser\\User Data" ascii //weight: 1
+        $x_1_13 = "\\Torch\\User Data" ascii //weight: 1
+        $x_1_14 = "\\Comodo\\Dragon\\User Data" ascii //weight: 1
+        $x_1_15 = "\\Epic Privacy Browser\\User Data" ascii //weight: 1
+        $x_1_16 = "\\Slimjet\\User Data" ascii //weight: 1
+        $x_1_17 = "\\URBrowser\\User Data" ascii //weight: 1
+        $x_1_18 = "\\7Star\\7Star\\User Data" ascii //weight: 1
+        $x_1_19 = "\\Amigo\\User Data" ascii //weight: 1
+        $x_1_20 = "\\Sputnik\\Sputnik\\User Data" ascii //weight: 1
+        $x_1_21 = {3d 00 5b 00 49 00 4f 00 2e 00 43 00 6f 00 6d 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 2e 00 47 00 5a 00 69 00 70 00 53 00 74 00 72 00 65 00 61 00 6d 00 5d 00 3a 00 3a 00 6e 00 65 00 77 00 28 00 24 00 [0-25] 2c 00 5b 00 49 00 4f 00 2e 00 43 00 6f 00 6d 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 2e 00 43 00 6f 00 6d 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 4d 00 6f 00 64 00 65 00 5d 00 3a 00 3a 00 44 00 65 00 63 00 6f 00 6d 00 70 00 72 00 65 00 73 00 73 00 29 00}  //weight: 1, accuracy: Low
+        $x_1_22 = {3d 5b 49 4f 2e 43 6f 6d 70 72 65 73 73 69 6f 6e 2e 47 5a 69 70 53 74 72 65 61 6d 5d 3a 3a 6e 65 77 28 24 [0-25] 2c 5b 49 4f 2e 43 6f 6d 70 72 65 73 73 69 6f 6e 2e 43 6f 6d 70 72 65 73 73 69 6f 6e 4d 6f 64 65 5d 3a 3a 44 65 63 6f 6d 70 72 65 73 73 29}  //weight: 1, accuracy: Low
+        $x_1_23 = "%s\\Microsoft\\Windows\\Start Menu\\Programs\\Startup" ascii //weight: 1
+        $x_1_24 = "%s\\WindowsUpdate.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (23 of ($x*))
+}
+

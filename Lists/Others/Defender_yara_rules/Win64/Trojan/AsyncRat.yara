@@ -184,6 +184,27 @@ rule Trojan_Win64_AsyncRat_BU_2147937165_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {80 70 10 5a 48 8b c1 66 0f 6f ca 0f 57 c8 f3 0f 7f 4d e0 0f 1f 00 80 74 05 e0 5a 48 ff c0 48 83 f8 1a 72}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AsyncRat_BU_2147937165_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRat.BU!MTB"
+        threat_id = "2147937165"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:

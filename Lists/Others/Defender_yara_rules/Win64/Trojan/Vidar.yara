@@ -2232,6 +2232,27 @@ rule Trojan_Win64_Vidar_YBE_2147964531_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_YBE_2147964531_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YBE!MTB"
+        threat_id = "2147964531"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {d0 45 0f b6 ?? 4d 01 ?? 46 0f b6 ?? ?? 45 31 ?? 44 88 ?? 02 48 ff c0 48 3d 00 6c 15 00 7d}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_GZ_2147964665_0
 {
     meta:
@@ -5109,6 +5130,27 @@ rule Trojan_Win64_Vidar_YBC_2147980584_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = {48 03 c8 48 8b 44 d5 b7 48 33 c8 48 89 4c d5 b7 48 8b 4c d5 bf}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_YBF_2147980660_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YBF!MTB"
+        threat_id = "2147980660"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {83 c7 d0 40 0f b6 ff 4c 01 c7 44 0f b6 04 18 44 31 c7 40 88 3c 02 48 ff c0 48 3d 00 6c 15 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

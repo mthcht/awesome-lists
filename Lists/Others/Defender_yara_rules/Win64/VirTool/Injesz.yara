@@ -21,3 +21,25 @@ rule VirTool_Win64_Injesz_A_2147918047_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Injesz_A_2147980691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Injesz.A"
+        threat_id = "2147980691"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injesz"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 89 44 24 20 41 b9 40 00 00 00 41 b8 70 01 00 00 49 8b d5 48 8b 4d 00 ff ?? ?? ?? ?? ?? 85 c0}  //weight: 1, accuracy: Low
+        $x_1_2 = {44 8b c3 33 d2 b9 1a 00 00 00 ff ?? ?? ?? ?? ?? 48 8b f8 48 85 c0 ?? ?? ?? ?? ?? ?? ?? ?? ?? e8 ?? ?? ?? ?? 8b d3}  //weight: 1, accuracy: Low
+        $x_1_3 = {48 89 44 24 20 4c 8b cb 4c 8b 45 b0 48 8b 55 d0 49 8b ce ff ?? ?? ?? ?? ?? 85 c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

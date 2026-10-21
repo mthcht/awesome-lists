@@ -16434,3 +16434,30 @@ rule Trojan_Win32_ClickFix_SAB_2147980599_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_JH2_2147980670_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JH2"
+        threat_id = "2147980670"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd" wide //weight: 1
+        $x_5_2 = "/c " wide //weight: 5
+        $x_5_3 = "for /r" wide //weight: 5
+        $x_5_4 = "in " wide //weight: 5
+        $x_5_5 = "(f_*)" wide //weight: 5
+        $x_5_6 = "@if " wide //weight: 5
+        $x_10_7 = "copy " wide //weight: 10
+        $x_5_8 = ".vbs" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

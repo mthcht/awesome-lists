@@ -1710,3 +1710,68 @@ rule Trojan_Win64_ValleyRat_CT_2147980275_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_YBA_2147980631_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.YBA!MTB"
+        threat_id = "2147980631"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {27 25 22 56 c7 45 ?? 50 57 56 23 c7 45 ?? 53 20 55 57 8a 44 15 ?? 34 66 0f b6 c8 48 8d 05 8a e0 27 00 66 89 0c 50 48 ff c2 48 83 fa 20 7c}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_YBT_2147980632_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.YBT!MTB"
+        threat_id = "2147980632"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {48 01 c1 66 41 0f 6f 04 0e 66 41 0f 6f 4c 0e 10 66 0f 6f d7 66 0f df d0 66 0f df c7}  //weight: 5, accuracy: High
+        $x_5_2 = {0f b6 06 0a 02 24 01 88 01 49 8b 01 c7 00}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRat_CY_2147980697_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.CY!MTB"
+        threat_id = "2147980697"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8a 0a 4c 8d 0d ?? ?? ?? ?? 49 8b c0 49 ff c0 83 e0 1f 42 8a 04 08 32 c1 88 02 48 ff c2 49 83 ef 01 75}  //weight: 4, accuracy: Low
+        $x_2_2 = {8a 4c 24 20 48 8d 44 24 30 48 03 c2 48 ff c2 41 32 0c 02 88 08 49 3b d1 7c}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

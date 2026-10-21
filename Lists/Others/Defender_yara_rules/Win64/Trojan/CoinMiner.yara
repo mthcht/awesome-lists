@@ -1506,3 +1506,25 @@ rule Trojan_Win64_CoinMiner_AF_2147980564_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_AG_2147980700_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.AG!MTB"
+        threat_id = "2147980700"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {45 31 c9 41 b8 bb 01 00 00 48 89 d9 48 8d 15 [0-3] 00 ff 15 bc ?? 02 00 48 89 c7 48 85 c0 0f 84 20 01 00 00 c7 44 24 30 00 00 80 00 45 31 c9 4c 8d 05 [0-3] 00 48 89 c1 48 c7 44 24 28 00 00 00 00 48 8d 15 [0-3] 00 48 c7 44 24 20 00 00 00 00 ff 15 8c ?? 02 00 48 89 c6 48 85 c0 0f 84 80 00 00 00 41 b9 00 00 00 20 41 b8 ff ff ff ff 48 8d 15 [0-3] 00 48 89 c1 ff 15 44}  //weight: 6, accuracy: Low
+        $x_2_2 = "FORGE_WALLET" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
