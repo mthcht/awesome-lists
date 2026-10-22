@@ -103,6 +103,27 @@ rule Trojan_Win64_Tedy_B_2147828754_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 0f fe c5 66 0f 38 00 c4 c4 e2 7d 30 c8 c4 e2 7d 30 c2 66 0f 6e d6 c5 f5 d5 c8 66 0f ?? ?? ?? ?? 62 f2 7e 28 30 cb 66 0f fc da 0f 57 d8 66 0f 7e 1c 18 44 3b ca 0f}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_B_2147828754_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.B!MTB"
+        threat_id = "2147828754"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "Low"
     strings:
@@ -113,7 +134,7 @@ rule Trojan_Win64_Tedy_B_2147828754_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_B_2147828754_1
+rule Trojan_Win64_Tedy_B_2147828754_2
 {
     meta:
         author = "defender2yara"
@@ -1390,6 +1411,27 @@ rule Trojan_Win64_Tedy_C_2147922679_1
 }
 
 rule Trojan_Win64_Tedy_C_2147922679_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.C!MTB"
+        threat_id = "2147922679"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {66 0f ef c6 66 0f d6 05 ?? ?? ?? 00 f6 15 ?? 41 01 00 66 0f 6e 05 ?? ?? ?? 00 66 41 0f ef c0 66 0f 7e 05 ?? ?? ?? 00 80 35 ?? ?? ?? ?? ?? 80 35 ?? ?? ?? ?? ?? f3 0f 7e 05 ?? ?? ?? 00 66 0f ef c6 66 0f d6 05 ?? ?? ?? 00 f6 15 ?? 41 01 00 66 0f 6e 05 ?? ?? ?? 00 66 41 0f ef c0}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_C_2147922679_3
 {
     meta:
         author = "defender2yara"
@@ -8692,5 +8734,40 @@ rule Trojan_Win64_Tedy_PAF_2147980734_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_P_2147980778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.P!MTB"
+        threat_id = "2147980778"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "71"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "gnfxzte.rkr" ascii //weight: 10
+        $x_10_2 = "cebprffunpxre.rkr" ascii //weight: 10
+        $x_10_3 = "cebprkc.rkr" ascii //weight: 10
+        $x_10_4 = "cebprkc64.rkr" ascii //weight: 10
+        $x_10_5 = "cebprkchv.rkr" ascii //weight: 10
+        $x_10_6 = "pbervasb.rkr" ascii //weight: 10
+        $x_10_7 = "tchivrj.rkr" ascii //weight: 10
+        $x_1_8 = "Chrome Browser Service" ascii //weight: 1
+        $x_1_9 = "Google Chrome Update" ascii //weight: 1
+        $x_1_10 = "Chrome Update Host" ascii //weight: 1
+        $x_1_11 = "Chrome Browser Agent" ascii //weight: 1
+        $x_1_12 = "Google Update Host" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((7 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
 }
 

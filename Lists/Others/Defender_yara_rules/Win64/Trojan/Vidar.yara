@@ -5177,3 +5177,66 @@ rule Trojan_Win64_Vidar_AX_2147980708_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_KB_2147980773_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.KB!MTB"
+        threat_id = "2147980773"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {4c 8b e0 48 85 f6 0f 84 50 02 00 00 48 85 db 0f 84 47 02 00 00 4d 85 ff 0f 84 3e 02 00 00 48 85 ff 0f 84 35 02 00 00 48 85 c0 0f 84 2c 02 00 00 41 b8 04 01 00 00 ?? ?? ?? ?? ?? 2b c9 ff d6 85 c0}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_YBD_2147980791_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YBD!MTB"
+        threat_id = "2147980791"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {45 0f b6 44 ?? 02 41 83 c0 d0 45 0f b6 c0 4d 01 c8 44 0f b6 0c ?? 45 31 c8 44 88 04}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_YBG_2147980793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YBG!MTB"
+        threat_id = "2147980793"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {45 0f b6 44 30 02 41 83 c0 d0 45 0f b6 c0 4d 01 c8 44 0f b6 0c 18 45 31 c8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

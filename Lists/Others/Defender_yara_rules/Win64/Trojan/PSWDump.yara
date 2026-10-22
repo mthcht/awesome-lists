@@ -20,3 +20,27 @@ rule Trojan_Win64_PSWDump_MX_2147955786_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PSWDump_AMX_2147980808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PSWDump.AMX!MTB"
+        threat_id = "2147980808"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PSWDump"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "PENUMBRA_KEYFILE" wide //weight: 5
+        $x_5_2 = "cc_number" ascii //weight: 5
+        $x_5_3 = "encryptedPassword" ascii //weight: 5
+        $x_5_4 = "BlockAvSites" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3979,3 +3979,31 @@ rule Trojan_Win64_ShellcodeRunner_AF_2147979677_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SJ_2147980794_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SJ!MTB"
+        threat_id = "2147980794"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[net7] read payload failed" ascii //weight: 1
+        $x_1_2 = "C:\\jvp.dat" ascii //weight: 1
+        $x_1_3 = "PAYLOAD" ascii //weight: 1
+        $x_2_4 = "%sjvld_pay.log" ascii //weight: 2
+        $x_4_5 = "Global\\JvLdMtx8x" ascii //weight: 4
+        $x_1_6 = "[net7] xor applied, magic=%04x" ascii //weight: 1
+        $x_1_7 = "[net7] open payload log FAILED %lu" ascii //weight: 1
+        $x_1_8 = "[net7] CreateThread FAILED %lu" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

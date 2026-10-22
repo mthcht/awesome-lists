@@ -1355,6 +1355,35 @@ rule Trojan_Win64_CoinMiner_AC_2147978970_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_CN_2147979682_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.CN!MTB"
+        threat_id = "2147979682"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "EXC code=0x%08x addr=%p rip=%p rsp=%p" ascii //weight: 1
+        $x_2_2 = "fsz=0x%zx irva=0x%x rrva=0x%x rsz=0x%x first(ilt=0x%x name=0x%x) tail h1=0x%x h2=0x%x" ascii //weight: 2
+        $x_1_3 = "PEB: base=%p +0x10=%p +0x18=%p +0x20=%p BITMAP=%p flags=%x" ascii //weight: 1
+        $x_1_4 = "C:\\Program Files (x86)\\Google\\Update\\Install" ascii //weight: 1
+        $x_1_5 = "FORGE_POOL" ascii //weight: 1
+        $x_1_6 = "FORGE_WALLET" ascii //weight: 1
+        $x_1_7 = "FORGE_WORKER" ascii //weight: 1
+        $x_1_8 = "%sgustep_%u_%02d%02d%02d_%02d%02d%02d.log" ascii //weight: 1
+        $x_1_9 = "NtUnmapViewOfSection" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CoinMiner_MN_2147979687_0
 {
     meta:
@@ -1523,6 +1552,35 @@ rule Trojan_Win64_CoinMiner_AG_2147980700_0
     strings:
         $x_6_1 = {45 31 c9 41 b8 bb 01 00 00 48 89 d9 48 8d 15 [0-3] 00 ff 15 bc ?? 02 00 48 89 c7 48 85 c0 0f 84 20 01 00 00 c7 44 24 30 00 00 80 00 45 31 c9 4c 8d 05 [0-3] 00 48 89 c1 48 c7 44 24 28 00 00 00 00 48 8d 15 [0-3] 00 48 c7 44 24 20 00 00 00 00 ff 15 8c ?? 02 00 48 89 c6 48 85 c0 0f 84 80 00 00 00 41 b9 00 00 00 20 41 b8 ff ff ff ff 48 8d 15 [0-3] 00 48 89 c1 ff 15 44}  //weight: 6, accuracy: Low
         $x_2_2 = "FORGE_WALLET" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CoinMiner_DN_2147980802_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.DN!MTB"
+        threat_id = "2147980802"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion" ascii //weight: 1
+        $x_1_2 = "C:\\Program Files (x86)\\Google\\Update\\Install" ascii //weight: 1
+        $x_1_3 = "WinHttpSendRequest" ascii //weight: 1
+        $x_2_4 = "version\":\"131.0.6778.%d\",\"state\":\"idle\",\"last_check\":%lld,\"checks\":%lu,\"cpu\":%d" ascii //weight: 2
+        $x_1_5 = "Accept-Encoding: identity" ascii //weight: 1
+        $x_1_6 = "FORGE_POOL" ascii //weight: 1
+        $x_1_7 = "FORGE_WALLET" ascii //weight: 1
+        $x_1_8 = "FORGE_WORKER" ascii //weight: 1
+        $x_1_9 = "AppData\\Roaming" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -3428,3 +3428,38 @@ rule Trojan_Win32_Lazy_WA_2147980222_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AL_2147980774_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AL!MTB"
+        threat_id = "2147980774"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Still using this computer?" ascii //weight: 1
+        $x_1_2 = "google.co.ck/search?q=best+way+to+kill+yourself" ascii //weight: 1
+        $x_1_3 = "google.co.ck/search?q=how+2+remove+a+virus" ascii //weight: 1
+        $x_1_4 = "google.co.ck/search?q=mcafee+vs+norton" ascii //weight: 1
+        $x_1_5 = "google.co.ck/search?q=how+to+send+a+virus+to+my+friend" ascii //weight: 1
+        $x_1_6 = "google.co.ck/search?q=minecraft+hax+download+no+virus" ascii //weight: 1
+        $x_1_7 = "google.co.ck/search?q=how+to+get+money" ascii //weight: 1
+        $x_1_8 = "google.co.ck/search?q=bonzi+buddy+download+free" ascii //weight: 1
+        $x_1_9 = "google.co.ck/search?q=how+2+buy+weed" ascii //weight: 1
+        $x_1_10 = "google.co.ck/search?q=how+to+code+a+virus+in+visual+basic" ascii //weight: 1
+        $x_1_11 = "google.co.ck/search?q=what+happens+if+you+delete+system32" ascii //weight: 1
+        $x_1_12 = "google.co.ck/search?q=how+to+remove+memz+trojan+virus" ascii //weight: 1
+        $x_1_13 = "google.co.ck/search?q=dank+memz" ascii //weight: 1
+        $x_1_14 = "google.co.ck/search?q=how+to+download+memz" ascii //weight: 1
+        $x_1_15 = "answers.microsoft.com/en-us/protect/forum/protect_other-protect_scanning/memz-malwarevirus-trojan-completely-destroying" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

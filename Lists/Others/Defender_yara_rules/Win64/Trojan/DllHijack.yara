@@ -803,6 +803,33 @@ rule Trojan_Win64_DllHijack_LR_2147964863_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Degisikliklerin etkinlesmesi icin bilgisayarinizi yeniden baslatin." ascii //weight: 1
+        $x_2_2 = "=== ORJINAL VANGUARD'A GERI DONMEK ICIN ===" ascii //weight: 2
+        $x_3_3 = "1. Yonetici olarak CMD acin ve su komutlari girin:" ascii //weight: 3
+        $x_4_4 = "2. Riot Client'i acin, Valorant'a tiklayin." ascii //weight: 4
+        $x_5_5 = "3. 'Onar' veya 'Guncelle' secenegine tiklayarak Vanguard'i tekrar indirin." ascii //weight: 5
+        $x_6_6 = "4. Bilgisayarinizi yeniden baslatin." ascii //weight: 6
+        $x_7_7 = "taskkill /F /IM vgc.exe >nul 2>" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_LR_2147964863_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.LR!MTB"
+        threat_id = "2147964863"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "55"
         strings_accuracy = "High"
     strings:

@@ -29,3 +29,24 @@ rule Ransom_Win64_Maze_GV_2147920832_0
         )
 }
 
+rule Ransom_Win64_Maze_YAR_2147980790_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Maze.YAR!MTB"
+        threat_id = "2147980790"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Maze"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {66 40 80 c9 cb bb 53 09 00 00 0f 84 90 01 04 42 66 2d 63 1e 66 89 d1 fe c2 66 47 fe c1 31 c7 09 f2 66 89 c8 fe c9 0f 85}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

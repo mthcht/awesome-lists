@@ -460,3 +460,27 @@ rule Trojan_Win64_DiscordStealer_KK_2147977786_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DiscordStealer_AMX_2147980809_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.AMX!MTB"
+        threat_id = "2147980809"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "grab_wallets()" ascii //weight: 5
+        $x_5_2 = "full credential harvester for ARCHIVE RAT" ascii //weight: 5
+        $x_5_3 = "DISCORD TOKENS" ascii //weight: 5
+        $x_5_4 = "Chrome/Edge/Opera" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
