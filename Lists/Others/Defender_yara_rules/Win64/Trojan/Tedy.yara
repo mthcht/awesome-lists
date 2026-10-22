@@ -8673,3 +8673,24 @@ rule Trojan_Win64_Tedy_YBS_2147980163_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_PAF_2147980734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PAF!MTB"
+        threat_id = "2147980734"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {4c 89 ca 81 e2 ff 03 00 00 41 0f bf 94 54 68 01 00 00 85 d2 0f 88 48 10 00 00 41 89 d0 41 c1 f8 09 44 89 c1 41 88 06 44 29 c3 49 d3 e9 f6 c6 01 0f 85 26 17 00 00 48 89 f0 41 88 56 01 49 83 c6 02 48 29 f8 48 83 f8 03 0f 8e 7c 17 00 00 48 8b 44 24 30 4c 29 f0 48 83 f8 01}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -160,3 +160,35 @@ rule Trojan_Win64_VallyRAT_MN_2147980588_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_VallyRAT_ON_2147980735_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VallyRAT.ON!MTB"
+        threat_id = "2147980735"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VallyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SeDebugPrivilege" ascii //weight: 1
+        $x_1_2 = "SeIncreaseBasePriorityPrivilege" ascii //weight: 1
+        $x_1_3 = "/c start \"\" \"%s\" \"%s\"" ascii //weight: 1
+        $x_1_4 = "curl.exe\" -L -s -o" ascii //weight: 1
+        $x_1_5 = "bitsadmin.exe\" /transfer myJob_%u /download /priority foreground" ascii //weight: 1
+        $x_1_6 = "certutil.exe\" -urlcache -split -f" ascii //weight: 1
+        $x_4_7 = "C:\\Users\\Administrator\\source\\repos\\MSEdgeWebView\\Release\\MSEdgeWebView.pdb" ascii //weight: 4
+        $x_4_8 = "F:\\dd\\vctools\\vc7libs\\ship\\atlmfc\\src\\mfc\\vmware-vdiskmanager\\Release\\vmware-vdiskmanager.pdb" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 6 of ($x_1_*))) or
+            ((2 of ($x_4_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

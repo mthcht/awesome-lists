@@ -13,30 +13,6 @@ rule Trojan_Linux_Kaiji_A_2147764476_0
         threshold = "4"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "main.Allowlist" ascii //weight: 1
-        $x_1_2 = ".RNG" ascii //weight: 1
-        $x_1_3 = "fakeLocker" ascii //weight: 1
-        $x_1_4 = "KeyLogWriter" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Linux_Kaiji_A_2147764476_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Linux/Kaiji.A!MTB"
-        threat_id = "2147764476"
-        type = "Trojan"
-        platform = "Linux: Linux platform"
-        family = "Kaiji"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
         $x_1_1 = "/etc/id.services.conf" ascii //weight: 1
         $x_1_2 = "os/user.lookupUserId" ascii //weight: 1
         $x_1_3 = "/root/src/ddos/kill.go" ascii //weight: 1
