@@ -137,3 +137,27 @@ rule Trojan_Win64_UACBypass_AHA_2147972706_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UACBypass_MK_2147980843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UACBypass.MK!MTB"
+        threat_id = "2147980843"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypass"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "allbypass_tokens.txt" ascii //weight: 10
+        $x_5_2 = "gallbypass_stage1.log" wide //weight: 5
+        $x_3_3 = "allbypass_stage1.log" ascii //weight: 3
+        $x_2_4 = "--token=lsass.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

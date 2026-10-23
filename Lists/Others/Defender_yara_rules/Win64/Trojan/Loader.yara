@@ -146,3 +146,25 @@ rule Trojan_Win64_Loader_KK_2147972591_0
         )
 }
 
+rule Trojan_Win64_Loader_MK_2147980841_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Loader.MK!MTB"
+        threat_id = "2147980841"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Loader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {03 c6 8b c8 c1 e9 10 32 4c 15 c8 88 4c 15 d8 48 ff c2 48 83 fa 09}  //weight: 20, accuracy: High
+        $x_15_2 = {03 de 8b c3 c1 e8 10 32 44 0d c8 88 44 0d e8 48 ff c1 48 83 f9 0f}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
