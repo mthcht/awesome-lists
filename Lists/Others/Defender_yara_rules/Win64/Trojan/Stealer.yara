@@ -431,6 +431,30 @@ rule Trojan_Win64_Stealer_NL_2147945529_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_CMX_2147945754_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.CMX!MTB"
+        threat_id = "2147945754"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "[stealer] master key:" ascii //weight: 5
+        $x_5_2 = "installed browser(s)" ascii //weight: 5
+        $x_5_3 = "sqlitecookies" ascii //weight: 5
+        $x_5_4 = "cookiespasswordscards" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Stealer_SX_2147949161_0
 {
     meta:
@@ -1511,5 +1535,27 @@ rule Trojan_Win64_Stealer_NMX_2147980430_0
     condition:
         (filesize < 20MB) and
         (3 of ($x*))
+}
+
+rule Trojan_Win64_Stealer_CS_2147980889_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer.CS!MTB"
+        threat_id = "2147980889"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8d 0c c5 00 00 00 00 4c 89 d7 48 d3 ef 41 30 3c 03 48 ff c0 e9 5c}  //weight: 5, accuracy: High
+        $x_5_2 = {8d 0c 07 44 0f b6 02 44 30 04 0b 83 c0 01 48 83 c2 01 44 39 c8 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
 }
 

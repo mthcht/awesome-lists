@@ -700,3 +700,28 @@ rule Trojan_Win32_Grandoreiro_GT_2147978235_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Grandoreiro_GV_2147980890_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Grandoreiro.GV!MTB"
+        threat_id = "2147980890"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Grandoreiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {55 8b ec 83 c4 e4 33 c0 89 45 e4 b8 ?? ?? ?? ?? e8 ?? ?? ?? ?? 33 c0 55 68 ?? ?? ?? ?? 64 ff 30 64 89 20 e8 ?? ?? ?? ?? dd 5d e8 9b ff 75 ec ff 75 e8}  //weight: 10, accuracy: Low
+        $x_1_2 = "GetKeyboardState" ascii //weight: 1
+        $x_1_3 = "URLDownloadToFile" ascii //weight: 1
+        $x_1_4 = "dbkFCallWrapperAddr" ascii //weight: 1
+        $x_1_5 = "DeleteUrlCacheEntryW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

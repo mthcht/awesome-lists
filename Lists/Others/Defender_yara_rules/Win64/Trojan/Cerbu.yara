@@ -920,3 +920,26 @@ rule Trojan_Win64_Cerbu_E_2147980610_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cerbu_AA_2147980879_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.AA!MTB"
+        threat_id = "2147980879"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {44 8b c8 41 c1 e9 ?? 44 33 c8 41 8b c2 48 c1 e0 ?? 4c 03 c0 41 8b c1 f7 f1 41 0f 10 08 48 63 c2 33 d2 48 03 c0}  //weight: 10, accuracy: Low
+        $x_6_2 = "Local\\ArvionAgentSingle" ascii //weight: 6
+        $x_4_3 = "/speechrt %lu" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
