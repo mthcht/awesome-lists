@@ -948,6 +948,33 @@ rule Trojan_Win32_ValleyRat_BV_2147978580_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRat_AAH_2147979604_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.AAH!AMTB"
+        threat_id = "2147979604"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SOFTWARE\\Perlibser" wide //weight: 1
+        $x_1_2 = "CTcpClient::Start" ascii //weight: 1
+        $x_1_3 = "MiniDumpWriteDump" ascii //weight: 1
+        $x_1_4 = "%s%sabrt_%04d%02d%02d_%02d%02d%02d_%s.dmp" wide //weight: 1
+        $x_1_5 = "QLY2025Dumps" wide //weight: 1
+        $x_1_6 = "\\Sessions\\%d\\BaseNamedObjects\\MMPP*%p" wide //weight: 1
+        $x_1_7 = "NoManOrWomanIsWorthYourTearsAndTheOneWhoIsWontMakeYouCry" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_ValleyRat_CY_2147980469_0
 {
     meta:
@@ -964,6 +991,32 @@ rule Trojan_Win32_ValleyRat_CY_2147980469_0
         strings_accuracy = "Low"
     strings:
         $x_5_1 = {0f 10 04 01 0f 28 ca 0f 57 c8 0f 11 0c 01 0f 10 80 ?? ?? ?? ?? 0f 28 ca 0f 57 c8 0f 11 88 ?? ?? ?? ?? 0f 10 04 02 0f 28 ca 0f 57 c8 0f 11 0c 02 0f 10 04 06 0f 28 ca 0f 57 c8 0f 11 0c 06 83 c0 40 3d 80 09 00 00 72 ?? 3d ?? 09 00 00 73 ?? 80 b0 20 69 41 00 be 40 3d ?? 09 00 00 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ValleyRat_AAG_2147980829_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat.AAG!AMTB"
+        threat_id = "2147980829"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\ship\\atlmfc\\src\\mfc\\QGBoxHyperVRepair\\Release\\QGBoxHyperVRepair.pdb" ascii //weight: 10
+        $x_1_2 = "CheckRemoteDebugCreateThreadpoolSetThreadpoolTim" ascii //weight: 1
+        $x_1_3 = "FakeToolbar.bmp" wide //weight: 1
+        $x_1_4 = "QGBoxHyperVRepair.AppID.NoVersion" wide //weight: 1
+        $x_1_5 = "PDFCore8" wide //weight: 1
+        $x_1_6 = "(*.bat)|*.bat|" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -705,3 +705,32 @@ rule Trojan_Win32_KeyLogger_LM_2147961377_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KeyLogger_AAG_2147980831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KeyLogger.AAG!AMTB"
+        threat_id = "2147980831"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\AnxietyPills\\Desktop\\APC PC Monitor\\Build\\Release\\Client.pdb" ascii //weight: 10
+        $x_1_2 = "SampleGrabber" wide //weight: 1
+        $x_1_3 = "APC_BAKED_KEY_PLACEHOLDER" ascii //weight: 1
+        $x_1_4 = "License key loaded:" ascii //weight: 1
+        $x_1_5 = "RECOVER_PASSWORDS" ascii //weight: 1
+        $x_1_6 = "CaptureAllScreensBmp: monitor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 4 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

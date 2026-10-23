@@ -1124,6 +1124,30 @@ rule TrojanSpy_MSIL_Keylogger_AMTB_2147972461_0
         family = "Keylogger"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "upload_loot" ascii //weight: 1
+        $x_1_2 = "cmd.exe /k echo SLeekHook" ascii //weight: 1
+        $x_1_3 = "sleekmarka" ascii //weight: 1
+        $x_1_4 = "SLeekHookBoundary" ascii //weight: 1
+        $x_1_5 = "cards_total" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanSpy_MSIL_Keylogger_AMTB_2147972461_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanSpy:MSIL/Keylogger!AMTB"
+        threat_id = "2147972461"
+        type = "TrojanSpy"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

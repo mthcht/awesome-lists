@@ -1795,3 +1795,30 @@ rule Trojan_MSIL_MassLogger_AH_2147980226_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_MassLogger_AAA_2147980830_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/MassLogger.AAA!AMTB"
+        threat_id = "2147980830"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "MassLogger"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "get_PassWord" ascii //weight: 1
+        $x_1_2 = "txtPassNewAgain" ascii //weight: 1
+        $x_1_3 = "Oversee.flogin.resources" ascii //weight: 1
+        $x_1_4 = "get_LoginAccount" ascii //weight: 1
+        $x_1_5 = "Mikelsoft Corporation" ascii //weight: 1
+        $x_1_6 = "Oversee.fAdmin.resources" ascii //weight: 1
+        $x_1_7 = "XoaCateNe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

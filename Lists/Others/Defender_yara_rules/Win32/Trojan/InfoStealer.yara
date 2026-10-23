@@ -246,3 +246,30 @@ rule Trojan_Win32_InfoStealer_AMTB_2147956317_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_InfoStealer_AAD_2147980828_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/InfoStealer.AAD!AMTB"
+        threat_id = "2147980828"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "STEAL_RECIPE" wide //weight: 2
+        $x_2_2 = "ShadowKill" ascii //weight: 2
+        $x_2_3 = "KeylogAuto" ascii //weight: 2
+        $x_2_4 = "sc stop WinDefend & sc stop Sense & taskkill /f /im MsMpEng.exe" wide //weight: 2
+        $x_2_5 = "Get-WmiObject Win32_ShadowCopy | ForEach-Object { $_.Delete() } | Out-Null; 'shadows removed'" wide //weight: 2
+        $x_2_6 = "shadowcopy delete /nointeractive" wide //weight: 2
+        $x_2_7 = "RANSOM_SURVEY" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

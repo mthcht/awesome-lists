@@ -680,3 +680,35 @@ rule Trojan_MSIL_FileCoder_PML_2147936649_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FileCoder_AAA_2147980832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FileCoder.AAA!AMTB"
+        threat_id = "2147980832"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "\\tom\\Documents\\rest\\reverse\\code\\rans\\finalrans\\obj\\Release\\net10.0-windows\\win-x64\\finalrans.pdb" ascii //weight: 10
+        $x_10_2 = "\\utilisateur\\Desktop\\code\\rans\\RansomwareCSharp\\obj\\Release\\net10.0\\win-x64\\RansomwareCSharp.pdb" ascii //weight: 10
+        $x_10_3 = "\\utilisateur\\Desktop\\code\\WebApplication2\\WebApplication2\\obj\\Release\\net10.0-windows\\win-x64\\WebApplication2.pdb" ascii //weight: 10
+        $x_1_4 = "ShowFullScreenRansomwareScreen" ascii //weight: 1
+        $x_1_5 = "C:\\lab\\RANSOM_STATUS.txt" wide //weight: 1
+        $x_1_6 = "RANSOMWARE - KEY DESTROYED" wide //weight: 1
+        $x_1_7 = "RANSOMWARE ALERTE" wide //weight: 1
+        $x_1_8 = "RansomwareCSharp" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 4 of ($x_1_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

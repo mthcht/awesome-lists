@@ -346,6 +346,30 @@ rule Trojan_Win64_DllHijack_C_2147946500_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_C_2147946500_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.C!MTB"
+        threat_id = "2147946500"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "----SiegeBoundaryx7Ma4YWxkTrZu0gW" ascii //weight: 40
+        $x_30_2 = "username\":\"exfil\"}" ascii //weight: 30
+        $x_20_3 = "(NSS_Init failed - primary password" ascii //weight: 20
+        $x_10_4 = "(nss3.dll load failed)" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_DllHijack_KK_2147951029_0
 {
     meta:

@@ -221,3 +221,26 @@ rule Ransom_Win32_BlackCat_MMM_2147888796_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_BlackCat_AMTB_2147980834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/BlackCat!AMTB"
+        threat_id = "2147980834"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BlackCat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".bc_backup" ascii //weight: 1
+        $x_1_2 = "BLACKCAT_AES_TST" ascii //weight: 1
+        $x_1_3 = "blackcat_fallback.log" ascii //weight: 1
+        $x_1_4 = "ransom notes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
