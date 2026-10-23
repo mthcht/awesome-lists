@@ -4029,3 +4029,30 @@ rule Trojan_Win64_ShellcodeRunner_SJ_2147980794_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellcodeRunner_SL_2147980859_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.SL!MTB"
+        threat_id = "2147980859"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%sself.log" ascii //weight: 1
+        $x_2_2 = "%smsvc.dat" ascii //weight: 2
+        $x_2_3 = "Global\\NetSvcMtx203d" ascii //weight: 2
+        $x_1_4 = "[net5] another instance running, exit" ascii //weight: 1
+        $x_1_5 = "[net5] read payload failed" ascii //weight: 1
+        $x_1_6 = "[net5] decrypted %lu, magic=%04x" ascii //weight: 1
+        $x_1_7 = "[net5] NOT a PE after decrypt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

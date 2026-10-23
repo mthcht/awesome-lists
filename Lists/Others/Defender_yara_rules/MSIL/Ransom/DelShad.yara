@@ -22,3 +22,31 @@ rule Ransom_MSIL_DelShad_DA_2147772563_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_DelShad_SN_2147980861_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/DelShad.SN!MTB"
+        threat_id = "2147980861"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DelShad"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "3dacbeb2-c0f5-4a87-84ba-8b60557a1fc0" ascii //weight: 4
+        $x_4_2 = "vssadmin delete shadows /all /quiet" wide //weight: 4
+        $x_2_3 = "DisableRecovery" wide //weight: 2
+        $x_2_4 = "EncryptAllDrives" ascii //weight: 2
+        $x_2_5 = "/c bcdedit /deletevalue {current} recoveryenabled" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_4_*) and 2 of ($x_2_*))) or
+            (all of ($x*))
+        )
+}
+

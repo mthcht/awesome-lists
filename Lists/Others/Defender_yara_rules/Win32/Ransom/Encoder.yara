@@ -45,3 +45,26 @@ rule Ransom_Win32_Encoder_NE_2147962191_0
         (all of ($x*))
 }
 
+rule Ransom_Win32_Encoder_SA_2147980860_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Encoder.SA!MTB"
+        threat_id = "2147980860"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Encoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "All your files documents, photos, databases and other important files are encrypted " wide //weight: 2
+        $x_2_2 = "On our page you will see instructions on payment and get the opportunity to decrypt 1 file for free." wide //weight: 2
+        $x_2_3 = "Do not try to modify files or use your own private key - this will result in the loss of your data forever!" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

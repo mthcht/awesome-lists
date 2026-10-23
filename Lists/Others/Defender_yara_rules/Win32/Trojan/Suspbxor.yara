@@ -468,3 +468,29 @@ rule Trojan_Win32_Suspbxor_CG_2147980551_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Suspbxor_CE_2147980856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Suspbxor.CE!MTB"
+        threat_id = "2147980856"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Suspbxor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ".Replace(" wide //weight: 1
+        $x_1_2 = "[System.Reflection.Assembly]::$" wide //weight: 1
+        $x_1_3 = "[byte[]]$" wide //weight: 1
+        $x_1_4 = "[System.Convert]::$" wide //weight: 1
+        $x_1_5 = "[System.IO.File]::$" wide //weight: 1
+        $x_1_6 = "-bxor" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
