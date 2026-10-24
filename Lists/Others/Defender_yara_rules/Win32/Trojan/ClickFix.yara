@@ -16484,3 +16484,35 @@ rule Trojan_Win32_ClickFix_BA_2147980814_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_JH3_2147980913_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JH3"
+        threat_id = "2147980913"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "51"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "msiexec" wide //weight: 40
+        $x_1_2 = "/Q" wide //weight: 1
+        $x_1_3 = "-Q" wide //weight: 1
+        $x_10_4 = "http" wide //weight: 10
+        $n_100_5 = "SentinelInstaller" wide //weight: -100
+        $n_100_6 = "ClientCommunicationsAgent64" wide //weight: -100
+        $n_100_7 = "SnSecureTester" wide //weight: -100
+        $n_100_8 = "QuestMigratorPro20.11.3" wide //weight: -100
+        $n_100_9 = "PFERemediationAgent" wide //weight: -100
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_40_*) and 1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
