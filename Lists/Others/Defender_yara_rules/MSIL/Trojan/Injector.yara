@@ -3098,3 +3098,28 @@ rule Trojan_MSIL_Injector_RE_2147979963_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_E_2147980910_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.E!MTB"
+        threat_id = "2147980910"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[*] Spawning suspended process..." wide //weight: 1
+        $x_1_2 = "[*] Unmapping original image..." wide //weight: 1
+        $x_1_3 = "[*] Allocating memory for payload..." wide //weight: 1
+        $x_1_4 = "[+] Payload hollowed. Resuming process..." wide //weight: 1
+        $x_1_5 = "HollowInjector" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

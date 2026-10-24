@@ -368,3 +368,45 @@ rule Trojan_Win64_QuasarRAT_BA_2147980887_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_QuasarRAT_BB_2147980900_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.BB!MTB"
+        threat_id = "2147980900"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {46 0f b6 04 38 42 8d 0c d5 00 00 00 00 48 8b d7 41 ff c2 48 d3 ea 41 32 d0 88 94 05 ?? ?? ?? ?? ff c0 41 83 fa 08 7c}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_QuasarRAT_BC_2147980901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/QuasarRAT.BC!MTB"
+        threat_id = "2147980901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 33 4e 18 49 8b c8 49 33 ca 48 89 4e 08 4b 8d 3c 92 49 8b c9 49 c1 e2 11 48 33 ca 49 c1 c9 13 4d 33 c2 48 c1 cf 39 48 89 0e 4c 89 46 10 4c 89 4e 18 48 3b c3}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
