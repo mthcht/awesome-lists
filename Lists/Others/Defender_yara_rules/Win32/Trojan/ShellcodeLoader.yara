@@ -139,3 +139,25 @@ rule Trojan_Win32_ShellcodeLoader_ASLT_2147971960_0
         )
 }
 
+rule Trojan_Win32_ShellcodeLoader_SA_2147980929_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ShellcodeLoader.SA"
+        threat_id = "2147980929"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ShellcodeLoader"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "goto run this 0x%p code..." ascii //weight: 1
+        $x_1_2 = "true or failed, this is a lief!" ascii //weight: 1
+        $x_1_3 = "VirtualAlloc (1MB) failed: %d" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
