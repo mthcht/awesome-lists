@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,leboncoin.fr,3.171.22.35,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
+*original,leboncoin.fr,18.165.83.19,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
 addition,leboncoin0.fr,,,,
 addition,leboncoin1.fr,,,,
 addition,leboncoin2.fr,,,,
@@ -53,7 +53,8 @@ bitsquatting,leboncgin.fr,,,,
 bitsquatting,lebonckin.fr,,,,
 bitsquatting,leboncmin.fr,,,,
 bitsquatting,leboncnin.fr,,,,
-bitsquatting,leboncoan.fr,,,,ns1.leboncoin.net
+bitsquatting,lebonkoin.fr,!ServFail,!ServFail,!ServFail,ns1.leboncoin.net
+bitsquatting,leboncoan.fr,,!ServFail,!ServFail,ns1.leboncoin.net
 bitsquatting,leboncohn.fr,,,,
 bitsquatting,leboncoif.fr,,,,
 bitsquatting,leboncoij.fr,,,,
@@ -64,7 +65,6 @@ bitsquatting,leboncomn.fr,,,,
 bitsquatting,leboncoyn.fr,,,,
 bitsquatting,lebongoin.fr,,,,
 bitsquatting,lebonsoin.fr,104.21.94.199,2606:4700:3030::6815:5ec7,,koa.ns.cloudflare.com
-bitsquatting,lebonkoin.fr,,,,ns1.leboncoin.net
 bitsquatting,leboocoin.fr,,,,
 bitsquatting,leconcoin.fr,,,,
 bitsquatting,lefoncoin.fr,,,,
@@ -724,7 +724,7 @@ insertion,lebonjcoin.fr,,,,
 insertion,lebonmcoin.fr,,,,
 insertion,lebonvcoin.fr,,,,
 insertion,lebonxcoin.fr,,,,
-insertion,lebopncoin.fr,,,,ns1.leboncoin.net
+insertion,lebopncoin.fr,!ServFail,!ServFail,,ns1.leboncoin.net
 insertion,lebponcoin.fr,,,,
 insertion,lebvoncoin.fr,,,,
 insertion,ledboncoin.fr,,,,
@@ -735,7 +735,7 @@ insertion,lerboncoin.fr,,,,
 insertion,lesboncoin.fr,,,,
 insertion,levboncoin.fr,,,,
 insertion,lewboncoin.fr,,,,
-insertion,lezboncoin.fr,,,,ns1.leboncoin.net
+insertion,lezboncoin.fr,,,!ServFail,ns1.leboncoin.net
 insertion,lkeboncoin.fr,,,,
 insertion,lmeboncoin.fr,,,,
 insertion,loeboncoin.fr,,,,
