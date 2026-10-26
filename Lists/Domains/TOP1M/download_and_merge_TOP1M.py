@@ -7,11 +7,13 @@ import os
 # URLs for the lists
 majestic_url = 'https://downloads.majestic.com/majestic_million.csv'
 tranco_zip_url = 'https://tranco-list.eu/top-1m.csv.zip'
+netapi_url = 'https://netapi.com/netapi_top1mln.csv'
 
 # File paths
 majestic_file = 'majestic_million_original.csv'
 tranco_zip_file = 'tranco_list_original.zip'
 tranco_csv_file = 'tranco_list_original.csv'
+netapi_file = 'netapi_top1m_original.csv'
 merged_file = 'TOP1M_domains.csv'
 
 def download_file(url, file_path):
@@ -43,6 +45,10 @@ if download_file(tranco_zip_url, tranco_zip_file):
 else:
     tranco_csv_file = None
 
+# Download NetAPI Top 1M (plain CSV, no archive)
+if not download_file(netapi_url, netapi_file):
+    netapi_file = None
+
 # Process Majestic Million (Extract 3rd column: 'Domain')
 if majestic_data:
     majestic_df = pd.read_csv(majestic_file, usecols=[2], names=['dest_nt_domain'], header=0)
@@ -57,8 +63,15 @@ if tranco_csv_file and os.path.exists(tranco_csv_file):
 else:
     tranco_df = pd.DataFrame(columns=['dest_nt_domain', 'metadata_comment'])
 
+# Process NetAPI Top 1M (Extract 2nd column: 'Domain', header row 'NetAPI_Rank,Domain')
+if netapi_file and os.path.exists(netapi_file):
+    netapi_df = pd.read_csv(netapi_file, usecols=[1], names=['dest_nt_domain'], header=0, dtype=str)
+    netapi_df['metadata_comment'] = netapi_url
+else:
+    netapi_df = pd.DataFrame(columns=['dest_nt_domain', 'metadata_comment'])
+
 # Merge lists
-merged_df = pd.concat([majestic_df, tranco_df])
+merged_df = pd.concat([majestic_df, tranco_df, netapi_df])
 
 # Handle duplicates: If a domain appears in both lists, merge the metadata_comment
 merged_df = merged_df.groupby('dest_nt_domain', as_index=False).agg({'metadata_comment': ' & '.join})
@@ -69,4 +82,5 @@ merged_df.to_csv(merged_file, index=False)
 print(f"Original Majestic Million saved as: {majestic_file}")
 print(f"Original Tranco List ZIP saved as: {tranco_zip_file}")
 print(f"Extracted Tranco List saved as: {tranco_csv_file}")
+print(f"Original NetAPI Top 1M saved as: {netapi_file}")
 print(f"Merged list saved as: {merged_file}, total unique domains: {len(merged_df)}")
