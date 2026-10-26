@@ -25,6 +25,58 @@ jobs:
         run: |
           python fetch_zscaler_ip_ranges.py zscaler_ip_ranges.csv
 
+      - name: Merge bgp.he.net ranges into lookup
+        run: |
+          python - <<'EOF'
+          import csv, os, ipaddress
+
+          lookup = "zscaler_ip_ranges.csv"
+          extra = "../bgp.he.net/Zscaler_IP_Ranges.csv"
+
+          FIELDS = ["src_ip", "metadata_reference"]
+
+          def norm(ip):
+              """Canonical form so e.g. 1.2.3.0/24 and 1.2.3.0 /24 don't both slip through."""
+              ip = (ip or "").strip()
+              if not ip:
+                  return None
+              try:
+                  if "/" in ip:
+                      return str(ipaddress.ip_network(ip, strict=False))
+                  return str(ipaddress.ip_address(ip))
+              except ValueError:
+                  # keep anything that isn't parseable rather than dropping it silently
+                  return ip
+
+          rows = {}  # normalized ip -> metadata_reference (first one wins)
+
+          def ingest(path, ip_col):
+              if not os.path.exists(path):
+                  print(f"WARNING: {path} not found, skipping")
+                  return
+              with open(path, newline="", encoding="utf-8-sig") as f:
+                  reader = csv.DictReader(f)
+                  for r in reader:
+                      ip = norm(r.get(ip_col))
+                      if ip is None:
+                          continue
+                      meta = (r.get("metadata_reference") or "").strip()
+                      if ip not in rows:
+                          rows[ip] = meta
+
+          # existing lookup first, so its metadata_reference takes precedence
+          ingest(lookup, "src_ip")
+          ingest(extra, "dest_ip")
+
+          with open(lookup, "w", newline="", encoding="utf-8") as f:
+              w = csv.DictWriter(f, fieldnames=FIELDS)
+              w.writeheader()
+              for ip in sorted(rows):
+                  w.writerow({"src_ip": ip, "metadata_reference": rows[ip]})
+
+          print(f"Wrote {len(rows)} unique ranges to {lookup}")
+          EOF
+
       - name: Commit and push updates
         run: |
           git pull
