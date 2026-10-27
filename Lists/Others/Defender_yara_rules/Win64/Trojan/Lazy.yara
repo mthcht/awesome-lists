@@ -1764,6 +1764,28 @@ rule Trojan_Win64_Lazy_CZ_2147919987_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_WZ_2147920150_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.WZ!MTB"
+        threat_id = "2147920150"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 0f b6 c1 44 01 c0 41 d3 e0 0f b6 0d ?? ?? ?? ?? 44 01 c0 44 0f b6 0a 0f b6 0d ?? ?? ?? ?? 44 30 c9 48 ff c2 41 89 c0 80 f9 65 75}  //weight: 5, accuracy: Low
+        $x_5_2 = {0f b6 d2 c1 e2 08 01 c2 0f b6 05 ?? ?? ?? ?? 83 f0 5a c1 e0 10 01 d0 0f b6 15 ?? ?? ?? ?? 83 f2 73 c1 e2 18 01 c2 01 ca 48 63 c1 0f b6 0d ?? ?? ?? ?? 80 f1 18 88 4c 04 60}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
 rule Trojan_Win64_Lazy_GXB_2147920185_0
 {
     meta:

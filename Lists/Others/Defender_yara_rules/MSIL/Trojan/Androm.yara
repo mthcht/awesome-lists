@@ -2323,3 +2323,26 @@ rule Trojan_MSIL_Androm_KKC_2147980315_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Androm_DE_2147980963_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Androm.DE!MTB"
+        threat_id = "2147980963"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Androm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0d 09 20 00 01 00 00 6f ?? 00 00 0a 09 20 80 00 00 00 6f ?? 00 00 0a 28 ?? 00 00 0a 72 ?? ?? 00 70 28 ?? 00 00 06 6f ?? 00 00 0a 13 04 11 04 07 20 e8 03 00 00 73 ?? 00 00 0a 13 05 09 11 05 09 6f ?? 00 00 0a 1e 5b 6f ?? 00 00 0a 6f ?? 00 00 0a 09 11 05 09 6f ?? 00 00 0a 1e 5b 6f ?? 00 00 0a 6f ?? 00 00 0a 09 17 6f ?? 00 00 0a 08 09 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 06 11 06 02 16 02 8e 69 6f ?? 00 00 0a 11 06 6f ?? 00 00 0a dd ?? 00 00 00 11 06 39 ?? 00 00 00 11 06 6f ?? 00 00 0a dc 08 6f ?? 00 00 0a 0a dd}  //weight: 5, accuracy: Low
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
