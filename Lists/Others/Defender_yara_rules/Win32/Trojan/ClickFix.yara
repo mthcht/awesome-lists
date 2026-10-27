@@ -16516,3 +16516,50 @@ rule Trojan_Win32_ClickFix_JH3_2147980913_0
         )
 }
 
+rule Trojan_Win32_ClickFix_OL_2147980968_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.OL!MTB"
+        threat_id = "2147980968"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "--ssl-no-revoke -so z.cmd" wide //weight: 4
+        $x_4_2 = "&&start z" wide //weight: 4
+        $x_3_3 = "%USERPROFILE%&" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_OM_2147980969_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.OM!MTB"
+        threat_id = "2147980969"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "$s[-1..-$s.Length]" wide //weight: 5
+        $x_4_2 = "Invoke-expression $" wide //weight: 4
+        $x_3_3 = "System.IO.StreamReader" wide //weight: 3
+        $x_2_4 = ".ReadToEnd(" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
