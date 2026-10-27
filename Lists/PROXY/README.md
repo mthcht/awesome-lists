@@ -14,5 +14,6 @@ ressources used:
   - https://github.com/MuRongPIG/Proxy-Master (checked proxy list updated regularly and cloned in the [MuRongPIG_proxy_checked_list](https://github.com/mthcht/awesome-lists/Lists/PROXY/MuRongPIG_proxy_checked_list) folder)
   - https://github.com/officialputuid/KangProxy (validated proxy list regularly updated and cloned in the [KangProxy](https://github.com/mthcht/awesome-lists/Lists/PROXY/KangProxy) folder)
   - https://github.com/maximilianfeix/free-proxy-list (checked proxy list updated hourly – handshake, honeypot and content checks – and cloned in the [maximilianfeix_free-proxy-list](https://github.com/mthcht/awesome-lists/Lists/PROXY/maximilianfeix_free-proxy-list) folder)
+  - https://github.com/proxmint/free-proxy-list (proxy list re-tested every 30 minutes by a real HTTP request through each proxy, dead entries dropped, and cloned in the [proxmint_free-proxy-list](https://github.com/mthcht/awesome-lists/Lists/PROXY/proxmint_free-proxy-list) folder)
 
 The list [ALL_PROXY_Lists.csv](https://github.com/mthcht/awesome-lists/blob/main/Lists/PROXY/ALL_PROXY_Lists.csv) contains the IP/port of all the proxy lists combined (more than 45000 proxies atm)
