@@ -3037,6 +3037,79 @@ rule Trojan_Win64_LummaStealer_LR_2147977648_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_LR_2147977648_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.LR!MTB"
+        threat_id = "2147977648"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SELECT host_key, is_secure, path, is_httponly, expires_utc, name, encrypted_value FROM cookies" ascii //weight: 1
+        $x_2_2 = "Saved_Cards.txt" ascii //weight: 2
+        $x_3_3 = "SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards" ascii //weight: 3
+        $x_4_4 = "Autofill_Categorized.txt" ascii //weight: 4
+        $x_5_5 = "SESSION_ACTIVE.txt" ascii //weight: 5
+        $x_6_6 = "Google_Cookies_Netscape.txt." ascii //weight: 6
+        $x_7_7 = "Passwords_" ascii //weight: 7
+        $x_8_8 = "Google_Passwords.txt" ascii //weight: 8
+        $x_9_9 = "All_Passwords_" ascii //weight: 9
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_7_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_5_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_8_*) and 1 of ($x_7_*) and 1 of ($x_6_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_5_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_6_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_6_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_3_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_7_*) and 1 of ($x_6_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_2_*) and 1 of ($x_1_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_3_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_4_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_6_*))) or
+            ((1 of ($x_9_*) and 1 of ($x_8_*) and 1 of ($x_7_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_LummaStealer_PAIC_2147977723_0
 {
     meta:
