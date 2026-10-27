@@ -348,6 +348,28 @@ rule Trojan_Win64_Remus_KK_2147977266_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {47 0f b6 5c 0b 02 41 83 c3 d0 45 0f b6 db 4d 01 e3 45 0f b6 24 3a 45 31 e3 46 88 1c 16 49 ff c2 90}  //weight: 20, accuracy: High
+        $x_10_2 = {45 8d 65 d0 45 0f b6 e4 4d 6b e4 64 47 0f b6 6c 0b 01 41 83 c5 d0 45 0f b6 ed 4d 01 ed 4f 8d 6c ad 00 4f 8d 3c 52 4d 8d 7f 02 4d 01 ec 4d 39 f8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Remus_KK_2147977266_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Remus.KK!MTB"
+        threat_id = "2147977266"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Remus"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "High"
     strings:
@@ -359,7 +381,7 @@ rule Trojan_Win64_Remus_KK_2147977266_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Remus_KK_2147977266_1
+rule Trojan_Win64_Remus_KK_2147977266_2
 {
     meta:
         author = "defender2yara"

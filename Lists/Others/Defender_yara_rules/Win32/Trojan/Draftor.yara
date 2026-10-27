@@ -75,6 +75,28 @@ rule Trojan_Win32_Draftor_KK_2147978619_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {83 c2 01 83 c5 01 0f b6 d2 0f b6 04 14 8d 0c 38 0f b6 f9 0f b6 0c 3c 88 0c 14 88 04 3c 02 04 14 0f b6 c0 0f b6 04 04 30 45 ff 39 f5}  //weight: 20, accuracy: High
+        $x_10_2 = {89 c1 0f b6 1c 04 83 e1 0f 0f b6 91 64 51 84 67 01 da 8d 0c 3a 0f b6 f9 0f b6 0c 3c 88 0c 04 83 c0 01 88 1c 3c 3d 00 01 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Draftor_KK_2147978619_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Draftor.KK!MTB"
+        threat_id = "2147978619"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Draftor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:

@@ -14824,6 +14824,28 @@ rule Trojan_Win64_CobaltStrike_ZX_2147913668_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CobaltStrike_ZX_2147913668_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.ZX!MTB"
+        threat_id = "2147913668"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8d 04 d0 8d 14 00 48 89 d0 41 8a 14 13 ff c0 45 8a 0c 03 89 d0 c0 e8 06 41 0f af c2 44 89 ce 83 e6 0f 01 c2 44 89 c8 c0 e8 06 c1 e2 04 41 0f af c2 01 c6 09 f2 42 88 94 01 e6 0f 00 00 49 ff c0}  //weight: 1, accuracy: High
+        $x_1_2 = "NtAllocateVirtualMemory" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CobaltStrike_YBL_2147913680_0
 {
     meta:

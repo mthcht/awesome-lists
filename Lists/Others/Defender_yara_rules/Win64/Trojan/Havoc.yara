@@ -442,3 +442,30 @@ rule Trojan_Win64_Havoc_MKA_2147975887_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_KB_2147981006_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.KB!MTB"
+        threat_id = "2147981006"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {89 c2 ff c0 8a 54 14 20 30 16 48 ff c6}  //weight: 20, accuracy: High
+        $x_10_2 = {44 31 d1 44 31 c9 88 48 fe 89 d1 01 d2 c0 f9 07 83 e1 1b 31 ca 8a 48 ff 44 31 c1 31 ca 88 50 ff 48 8d 54 24 30 48 39 c2}  //weight: 10, accuracy: High
+        $x_5_3 = "C:\\Windows\\System32\\notepad.exe" wide //weight: 5
+        $x_5_4 = "C:\\Windows\\System32\\mspaint.exe" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+

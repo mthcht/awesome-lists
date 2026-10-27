@@ -4230,3 +4230,24 @@ rule Trojan_MSIL_AveMaria_KK_2147960071_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AveMaria_BZ_2147981003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AveMaria.BZ!MTB"
+        threat_id = "2147981003"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AveMaria"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {11 0b 74 23 00 00 1b 8e 69 13 08 17 13 09 1d 13 0e 38 88 fe ff ff 11 04 75 84 00 00 01 11 05 11 0a 74 23 00 00 1b 11 0c 11 07 58 11 09 59 93 61 11 0b 74 23 00 00 1b 11 09 11 0c 58 1f 11 58 11 08}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

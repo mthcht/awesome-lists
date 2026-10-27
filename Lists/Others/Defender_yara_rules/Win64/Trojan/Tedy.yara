@@ -1516,6 +1516,36 @@ rule Trojan_Win64_Tedy_RZ_2147922688_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_RZ_2147922688_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.RZ!MTB"
+        threat_id = "2147922688"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "lithiumCrypter executed" ascii //weight: 1
+        $x_1_2 = "[STUB] PatchExitFunctions" ascii //weight: 1
+        $x_1_3 = "[STUB] analysis env" ascii //weight: 1
+        $x_1_4 = "[STUB] ParsePayload fail" ascii //weight: 1
+        $x_1_5 = "[STUB] sysrestore" ascii //weight: 1
+        $x_1_6 = "[STUB] webhook" ascii //weight: 1
+        $x_1_7 = "[STUB] RunPE ok" ascii //weight: 1
+        $x_1_8 = "NtAllocateVirtualMemory" ascii //weight: 1
+        $x_1_9 = "NtCreateThreadEx" ascii //weight: 1
+        $x_1_10 = "ReflectiveLoaderEntry" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_ARA_2147923215_0
 {
     meta:
