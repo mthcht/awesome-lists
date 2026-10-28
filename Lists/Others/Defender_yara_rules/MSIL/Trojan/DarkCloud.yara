@@ -1403,6 +1403,29 @@ rule Trojan_MSIL_DarkCloud_SM_2147959271_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DarkCloud_SM_2147959271_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarkCloud.SM!MTB"
+        threat_id = "2147959271"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarkCloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 11 05 09 fe 04 16 fe 01 13 0a 11 0a 2c 0c 00 11 04 17 58 13 04 16 13 05 2b 79 07 6f ?? ?? ?? ?? 04 fe 04 16 fe 01 13 0b 11 0b 2c 02 2b 73 03 11 04 11 05 6f ?? ?? ?? ?? 13 09 07 12 09 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 26 07 6f ?? ?? ?? ?? 04 fe 04 16 fe 01 13 0c 11 0c 2c 02 2b 45 07 12 09 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 26 07 6f ?? ?? ?? ?? 04 fe 04 16 fe 01 13 0d 11 0d 2c 02 2b 23 07 12 09 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 26 11 05 17 58 13 05 00 11 04 08 fe 04 13 0e 11 0e 3a 5e ff ff ff}  //weight: 4, accuracy: Low
+        $x_1_2 = "QuantumChannelCodec" ascii //weight: 1
+        $x_1_3 = "FloatingDock.Properties" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_DarkCloud_RV_2147959283_0
 {
     meta:

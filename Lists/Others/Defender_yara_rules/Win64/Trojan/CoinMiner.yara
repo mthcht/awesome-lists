@@ -1608,3 +1608,26 @@ rule Trojan_Win64_CoinMiner_AH_2147980854_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_AI_2147981023_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.AI!MTB"
+        threat_id = "2147981023"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {48 89 fa eb 25 0f 1f 40 00 48 8d 8c 24 [0-2] 00 00 45 31 ed ff d3 85 c0 41 0f 94 c5 49 8b 54 24 08 49 83 c4 08 48 85 d2 74 05 45 85 ed 74 da 48 8d 94 24 [0-2] 00 00 4c 89 f1 e8 [0-2] 01 00 85 c0 75 b6}  //weight: 6, accuracy: Low
+        $x_1_2 = "GoogleUpdateTask" wide //weight: 1
+        $x_1_3 = "taskmgr.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

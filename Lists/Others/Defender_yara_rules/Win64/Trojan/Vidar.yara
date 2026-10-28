@@ -2265,6 +2265,27 @@ rule Trojan_Win64_Vidar_GZ_2147964665_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 8b c0 83 e0 1f 32 4c 04 20 48 8b 84 24 ?? ?? ?? ?? 41 32 c9 42 30 0c 07 46 0f b6 0c 07 41 ff c0 41 8b c9 48 33 c8 b8 26 d4 98 ea 48 33 c8 48 89 8c 24 ?? ?? ?? ?? 44 3b c6 7c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_GZ_2147964665_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.GZ!MTB"
+        threat_id = "2147964665"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:

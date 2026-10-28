@@ -3534,6 +3534,27 @@ rule Trojan_Win64_ShellcodeRunner_AD_2147969801_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8a 26 48 31 c9 48 ff c1 39 3c 0e 74 ?? 88 e3 32 1c 0e 88 5c 15 00 48 ff c1 48 ff c2 38 c1}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AD_2147969801_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AD!MTB"
+        threat_id = "2147969801"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -3860,6 +3881,29 @@ rule Trojan_Win64_ShellcodeRunner_ABHS_2147975145_0
 }
 
 rule Trojan_Win64_ShellcodeRunner_AE_2147975869_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AE!MTB"
+        threat_id = "2147975869"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f 10 4c 01 ?? 0f 57 c8 0f 11 4c 01 ?? 48 83 c0 10 48 3d}  //weight: 10, accuracy: Low
+        $x_6_2 = {52 0a 00 00 48 8b 0d 8d b3 01 00 48 8b 05}  //weight: 6, accuracy: High
+        $x_4_3 = "juavte.dll" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AE_2147975869_1
 {
     meta:
         author = "defender2yara"

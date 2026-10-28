@@ -888,3 +888,27 @@ rule Trojan_Win64_ValleyRAT_GP_2147980980_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_AF_2147981024_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.AF!MTB"
+        threat_id = "2147981024"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 8b c8 33 c8 41 23 cd 33 c8 89 8a ?? ?? ?? ?? 48 8b 52 10 48 85 d2 75}  //weight: 10, accuracy: Low
+        $x_6_2 = "Execute '%s';$t=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 10)" ascii //weight: 6
+        $x_3_3 = "keylog:started" ascii //weight: 3
+        $x_1_4 = "browser:clearpasswords" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

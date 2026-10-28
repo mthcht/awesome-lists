@@ -70,3 +70,25 @@ rule Trojan_Win32_ACRStealer_NC_2147971205_0
         )
 }
 
+rule Trojan_Win32_ACRStealer_GB_2147981061_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ACRStealer.GB!MTB"
+        threat_id = "2147981061"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ACRStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {40 32 94 04 ?? ?? ?? ?? 8d 47 ?? d0 ea 32 d1 32 d3 88 14 2f 25}  //weight: 5, accuracy: Low
+        $x_5_2 = {8b de c0 e8 02 32 c8 89 5c 24 ?? 32 ce 88 0c 2f 81 fb ?? ?? ?? ?? 0f 8c}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -8824,3 +8824,25 @@ rule Trojan_Win64_Tedy_AR_2147980991_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BC_2147981035_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BC!MTB"
+        threat_id = "2147981035"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b 4b 08 45 31 c9 48 c7 44 24 ?? ?? ?? ?? ?? 41 b8 01 00 00 00 c7 44 24 ?? ?? ?? ?? ?? ba [0-4] c7 44 24 ?? ?? ?? ?? ?? ff 15}  //weight: 2, accuracy: Low
+        $x_1_2 = "shellcode.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

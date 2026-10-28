@@ -82,6 +82,28 @@ rule Trojan_Win64_Cerbu_A_2147925122_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {48 8d 95 d0 01 00 00 33 c9 ff 15 ?? ?? ?? ?? 45 33 c9 89 74 24 28 4c 8d 85 d0 01 00 00 48 89 74 24 20 48 8d 15 ?? ?? ?? ?? 33 c9 ff 15}  //weight: 15, accuracy: Low
+        $x_10_2 = {c7 44 24 60 ?? ?? ?? ?? 4c 8d 4c 24 70 8b 44 24 60 45 33 ff ba ?? ?? ?? ?? 44 89 7c 24 70 41 b8 40 00 00 00 49 8b ce ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Cerbu_A_2147925122_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cerbu.A!MTB"
+        threat_id = "2147925122"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "40"
         strings_accuracy = "Low"
     strings:
