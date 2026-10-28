@@ -436,3 +436,32 @@ rule Trojan_Win64_AsyncRAT_BV_2147980575_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRAT_BQ_2147981067_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRAT.BQ!MTB"
+        threat_id = "2147981067"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cpu_vm_vendor:" ascii //weight: 1
+        $x_1_2 = "vm_drivers:" ascii //weight: 1
+        $x_1_3 = "vm_mac_prefix:" ascii //weight: 1
+        $x_1_4 = "peb_debug_flag:" ascii //weight: 1
+        $x_1_5 = "resources: payload=%lu bytes, key=%lu bytes" ascii //weight: 1
+        $x_1_6 = "FAIL: key too small" ascii //weight: 1
+        $x_1_7 = "FAIL: VirtualAlloc for plaintext" ascii //weight: 1
+        $x_1_8 = "plaintext MZ=%04X (expect 5A4D)" ascii //weight: 1
+        $x_1_9 = "FAIL: payload is not x64" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
