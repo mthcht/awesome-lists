@@ -550,6 +550,29 @@ rule Trojan_Win64_ShellcodeRunner_AG_2147910345_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {8d 7a 9f 66 83 ff 05 0f 86 57 01 00 00 8d 7a bf 83 ea 37 09 c2 66 83 ff 05 0f 46 c2 83 c1 02 41 88 00 49 83 c1 04 49 83 c0 01 83 f9 41 74 2d 41 39 ca 7e 28 41 0f b7 01 8d 50 d0 66 83 fa 09 77 93 c1 e0 04 41 0f b7 51 02 8d 7a d0 66 83 ff 09 77 ae 83 ea 30 09 d0 eb c3}  //weight: 6, accuracy: High
+        $x_1_2 = "%ProgramData%\\Windows\\WinHelpersshell32.Shell" ascii //weight: 1
+        $x_1_3 = "Sleep" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AG_2147910345_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AG!MTB"
+        threat_id = "2147910345"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
@@ -1984,6 +2007,28 @@ rule Trojan_Win64_ShellcodeRunner_AC_2147955226_1
 }
 
 rule Trojan_Win64_ShellcodeRunner_MK_2147955284_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.MK!MTB"
+        threat_id = "2147955284"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8d 45 80 44 33 44 24 58 44 33 c0 b8 cd cc cc cc 41 f7 e0 c1 ea 02 8d 0c 92 41 8b d0 2b d1 83 c2 08 4c 63 ca}  //weight: 20, accuracy: High
+        $x_15_2 = {45 69 c0 6d 4e c6 41 b8 4f ec c4 4e 41 81 c0 39 30 00 00 41 8b c8 c1 e9 10 f7 e1 c1 ea 04 6b c2 34 2b c8 42 0f b6 04 11 88 44 3c 68 48 ff c7 49 3b f9}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_MK_2147955284_1
 {
     meta:
         author = "defender2yara"

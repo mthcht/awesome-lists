@@ -658,3 +658,26 @@ rule Trojan_Win32_Nanocore_BAA_2147940673_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Nanocore_F_2147981126_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Nanocore.F!AMTB"
+        threat_id = "2147981126"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Nanocore"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ScreenMonitorAgentMutex" ascii //weight: 1
+        $x_1_2 = {68 00 74 00 74 00 70 00 [0-2] 3a 00 2f 00 2f 00 [0-80] 2e 00 6f 00 6e 00 72 00 65 00 6e 00 64 00 65 00 72 00 2e 00 63 00 6f 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_3 = {5b 73 68 65 6c 6c 5d 20 50 6f 77 65 72 53 68 65 6c 6c 20 73 65 73 73 69 6f 6e 20 73 74 61 72 74 65 64 20 28 [0-10] 2c 20 70 69 70 65 6c 69 6e 65 20 6d 6f 64 65 29}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+

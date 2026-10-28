@@ -203,27 +203,6 @@ rule Trojan_MSIL_PureLog_ARA_2147913549_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "Low"
-    strings:
-        $x_2_1 = {08 09 58 0c 06 07 08 07 8e 69 08 59 6f ?? ?? ?? 0a 25 0d 16 30 ea}  //weight: 2, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_PureLog_ARA_2147913549_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/PureLog.ARA!MTB"
-        threat_id = "2147913549"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "PureLog"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:
@@ -234,7 +213,7 @@ rule Trojan_MSIL_PureLog_ARA_2147913549_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_PureLog_ARA_2147913549_2
+rule Trojan_MSIL_PureLog_ARA_2147913549_1
 {
     meta:
         author = "defender2yara"

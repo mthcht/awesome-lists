@@ -3184,3 +3184,31 @@ rule Trojan_Win64_LummaStealer_AA_2147980726_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_AN_2147981127_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.AN!AMTB"
+        threat_id = "2147981127"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cookie-decrypt" ascii //weight: 1
+        $x_1_2 = "DefaultNetworkCookies" ascii //weight: 1
+        $x_1_3 = "select host_key, name, encrypted_value from cookies" ascii //weight: 1
+        $x_1_4 = "injected host" ascii //weight: 1
+        $x_1_5 = "session capture restored" ascii //weight: 1
+        $x_1_6 = "data for trustedlogin data" ascii //weight: 1
+        $x_1_7 = "stopping the hidden stream before it paints the real desktop" ascii //weight: 1
+        $x_1_8 = "harvest worker" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

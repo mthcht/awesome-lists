@@ -1237,8 +1237,34 @@ rule Trojan_Win64_DLLHijack_DAV_2147980998_0
     strings:
         $x_10_1 = {b9 ca 35 05 00 e8 ?? ?? ?? ?? 48 89 c7 48 83 c7 27 48 83 e7 e0 48 89 47 f8 48 89 7d 00 4c 8d bf a3 35 05 00 4c 89 7d 10 41 b8 a3 35 05 00 48 89 f9 31 d2 e8 ?? ?? ?? ?? 4c 89 7d 08 48 89 d9 ba e5 64 05 00 45 31 c0 ff 15}  //weight: 10, accuracy: Low
         $x_10_2 = {6a 75 61 76 74 65 2e 64 6c 6c 00 00 00 73 63 61 6c 65 5f 73 68 69 66 74 73 5f 69 00}  //weight: 10, accuracy: High
+        $x_10_3 = {46 63 53 72 76 2e 64 6c 6c 00 00 00 00 54 72 65 6e 64 73 53 74 61 72 74 47 72 6f 75 70 46 69 6c 65 00}  //weight: 10, accuracy: High
+        $x_10_4 = {64 33 53 72 76 2e 64 6c 6c 00 00 00 00 49 6e 69 74 69 61 6c 69 7a 65 51 52 42 79 00}  //weight: 10, accuracy: High
+        $x_10_5 = {48 8d 44 24 30 4c 8b ca 48 8b d6 48 89 44 24 20 ff 15 57 84 1d 00 85 c0 0f 85 87 00 00 00 48 8b 0d 60 2d 2d 00 48 8d 44 24 68 41 b9 04 00 00 00 48 89 44 24 20 4c 8b c7 48 8b d6 ff 15 24 84 1d 00}  //weight: 10, accuracy: High
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_MKB_2147981105_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.MKB!MTB"
+        threat_id = "2147981105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {41 0f b6 40 21 41 0f b6 50 20 48 83 c1 02 49 83 c0 02 83 f0 5a 83 f2 5a c1 e0 08 0f b6 d2 09 d0 66 89 41 1e 4c 39 c9}  //weight: 30, accuracy: High
+        $x_3_2 = {49 89 c0 41 83 e0 03 46 0f b6 04 01 45 30 04 02 48 83 c0 01 48 39 c2}  //weight: 3, accuracy: High
+        $x_2_3 = "redist\\2022\\mfcm022\\vcom\\msiexec\" /qn /norestart" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

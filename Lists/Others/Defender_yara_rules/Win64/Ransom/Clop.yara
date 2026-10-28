@@ -163,3 +163,30 @@ rule Ransom_Win64_Clop_AMCV_2147928846_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Clop_AMTB_2147980911_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Clop!AMTB"
+        threat_id = "2147980911"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Clop"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "clop.pdb" ascii //weight: 3
+        $x_3_2 = "clop_" ascii //weight: 3
+        $x_1_3 = "Do not modify .clop files." ascii //weight: 1
+        $x_1_4 = "hi thanks by clop" ascii //weight: 1
+        $x_1_5 = "CLOP_README.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
