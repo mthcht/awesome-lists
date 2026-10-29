@@ -5851,29 +5851,6 @@ rule Trojan_Win32_ClickFix_BBD_2147943963_0
         strings_accuracy = "High"
     strings:
         $x_1_1 = "powershell" wide //weight: 1
-        $x_1_2 = "-join ''" wide //weight: 1
-        $x_1_3 = "';&$" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_ClickFix_BBD_2147943963_1
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.BBD!MTB"
-        threat_id = "2147943963"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "powershell" wide //weight: 1
         $x_1_2 = ".replace('$'" wide //weight: 1
         $x_1_3 = ".replace('!'" wide //weight: 1
     condition:

@@ -84,6 +84,40 @@ rule Trojan_PowerShell_ClickFix_SVL_2147978583_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "forminsting.rainbowpride.online" wide //weight: 1
+        $x_1_2 = "checkvbrowsenterprise.com" wide //weight: 1
+        $x_1_3 = "btorsercoyt31.cc" wide //weight: 1
+        $x_1_4 = "zurggoyttjof21.cc" wide //weight: 1
+        $x_1_5 = "jsdelivr.net" wide //weight: 1
+        $x_1_6 = "hagosuro.lc" wide //weight: 1
+        $x_1_7 = "t-trustrest.com" wide //weight: 1
+        $x_1_8 = "94.26.41.2" wide //weight: 1
+        $x_1_9 = "seccheckusr.com" wide //weight: 1
+        $x_1_10 = "bingixllc.com" wide //weight: 1
+        $x_1_11 = "infinitecopy.com" wide //weight: 1
+        $x_1_12 = "prestigeclient.vip" wide //weight: 1
+        $x_1_13 = "wlci.ink" wide //weight: 1
+        $x_1_14 = "audiosdkteams.com" wide //weight: 1
+        $x_1_15 = "108.165.15.151" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_PowerShell_ClickFix_SVL_2147978583_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:PowerShell/ClickFix.SVL"
+        threat_id = "2147978583"
+        type = "Trojan"
+        platform = "PowerShell: "
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "3"
         strings_accuracy = "Low"
     strings:
