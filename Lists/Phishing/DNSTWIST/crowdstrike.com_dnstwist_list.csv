@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,crowdstrike.com,23.211.139.199,2600:1406:2e00:20::45c0:8bc4,mxa-00206402.gslb.pphosted.com,ns1.crowdstrike.com
+*original,crowdstrike.com,23.220.103.11,2600:1404:200:6::173f:e7d5,mxa-00206402.gslb.pphosted.com,ns1.crowdstrike.com
 addition,crowdstrike0.com,,,,
 addition,crowdstrike1.com,,,,
 addition,crowdstrike2.com,,,,
@@ -94,6 +94,7 @@ homoglyph,cr0vvdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.ne
 homoglyph,cr0wbstrike.com,,,,
 homoglyph,cr0wclstrike.com,,,,
 homoglyph,cr0wdlstrike.com,,,,
+homoglyph,crovvdstrike.com,15.197.148.33,,mailstore1.secureserver.net,ns69.domaincontrol.com
 homoglyph,cr0wdstr1ke.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 homoglyph,cr0wdstrikc.com,,,,
 homoglyph,cr0wdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
@@ -105,7 +106,6 @@ homoglyph,crovudstrike.com,,,,
 homoglyph,crovvbstrike.com,,,,
 homoglyph,crovvclstrike.com,,,,
 homoglyph,crovvdlstrike.com,,,,
-homoglyph,crovvdstrike.com,15.197.148.33,,mailstore1.secureserver.net,ns69.domaincontrol.com
 homoglyph,crovvdstr1ke.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 homoglyph,crovvdstrikc.com,,,,
 homoglyph,crovvdstrilce.com,,,,
@@ -7602,7 +7602,7 @@ hyphenation,crowdstr-ike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.
 hyphenation,crowdstri-ke.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 hyphenation,crowdstrik-e.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 insertion,crowdstriike.com,165.160.13.20,,custmx.cscdns.net,dns1.cscdns.net
-insertion,crowdstrilke.com,23.46.216.204,2600:1406:2e00:20::45c0:8bdf,,n2-a1.aka-ns.net
+insertion,crowdstrilke.com,23.220.103.19,2600:1404:200:6::173f:e7c9,,n2-a1.aka-ns.net
 insertion,c4rowdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 insertion,c5rowdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 insertion,cdrowdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
@@ -7710,7 +7710,7 @@ insertion,dcrowdstrike.com,,,,
 insertion,fcrowdstrike.com,,,,
 insertion,vcrowdstrike.com,,,,
 insertion,xcrowdstrike.com,,,,
-omission,crowdstrik.com,23.46.216.198,2600:1406:2e00:20::45c0:8bdb,inbound-smtp.us-east-1.amazonaws.com,n2-a1.aka-ns.net
+omission,crowdstrik.com,23.220.103.13,2600:1404:200:6::173f:e7d4,inbound-smtp.us-east-1.amazonaws.com,n2-a1.aka-ns.net
 omission,crwdstrike.com,8.8.8.8,,mail.crwdstrike.com,dns1.registrar-servers.com
 omission,cowdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 omission,crodstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
@@ -7788,13 +7788,13 @@ replacement,xrowdstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.n
 subdomain,c.rowdstrike.com,,,,
 subdomain,cr.owdstrike.com,,,,
 subdomain,cro.wdstrike.com,,,,
-subdomain,crow.dstrike.com,13.223.25.84,2600:1f18:4ae:c605:dd5d:b838:5816:d7fb,,nsg1.namebrightdns.com
 subdomain,crowd.strike.com,,,,
 subdomain,crowdst.rike.com,!ServFail,!ServFail,,!ServFail
+subdomain,crow.dstrike.com,13.223.25.84,2600:1f18:4ae:c605:dd5d:b838:5816:d7fb,,nsg1.namebrightdns.com
 subdomain,crowds.trike.com,64.190.63.222,,localhost,ns1.sedoparking.com
 subdomain,crowdstr.ike.com,,,,
 subdomain,crowdstri.ke.com,,,,
-transposition,crowdstriek.com,23.211.139.205,2600:1406:2e00:20::45c0:8bdf,,n2-a1.aka-ns.net
+transposition,crowdstriek.com,23.220.103.16,2600:1404:200:6::173f:e7d0,,n2-a1.aka-ns.net
 transposition,corwdstrike.com,,,,eric.ns.cloudflare.com
 transposition,crodwstrike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
 transposition,crowdsrtike.com,,,inbound-smtp.us-east-1.amazonaws.com,a1-214.akam.net
