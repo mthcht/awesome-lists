@@ -16500,3 +16500,79 @@ rule Trojan_Win32_ClickFix_DKZ_2147981091_0
         )
 }
 
+rule Trojan_Win32_ClickFix_KL_2147981218_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.KL!MTB"
+        threat_id = "2147981218"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "cmd /c" wide //weight: 1
+        $x_1_2 = "curl -s" wide //weight: 1
+        $x_2_3 = ".to/b?s=" wide //weight: 2
+        $x_3_4 = "%TEMP%\\cf_" wide //weight: 3
+        $x_3_5 = "& start" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_OR_2147981219_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.OR!MTB"
+        threat_id = "2147981219"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "SQLPS -NoPro -NonInter" wide //weight: 5
+        $x_4_2 = "-bxor(($" wide //weight: 4
+        $x_2_3 = "SetEnvironmentVariable" wide //weight: 2
+        $x_2_4 = "GetEnvironmentVariable" wide //weight: 2
+        $x_2_5 = ".Invoke($" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_OS_2147981220_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.OS!MTB"
+        threat_id = "2147981220"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "$('FromBase'+'64String')" wide //weight: 5
+        $x_4_2 = "[scriptblock]::$('Cre'+'ate')" wide //weight: 4
+        $x_2_3 = "-bxor $" wide //weight: 2
+        $x_2_4 = "[Text.Encoding]::ASCII.GetString" wide //weight: 2
+        $x_2_5 = "-eq[char]58 -and $" wide //weight: 2
+        $x_2_6 = "-w 1 -EP Bypass" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

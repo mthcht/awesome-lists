@@ -500,3 +500,24 @@ rule Trojan_MSIL_VIPKeylogger_CN_2147979901_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_VIPKeylogger_AM_2147981207_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/VIPKeylogger.AM!MTB"
+        threat_id = "2147981207"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "VIPKeylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {11 05 11 06 6f ?? 00 00 0a 13 09 03 11 04 59 13 0a 11 0a 19 32 03 19 2b 02 11 0a 13 0b 11 0b 8d ?? 00 00 01 13 0c 11 0c 16 12 09 28 ?? 00 00 0a 9c 11 0b 17 fe 02 13 0f 11 0f 2c 0b}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

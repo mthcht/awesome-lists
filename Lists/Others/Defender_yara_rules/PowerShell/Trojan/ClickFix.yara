@@ -102,6 +102,20 @@ rule Trojan_PowerShell_ClickFix_SVL_2147978583_0
         $x_1_13 = "wlci.ink" wide //weight: 1
         $x_1_14 = "audiosdkteams.com" wide //weight: 1
         $x_1_15 = "108.165.15.151" wide //weight: 1
+        $x_1_16 = "f*n*er" wide //weight: 1
+        $x_1_17 = "where finger" wide //weight: 1
+        $x_1_18 = "f^^i^^n^^g^^e^^r" wide //weight: 1
+        $x_1_19 = "set x=cu&set c=rl" wide //weight: 1
+        $x_1_20 = "0x90ac55f4/865" wide //weight: 1
+        $x_1_21 = "poundbahis.com" wide //weight: 1
+        $x_1_22 = "frombase64string" wide //weight: 1
+        $x_1_23 = "jablad0awwbdag8abgb2aguacgb0af0aoga6aeyacgbvag0aqgbhahmazqa2adqauwb0ahiaaqbuagcakaan" wide //weight: 1
+        $x_1_24 = "aqblahgaiaaoagkacgbtacaajwbo" wide //weight: 1
+        $x_1_25 = ";powershell -e $z;" wide //weight: 1
+        $x_1_26 = "gci \\\"$env:localappdata\\\"" wide //weight: 1
+        $x_1_27 = "gci \"$env:localappdata\"" wide //weight: 1
+        $x_1_28 = "love.district7pho.com/pidor.ps1" wide //weight: 1
+        $x_1_29 = "tmpfiles.org/dl/1793153179.e228689a0ba66b5c/" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (1 of ($x*))

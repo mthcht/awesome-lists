@@ -5431,3 +5431,24 @@ rule Trojan_Win64_Vidar_YBI_2147981165_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_BC_2147981204_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.BC!MTB"
+        threat_id = "2147981204"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {48 8b ec 48 83 ec 30 33 ff 4c 8b da 44 8b d7 48 8b d9 45 8b ca 41 8b c2 41 83 f1 2a 41 ff c2 44 88 4c 05 d0 41 83 fa 09}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

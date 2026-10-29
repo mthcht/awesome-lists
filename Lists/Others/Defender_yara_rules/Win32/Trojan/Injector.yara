@@ -2766,6 +2766,34 @@ rule Trojan_Win32_Injector_LR_2147972500_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Injector_LR_2147972500_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Injector.LR!MTB"
+        threat_id = "2147972500"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "36"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Do class hook..." ascii //weight: 1
+        $x_2_2 = "Do class ex hook..." ascii //weight: 2
+        $x_3_3 = "Cannot find hook ptr 0!!!!!!!!!!!!" ascii //weight: 3
+        $x_4_4 = "hook w file" ascii //weight: 4
+        $x_5_5 = "hook a file" ascii //weight: 5
+        $x_6_6 = "MaiHook:" ascii //weight: 6
+        $x_7_7 = "Mai cannot reload relloc table! (file 'rl.mai')" ascii //weight: 7
+        $x_8_8 = "pkeycheck.tjs" ascii //weight: 8
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Injector_LRD_2147974854_0
 {
     meta:

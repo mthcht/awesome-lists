@@ -550,6 +550,27 @@ rule Trojan_Win64_ShellcodeRunner_AG_2147910345_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {45 31 c0 4d 89 f9 48 89 d9 89 c2 ff 15 e1 8d 01 00 85 c0 0f 84 19 01 00 00 c7 44 24 20 00 00 00 00 8b 9c 24 94 00 00 00 45 31 c9 45 31 c0 0f b7 bc 24 a4 00 00 00 ba 04 00 00 00 48 8d 0d 20 38 00 00 ff 15 b2 8d 01 00 48 89 c6 48 85 c0 0f 84 de 00 00 00 41 b9 60 ea 00 00 41 b8 20 4e 00 00 ba 20 4e 00 00 48 89 c1 c7 44 24 20 60 ea 00 00 ff 15 bc 8d 01 00 45 31 c9}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AG_2147910345_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AG!MTB"
+        threat_id = "2147910345"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
@@ -561,7 +582,7 @@ rule Trojan_Win64_ShellcodeRunner_AG_2147910345_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_ShellcodeRunner_AG_2147910345_1
+rule Trojan_Win64_ShellcodeRunner_AG_2147910345_2
 {
     meta:
         author = "defender2yara"
