@@ -165,3 +165,26 @@ rule Trojan_Win64_Razy_A_2147980491_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Razy_AC_2147981148_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Razy.AC!MTB"
+        threat_id = "2147981148"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_12_1 = "cmd /c curl -o %Temp%/qd.exe" ascii //weight: 12
+        $x_6_2 = "&& start %Temp%/qd.exe" ascii //weight: 6
+        $x_2_3 = "SuJu.txt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

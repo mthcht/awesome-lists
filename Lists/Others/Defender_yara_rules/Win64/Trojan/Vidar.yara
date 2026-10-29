@@ -5410,3 +5410,24 @@ rule Trojan_Win64_Vidar_CMX_2147981143_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_YBI_2147981165_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.YBI!MTB"
+        threat_id = "2147981165"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 34 03 48 89 c7 48 b8 ?? ?? ?? ?? ?? ?? ?? ?? 49 89 d0 48 f7 ea 48 c1 fa 04 4d 89 c1 49 c1 f8 3f 4c 29 c2 48 6b d2 35 4d 89 c8 49 29 d1 44 29 ce 48 89 da 48 c1 e3 04 4c 8d 0c 1a 44 29 ce 40 88 34 17}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

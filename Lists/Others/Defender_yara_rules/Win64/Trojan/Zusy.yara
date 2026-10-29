@@ -5099,6 +5099,33 @@ rule Trojan_Win64_Zusy_LR_2147976672_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LR_2147976672_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LR!MTB"
+        threat_id = "2147976672"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "] Press <Enter> To Copy The Payload ..." ascii //weight: 1
+        $x_2_2 = "%sseed_phrase.txt" ascii //weight: 2
+        $x_3_3 = "seed phrase for wallet1 - 1265$" ascii //weight: 3
+        $x_4_4 = "Press <ENTER> to decrypt..." ascii //weight: 4
+        $x_5_5 = "Press <ENTER> to inject..." ascii //weight: 5
+        $x_6_6 = "%s\\bullshit.txt" ascii //weight: 6
+        $x_7_7 = "%s\\AppCache\\Log_%02d-%02d[%02d.%02d].txt" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_MKJ_2147977155_0
 {
     meta:

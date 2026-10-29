@@ -543,3 +543,24 @@ rule Trojan_MSIL_ShellcodeRunner_AC_2147980668_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ShellcodeRunner_ABFK_2147981151_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ShellcodeRunner.ABFK!MTB"
+        threat_id = "2147981151"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {06 07 02 07 91 03 07 16 30 03 16 2b 05 06 07 17 59 91 58 61 d2 9c 07 17 58 0b 07 02 8e 69 32 e0}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

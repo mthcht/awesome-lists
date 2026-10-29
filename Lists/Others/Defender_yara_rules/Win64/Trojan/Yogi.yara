@@ -250,3 +250,30 @@ rule Trojan_Win64_Yogi_D_2147981056_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_E_2147981156_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.E!MTB"
+        threat_id = "2147981156"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 0f be c2 4d 8b c2 6b c8 13 40 8a d7 2a d1 49 8d 48 02 80 c2 fd 41 32 54 1a 01 43 88 14 0a 49 ff c2 49 3b cb 72 d9}  //weight: 10, accuracy: High
+        $x_10_2 = {41 0f be c1 49 8b d1 6b c8 57 41 02 ca 41 32 4c 19 01 43 88 0c 01 49 ff c1 48 8d 4a 02 49 3b cb 72 de}  //weight: 10, accuracy: High
+        $x_5_3 = {ba 00 00 00 40 ff 15 ?? ?? ?? ?? 48 8b d8 48 83 f8 ff 74 3a 48 8d 0d ?? ?? ?? ?? 89 bd b0 04 00 00 e8 ?? ?? ?? ?? 4c 8b c0 48 89 7c 24 20 4c 8d 8d b0 04 00 00 48 8b cb 48 8d 15}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+

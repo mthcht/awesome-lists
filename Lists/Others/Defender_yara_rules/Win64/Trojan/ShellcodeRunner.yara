@@ -4025,6 +4025,33 @@ rule Trojan_Win64_ShellcodeRunner_LR_2147978825_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Chrome DecryptData calling..." ascii //weight: 1
+        $x_2_2 = "Chrome DecryptData hr=0x%08X comErr=%u" ascii //weight: 2
+        $x_3_3 = "cex_payload.bin" ascii //weight: 3
+        $x_4_4 = "cex_dll_loaded.txt" ascii //weight: 4
+        $x_5_5 = "DLL_PROCESS_ATTACH" ascii //weight: 5
+        $x_6_6 = "=== DLL_PROCESS_ATTACH ===" ascii //weight: 6
+        $x_7_7 = "PayloadEntry" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_LR_2147978825_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.LR!MTB"
+        threat_id = "2147978825"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "High"
     strings:

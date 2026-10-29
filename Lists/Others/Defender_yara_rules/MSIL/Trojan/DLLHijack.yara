@@ -68,3 +68,26 @@ rule Trojan_MSIL_DLLHijack_ARR_2147972416_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_DLLHijack_DAR_2147980369_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DLLHijack.DAR!MTB"
+        threat_id = "2147980369"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {84 11 d0 c3 06 00 88 84 0c 10 03 00 00 48 ff c1 48 83 f9 14 72 dc 66 89 9c 24 24 03 00 00 48 8b 05 4a f8 07 00 48 8d 8c 24 10 01 00 00 ff d0 48 85 c0 0f 84 73 04 00 00 48 8b 3d 38 f8 07 00 48}  //weight: 10, accuracy: High
+        $x_10_2 = {f9 24 72 dc 48 8d 85 30 02 00 00 c7 44 24 28 40 00 00 00 41 83 c9 ff 48 89 44 24 20 4c 8d 45 30 66 89 9d 54 01 00 00 33 d2 b9 e9 fd 00 00 ff 15 84 0c 06 00 85 c0 7f 57 be 00 01 00 00 48 8d 7d}  //weight: 10, accuracy: High
+        $x_10_3 = {be 29 04 00 b9 20 00 00 00 66 2b c1 66 83 f8 5a 77 10 0f b7 c2 48 2b c1 83 e0 7f 41 8a 4c 41 01 eb 02 33 c9 0f b6 c1 41 0f b6 c8 8d 14 c0 03 d1 83 e2 7f 41 8a 04 51 c3 cc cc 0f b7 c2 4c 8d 0d}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

@@ -401,6 +401,34 @@ rule Trojan_Win32_ValleyRat_AMTB_2147959263_3
         )
 }
 
+rule Trojan_Win32_ValleyRat_AMTB_2147959263_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRat!AMTB"
+        threat_id = "2147959263"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "|jp:1|bh:0|ll:0|dl:1|sh:0|kl:0|bd:0|ur:https://shougong9.com/hm.txt|" ascii //weight: 1
+        $x_1_2 = "ps:3f7ac1852d9e46b071f308ad5ce92467b81a934fd2607ec538a9158b4cd702f6|" ascii //weight: 1
+        $x_1_3 = ".dll_bin" ascii //weight: 1
+        $x_1_4 = "http://appfenxiang.com/hm.txt" ascii //weight: 1
+        $x_1_5 = "https://shougong9.com/hm.txt" ascii //weight: 1
+        $x_1_6 = "WinHttpSendRequest" ascii //weight: 1
+        $x_1_7 = "WinHttpOpenRequest" ascii //weight: 1
+        $x_1_8 = "WinHttpReadData" ascii //weight: 1
+        $x_1_9 = "WinHttpCrackUrl" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (8 of ($x*))
+}
+
 rule Trojan_Win32_ValleyRat_A_2147960478_0
 {
     meta:

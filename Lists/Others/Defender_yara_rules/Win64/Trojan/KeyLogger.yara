@@ -255,6 +255,31 @@ rule Trojan_Win64_KeyLogger_AC_2147973714_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {0f 57 c0 0f 11 06 c7 46 ?? ?? ?? ?? ?? 0f 10 43 08 c7 46 ?? ?? ?? ?? ?? 0f 11 06 f3 0f 7e 43}  //weight: 8, accuracy: Low
+        $x_3_2 = {8b 75 dc 8d 47 28 50 8b ce e8 ?? ?? ?? ?? 8b 4b 1c 83 f9}  //weight: 3, accuracy: Low
+        $x_10_3 = "sys_check.log" ascii //weight: 10
+        $x_5_4 = "UpdaterLogger.pdb" ascii //weight: 5
+        $x_2_5 = "vk1.a.F2RiXtXBUROUaPXgJIMZFXyXO0wBB1DEgbRFE53WpaxOj2ktnb6-48" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_KeyLogger_AC_2147973714_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/KeyLogger.AC!MTB"
+        threat_id = "2147973714"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "KeyLogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "12"
         strings_accuracy = "Low"
     strings:

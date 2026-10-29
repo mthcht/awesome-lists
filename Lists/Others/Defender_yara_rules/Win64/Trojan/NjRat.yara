@@ -87,3 +87,24 @@ rule Trojan_Win64_NjRat_PGNR_2147974890_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_NjRat_AR_2147981152_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/NjRat.AR!MTB"
+        threat_id = "2147981152"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 89 c2 83 e2 ?? 44 0f b6 84 14 ?? ?? ?? ?? 44 89 c2 45 69 c0 ?? ?? ?? ?? 41 32 14 06 41 01 c0 44 01 c1 30 ea 41 88 14 06 48 83 c0}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
