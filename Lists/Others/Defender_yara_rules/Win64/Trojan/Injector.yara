@@ -130,6 +130,29 @@ rule Trojan_Win64_Injector_KK_2147948308_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_KK_2147948308_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.KK!MTB"
+        threat_id = "2147948308"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 45 fc 48 63 c0 48 8b 4d 10 48 01 c1 8b 45 fc 48 89 4d f0 b9 ff 00 00 00 99 f7 f9 0f be d2 48 8b 45 f0 0f be 00 31 d0 48 8b 4d f0 88 01}  //weight: 20, accuracy: High
+        $x_10_2 = "dC:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe" wide //weight: 10
+        $x_5_3 = "ENCPENCPTOK" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Injector_NM_2147951188_0
 {
     meta:

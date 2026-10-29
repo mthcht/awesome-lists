@@ -4371,6 +4371,29 @@ rule Trojan_MSIL_Lazy_KK_2147975224_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {11 08 11 0a 8f 07 00 00 01 25 71 07 00 00 01 11 07 11 0a 91 61 d2 81 07 00 00 01 11 0a 17 58 13 0a 11 0a 11 07 8e 69 32 d7}  //weight: 20, accuracy: High
+        $x_10_2 = "M5!MC)" wide //weight: 10
+        $x_5_3 = "MAC mismatch" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lazy_KK_2147975224_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lazy.KK!MTB"
+        threat_id = "2147975224"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -4383,7 +4406,7 @@ rule Trojan_MSIL_Lazy_KK_2147975224_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_KK_2147975224_1
+rule Trojan_MSIL_Lazy_KK_2147975224_2
 {
     meta:
         author = "defender2yara"
@@ -4409,7 +4432,7 @@ rule Trojan_MSIL_Lazy_KK_2147975224_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Lazy_KK_2147975224_2
+rule Trojan_MSIL_Lazy_KK_2147975224_3
 {
     meta:
         author = "defender2yara"

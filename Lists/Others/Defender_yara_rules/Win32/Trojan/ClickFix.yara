@@ -683,74 +683,6 @@ rule Trojan_Win32_ClickFix_AB_2147933821_0
         )
 }
 
-rule Trojan_Win32_ClickFix_DQ_2147933822_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.DQ!MTB"
-        threat_id = "2147933822"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "31"
-        strings_accuracy = "Low"
-    strings:
-        $x_10_1 = "powershell" wide //weight: 10
-        $x_10_2 = "-replace" wide //weight: 10
-        $x_10_3 = "verif" wide //weight: 10
-        $x_1_4 = " ray" wide //weight: 1
-        $x_1_5 = " recaptcha" wide //weight: 1
-        $x_1_6 = " re captcha" wide //weight: 1
-        $x_1_7 = " rCAPTCHA" wide //weight: 1
-        $x_1_8 = "Press Enter" wide //weight: 1
-        $x_1_9 = " clip FREE" wide //weight: 1
-        $x_1_10 = " Over FREE" wide //weight: 1
-        $x_1_11 = "robot: r" wide //weight: 1
-        $x_1_12 = "robot - r" wide //weight: 1
-        $x_1_13 = "robot - Cloudflare" wide //weight: 1
-        $x_1_14 = "robot: Cloudflare" wide //weight: 1
-        $x_1_15 = "robot: CAPTCHA" wide //weight: 1
-        $x_1_16 = "robot - CAPTCHA" wide //weight: 1
-        $x_1_17 = "Human - r" wide //weight: 1
-        $x_1_18 = "Human: r" wide //weight: 1
-        $x_1_19 = "Human: CAPTCHA" wide //weight: 1
-        $x_1_20 = "Human - CAPTCHA" wide //weight: 1
-        $x_1_21 = "Microsoft Windows: Fix Internet DNS Service reconnect" wide //weight: 1
-        $x_1_22 = "Restart DNS service in the Microsoft Windows system" wide //weight: 1
-        $x_1_23 = {33 04 65 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_24 = {33 04 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_25 = {33 04 65 00 20 00 21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_26 = {43 00 6c 00 bf 03 75 00 64 00 66 00 6c 00 61 00 72 00 65 00}  //weight: 1, accuracy: High
-        $x_1_27 = {48 00 75 00 6d 00 30 04 6e 00 [0-30] 21 04 41 00 50 00 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: Low
-        $x_1_28 = {21 04 10 04 20 04 22 04 21 04 1d 04 10 04}  //weight: 1, accuracy: High
-        $x_1_29 = {99 03 20 00 61 00 6d 00 20 00 6e 00 bf 03 74 00}  //weight: 1, accuracy: High
-        $x_1_30 = {52 00 bf 03 62 00 bf 03 74 00}  //weight: 1, accuracy: High
-        $x_1_31 = {60 21 51 02 6d 00 78 05 85 05 74 00}  //weight: 1, accuracy: High
-        $x_1_32 = {7e 02 85 05 62 00 85 05 74 00}  //weight: 1, accuracy: High
-        $x_1_33 = {f9 03 91 03 a1 03 a4 03 43 00 48 00 41 00}  //weight: 1, accuracy: High
-        $x_1_34 = {43 00 41 00 a1 03 54 00 43 00 48 00 41 00}  //weight: 1, accuracy: High
-        $x_1_35 = {72 00 6f 00 84 01 6f 00 74 00}  //weight: 1, accuracy: High
-        $x_1_36 = {72 00 bf 03 62 00 bf 03 c4 03}  //weight: 1, accuracy: High
-        $x_1_37 = {43 00 91 03 50 00 a4 03 43 00 97 03 91 03}  //weight: 1, accuracy: High
-        $x_1_38 = {21 04 91 03 20 04 03 a4 21 04 1d 04 91 03}  //weight: 1, accuracy: High
-        $x_1_39 = {56 00 35 04 72 00 56 04 66 00}  //weight: 1, accuracy: High
-        $x_1_40 = {21 04 91 03 20 04 22 04 21 04 1d 04 41 00}  //weight: 1, accuracy: High
-        $x_1_41 = {72 00 3e 04 62 00 3e 04 74 00}  //weight: 1, accuracy: High
-        $x_1_42 = {43 00 41 00 50 00 54 00 43 00 97 03 41 00}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (
-            ((31 of ($x_1_*))) or
-            ((1 of ($x_10_*) and 21 of ($x_1_*))) or
-            ((2 of ($x_10_*) and 11 of ($x_1_*))) or
-            ((3 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_Win32_ClickFix_SA_2147934466_0
 {
     meta:
@@ -12067,29 +11999,6 @@ rule Trojan_Win32_ClickFix_IIM_2147952741_0
         $x_1_1 = "New-Object IO.StreamReader([Net.WebRequest]::Create(" wide //weight: 1
         $x_1_2 = "iex" wide //weight: 1
         $x_1_3 = ".ReadToEnd" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_Win32_ClickFix_IIN_2147952742_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.IIN!MTB"
-        threat_id = "2147952742"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "Net.Http.HttpClient]::new().GetStringAsync" wide //weight: 1
-        $x_1_2 = "hidden" wide //weight: 1
-        $x_1_3 = "http" wide //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

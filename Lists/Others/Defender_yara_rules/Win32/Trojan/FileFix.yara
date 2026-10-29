@@ -560,29 +560,3 @@ rule Trojan_Win32_FileFix_HHF_2147951234_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_FileFix_BBA_2147955906_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/FileFix.BBA!MTB"
-        threat_id = "2147955906"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "FileFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "3"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = "([System.IO.File]::ReadAllBytes($" wide //weight: 1
-        $x_1_2 = "[regex]::Matches($" wide //weight: 1
-        $x_1_3 = ".GetBytes($" wide //weight: 1
-        $n_100_4 = "\\git\\app-pronet\\PGM\\pronet\\src\\com\\globaldenso\\pronet\\business\\service\\common\\ScheduleCommonServiceImpl.java" wide //weight: -100
-        $n_100_5 = "C:\\Source\\Implementierung\\db\\StdObjekte\\Patches\\2026\\MRA\\20260716_APIX-DEL-SkyEvents2027_MRA\\patch_template.sql" wide //weight: -100
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
