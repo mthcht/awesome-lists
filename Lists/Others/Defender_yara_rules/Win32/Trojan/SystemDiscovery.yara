@@ -14,8 +14,10 @@ rule Trojan_Win32_SystemDiscovery_B_2147768428_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {6d 00 73 00 69 00 6e 00 66 00 6f 00 [0-16] 2f 00 6e 00 66 00 6f 00}  //weight: 1, accuracy: Low
+        $n_10_2 = "Result\\SystemInfoLogs\\" wide //weight: -10
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

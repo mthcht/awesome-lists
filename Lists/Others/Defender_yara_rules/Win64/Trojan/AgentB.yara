@@ -361,3 +361,25 @@ rule Trojan_Win64_AgentB_C_2147980363_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_E_2147981228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.E!MTB"
+        threat_id = "2147981228"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {42 8a 0c 02 8a 44 24 20 32 c8 8a 44 24 20 41 88 08 02 c1 49 ff c0 88 44 24 20 49 83 eb 01 75}  //weight: 30, accuracy: High
+        $x_20_2 = {41 33 d0 c7 44 24 18 ?? ?? ?? ?? 33 d0 c7 44 24 10 ?? ?? ?? ?? c7 44 24 08 ?? ?? ?? ?? 8b 4c 24 08 8b 44 24 10 33 c8 8b 44 24 18 03 c1 b9 4d 5a 00 00 66 42 39 0c 0a 75}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

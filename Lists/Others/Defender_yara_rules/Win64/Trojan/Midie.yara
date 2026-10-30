@@ -1484,3 +1484,32 @@ rule Trojan_Win64_Midie_A_2147976963_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_B_2147981231_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.B!MTB"
+        threat_id = "2147981231"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Delay time ..." ascii //weight: 1
+        $x_1_2 = "[-] Not a PE file" ascii //weight: 1
+        $x_1_3 = "[-] Local Main Hollowing Failed" ascii //weight: 1
+        $x_1_4 = "[+] The PE file is valid." ascii //weight: 1
+        $x_1_5 = "[+] Decrypting payload..." ascii //weight: 1
+        $x_1_6 = "[-] Failed to download payload" ascii //weight: 1
+        $x_1_7 = "[+] mainThread suspended" ascii //weight: 1
+        $x_1_8 = "[-] Failed to duplicate handle." ascii //weight: 1
+        $x_1_9 = "[-] Failed to resolve APIs." ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

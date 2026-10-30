@@ -20,3 +20,28 @@ rule Trojan_Win64_LucidRook_GXH_2147966779_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LucidRook_A_2147981229_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LucidRook.A!MTB"
+        threat_id = "2147981229"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LucidRook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "150"
+        strings_accuracy = "High"
+    strings:
+        $x_50_1 = "src/makelog/invdump/chrome.rs" ascii //weight: 50
+        $x_40_2 = "src/makelog/invdump/gecko.rs" ascii //weight: 40
+        $x_30_3 = "makelog-dumpsrc/main.rs" ascii //weight: 30
+        $x_20_4 = "src/actwin_state.rs" ascii //weight: 20
+        $x_10_5 = "src/dxgi_capture.rs" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -7120,32 +7120,6 @@ rule Trojan_Win32_ClickFix_DEG_2147944814_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_ClickFix_DEK_2147944815_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/ClickFix.DEK!MTB"
-        threat_id = "2147944815"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "ClickFix"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "130"
-        strings_accuracy = "High"
-    strings:
-        $x_100_1 = "powershell" wide //weight: 100
-        $x_10_2 = "[guid]::NewGuid().ToString()" wide //weight: 10
-        $x_10_3 = "$env:TEMP" wide //weight: 10
-        $x_10_4 = "-OutFile $" wide //weight: 10
-        $n_10_5 = "philips.com/tfs-mcp.cjs" wide //weight: -10
-    condition:
-        (filesize < 20MB) and
-        (not (any of ($n*))) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_ClickFix_BBV_2147944821_0
 {
     meta:
