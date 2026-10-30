@@ -112,3 +112,26 @@ rule Trojan_Win32_Autorun_NA_2147934128_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Autorun_AE_2147981224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Autorun.AE!MTB"
+        threat_id = "2147981224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Autorun"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "iwr -Uri '%s' -OutFile $env:TEMP\\BK279399.exe" ascii //weight: 10
+        $x_6_2 = "Start-Process $env:TEMP\\BK279399.exe -WindowStyle Hidden" ascii //weight: 6
+        $x_4_3 = "RATMAP01" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
