@@ -171,3 +171,26 @@ rule Trojan_Win64_VitaminStealer_LR_2147981068_0
         )
 }
 
+rule Trojan_Win64_VitaminStealer_AMTB_2147981238_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VitaminStealer!AMTB"
+        threat_id = "2147981238"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VitaminStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Vitamin Stealer" ascii //weight: 2
+        $x_2_2 = "fake_progress" ascii //weight: 2
+        $x_1_3 = "overlay-corrupt" ascii //weight: 1
+        $x_1_4 = "\\csh_doc_%lu.tmp" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
