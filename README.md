@@ -583,6 +583,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Offensive Research - DSAS by INJECT](https://blog.injectexp.dev/)
 - [orangecyberdefense Intel](https://www.orangecyberdefense.com/global/blog?tx_solr%5Bfilter%5D%5B0%5D=tags%3AIntelligence-led+Security)
 - [outpost24 research and threat intel feed](https://outpost24.com/blog/category/research-and-threat-intel/feed/)
+- [Piratage.fr breaches feed](https://www.piratage.fr/feed.xml)
 - [proofpoint threat insight](https://www.proofpoint.com/us/blog/threat-insight#)
 - [Qualys Threat research feed](https://blog.qualys.com/vulnerabilities-threat-research/feed)
 - [redcanary feed](https://www.redcanary.co/feed/)
