@@ -6957,3 +6957,31 @@ rule Trojan_MSIL_XWorm_WB_2147981203_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_DI_2147981251_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.DI!MTB"
+        threat_id = "2147981251"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {08 09 06 09 91 07 09 07 8e 69 5d 91 61 09 1d 5a 1f 0d 58 d2 61 d2 9c 09 17 58 0d 09 06 8e 69 32 df}  //weight: 2, accuracy: High
+        $x_3_2 = {0a 13 07 11 07 11 06 6f ?? 00 00 0a 16 73 ?? 00 00 0a 13 08 73 ?? 00 00 0a 13 09 11 08 11 09 6f ?? 00 00 0a 11 09 6f ?? 00 00 0a 13 0a 11 0a 73 ?? 00 00 0a 13 0b 11 0b 16 73 ?? 00 00 0a 13 0c 73 ?? 00 00 0a 13 0d 11 0c 11 0d 6f ?? 00 00 0a 11 0d 6f ?? 00 00 0a 13 0e de 54}  //weight: 3, accuracy: Low
+        $x_3_3 = {16 13 08 2b 51 11 06 17 58 20 ff 00 00 00 5f 13 06 11 07 06 11 06 94 58 20 ff 00 00 00 5f 13 07 06 11 06 94 13 09 06 11 06 06 11 07 94 9e 06 11 07 11 09 9e 11 05 11 08 02 11 08 91 06 06 11 06 94 06 11 07 94 58 20 ff 00 00 00 5f 94 61 d2 9c 11 08 17 58 13 08 11 08 02 8e 69 32 a8}  //weight: 3, accuracy: High
+        $x_3_4 = {0a 13 0d 11 0d 11 0a 6f ?? 00 00 0a 11 0d 11 0b 6f ?? 00 00 0a 11 0d 17 6f ?? 00 00 0a 11 0d 18 6f ?? 00 00 0a 73 ?? 00 00 0a 13 0e 11 0e 11 0d 6f ?? 00 00 0a 17 73 ?? 00 00 0a 13 0f 11 0f 11 09 16 11 09 8e 69 6f ?? 00 00 0a 11 0f 6f ?? 00 00 0a 11 0e 6f ?? 00 00 0a 13 0c de 0c}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+

@@ -65,3 +65,28 @@ rule Trojan_Win64_OverlordRAT_AG_2147980005_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_OverlordRAT_A_2147981252_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/OverlordRAT.A!AMTB"
+        threat_id = "2147981252"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "OverlordRAT"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/rat/result" ascii //weight: 1
+        $x_1_2 = "/rat/poll" ascii //weight: 1
+        $x_1_3 = "loot_%s.zip" ascii //weight: 1
+        $x_1_4 = "hs_keys.dat" ascii //weight: 1
+        $x_1_5 = "hs_vss.ps1" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

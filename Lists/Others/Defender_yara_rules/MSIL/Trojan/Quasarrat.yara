@@ -63,6 +63,27 @@ rule Trojan_MSIL_Quasarrat_PQ_2147959949_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 16 0b 2b 0e 06 07 02 07 91 1f 2f 61 d1 9d 07 17 58 0b 07 02 8e 69 32 ec 06 73 ?? 00 00 0a 2a}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Quasarrat_PQ_2147959949_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasarrat.PQ!MTB"
+        threat_id = "2147959949"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasarrat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "Low"
     strings:
