@@ -92,6 +92,28 @@ rule Trojan_Win64_BypassUAC_MK_2147961849_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8d 7c 24 38 4c 89 74 24 30 8b f0 4c 8d 05 c9 43 00 00 33 c0 b9 30}  //weight: 20, accuracy: High
+        $x_15_2 = {4c 8b c3 66 c7 44 46 30 5c 00 48 8d 4e 32 48 8d 0c 41 ba 08 02 00 00 33 c0 66 89 01 48 2b cf 48 d1 f9}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_BypassUAC_MK_2147961849_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.MK!MTB"
+        threat_id = "2147961849"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "85"
         strings_accuracy = "High"
     strings:

@@ -1117,3 +1117,24 @@ rule Trojan_Win64_Dacic_NAS_2147980292_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_D_2147981278_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.D!MTB"
+        threat_id = "2147981278"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0f be c2 6b c8 ?? 32 8c 15 30 01 00 00 80 f1 5b 48 8d 44 24 30 4c 39 7c 24 48 48 0f 47 44 24 30 88 0c 10 49 03 d6 48 3b d3 72 ?? 0f 57 c0 0f 11 44 24 50}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

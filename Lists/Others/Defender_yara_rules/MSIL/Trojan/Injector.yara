@@ -2680,6 +2680,30 @@ rule Trojan_MSIL_Injector_WE_2147977070_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "$dd537754-7e8d-4aaf-b444-2a2cc12eb99f" ascii //weight: 6
+        $x_1_2 = "FILEEE" ascii //weight: 1
+        $x_1_3 = "WHORE" ascii //weight: 1
+        $x_1_4 = "LAUNCHER" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_WE_2147977070_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.WE!MTB"
+        threat_id = "2147977070"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -2693,7 +2717,7 @@ rule Trojan_MSIL_Injector_WE_2147977070_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Injector_WE_2147977070_1
+rule Trojan_MSIL_Injector_WE_2147977070_2
 {
     meta:
         author = "defender2yara"

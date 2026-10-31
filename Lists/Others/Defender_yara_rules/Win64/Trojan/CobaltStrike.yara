@@ -198,6 +198,30 @@ rule Trojan_Win64_CobaltStrike_A_2147776992_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "Low"
+    strings:
+        $x_40_1 = {0f b6 d2 0f b6 04 14 42 8d 0c 10 44 0f b6 d1 0f b6 c9 44 0f b6 1c 0c 44 88 1c 14 88 04 0c 02 04 14 0f b6 c0 0f b6 04 04 41 30 00 49 83 c0 ?? 4c 39 c3 75}  //weight: 40, accuracy: Low
+        $x_30_2 = "[-] alloc failed" ascii //weight: 30
+        $x_20_3 = "[*] head: %02x %02x %02x %02x %02x %02x %02x %02x" ascii //weight: 20
+        $x_10_4 = "[-] protect failed" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_A_2147776992_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.A!MTB"
+        threat_id = "2147776992"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -7579,6 +7603,28 @@ rule Trojan_Win64_CobaltStrike_B_2147845868_0
         strings_accuracy = "Low"
     strings:
         $x_2_1 = {41 f7 ea 44 89 c8 c1 f8 1f 44 01 ca c1 fa ?? 29 c2 b8 ?? ?? ?? ?? 0f af d0 29 d1 48 63 c9 0f b6 04 0f 43 32 04 0b 42 88 04 06 4d 8d 41}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_CobaltStrike_B_2147845868_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CobaltStrike.B!MTB"
+        threat_id = "2147845868"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CobaltStrike"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {8b 95 bc 01 00 00 48 8b 85 98 01 00 00 48 01 d0 0f b6 00 83 ?? ?? 89 c3 8b 95 bc 01 00 00 48 8d 85 70 01 00 00}  //weight: 30, accuracy: Low
+        $x_20_2 = "ExtractAndDecrypt" ascii //weight: 20
     condition:
         (filesize < 20MB) and
         (all of ($x*))

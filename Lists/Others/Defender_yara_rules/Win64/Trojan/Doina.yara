@@ -107,6 +107,30 @@ rule Trojan_Win64_Doina_A_2147918464_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_A_2147918464_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.A!MTB"
+        threat_id = "2147918464"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "[*] bundle: %zu bytes, %d creds, %d cookies, %d wifi" ascii //weight: 40
+        $x_30_2 = "[*] persisted -> %ls" ascii //weight: 30
+        $x_20_3 = "[*] %s: %zu logins, %zu cookies" ascii //weight: 20
+        $x_10_4 = "] exfil failed" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Doina_ALP_2147921729_0
 {
     meta:
