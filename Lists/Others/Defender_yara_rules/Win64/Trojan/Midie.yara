@@ -1513,3 +1513,27 @@ rule Trojan_Win64_Midie_B_2147981231_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_D_2147981304_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.D!MTB"
+        threat_id = "2147981304"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "C:\\ProgramData\\Ethereal\\Assets\\Images" ascii //weight: 40
+        $x_30_2 = "[LU] server kill-switch: self-update disabled" ascii //weight: 30
+        $x_20_3 = "[ethdisc] LaunchDiscord failed" ascii //weight: 20
+        $x_10_4 = "[ethdisc] Discord not installed" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

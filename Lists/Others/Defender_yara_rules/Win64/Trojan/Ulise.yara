@@ -713,3 +713,25 @@ rule Trojan_Win64_Ulise_MK_2147980074_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Ulise_B_2147981305_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Ulise.B!MTB"
+        threat_id = "2147981305"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Ulise"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4d 8d 09 4d 89 ff c7 45 d0 ?? ?? ?? ?? 8b 45 d0 4d 8d 6d 00 4d 8d 12 48 89 ff e9}  //weight: 30, accuracy: Low
+        $x_20_2 = {0b 41 04 89 41 04 8b 45 ec 83 c8 00 89 45 ec 90 48 87 c9}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

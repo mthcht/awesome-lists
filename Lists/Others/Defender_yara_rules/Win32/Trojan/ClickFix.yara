@@ -16550,3 +16550,66 @@ rule Trojan_Win32_ClickFix_OS_2147981220_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DLA_2147981306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLA!MTB"
+        threat_id = "2147981306"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c for /r" wide //weight: 1
+        $x_1_2 = "in (f_*) do" wide //weight: 1
+        $x_1_3 = "@if %~" wide //weight: 1
+        $x_1_4 = ".vbs" wide //weight: 1
+        $x_1_5 = "wscript " wide //weight: 1
+        $n_5_6 = "OpenAI" wide //weight: -5
+        $n_5_7 = "deepseek" wide //weight: -5
+        $n_5_8 = "claude" wide //weight: -5
+        $n_5_9 = "codex" wide //weight: -5
+        $n_5_10 = "copilot" wide //weight: -5
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DLE_2147981307_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLE!MTB"
+        threat_id = "2147981307"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "switch($" wide //weight: 1
+        $x_1_2 = "foreach($" wide //weight: 1
+        $x_1_3 = "in ($" wide //weight: 1
+        $x_1_4 = ")|&(" wide //weight: 1
+        $x_1_5 = "){& $_[" wide //weight: 1
+        $x_1_6 = "]) @args" wide //weight: 1
+        $n_6_7 = "OpenAI" wide //weight: -6
+        $n_6_8 = "deepseek" wide //weight: -6
+        $n_6_9 = "claude" wide //weight: -6
+        $n_6_10 = "codex" wide //weight: -6
+        $n_6_11 = "copilot" wide //weight: -6
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

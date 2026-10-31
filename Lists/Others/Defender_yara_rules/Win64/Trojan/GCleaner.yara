@@ -63,3 +63,27 @@ rule Trojan_Win64_GCleaner_VG_2147977702_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GCleaner_GV_2147981300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GCleaner.GV!MTB"
+        threat_id = "2147981300"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {80 f2 1b 8a c3 32 c2 32 c1 32 45 ff 8a 8e ?? ?? ?? ?? 32 45 fe 88 45 f8 8a c1 02 c0 84 c9 79 02}  //weight: 1, accuracy: Low
+        $x_1_2 = "/F /Create /TN Microsoft_Silverlight /sc minute /MO 1 /TR" ascii //weight: 1
+        $x_1_3 = "/C reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Alight /t REG_SZ /d" ascii //weight: 1
+        $x_1_4 = "Rundll32.exe SHELL32.DLL,ShellExec_RunDLL" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
