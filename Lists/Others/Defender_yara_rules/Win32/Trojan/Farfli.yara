@@ -408,6 +408,33 @@ rule Trojan_Win32_Farfli_DX_2147794591_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_DX_2147794591_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.DX!MTB"
+        threat_id = "2147794591"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8a 08 80 f1 d0 80 e9 30 80 f1 d0 88 08 40 4e 75}  //weight: 2, accuracy: High
+        $x_1_2 = "NtCreateUserProcess failed:" ascii //weight: 1
+        $x_1_3 = "NtAllocateVirtualMemory" ascii //weight: 1
+        $x_1_4 = "NtWriteVirtualMemory" ascii //weight: 1
+        $x_1_5 = "NtResumeThread" ascii //weight: 1
+        $x_1_6 = "HelloWorld..." ascii //weight: 1
+        $x_1_7 = "GetAdaptersAddresses" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_Farfli_ZQ_2147794593_0
 {
     meta:

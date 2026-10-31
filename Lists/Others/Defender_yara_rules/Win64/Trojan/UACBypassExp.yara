@@ -150,3 +150,33 @@ rule Trojan_Win64_UACBypassExp_PAHU_2147979805_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_UACBypassExp_NR_2147981268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/UACBypassExp.NR!MTB"
+        threat_id = "2147981268"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "UACBypassExp"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell -Command \"Set-MpPreference -DisableRealtimeMonitoring $true" ascii //weight: 1
+        $x_1_2 = "User Data\\Default\\Login Data" ascii //weight: 1
+        $x_2_3 = "keylogger started" ascii //weight: 2
+        $x_2_4 = "rat_" ascii //weight: 2
+        $x_1_5 = "steal_cookies" ascii //weight: 1
+        $x_1_6 = "kill_defender" ascii //weight: 1
+        $x_2_7 = "uac_bypass" ascii //weight: 2
+        $x_1_8 = "[encrypted" ascii //weight: 1
+        $x_1_9 = "persisted" ascii //weight: 1
+        $x_1_10 = "inject" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

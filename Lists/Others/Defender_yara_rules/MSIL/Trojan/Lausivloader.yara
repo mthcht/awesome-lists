@@ -788,3 +788,44 @@ rule Trojan_MSIL_Lausivloader_JZ_2147981202_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Lausivloader_YZ_2147981270_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lausivloader.YZ!MTB"
+        threat_id = "2147981270"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lausivloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "Amoeba" ascii //weight: 6
+        $x_4_2 = "Cadeira" ascii //weight: 4
+        $x_4_3 = "$eea0cbc0-6200-42c6-a276-2327dbd88405" ascii //weight: 4
+        $x_1_4 = "Virtual" ascii //weight: 1
+        $x_1_5 = "Alloc" ascii //weight: 1
+        $x_1_6 = "Write" ascii //weight: 1
+        $x_1_7 = "Process" ascii //weight: 1
+        $x_1_8 = "Memory" ascii //weight: 1
+        $x_1_9 = "Protect" ascii //weight: 1
+        $x_1_10 = "Close" ascii //weight: 1
+        $x_1_11 = "Handle" ascii //weight: 1
+        $x_1_12 = "kernel" ascii //weight: 1
+        $x_1_13 = "32.dll" ascii //weight: 1
+        $x_1_14 = "ResourceA" ascii //weight: 1
+        $x_1_15 = "get_UserName" ascii //weight: 1
+        $x_1_16 = "RegisterTaskDefinition" ascii //weight: 1
+        $x_1_17 = "System.Net.Http" ascii //weight: 1
+        $x_1_18 = "CreateDecryptor" ascii //weight: 1
+        $x_1_19 = "FromBase64String" ascii //weight: 1
+        $x_1_20 = "TASK_TRIGGER_REGISTRATION" ascii //weight: 1
+        $x_1_21 = "Microsoft.Win32.TaskScheduler.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

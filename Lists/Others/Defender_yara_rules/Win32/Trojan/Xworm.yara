@@ -100,3 +100,27 @@ rule Trojan_Win32_Xworm_ARR_2147976634_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Xworm_AQ_2147981273_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Xworm.AQ!MTB"
+        threat_id = "2147981273"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff 36 ff d3 85 c0 74 ?? 68 20 4e 00 00 ff d7 83 c6 ?? 8d 84 24}  //weight: 5, accuracy: Low
+        $x_3_2 = {8b 0b 03 c8 8a 14 0f 8b 4d 00 32 54 04 ?? 03 c8 40 88 14 0f 3b c6 72}  //weight: 3, accuracy: Low
+        $x_1_3 = "AmsiScanBuffer" ascii //weight: 1
+        $x_1_4 = "amsi.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

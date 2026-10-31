@@ -664,6 +664,50 @@ rule Trojan_Win64_Vidar_KK_2147955082_5
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_KK_2147955082_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.KK!MTB"
+        threat_id = "2147955082"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 c7 84 24 88 0b 00 00 35 00 00 00 48 c7 84 24 90 0b 00 00 1d 00 00 00 48 c7 84 24 98 0b 00 00 29 00 00 00 48 c7 84 24 a0 0b 00 00 11 00 00 00 48 c7 84 24 a8 0b 00 00 17 00 00 00 48 c7 84 24 b0 0b 00 00 25 00 00 00 48 c7 84 24 b8 0b 00 00 2f 00 00 00 48 c7 84 24 c0 0b 00 00 0b 00 00 00 48 c7 84 24 c8 0b 00 00 0d 00 00 00 48 c7 84 24 d0 0b 00 00 13 00 00 00 48 c7 84 24 d8 0b 00 00 1f 00 00 00 48 c7 84 24 e0 0b 00 00 2b 00 00 00 48 c7 84 24 e8 0b 00 00 3b 00 00 00 48 c7 84 24 f0 0b 00 00 3d 00 00 00 48 c7 84 24 f8 0b 00 00 43 00 00 00}  //weight: 20, accuracy: High
+        $x_10_2 = {49 89 f0 48 c1 ee 3f 4c 01 c6 48 d1 fe 49 89 f1 48 d1 e6 49 29 f0 4c 8d 57 01 49 83 f8 01 49 0f 44 fa 4c 89 ce}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_KK_2147955082_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.KK!MTB"
+        threat_id = "2147955082"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {45 0f b6 44 30 02 41 83 c0 d0 45 0f b6 c0 4d 01 c8 44 0f b6 0c 18 45 31 c8 44 88 04 02 48 ff c0}  //weight: 20, accuracy: High
+        $x_10_2 = {48 c7 84 24 80 ?? 00 00 8c 05 00 00 48 c7 84 24 88 ?? 00 00 34 08 00 00 48 c7 84 24 90 ?? 00 00 d6 06 00 00 48 c7 84 24 98 ?? 00 00 bc 07 00 00 48 c7 84 24 a0 ?? 00 00 06 09 00 00 48 c7 84 24 a8 ?? 00 00 88 04 00 00 48 c7 84 24 b0 ?? 00 00 50 0a 00 00 48 c7 84 24 b8 ?? 00 00 fa 05 00 00 48 c7 84 24 c0 ?? 00 00 4e 07 00 00 48 c7 84 24 c8 ?? 00 00 2a 08 00 00 48 c7 84 24 d0 ?? 00 00 d8 04 00 00 48 c7 84 24 d8 ?? 00 00 dc 0a 00 00 48 c7 84 24 e0 ?? 00 00 fc 03 00 00 48 c7 84 24 e8 ?? 00 00 92 09 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Vidar_MK_2147955286_0
 {
     meta:

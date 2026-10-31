@@ -20,3 +20,30 @@ rule Trojan_Win32_Siggen_GR_2147814963_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Siggen_AMTB_2147981271_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Siggen!AMTB"
+        threat_id = "2147981271"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Siggen"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\"%s\" /Create /TN \"NetProfileDiag\" /TR \"\\\"%s\\\" --stub-watch\"\\ /SC MINUTE /MO 3 /RU SYSTEM /RL HIGHEST /F" ascii //weight: 1
+        $x_1_2 = "cmd.exe /c \"%s\" /Create /TN \"NetProfileDiag\" /TR \"\\\"%s\\\" --stub-watch\" /SC MINUTE /MO 3 /RU SYSTEM /RL HIGHEST /F" ascii //weight: 1
+        $x_1_3 = "\"%s\" /Delete /TN \"NetProfileDiag\" /F" ascii //weight: 1
+        $x_1_4 = "{\"machine_id\":\"%s\",\"install_id\":\"%s\",\"presence_url\":\"%s\",\"presence_key\":\"%s\",\"device_token\":\"%s\"," ascii //weight: 1
+        $x_1_5 = "\"mm_path\":\"%s\",\"update_base\":\"%s\",\"exe_path\":\"%s\",\"exe_prev\":\"%s\",\"allow_rotate\":%d,\"critical_process\":%d}" ascii //weight: 1
+        $x_1_6 = "schtasks.exe /Create /TN \"CertEnrollmentRepair\" /TR \"cmd.exe /c \\\"%s\\\"\" /SC ONCE /ST %s /RU SYSTEM /RL HIGHEST /F" ascii //weight: 1
+        $x_1_7 = "schtasks.exe /Run /TN \"CertEnrollmentRepair\"" ascii //weight: 1
+        $x_1_8 = "cmd.exe /c ping 127.0.0.1 -n 3 >nul & call \"%s\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (7 of ($x*))
+}
+
