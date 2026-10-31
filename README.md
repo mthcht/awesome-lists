@@ -316,6 +316,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [dnsdumpster](https://dnsdumpster.com/)
   - [nslookup.io](https://www.nslookup.io/)
   - [cloudfare URL scan](https://radar.cloudflare.com/scan)
+  - [Current-browser VPN/proxy/Tor and bot risk signals - ShieldLabs Anonymity Checker](https://demo.shieldlabs.ai/anonymity-checker)
   - [proxy IP check - proxycheck.io](https://proxycheck.io/web/)
   - [reputation IP check criminalip](https://www.criminalip.io/en)
   - [proxy IP check - iphub.info](https://iphub.info/)
