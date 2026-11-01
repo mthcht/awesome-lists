@@ -387,6 +387,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [Forcepoint lookup](https://support.forcepoint.com/s/site-lookup)
   - [TrendMicro lookup](https://global.sitesafety.trendmicro.com/)
   - [USB & PCI database - DeviceHunt](https://devicehunt.com/)
+  - [Opsis (email and username account lookup)](https://useopsis.com/)
 
 </details>
 
