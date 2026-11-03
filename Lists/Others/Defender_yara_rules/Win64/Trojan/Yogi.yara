@@ -184,6 +184,27 @@ rule Trojan_Win64_Yogi_B_2147979312_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_B_2147979312_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.B!MTB"
+        threat_id = "2147979312"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {c6 44 24 64 4b c6 44 24 65 17 c6 44 24 66 e3 c6 44 24 67 29 0f b6 54 24 64 44 0f b6 44 24 65 0f b6 4c 24 66 0f b6 44 24 67 44 31 c2 31 ca 4a 8d 0c 33 31 c2 4c 89 f0 0f 1f 80 00 00 00 00 30 10 48 83 c0 ?? 48 39 c8 75}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Yogi_C_2147980022_0
 {
     meta:
@@ -316,6 +337,48 @@ rule Trojan_Win64_Yogi_KK_2147981206_1
     strings:
         $x_20_1 = {44 0f b6 4c 08 fd 45 0f b6 0c 11 46 88 4c 00 fd 44 0f b6 4c 08 fe 45 0f b6 0c 11 46 88 4c 00 fe 44 0f b6 4c 08 ff 45 0f b6 0c 11 46 88 4c 00 ff 44 0f b6 0c 08 45 0f b6 0c 11 46 88 0c 00 48 83 c0 04 48 3d 0b 0b 00 00}  //weight: 20, accuracy: High
         $x_10_2 = {41 83 e2 0f 45 0f b6 5c 14 02 41 c1 eb 06 47 8d 14 93 47 0f b6 14 0a 44 88 50 02 45 0f b6 54 14 02 41 83 e2 3f 47 0f b6 14 0a 44 88 50 03 48 83 c0 04 48 83 c2 03 48 39 ca}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_ARAX_2147981342_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.ARAX!MTB"
+        threat_id = "2147981342"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {44 8d 40 01 40 8a d5 41 32 14 30 88 14 03 41 8b c0 44 3b c7 72 ea}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_ARAZ_2147981343_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.ARAZ!MTB"
+        threat_id = "2147981343"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {8d 48 3f 32 8c 05 c0 00 00 00 88 8c 05 d0 00 00 00 48 8d 40 01 48 8d 48 08 48 83 f9 0e 72 e1}  //weight: 4, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

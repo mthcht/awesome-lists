@@ -630,3 +630,28 @@ rule Trojan_MSIL_Cerbu_NYS_2147977750_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Cerbu_A_2147981360_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Cerbu.A!MTB"
+        threat_id = "2147981360"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "$ErrorActionPreference='Stop'; function Norm([string]$p){ if([string]::IsNullOrWhiteSpace($p)){return ''}; return" wide //weight: 1
+        $x_1_2 = "Start-Sleep -Milliseconds 400; $list=@((Get-MpPreference).ExclusionPath); if($null -eq $list){$list=@()};" wide //weight: 1
+        $x_1_3 = "$ErrorActionPreference='Stop'; try { $p=(Get-MpPreference).ExclusionPath; if($null -eq $p){$p=@()}; $p|%{$_}|Out-File '" wide //weight: 1
+        $x_1_4 = "HellOX.Agent.AgentLoader" wide //weight: 1
+        $x_1_5 = "HELLOX_LOGIN_CHECK_SEC" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

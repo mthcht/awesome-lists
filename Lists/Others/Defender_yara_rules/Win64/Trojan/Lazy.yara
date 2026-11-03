@@ -4788,6 +4788,30 @@ rule Trojan_Win64_Lazy_MK_2147954929_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MK_2147954929_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MK!MTB"
+        threat_id = "2147954929"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_25_1 = {44 0f b6 c2 46 0f b6 4c 04 50 44 01 c9 44 0f b6 d1 46 0f b6 5c 14 50 46 88 5c 04 50 46 88 4c 14 50 46 0f b6 44 04 50 45 00 c8 45 0f b6 c0 46 0f b6 44 04 50 44 30 44 16 ff 4c 8d 04 10 49 ff c0 48 ff c2 49 83 f8 01}  //weight: 25, accuracy: High
+        $x_5_2 = ".admin_elevation" ascii //weight: 5
+        $x_3_3 = "\\\\.\\PhysicalDrive0" ascii //weight: 3
+        $x_2_4 = "malware" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_MKS_2147954930_0
 {
     meta:

@@ -942,3 +942,33 @@ rule Trojan_Win64_Barys_AR_2147980827_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_HX_2147981367_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.HX!MTB"
+        threat_id = "2147981367"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "@NtWriteVirtualMemory" ascii //weight: 1
+        $x_1_2 = "@NtCreateThreadEx" ascii //weight: 1
+        $x_1_3 = "@NtProtectVirtualMemory" ascii //weight: 1
+        $x_1_4 = "@NtAllocateVirtualMemory" ascii //weight: 1
+        $x_1_5 = "@Calling initSyscalls()..." ascii //weight: 1
+        $x_1_6 = "@executePayload: LOCALAPPDATA" ascii //weight: 1
+        $x_1_7 = "@initial sleep done" ascii //weight: 1
+        $x_1_8 = "@debug.log" ascii //weight: 1
+        $x_1_9 = "@getSSN: ntdll not loaded" ascii //weight: 1
+        $x_1_10 = "@: [EVASION] " ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

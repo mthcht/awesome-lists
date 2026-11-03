@@ -617,3 +617,27 @@ rule Trojan_Win64_Doina_SA_2147977621_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_MK_2147981370_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.MK!MTB"
+        threat_id = "2147981370"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Global\\NXC2_MIGRATE_RL" ascii //weight: 10
+        $x_10_2 = "\"%s\" --nx-parent-pid=%u --nx-staging=\"%s\" --nx-install=\"%s\" --nx-del-old=\"%s\"" ascii //weight: 10
+        $x_10_3 = "forceuac" ascii //weight: 10
+        $x_10_4 = "injectdav" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

@@ -5857,6 +5857,33 @@ rule Trojan_Win64_Tedy_SXI_2147964063_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_CR_2147964554_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CR!MTB"
+        threat_id = "2147964554"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "RPOC" ascii //weight: 2
+        $x_1_2 = ".encrypted" ascii //weight: 1
+        $x_1_3 = "XMR Wallet" ascii //weight: 1
+        $x_1_4 = "DiscordBot" ascii //weight: 1
+        $x_1_5 = "SYSTEM LOCKED" ascii //weight: 1
+        $x_1_6 = "DisableTaskMgr" ascii //weight: 1
+        $x_1_7 = "svchost_cleanup.bat" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_AVD_2147964606_0
 {
     meta:
@@ -8841,6 +8868,28 @@ rule Trojan_Win64_Tedy_BC_2147981035_0
     strings:
         $x_2_1 = {48 8b 4b 08 45 31 c9 48 c7 44 24 ?? ?? ?? ?? ?? 41 b8 01 00 00 00 c7 44 24 ?? ?? ?? ?? ?? ba [0-4] c7 44 24 ?? ?? ?? ?? ?? ff 15}  //weight: 2, accuracy: Low
         $x_1_2 = "shellcode.bin" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LV_2147981334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LV!MTB"
+        threat_id = "2147981334"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {45 0f b6 c0 46 0f b6 14 01 44 88 14 01 42 88 14 01 02 14 01 0f b6 d2 0f b6 04 11 41 30 01 49 83 c1 ?? 4d 39 cb 75}  //weight: 10, accuracy: Low
+        $x_9_2 = {41 0f b6 14 02 44 31 ca 88 14 01 48 83 c0 ?? 49 39 c0 75}  //weight: 9, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

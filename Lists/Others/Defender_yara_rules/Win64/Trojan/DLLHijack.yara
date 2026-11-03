@@ -1260,6 +1260,27 @@ rule Trojan_Win64_DLLHijack_MKB_2147981105_0
         threshold = "35"
         strings_accuracy = "High"
     strings:
+        $x_35_1 = {44 89 ca 41 89 c1 45 89 d0 44 89 c8 41 c1 e0 0b c1 e8 13 45 31 d0 44 31 c8 45 89 da 44 31 c0 41 c1 e8 08 41 89 d3 44 31 c0 30 01 48 83 c1 01 48 39 cb}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_MKB_2147981105_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.MKB!MTB"
+        threat_id = "2147981105"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
         $x_30_1 = {41 0f b6 40 21 41 0f b6 50 20 48 83 c1 02 49 83 c0 02 83 f0 5a 83 f2 5a c1 e0 08 0f b6 d2 09 d0 66 89 41 1e 4c 39 c9}  //weight: 30, accuracy: High
         $x_3_2 = {49 89 c0 41 83 e0 03 46 0f b6 04 01 45 30 04 02 48 83 c0 01 48 39 c2}  //weight: 3, accuracy: High
         $x_2_3 = "redist\\2022\\mfcm022\\vcom\\msiexec\" /qn /norestart" wide //weight: 2

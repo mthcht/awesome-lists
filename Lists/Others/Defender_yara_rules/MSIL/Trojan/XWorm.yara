@@ -6985,3 +6985,24 @@ rule Trojan_MSIL_XWorm_DI_2147981251_0
         )
 }
 
+rule Trojan_MSIL_XWorm_WG_2147981330_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.WG!MTB"
+        threat_id = "2147981330"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {26 11 09 6f ?? 00 00 0a 28 ?? 00 00 0a 13 0a 16 13 0b 2b 17 11 0a 11 0b 11 0a 11 0b 91 20 a5 00 00 00 61 d2 9c 11 0b 17 58 13 0b 11 0b 11 0a 8e 69 fe 04 13 19 11 19 2d db}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

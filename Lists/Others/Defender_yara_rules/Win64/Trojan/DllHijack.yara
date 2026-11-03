@@ -1357,6 +1357,27 @@ rule Trojan_Win64_DllHijack_MKA_2147975998_1
         threshold = "35"
         strings_accuracy = "High"
     strings:
+        $x_35_1 = {45 89 c3 41 89 c0 44 89 ca 44 89 c0 c1 e2 0b c1 e8 13 44 31 ca 44 31 c0 45 89 d1 31 d0 c1 ea 08 45 89 da 31 d0 30 01 48 83 c1 01 48 39 cb}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_MKA_2147975998_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.MKA!MTB"
+        threat_id = "2147975998"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {48 05 16 10 00 00 8b 08 81 f1 48 85 c0 48 b9 00 00 00 00 48 0f 45 c1 48 83 c4 28}  //weight: 20, accuracy: High
         $x_15_2 = {48 8d 44 24 40 48 89 44 24 28 48 8d 44 24 40 48 89 44 24 28 48 8d 4c 24 40 48 89 4c 24 28 48 8b 54 24 48 66}  //weight: 15, accuracy: High
     condition:
@@ -1364,7 +1385,7 @@ rule Trojan_Win64_DllHijack_MKA_2147975998_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_MKA_2147975998_2
+rule Trojan_Win64_DllHijack_MKA_2147975998_3
 {
     meta:
         author = "defender2yara"

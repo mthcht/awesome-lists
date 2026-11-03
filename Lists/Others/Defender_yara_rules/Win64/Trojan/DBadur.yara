@@ -88,3 +88,24 @@ rule Trojan_Win64_DBadur_GMF_2147971873_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DBadur_AQ_2147981346_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DBadur.AQ!MTB"
+        threat_id = "2147981346"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DBadur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b c8 4d 8d 40 08 48 c1 e1 ?? 48 33 c8 48 8b d1 48 c1 ea ?? 48 33 d1 48 8b c2 48 c1 e0 ?? 48 33 c2 49 31 40 f8 49 83 e9 01 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

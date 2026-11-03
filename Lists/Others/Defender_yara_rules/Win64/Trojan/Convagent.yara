@@ -604,6 +604,27 @@ rule Trojan_Win64_Convagent_ARAZ_2147937060_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {48 2b c8 0f b6 04 0f 43 30 04 10 49 ff c0 4d 3b c1 72}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Convagent_ARAZ_2147937060_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.ARAZ!MTB"
+        threat_id = "2147937060"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "High"
     strings:
