@@ -19,7 +19,6 @@ This script fetches the updated IP ranges of each bad ASN listed in the consolid
 Reads the lists of ASNs from:
 - **latest_bad_asn_phishing_list.csv** (Cybercrime Info Center).
 - **bad_asn_static_list.csv** (my static List of ASNs).
-- **evild3ad-ASN-BlackList.csv** (mostly VPN ASNs from https://github.com/evild3ad/Microsoft-Analyzer-Suite/blob/main/Blacklists/ASN-Blacklist.csv)
 - **spamhaus_asn_list.csv** (Spamhaus ASN Drop List).
 
 This script performs the following steps:
