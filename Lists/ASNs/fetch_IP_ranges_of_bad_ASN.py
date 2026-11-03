@@ -9,14 +9,12 @@ import time
 latest_csv_file_path = 'latest_bad_asn_phishing_list.csv'
 static_csv_file_path = 'bad_asn_static_list.csv'
 spamhaus_csv_file_path = 'spamhaus_asn_list.csv'
-evild3ad_csv_file_path = 'evild3ad-ASN-BlackList.csv'
 
 # Path to the script to be executed using relative path
 script_path = os.path.join('..', 'Ranges_IP_Address_Company_List', 'bgp.he.net', 'get_ip_range.py')
 
-# URLs for fetching data
+# URL for fetching data
 spamhaus_url = 'https://www.spamhaus.org/drop/asndrop.json'
-evild3ad_url = 'https://raw.githubusercontent.com/evild3ad/Microsoft-Analyzer-Suite/refs/heads/main/Blacklists/ASN-Blacklist.csv'
 
 # Function to read AS numbers from a CSV file
 def read_as_numbers(csv_file_path, column_name='as_number'):
@@ -50,28 +48,15 @@ def fetch_spamhaus_asn_data():
 
     return ['AS' + str(entry['asn']) for entry in spamhaus_data]
 
-# Function to fetch and save the evild3ad ASN blacklist
-def fetch_evild3ad_asn_data():
-    response = requests.get(evild3ad_url)
-    response.raise_for_status()
-    
-    with open(evild3ad_csv_file_path, mode='w', encoding='utf-8') as file:
-        file.write(response.text)
-    
-    return read_as_numbers(evild3ad_csv_file_path, column_name='ASN')
-
 # Fetch Spamhaus AS numbers
 spamhaus_drop_as_numbers = fetch_spamhaus_asn_data()
-
-# Fetch evild3ad ASN blacklist
-evild3ad_as_numbers = fetch_evild3ad_asn_data()
 
 # Read AS numbers from other CSV files
 latest_as_numbers = read_as_numbers(latest_csv_file_path)
 static_as_numbers = read_as_numbers(static_csv_file_path)
 
 # Combine AS numbers from all sources
-combined_as_numbers = list(set(latest_as_numbers + static_as_numbers + spamhaus_drop_as_numbers + evild3ad_as_numbers))
+combined_as_numbers = list(set(latest_as_numbers + static_as_numbers + spamhaus_drop_as_numbers))
 
 # Join the AS numbers into a single string separated by commas
 as_numbers_str = ','.join(combined_as_numbers)
@@ -124,4 +109,3 @@ for file in os.listdir('.'):
 os.remove(sentinel_file)
 
 print(f"Moved {moved} CSV files to {output_folder}/ after confirming completion.")
-
