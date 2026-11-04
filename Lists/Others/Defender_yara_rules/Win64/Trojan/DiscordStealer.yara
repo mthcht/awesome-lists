@@ -511,3 +511,28 @@ rule Trojan_Win64_DiscordStealer_BMX_2147980878_0
         )
 }
 
+rule Trojan_Win64_DiscordStealer_CMX_2147981509_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DiscordStealer.CMX!MTB"
+        threat_id = "2147981509"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DiscordStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "TokenGrabber/" wide //weight: 5
+        $x_5_2 = "Mozilla\\Firefox\\Profiles" wide //weight: 5
+        $x_5_3 = "username" ascii //weight: 5
+        $x_5_4 = "\\logins.json" wide //weight: 5
+        $x_5_5 = "passwords.txt" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

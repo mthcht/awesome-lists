@@ -196,3 +196,25 @@ rule Trojan_Win64_Xworm_AG_2147978913_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Xworm_PX_2147981511_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Xworm.PX!MTB"
+        threat_id = "2147981511"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "~prt%02X%02X%02X%02X%02X%02X%02X%02X.exe" ascii //weight: 7
+        $x_5_2 = "payload: cipher=%zu key=%zu nonce=%zu" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

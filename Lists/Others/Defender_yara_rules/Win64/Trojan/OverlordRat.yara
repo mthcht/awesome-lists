@@ -75,3 +75,29 @@ rule Trojan_Win64_OverlordRat_AMTB_2147979992_0
         )
 }
 
+rule Trojan_Win64_OverlordRat_MX_2147981533_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/OverlordRat.MX!MTB"
+        threat_id = "2147981533"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "OverlordRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "wire.ClipboardContent" ascii //weight: 5
+        $x_5_2 = "keylogger" ascii //weight: 5
+        $x_5_3 = "hvnc_start_browser_injected" ascii //weight: 5
+        $x_5_4 = "reflectiveInject" ascii //weight: 5
+        $x_5_5 = "screenshot.Capture" ascii //weight: 5
+        $x_5_6 = "readCookies" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

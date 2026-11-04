@@ -3482,3 +3482,25 @@ rule Trojan_Win32_CoinMiner_KK_2147958067_1
         )
 }
 
+rule Trojan_Win32_CoinMiner_RMX_2147981508_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/CoinMiner.RMX!MTB"
+        threat_id = "2147981508"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "taskmer" wide //weight: 1
+        $x_1_2 = {04 3e 04 41 04 42 04 20 00 3f 04 40 04 3e 04 46 04 35 04 41 04 41 04 3e 04 40 04 3d 04 4b 04 45 04 20 00 37 04 30 04 34 04 30 04 47 04 00 00 44}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1160,6 +1160,27 @@ rule Trojan_Win32_FormBook_AQ_2147751815_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {41 0f b6 c1 8b 8d ?? ?? ?? ?? 0f b6 84 05 ?? ?? ?? ?? 30 04 19 43 3b 9d}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_FormBook_AQ_2147751815_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/FormBook.AQ!MTB"
+        threat_id = "2147751815"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "Low"
     strings:
@@ -1169,7 +1190,7 @@ rule Trojan_Win32_FormBook_AQ_2147751815_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_FormBook_AQ_2147751815_1
+rule Trojan_Win32_FormBook_AQ_2147751815_2
 {
     meta:
         author = "defender2yara"

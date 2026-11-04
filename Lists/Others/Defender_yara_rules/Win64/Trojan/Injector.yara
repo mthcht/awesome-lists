@@ -1219,3 +1219,27 @@ rule Trojan_Win64_Injector_AB_2147979621_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_AMX_2147981534_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.AMX!MTB"
+        threat_id = "2147981534"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Injecting into notepad.exe (PID:" ascii //weight: 10
+        $x_5_2 = "Injection successful" ascii //weight: 5
+        $x_5_3 = "Injection failed" ascii //weight: 5
+        $x_5_4 = "SeDebugPrivilege" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

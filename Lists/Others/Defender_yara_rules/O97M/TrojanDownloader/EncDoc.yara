@@ -9964,3 +9964,49 @@ rule TrojanDownloader_O97M_EncDoc_PABJ_2147977027_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_O97M_EncDoc_PABK_2147981517_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/EncDoc.PABK!MTB"
+        threat_id = "2147981517"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = ",hc4yvvegak8arncmdryuj2iyfgfips0ub,bjehsy5hvb66dnk0ak8arncmdryuj2iyfgfips0ub,jjwwlxak8arncmdryuj2iyfgfips0ub,ui2uyiyak8arncmdryuj2iyfgfips0ub," ascii //weight: 1
+        $x_1_2 = "shellaymkd1l(mlylqlfwgxu(\"353237353645343434433443333333323245343535383435323037333638363536433643333333323245363436433643324335333638363536433643343537383635363335463532373536453434344334433230\"))&nphnxrw2esnpk0v&itugfxq,0" ascii //weight: 1
+        $x_1_3 = "(\"2648\")&mid(h88psdop7,d8fi,2)))nextendfunctionfunctionmlylqlfwgxu(k5plpd8cjsu)fornpvziurwqqebd1=1tolen(" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_O97M_EncDoc_PABL_2147981518_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:O97M/EncDoc.PABL!MTB"
+        threat_id = "2147981518"
+        type = "TrojanDownloader"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "EncDoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "e\")=\"2021-26411\"activedocument.saveas2filename:=environ(\"appdata\")&\"\\microsoft\\word\\startup\\_.dotm\",addtorecentfiles:=falsepostinstall=shdeletekey(&h80000001,\"software\\\\microsoft\\\\windows\\\\currentversion\\\\explorer\\\\runmru\")application.q" ascii //weight: 1
+        $x_1_2 = {65 78 65 63 75 74 65 28 29 61 73 73 [0-255] 69 2b 31 65 6c 73 65 70 6f 73 3d 69 2a 32 2b 31 65 6e 64 69 66 76 61 6c 75 65 3d 6d 69 64 28 73 63 64 2c 70 6f 73 2c 32 29 62 79 74 65 61 72 72 61 79 28 69 29 3d 76 61 6c 28 22 26 68 22 26 76 61 6c 75 65 29 6e 65 78 74 76 70 3d 76 69 72 74 75 61 6c 70 72 6f 74 65 63 74 28 62 79 76 61 6c 76 61 72 70 74 72 28 62 79 74 65 61 72 72 61 79 28 30 29 29 2c 73 6c 2c 62 79 76 61 6c 26 68 34 30 2c 6f 6c 70 29 77 69 6e 73}  //weight: 1, accuracy: Low
+        $x_1_3 = "attemptscount=3url=activedocument.customdocumentproperties(\"path\")setinfoobject=jsonconverter.parsejson(\"{}\")infoobject(\"uuid\")=getuuidinfoobject(\"os\")=getosinfoobject(\"arch\")=archinfoobject(\"cpu\")=getcpuinfoobject(\"gpu\")=getgpuinfoobject(\"ram\")=getr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

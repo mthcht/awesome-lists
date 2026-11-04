@@ -84,3 +84,27 @@ rule Trojan_Win64_PowerLoader_FAC_2147972065_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PowerLoader_AMX_2147981510_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PowerLoader.AMX!MTB"
+        threat_id = "2147981510"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PowerLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "1Cj3nk1Kri5ASfKZ6xHgTQeB698cWWJXr" ascii //weight: 1
+        $x_1_2 = "0xafb26d9d6e75dbf1ee9775e230306da3d7b0177b" ascii //weight: 1
+        $x_1_3 = "LKQ7avXDbmUuS3xuKuhxsjoZfnYGWKbKVh" ascii //weight: 1
+        $x_1_4 = "KEYLOG keyword=%s title=%s keys=%s" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4763,10 +4763,12 @@ rule Trojan_MSIL_Seraph_CYAA_2147902018_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "5"
+        threshold = "7"
         strings_accuracy = "High"
     strings:
         $x_5_1 = {16 0b 2b 0e 06 07 02 07 91 1f 7b 61 d2 9c 07 17 58 0b 07 02 8e 69 32 ec}  //weight: 5, accuracy: High
+        $x_1_2 = "FromBase64String" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -5346,27 +5348,6 @@ rule Trojan_MSIL_Seraph_SPDH_2147907726_0
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {5d 91 61 11 [0-10] 91 59 20 00 01 00 00 58 d2 9c}  //weight: 1, accuracy: Low
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Seraph_SPFV_2147908220_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Seraph.SPFV!MTB"
-        threat_id = "2147908220"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Seraph"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {06 02 07 6f 7e 00 00 0a 03 07 6f 7e 00 00 0a 61 60 0a 07 17 58 0b}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))

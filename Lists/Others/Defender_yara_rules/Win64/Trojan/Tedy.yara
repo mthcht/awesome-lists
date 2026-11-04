@@ -8916,3 +8916,47 @@ rule Trojan_Win64_Tedy_LV_2147981334_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AQ_2147981519_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AQ!MTB"
+        threat_id = "2147981519"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {4c 8b c2 49 c1 e8 ?? 4c 33 c2 4d 0f af c3 4d 8b c8 49 c1 e9 ?? 4d 31 c1 c1 e1 03 80 f1 38 4d 89 c8 49 d3 e8 46 30 04 16 49 ff c2 4d 3b d7 75 c0}  //weight: 5, accuracy: Low
+        $x_5_2 = {49 8b c2 48 c1 e8 ?? 4c 31 d0 48 0f af c7 44 89 c1 4c 8b e0 49 d3 ec 8b d1 48 01 da 49 31 c4 49 0f af d4 48 8b c2 48 c1 e8 ?? 48 31 d0 31 d2 48 f7 f6 8a 44 34}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_BF_2147981524_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BF!MTB"
+        threat_id = "2147981524"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "peridot.dll" ascii //weight: 1
+        $x_1_2 = "Citrine Desktop Utility" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
