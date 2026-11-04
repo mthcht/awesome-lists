@@ -20,6 +20,85 @@ rule Trojan_Win32_DarkMe_MBWQ_2147931704_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_DarkMe_GV_2147978808_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkMe.GV!MTB"
+        threat_id = "2147978808"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkMe"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_AUTOITHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "_RUNDOS" ascii //weight: 1
+        $x_1_2 = "= \"msiexec" ascii //weight: 1
+        $x_1_3 = "= \" /i " ascii //weight: 1
+        $x_1_4 = "= \"https://" ascii //weight: 1
+        $x_1_5 = "= \"/propi.msi" ascii //weight: 1
+        $x_1_6 = "= \" /quiet" ascii //weight: 1
+        $x_1_7 = "= \" /norestart" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DarkMe_GA_2147978830_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkMe.GA!MTB"
+        threat_id = "2147978830"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkMe"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "\\Administrator\\Desktop\\backup vps bada\\vaeeva\\shellrundll.tlb" ascii //weight: 1
+        $x_1_2 = "IShellRunDll_Run" ascii //weight: 1
+        $x_1_3 = "\\ComponentsFolder\\Settings.ini" ascii //weight: 1
+        $x_1_4 = "\\ComponentsFolder\\Use.dll" ascii //weight: 1
+        $x_1_5 = "APPDATA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_DarkMe_GB_2147978831_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/DarkMe.GB!MTB"
+        threat_id = "2147978831"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "DarkMe"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Proyecto1.UserControl1" ascii //weight: 1
+        $x_1_2 = "\\msdatsrc.tlb" ascii //weight: 1
+        $x_1_3 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_4 = "URL:Locked Protocol" ascii //weight: 1
+        $x_1_5 = "Software\\Classes\\Locked\\shell\\open\\command" ascii //weight: 1
+        $x_1_6 = "\\rundll32.exe /sta" ascii //weight: 1
+        $x_1_7 = "Locked://Newest" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_DarkMe_GC_2147978832_0
 {
     meta:

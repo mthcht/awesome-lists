@@ -187,3 +187,25 @@ rule Trojan_MSIL_Bsymem_AMAA_2147889484_0
         (1 of ($x*))
 }
 
+rule Trojan_MSIL_Bsymem_DJ_2147981433_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bsymem.DJ!MTB"
+        threat_id = "2147981433"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bsymem"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {06 0d 02 1f 3c 28 ?? 00 00 0a 0a 02 06 20 98 03 00 00 58 18 28 ?? 00 00 0a 09 14 7d ?? 00 00 04 28 ?? 00 00 0a 02 6f ?? 00 00 0a 0b 09 07 6f ?? 00 00 0a 7d ?? 00 00 04 09 7b ?? 00 00 04 6f ?? 00 00 0a 8e 69 16 31 1e 09 17 8d ?? 00 00 01 13 04 11 04 16 17 8d ?? 00 00 01 13 05 11 05 a2 11 04 7d ?? 00 00 04 09 fe ?? ?? 00 00 06 73 ?? 00 00 0a 73 ?? 00 00 0a 0c 09 7b ?? 00 00 04 2c 1b}  //weight: 4, accuracy: Low
+        $x_2_2 = {02 72 10 70 0b 70 28 ?? 00 00 0a 59 7e ?? 00 00 04 61 d1 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

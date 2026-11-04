@@ -181,6 +181,27 @@ rule Trojan_Win64_Stealc_MK_2147968298_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {0f b6 54 04 ?? 48 89 c1 83 e1 03 48 c1 e1 03 be ?? ?? ?? ?? d3 ee 31 d6 40 88 74 04 ?? 48 ff c0 48}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Stealc_MK_2147968298_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealc.MK!MTB"
+        threat_id = "2147968298"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
         strings_accuracy = "High"
     strings:
         $x_20_1 = {43 8b 84 ee 14 01 00 00 45 8b c1 49 03 c0 42 8a 04 20 43 88 04 39 41 ff c1 41 8b c1 48 3b c6}  //weight: 20, accuracy: High

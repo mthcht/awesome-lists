@@ -56,6 +56,33 @@ rule Trojan_Win64_VallyRAT_TN_2147979843_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_VallyRAT_VN_2147979934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/VallyRAT.VN!MTB"
+        threat_id = "2147979934"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "VallyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%s\\Default\\History-wal" ascii //weight: 1
+        $x_1_2 = "Opera Software\\Opera Stable\\History" ascii //weight: 1
+        $x_1_3 = "BitDefender" ascii //weight: 1
+        $x_1_4 = "SELECT * FROM __EventFilter WHERE Name='SvcHostUpdate" ascii //weight: 1
+        $x_2_5 = "|txt.mh/moc.9gnoguohs//:sptth:" ascii //weight: 2
+        $x_1_6 = "DisplaySessionContainers.log" ascii //weight: 1
+        $x_1_7 = "CLSID\\{%.8X-%.4X-%.4X-%.2X%.2X-%.2X%.2X%.2X%.2X%.2X%.2X" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_VallyRAT_UN_2147980010_0
 {
     meta:

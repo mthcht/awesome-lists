@@ -571,6 +571,33 @@ rule Trojan_Win64_Doina_LR_2147976091_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Doina_LR_2147976091_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.LR!MTB"
+        threat_id = "2147976091"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Downloading ..." ascii //weight: 1
+        $x_2_2 = "empty download pathresumed@[+]  download success (sent  of  bytes, start )" ascii //weight: 2
+        $x_3_3 = "[+] screenshot xb)" ascii //weight: 3
+        $x_4_4 = "[+] injected  input events" ascii //weight: 4
+        $x_5_5 = "[+] Sensitive search finished" ascii //weight: 5
+        $x_6_6 = "inline-bin: CreateThread failed[+] Shellcode executed" ascii //weight: 6
+        $x_7_7 = "inject: CreateRemoteThread failed[+] Injected  into pid " ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Doina_AA_2147977618_0
 {
     meta:

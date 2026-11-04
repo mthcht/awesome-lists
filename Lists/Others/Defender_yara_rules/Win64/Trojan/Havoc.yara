@@ -491,3 +491,26 @@ rule Trojan_Win64_Havoc_KB_2147981006_0
         )
 }
 
+rule Trojan_Win64_Havoc_KA_2147981420_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.KA!MTB"
+        threat_id = "2147981420"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {45 31 f5 44 0f b6 70 fe 45 31 e6 44 32 60 ff 45 31 f5 44 88 68 fe 41 89 d5 01 d2 41 c0 fd 07 41 83 e5 1b 44 31 ea 44 31 e2 88 50 ff 48 8d 54 24 10 48 39 d0}  //weight: 20, accuracy: High
+        $x_10_2 = "C:\\Windows\\System32\\notepad.exe" wide //weight: 10
+        $x_5_3 = "/funny_cat.gif" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

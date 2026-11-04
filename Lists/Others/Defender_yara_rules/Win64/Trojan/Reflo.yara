@@ -109,3 +109,24 @@ rule Trojan_Win64_Reflo_GVA_2147952893_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Reflo_AQ_2147981439_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Reflo.AQ!MTB"
+        threat_id = "2147981439"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Reflo"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {89 c1 c1 e9 ?? 31 c8 89 c1 01 d0 c1 e9 ?? 41 30 4c 15 ?? 48 83 c2 01 48 39 d6 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

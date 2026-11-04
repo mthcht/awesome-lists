@@ -55,6 +55,27 @@ rule Trojan_Win64_Runner_MK_2147956577_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {44 89 45 bf 48 63 45 a7 45 22 cf 45 02 c9 0f b6 54 05 d8 41 2a d1 41 02 d0 48 63 45 a7}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Runner_MK_2147956577_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Runner.MK!MTB"
+        threat_id = "2147956577"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Runner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:

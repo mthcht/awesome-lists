@@ -236,6 +236,29 @@ rule Trojan_Win64_ReverseShell_KK_2147956474_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "@mnimshell.nim" ascii //weight: 5
+        $x_3_2 = "executeCommand__nimshell_" ascii //weight: 3
+        $x_2_3 = "TM__bQ89bat3hUkmJB4hVh79bf4w_" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ReverseShell_KK_2147956474_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.KK!MTB"
+        threat_id = "2147956474"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:

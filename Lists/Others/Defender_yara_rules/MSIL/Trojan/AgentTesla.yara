@@ -111768,3 +111768,47 @@ rule Trojan_MSIL_AgentTesla_WH_2147981331_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_AgentTesla_MZG_2147981408_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.MZG!MTB"
+        threat_id = "2147981408"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 00 00 07 6f 00 61 00 64}  //weight: 1, accuracy: High
+        $x_1_2 = {34 00 46 00 20 00 34 00 39 00 20 00 34 00 43}  //weight: 1, accuracy: High
+        $x_1_3 = {4d 00 6f 00 75 00 6e 00 74 00 61 00 69 00 6e 00 48 00 75 00 74}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_AgentTesla_MZI_2147981409_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/AgentTesla.MZI!MTB"
+        threat_id = "2147981409"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {11 04 11 17 11 04 11 17 91 20 [0-1] 00 00 00 61 1b 59 20 [0-1] 00 00 00 5f d2 9c 11 17 17 58 13 17 11 17 11 04 8e 69}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

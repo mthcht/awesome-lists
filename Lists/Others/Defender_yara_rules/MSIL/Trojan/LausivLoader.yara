@@ -81,3 +81,26 @@ rule Trojan_MSIL_LausivLoader_GVA_2147975211_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_LausivLoader_AZ_2147981460_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/LausivLoader.AZ!MTB"
+        threat_id = "2147981460"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "LausivLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {7a 2a 02 16 7d ?? 00 00 04 20 ?? 00 00 00 38 ?? ff ff ff 00 02 7b ?? ?? ?? ?? 1f 29 94 13 00}  //weight: 11, accuracy: Low
+        $x_2_2 = {01 00 06 02 7b ?? 00 00 04 20 ?? 44 26 08 20 ?? d2 aa a0 61 20 ?? f5 35 b7 61 7e ?? 00 00 04 7b ?? 01 00 04 61}  //weight: 2, accuracy: Low
+        $x_7_3 = "$eea0cbc0-6200-42c6-a276-2327dbd88405" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

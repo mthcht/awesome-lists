@@ -204,3 +204,30 @@ rule Trojan_Win64_PrivateLoader_NP_2147978615_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PrivateLoader_LR_2147981436_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PrivateLoader.LR!MTB"
+        threat_id = "2147981436"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PrivateLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Clipboard.txt" ascii //weight: 1
+        $x_2_2 = "==================== COOKIE EXTRACTOR ====================" ascii //weight: 2
+        $x_3_3 = "m12: %s/%s -> %d cookie cekildi" ascii //weight: 3
+        $x_4_4 = "SELECT name FROM sqlite_master WHERE type='table' AND name='credit_cards'" ascii //weight: 4
+        $x_5_5 = "%s: Parola bulunamadi (DB bos veya decrypt basarisiz)" ascii //weight: 5
+        $x_6_6 = "==================== PASSWORD EXTRACTOR ====================" ascii //weight: 6
+        $x_7_7 = "m10: Found %d passwords in %s/%s (combined)" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

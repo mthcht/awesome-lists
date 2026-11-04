@@ -43,3 +43,24 @@ rule Trojan_MSIL_ValleyRat_BA_2147968609_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_ValleyRat_PA_2147981454_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ValleyRat.PA!MTB"
+        threat_id = "2147981454"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {7e 1d 00 00 04 06 8f 09 00 00 01 25 71 09 00 00 01 7e 1f 00 00 04 61 d2 81 09 00 00 01 06 17 58 0a 06 7e 1d 00 00 04 8e 69 32 d5}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
