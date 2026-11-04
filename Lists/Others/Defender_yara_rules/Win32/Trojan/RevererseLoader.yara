@@ -119,3 +119,29 @@ rule Trojan_Win32_RevererseLoader_ZI_2147980555_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RevererseLoader_PB_2147981482_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RevererseLoader.PB!MTB"
+        threat_id = "2147981482"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RevererseLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "[char[]]$" wide //weight: 1
+        $x_1_2 = "[byte]($" wide //weight: 1
+        $x_1_3 = "-bxor$" wide //weight: 1
+        $x_1_4 = "iex  $" wide //weight: 1
+        $x_1_5 = ".IndexOf($" wide //weight: 1
+        $x_1_6 = {70 00 6f 00 77 00 65 00 72 00 73 00 68 00 65 00 6c 00 6c 00 [0-80] 24 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -3829,3 +3829,24 @@ rule Trojan_MSIL_Injuke_WJ_2147981419_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injuke_WL_2147981488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injuke.WL!MTB"
+        threat_id = "2147981488"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injuke"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {13 19 16 11 19 8e b7 17 da 13 24 13 1f 2b 17 11 19 11 1f 11 19 11 1f 91 20 ab 00 00 00 61 b4 9c 11 1f 17 d6 13 1f 11 1f 11 24 31 e3 28 ?? 00 00 0a 1e 8d ?? 00 00 01 13 22 11 22}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
