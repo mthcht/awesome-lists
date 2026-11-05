@@ -1901,3 +1901,29 @@ rule Trojan_Win64_ValleyRat_YBI_2147981459_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_DM_2147981539_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.DM!MTB"
+        threat_id = "2147981539"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 8b 06 32 0c 38 48 8b c3 48 83 7b 18 0f 76 ?? 48 8b 03 88 0c 38 48 ff c7 48 3b 7e 10 72}  //weight: 5, accuracy: Low
+        $x_1_2 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "Failed to write shellcode to file" ascii //weight: 1
+        $x_1_4 = "[WARN] CreateEnvironmentBlock:" ascii //weight: 1
+        $x_1_5 = "[ERROR] CreateProcessAsUser failed:" ascii //weight: 1
+        $x_1_6 = "\\Shell\\Manage\\command" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

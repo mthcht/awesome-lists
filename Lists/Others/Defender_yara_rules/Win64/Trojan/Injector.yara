@@ -662,6 +662,28 @@ rule Trojan_Win64_Injector_MK_2147967634_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_MK_2147967634_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.MK!MTB"
+        threat_id = "2147967634"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 31 ca 48 89 90 10 00 00 00 48 b9 c7 c6 a3 5b b6 3a 9e ff 48 ba 0f af d0 79 e4 27 9d ca 48 33 d1 48 89 90 18 00 00 00}  //weight: 20, accuracy: High
+        $x_15_2 = {45 8b 14 13 44 33 d0 44 8b ?? ?? ?? ?? ?? 65 4c 8b 04 ?? ?? 00 00 00 4f 8b 0c c8 47 89 94 19 28 00 00 00 05 ?? ?? ?? ?? ff c1 49 83 c3 04 83 f9 03}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Injector_SXK_2147967725_0
 {
     meta:
@@ -1191,6 +1213,31 @@ rule Trojan_Win64_Injector_B_2147978326_1
     strings:
         $x_10_1 = {48 89 44 24 20 48 8b ce 41 b9 40 00 00 00 41 b8 06 00 00 00 ff 15 ?? ?? ?? ?? 85 c0 74 67 48 8d 44 24 38 41 b9 06 00 00 00 4c 8b c3 48 89 44 24 20 48 8b d7 48 8b ce ff 15}  //weight: 10, accuracy: Low
         $x_10_2 = {48 8d 4d e0 e8 ?? ?? ?? ?? 48 8d 55 80 48 83 fb 0f 48 0f 47 55 80 41 b8 01 00 00 00 48 8d 4d e0 e8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_C_2147979402_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.C!MTB"
+        threat_id = "2147979402"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] INJECTION BASARILI" ascii //weight: 1
+        $x_1_2 = "[-] Shellcode icin bellek tahsis edilemedi. Hata:" ascii //weight: 1
+        $x_1_3 = "[-] Shellcode yazilamadi. Hata:" ascii //weight: 1
+        $x_1_4 = "[-] Remote thread olusturulamadi. Hata:" ascii //weight: 1
+        $x_1_5 = "Injector" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -619,3 +619,24 @@ rule Trojan_Win64_ReverseShell_NP_2147979494_0
         )
 }
 
+rule Trojan_Win64_ReverseShell_AV_2147981549_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ReverseShell.AV!MTB"
+        threat_id = "2147981549"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ReverseShell"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {4d 89 c1 49 c1 e1 ?? 4d 31 c8 4d 89 c1 49 c1 e9 ?? 4d 31 c1 4d 89 c8 49 c1 e0 ?? 4d 31 c8 4d 89 c1 49 c1 e9 ?? 44 30 0c 01 48 ff c0 39 d0 72}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

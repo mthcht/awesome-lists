@@ -553,6 +553,45 @@ rule Trojan_MSIL_Lausivloader_EZ_2147979762_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "$eea0cbc0-6200-42c6-a276-2327dbd88405" ascii //weight: 4
+        $x_4_2 = "2DaojOttGvKcxkwf0r.n2FXZFiwL9hdVCP0MV" ascii //weight: 4
+        $x_4_3 = "f7lY7ImhGuxDqN1I00.6AFxxMJ2gBrTUwSQfa" ascii //weight: 4
+        $x_1_4 = "System.Net.Http" ascii //weight: 1
+        $x_1_5 = "CreateDecryptor" ascii //weight: 1
+        $x_1_6 = "RegisterTaskDefinition" ascii //weight: 1
+        $x_1_7 = "get_UserName" ascii //weight: 1
+        $x_1_8 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_9 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_10 = "SetThreadContext" ascii //weight: 1
+        $x_1_11 = "GetThreadContext" ascii //weight: 1
+        $x_1_12 = "ResumeThread" ascii //weight: 1
+        $x_1_13 = "CloseHandle" ascii //weight: 1
+        $x_1_14 = "Debugger Detected" ascii //weight: 1
+        $x_1_15 = "FromBase64String" ascii //weight: 1
+        $x_1_16 = "TASK_TRIGGER_REGISTRATION" ascii //weight: 1
+        $x_1_17 = "ResourceA" ascii //weight: 1
+        $x_1_18 = "is tampered" ascii //weight: 1
+        $x_1_19 = "Microsoft.Win32.TaskScheduler.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lausivloader_EZ_2147979762_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lausivloader.EZ!MTB"
+        threat_id = "2147979762"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lausivloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "33"
         strings_accuracy = "High"
     strings:

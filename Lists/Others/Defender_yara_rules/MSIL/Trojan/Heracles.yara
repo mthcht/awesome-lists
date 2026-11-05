@@ -11895,6 +11895,27 @@ rule Trojan_MSIL_Heracles_AC_2147979857_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {09 11 04 08 11 04 91 06 11 04 19 5f 91 61 d2 9c 11 04 17 58 13 04 11 04 6a 07 6e 32 e3}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_AC_2147979857_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AC!MTB"
+        threat_id = "2147979857"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
@@ -12082,28 +12103,6 @@ rule Trojan_MSIL_Heracles_DG_2147981184_0
         $x_2_2 = {06 08 02 08 91 20 ?? 00 00 00 61 28 ?? 00 00 0a 9d 08 17 d6 0c 08 09 31 e7}  //weight: 2, accuracy: Low
         $x_1_3 = "FromBase64String" ascii //weight: 1
         $x_1_4 = "CreateDecryptor" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule Trojan_MSIL_Heracles_H_2147981438_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Heracles.H!MTB"
-        threat_id = "2147981438"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Heracles"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "30"
-        strings_accuracy = "Low"
-    strings:
-        $x_20_1 = {28 0b 00 00 06 15 17 6f 6c 00 00 0a 26 28 0b 00 00 06 11 05 16 11 04 16 6f 6d 00 00 0a}  //weight: 20, accuracy: High
-        $x_10_2 = {73 10 00 00 0a 72 ?? 00 00 70 28 11 00 00 0a 26 de 03 26 de 00 ?? ?? 28 12 00 00 0a}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))

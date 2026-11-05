@@ -1809,6 +1809,27 @@ rule Trojan_Win64_Convagent_C_2147977990_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_BA_2147978007_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.BA!MTB"
+        threat_id = "2147978007"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {0f b6 01 88 06 88 11 0f b6 06 8b 4d ?? 02 c2 0f b6 c0 0f b6 84 05 ?? ?? ?? ?? 30 04 0f 47 3b 7d fc 72}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_VX_2147980285_0
 {
     meta:
