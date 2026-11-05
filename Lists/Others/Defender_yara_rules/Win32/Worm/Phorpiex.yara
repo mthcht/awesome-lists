@@ -466,3 +466,32 @@ rule Worm_Win32_Phorpiex_AJY_289222_0
         (all of ($x*))
 }
 
+rule Worm_Win32_Phorpiex_AT_497919_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Worm:Win32/Phorpiex.AT!MTB"
+        threat_id = "497919"
+        type = "Worm"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {99 b9 60 ea 00 00 f7 f9 6b d2 05 52}  //weight: 8, accuracy: High
+        $x_2_2 = {99 b9 ff 7f 00 00 f7 f9 bf 28 23 00 00 03 d7}  //weight: 2, accuracy: High
+        $x_4_3 = "xmrrem.exe" ascii //weight: 4
+        $x_6_4 = {74 00 70 00 3a 00 2f 00 2f 00 [0-50] 2f 00 78 00 6d 00 72 00 72 00 65 00 6d 00 6d 00 2e 00 65 00 78 00 65 00}  //weight: 6, accuracy: Low
+        $x_6_5 = {74 70 3a 2f 2f [0-50] 2f 78 6d 72 72 65 6d 6d 2e 65 78 65}  //weight: 6, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_8_*) and 1 of ($x_6_*) and 1 of ($x_4_*) and 1 of ($x_2_*))) or
+            ((1 of ($x_8_*) and 2 of ($x_6_*))) or
+            (all of ($x*))
+        )
+}
+

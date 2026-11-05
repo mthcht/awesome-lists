@@ -90,3 +90,25 @@ rule Trojan_Win64_OverlordRAT_A_2147981252_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_OverlordRAT_AT_2147981565_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/OverlordRAT.AT!MTB"
+        threat_id = "2147981565"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "OverlordRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {31 c0 4c 89 ff f3 aa 8b 05 ?? ?? ?? ?? 89 44 24 68 48 8b 05 ?? ?? ?? ?? 48 89 44 24 60 4c 89 f9 ba}  //weight: 5, accuracy: Low
+        $x_15_2 = {0f b6 44 24 ?? 48 8b 4c 24 ?? 8b 54 24 08 44 0f b6 04 11 41 31 c0 44 88 04 11 8b 44 24 ?? 83 c0 01 89 44 24}  //weight: 15, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

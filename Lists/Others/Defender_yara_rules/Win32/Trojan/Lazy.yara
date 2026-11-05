@@ -3463,3 +3463,25 @@ rule Trojan_Win32_Lazy_AL_2147980774_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Lazy_AT_2147981564_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Lazy.AT!MTB"
+        threat_id = "2147981564"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_16_1 = {46 8a 14 09 45 8d 5a 9f 41 80 fb ?? 41 0f 92 c3 41 c0 e3 ?? 45 30 d3 44 88 1c 02 48 ff c0 48 ff c1 48 83 f9}  //weight: 16, accuracy: Low
+        $x_4_2 = {8b ee 8b c5 48 8b 0c 07 48 8b 57 20 41 b9}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
