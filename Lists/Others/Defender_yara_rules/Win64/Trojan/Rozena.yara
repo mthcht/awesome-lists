@@ -2321,3 +2321,24 @@ rule Trojan_Win64_Rozena_PAHL_2147978142_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Rozena_SR_2147981588_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rozena.SR!MTB"
+        threat_id = "2147981588"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rozena"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {4c 89 6c 24 28 48 8d 15 ?? ?? ?? ?? 45 33 c9 c7 44 24 20 ?? ?? ?? ?? 45 33 c0 48 8b c8 ff 15 ?? ?? ?? ?? 48 8b e8 48 85 c0 0f 84}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

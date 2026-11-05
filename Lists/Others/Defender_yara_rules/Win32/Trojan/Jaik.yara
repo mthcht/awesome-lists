@@ -705,3 +705,24 @@ rule Trojan_Win32_Jaik_YSD_2147971829_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Jaik_SR_2147981587_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Jaik.SR!MTB"
+        threat_id = "2147981587"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Jaik"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8b 55 e0 03 55 fc 8b 42 08 35 ?? ?? ?? ?? 8b 4d e0 03 4d fc 89 41 08 eb}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

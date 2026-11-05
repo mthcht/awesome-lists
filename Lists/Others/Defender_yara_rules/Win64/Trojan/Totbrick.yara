@@ -300,3 +300,25 @@ rule Trojan_Win64_Totbrick_H_2147726887_0
         )
 }
 
+rule Trojan_Win64_Totbrick_GV_2147981594_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Totbrick.GV!MTB"
+        threat_id = "2147981594"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Totbrick"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {32 c0 eb 47 0f be 8d f0 fd ff ff 83 f9 3c 75 2c 0f be 95 f1 fd ff ff 83 fa 21 75 20 0f be 85 f2 fd ff ff 83 f8 2d 75 14 0f be 8d f3 fd ff ff 83 f9 2d 75 08 8a 85 f4 fd ff ff eb 0f}  //weight: 1, accuracy: High
+        $x_1_2 = {83 c4 08 68 60 ea 00 00 ff 15 00 60 40 00 33 c0 8b e5}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
