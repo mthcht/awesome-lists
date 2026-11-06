@@ -57,3 +57,30 @@ rule HackTool_Win32_EarthWorm_SA_2147961273_0
         )
 }
 
+rule HackTool_Win32_EarthWorm_AE_2147981602_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "HackTool:Win32/EarthWorm.AE!MTB"
+        threat_id = "2147981602"
+        type = "HackTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "EarthWorm"
+        severity = "High"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "Earthworm is a network agent tool" ascii //weight: 4
+        $x_3_2 = "rootkiter : The creator" ascii //weight: 3
+        $x_2_3 = "EarthWrom" ascii //weight: 2
+        $x_1_4 = "You can create a SOCKS5 server like this" ascii //weight: 1
+        $x_1_5 = "You can create a Socks5 proxy server in the Intranet or Extranet" ascii //weight: 1
+        $x_1_6 = "listen" ascii //weight: 1
+        $x_1_7 = "socket" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

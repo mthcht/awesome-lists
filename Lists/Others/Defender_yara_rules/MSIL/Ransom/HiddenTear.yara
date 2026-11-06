@@ -1444,3 +1444,27 @@ rule Ransom_MSIL_HiddenTear_H_2147980142_0
         (all of ($x*))
 }
 
+rule Ransom_MSIL_HiddenTear_A_2147981611_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:MSIL/HiddenTear.A!AMTB"
+        threat_id = "2147981611"
+        type = "Ransom"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "HiddenTear"
+        severity = "Critical"
+        info = "AMTB: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "d0_Ransomware" ascii //weight: 2
+        $x_1_2 = "d0_RansomwareMutex_GlobalInstance" ascii //weight: 1
+        $x_2_3 = ".d0_initialized" ascii //weight: 2
+        $x_1_4 = "README_d0.txt" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

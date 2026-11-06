@@ -2238,3 +2238,27 @@ rule Trojan_O97M_Obfuse_P_2147981538_0
         (all of ($x*))
 }
 
+rule Trojan_O97M_Obfuse_PA_2147981610_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:O97M/Obfuse.PA!MTB"
+        threat_id = "2147981610"
+        type = "Trojan"
+        platform = "O97M: Office 97, 2000, XP, 2003, 2007, and 2010 macros - those that affect Word, Excel, and PowerPoint"
+        family = "Obfuse"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACROHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "sPath = strFolder & \"\\\" & \"weath\" + Chr$(112) & Chr$(46) & Chr$(100) & Chr$(108) + Chr$(108)" ascii //weight: 1
+        $x_1_2 = "strTemp = Chr(Val(\"&H\" + Mid(strHexValues, f, 2)))" ascii //weight: 1
+        $x_1_3 = "sPath + \",dwLoad\", Null, Null, processid" ascii //weight: 1
+        $x_1_4 = "sPath + \",dwFix\", Null, Null, processid" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

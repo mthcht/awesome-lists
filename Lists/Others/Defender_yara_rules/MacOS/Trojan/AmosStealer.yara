@@ -285,3 +285,45 @@ rule Trojan_MacOS_AmosStealer_D_2147980677_1
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_E_2147981606_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.E!MTB"
+        threat_id = "2147981606"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {41 79 70 b8 00 00 01 4b 31 0a 00 12 e1 03 11 4b 00 2c c1 1a 11 2c d1 1a 60 79 70 b8 31 0e c0 1a e0 07 40 f9 80 79 70 b8 a1 79 70 b8 31 02 00 4b 31 02 01 4a 71 6a 30 38 ef 11 00 91 ff 01 08 f1 21}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MacOS_AmosStealer_F_2147981607_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.F!MTB"
+        threat_id = "2147981607"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = {0a 02 08 8b 4b 05 40 39 2c 01 08 8b 8d 59 40 39 ab 01 0b 4a ed 01 08 8b ab 05 00 39 4b 09 40 39 8e 5d 40 39 cb 01 0b 4a ab 09 00 39 4b 0d 40 39 8e 61 40 39 cb 01 0b 4a ab 0d 00 39 4a 11 40 39 8b 65 40 39 6a 01 0a 4a aa 11 00 39 08 11 00 91 1f 71 00 f1 63 fd ff 54}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
