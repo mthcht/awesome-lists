@@ -20,3 +20,26 @@ rule Trojan_Win64_SolarisLoader_ASL_2147972958_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SolarisLoader_AB_2147981684_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SolarisLoader.AB!MTB"
+        threat_id = "2147981684"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SolarisLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {80 39 68 4c 8b c9 41 8b f0 41 8b d8 0f 85 3d 01 00 00 80 79 01 74 0f 85 33 01 00 00 80 79 02 74 0f 85 29 01 00 00 80 79 03 70 0f 85 1f 01 00 00 80 79 04 3a 0f 85 15 01 00 00 80 79 05 2f 0f 85 0b 01 00 00 80 79 06 2f 0f 85 01 01 00 00 48 8d 51 07 8a 0a 45 8d 58 07 84 c9 74 37 49 8d 78 f9 49 2b f9 80 f9 2f 74 2b 80 f9 3a 74 26 48 8d 04 17 ff c6 48 ff c2 42 88 0c 10 41 ff c3 48 8d 04 17 48 3d 07 01 00 00 0f 8d c2 00 00 00 8a 0a 84 c9 75 d0}  //weight: 6, accuracy: High
+        $x_2_2 = "SHGetFolderPathWNtReadVirtualMem" ascii //weight: 2
+        $x_2_3 = "stgtier.exe" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

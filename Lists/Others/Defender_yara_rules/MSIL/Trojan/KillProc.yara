@@ -66,3 +66,25 @@ rule Trojan_MSIL_KillProc_MA_2147926202_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_KillProc_A_2147981685_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/KillProc.A!MTB"
+        threat_id = "2147981685"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "KillProc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {74 19 00 00 01 28 02 00 00 06 39 17 00 00 00 02 39 0b 00 00 00 08 28 03 00 00 06 38 06 00 00 00 16 28 12 00 00 0a 11 05 17 58 13 05}  //weight: 20, accuracy: High
+        $x_10_2 = {17 16 02 28 07 00 00 06 25 16 28 09 00 00 06 26 28 08 00 00 06}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

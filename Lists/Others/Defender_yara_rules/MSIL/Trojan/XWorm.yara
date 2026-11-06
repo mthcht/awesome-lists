@@ -7027,3 +7027,33 @@ rule Trojan_MSIL_XWorm_DL_2147981522_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_EL_2147981691_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.EL!MTB"
+        threat_id = "2147981691"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "BeginSend" ascii //weight: 1
+        $x_1_2 = "XClient.exe" ascii //weight: 1
+        $x_1_3 = "get_Registry" ascii //weight: 1
+        $x_1_4 = "DownloadFile" ascii //weight: 1
+        $x_1_5 = "SocketShutdown" ascii //weight: 1
+        $x_1_6 = "get_StartupPath" ascii //weight: 1
+        $x_1_7 = "set_UseShellExecute" ascii //weight: 1
+        $x_1_8 = "capCreateCaptureWindowA" ascii //weight: 1
+        $x_1_9 = "capGetDriverDescriptionA" ascii //weight: 1
+        $x_1_10 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

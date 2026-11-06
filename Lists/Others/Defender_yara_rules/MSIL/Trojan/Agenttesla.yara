@@ -867,3 +867,24 @@ rule Trojan_MSIL_Agenttesla_MCW_2147977232_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Agenttesla_MZK_2147981682_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MZK!MTB"
+        threat_id = "2147981682"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {62 00 65 00 62 00 61 00 6b 00 73 00 69 00 6c 00 2e 00 72 00 74 00 64 00 00 15 69 00 6e 00 70 00 75 00 74 00 50 00 61 00 6e 00 65 00 6c 00 00 35 4d 00 6f 00 72 00 70}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

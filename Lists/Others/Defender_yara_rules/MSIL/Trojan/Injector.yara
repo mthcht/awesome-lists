@@ -3192,3 +3192,33 @@ rule Trojan_MSIL_Injector_F_2147981055_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_H_2147981688_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.H!MTB"
+        threat_id = "2147981688"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "S11 CreateProcess fail gle=" wide //weight: 1
+        $x_1_2 = "S12 NtQuery PEB fail" wide //weight: 1
+        $x_1_3 = "S12 NtUnmap" wide //weight: 1
+        $x_1_4 = "S13 VirtualAllocEx fail gle=" wide //weight: 1
+        $x_1_5 = "S14 WriteProcessMemory fail gle=" wide //weight: 1
+        $x_1_6 = "S14 image=" wide //weight: 1
+        $x_1_7 = "S15 ThreadContext fail gle=" wide //weight: 1
+        $x_1_8 = "S15 SetThreadContext ip=" wide //weight: 1
+        $x_1_9 = "S16 ResumeThread" wide //weight: 1
+        $x_1_10 = "S17 hostDied:" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -29,3 +29,26 @@ rule Trojan_MSIL_DarknessStealer_SG_2147981333_0
         )
 }
 
+rule Trojan_MSIL_DarknessStealer_AMTB_2147981672_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DarknessStealer!AMTB"
+        threat_id = "2147981672"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DarknessStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "DarknessGrabber" ascii //weight: 2
+        $x_2_2 = "DarknessStealer" ascii //weight: 2
+        $x_1_3 = "SendDiscordWebhookWithFile" ascii //weight: 1
+        $x_1_4 = "Gift Codes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

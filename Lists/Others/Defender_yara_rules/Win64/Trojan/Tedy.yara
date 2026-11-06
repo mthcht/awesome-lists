@@ -2564,6 +2564,29 @@ rule Trojan_Win64_Tedy_AH_2147939502_2
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_AH_2147939502_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.AH!MTB"
+        threat_id = "2147939502"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {6d 81 01 00 ff 15 ?? fe 00 00 85 c0 75 17 48 8d 0d 74 81 01 00 e8 [0-2] ff ff b9 10 27 00 00 ff 15 ?? fe 00 00 33 c9 ba 00 a0 0f 00 41 b8 00 30 00 00 44 8d 49 04}  //weight: 6, accuracy: Low
+        $x_2_2 = "[+] Connecting to URL for downloading payload" ascii //weight: 2
+        $x_2_3 = "[+] Writing executable image into child process" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_WIV_2147939599_0
 {
     meta:
@@ -8561,6 +8584,27 @@ rule Trojan_Win64_Tedy_SNX_2147975411_0
 }
 
 rule Trojan_Win64_Tedy_CX_2147975992_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.CX!MTB"
+        threat_id = "2147975992"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b7 01 48 63 c0 48 8b 4d ?? 48 31 c1 48 89 4d ?? 48 8b 45 ?? 48 b9}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_CX_2147975992_1
 {
     meta:
         author = "defender2yara"
