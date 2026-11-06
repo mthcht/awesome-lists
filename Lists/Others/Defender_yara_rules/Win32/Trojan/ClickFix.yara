@@ -15712,17 +15712,25 @@ rule Trojan_Win32_ClickFix_RGB_2147978938_0
         family = "ClickFix"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
-        threshold = "10"
+        threshold = "82"
         strings_accuracy = "High"
     strings:
-        $x_2_1 = "/v:on /c" wide //weight: 2
-        $x_2_2 = ".hta" wide //weight: 2
-        $x_2_3 = "-sLko" wide //weight: 2
-        $x_2_4 = "start" wide //weight: 2
-        $x_2_5 = "set" wide //weight: 2
+        $x_20_1 = "/v:on /c" wide //weight: 20
+        $x_20_2 = ".hta" wide //weight: 20
+        $x_20_3 = "start" wide //weight: 20
+        $x_20_4 = "set" wide //weight: 20
+        $x_2_5 = "-sLko" wide //weight: 2
+        $x_2_6 = "-skLo" wide //weight: 2
+        $x_2_7 = "-Lsko" wide //weight: 2
+        $x_2_8 = "-Lkso" wide //weight: 2
+        $x_2_9 = "-ksLo" wide //weight: 2
+        $x_2_10 = "-kLso" wide //weight: 2
     condition:
         (filesize < 20MB) and
-        (all of ($x*))
+        (
+            ((4 of ($x_20_*) and 1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 
 rule Trojan_Win32_ClickFix_CI_2147979081_0
@@ -16759,6 +16767,37 @@ rule Trojan_Win32_ClickFix_DLD_2147981575_0
         $x_1_3 = "in (%" wide //weight: 1
         $x_1_4 = ") do !" wide //weight: 1
         $x_1_5 = "& start" wide //weight: 1
+        $n_5_6 = "OpenAI" wide //weight: -5
+        $n_5_7 = "deepseek" wide //weight: -5
+        $n_5_8 = "claude" wide //weight: -5
+        $n_5_9 = "codex" wide //weight: -5
+        $n_5_10 = "copilot" wide //weight: -5
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DLM_2147981648_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLM!MTB"
+        threat_id = "2147981648"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c start" wide //weight: 1
+        $x_1_2 = "n for /f" wide //weight: 1
+        $x_1_3 = "in ('echo fin')" wide //weight: 1
+        $x_1_4 = ") do for /f" wide //weight: 1
+        $x_1_5 = ") do @%" wide //weight: 1
         $n_5_6 = "OpenAI" wide //weight: -5
         $n_5_7 = "deepseek" wide //weight: -5
         $n_5_8 = "claude" wide //weight: -5

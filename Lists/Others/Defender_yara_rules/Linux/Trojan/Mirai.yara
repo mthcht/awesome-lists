@@ -1162,3 +1162,28 @@ rule Trojan_Linux_Mirai_B_2147980886_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_AT_2147981641_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.AT!MTB"
+        threat_id = "2147981641"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "[bot] ejecutando: %s" ascii //weight: 3
+        $x_2_2 = "[bot] EXEC payload vac" ascii //weight: 2
+        $x_5_3 = "cmd\":\"ATTACK_RESULT\",\"payload\":\"%ld" ascii //weight: 5
+        $x_6_4 = "cmd\":\"SCAN_RESULT\",\"payload\":\"%s" ascii //weight: 6
+        $x_4_5 = "[persist] systemd user service instalado" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

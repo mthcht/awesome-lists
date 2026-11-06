@@ -69,3 +69,26 @@ rule TrojanDownloader_MSIL_XWorm_SFD_2147942896_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_MSIL_XWorm_AB_2147981630_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/XWorm.AB!MTB"
+        threat_id = "2147981630"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {11 07 16 9a 28 ?? 00 00 0a d0 09 00 00 1b 28 ?? 00 00 0a 28 ?? 00 00 0a 74 09 00 00 1b 0d 09 16 28 ?? 00 00 0a 8c 72 00 00 01 0c 07 74 4b 00 00 01 16 73 c3 00 00 0a 13 04}  //weight: 6, accuracy: Low
+        $x_2_2 = "Select * from AntivirusProduct" wide //weight: 2
+        $x_2_3 = "set_UseShellExecute" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

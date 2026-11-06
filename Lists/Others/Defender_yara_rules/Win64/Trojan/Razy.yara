@@ -188,3 +188,25 @@ rule Trojan_Win64_Razy_AC_2147981148_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Razy_MK_2147981639_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Razy.MK!MTB"
+        threat_id = "2147981639"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {45 0f b6 0c 1a 8b d0 43 0f b6 0c 3b 4d 8d 5b 01 d3 ea 41 03 c1 42 32 94 ?? ?? ?? ?? ?? 41 32 d1 41 88 14 1a 45 8d 52 01 48 83 ef 01}  //weight: 20, accuracy: Low
+        $x_15_2 = {45 0f b6 04 1a 41 32 c8 41 03 c0 41 88 0c 1a 41 ff c2 8b c8 c1 e9 10 40 32 cf}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

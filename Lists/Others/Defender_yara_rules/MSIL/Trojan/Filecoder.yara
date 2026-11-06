@@ -440,3 +440,28 @@ rule Trojan_MSIL_Filecoder_ZVD_2147969190_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Filecoder_KK_2147981637_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Filecoder.KK!MTB"
+        threat_id = "2147981637"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Filecoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Files restored." wide //weight: 5
+        $x_4_2 = "BlackHatLock" wide //weight: 4
+        $x_3_3 = "Password: BLACKHAT2026" wide //weight: 3
+        $x_2_4 = "READ_ME_BLACKHAT.txt" wide //weight: 2
+        $x_1_5 = "coded by goodman - named by 0x12 - rizdx mod by rizdx" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

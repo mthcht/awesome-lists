@@ -48,6 +48,37 @@ rule Trojan_Win64_MalDrv_D_2147923642_0
         (2 of ($x*))
 }
 
+rule Trojan_Win64_MalDrv_C_2147924109_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MalDrv.C!MSR"
+        threat_id = "2147924109"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MalDrv"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "LLD PDB." ascii //weight: 7
+        $x_1_2 = "StratusSecurityNetwork.pdb" ascii //weight: 1
+        $x_1_3 = "SecurityProtectionScanner.pdb" ascii //weight: 1
+        $x_1_4 = "BreachBlocker.pdb" ascii //weight: 1
+        $x_1_5 = "DefenderScopeTool.pdb" ascii //weight: 1
+        $x_1_6 = "dataptr-rage.pdb" ascii //weight: 1
+        $x_1_7 = "IronWatchSecurity.pdb" ascii //weight: 1
+        $x_1_8 = "ECGPROTECT.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_7_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_MalDrv_E_2147924934_0
 {
     meta:
@@ -125,5 +156,55 @@ rule Trojan_Win64_MalDrv_I_2147939633_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_MalDrv_A_2147981634_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MalDrv.A!MSR"
+        threat_id = "2147981634"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MalDrv"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "win32kfull.sys" ascii //weight: 1
+        $x_1_2 = "F:\\Source Codes\\Aspect-Driver-Rewrite\\x64\\Release\\Windows-Memory-Informer.pdb" ascii //weight: 1
+        $x_1_3 = "F:\\Source Codes\\IceCubes-Driver\\x64\\Release\\Windows-Ice-Monitor.pdb" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
+}
+
+rule Trojan_Win64_MalDrv_B_2147981635_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/MalDrv.B!MSR"
+        threat_id = "2147981635"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "MalDrv"
+        severity = "Critical"
+        info = "MSR: Microsoft Security Response"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "F:\\Source Codes\\Aspect-Driver-Rewrite\\x64\\Release\\Windows-Memory-Informer.pdb" ascii //weight: 2
+        $x_1_2 = "F:\\Source Codes\\IOCTL-Kernel-Driver\\x64\\Release\\Aspect.pdb" ascii //weight: 1
+        $x_1_3 = "[Aspect] Loaded!" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_1_*))) or
+            ((1 of ($x_2_*))) or
+            (all of ($x*))
+        )
 }
 

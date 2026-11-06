@@ -4986,27 +4986,6 @@ rule Trojan_MSIL_Heracles_SPBP_2147904144_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Heracles_MBZC_2147904268_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/Heracles.MBZC!MTB"
-        threat_id = "2147904268"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Heracles"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {5d 91 59 20 00 01 00 00 58 20 00 01 00 00 5d d2 9c}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_Heracles_NF_2147904794_0
 {
     meta:

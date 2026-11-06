@@ -204,3 +204,26 @@ rule Trojan_Linux_Gafgyt_MK_2147980319_0
         (2 of ($x*))
 }
 
+rule Trojan_Linux_Gafgyt_AT_2147981640_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Gafgyt.AT!MTB"
+        threat_id = "2147981640"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Gafgyt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {74 70 3a 2f 2f 38 35 2e 31 32 31 2e [0-10] 2f 65 32 36 73 79 73 72 76 32 36 2f 64 6c 72 63 32 2e 6d 69 70 73}  //weight: 10, accuracy: Low
+        $x_4_2 = "-l /tmp/.d -r e26sysrv26/dlrc2.mips 2>/dev/null; chmod 777 /tmp" ascii //weight: 4
+        $x_6_3 = "*** %n in writable segment detected ***" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

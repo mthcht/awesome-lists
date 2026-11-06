@@ -2212,3 +2212,27 @@ rule Trojan_MSIL_Quasar_MZ_2147978861_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Quasar_DN_2147981627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Quasar.DN!MTB"
+        threat_id = "2147981627"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Quasar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {0a 0a 06 20 00 01 00 00 6f ?? 00 00 0a 06 03 6f ?? 00 00 0a 06 04 6f ?? 00 00 0a 06 17 6f ?? 00 00 0a 06 18 6f ?? 00 00 0a 06 6f ?? 00 00 0a 0b 07 02 16 02 8e 69 6f ?? 00 00 0a 0c dd}  //weight: 4, accuracy: Low
+        $x_2_2 = {06 08 91 07 61 0b 08 17 58 0c 00 08 06 8e 69 32 ee}  //weight: 2, accuracy: High
+        $x_2_3 = {0a 0b 06 16 73 ?? 00 00 0a 0c 08 07 6f ?? 00 00 0a dd ?? 00 00 00 08 39 ?? 00 00 00 08 6f ?? 00 00 0a dc 07 6f ?? 00 00 0a 28 ?? 00 00 0a 6f ?? 00 00 0a 14 14 6f ?? 00 00 0a 26 dd}  //weight: 2, accuracy: Low
+        $x_1_4 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
