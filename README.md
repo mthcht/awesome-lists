@@ -199,6 +199,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [ExecuteMalware IOC](https://github.com/executemalware/Malware-IOCs)
 - [Cisco Talos IOC](https://github.com/Cisco-Talos/IOCs)
 - [Elastic Lab IOC](https://github.com/elastic/labs-releases/tree/main/indicators)
+- [SOCRadar STRU IOC](https://github.com/SOCRadarSTRU/STRU-threat-intel)
 - [Blackorbid APT Report IOC](https://github.com/blackorbird/APT_REPORT)
 - [AVAST IOC](https://github.com/avast/ioc)
 - [Zimperium IOC](https://github.com/Zimperium/IOC)
