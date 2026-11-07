@@ -197,3 +197,24 @@ rule Trojan_Win64_ACRStealer_ACR_2147968190_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ACRStealer_A_2147981705_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ACRStealer.A!MTB"
+        threat_id = "2147981705"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ACRStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {4c 31 d1 49 d3 e1 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 49 ba ?? ?? ?? ?? ?? ?? ?? ?? 4c 31 d1 44 38 c6 49 0f 47 c9 48 09 ca 41 b0 ?? 41 80 f0 ?? 44 0f b6 48 04 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 49 ba ?? ?? ?? ?? ?? ?? ?? ?? 4c 31 d1 49 d3 e1}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

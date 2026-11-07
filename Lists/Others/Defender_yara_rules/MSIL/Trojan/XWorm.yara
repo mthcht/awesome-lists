@@ -7057,3 +7057,27 @@ rule Trojan_MSIL_XWorm_EL_2147981691_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_AN_2147981717_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.AN!MTB"
+        threat_id = "2147981717"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {0c 08 74 1b 00 00 01 02 7b 28 00 00 04 02 7b 29 00 00 04 20 8e 03 00 00 20 cc 03 00 00 28 04 00 00 2b 1e 1f 61 28 28 00 00 2b 1f 09 13 06 2b 91 1b 8d 07 00 00 01 13 04 11 04}  //weight: 6, accuracy: High
+        $x_1_2 = "GetTempPath" ascii //weight: 1
+        $x_1_3 = "get_StartupPath" ascii //weight: 1
+        $x_1_4 = "GZipStream" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
