@@ -71,3 +71,25 @@ rule Trojan_Win32_RemusStealer_2147978811_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemusStealer_M_2147981725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemusStealer.M!MTB"
+        threat_id = "2147981725"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "HekZyoRtNCnA]heupOv" ascii //weight: 1
+        $x_1_2 = {53 cc 42 ee ae 10 f4 32 cc 54 dc 76 c0 98 01 44 bd 88 3f cd c5 11 5b 56 ee 9a 27 df 1c 23 8b 67 3a ac c5 f0 e2 b0 37 61 6e 12 ce c2 04 73 69 24 a6 d4 1e 85 53 36 f6 e6 d6 97 5b 48 85 f8 e6 a9 36 5a 91 0a ed bb 2b 6c dd 1c e7 cd 3e 7e 73 2f 99 df 3b 90 63 41 a9 f1 07 a2 45 53 b4 03 e7 b4 11 65 b0 15 fd c6 51 77 9b 27 f5 d8 2f 89 9f 39 db ea 58 9b 95 66 cb cd 19 34 2f 9b 76 02 89 68 9e cf d3 36 0a 9d 46 04 69 6b b5 d1 cf 38 17 9f 2b 06 59 6d c3 d3 c4 3a 7f e1 83 34 f5 92 7b e5 a9 20}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
