@@ -751,3 +751,26 @@ rule Trojan_Win32_Grandoreiro_GK_2147981744_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Grandoreiro_GM_2147981756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Grandoreiro.GM!MTB"
+        threat_id = "2147981756"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Grandoreiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {52 4e 45 4c 33 32 2e 44 4c 4c 00 41 44 56 41 50 49 33 32 2e 64 6c 6c 00 00 00 4f 70 65 6e 53 65 72 76 69 63 65 57 00 60 e8 00 00 00 00 58 05 5a 0b 00 00 8b 30 03 f0 2b c0 8b fe 66 ad c1 e0 0c 8b c8 50 ad 2b c8 03 f1 8b c8 57 51 49 8a 44 39 06 88 04 31}  //weight: 10, accuracy: High
+        $x_1_2 = ".MPRESS2" ascii //weight: 1
+        $x_1_3 = "OpenServiceW" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

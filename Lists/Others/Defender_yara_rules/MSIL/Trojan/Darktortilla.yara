@@ -108,3 +108,25 @@ rule Trojan_MSIL_Darktortilla_PZR_2147968455_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Darktortilla_PU_2147981755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Darktortilla.PU!MTB"
+        threat_id = "2147981755"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Darktortilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = "samsazar.aiff" wide //weight: 6
+        $x_3_2 = {02 00 0a b7 0b d0 ?? 00 00 01 28 ?? 00 00 0a 07 28 ?? 03 00 0a 74 ?? 00 00 1b 0c 72 ?? 91 00 70 18 8d ?? 00 00 01 25 16 72 ?? 91 00 70 a2 25 17 72 ?? 91 00 70 a2 28 ?? 01 00 0a 0d 08 16 09}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

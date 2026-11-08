@@ -328,3 +328,25 @@ rule Trojan_Win32_Guildma_GXM_2147976167_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Guildma_GK_2147981757_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Guildma.GK!MTB"
+        threat_id = "2147981757"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Guildma"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {8d 45 d4 50 8b 45 f0 50 56 53 8b 45 e8 50 e8 ?? ?? ?? ?? 6a 08 6a 00 8d 4d d8 ba ?? ?? ?? ?? 8b 45 e8 e8 ?? ?? ?? ?? 85 c0 74 04 c6 45 e3 01 33 c0 5a 59 59 64 89 10}  //weight: 10, accuracy: Low
+        $x_10_2 = {33 c0 55 68 ?? ?? ?? ?? 64 ff 30 64 89 20 ff 75 fc ff 75 f8 ff 75 14 ff 75 08 8d 55 f0 8b c3 e8 ?? ?? ?? ?? ff 75 f0 8d 45 f4 ba 05 00 00 00}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
