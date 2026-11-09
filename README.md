@@ -969,6 +969,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [sms verification](textverified.com)
 - [temp mail](https://temp-mail.org)
 - [10 minute mail](https://10minutemail.com/)
+- [TempMail Hub](https://tempmailhub.net/) - free disposable email, no sign-up, selectable inbox lifetime (10 min - 7 days), 28 languages, Telegram bot
 
 </details>
 
