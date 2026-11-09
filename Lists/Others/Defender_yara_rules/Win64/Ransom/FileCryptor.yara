@@ -165,3 +165,29 @@ rule Ransom_Win64_FileCryptor_AYF_2147979597_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_FileCryptor_AYG_2147981767_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/FileCryptor.AYG!MTB"
+        threat_id = "2147981767"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCryptor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "SwordEncryptorMutex" ascii //weight: 5
+        $x_2_2 = "=== START === %zu file(s) to encrypt, pid %lu ===" ascii //weight: 2
+        $x_2_3 = "cmd /c wmic shadowcopy delete /nointeractive" ascii //weight: 2
+        $x_1_4 = "aaa_TouchMeNot_.txt" ascii //weight: 1
+        $x_1_5 = "kill-switch present" ascii //weight: 1
+        $x_1_6 = "dropping ransom notes" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

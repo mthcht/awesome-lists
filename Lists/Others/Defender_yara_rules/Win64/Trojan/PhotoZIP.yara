@@ -93,3 +93,53 @@ rule Trojan_Win64_PhotoZIP_GVE_2147972477_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_PhotoZIP_GVF_2147981769_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/PhotoZIP.GVF!MTB"
+        threat_id = "2147981769"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "PhotoZIP"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "43"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "SeShutdownPrivilege" wide //weight: 10
+        $x_20_2 = "Deemed Saleyard" wide //weight: 20
+        $x_8_3 = "todo" wide //weight: 8
+        $x_5_4 = "Wia extension host for thunking apis" wide //weight: 5
+        $x_20_5 = "Gleeishly SA" wide //weight: 20
+        $x_5_6 = "Media foundation source and sink dll. media foundation direc" wide //weight: 5
+        $x_8_7 = "upx_v2" wide //weight: 8
+        $x_20_8 = "Delible Mangal" wide //weight: 20
+        $x_8_9 = "gdipp_upgraprev" wide //weight: 8
+        $x_5_10 = "Configuration service provider at mini driver platform drive" wide //weight: 5
+        $x_20_11 = "Wraithy AG" wide //weight: 20
+        $x_8_12 = "msoxmailes" wide //weight: 8
+        $x_5_13 = "Audio settings handlers implementation for remote desktop se" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_8_*) and 4 of ($x_5_*))) or
+            ((4 of ($x_8_*) and 3 of ($x_5_*))) or
+            ((1 of ($x_10_*) and 2 of ($x_8_*) and 4 of ($x_5_*))) or
+            ((1 of ($x_10_*) and 3 of ($x_8_*) and 2 of ($x_5_*))) or
+            ((1 of ($x_10_*) and 4 of ($x_8_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_8_*) and 3 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 2 of ($x_8_*) and 2 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 3 of ($x_8_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 3 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 1 of ($x_8_*) and 1 of ($x_5_*))) or
+            ((1 of ($x_20_*) and 1 of ($x_10_*) and 2 of ($x_8_*))) or
+            ((2 of ($x_20_*) and 1 of ($x_5_*))) or
+            ((2 of ($x_20_*) and 1 of ($x_8_*))) or
+            ((2 of ($x_20_*) and 1 of ($x_10_*))) or
+            ((3 of ($x_20_*))) or
+            (all of ($x*))
+        )
+}
+

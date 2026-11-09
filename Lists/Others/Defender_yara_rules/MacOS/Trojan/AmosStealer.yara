@@ -327,3 +327,24 @@ rule Trojan_MacOS_AmosStealer_F_2147981607_0
         (all of ($x*))
 }
 
+rule Trojan_MacOS_AmosStealer_GK_2147981771_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MacOS/AmosStealer.GK!MTB"
+        threat_id = "2147981771"
+        type = "Trojan"
+        platform = "MacOS: "
+        family = "AmosStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_MACHOHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 ff c7 4d 39 f7 73 3e 41 0f b6 07 32 44 24 0f 48 8b 4c 24 78 48 8d 51 01 48 89 54 24 78 88 44 0c 38 48 83 7c 24 78 40 75 d6}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

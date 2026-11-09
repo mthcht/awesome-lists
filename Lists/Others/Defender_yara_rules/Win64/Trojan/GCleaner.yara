@@ -63,6 +63,28 @@ rule Trojan_Win64_GCleaner_VG_2147977702_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_GCleaner_VG_2147977702_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/GCleaner.VG!MTB"
+        threat_id = "2147977702"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {44 0f b6 01 48 83 c2 01 48 83 c1 01 41 31 c0 69 c0 93 01 00 01 44 88 42 ff 2d 47 86 c8 61 4c 39 ca 75 dd}  //weight: 1, accuracy: High
+        $x_1_2 = {53 48 83 ec 40 49 29 d0 48 89 cb 49 89 d2 4c 89 44 24 38 4d 89 c1 49 83 f8 0f 77 2f}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_GCleaner_GV_2147981300_0
 {
     meta:
