@@ -1187,3 +1187,49 @@ rule Trojan_Linux_Mirai_AT_2147981641_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Mirai_HAZ_2147981793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HAZ!MTB"
+        threat_id = "2147981793"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "case \"$1\" in start) /tmp/.qv3b" ascii //weight: 5
+        $x_3_2 = {62 75 73 79 62 6f 78 20 74 66 74 70 20 2d 67 20 2d 72 20 25 73 20 2d 6c 20 71 20 [0-21] 2e 77 6f 72 6b 2e 67 64}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_HBA_2147981794_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.HBA!MTB"
+        threat_id = "2147981794"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "case \"$1\" in start) /tmp/.qv3b" ascii //weight: 10
+        $x_4_2 = "busybox tftp" ascii //weight: 4
+        $x_3_3 = "wget -O q http:/" ascii //weight: 3
+        $x_2_4 = "chmod 777 q" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

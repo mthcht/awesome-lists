@@ -470,3 +470,26 @@ rule Trojan_Win64_Yogi_ST_2147981626_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_NB_2147981792_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.NB!MTB"
+        threat_id = "2147981792"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 8b d8 44 8d 7f c1 48 85 c0 74 2d 4c 8d 4d 67 c7 45 67 00 00 00 00 44 8b c7 41 8b d7 48 8b c8 ff d6 c6 03 c3 4c 8d 4d 67 44 8b 45 67 41 8b d7 48 8b cb}  //weight: 2, accuracy: High
+        $x_2_2 = {75 72 41 c1 c8 18 41 8b d0 41 8b c0 48 c1 e8 10 0f b6 c8 8b c2 48 c1 e8 18 46 0f b6 84 29 ?? ?? ?? 00 42 0f b6 84 28 ?? ?? ?? 00 c1 e0 08 44 0b c0 8b c2 48 c1 e8 08 0f b6 c8 41 c1 e0 08 42 0f b6 84 29 ?? ?? ?? 00 44 0b c0 0f b6 c2 41 c1 e0 08 42 0f b6 84 28 ?? ?? ?? 00 44 0b c0 41 8b c1 c1 e8 03 42 0f b6 84 28 ?? ?? ?? 00 c1 e0 18 44 33 c0}  //weight: 2, accuracy: Low
+        $x_1_3 = "Host Process" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

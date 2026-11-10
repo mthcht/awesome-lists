@@ -458,6 +458,29 @@ rule Trojan_Win64_ValleyRAT_NV_2147969427_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {f7 e1 8b c1 2b c2 d1 e8 03 c2 c1 e8 08 69 c0 c8 01 00 00 2b c8 b8 cd cc cc cc 41 f7 e2 80 c1 36 43 30 0c 02 41 8d 4b 01 c1 ea 03 45 33 db}  //weight: 2, accuracy: High
+        $x_2_2 = {49 8d 04 36 48 89 73 08 4c 8b 74 24 50 48 89 43 10 89 6b 18 48 8b 4b 10 4c 8b c7 49 8b d4}  //weight: 2, accuracy: High
+        $x_1_3 = "runas" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_NV_2147969427_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.NV!MTB"
+        threat_id = "2147969427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "Low"
     strings:
