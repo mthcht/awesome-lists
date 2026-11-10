@@ -1414,3 +1414,26 @@ rule Trojan_MSIL_Mardom_OD_2147979432_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Mardom_A_2147981823_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Mardom.A!MTB"
+        threat_id = "2147981823"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Mardom"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {0d 09 8e 69 1b 59 8d ?? ?? ?? 01 13 04 09 1b 11 04 16 11 04 8e 69 28 ?? ?? ?? 0a 11 04 28 ?? ?? ?? 06 13 05 11 05 2c 0e 11 05 8e 69 1f 20 33 06 11 05 13 06 de 40}  //weight: 30, accuracy: Low
+        $x_20_2 = "Wallet files (relative to Wallets/):" ascii //weight: 20
+        $x_10_3 = "credit_cards.txt" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
