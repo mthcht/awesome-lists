@@ -1138,3 +1138,27 @@ rule Trojan_Win64_Dacic_D_2147981278_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Dacic_AS_2147981807_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Dacic.AS!MTB"
+        threat_id = "2147981807"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Dacic"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {89 44 24 6c 48 8d 44 24 6c 45 31 c9 49 89 ea 89 4c 24 48 44 8d 43 c0 48 8b 4c 24 78 49 29 fa}  //weight: 5, accuracy: High
+        $x_10_2 = "0m injection complete - Press enter to close" ascii //weight: 10
+        $x_3_3 = "loader payload could not be unpacked" ascii //weight: 3
+        $x_2_4 = "0m webhook failed" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

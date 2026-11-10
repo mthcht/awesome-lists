@@ -1290,3 +1290,29 @@ rule Trojan_Win64_Injector_AMX_2147981534_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_AS_2147981806_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.AS!MTB"
+        threat_id = "2147981806"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "atheryx inject" ascii //weight: 10
+        $x_2_2 = "injector.exe inject <pid|name>      inject and open shell" ascii //weight: 2
+        $x_5_3 = "injector.exe list                   windows + processes" ascii //weight: 5
+        $x_6_4 = "[-] cannot reach payload pipe (pid " ascii //weight: 6
+        $x_4_5 = "[*] shell ready. type 'help'. 'exit' closes." ascii //weight: 4
+        $x_3_6 = "[+] injected -> base 0x" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
