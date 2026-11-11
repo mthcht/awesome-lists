@@ -440,13 +440,12 @@ rule Trojan_Win64_Yogi_YBC_2147981620_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
-        strings_accuracy = "Low"
+        strings_accuracy = "High"
     strings:
         $x_10_1 = {41 81 76 09 16 7d 02 e8 49 c1 dc 00 41 c1 46 0d 75 eb 02}  //weight: 10, accuracy: High
-        $x_10_2 = {b9 75 38 00 3e e8 ?? ?? ?? ?? 48 89 c6 48 89 c1 ba 49 bf fb 19 e8 ?? ?? ?? ?? 48 89 c3 48 89 f1 ba 30 e7 88 08 e8}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (all of ($x*))
 }
 
 rule Trojan_Win64_Yogi_ST_2147981626_0

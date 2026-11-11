@@ -16809,3 +16809,34 @@ rule Trojan_Win32_ClickFix_DLM_2147981648_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DLU_2147981868_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLU!MTB"
+        threat_id = "2147981868"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell" wide //weight: 10
+        $x_1_2 = "';@(0)|" wide //weight: 1
+        $x_1_3 = "Create($" wide //weight: 1
+        $x_1_4 = "-First" wide //weight: 1
+        $x_1_5 = "|&([char]" wide //weight: 1
+        $n_14_6 = "OpenAI" wide //weight: -14
+        $n_14_7 = "deepseek" wide //weight: -14
+        $n_14_8 = "claude" wide //weight: -14
+        $n_14_9 = "codex" wide //weight: -14
+        $n_14_10 = "copilot" wide //weight: -14
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
