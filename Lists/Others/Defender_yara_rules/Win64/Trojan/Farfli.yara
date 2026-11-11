@@ -707,6 +707,28 @@ rule Trojan_Win64_Farfli_LR_2147968427_0
         threshold = "30"
         strings_accuracy = "High"
     strings:
+        $x_20_1 = {83 e0 0f 0f b6 44 04 20 30 41 ff 48 ff cb}  //weight: 20, accuracy: High
+        $x_10_2 = {32 01 41 88 04 0a 0f b6 44 0a 01 32 41 01 41 88 44 0a 01 0f b6 44 0a 02 32 41 02 41 88 44 0a 02}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Farfli_LR_2147968427_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Farfli.LR!MTB"
+        threat_id = "2147968427"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {69 d2 c8 01 00 00 2b ca 41 f7 e2 80 c1 36 43 32 4c 0e f2 c1 ea 03 41 88 09 8d 0c 92 03 c9 44 3b d1 4c 0f 44 c6 41 ff c2 49 ff c1 45 3b d4}  //weight: 20, accuracy: High
         $x_10_2 = {40 88 28 8b c5 33 f6 c1 f8 08 44 8b d6 44 8b c6 88 47 01 8b c5 c1 f8 10 88 47 02 8b c5 c1 f8 18 88 47 03 0f b6 43 40 88 47 04 0f b6 43 41 88 47 05 0f b6 43 42 88 47 06}  //weight: 10, accuracy: High
     condition:
@@ -714,7 +736,7 @@ rule Trojan_Win64_Farfli_LR_2147968427_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Farfli_LR_2147968427_1
+rule Trojan_Win64_Farfli_LR_2147968427_2
 {
     meta:
         author = "defender2yara"
@@ -740,7 +762,7 @@ rule Trojan_Win64_Farfli_LR_2147968427_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Farfli_LR_2147968427_2
+rule Trojan_Win64_Farfli_LR_2147968427_3
 {
     meta:
         author = "defender2yara"

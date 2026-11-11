@@ -909,6 +909,28 @@ rule Trojan_Win64_Injector_LR_2147972219_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {40 88 7c 04 78 48 83 c7 01 48 83 ff 40 75 ?? 4b 8d 04 3f 48 8d 14 40 48 c1 ea 03 48 ff c2 48 c7 44 24 20 01 00 00 00 48 8d 74 24 60 45 31 c0 41 b9 01 00 00 00 48 89 f1}  //weight: 20, accuracy: Low
+        $x_10_2 = {41 0f b6 4e ff 8b d5 c1 e2 06 0f b6 6c 0c 78 8d 4f 06 0b ea 83 ff 01 76 ?? 83 c7 fe 89 ea 89 f9 d3 ea 4c 3b 64 24 48}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Injector_LR_2147972219_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.LR!MTB"
+        threat_id = "2147972219"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "21"
         strings_accuracy = "High"
     strings:
@@ -923,7 +945,7 @@ rule Trojan_Win64_Injector_LR_2147972219_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Injector_LR_2147972219_1
+rule Trojan_Win64_Injector_LR_2147972219_2
 {
     meta:
         author = "defender2yara"
@@ -949,7 +971,7 @@ rule Trojan_Win64_Injector_LR_2147972219_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Injector_LR_2147972219_2
+rule Trojan_Win64_Injector_LR_2147972219_3
 {
     meta:
         author = "defender2yara"
@@ -975,7 +997,7 @@ rule Trojan_Win64_Injector_LR_2147972219_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Injector_LR_2147972219_3
+rule Trojan_Win64_Injector_LR_2147972219_4
 {
     meta:
         author = "defender2yara"
@@ -1002,7 +1024,7 @@ rule Trojan_Win64_Injector_LR_2147972219_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Injector_LR_2147972219_4
+rule Trojan_Win64_Injector_LR_2147972219_5
 {
     meta:
         author = "defender2yara"

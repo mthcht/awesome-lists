@@ -273,6 +273,33 @@ rule Trojan_Win64_Keylogger_LR_2147968428_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "43"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8b c2 83 e0 03 0f b6 44 05 d7 30 04 11 48 ff c2 48 8b 45 e7 48 8b 4d df 48 2b c1 48 3b d0}  //weight: 20, accuracy: High
+        $x_1_2 = "history.txt" ascii //weight: 1
+        $x_2_3 = "download_history.txt" ascii //weight: 2
+        $x_3_4 = "cookies.json" ascii //weight: 3
+        $x_4_5 = "passwords.txt" ascii //weight: 4
+        $x_6_6 = "infected" ascii //weight: 6
+        $x_7_7 = "keylogger" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Keylogger_LR_2147968428_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Keylogger.LR!MTB"
+        threat_id = "2147968428"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "28"
         strings_accuracy = "High"
     strings:

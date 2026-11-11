@@ -1070,3 +1070,27 @@ rule Trojan_Win32_Phorpiex_AP_2147980191_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Phorpiex_LR_2147981843_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Phorpiex.LR!MTB"
+        threat_id = "2147981843"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Phorpiex"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {b9 ff 7f 00 00 f7 f9 bf 28 23 00 00 03 d7 52 e8 82 04 00 00 99 b9 ff 7f 00 00 f7 f9 8d 85 d0 f9 ff ff 03 d7}  //weight: 10, accuracy: High
+        $x_20_2 = "%s\\ozfovuddkqep\\rdrtfcgrjzjy.exe" ascii //weight: 20
+        $x_2_3 = "%s\\%d%d.exe" ascii //weight: 2
+        $x_3_4 = "%s:Zone.Identifier" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

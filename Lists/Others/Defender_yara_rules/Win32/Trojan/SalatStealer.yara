@@ -850,3 +850,26 @@ rule Trojan_Win32_SalatStealer_BF_2147981663_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_BH_2147981840_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.BH!MTB"
+        threat_id = "2147981840"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID:" ascii //weight: 1
+        $x_1_2 = "7rqiKf9hoVxuEJ3ubaIu/FM1yjEsRCJySU7UG0He6/vHRJJHKqAM4ivdGKRLlL/Qhprric80nWC5M4gXtVo" ascii //weight: 1
+        $x_2_3 = {80 f9 19 75 05 83 c0 30 eb 03 83 c0 20 85 c0 74 24 0f b7 48 06 66 85 c9}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
