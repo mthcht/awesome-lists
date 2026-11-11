@@ -13,6 +13,27 @@ rule Trojan_Win64_Valley_MK_2147979421_0
         threshold = "35"
         strings_accuracy = "High"
     strings:
+        $x_35_1 = {48 89 44 24 40 89 6c 24 38 4c 89 7c 24 28 48 89 6c 24 58 89 7c 24 50 66 c7 44 24 20 04 01 48 8b 03 41 b8 02 00 00 00 48 8d 54 24 20 48 8b cb ff 50 18 48 8b 03}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Valley_MK_2147979421_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Valley.MK!MTB"
+        threat_id = "2147979421"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Valley"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
         $x_20_1 = {48 8b 4d a7 48 8b 7d 9f 48 2b cf 48 b8 a3 8b 2e ba e8 a2 8b 2e 48 f7 e9 4c 8b fa 49 c1 ff 05 49 8b c7 48 c1 e8 3f 4c 03 f8}  //weight: 20, accuracy: High
         $x_15_2 = "ClipboardWinBackend" wide //weight: 15
     condition:
@@ -20,7 +41,7 @@ rule Trojan_Win64_Valley_MK_2147979421_0
         (all of ($x*))
 }
 
-rule Trojan_Win64_Valley_MK_2147979421_1
+rule Trojan_Win64_Valley_MK_2147979421_2
 {
     meta:
         author = "defender2yara"
@@ -83,5 +104,27 @@ rule Trojan_Win64_Valley_MKA_2147979811_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win64_Valley_KK_2147981862_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Valley.KK!MTB"
+        threat_id = "2147981862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Valley"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 0f b6 3c 72 8d 5f bf 8d 6f 20 80 fb 1a 40 0f b6 dd 0f 43 df 41 6b fb 21 44 0f b6 db 41 31 fb 48 ff c6}  //weight: 20, accuracy: High
+        $x_10_2 = {44 8b 4c 08 18 44 8b 44 08 1c 44 8b 5c 08 20 44 8b 54 08 24 49 01 cb 31 c0 31 ff}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

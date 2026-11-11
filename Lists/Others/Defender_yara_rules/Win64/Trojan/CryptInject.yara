@@ -814,6 +814,32 @@ rule Trojan_Win64_CryptInject_D_2147892334_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CryptInject_D_2147892334_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CryptInject.D!MTB"
+        threat_id = "2147892334"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CryptInject"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ESP Injector (Debug Privilege)" ascii //weight: 1
+        $x_1_2 = "[-] Emulator process not found." ascii //weight: 1
+        $x_1_3 = "[+] VirtualAllocEx OK @ 0x" ascii //weight: 1
+        $x_1_4 = "[+] WriteProcessMemory OK" ascii //weight: 1
+        $x_1_5 = "[+] CreateRemoteThread OK, waiting..." ascii //weight: 1
+        $x_1_6 = "[+] Injected successfully" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_CryptInject_TB_2147893147_0
 {
     meta:

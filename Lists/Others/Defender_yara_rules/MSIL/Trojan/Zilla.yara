@@ -2950,3 +2950,25 @@ rule Trojan_MSIL_Zilla_AL_2147979509_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zilla_B_2147981856_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zilla.B!MTB"
+        threat_id = "2147981856"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zilla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0d 07 09 72 ?? ?? 00 70 28 ?? 00 00 0a 72 ?? ?? 00 70 11 04 28 ?? 00 00 0a 6f ?? 00 00 0a 73 ?? 00 00 0a 0c 08 6f ?? 00 00 0a 72}  //weight: 10, accuracy: Low
+        $x_2_2 = "cmbt.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4935,6 +4935,32 @@ rule Trojan_MSIL_ClipBanker_KK_2147977615_0
         family = "ClipBanker"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "Global\\ClipLabMonitorMutex" wide //weight: 6
+        $x_5_2 = "^(bc1[02-9ac-hj-np-z]{11,71}|[13][a-km-zA-HJ-NP-Z1-9]{25,34})$" wide //weight: 5
+        $x_4_3 = "^0x[a-fA-F0-9]{40}$" wide //weight: 4
+        $x_3_4 = "^(ltc1[02-9ac-hj-np-z]{11,71}|[LM3][a-km-zA-HJ-NP-Z1-9]{26,33})$" wide //weight: 3
+        $x_2_5 = "^r[1-9A-HJ-NP-Za-km-z]{24,34}$" wide //weight: 2
+        $x_1_6 = "cliplab.log" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_ClipBanker_KK_2147977615_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/ClipBanker.KK!MTB"
+        threat_id = "2147977615"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "15"
         strings_accuracy = "High"
