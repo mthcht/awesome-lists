@@ -34,4 +34,11 @@ jobs:
 
           git add "Lists/Phishing/phishing-db/*"
           git commit -m "Update phishing-db list" --allow-empty
-          git push
+          # Many workflows push to main on overlapping schedules; retry if rejected
+          for i in 1 2 3 4 5; do
+            if git push; then break; fi
+            if [ "$i" -eq 5 ]; then echo "Push failed after 5 attempts"; exit 1; fi
+            echo "Push rejected (attempt $i), rebasing and retrying..."
+            sleep $((RANDOM % 20 + 10))
+            git pull --rebase --autostash || { git rebase --abort 2>/dev/null; true; }
+          done
