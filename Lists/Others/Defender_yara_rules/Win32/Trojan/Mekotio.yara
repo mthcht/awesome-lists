@@ -47,3 +47,25 @@ rule Trojan_Win32_Mekotio_YAA_2147902522_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Mekotio_GK_2147981907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Mekotio.GK!MTB"
+        threat_id = "2147981907"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Mekotio"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {c1 ea 08 66 81 44 24 ?? 22 3a 33 d3 66 81 74 24 ?? 87 2d f7 1c 24 40}  //weight: 5, accuracy: Low
+        $x_5_2 = {d0 c2 80 c2 a4 58 d0 c2 32 da 03 d4 89 8c 82 ?? ?? ?? ?? ff e7 8b 06 81 c6 04 00 00 00 33 c3}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

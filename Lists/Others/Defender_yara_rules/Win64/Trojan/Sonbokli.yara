@@ -65,3 +65,56 @@ rule Trojan_Win64_Sonbokli_AN_2147981762_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Sonbokli_BN_2147981892_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Sonbokli.BN!MTB"
+        threat_id = "2147981892"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Sonbokli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_2 = "PayloadKeepAlive skipped: server URL is empty" ascii //weight: 1
+        $x_1_3 = "SELECT * FROM Win32_ProcessStartTrace WHERE ProcessName='explorer.exe'" ascii //weight: 1
+        $x_1_4 = "Microsoft\\Terminal Server Client\\state.bin" ascii //weight: 1
+        $x_1_5 = "Microsoft\\OneDriveStandalone\\cache.dat" ascii //weight: 1
+        $x_2_6 = {68 74 74 70 3a 2f 2f 32 31 36 2e 31 35 38 2e 39 35 2e 31 38 33 3a 38 30 39 33 00}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Sonbokli_DN_2147981893_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Sonbokli.DN!MTB"
+        threat_id = "2147981893"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Sonbokli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "SELECT * FROM __FilterToConsumerBinding WHERE Filter LIKE" ascii //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_1_3 = "PayloadKeepAlive skipped: server URL is empty" ascii //weight: 1
+        $x_1_4 = "SELECT * FROM Win32_ProcessStartTrace WHERE ProcessName='explorer.exe'" ascii //weight: 1
+        $x_1_5 = "Microsoft\\Terminal Server Client\\state.bin" ascii //weight: 1
+        $x_1_6 = "Microsoft\\OneDriveStandalone\\cache.dat" ascii //weight: 1
+        $x_2_7 = {4c 4f 4c 44 5f 43 46 47 5f 56 31 00 00 00 00 00 68 74 74 70 3a 2f 2f [0-21] 38 30 39 33 00}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -5293,3 +5293,25 @@ rule Trojan_Win64_Zusy_HM_2147979742_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_PM_2147981906_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.PM!MTB"
+        threat_id = "2147981906"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "ttp://31.77.148.141/x7q2" ascii //weight: 5
+        $x_5_2 = "ttps://xaipsmp.fun/x7q2" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
