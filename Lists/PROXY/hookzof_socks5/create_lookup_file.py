@@ -1,6 +1,5 @@
 import requests
 import csv
-import json
 import socket
 
 # URLs of the proxy lists
@@ -20,30 +19,47 @@ proxy_data = []
 def resolve_host(host):
     try:
         return socket.gethostbyname(host)
-    except socket.gaierror:
+    except (socket.gaierror, UnicodeError):
         return None
 
-# Fetch and process proxy.txt (SOCKS5 proxies)
-response = requests.get(urls["proxy.txt"])
-if response.status_code == 200:
-    for line in response.text.strip().split("\n"):
-        if ":" in line:
-            ip, port = line.strip().split(":")
-            proxy_data.append([ip, port, "proxy.txt"])
+def fetch_json(name):
+    # Upstream sources can change format (e.g. tg/*.json became a plain-text
+    # redirect URL), so a broken source is skipped instead of failing the job.
+    try:
+        response = requests.get(urls[name], timeout=30)
+        response.raise_for_status()
+        data = response.json()
+    except (requests.RequestException, ValueError) as e:
+        print(f"[!] Skipping {name}: not valid JSON or unreachable ({e})")
+        return []
+    if not isinstance(data, list):
+        print(f"[!] Skipping {name}: unexpected JSON structure")
+        return []
+    return data
+
+# Fetch and process proxy.txt (SOCKS5 proxies) - this is the main source, fail if it breaks
+response = requests.get(urls["proxy.txt"], timeout=30)
+response.raise_for_status()
+for line in response.text.strip().split("\n"):
+    line = line.strip()
+    if line.count(":") == 1:
+        ip, port = line.split(":")
+        proxy_data.append([ip, port, "proxy.txt"])
 
 # Fetch and process mtproto.json (Telegram MTProto proxies)
-response = requests.get(urls["mtproto.json"])
-if response.status_code == 200:
-    for entry in json.loads(response.text):
+for entry in fetch_json("mtproto.json"):
+    if isinstance(entry, dict) and "host" in entry and "port" in entry:
         ip = resolve_host(entry["host"])
         if ip:
             proxy_data.append([ip, str(entry["port"]), "mtproto.json"])
 
 # Fetch and process socks.json (Telegram SOCKS proxies)
-response = requests.get(urls["socks.json"])
-if response.status_code == 200:
-    for entry in json.loads(response.text):
+for entry in fetch_json("socks.json"):
+    if isinstance(entry, dict) and "ip" in entry and "port" in entry:
         proxy_data.append([entry["ip"], str(entry["port"]), "socks.json"])
+
+if not proxy_data:
+    raise SystemExit("[!] No proxies collected, refusing to overwrite the CSV with an empty list")
 
 # Write to CSV file
 with open(csv_filename, "w", newline="", encoding="utf-8") as csvfile:

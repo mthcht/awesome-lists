@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Download all.txt File from monosans_list
         run: |
@@ -46,7 +46,13 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull
           git add Lists/PROXY/monosans_list/*
           git commit -m "Update hourly monosans_list files" --allow-empty
-          git push
+          # Several workflows push on the same schedule; retry if another one pushed first
+          for i in 1 2 3 4 5; do
+            if git pull --rebase && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push rejected (attempt $i), retrying..."
+            sleep $((RANDOM % 20 + 10))
+          done
+          exit 1

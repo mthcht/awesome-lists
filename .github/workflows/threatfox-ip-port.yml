@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -24,6 +24,8 @@ jobs:
           pip install requests
 
       - name: Run ThreatFox IP-Port script
+        env:
+          THREATFOX_AUTH_KEY: ${{ secrets.THREATFOX_AUTH_KEY }}
         run: |
           cd Lists/IP/Threatfox/
           python fetch_threatfox_ip_port.py
