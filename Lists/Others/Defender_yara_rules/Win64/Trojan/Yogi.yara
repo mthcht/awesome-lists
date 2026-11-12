@@ -492,3 +492,29 @@ rule Trojan_Win64_Yogi_NB_2147981792_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_AP_2147981932_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.AP!MTB"
+        threat_id = "2147981932"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "payload launch: disk backend" ascii //weight: 10
+        $x_2_2 = "Disk launch failed to write payload: " ascii //weight: 2
+        $x_5_3 = "k_4b415d21dd22c2fa26897f66ec9fe9994f750956bd6f2d4a" ascii //weight: 5
+        $x_6_4 = "DexClaude.exe" ascii //weight: 6
+        $x_4_5 = "Chunk payload API selected but chunk_access_key is empty" ascii //weight: 4
+        $x_3_6 = "Disk launch failed to write payload:" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

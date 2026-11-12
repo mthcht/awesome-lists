@@ -3941,3 +3941,28 @@ rule Trojan_MSIL_Stealer_VDC_2147979472_0
         )
 }
 
+rule Trojan_MSIL_Stealer_MC_2147981930_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stealer.MC!MTB"
+        threat_id = "2147981930"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "Stealer.pdb" ascii //weight: 7
+        $x_2_2 = "Decrypt" ascii //weight: 2
+        $x_2_3 = "chrome" wide //weight: 2
+        $x_2_4 = "discord" wide //weight: 2
+        $x_2_5 = "\"encrypted_key\":\"" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

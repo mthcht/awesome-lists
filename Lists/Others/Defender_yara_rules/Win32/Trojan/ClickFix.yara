@@ -16840,3 +16840,94 @@ rule Trojan_Win32_ClickFix_DLU_2147981868_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DLQ_2147981933_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLQ!MTB"
+        threat_id = "2147981933"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "irm 'http" wide //weight: 1
+        $x_1_2 = "-Headers @{'X-WUA'='" wide //weight: 1
+        $x_1_3 = "-TimeoutSec 45)|" wide //weight: 1
+        $n_3_4 = "OpenAI" wide //weight: -3
+        $n_3_5 = "deepseek" wide //weight: -3
+        $n_3_6 = "claude" wide //weight: -3
+        $n_3_7 = "codex" wide //weight: -3
+        $n_3_8 = "copilot" wide //weight: -3
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DLR_2147981934_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLR!MTB"
+        threat_id = "2147981934"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "=$env:APPDATA+" wide //weight: 1
+        $x_1_2 = "curl.exe -sL -o $" wide //weight: 1
+        $x_1_3 = "-First" wide //weight: 1
+        $x_1_4 = ".Create($" wide //weight: 1
+        $n_4_5 = "OpenAI" wide //weight: -4
+        $n_4_6 = "deepseek" wide //weight: -4
+        $n_4_7 = "claude" wide //weight: -4
+        $n_4_8 = "codex" wide //weight: -4
+        $n_4_9 = "copilot" wide //weight: -4
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_DLV_2147981935_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLV!MTB"
+        threat_id = "2147981935"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "/c start" wide //weight: 1
+        $x_1_2 = "for /f" wide //weight: 1
+        $x_1_3 = ") do for /f" wide //weight: 1
+        $x_1_4 = ") do @%" wide //weight: 1
+        $x_1_5 = "echo " wide //weight: 1
+        $x_1_6 = "fin')" wide //weight: 1
+        $n_6_7 = "OpenAI" wide //weight: -6
+        $n_6_8 = "deepseek" wide //weight: -6
+        $n_6_9 = "claude" wide //weight: -6
+        $n_6_10 = "codex" wide //weight: -6
+        $n_6_11 = "copilot" wide //weight: -6
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
