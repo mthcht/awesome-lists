@@ -1089,27 +1089,6 @@ rule Trojan_MSIL_NjRAT_KAAM_2147919572_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_NjRAT_KAAF_2147920823_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/NjRAT.KAAF!MTB"
-        threat_id = "2147920823"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "NjRAT"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "1"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {91 59 20 00 01 00 00 58 20 00 01 00 00 5d d2 9c 08}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_MSIL_NjRAT_KAAO_2147921800_0
 {
     meta:

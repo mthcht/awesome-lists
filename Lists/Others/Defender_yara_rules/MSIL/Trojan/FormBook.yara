@@ -19330,3 +19330,26 @@ rule Trojan_MSIL_FormBook_PAJ_2147981779_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_FormBook_MZK_2147981970_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.MZK!MTB"
+        threat_id = "2147981970"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {02 03 d3 1a 5a 58 4b 6e 2a 02 03 d3 1e 5a 58 4c 2a}  //weight: 10, accuracy: High
+        $x_1_2 = "vmaware.exe" ascii //weight: 1
+        $x_1_3 = "ResumeThread" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2129,7 +2129,7 @@ rule Trojan_MSIL_Zusy_VG_2147922957_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "14"
+        threshold = "22"
         strings_accuracy = "High"
     strings:
         $x_5_1 = "91303.0.4v\\" wide //weight: 5
@@ -2142,8 +2142,8 @@ rule Trojan_MSIL_Zusy_VG_2147922957_0
     condition:
         (filesize < 20MB) and
         (
-            ((1 of ($x_8_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
-            ((2 of ($x_8_*))) or
+            ((2 of ($x_8_*) and 1 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_8_*))) or
             (all of ($x*))
         )
 }
@@ -5879,6 +5879,30 @@ rule Trojan_MSIL_Zusy_AL_2147979508_0
             ((1 of ($x_5_*) and 2 of ($x_3_*))) or
             (all of ($x*))
         )
+}
+
+rule Trojan_MSIL_Zusy_AL_2147979508_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AL!MTB"
+        threat_id = "2147979508"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 16 91 1f 33 33 08 17 13 06 dd b2 00 00 00 72 9e 11 00 70 28 ?? ?? 00 06 0b 28 ?? 00 00 0a 2c 08 17 13 06 dd 98 00 00 00 07 72 3e 13 00 70 28 ?? ?? 00 06 0c 08 2c 0d 08 6f ?? ?? 00 06 2c 05 17 13 06 de 7c 20 00 04 00 00 16 28 ?? ?? 00 06 28 ?? ?? 00 06 0d 09}  //weight: 5, accuracy: Low
+        $x_2_2 = "\\drivers\\vmmouse.sys" ascii //weight: 2
+        $x_2_3 = "VMWARE" ascii //weight: 2
+        $x_1_4 = "obf By Mr.Glitch_fYqIuqAyiQFTHRJzgmcJjhXHwZbIBLiokOuagjLPSFOrBvG.resources" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 
 rule Trojan_MSIL_Zusy_D_2147980990_0

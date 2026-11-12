@@ -9634,3 +9634,28 @@ rule Backdoor_Linux_Mirai_MK_2147980482_0
         (all of ($x*))
 }
 
+rule Backdoor_Linux_Mirai_MKA_2147981975_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Backdoor:Linux/Mirai.MKA!MTB"
+        threat_id = "2147981975"
+        type = "Backdoor"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = "Looks like you are a honeypot, this tool was made by t.me/flylegit!" ascii //weight: 15
+        $x_10_2 = {74 74 70 3a 2f 2f 39 34 2e 31 35 34 2e [0-15] 2f 69 72 61 6e 2e 25 73}  //weight: 10, accuracy: Low
+        $x_5_3 = "/tmp/iran.%s" ascii //weight: 5
+        $x_3_4 = "wget -q -O '%s' '%s' 2>/dev/null || curl -s -o '%s' '%s' 2>/dev/null" ascii //weight: 3
+        $x_2_5 = "(crontab -l 2>/dev/null; echo '@reboot %s &') | crontab -" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

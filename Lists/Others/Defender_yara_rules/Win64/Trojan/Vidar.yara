@@ -5693,3 +5693,24 @@ rule Trojan_Win64_Vidar_GG_2147981915_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_FMX_2147981972_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.FMX!MTB"
+        threat_id = "2147981972"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {49 ff c0 4c 89 84 24 58 01 00 00 44 0f b6 44 38 08 45 31 c8 44 88 04 3a 48 ff c7 48 39 cf 7d 61}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

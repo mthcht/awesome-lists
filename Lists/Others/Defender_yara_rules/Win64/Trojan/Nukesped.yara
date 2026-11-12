@@ -25,3 +25,25 @@ rule Trojan_Win64_Nukesped_MA_2147832890_0
         )
 }
 
+rule Trojan_Win64_Nukesped_MKA_2147981976_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Nukesped.MKA!MTB"
+        threat_id = "2147981976"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Nukesped"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c1 c7 0e 4d 8d 76 04 c1 c8 07 33 f8 8b c2 33 f9 8b ca c1 ea 0a c1 c1 0f c1 c0 0d 33 c8 33 ca 03 f9 03 7e c4}  //weight: 20, accuracy: High
+        $x_15_2 = {c1 ea 0a 33 c1 33 c2 05 00 06 00 00 03 c7 41 03 40 c4 41 03 40 e8 41 03 c1 41 ff c1 41 89 42 fc 41 81 f9 00 04}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

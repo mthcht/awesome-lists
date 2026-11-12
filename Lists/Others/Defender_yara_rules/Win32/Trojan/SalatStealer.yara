@@ -873,3 +873,47 @@ rule Trojan_Win32_SalatStealer_BH_2147981840_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_FMX_2147981971_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.FMX!MTB"
+        threat_id = "2147981971"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0f b6 4c 04 36 83 f1 ?? 88 4c 04 36 40 83 f8 02 7c ee}  //weight: 5, accuracy: Low
+        $x_1_2 = "xxtvlyiepztxw" ascii //weight: 1
+        $x_1_3 = "CheckVMFiles" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_SalatStealer_HMX_2147981973_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.HMX!MTB"
+        threat_id = "2147981973"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {31 da 89 d3 c1 eb 11 31 da 89 d3 c1 e3 05 31 da 0f b6 5c 0c ?? 89 d5 c1 ed 18}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
