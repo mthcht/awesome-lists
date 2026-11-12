@@ -1,5 +1,5 @@
 fuzzer,domain,dns_a,dns_aaaa,dns_mx,dns_ns
-*original,leboncoin.fr,52.85.40.112,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
+*original,leboncoin.fr,18.173.121.34,,mx0.mail.ovh.net,ns-1125.awsdns-12.org
 addition,leboncoin0.fr,,,,
 addition,leboncoin1.fr,,,,
 addition,leboncoin2.fr,,,,
@@ -685,7 +685,7 @@ insertion,lebo0ncoin.fr,,,,
 insertion,lebo9ncoin.fr,,,,
 insertion,lebobncoin.fr,,,,
 insertion,lebohncoin.fr,,,,
-insertion,leboincoin.fr,45.33.83.100,2600:3c03::f03c:95ff:fe00:29ca,,changchang.ns.giantpanda.com
+insertion,leboincoin.fr,192.155.84.236,2600:3c01::2000:3aff:feb3:2e94,,changchang.ns.giantpanda.com
 insertion,lebojncoin.fr,,,,
 insertion,lebokncoin.fr,,,,
 insertion,lebolncoin.fr,,,,
@@ -779,14 +779,14 @@ replacement,lebonciin.fr,,,,
 replacement,lebonclin.fr,,,,
 replacement,lebonco8n.fr,,,,
 replacement,lebonco9n.fr,,,,
+replacement,leboncoun.fr,157.90.33.73,,,ns1.park-my-domain.net
+replacement,leboncpin.fr,157.90.33.73,,,ns1.park-my-domain.net
 replacement,leboncoib.fr,195.154.224.71,2001:bc8:1203:215::4b,,nsa.bookmyname.com
 replacement,leboncoih.fr,,,,
 replacement,leboncojn.fr,,,,
 replacement,leboncoon.fr,,,,
 replacement,lebondoin.fr,,,,
 replacement,lebonvoin.fr,104.21.31.81,2606:4700:3035::6815:1f51,,anuj.ns.cloudflare.com
-replacement,leboncoun.fr,157.90.33.73,,,ns1.park-my-domain.net
-replacement,leboncpin.fr,157.90.33.73,,,ns1.park-my-domain.net
 replacement,lebonfoin.fr,216.150.1.1,,alt1.aspmx.l.google.com,ns81.domaincontrol.com
 replacement,lebonxoin.fr,,,,
 replacement,lebpncoin.fr,,,,
@@ -807,10 +807,10 @@ subdomain,lebo.ncoin.fr,,,,
 subdomain,lebon.coin.fr,,,,
 subdomain,lebonc.oin.fr,,,,ns1.nameshift.com
 subdomain,lebonco.in.fr,,,,
+transposition,elboncoin.fr,185.65.58.55,,mx3.nameshield.com,ns2.observatoiredesmarques.fr
 transposition,lbeoncoin.fr,,,,
 transposition,lebnocoin.fr,,,,
 transposition,lebocnoin.fr,!ServFail,!ServFail,!ServFail,dns103.ovh.net
-transposition,elboncoin.fr,185.65.58.55,,mx3.nameshield.com,ns2.observatoiredesmarques.fr
 transposition,leboncion.fr,,,,
 transposition,lebonconi.fr,,,,
 transposition,lebonocin.fr,,,,
