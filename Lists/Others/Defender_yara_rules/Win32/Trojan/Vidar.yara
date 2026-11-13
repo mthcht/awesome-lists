@@ -7584,3 +7584,42 @@ rule Trojan_Win32_Vidar_NM_2147981704_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_AMTB_2147982054_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar!AMTB"
+        threat_id = "2147982054"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "ttps://steamcommunity.com/profiles/765611986" ascii //weight: 10
+        $x_10_2 = "To remove the window, you must CRYPT FILE!" ascii //weight: 10
+        $x_10_3 = "This is a VIRUS!!!! Do you want to run the file?" ascii //weight: 10
+        $x_10_4 = "4f8a2b1c9d3e7f6a0b5c1d8e2f9a4b7c6d3e0f1a2b5c8d9e0f1a2b3c4d5e6f7a" ascii //weight: 10
+        $x_1_5 = "ttps://116.202.186.230" ascii //weight: 1
+        $x_1_6 = "ttps://45.91.168.240" ascii //weight: 1
+        $x_1_7 = "ttps://89.167.18.40" ascii //weight: 1
+        $x_1_8 = "ttps://65.109.30.141" ascii //weight: 1
+        $x_1_9 = "ttps://pas.bikhoki.cc" ascii //weight: 1
+        $x_1_10 = "ttps://65.109.35.163" ascii //weight: 1
+        $x_1_11 = "ttps://172.236.206.42" ascii //weight: 1
+        $x_1_12 = "ttps://217.60.98.234" ascii //weight: 1
+        $x_1_13 = "ttps://172.237.117.11" ascii //weight: 1
+        $x_1_14 = "ttps://188.245.231.9" ascii //weight: 1
+        $x_1_15 = "ttp://45.140.13.203" ascii //weight: 1
+        $x_1_16 = "ttps://89.167.23.148" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_10_*) and 11 of ($x_1_*))) or
+            ((4 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

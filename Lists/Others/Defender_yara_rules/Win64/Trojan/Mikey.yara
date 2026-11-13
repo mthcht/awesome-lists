@@ -2916,6 +2916,29 @@ rule Trojan_Win64_Mikey_A_2147978309_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mikey_A_2147978309_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.A!MTB"
+        threat_id = "2147978309"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "mode=PAYLOAD-helper (skip, helper calls RunPayload)" ascii //weight: 30
+        $x_20_2 = "SC: exec begin mem=%p" ascii //weight: 20
+        $x_10_3 = "Persist HKCU: %s r=%d" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Mikey_AL_2147978438_0
 {
     meta:

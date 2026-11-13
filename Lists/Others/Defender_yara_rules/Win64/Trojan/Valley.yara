@@ -13,13 +13,34 @@ rule Trojan_Win64_Valley_MK_2147979421_0
         threshold = "35"
         strings_accuracy = "High"
     strings:
-        $x_35_1 = {48 89 44 24 40 89 6c 24 38 4c 89 7c 24 28 48 89 6c 24 58 89 7c 24 50 66 c7 44 24 20 04 01 48 8b 03 41 b8 02 00 00 00 48 8d 54 24 20 48 8b cb ff 50 18 48 8b 03}  //weight: 35, accuracy: High
+        $x_35_1 = {81 e7 ff ff ff 7f c7 45 e0 b8 0b 00 00 8b cf 33 d2 81 f1 43 39 6f b9 8b c1 35 2d 6c 4e 9b 89 45 e4 8b 45 e4}  //weight: 35, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win64_Valley_MK_2147979421_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Valley.MK!MTB"
+        threat_id = "2147979421"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Valley"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {48 89 44 24 40 89 6c 24 38 4c 89 7c 24 28 48 89 6c 24 58 89 7c 24 50 66 c7 44 24 20 04 01 48 8b 03 41 b8 02 00 00 00 48 8d 54 24 20 48 8b cb ff 50 18 48 8b 03}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Valley_MK_2147979421_2
 {
     meta:
         author = "defender2yara"
@@ -41,7 +62,7 @@ rule Trojan_Win64_Valley_MK_2147979421_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Valley_MK_2147979421_2
+rule Trojan_Win64_Valley_MK_2147979421_3
 {
     meta:
         author = "defender2yara"

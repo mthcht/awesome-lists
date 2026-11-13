@@ -128,3 +128,24 @@ rule Trojan_Win32_Crysan_AG_2147978914_0
         (1 of ($x*))
 }
 
+rule Trojan_Win32_Crysan_PC_2147982079_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Crysan.PC!MTB"
+        threat_id = "2147982079"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Crysan"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8b 4d fc 83 c1 01 89 4d fc 8b 55 fc 3b 55 0c 7d 16 8b 45 08 03 45 fc 0f be 08 83 f1 35 8b 55 f8 03 55 fc 88 0a eb}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

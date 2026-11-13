@@ -20,3 +20,31 @@ rule Trojan_Win32_VertexRat_AVR_2147963139_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_VertexRat_AV_2147982080_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VertexRat.AV!MTB"
+        threat_id = "2147982080"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VertexRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "vertexnet" ascii //weight: 1
+        $x_1_2 = "vnmutex" ascii //weight: 1
+        $x_1_3 = "vnlogs.log" ascii //weight: 1
+        $x_1_4 = "HPORT" ascii //weight: 1
+        $x_1_5 = "HKNAME" ascii //weight: 1
+        $x_1_6 = "KAINT" ascii //weight: 1
+        $x_1_7 = "120PVN_MUTEX16PA/login" ascii //weight: 1
+        $x_1_8 = "PA30PAvnet80PA1PAD" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

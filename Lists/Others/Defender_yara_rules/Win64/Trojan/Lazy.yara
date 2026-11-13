@@ -8405,3 +8405,31 @@ rule Trojan_Win64_Lazy_C_2147980611_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_ZN_2147982075_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.ZN!MTB"
+        threat_id = "2147982075"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "payload-runstate" ascii //weight: 1
+        $x_1_2 = "payload-manifest" ascii //weight: 1
+        $x_2_3 = "payload-slot" ascii //weight: 2
+        $x_1_4 = "SOFTWARE\\Microsoft\\Cryptography" ascii //weight: 1
+        $x_1_5 = "persist-backup" ascii //weight: 1
+        $x_1_6 = "persist-comdll" ascii //weight: 1
+        $x_1_7 = "IsDebuggerPresent" ascii //weight: 1
+        $x_1_8 = "IsProcessorFeaturePresent" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

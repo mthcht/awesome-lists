@@ -1613,3 +1613,51 @@ rule Trojan_Win64_DllHijack_F_2147981451_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_MZL_2147982059_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.MZL!MTB"
+        threat_id = "2147982059"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {64 62 67 65 6e 67 2e 64 6c 6c 00 44 65 62 75 67 43 72 65 61 74 65 00 00 00 00 f0 f4 01 00 00 00 00 00 00 00 00 00 a8 f7 01}  //weight: 1, accuracy: High
+        $x_1_2 = {48 83 ec 28 b9 30 00 00 00 e8 42 6b 00 00 48 8d 0d 5b 6a 01 00 48 89 00 48 89 40 08 48 89 40 10 66 c7 40 18 01 01 48 89 05 93}  //weight: 1, accuracy: High
+        $x_1_3 = {55 8b ec f6 45 08 01 56 8b f1 c7 06 6c 2e 01 10 74 0b 6a 04 56 e8 11 04 00 00 83 c4 08 8b c6 5e}  //weight: 1, accuracy: High
+        $x_1_4 = {64 74 66 62 61 73 65 2e 64 6c 6c 00 3f 3f 30 4c 6f 67 4d 65 73 73 61 67 65 40 6c 6f 67 67 69 6e 67 40 40 51 45 41 41 40 50 45 42 44 48 48 40 5a 00 3f 3f 31 4c 6f 67}  //weight: 1, accuracy: High
+        $x_1_5 = {63 6f 6d 73 76 63 73 2e 64 6c 6c 00 00 00 00 00 55 6e 6b 6e 6f 77 6e 20 65 78 63 65 70 74 69 6f 6e 00 00 00 00 00 00 00 62 61 64 20 61 72 72 61 79 20 6e}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_MZM_2147982060_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.MZM!MTB"
+        threat_id = "2147982060"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {66 c7 84 24 80 00 00 00 2d 00 66 c7 84 24 82 00 00 00 6b 00 66 c7 84 24 84 00 00 00 65 00 66 c7 84 24 86 00 00 00 79 00 66 c7 84 24 88 00 00 00 3a 00}  //weight: 1, accuracy: High
+        $x_1_2 = {66 c7 84 24 90 00 00 00 2d 00 66 c7 84 24 92 00 00 00 6c 00 66 c7 84 24 94 00 00 00 6f 00 66 c7 84 24 96 00 00 00 67 00 66 c7 84 24 98 00 00 00 3a 00 66 c7 84 24 9a 00 00 00 00 00 66 c7 84 24 b0 00 00 00 2f 00 66 c7 84 24 b2 00 00 00 6c 00 66 c7 84 24 b4 00 00 00 6f 00 66 c7 84 24 b6 00 00 00 67 00 66 c7 84 24 b8 00 00 00 3a 00 66 c7 84 24 ba 00 00 00 00 00 41 bd}  //weight: 1, accuracy: High
+        $x_1_3 = {48 83 ec 18 65 48 8b 04 25 60 00 00 00 48 89 5c}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

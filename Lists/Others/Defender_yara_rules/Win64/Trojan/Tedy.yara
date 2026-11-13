@@ -113,6 +113,33 @@ rule Trojan_Win64_Tedy_A_2147828733_4
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_A_2147828733_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.A!MTB"
+        threat_id = "2147828733"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "outra instancia detectada, aguardando ate 30s ela liberar..." ascii //weight: 1
+        $x_2_2 = "outra instancia ainda rodando apos 30s, abortando" ascii //weight: 2
+        $x_3_3 = "outra instancia liberou mutex, prosseguindo" ascii //weight: 3
+        $x_4_4 = "%stask_sys_%s.xml" ascii //weight: 4
+        $x_5_5 = "loop principal saiu, desconectando..." ascii //weight: 5
+        $x_6_6 = "%u arquivos, %u bytes payload, xor=%02x%02x%02x%02x" ascii //weight: 6
+        $x_7_7 = "schtasks /Delete /TN \"%s\" /F" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_B_2147828754_0
 {
     meta:
@@ -9069,5 +9096,33 @@ rule Trojan_Win64_Tedy_AW_2147981994_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_PD_2147982057_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PD!MTB"
+        threat_id = "2147982057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "w0lr5cwlnjrl67n5qwjfc7urvnhhn3tsnrsbs05twnttum-ne2bu43yhl3m377wkuwfsu92kckstmxeb" ascii //weight: 5
+        $x_5_2 = "8j45v3euiuso15bd88mtmco5ksqkgq34ihtk7ssyfc4avs5m43f7_odvudeyz1v8zdpk4syl7fqa34au" ascii //weight: 5
+        $x_5_3 = "RQxmB2WWKwYY_8HIF_-5OSXr6zzc_XIbZnR0DhbSOtGjlSSN-E6rrcP28ZMsUCy1oz16Vp_vAmhwKZCS" ascii //weight: 5
+        $x_5_4 = "glja9a11uygkayzrb3uvc76u706sy3ja_lvp55njhd5c8dsre45dss1ga88ug9k65_dx9kr5q811q6ff" ascii //weight: 5
+        $x_5_5 = "y0o4u22f3b6b9seikbu27lwxlhb6xka9uvt5r4yktbs29klyojbet-5yzy9qv3h43eqe7q4s6vcmeblq" ascii //weight: 5
+        $x_5_6 = "w5zo1cirz_u11w5ocxyg1k4siamza3vkfl4a5jpxf7awarecfwrbw7upolgp8x_zjqfgsca8sactwphz" ascii //weight: 5
+        $x_5_7 = "hWqO92j1g7A-6pxdI6uncS9MxJOVX_EdhpddiC187RWiggqnwCD-_V8jWwgfxzogiSYOAVbcrpmi3BMl" ascii //weight: 5
+        $x_5_8 = "3ax50tm9f3rf6k74cc1tks9e4n1r84y_hf940ku3khjr9k6jl9xdpeqtsxv4j1fm_pg1vee5pez3sdez" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (2 of ($x*))
 }
 
