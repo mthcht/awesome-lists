@@ -518,3 +518,33 @@ rule Trojan_Win64_Yogi_AP_2147981932_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_GX_2147982014_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.GX!MTB"
+        threat_id = "2147982014"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Yandex" ascii //weight: 1
+        $x_1_2 = "Chrome Beta" ascii //weight: 1
+        $x_1_3 = "Creating agent" ascii //weight: 1
+        $x_1_4 = "clipboard-control" ascii //weight: 1
+        $x_1_5 = "self-remove-control" ascii //weight: 1
+        $x_1_6 = "input-logger-control" ascii //weight: 1
+        $x_1_7 = "Software\\OlympicProject" ascii //weight: 1
+        $x_1_8 = "HiddenDesktopStreamControl" ascii //weight: 1
+        $x_1_9 = "Global\\OlympicIdentity-" ascii //weight: 1
+        $x_1_10 = "olympic-client-remove-" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

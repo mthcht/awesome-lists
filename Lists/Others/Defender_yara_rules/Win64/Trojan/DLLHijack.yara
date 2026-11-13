@@ -1311,3 +1311,26 @@ rule Trojan_Win64_DLLHijack_DAW_2147981467_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_PAB_2147981989_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.PAB!MTB"
+        threat_id = "2147981989"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = {4c 01 d1 4d 0f 43 ed 90 0f b6 c1 4d 0f 46 c9 90 8a 4c 04 60 77 0b 7f 09 7e 07 7f 05 eb 03 99 e2 71 90 41 30 0b 4d 0f 4b ff 90 49 01 fb}  //weight: 3, accuracy: High
+        $x_1_2 = "\\\\.\\NcpLoop" ascii //weight: 1
+        $x_1_3 = "MIF32RWSGA" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

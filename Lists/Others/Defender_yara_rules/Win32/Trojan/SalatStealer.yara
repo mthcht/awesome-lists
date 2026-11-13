@@ -917,3 +917,24 @@ rule Trojan_Win32_SalatStealer_HMX_2147981973_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_SalatStealer_BI_2147982003_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/SalatStealer.BI!MTB"
+        threat_id = "2147982003"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {48 89 4c 24 ?? 44 8d 42 ?? 8d 4a 02 4c 89 6c 24 ?? 41 88 04 0e 8d 7a 0d 0f b6 44 24 ?? 44 8d 72 06 41 32 c4 48 89 4c 24 ?? 48 8b 4c 24 ?? 44 8d 62}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

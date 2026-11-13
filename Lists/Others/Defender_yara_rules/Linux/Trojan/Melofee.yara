@@ -74,3 +74,24 @@ rule Trojan_Linux_Melofee_AMTB_2147979497_0
         (all of ($x*))
 }
 
+rule Trojan_Linux_Melofee_GV_2147981991_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Melofee.GV!MTB"
+        threat_id = "2147981991"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Melofee"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 8b 85 e8 fe ff ff 48 01 d0 0f b6 08 8b 45 f0 48 98 0f b6 84 05 f0 fe ff ff 89 c6 8b 45 f4 48 63 d0 48 8b 85 e8 fe ff ff 48 01 d0 31 f1 89 ca 88 10 83 45 f4 01 e9 22 ff ff ff}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

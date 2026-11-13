@@ -824,6 +824,29 @@ rule Trojan_MSIL_RemcosRAT_SJ_2147961467_1
         family = "RemcosRAT"
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 28 cf 00 00 06 20 00 68 01 00 28 89 00 00 06 7d 38 00 00 04 2a}  //weight: 1, accuracy: High
+        $x_1_2 = {07 6f d0 00 00 0a 17 9a 0c 28 8a 00 00 06 72 a8 17 00 70 28 d1 00 00 0a 0d 19 8d 6b 00 00 01 25 16 09 17 9a a2 25 17 09 19 9a a2 25 18 72 ba 17 00 70 a2 13 04 08}  //weight: 1, accuracy: High
+        $x_1_3 = "$8cb94eb3-fbce-49cf-8919-4cbbe3cb4244" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RemcosRAT_SJ_2147961467_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RemcosRAT.SJ!MTB"
+        threat_id = "2147961467"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "2"
         strings_accuracy = "Low"
@@ -835,7 +858,7 @@ rule Trojan_MSIL_RemcosRAT_SJ_2147961467_1
         (all of ($x*))
 }
 
-rule Trojan_MSIL_RemcosRAT_SJ_2147961467_2
+rule Trojan_MSIL_RemcosRAT_SJ_2147961467_3
 {
     meta:
         author = "defender2yara"
@@ -858,6 +881,30 @@ rule Trojan_MSIL_RemcosRAT_SJ_2147961467_2
 }
 
 rule Trojan_MSIL_RemcosRAT_SL_2147966085_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/RemcosRAT.SL!MTB"
+        threat_id = "2147966085"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {02 28 a9 03 00 06 20 00 68 01 00 28 8e 01 00 06 7d 75 00 00 04 2a}  //weight: 1, accuracy: High
+        $x_1_2 = "AmbulanceBase.Properties.Resources.resources" ascii //weight: 1
+        $x_1_3 = "AmbulanceBase.FormRegion+<ReadPixelBytes>" ascii //weight: 1
+        $x_1_4 = "$2e591e53-9d7a-47ff-9fa1-9b0282b38164" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_RemcosRAT_SL_2147966085_1
 {
     meta:
         author = "defender2yara"
