@@ -28,6 +28,7 @@ rule VirTool_Win32_SuspPsExecRenamedProc_A_2147768060_0
         $n_100_14 = "\\TrustedInstaller.exe" wide //weight: -100
         $n_100_15 = "\\mscorsvw.exe" wide //weight: -100
         $n_100_16 = "\\BatchPatch\\temp\\uninstall 7-zip.cmd" wide //weight: -100
+        $n_100_17 = "\\Windows\\System32\\msg.exe MSG * /TIME:" wide //weight: -100
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

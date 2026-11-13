@@ -65,28 +65,6 @@ rule Trojan_Win32_lokibot_RPC_2147795855_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_lokibot_RPD_2147795856_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:Win32/lokibot.RPD!MTB"
-        threat_id = "2147795856"
-        type = "Trojan"
-        platform = "Win32: Windows 32-bit platform"
-        family = "lokibot"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "2"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = {8b 0e 80 79 0f 00 89 08 75 40 8b 51 08 80 7a 0f 00 75 1a 8b 0a 80 79 0f 00 75 0f eb 03 8d 49 00 8b d1 8b 0a 80 79 0f 00 74 f6 89 16 c3}  //weight: 1, accuracy: High
-        $x_1_2 = {8b 49 04 80 79 0f 00 75 12 8b 16 3b 51 08 75 0b 89 0e 8b 49 04 80 79 0f 00 74 ee 89 0e c3}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
 rule Trojan_Win32_lokibot_RPE_2147795857_0
 {
     meta:

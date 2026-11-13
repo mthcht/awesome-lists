@@ -16914,7 +16914,7 @@ rule Trojan_Win32_ClickFix_DLV_2147981935_0
         threshold = "6"
         strings_accuracy = "High"
     strings:
-        $x_1_1 = "/c start" wide //weight: 1
+        $x_1_1 = "start" wide //weight: 1
         $x_1_2 = "for /f" wide //weight: 1
         $x_1_3 = ") do for /f" wide //weight: 1
         $x_1_4 = ") do @%" wide //weight: 1
