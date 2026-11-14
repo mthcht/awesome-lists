@@ -880,6 +880,40 @@ rule Trojan_MSIL_Lausivloader_TU_2147981628_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_7_1 = "$eea0cbc0-6200-42c6-a276-2327dbd88405" ascii //weight: 7
+        $x_1_2 = "System.Net.Http" ascii //weight: 1
+        $x_1_3 = "CreateDecryptor" ascii //weight: 1
+        $x_1_4 = "RegisterTaskDefinition" ascii //weight: 1
+        $x_1_5 = "VirtualAllocEx" ascii //weight: 1
+        $x_1_6 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_7 = "SetThreadContext" ascii //weight: 1
+        $x_1_8 = "GetThreadContext" ascii //weight: 1
+        $x_1_9 = "ResumeThread" ascii //weight: 1
+        $x_1_10 = "CloseHandle" ascii //weight: 1
+        $x_1_11 = "FromBase64String" ascii //weight: 1
+        $x_1_12 = "TASK_TRIGGER_REGISTRATION" ascii //weight: 1
+        $x_1_13 = "ResourceA" ascii //weight: 1
+        $x_1_14 = "Microsoft.Win32.TaskScheduler.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Lausivloader_TU_2147981628_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Lausivloader.TU!MTB"
+        threat_id = "2147981628"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Lausivloader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "24"
         strings_accuracy = "High"
     strings:

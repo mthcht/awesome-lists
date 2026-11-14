@@ -16931,3 +16931,61 @@ rule Trojan_Win32_ClickFix_DLV_2147981935_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_BY_2147982133_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BY!MTB"
+        threat_id = "2147982133"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "curl.exe -fsL -o" wide //weight: 2
+        $x_2_2 = {5c 00 41 00 70 00 70 00 44 00 61 00 74 00 61 00 5c 00 4c 00 6f 00 63 00 61 00 6c 00 5c 00 54 00 65 00 6d 00 70 00 5c 00 [0-10] 2e 00 6d 00 73 00 69 00 20 00 68 00 74 00 74 00 70 00 3a 00}  //weight: 2, accuracy: Low
+        $x_1_3 = "&& msiexec /i" wide //weight: 1
+        $x_1_4 = ".msi /qn" wide //weight: 1
+        $n_6_5 = "OpenAI" wide //weight: -6
+        $n_6_6 = "deepseek" wide //weight: -6
+        $n_6_7 = "claude" wide //weight: -6
+        $n_6_8 = "codex" wide //weight: -6
+        $n_6_9 = "copilot" wide //weight: -6
+        $n_6_10 = "print" wide //weight: -6
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_BZ_2147982134_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.BZ!MTB"
+        threat_id = "2147982134"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "http" wide //weight: 1
+        $x_1_3 = ".com" wide //weight: 1
+        $x_2_4 = "(&('Invoke-RestMet'+'hod')" wide //weight: 2
+        $x_1_5 = "-UserAgent" wide //weight: 1
+        $x_1_6 = "-Headers @" wide //weight: 1
+        $x_2_7 = ";&('Invoke-Ex'+'pression')" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -43,3 +43,25 @@ rule Trojan_Win64_SolarisLoader_AB_2147981684_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SolarisLoader_MK_2147982110_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SolarisLoader.MK!MTB"
+        threat_id = "2147982110"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SolarisLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b ca ff c2 42 0f b6 04 01 66 89 44 4c 20 46 38 2c 02 ?? ?? 8b c2 48 8d 4c 24 20 66 44 89 6c 44 20}  //weight: 20, accuracy: Low
+        $x_15_2 = {48 8b c8 48 2b f8 8b d6 8a 04 0f 34 0d 88 01 48 ff c1 48 83 ea 01}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

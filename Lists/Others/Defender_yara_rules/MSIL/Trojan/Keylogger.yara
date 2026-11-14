@@ -1179,6 +1179,31 @@ rule Trojan_MSIL_Keylogger_KK_2147965819_0
         threshold = "15"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = "WHKEYBOARDLL" ascii //weight: 5
+        $x_4_2 = "WM_KEYDOWN" ascii //weight: 4
+        $x_3_3 = "\\log.txt" wide //weight: 3
+        $x_2_4 = "LimeLogger.exe" ascii //weight: 2
+        $x_1_5 = "$068d14ef-f0a1-4f9d-8e27-58b4317830c6" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Keylogger_KK_2147965819_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Keylogger.KK!MTB"
+        threat_id = "2147965819"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Keylogger"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
         $x_1_1 = "screenshotTriggerWord" ascii //weight: 1
         $x_2_2 = "processSteal_Tick" ascii //weight: 2
         $x_3_3 = "clipboardLogger_Tick" ascii //weight: 3
@@ -1189,7 +1214,7 @@ rule Trojan_MSIL_Keylogger_KK_2147965819_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_Keylogger_KK_2147965819_1
+rule Trojan_MSIL_Keylogger_KK_2147965819_2
 {
     meta:
         author = "defender2yara"

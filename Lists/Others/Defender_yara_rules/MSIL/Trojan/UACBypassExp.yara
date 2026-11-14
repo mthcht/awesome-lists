@@ -51,3 +51,29 @@ rule Trojan_MSIL_UACBypassExp_NU_2147977652_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_UACBypassExp_SJ_2147982106_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/UACBypassExp.SJ!MTB"
+        threat_id = "2147982106"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "UACBypassExp"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {06 28 02 00 00 06 74 06 00 00 02 25 72 d3 00 00 70 14 14 16 6a 1b 6a 6f 0b 00 00 06 26 28 16 00 00 0a 26 2a}  //weight: 1, accuracy: High
+        $x_1_2 = "ICMLuaUtil" ascii //weight: 1
+        $x_1_3 = "ShellExec" ascii //weight: 1
+        $x_1_4 = "\\BypassUAC_Dll_csharp.dll" ascii //weight: 1
+        $x_1_5 = "Elevation:Administrator!new:" ascii //weight: 1
+        $x_1_6 = "\\Tasks\\phoneactivate.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -29,3 +29,25 @@ rule Trojan_Win64_SBadur_BA_2147978408_0
         )
 }
 
+rule Trojan_Win64_SBadur_AP_2147982130_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SBadur.AP!MTB"
+        threat_id = "2147982130"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SBadur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {ff c0 0f b6 c0 0f b6 1c 01 41 00 d9 45 0f b6 d9 42 0f b6 34 19 40 88 34 01 42 88 1c 19 02 1c 01 0f b6 f3 0f b6 1c 31 42 30 1c 12 49 ff c2 4d 39 d0}  //weight: 6, accuracy: High
+        $x_14_2 = {44 02 44 04 20 45 0f b6 c0 46 0f b6 44 04 20 44 30 04 13 48 ff c2 48 39 d7}  //weight: 14, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

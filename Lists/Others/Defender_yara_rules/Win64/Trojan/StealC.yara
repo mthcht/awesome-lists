@@ -1216,3 +1216,24 @@ rule Trojan_Win64_StealC_GV_2147981359_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_CX_2147982093_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.CX!MTB"
+        threat_id = "2147982093"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 03 c8 0f b6 c1 42 8a 0c 08 42 32 0c 3a 48 8d 55 ?? 88 4d ?? 48 8b ce e8 ?? ?? ?? ?? 49 ff c7}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

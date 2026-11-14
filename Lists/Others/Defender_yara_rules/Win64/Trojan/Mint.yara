@@ -208,6 +208,29 @@ rule Trojan_Win64_Mint_MK_2147965026_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Mint_MK_2147965026_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mint.MK!MTB"
+        threat_id = "2147965026"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mint"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {c7 44 24 14 00 00 00 00 c7 84 24 48 01 00 00 07 00 00 00 c7 84 24 44 01 00 00 00 00 00 00 66 89 84 24 34 01 00 00 8b 7d 08 8d 70 01 89 84 24 20 0d 00 00 3b fe}  //weight: 20, accuracy: High
+        $x_10_2 = {83 c4 0c 83 bc 24 18 01 00 00 08 8d 84 24 04 01 00 00 0f 43 84 24 04 01 00 00 50 8d 84 24 08 0b 00 00 50}  //weight: 10, accuracy: High
+        $x_5_3 = "yqsguard.log" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Mint_AHA_2147967599_0
 {
     meta:

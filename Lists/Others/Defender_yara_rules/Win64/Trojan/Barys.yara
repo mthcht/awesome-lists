@@ -972,3 +972,29 @@ rule Trojan_Win64_Barys_HX_2147981367_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Barys_GP_2147982094_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Barys.GP!MTB"
+        threat_id = "2147982094"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {f7 e9 c1 fa 04 8b c2 c1 e8 ?? 03 d0 0f be c2 6b d0 ?? 0f b6 c1 2a c2 04 ?? 41 30 00 ff c1 83 f9 2d 7c cd}  //weight: 2, accuracy: Low
+        $x_1_2 = "CreateToolhelp32Snapshot" ascii //weight: 1
+        $x_1_3 = "UnmapViewOfFile" ascii //weight: 1
+        $x_1_4 = "WriteProcessMemory" ascii //weight: 1
+        $x_1_5 = "CheckRemoteDebuggerPresent" ascii //weight: 1
+        $x_1_6 = "SetThreadExecutionState" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

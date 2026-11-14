@@ -89,3 +89,27 @@ rule Trojan_Win64_Staser_VGA_2147967214_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Staser_AP_2147982129_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Staser.AP!MTB"
+        threat_id = "2147982129"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Staser"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8b 02 48 8b 5a 08 e8 ?? ?? ?? ?? 48 8d 0d 70 ?? ?? ?? 48 89 4c 24 ?? 48 89 44 24 68 48 8d 05 7d 13 08 00 bb ?? ?? ?? ?? 48 8d 4c 24 60 bf}  //weight: 10, accuracy: Low
+        $x_5_2 = {48 89 44 24 40 48 8b 05 ?? ?? ?? ?? 48 ff c9 48 8b 15 ?? ?? ?? ?? 48 8b 3d c5 ?? ?? ?? 48 ff cf 48 89 fe 48 f7 de 48 c1 fe}  //weight: 5, accuracy: Low
+        $x_3_3 = "main.selfCopyAndInstall" ascii //weight: 3
+        $x_2_4 = "main.attemptInstallAndStart" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

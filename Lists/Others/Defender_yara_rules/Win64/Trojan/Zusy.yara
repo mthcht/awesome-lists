@@ -782,6 +782,35 @@ rule Trojan_Win64_Zusy_AR_2147913081_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {74 00 70 00 3a 00 2f 00 2f 00 35 00 32 00 2e 00 37 00 34 00 2e 00 [0-10] 2f 00 73 00 74 00 6f 00 72 00 61 00 67 00 65 00 2f 00 69 00 6e 00 73 00 74 00 61 00 6c 00 6c 00 2e 00 65 00 78 00 65 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {74 70 3a 2f 2f 35 32 2e 37 34 2e [0-10] 2f 73 74 6f 72 61 67 65 2f 69 6e 73 74 61 6c 6c 2e 65 78 65}  //weight: 10, accuracy: Low
+        $x_5_3 = "amvrtilib_host.exe" ascii //weight: 5
+        $x_3_4 = "echo Run host_test ... >nul & del /f /q" ascii //weight: 3
+        $x_2_5 = "Failed to create blocked_ips.txt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_5_*) and 1 of ($x_3_*) and 1 of ($x_2_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Zusy_AR_2147913081_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AR!MTB"
+        threat_id = "2147913081"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "Low"
     strings:
@@ -5362,5 +5391,33 @@ rule Trojan_Win64_Zusy_PM_2147981906_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win64_Zusy_AP_2147982131_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.AP!MTB"
+        threat_id = "2147982131"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {74 00 70 00 3a 00 2f 00 2f 00 38 00 39 00 2e 00 31 00 32 00 34 00 2e 00 [0-12] 3a 00 36 00 30 00 30 00 31 00 2f 00 73 00 2f 00 [0-50] 2f 00 64 00 6f 00 77 00 6e 00 6c 00 6f 00 61 00 64 00}  //weight: 10, accuracy: Low
+        $x_10_2 = {74 70 3a 2f 2f 38 39 2e 31 32 34 2e [0-12] 3a 36 30 30 31 2f 73 2f [0-50] 2f 64 6f 77 6e 6c 6f 61 64}  //weight: 10, accuracy: Low
+        $x_6_3 = "%04u-%02u-%02u_%02u-%02u-%02u_%s.%s" ascii //weight: 6
+        $x_4_4 = "gMicroSip.ini" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_6_*) and 1 of ($x_4_*))) or
+            ((2 of ($x_10_*))) or
+            (all of ($x*))
+        )
 }
 

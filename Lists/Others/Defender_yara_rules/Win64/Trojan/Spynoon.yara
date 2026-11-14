@@ -19,3 +19,25 @@ rule Trojan_Win64_Spynoon_MFP_2147781045_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Spynoon_AP_2147982132_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Spynoon.AP!MTB"
+        threat_id = "2147982132"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Spynoon"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {99 41 f7 f8 48 63 d2 8a 04 17 30 04 0b 48 ff c1}  //weight: 15, accuracy: High
+        $x_5_2 = {48 89 f8 48 8d 57 1e 80 30 ?? 48 ff c0 48 39 d0 75}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

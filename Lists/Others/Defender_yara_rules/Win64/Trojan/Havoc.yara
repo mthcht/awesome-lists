@@ -514,3 +514,24 @@ rule Trojan_Win64_Havoc_KA_2147981420_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_A_2147982095_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.A!MTB"
+        threat_id = "2147982095"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {45 8d 5a e0 41 80 fa ?? 45 0f b6 d2 45 0f b6 db 45 0f 42 da 45 85 c0 45 0f 44 da 44 6b d0 ?? 41 0f b6 c3 44 01 d0 49 ff c1 eb}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

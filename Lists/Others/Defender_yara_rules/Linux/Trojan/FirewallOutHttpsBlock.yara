@@ -10,7 +10,7 @@ rule Trojan_Linux_FirewallOutHttpsBlock_PI2_2147937216_0
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "45"
-        strings_accuracy = "High"
+        strings_accuracy = "Low"
     strings:
         $x_5_1 = "iptables " ascii //weight: 5
         $x_5_2 = "ip6tables " ascii //weight: 5
@@ -28,6 +28,8 @@ rule Trojan_Linux_FirewallOutHttpsBlock_PI2_2147937216_0
         $n_20_14 = " -d 7" ascii //weight: -20
         $n_20_15 = " -d 8" ascii //weight: -20
         $n_20_16 = " -d 9" ascii //weight: -20
+        $n_20_17 = {6d 00 61 00 76 00 65 00 6e 00 [0-32] 2e 00 74 00 72 00 75 00 73 00 74 00 65 00 64 00 2e 00}  //weight: -20, accuracy: Low
+        $n_20_18 = {6d 61 76 65 6e [0-32] 2e 74 72 75 73 74 65 64 2e}  //weight: -20, accuracy: Low
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

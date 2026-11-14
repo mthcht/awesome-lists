@@ -702,6 +702,41 @@ rule Trojan_Win64_ValleyRAT_DB_2147973356_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Binance" ascii //weight: 1
+        $x_1_2 = "Exodus" ascii //weight: 1
+        $x_1_3 = "Electrum" ascii //weight: 1
+        $x_2_4 = "keylog:error:hook_failed" ascii //weight: 2
+        $x_2_5 = "keylog:started" ascii //weight: 2
+        $x_1_6 = "offline: file create fail" ascii //weight: 1
+        $x_1_7 = "keylog:history:" ascii //weight: 1
+        $x_1_8 = "privacy:freeze:on" ascii //weight: 1
+        $x_1_9 = "shell already running" ascii //weight: 1
+        $x_1_10 = "screen:lock" ascii //weight: 1
+        $x_1_11 = "net:blockip" ascii //weight: 1
+        $x_1_12 = "process:kill" ascii //weight: 1
+        $x_2_13 = "reg.exe save HKLM\\SAM \"%s\\sam.hiv\" /y >nul 2>&1" ascii //weight: 2
+        $x_2_14 = "reg.exe save HKLM\\SYSTEM \"%s\\sys.hiv\" /y >nul 2>&1" ascii //weight: 2
+        $x_2_15 = "C:\\TEMP\\kl_inst.dat" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_DB_2147973356_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.DB!MTB"
+        threat_id = "2147973356"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
