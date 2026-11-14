@@ -71,6 +71,31 @@ rule Trojan_Win32_RemusStealer_2147978811_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemusStealer_2147978811_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemusStealer!atmn"
+        threat_id = "2147978811"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemusStealer"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "%s~st%08X.xml" wide //weight: 3
+        $x_2_2 = "<description>Desktop Application Runtime</description>" ascii //weight: 2
+        $x_1_3 = "<Triggers><TimeTrigger><StartBoundary>" ascii //weight: 1
+        $x_1_4 = "<Triggers><LogonTrigger><UserId>" ascii //weight: 1
+        $x_1_5 = "<ExecutionTimeLimit>PT0S</ExecutionTimeLimit></Settings>" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_RemusStealer_M_2147981725_0
 {
     meta:
