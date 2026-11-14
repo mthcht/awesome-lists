@@ -1,16 +1,16 @@
 {
   "branch": "master",
-  "changed_files": 0,
+  "changed_files": 21,
   "downloaded_files": 62,
   "files": [
     {
       "saved_as": "DNSC2Domains-30day.csv",
-      "saved_sha256": "16ecf90e9f7be6c9efcddca421191253752188abc39b08c062f649b531ce7d28",
-      "saved_size_bytes": 2306,
+      "saved_sha256": "abc1c68d62bffd277e437c69015181315e3f519891001ba46e161f52788581c3",
+      "saved_size_bytes": 2307,
       "source_path": "feeds/DNSC2Domains-30day.csv",
-      "source_sha256": "8b186c81317259a33d66cc893070647a30eacc0b42c80b8c8bce538404661332",
-      "source_size_bytes": 2462,
-      "status": "unchanged"
+      "source_sha256": "ea760ecd7afee1b2aa79fcc04c325ca944513409bc241cc82cad6cb50778999c",
+      "source_size_bytes": 2463,
+      "status": "updated"
     },
     {
       "saved_as": "DNSC2Domains.csv",
@@ -23,12 +23,12 @@
     },
     {
       "saved_as": "IPC2s-30day.csv",
-      "saved_sha256": "ab9907c6b14c60724fb10e9038622365d412c4c2f207729ccd2ecffc431f8101",
-      "saved_size_bytes": 10041,
+      "saved_sha256": "8ca0c0c907c909e357711fcb3b178c31b6802379cfba7ce9278c96672f96346a",
+      "saved_size_bytes": 9792,
       "source_path": "feeds/IPC2s-30day.csv",
-      "source_sha256": "4c7eca8df2c70776dae925ab2e079e73f7ed3a235905796fa79a907e6788fefa",
-      "source_size_bytes": 10029,
-      "status": "unchanged"
+      "source_sha256": "aaa9e5455741d8bdfc37ecd25bf26f963d9ab4ee286f8721d0090d203b30a7a9",
+      "source_size_bytes": 9780,
+      "status": "updated"
     },
     {
       "saved_as": "IPC2s-90day.csv",
@@ -50,12 +50,12 @@
     },
     {
       "saved_as": "IPPortC2s-30day.csv",
-      "saved_sha256": "c996bba7d8d046d5282d76b55752d7e37b2b47e8d1bc774e1b98ad60e6b447e6",
-      "saved_size_bytes": 13744,
+      "saved_sha256": "3a256f6bc24f797c607e0659863dd31f45329944c7f35885066398248f1bfa8c",
+      "saved_size_bytes": 13419,
       "source_path": "feeds/IPPortC2s-30day.csv",
-      "source_sha256": "2c64d302de70fcd704c54365b7a7cf7afd2a15f8b8074aec5c383555651dbc2a",
-      "source_size_bytes": 13732,
-      "status": "unchanged"
+      "source_sha256": "2a2f9c2323455aa71a36d3d502db496ee23882a602102636b640635815e723ac",
+      "source_size_bytes": 13407,
+      "status": "updated"
     },
     {
       "saved_as": "IPPortC2s-90day.csv",
@@ -239,165 +239,165 @@
     },
     {
       "saved_as": "unverified/unverified__DomainC2s-30day.csv",
-      "saved_sha256": "4d44422e91a12cc79f343b29a8066c76b03cb91075f1a791516bd44eb1668da5",
-      "saved_size_bytes": 86916,
+      "saved_sha256": "36dbe98781118786a836bc75604aa17efa59b70b7ad1fdbd66558e44d9abf5a8",
+      "saved_size_bytes": 76180,
       "source_path": "feeds/unverified/DomainC2s-30day.csv",
-      "source_sha256": "44b8e67fec189bf4fef101d5dff4316cb8761194ac2ee5f7b0a33487d2b5dd0e",
-      "source_size_bytes": 86904,
-      "status": "unchanged"
+      "source_sha256": "9a8132b123d104a977dfca6d47001c31c7c3415a05200bb203da11ab5028bf2f",
+      "source_size_bytes": 76168,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainC2s-90day.csv",
-      "saved_sha256": "c197a154aee39d6ecfe5bfa2db3aab66f065e61e1d5e24a0c255114063942863",
-      "saved_size_bytes": 123101,
+      "saved_sha256": "ac94a72502f7df5c16bb53b91808d58c16205b2ba0c9ba17568220d1be102d3f",
+      "saved_size_bytes": 108744,
       "source_path": "feeds/unverified/DomainC2s-90day.csv",
-      "source_sha256": "4314bbacc6e506380742d2fcfde7ae8b1722c0dff3084a3b4df607a99f95e15b",
-      "source_size_bytes": 123089,
-      "status": "unchanged"
+      "source_sha256": "dab8402a51c23fa5d24d11eb9764ca6d1e82ace187ae4ebd9abccf44ef612053",
+      "source_size_bytes": 108732,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainC2s.csv",
-      "saved_sha256": "139b2f63cdaf10cd84d72caf8d01f80b70fc3dc4c17b1d491da314130fe7fffc",
-      "saved_size_bytes": 61488,
+      "saved_sha256": "9b2136dce30f8994f21ef9e99d8428f5e96da62949fb818a8b171e8817484da5",
+      "saved_size_bytes": 54859,
       "source_path": "feeds/unverified/DomainC2s.csv",
-      "source_sha256": "e499a3cb0008c60352f572e7c96f8140929d04f2a4cbd4d25c670e92d6b74625",
-      "source_size_bytes": 61476,
-      "status": "unchanged"
+      "source_sha256": "3d6bff5c1da8043e39d43a96d646867a01bdb4ff2e43a59e0f99446a1a05a047",
+      "source_size_bytes": 54847,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainKVM-30day.csv",
-      "saved_sha256": "8366155cc551ac2e3b140c5586fb0c8647c631e6c2029cecb7cb269a63eb1b65",
-      "saved_size_bytes": 18207,
+      "saved_sha256": "7b53d98eec79ddf34417d83f4f82184d8005522dfed87e7c8da00d29b6f48ad7",
+      "saved_size_bytes": 15611,
       "source_path": "feeds/unverified/DomainKVM-30day.csv",
-      "source_sha256": "781807b794c25663be74307b15e6918aa310abc7aa93e75c12988755964abd98",
-      "source_size_bytes": 18195,
-      "status": "unchanged"
+      "source_sha256": "c1e07996208105e8dc713264d3aabb990f50379ae76513864ff31bf9114a40bd",
+      "source_size_bytes": 15599,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainKVM-90day.csv",
-      "saved_sha256": "227c052f4ba8dd821ae020d0828dd9362df3cd72de7839ac51921584799338f4",
-      "saved_size_bytes": 21638,
+      "saved_sha256": "5434bc276663a99f28d31064b1de1c6531765d27812115752ae507fc4a5e77d2",
+      "saved_size_bytes": 18763,
       "source_path": "feeds/unverified/DomainKVM-90day.csv",
-      "source_sha256": "b23322a396e3d3fda4b48df6cb012f4712b5dc5169c30813b24338273bdbb823",
-      "source_size_bytes": 21626,
-      "status": "unchanged"
+      "source_sha256": "a151123dd4bf4067dec6c704bbf08057d6af666ceceec34a34a36a0b65b97596",
+      "source_size_bytes": 18751,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainKVM.csv",
-      "saved_sha256": "1b1ab7808e332078d380456aacaf69b2a008d622e9e06786db2c977a788c6f8a",
-      "saved_size_bytes": 15079,
+      "saved_sha256": "027e900d51539683920c2e101f67c03676d2e1fc64de31d9b025960bb8c99cd8",
+      "saved_size_bytes": 12452,
       "source_path": "feeds/unverified/DomainKVM.csv",
-      "source_sha256": "e67537578c023218d588f1e4054a5424183a82a96836a45a73814dd2a6c3afba",
-      "source_size_bytes": 15067,
-      "status": "unchanged"
+      "source_sha256": "15b10fd9ded05210050fbe053c81e0d7ec265fa729fdfcaba021987e10167d07",
+      "source_size_bytes": 12440,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortC2s-30day.csv",
-      "saved_sha256": "b8d6b40c639b9aaa7ef9eb8ab78b68f849519b7b9c0154c230b280598cfbef3b",
-      "saved_size_bytes": 113635,
+      "saved_sha256": "24e27a9c222f300b3d532f1a65c7fc1cbca48801b3892998154e3acbeacf4bcc",
+      "saved_size_bytes": 94843,
       "source_path": "feeds/unverified/DomainPortC2s-30day.csv",
-      "source_sha256": "4e0a15ddc2a5ebea7149cf297c8a4e77a14fdcba6c2b70bc573f7b1eabec8f84",
-      "source_size_bytes": 113623,
-      "status": "unchanged"
+      "source_sha256": "df12cbdcaedba5b18ed5ff7c220cc1b709189403e680f371106d8d8522b60df7",
+      "source_size_bytes": 94831,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortC2s-90day.csv",
-      "saved_sha256": "d6185517a47bb86c87402f22e4fc5274fdded450ca7d2724fafeea666b816de7",
-      "saved_size_bytes": 172635,
+      "saved_sha256": "de54a552c527a3bceedef09406cb5b69afbde112d2142da1a5eaabed48af5b1a",
+      "saved_size_bytes": 147157,
       "source_path": "feeds/unverified/DomainPortC2s-90day.csv",
-      "source_sha256": "644d49ebf44b60af2e877bf3a16167cfeb14d75b80ee2ae1dab2341605739424",
-      "source_size_bytes": 172623,
-      "status": "unchanged"
+      "source_sha256": "d6d19a7d148df9272994e9e3e02990c0fca5c3417b5bf3371f7c934d5ce2bd31",
+      "source_size_bytes": 147145,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortC2s.csv",
-      "saved_sha256": "e7fa8c63ba80a74bbfe4b2f1e76447e65288978e559f09e0cda6e80e8bef968a",
-      "saved_size_bytes": 80111,
+      "saved_sha256": "1b20a61c15dac8a71f7c380a862cd73b0f396cab875fbd564613bd74334fd4df",
+      "saved_size_bytes": 68916,
       "source_path": "feeds/unverified/DomainPortC2s.csv",
-      "source_sha256": "d939a742c99fe1d091673e47454735faedebe65a0424d6368534849517451e13",
-      "source_size_bytes": 80099,
-      "status": "unchanged"
+      "source_sha256": "eaee0a15c797815006c3af565784a35bd7f438a94677758041c8f149b45dfd7f",
+      "source_size_bytes": 68904,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortKVM-30day.csv",
-      "saved_sha256": "00bcfb12a6f46e318de2cc5abd2219b53276b937a4ab3a310decd543391ac539",
-      "saved_size_bytes": 22769,
+      "saved_sha256": "ea7bc39bf0c3e6ee27fd103b23aeca6ac0d71ec9c6c9571011ca712b6570d4a8",
+      "saved_size_bytes": 18268,
       "source_path": "feeds/unverified/DomainPortKVM-30day.csv",
-      "source_sha256": "323768555fab60ed8c22c9e73ca15c78637ec9b17e2603b12d59b7f84f3703df",
-      "source_size_bytes": 22757,
-      "status": "unchanged"
+      "source_sha256": "5b2808c24b5c4eb4dd1da70caeda15560fa4810863012b4b1617dabe95848c67",
+      "source_size_bytes": 18256,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortKVM-90day.csv",
-      "saved_sha256": "6ab53db51fc748d5e68b9d1470e40d354b6ddbaca0661346f60bc00226174b40",
-      "saved_size_bytes": 27495,
+      "saved_sha256": "0c1e0fe97214b6f5d57fbcfbae2c5f3b80789a2dc872e032a7bea27b1b444193",
+      "saved_size_bytes": 21940,
       "source_path": "feeds/unverified/DomainPortKVM-90day.csv",
-      "source_sha256": "2ce647b53b331a501db5a2f12287a0d390bacf7afd25a59ca9d5a2b0c4849fc3",
-      "source_size_bytes": 27483,
-      "status": "unchanged"
+      "source_sha256": "e0378679b947f3d546297c4479abeea048cf7d2526a8b5c7136ab4b74b2b48a9",
+      "source_size_bytes": 21928,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortKVM.csv",
-      "saved_sha256": "c4928854754279569e220e535d9c3d0083dc4c53c2bc48837e49b78fab384530",
-      "saved_size_bytes": 18672,
+      "saved_sha256": "4412e273b6ddd794d6da77e45558e41ca75a108564fc876265b48706cf55c60e",
+      "saved_size_bytes": 14631,
       "source_path": "feeds/unverified/DomainPortKVM.csv",
-      "source_sha256": "e0a651829a7c3598104c2eb06001dd97fc4fa8433693041ac11d806e9fed3aa9",
-      "source_size_bytes": 18660,
-      "status": "unchanged"
+      "source_sha256": "48acc127fdb44576b7d8b1f077d909420508510f2c1d83f56ba04585b91cb7f6",
+      "source_size_bytes": 14619,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortRMM-30day.csv",
-      "saved_sha256": "ed2283ce8afab51d6639d7c7fdfccaf4a58391589bdab6bac93f1ac1b4f8adf4",
-      "saved_size_bytes": 920857,
+      "saved_sha256": "81a7cf556b88d21c3cec6392bf73001556f940418d3864bd58b91e41f6017391",
+      "saved_size_bytes": 780249,
       "source_path": "feeds/unverified/DomainPortRMM-30day.csv",
-      "source_sha256": "4e0067d3510be963e1eea376a62d4a5f13a0d6f1b3f80236c8869ad968287c9d",
-      "source_size_bytes": 920845,
-      "status": "unchanged"
+      "source_sha256": "a17eb942123a3e2cb349d593e97c8c11c960ea3c62b25a418d66e96ea524b55a",
+      "source_size_bytes": 780237,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortRMM-90day.csv",
-      "saved_sha256": "d79ad350daba9433bfc0db1e122b734bd384e852f32bb4e0a5eecf4f9b89091a",
-      "saved_size_bytes": 1107608,
+      "saved_sha256": "7305efadd53a37cc65fad20e11b979a3d9be17e08637ab015462f27ca7a29ab5",
+      "saved_size_bytes": 925849,
       "source_path": "feeds/unverified/DomainPortRMM-90day.csv",
-      "source_sha256": "c18e640170d91e1659d5587fbe341afba9c18903dc2e0f62394768c126c2f649",
-      "source_size_bytes": 1107596,
-      "status": "unchanged"
+      "source_sha256": "9457d196674eb882be540c4caacb16215965432fe797521474dc963ad2bf1638",
+      "source_size_bytes": 925837,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainPortRMM.csv",
-      "saved_sha256": "9dbe315cb69d8731a115ca12250d01c721fac485a68001e5c14d7ffac7fa4d2d",
-      "saved_size_bytes": 775438,
+      "saved_sha256": "5bd49f4933f149d229cc964c2b92d5cc22142fb90b39c4faf5d3e822d88d3dbc",
+      "saved_size_bytes": 668582,
       "source_path": "feeds/unverified/DomainPortRMM.csv",
-      "source_sha256": "6bb49df3766a0ddc802a73bd8dbffff35d122102a2fd7ad94b66c25b3ad97ecd",
-      "source_size_bytes": 775426,
-      "status": "unchanged"
+      "source_sha256": "5986a7cf9fba3f1878432cda34a58cafaac17c3953d76097095e840fecad9982",
+      "source_size_bytes": 668570,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainRMM-30day.csv",
-      "saved_sha256": "248cddb977074ede7a7ec53a31a0b757af2cb7ff1fee01c2081c35090a246f44",
-      "saved_size_bytes": 728606,
+      "saved_sha256": "0d66b573bf7127b44bf988422ca5689e648dd082375d01583288a1da12e17278",
+      "saved_size_bytes": 626562,
       "source_path": "feeds/unverified/DomainRMM-30day.csv",
-      "source_sha256": "3f32583d9de414956fe456e45321fcb020c4977ae9106e812b58ce84c55cda9c",
-      "source_size_bytes": 728594,
-      "status": "unchanged"
+      "source_sha256": "0bd573664f7ddd21accef671de7c2141a9a3f8047ba99514988746b0511da8d5",
+      "source_size_bytes": 626550,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainRMM-90day.csv",
-      "saved_sha256": "a5f40fbedbbf5bf9efcb585cf3f5a6e8f360a6793fcf3069b241e98c13d1e06d",
-      "saved_size_bytes": 869805,
+      "saved_sha256": "36390c278c5ae5f08d082023bceec34ac0f9b8ed2e3e69e7803f2cf2a8039b25",
+      "saved_size_bytes": 739956,
       "source_path": "feeds/unverified/DomainRMM-90day.csv",
-      "source_sha256": "99f49090f48ef1e491356b7d7828bc5214f95d02181466e0099b260f2cb37e98",
-      "source_size_bytes": 869793,
-      "status": "unchanged"
+      "source_sha256": "fdee26224ff151b74aa1d06bea285cdc9b929709858070e6a5ccf3dca24c22d2",
+      "source_size_bytes": 739944,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__DomainRMM.csv",
-      "saved_sha256": "eb04ec6d8be6559e0040419d0dd817a1a9450b54f37bd77dec9b5b64787a403d",
-      "saved_size_bytes": 613769,
+      "saved_sha256": "32fede82883b4297d679ec0220f966fb90a53ed04320095cfc4df074e8fd93b4",
+      "saved_size_bytes": 538991,
       "source_path": "feeds/unverified/DomainRMM.csv",
-      "source_sha256": "077eb206093783377bbc669cb1936e864328883e1234f045093cae16459f9643",
-      "source_size_bytes": 613757,
-      "status": "unchanged"
+      "source_sha256": "5c7fb3b9dd144861d6f16ec1cf46ff0d3b112c1de3a5b214e597536623c5f16b",
+      "source_size_bytes": 538979,
+      "status": "updated"
     },
     {
       "saved_as": "unverified/unverified__IPC2s-30day.csv",
@@ -564,5 +564,5 @@
   ],
   "source": "drb-ra/C2IntelFeeds",
   "source_dir": "feeds",
-  "updated_at_utc": "2026-11-14T21:01:15+00:00"
+  "updated_at_utc": "2026-11-14T22:01:09+00:00"
 }
