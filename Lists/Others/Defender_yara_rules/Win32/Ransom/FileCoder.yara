@@ -10,6 +10,33 @@ rule Ransom_Win32_FileCoder_A_2147740179_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "[+] Authenticated to %ls with configured credentials" ascii //weight: 1
+        $x_1_2 = "[i] Network discovery found %ld hosts" ascii //weight: 1
+        $x_1_3 = "[i] No accessible disk shares on %ls" ascii //weight: 1
+        $x_1_4 = "[i] Process killer done: %lu terminated" ascii //weight: 1
+        $x_1_5 = "[i] Service already marked for deletion: %ls" ascii //weight: 1
+        $x_1_6 = "[+] Shadow copies deleted" ascii //weight: 1
+        $x_1_7 = "[+] impersonated trustedinstaller" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_FileCoder_A_2147740179_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/FileCoder.A!MTB"
+        threat_id = "2147740179"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:

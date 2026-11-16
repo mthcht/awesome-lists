@@ -348,6 +348,55 @@ rule Trojan_MSIL_Xworm_PGXW_2147954424_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Xworm_PX_2147956814_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PX!MTB"
+        threat_id = "2147956814"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 04 11 05 6f ?? ?? 00 0a 13 07 07 12 07 28 ?? ?? 00 0a 6f ?? ?? 00 0a 07 6f ?? ?? 00 0a 02 7b 4c 02 00 04 2f 33 07 12 07 28 ?? ?? 00 0a 6f ?? ?? 00 0a 07 6f ?? ?? 00 0a 02 7b 4c 02 00 04 2f 18 07 12 07 28 ?? ?? 00 0a 6f ?? ?? 00 0a 11 05 17 58 13 05 11 04 08 32 83}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Xworm_PX_2147956814_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Xworm.PX!MTB"
+        threat_id = "2147956814"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Xworm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {04 03 61 1f ?? 59 06 61 45}  //weight: 5, accuracy: Low
+        $x_1_2 = "XLogger" ascii //weight: 1
+        $x_1_3 = "callk" ascii //weight: 1
+        $x_1_4 = "IsUpdate" ascii //weight: 1
+        $x_1_5 = "ActivatePong" ascii //weight: 1
+        $x_1_6 = "SetWindowsHookEx" ascii //weight: 1
+        $x_1_7 = "MapVirtualKey" ascii //weight: 1
+        $x_1_8 = "INDATE" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Xworm_MK_2147961029_0
 {
     meta:

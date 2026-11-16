@@ -3879,6 +3879,29 @@ rule Trojan_Win32_StealC_ARAZ_2147928285_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {31 43 00 31 53 04 89 c5 0f ac d0 ?? 0f ac ea ?? 05 ?? 00 00 00 83 d2}  //weight: 4, accuracy: Low
+        $x_4_2 = {31 47 00 31 57 04 89 c5 0f ac d0 ?? 0f ac ea ?? 05 ?? 00 00 00 83 d2}  //weight: 4, accuracy: Low
+        $x_4_3 = {8b 2f 31 c5 89 2f 8b 6f 04 31 d5 89 6f 04 89 c5 0f ac d0}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
+rule Trojan_Win32_StealC_ARAZ_2147928285_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/StealC.ARAZ!MTB"
+        threat_id = "2147928285"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:

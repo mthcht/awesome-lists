@@ -399,6 +399,27 @@ rule Trojan_Win64_Yogi_ARAZ_2147981343_0
         threshold = "4"
         strings_accuracy = "High"
     strings:
+        $x_4_1 = {48 8d 0c 03 44 0f b6 01 8d 14 07 48 83 c0 01 44 31 c2 48 39 f0 88 11 72 e7}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_ARAZ_2147981343_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.ARAZ!MTB"
+        threat_id = "2147981343"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
         $x_4_1 = {8d 48 3f 32 8c 05 c0 00 00 00 88 8c 05 d0 00 00 00 48 8d 40 01 48 8d 48 08 48 83 f9 0e 72 e1}  //weight: 4, accuracy: High
     condition:
         (filesize < 20MB) and
