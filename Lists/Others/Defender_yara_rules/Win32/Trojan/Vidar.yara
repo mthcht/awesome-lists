@@ -7623,3 +7623,24 @@ rule Trojan_Win32_Vidar_AMTB_2147982054_0
         )
 }
 
+rule Trojan_Win32_Vidar_VB_2147982224_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar.VB!MTB"
+        threat_id = "2147982224"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {42 8d 0c c5 00 00 00 00 8b d0 d3 ea 44 8b cb 88 54 1d b0 41 ff c0 ff c3 41 83 f8 04 72 e2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -4092,3 +4092,24 @@ rule Trojan_Win32_Fragtor_CK_2147981613_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Fragtor_ULS_2147982223_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Fragtor.ULS!MTB"
+        threat_id = "2147982223"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 45 ec 83 c0 01 89 45 ec 8b 4d ec 3b 4d 0c 73 28 8b 55 08 03 55 ec 0f b6 02 03 45 fc 89 45 fc 8b 45 ec 33 d2 b9 09 00 00 00 f7 f1 0f b6 54 15 f0 33 55 fc 89 55 fc eb c7}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

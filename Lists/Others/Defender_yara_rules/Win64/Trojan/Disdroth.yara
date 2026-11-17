@@ -87,3 +87,24 @@ rule Trojan_Win64_Disdroth_DA_2147982043_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Disdroth_DB_2147982228_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Disdroth.DB!MTB"
+        threat_id = "2147982228"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Disdroth"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {48 8d 05 d3 45 37 00 48 89 85 60 03 00 00 48 c7 85 68 03 00 00 02 00 00 00 48 c7 85 80 03 00 00 00 00 00 00}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
