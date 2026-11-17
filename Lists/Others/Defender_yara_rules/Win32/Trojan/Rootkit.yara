@@ -430,3 +430,25 @@ rule Trojan_Win32_Rootkit_KK_2147976952_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Rootkit_LR_2147982269_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rootkit.LR!MTB"
+        threat_id = "2147982269"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {56 8b 31 33 c0 85 f6 74 ?? 8b 49 08 39 14 81 74 ?? 40 3b c6}  //weight: 10, accuracy: Low
+        $x_20_2 = {8b 0b 8b f8 8b 73 08 c1 e1 02 f3 a4 8b 4b 08 51 6a 00 89 43 08}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

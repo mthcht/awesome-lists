@@ -23,6 +23,41 @@ rule Trojan_Win64_InfoStealer_NI_2147923389_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_InfoStealer_AMTB_2147934012_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/InfoStealer!AMTB"
+        threat_id = "2147934012"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "InfoStealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "COMPlus_ETWEnabled" ascii //weight: 1
+        $x_1_2 = "EtwEventWriteFull" ascii //weight: 1
+        $x_1_3 = "amsi.dll" ascii //weight: 1
+        $x_1_4 = "AmsiScanBuffer" ascii //weight: 1
+        $x_1_5 = "cmd.exe /c wevtutil cl System && wevtutil cl Security && wevtutil cl Application" ascii //weight: 1
+        $x_1_6 = "net user RemoteHelp P@ssw0rd123 /add" ascii //weight: 1
+        $x_1_7 = "net localgroup Administrators RemoteHelp /add" ascii //weight: 1
+        $x_1_8 = "netsh wlan export profile key=clear folder=" ascii //weight: 1
+        $x_1_9 = "wc_temp.bmp" ascii //weight: 1
+        $x_1_10 = "Webcam capture" ascii //weight: 1
+        $x_1_11 = "/screenshot" ascii //weight: 1
+        $x_1_12 = "/clipboard" ascii //weight: 1
+        $x_1_13 = "/keylog" ascii //weight: 1
+        $x_1_14 = "/steal_passwords" ascii //weight: 1
+        $x_1_15 = "/steal_all" ascii //weight: 1
+        $x_1_16 = "/download_exec" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_InfoStealer_EM_2147955891_0
 {
     meta:

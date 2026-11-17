@@ -29,3 +29,25 @@ rule Trojan_Win64_BrowerStealer_NB_2147981400_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BrowerStealer_NC_2147982239_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BrowerStealer.NC!MTB"
+        threat_id = "2147982239"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BrowerStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {4c 89 7d e8 48 c7 45 f0 0f 00 00 00 c6 45 d8 00 48 8b 5d 88 48 85 db 74 6a 48 8b 7d 90 48 3b df 74 1b}  //weight: 2, accuracy: High
+        $x_2_2 = "Stealer@Agent" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

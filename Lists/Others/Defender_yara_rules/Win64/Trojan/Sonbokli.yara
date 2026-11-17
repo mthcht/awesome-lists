@@ -118,3 +118,30 @@ rule Trojan_Win64_Sonbokli_DN_2147981893_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Sonbokli_HN_2147982255_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Sonbokli.HN!MTB"
+        threat_id = "2147982255"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Sonbokli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "IsProcessorFeaturePresent" ascii //weight: 1
+        $x_1_2 = "IsDebuggerPresent" ascii //weight: 1
+        $x_1_3 = "Microsoft\\SyncServices\\runstate.bin" ascii //weight: 1
+        $x_1_4 = "SOFTWARE\\Microsoft\\Cryptography" ascii //weight: 1
+        $x_1_5 = "Microsoft\\Terminal Server Client\\state.bin" ascii //weight: 1
+        $x_1_6 = "Microsoft\\OneDriveStandalone\\cache.dat" ascii //weight: 1
+        $x_2_7 = {4d 53 5f 53 59 4e 43 5f 43 46 47 5f 56 31 00 00 68 74 74 70 3a 2f 2f [0-21] 3a 38 30 39 33}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

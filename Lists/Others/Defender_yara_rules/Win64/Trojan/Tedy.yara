@@ -9168,3 +9168,26 @@ rule Trojan_Win64_Tedy_AS_2147982171_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BS_2147982272_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BS!MTB"
+        threat_id = "2147982272"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {41 0f b6 14 03 48 89 c1 89 df 83 e1 0f 44 31 ca 32 14 0e 89 c1 41 83 c1 3d 83 e1 07 d3 ef 31 fa 41 88 14 00 48 83 c0 01 49 39 c2 75}  //weight: 2, accuracy: High
+        $x_1_2 = "\"name\":\"Token\"" ascii //weight: 1
+        $x_1_3 = "\"name\":\"Email\"" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

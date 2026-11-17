@@ -591,3 +591,33 @@ rule Trojan_Win64_Yogi_F_2147982099_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_SX_2147982104_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.SX!MTB"
+        threat_id = "2147982104"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "b36_bot" ascii //weight: 1
+        $x_1_2 = "beacon.log" ascii //weight: 1
+        $x_1_3 = "CMD_EXEC: start" ascii //weight: 1
+        $x_1_4 = "WIPE: terminating" ascii //weight: 1
+        $x_1_5 = "[FAILOVER] startup" ascii //weight: 1
+        $x_1_6 = "beacon_dispatch_cmd" ascii //weight: 1
+        $x_1_7 = "sandbox_should_beacon" ascii //weight: 1
+        $x_1_8 = "[GATE] clean -> beacon" ascii //weight: 1
+        $x_1_9 = "[CHK] dispatching CMD_EXEC" ascii //weight: 1
+        $x_1_10 = "REHOME: probing new domain" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

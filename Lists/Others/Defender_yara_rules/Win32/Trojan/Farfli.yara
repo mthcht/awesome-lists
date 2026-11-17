@@ -6281,3 +6281,27 @@ rule Trojan_Win32_Farfli_LR_2147981437_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Farfli_LR_2147981437_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Farfli.LR!MTB"
+        threat_id = "2147981437"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Farfli"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b c8 c1 e9 1e 33 c8 69 c1 65 89 07 6c 03 c2 89 84 95 78 ec ff ff 42 81 fa 70 02 00 00 72 ?? 53 56 57}  //weight: 20, accuracy: Low
+        $x_1_2 = "SOFTWARE\\ToDesk_User\\%s" ascii //weight: 1
+        $x_2_3 = "Local\\fucksync-%lu" ascii //weight: 2
+        $x_3_4 = "%s%s-%04d%02d%02d-%02d%02d%02d.dmp" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

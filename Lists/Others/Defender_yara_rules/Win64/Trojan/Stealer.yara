@@ -571,6 +571,32 @@ rule Trojan_Win64_Stealer_AB_2147951433_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Stealer_AMTB_2147951636_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer!AMTB"
+        threat_id = "2147951636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "{\"v\":1,\"id\":\"%s\",\"epoch\":%lld,\"backoff\":0,\"poll\":%u,\"status\":\"ok\"}" ascii //weight: 1
+        $x_1_2 = "bld_fvmHMYzST_z1tWVNUwr-bROT.exe" ascii //weight: 1
+        $x_1_3 = "k_fb69ccc10c48b46c4089709eefeaf4839aeed13274811895" ascii //weight: 1
+        $x_1_4 = "http://194.59.31.200:8093" ascii //weight: 1
+        $x_1_5 = "PayloadKeepAlive skipped: server URL is empty" ascii //weight: 1
+        $x_1_6 = "payload keepalive" ascii //weight: 1
+        $x_1_7 = "Payload uninstall completed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Stealer_MK_2147952112_0
 {
     meta:

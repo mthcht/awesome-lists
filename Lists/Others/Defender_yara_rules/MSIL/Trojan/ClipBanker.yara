@@ -939,42 +939,6 @@ rule Trojan_MSIL_ClipBanker_G_2147795126_0
         (all of ($x*))
 }
 
-rule Trojan_MSIL_ClipBanker_GE_2147795258_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "Trojan:MSIL/ClipBanker.GE!MTB"
-        threat_id = "2147795258"
-        type = "Trojan"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "ClipBanker"
-        severity = "Critical"
-        info = "MTB: Microsoft Threat Behavior"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "17"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "Clipper" ascii //weight: 10
-        $x_1_2 = "Clipboard" ascii //weight: 1
-        $x_1_3 = "Regex" ascii //weight: 1
-        $x_1_4 = "Banker" ascii //weight: 1
-        $x_1_5 = "Bitcoin" ascii //weight: 1
-        $x_1_6 = "Ripple" ascii //weight: 1
-        $x_1_7 = "Payeer" ascii //weight: 1
-        $x_1_8 = "Zcash" ascii //weight: 1
-        $x_1_9 = "schtasks" ascii //weight: 1
-        $x_1_10 = "SELECT * FROM Win32_ComputerSystem" ascii //weight: 1
-        $x_1_11 = "vmware" ascii //weight: 1
-        $x_1_12 = "AntiVm" ascii //weight: 1
-        $x_1_13 = "IPLogger" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 7 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
 rule Trojan_MSIL_ClipBanker_QA_2147795398_0
 {
     meta:
