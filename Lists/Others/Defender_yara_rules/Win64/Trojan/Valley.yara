@@ -120,6 +120,48 @@ rule Trojan_Win64_Valley_MKA_2147979811_0
         threshold = "35"
         strings_accuracy = "Low"
     strings:
+        $x_35_1 = {43 0f b7 04 46 4a 8d 0c 43 66 42 39 04 31 ?? ?? 49 ff c0 41 ff c2 4c 3b c6}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Valley_MKA_2147979811_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Valley.MKA!MTB"
+        threat_id = "2147979811"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Valley"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {41 0f b7 e8 0f 57 c0 48 8b f2 0f 11 01 48 89 79 10 48 8b d9 48 c7 41 18 0f 00 00 00 40 88 39 48 8b 52 10}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Valley_MKA_2147979811_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Valley.MKA!MTB"
+        threat_id = "2147979811"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Valley"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
         $x_35_1 = {44 8d 41 ff 4d 63 c0 34 ?? 41 88 04 10 48 63 c9 0f b6 04 11 ff c1 84 c0}  //weight: 35, accuracy: Low
         $x_35_2 = {41 88 00 48 63 d2 4c 8d 04 11 0f b6 04 0a ff c2 84 c0}  //weight: 35, accuracy: High
     condition:

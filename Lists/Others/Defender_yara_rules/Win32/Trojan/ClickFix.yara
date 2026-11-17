@@ -16989,3 +16989,121 @@ rule Trojan_Win32_ClickFix_BZ_2147982134_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_OV_2147982212_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.OV!MTB"
+        threat_id = "2147982212"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = ".('xei'[-1..-3] -join'')" wide //weight: 5
+        $x_4_2 = "Copy-Item -Path" wide //weight: 4
+        $x_2_3 = "$env:" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_HV_2147982213_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.HV!MTB"
+        threat_id = "2147982213"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "copy /b /y %windir%\\system32\\c?rl" wide //weight: 5
+        $x_4_2 = "%PUBLIC%\\t.cmd" wide //weight: 4
+        $x_3_3 = "pcalua -a %PUBLIC%" wide //weight: 3
+        $x_2_4 = "del a.cmd" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_GV_2147982214_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.GV!MTB"
+        threat_id = "2147982214"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "-ExecutionPolicy Bypass -Command" wide //weight: 5
+        $x_4_2 = "& (gcm ir*m" wide //weight: 4
+        $x_4_3 = ".ps1 | & (gcm" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_IV_2147982215_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.IV!MTB"
+        threat_id = "2147982215"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = "='es-npIoikonEersvx" wide //weight: 5
+        $x_4_2 = "&'irm' ($($" wide //weight: 4
+        $x_4_3 = {7c 00 25 00 7b 00 24 00 [0-2] 3d 00 24 00 [0-2] 2b 00 22 00 24 00 5f 00 22 00 7d 00 3b 00 24 00}  //weight: 4, accuracy: Low
+        $x_3_4 = "[5,10,15,9,8,12,2" wide //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_JV_2147982216_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JV!MTB"
+        threat_id = "2147982216"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "timeout /t 1" wide //weight: 2
+        $x_2_2 = "/nobreak&for %c" wide //weight: 2
+        $x_4_3 = "(rl)do %c%u -Lo %TEMP%\\t" wide //weight: 4
+        $x_4_4 = "&cmd /q <%TEMP%" wide //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

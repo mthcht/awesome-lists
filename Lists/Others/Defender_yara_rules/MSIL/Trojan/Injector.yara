@@ -589,6 +589,31 @@ rule Trojan_MSIL_Injector_MK_2147771659_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "InjectInMemory" ascii //weight: 15
+        $x_10_2 = "-WindowStyle Hidden -Command \"Add-MpPreference -ExclusionPath '%TEMP%' -ErrorAction SilentlyContinue\"" ascii //weight: 10
+        $x_5_3 = "AddDefenderExclusions" ascii //weight: 5
+        $x_3_4 = "ResumeThread" ascii //weight: 3
+        $x_2_5 = "Inject" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Injector_MK_2147771659_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.MK!MTB"
+        threat_id = "2147771659"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "18"
         strings_accuracy = "High"
     strings:

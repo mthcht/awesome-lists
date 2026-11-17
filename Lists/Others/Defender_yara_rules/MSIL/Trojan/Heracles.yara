@@ -4986,6 +4986,28 @@ rule Trojan_MSIL_Heracles_SPBP_2147904144_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_MBZC_2147904268_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.MBZC!MTB"
+        threat_id = "2147904268"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {5d 91 59 20 00 01 00 00 58 20 00 01 00 00 5d d2 9c}  //weight: 1, accuracy: High
+        $x_1_2 = "38e30ecab92b" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_NF_2147904794_0
 {
     meta:
@@ -12170,6 +12192,31 @@ rule Trojan_MSIL_Heracles_J_2147982052_0
     strings:
         $x_20_1 = {11 07 6f 43 00 00 0a 13 08 09 11 08 6f 44 00 00 0a 26 20 00 04 00 00 8d 18 00 00 01 13 09 09 11 09 6f 45 00 00 0a 13 0a}  //weight: 20, accuracy: High
         $x_10_2 = {28 3a 00 00 0a 20 ?? ?? ?? ?? 73 3b 00 00 0a 13 04 09 11 04 14 14 6f 3c 00 00 0a 13 05}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Heracles_PAA_2147982191_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.PAA!MTB"
+        threat_id = "2147982191"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {0a 16 0b 2b 21 06 07 06 07 91 7e ?? ?? ?? ?? 07 7e ?? ?? ?? ?? 8e 69 5d 91 61 07 1f 1f 5a d2 61 d2 9c 07 17 58 0b 07 06 8e 69 32 d9}  //weight: 1, accuracy: Low
+        $x_1_2 = "E3SlaJPKPsEpZCE=" ascii //weight: 1
+        $x_1_3 = "NmuZdp3KJYkpQALlVGbKGvhOuWCD2y7fAGkr6XZCxxL8kLsJoQU5+xyOAZlq" ascii //weight: 1
+        $x_1_4 = "VHGfapb9JYwocTDiTg==" ascii //weight: 1
+        $x_1_5 = "dgi5a5zNL4EpMRHlSXLKHuJmg3uMk3qZIn4osU5zwRygwrQFvzxXrR6UFJhFi+EvpvjHfg==" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

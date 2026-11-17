@@ -554,3 +554,24 @@ rule TrojanDownloader_Win64_Rugmi_MKR_2147972576_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Rugmi_MK_2147982209_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Rugmi.MK!MTB"
+        threat_id = "2147982209"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_35_1 = {41 8b 54 24 44 41 8b 4c 9d 00 48 01 f1 e8 ?? ?? ?? ?? 39 e8 ?? ?? 48 83 c3 01 48 39 fb}  //weight: 35, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

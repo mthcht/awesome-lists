@@ -129,3 +129,27 @@ rule Trojan_Win64_ShellCodeLoader_PA_2147970893_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeLoader_MK_2147982210_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeLoader.MK!MTB"
+        threat_id = "2147982210"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Local\\fucksync-%lu" ascii //weight: 10
+        $x_5_2 = "t\\\\.\\HiddenGate" ascii //weight: 5
+        $x_3_3 = "[Kernel] COMMAND_CHAT ignored (no handler)" ascii //weight: 3
+        $x_2_4 = "%s_KEYLOG" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
