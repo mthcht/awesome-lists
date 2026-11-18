@@ -87,3 +87,46 @@ rule TrojanDropper_Win64_Lazy_AHA_2147966981_0
         (all of ($x*))
 }
 
+rule TrojanDropper_Win64_Lazy_A_2147982388_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Lazy.A!MTB"
+        threat_id = "2147982388"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "50"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {01 fe 88 23 29 fa 48 ff c3 be ?? ?? 00 00 01 ce 01 d7 81 c6 ?? ?? 00 00 b8 ?? ?? 00 00 29 fa 48 2d ?? ?? 00 00 29 ce 48 39 c1 7d}  //weight: 30, accuracy: Low
+        $x_20_2 = {29 ce 81 c2 ?? ?? 00 00 8a 23 81 c2 ?? ?? 00 00 01 da c0 c0 ?? 01 ce 01 fe 29 d6 01 fa}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDropper_Win64_Lazy_B_2147982389_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDropper:Win64/Lazy.B!MTB"
+        threat_id = "2147982389"
+        type = "TrojanDropper"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 ff c1 01 f2 81 ?? ?? 4b 00 00 01 fe 8a 23 be ?? ?? 00 00 c0 c0 ?? 81 c6 ?? ?? 00 00 29 cf 30 c4 01 f2 81 c6 ?? ?? 00 00 81 c6 ?? ?? 00 00 88 23 29 df 01 f2 48 ff c3}  //weight: 30, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -224,6 +224,37 @@ rule Trojan_MSIL_XenoRAT_AR_2147952487_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XenoRAT_AR_2147952487_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XenoRAT.AR!MTB"
+        threat_id = "2147952487"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {02 8e 2d 02 02 2a 02 8e 69 8d ?? 00 00 01 0a 02 16 06 16 02 8e 69 28 ?? 00 00 0a 16 0b 2b 16 06 07 8f ?? 00 00 01 25 47 03 07 1f 20 5d 91 61 d2 52 07 17 58 0b 07 06 8e 69}  //weight: 2, accuracy: Low
+        $x_1_2 = "MSOfficeServer.Xuuyao+<GetTitleOfWndAsync" ascii //weight: 1
+        $x_1_3 = "MSOfficeServer.Xuuyao+<CccSetupAsync" ascii //weight: 1
+        $x_1_4 = "MSOfficeServer.SssHddler+<recv_async" ascii //weight: 1
+        $x_1_5 = "MSOfficeServer.SssHddler+<ThrowAsync" ascii //weight: 1
+        $x_1_6 = "MSOfficeServer.SssHddler+<recv_safer" ascii //weight: 1
+        $x_1_7 = "MSOfficeServer.Hdlr+<setSetId" ascii //weight: 1
+        $x_1_8 = "MSOfficeServer.Hdlr+<CreateSubSock" ascii //weight: 1
+        $x_1_9 = "MSOfficeServer.Hdlr+<GetAndSendInfo" ascii //weight: 1
+        $x_1_10 = "MSOfficeServer.Hdlr+<Type0Receive" ascii //weight: 1
+        $x_1_11 = "MSOfficeServer.Hdlr+<SendUpdateInfo" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XenoRAT_SJ_2147958825_0
 {
     meta:

@@ -384,6 +384,27 @@ rule Trojan_Win64_Yogi_ARAX_2147981342_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_ARAX_2147981342_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.ARAX!MTB"
+        threat_id = "2147981342"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {30 ca ba 9d 32 4d f3 0f 45 d7 83 fb ff 89 d1 0f 44 cf 83 fe 0a 48 89 ee 89 44 24 50 0f 4d ca e9 3f ff ff ff}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Yogi_ARAZ_2147981343_0
 {
     meta:
