@@ -273,3 +273,25 @@ rule Trojan_MSIL_Darkcloud_STPE_2147970791_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Darkcloud_MCW_2147982300_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Darkcloud.MCW!MTB"
+        threat_id = "2147982300"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Darkcloud"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "48 65 6C 6C 6F 20 45 61 72 74 68" wide //weight: 1
+        $x_1_2 = {65 00 72 00 61 00 48 00 6f 00 75 00 73 00 65 00 00 0d 49 00 6e 00 76 00 6f 00 6b}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

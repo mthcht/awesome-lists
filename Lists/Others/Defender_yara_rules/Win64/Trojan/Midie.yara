@@ -536,6 +536,29 @@ rule Trojan_Win64_Midie_KK_2147948776_2
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 89 c8 49 f7 e0 48 c1 ea 03 8d 04 12 8d 04 80 41 89 ca 41 29 c2 41 83 ca 30 66 46 89 94 4d be 06 00 00 49 ff c9 48 83 f9 09 48 89 d1}  //weight: 20, accuracy: High
+        $x_10_2 = {41 89 d0 4c 0f af c1 49 c1 e8 23 47 8d 0c 00 47 8d 0c 89 41 89 d2 45 29 ca 41 83 ca 30 66 44 89 94 45 be 06 00 00 48 ff c8 83 fa 09 44 89 c2 77 cf}  //weight: 10, accuracy: High
+        $x_5_3 = "--lold-container" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Midie_KK_2147948776_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.KK!MTB"
+        threat_id = "2147948776"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
@@ -546,7 +569,7 @@ rule Trojan_Win64_Midie_KK_2147948776_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Midie_KK_2147948776_3
+rule Trojan_Win64_Midie_KK_2147948776_4
 {
     meta:
         author = "defender2yara"

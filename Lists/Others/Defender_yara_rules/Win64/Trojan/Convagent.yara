@@ -1755,6 +1755,30 @@ rule Trojan_Win64_Convagent_B_2147976969_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Convagent_B_2147976969_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Convagent.B!MTB"
+        threat_id = "2147976969"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "abe shim: loaded without OSCRYPT_INLINE*" ascii //weight: 40
+        $x_30_2 = "abe shim: abe_decrypt_cli rc=3 hint_edge=%d" ascii //weight: 30
+        $x_20_3 = "abe host: DecryptData hr=%08X err=%lu" ascii //weight: 20
+        $x_10_4 = "abe shim: Edge decrypt failed rc=%lu" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Convagent_AH_2147977179_0
 {
     meta:

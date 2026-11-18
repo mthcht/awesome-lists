@@ -16927,6 +16927,50 @@ rule Trojan_MSIL_FormBook_RVM_2147947750_0
         )
 }
 
+rule Trojan_MSIL_FormBook_SR_2147947927_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SR!MTB"
+        threat_id = "2147947927"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {13 26 11 0a 11 26 11 10 59 61 13 0a 11 10 19 11 0a 58 1e 63 59 13 10}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_FormBook_SR_2147947927_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/FormBook.SR!MTB"
+        threat_id = "2147947927"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "FormBook"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {00 04 6f 93 01 00 0a 03 6f ?? ?? ?? ?? 33 08 03 6f ?? ?? ?? ?? 2b 2f 02 7b c0 00 00 04 04 6f ?? ?? ?? ?? 02 7b c0 00 00 04 6f ?? ?? ?? ?? 5b 04 6f ?? ?? ?? ?? 02 7b c0 00 00 04 6f ?? ?? ?? ?? 5d 6f ?? ?? ?? ?? 0a 03 6f ?? ?? ?? ?? 04 6f ?? ?? ?? ?? 2c 1b 04 6f ?? ?? ?? ?? 17 2e 09 12 00 28 ?? ?? ?? ?? 2b 07 12 00 28 ?? ?? ?? ?? 2b 07 12 00 28 ?? ?? ?? ?? 6f ?? ?? ?? ?? 00 03 6f ?? ?? ?? ?? 04 6f 93 01 00 0a 06 73 44 01 00 0a 0b 2b 00 07 2a}  //weight: 4, accuracy: Low
+        $x_1_2 = "LavenderDistillery" ascii //weight: 1
+        $x_1_3 = "72D71DAD9" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_FormBook_BAF_2147947930_0
 {
     meta:

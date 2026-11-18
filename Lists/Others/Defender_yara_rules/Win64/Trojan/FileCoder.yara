@@ -284,3 +284,27 @@ rule Trojan_Win64_FileCoder_A_2147978620_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_FileCoder_C_2147982292_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FileCoder.C!MTB"
+        threat_id = "2147982292"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FileCoder"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "cry_c2_trace.txt" ascii //weight: 40
+        $x_30_2 = "c2.poll" ascii //weight: 30
+        $x_20_3 = "c2.loop.err" ascii //weight: 20
+        $x_10_4 = "cry_c2.dll" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

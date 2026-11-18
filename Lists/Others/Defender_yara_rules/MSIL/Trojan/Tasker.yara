@@ -240,3 +240,25 @@ rule Trojan_MSIL_Tasker_PGDK_2147961176_0
         (2 of ($x*))
 }
 
+rule Trojan_MSIL_Tasker_KK_2147978621_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tasker.KK!MTB"
+        threat_id = "2147978621"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tasker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {06 07 03 07 91 02 7b 02 00 00 04 02 25 7b 03 00 00 04 25 0c 17 58 7d 03 00 00 04 08 91 61 d2 9c 07 17 58 0b 07 03 8e 69 32 c6}  //weight: 20, accuracy: High
+        $x_10_2 = "RATBeacon" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

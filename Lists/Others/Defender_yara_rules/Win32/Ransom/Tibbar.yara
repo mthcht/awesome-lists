@@ -66,3 +66,54 @@ rule Ransom_Win32_Tibbar_A_2147724193_1
         )
 }
 
+rule Ransom_Win32_Tibbar_AT_2147982293_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Tibbar.AT!MTB"
+        threat_id = "2147982293"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tibbar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {68 60 15 01 10 8d 85 f4 fd ff ff 68 78 15 01 10 50 ff 15 ?? ?? ?? ?? 8b 75 08 83 c4 0c 8d 85 f4 fd ff ff 50 8d 46 04 50 8d 85 dc f7}  //weight: 2, accuracy: Low
+        $x_3_2 = {8b 35 bc d2 00 10 83 c4 0c 68 50 0a 01 10 8d 85 dc d7 ff ff 50 ff d6 ff 75 08 8d 85 dc d7 ff ff 50 ff d6 8d 85 dc d7}  //weight: 3, accuracy: High
+        $x_1_3 = {8b 55 08 8a 14 4a 8b c6 83 e0 03 8d 44 05 fc 32 10 fe ca 41 46 88 10}  //weight: 1, accuracy: High
+        $x_1_4 = "schtasks /Create /SC once /TN drogon /RU SYSTEM /TR" ascii //weight: 1
+        $x_1_5 = "schtasks /Delete /F /TN drogon" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Ransom_Win32_Tibbar_AR_2147982306_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win32/Tibbar.AR!MTB"
+        threat_id = "2147982306"
+        type = "Ransom"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tibbar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = {6a 00 6a 00 6a 03 6a 00 6a 00 6a 00 68 58 56 41 00 ff d6 83 f8 ff 74 33 50 ff 15 ?? ?? ?? ?? 6a 00 6a 00 6a 03 6a 00 6a 00 6a 00 68 58 56 41 00 ff d6}  //weight: 2, accuracy: Low
+        $x_1_2 = {8b 4d 0c 8b 75 08 89 48 4c c7 ?? ?? ?? ?? ?? c7 40 34 d8 4e 41 00 8b 55 f4 89 50 04 8b 4d f8 89 48 08 8d 78 0c b9 ?? ?? ?? ?? 6a 00 f3 a5 6a 00 50 68 ?? ?? ?? ?? 6a 00 6a 00 a4 ff d3}  //weight: 1, accuracy: Low
+        $x_1_3 = "schtasks /Delete /F /TN rhaegal" ascii //weight: 1
+        $x_1_4 = "Disable your anti-virus and anti-malware programs" ascii //weight: 1
+        $x_1_5 = "drogon" ascii //weight: 1
+        $x_1_6 = "Disk decryption completed" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

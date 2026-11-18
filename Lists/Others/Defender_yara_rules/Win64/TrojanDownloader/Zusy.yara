@@ -177,6 +177,29 @@ rule TrojanDownloader_Win64_Zusy_KK_2147977038_0
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win64_Zusy_KK_2147977038_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Zusy.KK!MTB"
+        threat_id = "2147977038"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {48 8d 05 63 0f 00 00 49 89 c3 48 8d 05 bc 0d 00 00 49 89 c2 4c 89 d1 4c 89 da}  //weight: 20, accuracy: High
+        $x_10_2 = "powershell.exe -WindowStyle Hidden -Command \"& { iwr -Uri '%s' -OutFile $env:TEMP\\%s; Start-Process $env:TEMP\\%s -WindowStyle Hidden }\"" ascii //weight: 10
+        $x_5_3 = "REPLACE_ME_URL" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule TrojanDownloader_Win64_Zusy_B_2147978648_0
 {
     meta:

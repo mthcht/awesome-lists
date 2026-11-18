@@ -404,6 +404,27 @@ rule Trojan_Win64_DllHijack_KK_2147951029_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 8d 50 01 49 83 c3 01 44 0f b6 c2 0f b6 d2 0f b6 04 14 42 8d 0c 08 44 0f b6 c9 0f b6 c9 44 0f b6 14 0c 44 88 14 14 88 04 0c 02 04 14 0f b6 c0 0f b6 04 04 41 30 43 ff 49 39 db}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_KK_2147951029_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.KK!MTB"
+        threat_id = "2147951029"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "Low"
     strings:
@@ -418,7 +439,7 @@ rule Trojan_Win64_DllHijack_KK_2147951029_1
         )
 }
 
-rule Trojan_Win64_DllHijack_KK_2147951029_2
+rule Trojan_Win64_DllHijack_KK_2147951029_3
 {
     meta:
         author = "defender2yara"
@@ -440,7 +461,7 @@ rule Trojan_Win64_DllHijack_KK_2147951029_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_KK_2147951029_3
+rule Trojan_Win64_DllHijack_KK_2147951029_4
 {
     meta:
         author = "defender2yara"

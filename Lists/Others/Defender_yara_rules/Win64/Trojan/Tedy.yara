@@ -9113,6 +9113,28 @@ rule Trojan_Win64_Tedy_PD_2147982057_0
         threshold = "10"
         strings_accuracy = "High"
     strings:
+        $x_5_1 = "TFdYajVuqpF08CWmg.IB2UtChofb9oYXnqrx2QfSm3Tre2TABR6QhH-Q1lp0PFYPi0tmDgg.RqbKTd5m" ascii //weight: 5
+        $x_5_2 = "NLHA10rRyC49yrUOMf0cOmDokpJ8eeZ2UNXBA1xlhN9axtYB2rNDv.hjTiaprl95Cfiv3ieOXhlwK_KO" ascii //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_PD_2147982057_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PD!MTB"
+        threat_id = "2147982057"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
         $x_5_1 = "w0lr5cwlnjrl67n5qwjfc7urvnhhn3tsnrsbs05twnttum-ne2bu43yhl3m377wkuwfsu92kckstmxeb" ascii //weight: 5
         $x_5_2 = "8j45v3euiuso15bd88mtmco5ksqkgq34ihtk7ssyfc4avs5m43f7_odvudeyz1v8zdpk4syl7fqa34au" ascii //weight: 5
         $x_5_3 = "RQxmB2WWKwYY_8HIF_-5OSXr6zzc_XIbZnR0DhbSOtGjlSSN-E6rrcP28ZMsUCy1oz16Vp_vAmhwKZCS" ascii //weight: 5

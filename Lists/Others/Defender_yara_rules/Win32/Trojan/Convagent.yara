@@ -258,6 +258,28 @@ rule Trojan_Win32_Convagent_A_2147826892_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {0f b6 54 19 01 0f b6 0c 19 66 c1 e2 08 66 0b d1 8d 48 01 66 89 56 1c 89 07 3b 4d 08}  //weight: 20, accuracy: High
+        $x_10_2 = {33 c4 89 44 24 50 53 8b 5d 08 56 57 85 db 74 29 81 3b 44 4d 56 32}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Convagent_A_2147826892_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Convagent.A!MTB"
+        threat_id = "2147826892"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Convagent"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:

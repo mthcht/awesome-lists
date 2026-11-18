@@ -620,3 +620,26 @@ rule Trojan_Win64_Havoc_D_2147982188_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Havoc_KD_2147982302_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Havoc.KD!MTB"
+        threat_id = "2147982302"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Havoc"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {41 31 d0 0f b6 50 fe 44 31 ca 41 31 d0 89 ca 01 c9 c0 fa 07 44 88 40 fe 83 e2 1b 31 ca 0f b6 48 ff 44 31 c9 31 ca 88 50 ff 4c 39 d8}  //weight: 20, accuracy: High
+        $x_10_2 = "C:\\Windows\\System32\\notepad.exe" wide //weight: 10
+        $x_5_3 = "/funny_cat.gif" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
