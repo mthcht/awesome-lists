@@ -351,6 +351,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [AlienVault OTX](https://otx.alienvault.com/)
   - [greynoise](https://viz.greynoise.io/)
   - [whoxy](https://www.whoxy.com/reverse-whois/)
+  - [WhoisFreaks (WHOIS history, reverse WHOIS)](https://whoisfreaks.com/)
   - [url tiny-scan](https://www.tiny-scan.com/)
   - [certificates - crt.sh](https://crt.sh/)
   - [site web-check](https://web-check.as93.net/)
