@@ -375,6 +375,106 @@ rule Trojan_Win32_Malgent_2147976556_0
         severity = "Critical"
         info = "atmn: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "main.encryptFile" ascii //weight: 3
+        $x_2_2 = "main.writeNote" ascii //weight: 2
+        $x_3_3 = "main.makeRansomImage" ascii //weight: 3
+        $x_3_4 = "Your files have been stolen and encrypted." ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "/v3/beacon/cleanup_enc" ascii //weight: 3
+        $x_2_2 = "/v3/report_enc" ascii //weight: 2
+        $x_2_3 = "CLIP_TEXT:" ascii //weight: 2
+        $x_2_4 = "FILE_B64:" ascii //weight: 2
+        $x_2_5 = "[keylog] (" ascii //weight: 2
+        $x_2_6 = "[+] Token stolen from PID" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "module-recovery.dll" ascii //weight: 3
+        $x_3_2 = "recovery.collect" ascii //weight: 3
+        $x_2_3 = "browser.profile_clone" ascii //weight: 2
+        $x_2_4 = "chromium wallets" ascii //weight: 2
+        $x_2_5 = "error: recovery fault code=0x%08lX (thread contained)" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Add-MpPreference -ExclusionProcess '" wide //weight: 3
+        $x_3_2 = "create Sims4DLCService binPath= \"" wide //weight: 3
+        $x_2_3 = "HolderBase64Chunks" ascii //weight: 2
+        $x_2_4 = "ServiceBase64Chunks" ascii //weight: 2
+        $x_2_5 = "SupportBase64Chunks" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "16"
         strings_accuracy = "High"
     strings:
@@ -385,6 +485,275 @@ rule Trojan_Win32_Malgent_2147976556_0
         $x_2_5 = "DISCORD BYPASS" wide //weight: 2
         $x_2_6 = "ROBLOX BYPASS" wide //weight: 2
         $x_2_7 = "/WpfLoader;component/mainwindow.xaml" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "win.token.steal" ascii //weight: 3
+        $x_2_2 = "could not steal token" ascii //weight: 2
+        $x_3_3 = "win.inject.shellcode" ascii //weight: 3
+        $x_3_4 = "win.inject.dll" ascii //weight: 3
+        $x_3_5 = "reflective DLL injection requires an x64 target" ascii //weight: 3
+        $x_2_6 = "reflective loader bytes are missing" ascii //weight: 2
+        $x_2_7 = "method must be win32, syscall or apc" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_6
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "http://18.183.94.114:7777/BadPotato.exe" wide //weight: 3
+        $x_3_2 = "DownloadAndExecute" ascii //weight: 3
+        $x_2_3 = "The assembly does not define aaadan endadadtry point." wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_7
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "domain_password" wide //weight: 3
+        $x_3_2 = "domain_visible_password" wide //weight: 3
+        $x_2_3 = "%*s**CREDENTIAL**" wide //weight: 2
+        $x_2_4 = "%*s  CredentialBlob :" wide //weight: 2
+        $x_2_5 = "%*s**LEGACY CREDENTIAL**" wide //weight: 2
+        $x_1_6 = "CredEnumerateW" ascii //weight: 1
+        $x_1_7 = "LsaQuerySecret" ascii //weight: 1
+        $x_1_8 = "LsaRetrievePrivateData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "phase 0: sabotage recovery surfaces" ascii //weight: 2
+        $x_3_2 = "cmd.exe /c vssadmin.exe delete shadows /all /quiet >nul 2>&1" wide //weight: 3
+        $x_3_3 = "Your files have been encrypted with AES-256." ascii //weight: 3
+        $x_2_4 = "KEYBLOB:" ascii //weight: 2
+        $x_3_5 = "To restore your files, acquire the one-time release token." ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "DecryptChromePassword" ascii //weight: 3
+        $x_2_2 = "steal_chrome" wide //weight: 2
+        $x_3_3 = "Chrome database, Local State, and Master Key exfiltrated successfully." wide //weight: 3
+        $x_3_4 = "ExfiltrateFileAndSend" ascii //weight: 3
+        $x_2_5 = "RecordAudioAndSend" ascii //weight: 2
+        $x_2_6 = "TakeAndSendScreenshot" ascii //weight: 2
+        $x_2_7 = "RunShellCommand" ascii //weight: 2
+        $x_2_8 = "DownloadAndExecute" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_10
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "steal: enter admin=%d local='%s' appdata='%s'" ascii //weight: 3
+        $x_3_2 = "steal: profile %s pw=%u ck=%u hs=%u v20=%d st=%d" ascii //weight: 3
+        $x_3_3 = "v20: cng openkey fail (chromekey1 not in user or machine ksp)" ascii //weight: 3
+        $x_2_4 = "Wallets/Inventory.txt" ascii //weight: 2
+        $x_2_5 = "Passwords.txt" ascii //weight: 2
+        $x_2_6 = "uac: hklm runkey set (admin path)" ascii //weight: 2
+        $x_2_7 = "uac: wrote DisableAntiSpyware policy (legacy, may be ignored)" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_11
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "19"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "[+] payload: thread started (rx pages)" ascii //weight: 3
+        $x_2_2 = "[!] downgrade unavailable, hosting payload in guard" ascii //weight: 2
+        $x_2_3 = "[+] downgrade: spawned child at reduced IL" ascii //weight: 2
+        $x_3_4 = "[+] uac: handed over to elevated instance" ascii //weight: 3
+        $x_3_5 = "[+] install: copies + persistence done" ascii //weight: 3
+        $x_2_6 = "[+] heal: copy A restored" ascii //weight: 2
+        $x_2_7 = "[+] heal: copy B restored" ascii //weight: 2
+        $x_2_8 = "[x] anti-debug: debugger present, standing down" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_12
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "UacStage --probe | --cleanup | --exec64=<cmd>   UAC stage probe / disarm / elevated run" wide //weight: 3
+        $x_3_2 = "channel: SILENT-EXEC (in-process client command engine -> hidden launch of the staged payload)" wide //weight: 3
+        $x_3_3 = "worm image not resolvable (no --worm-exe / --payload-file / staged Telemetry.exe)" wide //weight: 3
+        $x_2_4 = "rollback (restore pristine backups, remove the injected bridge)" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_13
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "24"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "vssadmin delete shadows /all /quiet >nul 2>&1" ascii //weight: 3
+        $x_3_2 = "wmic shadowcopy delete /nointeractive >nul 2>&1" ascii //weight: 3
+        $x_3_3 = "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SystemRestore\" /v DisableSR /t REG_DWORD /d 1 /f >nul 2>&1" ascii //weight: 3
+        $x_3_4 = "powershell -WindowStyle Hidden -Command \"Get-ComputerRestorePoint | Delete-ComputerRestorePoint -Confirm:$false\" >nul 2>&1" ascii //weight: 3
+        $x_2_5 = "Your documents, photos, databases, videos, source code and all important data are locked" wide //weight: 2
+        $x_2_6 = "with military-grade encryption (AES-256-GCM + RSA-2048)." wide //weight: 2
+        $x_2_7 = "The private key is stored only on our servers." wide //weight: 2
+        $x_2_8 = "If the timer reaches zero the private key will be permanently deleted and recovery will be impossible." wide //weight: 2
+        $x_2_9 = "AlvixLocker" wide //weight: 2
+        $x_2_10 = "AlvixEncrypted" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_14
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "BTC_WALLET" ascii //weight: 2
+        $x_2_2 = "ETH_WALLET" ascii //weight: 2
+        $x_2_3 = "LTC_WALLET" ascii //weight: 2
+        $x_2_4 = "DOGE_WALLET" ascii //weight: 2
+        $x_2_5 = "CF_UNICODETEXT" ascii //weight: 2
+        $x_2_6 = "WndProcHandler" ascii //weight: 2
+        $x_2_7 = "DogeRx" ascii //weight: 2
+        $x_1_8 = "RunKeyValue" ascii //weight: 1
+        $x_1_9 = "SystemRuntimeBroker.exe" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

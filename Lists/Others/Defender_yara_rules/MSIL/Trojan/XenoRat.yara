@@ -162,3 +162,38 @@ rule Trojan_MSIL_XenoRat_SLTR_2147941503_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XenoRat_AN_2147982327_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XenoRat.AN!MTB"
+        threat_id = "2147982327"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XenoRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "15"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "xeno rat client" ascii //weight: 1
+        $x_1_2 = "XenoManager" ascii //weight: 1
+        $x_1_3 = "XenoUpdateManager" ascii //weight: 1
+        $x_1_4 = "xeno_rat_client.Node+<AuthenticateAsync" ascii //weight: 1
+        $x_1_5 = "xeno_rat_client.Handler+<CreateSubSock" ascii //weight: 1
+        $x_1_6 = "xeno_rat_client.Handler+<GetAndSendInfo" ascii //weight: 1
+        $x_1_7 = "xeno_rat_client.Handler+<SendUpdateInfo" ascii //weight: 1
+        $x_1_8 = "xeno_rat_client.Utils+<AddToStartupAdmin" ascii //weight: 1
+        $x_1_9 = "xeno_rat_client.Utils+<RemoveStartup" ascii //weight: 1
+        $x_1_10 = "xeno_rat_client.Utils+<AddToStartupNonAdmin" ascii //weight: 1
+        $x_1_11 = "xeno_rat_client.SocketHandler+<ReceiveAsync" ascii //weight: 1
+        $x_1_12 = "xeno_rat_client.SocketHandler+<RecvAllAsync_ddos_safer" ascii //weight: 1
+        $x_1_13 = "xeno_rat_client.SocketHandler+<RecvAllAsync_ddos_unsafer" ascii //weight: 1
+        $x_1_14 = "xeno_rat_client.Utils+<Uninstall" ascii //weight: 1
+        $x_1_15 = "xeno_rat_client.Node+<Disconnect" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

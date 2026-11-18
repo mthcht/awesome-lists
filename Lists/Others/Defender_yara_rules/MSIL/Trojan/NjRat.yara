@@ -4133,3 +4133,70 @@ rule Trojan_MSIL_NjRat_PN_2147979202_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRat_SM_2147982317_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.SM!MTB"
+        threat_id = "2147982317"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {02 8e 69 8d ?? 00 00 01 0a 16 0b 2b 0e 06 07 02 07 91 ?? ?? 61 d2 9c 07 17 58 0b 07 02 8e 69 fe 04 0c 08 2d e8}  //weight: 7, accuracy: Low
+        $x_2_2 = "Decrypt" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRat_TM_2147982318_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.TM!MTB"
+        threat_id = "2147982318"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {7e 5f 00 00 04 02 7b 5e 00 00 04 03 59 6e 03 65 6a 61 ?? ?? ?? 00 00 6a 5f 18 63 d4 95 2a}  //weight: 7, accuracy: Low
+        $x_5_2 = {02 7b 1e 00 00 04 03 91 02 7b 1e 00 00 04 03 17 58 91 1e 62 61 2a}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRat_QM_2147982319_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRat.QM!MTB"
+        threat_id = "2147982319"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {11 07 16 fe 01 13 0c 11 0c 2c 10 00 06 12 06 28 ?? 01 00 0a 28 ?? 00 00 0a 0a 00 00 11 05 17 58 13 05 11 05 11 04}  //weight: 7, accuracy: Low
+        $x_2_2 = "CheckForStartCoonnect" ascii //weight: 2
+        $x_2_3 = "SchtasksAutoRun" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

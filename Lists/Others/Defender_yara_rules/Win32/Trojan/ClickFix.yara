@@ -17107,3 +17107,68 @@ rule Trojan_Win32_ClickFix_JV_2147982216_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_DLY_2147982331_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLY!MTB"
+        threat_id = "2147982331"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "echo fin') do for /f" wide //weight: 10
+        $x_1_2 = ") do call %" wide //weight: 1
+        $x_1_3 = ") do @%" wide //weight: 1
+        $x_1_4 = ") do %" wide //weight: 1
+        $x_1_5 = ") do echo %" wide //weight: 1
+        $n_11_6 = "OpenAI" wide //weight: -11
+        $n_11_7 = "deepseek" wide //weight: -11
+        $n_11_8 = "claude" wide //weight: -11
+        $n_11_9 = "codex" wide //weight: -11
+        $n_11_10 = "copilot" wide //weight: -11
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win32_ClickFix_DLZ_2147982332_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.DLZ!MTB"
+        threat_id = "2147982332"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "powershell" wide //weight: 1
+        $x_1_2 = "|?{$_.Name -match" wide //weight: 1
+        $x_1_3 = ")})[0].Name)('" wide //weight: 1
+        $x_1_4 = "?{$PSItem.Name -match" wide //weight: 1
+        $x_1_5 = "')|& ((Get-Command" wide //weight: 1
+        $n_5_6 = "OpenAI" wide //weight: -5
+        $n_5_7 = "deepseek" wide //weight: -5
+        $n_5_8 = "claude" wide //weight: -5
+        $n_5_9 = "codex" wide //weight: -5
+        $n_5_10 = "copilot" wide //weight: -5
+    condition:
+        (filesize < 20MB) and
+        (not (any of ($n*))) and
+        (all of ($x*))
+}
+

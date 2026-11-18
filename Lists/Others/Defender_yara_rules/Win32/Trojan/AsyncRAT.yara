@@ -602,3 +602,28 @@ rule Trojan_Win32_AsyncRAT_SKIP_2147967039_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRAT_2147982334_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT!atmn"
+        threat_id = "2147982334"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/create /f" wide //weight: 5
+        $x_10_3 = "\\AppData\\Roaming\\svchost.exe" wide //weight: 10
+        $x_7_4 = "/sc onlogon" wide //weight: 7
+        $x_5_5 = "/rl highest" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

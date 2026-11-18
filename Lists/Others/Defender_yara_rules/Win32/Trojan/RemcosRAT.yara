@@ -516,3 +516,30 @@ rule Trojan_Win32_RemcosRAT_RTT_2147973958_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_RemcosRAT_2147982336_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT!atmn"
+        threat_id = "2147982336"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "44"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/Create /F" wide //weight: 5
+        $x_7_3 = "DiskDiagnostic_Health_Audit" wide //weight: 7
+        $x_10_4 = "\\AppData\\Local\\Microsoft\\Windows\\DiskDiagnostic\\diskdiag.exe" wide //weight: 10
+        $x_7_5 = "/SC MINUTE" wide //weight: 7
+        $x_5_6 = "/MO 5" wide //weight: 5
+        $x_5_7 = "/RL HIGHEST" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
