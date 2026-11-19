@@ -1,2 +1,17 @@
 service_name,service_path,metadata_tool_name,metadata_tool_category,metadata_tool_type,metadata_severity,metadata_comment,metadata_reference
+PDQDeployRunner-*,,PDQ,Lateral Movement,greyware_tool,low,legitimate service (observed on clients) abused by attackers for Lateral Movement https://thedfirreport.com/2025/02/24/confluence-exploit-leads-to-lockbit-ransomware/,https://github.com/mthcht/awesome-lists
+winexesvc,,winexe,Lateral Movement,greyware_tool,low,https://www.kali.org/tools/winexe,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/winexe.csv
+csexecsvc,,csexec,Lateral Movement,offensive_tool,critical,https://github.com/malcomvetter/CSExec/blob/d6bd3f97e66dc65ccf64d9102a33379fdb769614/csexecsvc/Program.cs#L13,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/csexec.csv
+maint,,impacketremoteshell,Lateral Movement,offensive_tool,high,default service name installed https://github.com/trustedsec/The_Shelf/blob/feaece2bf00ba0ff46b39cadbd06803be1114d7a/POC/impacketremoteshell/RemoteMaint/main.cpp#L108,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/impacketremoteshell.csv
+*sharpsploit*,,sharpsploit,Lateral Movement,offensive_tool,critical,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/SharpSploit.csv,https://github.com/cobbr/SharpSploit/blob/c16931ddb8cd2335e0bd26feb9aaa35f449d48db/SharpSploit/LateralMovement/SCM.cs#L209
+chopper,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
+final_seg,,TChopper,Lateral Movement,offensive_tool,critical,https://github.com/lawrenceamer/TChopper/blob/f7383a36af813019ebefb70803dc82a842ed9273/chopper.lpr#L237C25-L237C34,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/R-T/Tchopper.csv
 AteraAgent,,ateragent,RMM,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/A-C/Atera.csv
+BTOBTO,,smbExec,Lateral Movement,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/I-K/impacket.csv
+PAExec-*,,paexec,Lateral Movement,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/PAExec.csv
+PAExec,,paexec,Lateral Movement,offensive_tool,critical,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/PAExec.csv
+PSEXESVC,*PSEXESVC.exe*,psexec,Lateral Movement,greyware_tool,high,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/O-Q/psexec.csv
+RemCom Service,,RemCom.exe,Lateral movement,offensive_tool,high,,https://github.com/kavika13/RemCom
+WCESERVICE,,wce,Lateral Movement,greyware_tool,medium,,https://github.com/mthcht/ThreatHunting-Keywords/blob/main/tools/U-W/wce.csv
+Service_*,,PsMapExec,Lateral Movement,offensive_tool,critical,PsMapExec creating services regex detection: Service_[A-Za-z]{16},https://github.com/The-Viper-One/PsMapExec/blob/0ae7a6967c07bf3ebf555e665d4c43ce86c6addf/PsMapExec.ps1#L1488
+RandomService,,Invoke-SMBRemoting,Lateral Movement,offensive_tool,critical,Invoke-SMBRemoting service example,https://github.com/Leo4j/Amnesiac/blob/216ba3a280bf49ea3f5b1afab80f843bbde3548d/Tools/Invoke-SMBRemoting.ps1#L33C99-L33C113
