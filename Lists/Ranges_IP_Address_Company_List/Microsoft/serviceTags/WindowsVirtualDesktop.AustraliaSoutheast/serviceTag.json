@@ -2,13 +2,14 @@
     "name": "WindowsVirtualDesktop.AustraliaSoutheast",
     "id": "WindowsVirtualDesktop.AustraliaSoutheast",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "australiasoutheast",
         "regionId": 4,
         "platform": "Azure",
         "systemService": "WindowsVirtualDesktop",
         "addressPrefixes": [
             "40.64.146.64/28",
+            "40.64.150.128/27",
             "2603:1061:2010:1::/117"
         ],
         "networkFeatures": null

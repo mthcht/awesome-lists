@@ -1,0 +1,16 @@
+{
+    "name": "AzureSecurityCenter.DenmarkEast",
+    "id": "AzureSecurityCenter.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "9.205.223.96/27",
+            "9.205.223.128/29"
+        ],
+        "networkFeatures": null
+    }
+}

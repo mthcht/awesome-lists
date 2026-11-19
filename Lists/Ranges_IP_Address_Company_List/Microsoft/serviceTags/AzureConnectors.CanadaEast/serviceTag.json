@@ -2,7 +2,7 @@
     "name": "AzureConnectors.CanadaEast",
     "id": "AzureConnectors.CanadaEast",
     "properties": {
-        "changeNumber": 7,
+        "changeNumber": 8,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -17,6 +17,7 @@
             "52.242.30.112/32",
             "52.242.35.152/32",
             "52.242.36.40/32",
+            "145.191.174.192/26",
             "2603:1030:1005:3::640/122",
             "2603:1030:1005:402::180/122"
         ],

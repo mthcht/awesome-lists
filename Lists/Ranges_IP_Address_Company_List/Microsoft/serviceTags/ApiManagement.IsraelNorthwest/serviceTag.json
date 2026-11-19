@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.IsraelNorthwest",
+    "id": "ApiManagement.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "20.217.251.176/28",
+            "2603:1040:1702::520/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

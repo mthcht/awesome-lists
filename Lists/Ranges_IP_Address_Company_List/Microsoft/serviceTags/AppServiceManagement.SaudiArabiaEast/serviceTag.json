@@ -1,0 +1,18 @@
+{
+    "name": "AppServiceManagement.SaudiArabiaEast",
+    "id": "AppServiceManagement.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "48.197.86.192/26",
+            "2603:1040:1a02:2::3c0/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

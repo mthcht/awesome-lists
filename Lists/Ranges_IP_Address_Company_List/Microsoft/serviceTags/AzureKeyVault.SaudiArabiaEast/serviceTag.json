@@ -1,0 +1,23 @@
+{
+    "name": "AzureKeyVault.SaudiArabiaEast",
+    "id": "AzureKeyVault.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "48.197.81.216/30",
+            "48.197.81.224/29",
+            "2603:1040:1a02:1::428/125",
+            "2603:1040:1a02:400::80/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

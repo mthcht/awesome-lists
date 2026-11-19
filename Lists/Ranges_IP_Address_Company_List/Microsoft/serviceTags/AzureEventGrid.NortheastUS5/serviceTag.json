@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.NortheastUS5",
+    "id": "AzureEventGrid.NortheastUS5",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "172.194.65.128/25",
+            "172.194.96.0/21",
+            "2603:1030:1602::480/121"
+        ],
+        "networkFeatures": null
+    }
+}

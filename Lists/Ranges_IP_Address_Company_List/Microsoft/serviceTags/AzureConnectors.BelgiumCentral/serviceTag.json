@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.BelgiumCentral",
+    "id": "AzureConnectors.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "9.160.51.0/26",
+            "2603:1020:1502:1::5c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

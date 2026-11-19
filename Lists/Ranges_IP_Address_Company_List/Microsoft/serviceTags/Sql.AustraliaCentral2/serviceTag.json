@@ -2,7 +2,7 @@
     "name": "Sql.AustraliaCentral2",
     "id": "Sql.AustraliaCentral2",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "australiacentral2",
         "regionId": 59,
         "platform": "Azure",
@@ -15,6 +15,9 @@
             "20.53.56.64/27",
             "20.53.56.128/26",
             "20.167.129.0/25",
+            "20.167.180.200/30",
+            "20.167.181.0/26",
+            "20.167.181.64/27",
             "2603:1010:404::280/123",
             "2603:1010:404:1::200/121",
             "2603:1010:404:2::580/121",

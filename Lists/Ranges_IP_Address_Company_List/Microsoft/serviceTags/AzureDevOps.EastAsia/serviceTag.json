@@ -2,13 +2,16 @@
     "name": "AzureDevOps.EastAsia",
     "id": "AzureDevOps.EastAsia",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "eastasia",
         "regionId": 1,
         "platform": "Azure",
         "systemService": "AzureDevOps",
         "addressPrefixes": [
-            "20.189.107.0/24"
+            "20.2.105.224/30",
+            "20.189.107.0/24",
+            "2603:1040:207:f::700/120",
+            "2603:1040:207:1000::2/128"
         ],
         "networkFeatures": null
     }

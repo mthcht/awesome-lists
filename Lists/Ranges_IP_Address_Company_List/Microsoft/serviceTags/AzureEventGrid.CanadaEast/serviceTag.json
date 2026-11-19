@@ -2,7 +2,7 @@
     "name": "AzureEventGrid.CanadaEast",
     "id": "AzureEventGrid.CanadaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -11,6 +11,7 @@
             "40.89.18.0/25",
             "52.139.85.16/28",
             "52.139.85.32/28",
+            "145.191.128.0/21",
             "2603:1030:1005::380/121"
         ],
         "networkFeatures": null

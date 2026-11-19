@@ -2,7 +2,7 @@
     "name": "AzureArcInfrastructure.TaiwanNorth",
     "id": "AzureArcInfrastructure.TaiwanNorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "taiwannorth",
         "regionId": 8,
         "platform": "Azure",
@@ -11,8 +11,12 @@
             "51.53.41.76/30",
             "51.53.43.104/29",
             "51.53.43.112/31",
+            "51.53.51.228/31",
             "51.53.110.138/32",
-            "2603:1040:1302:2::620/124"
+            "70.157.200.40/29",
+            "70.157.200.208/30",
+            "2603:1040:1302:2::620/124",
+            "2603:1040:1302:b::4ec/126"
         ],
         "networkFeatures": null
     }

@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.IsraelNorthwest",
+    "id": "PowerPlatformPlex.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "51.4.230.0/25",
+            "2603:1061:2004:a100::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "ServiceFabric.EastUS3",
+    "id": "ServiceFabric.EastUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "51.57.136.216/29",
+            "134.138.96.8/30",
+            "2603:1030:1402:4::780/125",
+            "2603:1030:1402:400::18/125"
+        ],
+        "networkFeatures": null
+    }
+}

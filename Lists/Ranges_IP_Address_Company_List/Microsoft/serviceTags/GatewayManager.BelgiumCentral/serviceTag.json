@@ -1,0 +1,19 @@
+{
+    "name": "GatewayManager.BelgiumCentral",
+    "id": "GatewayManager.BelgiumCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "9.160.40.64/26",
+            "9.160.171.112/28",
+            "2603:1020:1502::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

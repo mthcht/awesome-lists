@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.SouthIndia",
     "id": "AzureResourceManager.SouthIndia",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "southindia",
         "regionId": 22,
         "platform": "Azure",
@@ -11,9 +11,11 @@
             "40.78.196.32/28",
             "40.78.198.0/23",
             "52.172.114.0/23",
+            "74.224.241.226/31",
             "2603:1040:c06::6c0/122",
             "2603:1040:c06:6::/120",
-            "2603:1040:c06:402::280/122"
+            "2603:1040:c06:402::280/122",
+            "2603:1040:c06:800::34/127"
         ],
         "networkFeatures": null
     }

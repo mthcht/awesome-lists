@@ -1,0 +1,21 @@
+{
+    "name": "DataFactory.SoutheastUS3",
+    "id": "DataFactory.SoutheastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus3",
+        "regionId": 105,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "74.7.54.0/23",
+            "74.7.82.208/28",
+            "2603:1030:1302:2::280/121",
+            "2603:1030:1302:400::220/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

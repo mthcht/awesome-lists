@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.ChileCentral",
+    "id": "PowerPlatformPlex.ChileCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "57.156.98.128/25",
+            "2603:1061:2004:cc00::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

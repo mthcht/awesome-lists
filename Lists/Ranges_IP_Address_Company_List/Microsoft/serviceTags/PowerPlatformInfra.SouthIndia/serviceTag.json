@@ -2,12 +2,13 @@
     "name": "PowerPlatformInfra.SouthIndia",
     "id": "PowerPlatformInfra.SouthIndia",
     "properties": {
-        "changeNumber": 6,
+        "changeNumber": 7,
         "region": "southindia",
         "regionId": 22,
         "platform": "Azure",
         "systemService": "PowerPlatformInfra",
         "addressPrefixes": [
+            "4.247.0.0/25",
             "20.40.1.97/32",
             "20.40.1.101/32",
             "20.40.1.191/32",

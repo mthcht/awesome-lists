@@ -2,7 +2,7 @@
     "name": "AzureDataExplorerManagement.EastUS",
     "id": "AzureDataExplorerManagement.EastUS",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 7,
         "region": "eastus",
         "regionId": 32,
         "platform": "Azure",
@@ -10,6 +10,8 @@
         "addressPrefixes": [
             "20.185.100.27/32",
             "40.71.13.176/28",
+            "48.195.238.128/28",
+            "48.202.151.64/28",
             "52.224.146.56/32",
             "2603:1030:210::600/121",
             "2603:1030:210:402::150/124"

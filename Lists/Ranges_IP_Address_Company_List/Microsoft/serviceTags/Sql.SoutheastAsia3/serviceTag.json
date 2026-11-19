@@ -1,0 +1,23 @@
+{
+    "name": "Sql.SoutheastAsia3",
+    "id": "Sql.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "48.198.102.64/26",
+            "48.198.102.128/26",
+            "2603:1040:1b02:3::3e0/123",
+            "2603:1040:1b02:3::500/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "AzureDevOps.SwedenSouth",
+    "id": "AzureDevOps.SwedenSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "swedensouth",
+        "regionId": 75,
+        "platform": "Azure",
+        "systemService": "AzureDevOps",
+        "addressPrefixes": [
+            "20.91.56.16/31",
+            "20.91.91.32/28",
+            "2603:1020:1104:8::118/125",
+            "2603:1020:1104:800::2/128"
+        ],
+        "networkFeatures": null
+    }
+}

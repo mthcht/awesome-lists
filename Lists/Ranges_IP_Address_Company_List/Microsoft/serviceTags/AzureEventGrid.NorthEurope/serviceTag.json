@@ -2,12 +2,15 @@
     "name": "AzureEventGrid.NorthEurope",
     "id": "AzureEventGrid.NorthEurope",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "northeurope",
         "regionId": 17,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
+            "4.209.102.128/25",
+            "4.209.136.0/22",
+            "4.209.140.0/23",
             "20.38.87.0/25",
             "20.191.59.128/28",
             "20.191.59.176/28",

@@ -1,0 +1,27 @@
+{
+    "name": "PowerBI.IsraelNorthwest",
+    "id": "PowerBI.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "51.4.131.240/31",
+            "51.4.131.244/30",
+            "51.4.131.248/29",
+            "51.4.139.80/28",
+            "51.4.139.96/28",
+            "51.4.148.64/27",
+            "2603:1040:1702:2::1a0/123",
+            "2603:1040:1702:2::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

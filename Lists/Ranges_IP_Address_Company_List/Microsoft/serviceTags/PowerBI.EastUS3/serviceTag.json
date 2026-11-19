@@ -1,0 +1,24 @@
+{
+    "name": "PowerBI.EastUS3",
+    "id": "PowerBI.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "134.138.76.126/31",
+            "134.138.79.84/30",
+            "134.138.82.0/29",
+            "2603:1030:1402:2::3e0/123",
+            "2603:1030:1402:2::440/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

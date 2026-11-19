@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.MalaysiaWest",
+    "id": "AzureSecurityCenter.MalaysiaWest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "85.211.140.136/30",
+            "85.211.143.176/28",
+            "85.211.143.192/26",
+            "85.211.232.0/24",
+            "85.211.233.0/25",
+            "85.211.233.128/27"
+        ],
+        "networkFeatures": null
+    }
+}

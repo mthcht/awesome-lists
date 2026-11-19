@@ -1,0 +1,24 @@
+{
+    "name": "AzureContainerRegistry.SaudiArabiaEast",
+    "id": "AzureContainerRegistry.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "48.197.76.192/26",
+            "48.197.88.128/26",
+            "2603:1040:1a02::700/125",
+            "2603:1040:1a02:2::580/121",
+            "2603:1040:1a02:400::8/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

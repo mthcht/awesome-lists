@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.IndiaSouthCentral",
+    "id": "BatchNodeManagement.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "172.198.84.0/27",
+            "2603:1040:1904::500/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

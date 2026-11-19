@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.NewZealandNorth",
+    "id": "PowerPlatformPlex.NewZealandNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "172.204.242.128/26",
+            "2603:1061:2004:b800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.TaiwanNorthwest",
+    "id": "PowerPlatformPlex.TaiwanNorthwest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "taiwannorthwest",
+        "regionId": 96,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "57.170.0.128/25",
+            "2603:1061:2004:dc80::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

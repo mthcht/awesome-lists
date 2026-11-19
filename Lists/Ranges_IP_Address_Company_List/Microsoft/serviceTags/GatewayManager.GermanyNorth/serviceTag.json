@@ -2,12 +2,13 @@
     "name": "GatewayManager.GermanyNorth",
     "id": "GatewayManager.GermanyNorth",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "germanyn",
         "regionId": 72,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "20.170.251.160/27",
             "51.116.48.72/29",
             "51.116.59.32/29",
             "51.116.77.96/27",

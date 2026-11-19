@@ -1,0 +1,17 @@
+{
+    "name": "AzureArcInfrastructure.IndiaSouthCentral",
+    "id": "AzureArcInfrastructure.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "172.198.94.164/30",
+            "172.198.114.104/32",
+            "2603:1040:1904:2::380/124"
+        ],
+        "networkFeatures": null
+    }
+}

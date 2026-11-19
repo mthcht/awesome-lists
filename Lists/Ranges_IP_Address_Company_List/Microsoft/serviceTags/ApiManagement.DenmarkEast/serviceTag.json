@@ -1,0 +1,22 @@
+{
+    "name": "ApiManagement.DenmarkEast",
+    "id": "ApiManagement.DenmarkEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "9.205.13.20/30",
+            "9.205.35.176/28",
+            "2603:1020:1602::520/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

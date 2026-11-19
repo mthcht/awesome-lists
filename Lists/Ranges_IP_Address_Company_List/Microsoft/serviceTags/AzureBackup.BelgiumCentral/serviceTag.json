@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.BelgiumCentral",
+    "id": "AzureBackup.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "9.160.44.0/26",
+            "9.160.58.48/28",
+            "2603:1020:1502::600/121"
+        ],
+        "networkFeatures": null
+    }
+}

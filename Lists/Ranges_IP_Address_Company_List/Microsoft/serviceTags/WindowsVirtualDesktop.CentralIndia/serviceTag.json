@@ -2,7 +2,7 @@
     "name": "WindowsVirtualDesktop.CentralIndia",
     "id": "WindowsVirtualDesktop.CentralIndia",
     "properties": {
-        "changeNumber": 10,
+        "changeNumber": 11,
         "region": "centralindia",
         "regionId": 21,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "40.64.144.232/29",
             "40.64.145.80/28",
+            "40.64.148.192/27",
             "2603:1061:2010:5::/117"
         ],
         "networkFeatures": null

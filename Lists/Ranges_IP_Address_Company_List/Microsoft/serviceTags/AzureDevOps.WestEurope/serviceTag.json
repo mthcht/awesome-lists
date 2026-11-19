@@ -2,13 +2,17 @@
     "name": "AzureDevOps.WestEurope",
     "id": "AzureDevOps.WestEurope",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "westeurope",
         "regionId": 18,
         "platform": "Azure",
         "systemService": "AzureDevOps",
         "addressPrefixes": [
-            "40.74.28.0/23"
+            "40.74.28.0/23",
+            "172.199.233.80/28",
+            "172.199.233.128/26",
+            "2603:1020:206:20::600/119",
+            "2603:1020:206:1000::a/128"
         ],
         "networkFeatures": null
     }

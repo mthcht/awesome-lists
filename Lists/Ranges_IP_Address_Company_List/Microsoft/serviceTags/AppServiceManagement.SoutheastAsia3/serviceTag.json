@@ -1,0 +1,18 @@
+{
+    "name": "AppServiceManagement.SoutheastAsia3",
+    "id": "AppServiceManagement.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureAppServiceManagement",
+        "addressPrefixes": [
+            "48.198.94.192/26",
+            "2603:1040:1b02:2::2c0/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

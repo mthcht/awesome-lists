@@ -2,7 +2,7 @@
     "name": "AzureSignalR.CanadaEast",
     "id": "AzureSignalR.CanadaEast",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 7,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -11,7 +11,9 @@
             "4.229.80.192/27",
             "40.69.110.128/27",
             "52.139.107.96/27",
-            "2603:1030:1005:2::100/120"
+            "145.191.180.128/26",
+            "2603:1030:1005:2::100/120",
+            "2603:1030:1005:13::540/122"
         ],
         "networkFeatures": null
     }

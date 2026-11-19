@@ -2,7 +2,7 @@
     "name": "AzureBackup.WestEurope",
     "id": "AzureBackup.WestEurope",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "westeurope",
         "regionId": 18,
         "platform": "Azure",
@@ -16,6 +16,7 @@
             "20.61.103.0/26",
             "52.236.187.0/27",
             "52.236.187.128/25",
+            "2603:1020:206:23::180/121",
             "2603:1020:206:402::200/121",
             "2603:1020:206:802::180/121",
             "2603:1020:206:c02::180/121"

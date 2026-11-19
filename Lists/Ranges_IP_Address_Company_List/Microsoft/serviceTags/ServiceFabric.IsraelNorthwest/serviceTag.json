@@ -1,0 +1,18 @@
+{
+    "name": "ServiceFabric.IsraelNorthwest",
+    "id": "ServiceFabric.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "51.4.160.12/30",
+            "51.4.224.24/29",
+            "2603:1040:1702:5::360/125",
+            "2603:1040:1702:400::18/125"
+        ],
+        "networkFeatures": null
+    }
+}

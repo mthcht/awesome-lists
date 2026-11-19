@@ -2,13 +2,14 @@
     "name": "GatewayManager.MexicoCentral",
     "id": "GatewayManager.MexicoCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "mexicocentral",
         "regionId": 53,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "158.23.96.64/26",
+            "172.195.113.144/28",
             "2603:1030:702::40/122"
         ],
         "networkFeatures": [

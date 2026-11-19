@@ -2,12 +2,14 @@
     "name": "PowerPlatformPlex.EastAsia",
     "id": "PowerPlatformPlex.EastAsia",
     "properties": {
-        "changeNumber": 6,
+        "changeNumber": 7,
         "region": "eastasia",
         "regionId": 1,
         "platform": "Azure",
         "systemService": "PowerPlatformPlex",
         "addressPrefixes": [
+            "4.144.51.0/24",
+            "4.144.52.0/25",
             "4.192.252.56/29",
             "20.205.49.80/29",
             "20.205.49.88/30",

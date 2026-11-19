@@ -2,7 +2,7 @@
     "name": "AzureBackup.CentralUS",
     "id": "AzureBackup.CentralUS",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "centralus",
         "regionId": 31,
         "platform": "Azure",
@@ -15,6 +15,7 @@
             "20.44.8.64/26",
             "52.182.139.64/27",
             "52.182.139.128/26",
+            "2603:1030:10:20::300/121",
             "2603:1030:10:402::200/121",
             "2603:1030:10:802::180/121",
             "2603:1030:10:c02::180/121"

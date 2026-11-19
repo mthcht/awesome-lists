@@ -2,7 +2,7 @@
     "name": "ApiManagement.WestUS2",
     "id": "ApiManagement.WestUS2",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "westus2",
         "regionId": 38,
         "platform": "Azure",
@@ -15,6 +15,7 @@
             "20.83.221.86/31",
             "51.143.127.203/32",
             "52.183.115.244/32",
+            "74.146.135.140/30",
             "2603:1030:c06:400::940/124"
         ],
         "networkFeatures": [

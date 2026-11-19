@@ -2,13 +2,16 @@
     "name": "ApiManagement.AustraliaSoutheast",
     "id": "ApiManagement.AustraliaSoutheast",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "australiasoutheast",
         "regionId": 4,
         "platform": "Azure",
         "systemService": "AzureApiManagement",
         "addressPrefixes": [
             "4.199.83.96/28",
+            "4.200.209.92/30",
+            "4.200.209.192/29",
+            "4.200.209.200/31",
             "13.77.50.68/31",
             "13.77.52.224/28",
             "20.40.160.107/32",

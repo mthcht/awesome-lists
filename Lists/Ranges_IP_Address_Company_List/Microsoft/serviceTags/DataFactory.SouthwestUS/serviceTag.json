@@ -1,0 +1,21 @@
+{
+    "name": "DataFactory.SouthwestUS",
+    "id": "DataFactory.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "48.219.206.0/23",
+            "48.219.234.208/28",
+            "2603:1030:1202:2::280/121",
+            "2603:1030:1202:400::320/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

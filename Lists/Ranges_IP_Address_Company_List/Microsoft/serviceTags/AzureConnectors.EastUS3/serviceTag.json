@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.EastUS3",
+    "id": "AzureConnectors.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "134.138.76.128/26",
+            "2603:1030:1402:1::7c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

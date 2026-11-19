@@ -2,12 +2,13 @@
     "name": "PowerPlatformInfra.CentralUS",
     "id": "PowerPlatformInfra.CentralUS",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "centralus",
         "regionId": 31,
         "platform": "Azure",
         "systemService": "PowerPlatformInfra",
         "addressPrefixes": [
+            "20.15.220.0/25",
             "172.212.241.0/24",
             "172.212.242.0/25",
             "172.212.243.0/24",

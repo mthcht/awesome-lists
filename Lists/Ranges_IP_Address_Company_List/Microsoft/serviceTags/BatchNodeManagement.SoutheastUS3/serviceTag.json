@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.SoutheastUS3",
+    "id": "BatchNodeManagement.SoutheastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus3",
+        "regionId": 105,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "74.7.41.64/27",
+            "2603:1030:1302::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

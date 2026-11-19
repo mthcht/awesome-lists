@@ -2,15 +2,13 @@
     "name": "ServiceBus.SouthAfricaNorth",
     "id": "ServiceBus.SouthAfricaNorth",
     "properties": {
-        "changeNumber": 7,
+        "changeNumber": 8,
         "region": "southafricanorth",
         "regionId": 82,
         "platform": "Azure",
         "systemService": "AzureServiceBus",
         "addressPrefixes": [
             "4.222.197.128/25",
-            "40.127.1.193/32",
-            "40.127.7.243/32",
             "102.37.72.0/26",
             "102.37.163.128/25",
             "102.133.122.128/29",

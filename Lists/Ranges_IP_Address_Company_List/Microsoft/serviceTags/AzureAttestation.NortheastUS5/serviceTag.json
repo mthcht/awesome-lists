@@ -1,0 +1,21 @@
+{
+    "name": "AzureAttestation.NortheastUS5",
+    "id": "AzureAttestation.NortheastUS5",
+    "properties": {
+        "changeNumber": 2,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "74.149.5.108/30",
+            "74.149.6.40/29",
+            "172.194.64.20/30",
+            "172.194.90.220/30",
+            "172.194.91.24/29",
+            "2603:1030:1602::7a0/124",
+            "2603:1030:1602:5::530/124"
+        ],
+        "networkFeatures": null
+    }
+}

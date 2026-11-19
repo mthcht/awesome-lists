@@ -2,7 +2,7 @@
     "name": "Storage.AustriaEast",
     "id": "Storage.AustriaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "austriaeast",
         "regionId": 95,
         "platform": "Azure",
@@ -12,6 +12,8 @@
             "20.33.245.0/24",
             "57.150.117.0/24",
             "57.150.120.0/22",
+            "135.130.188.0/23",
+            "145.190.128.0/24",
             "2603:1020:101::/48"
         ],
         "networkFeatures": [

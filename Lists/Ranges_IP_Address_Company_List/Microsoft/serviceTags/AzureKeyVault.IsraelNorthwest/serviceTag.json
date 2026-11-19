@@ -1,0 +1,24 @@
+{
+    "name": "AzureKeyVault.IsraelNorthwest",
+    "id": "AzureKeyVault.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "20.217.255.24/30",
+            "51.4.136.248/29",
+            "51.4.160.60/30",
+            "2603:1040:1702:1::1c8/125",
+            "2603:1040:1702:400::48/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

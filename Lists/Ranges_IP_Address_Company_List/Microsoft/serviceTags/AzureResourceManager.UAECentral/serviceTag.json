@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.UAECentral",
     "id": "AzureResourceManager.UAECentral",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "uaecentral",
         "regionId": 61,
         "platform": "Azure",
@@ -11,9 +11,11 @@
             "20.37.76.48/28",
             "20.37.78.0/23",
             "20.45.88.0/23",
+            "20.216.121.86/31",
             "2603:1040:b04::6c0/122",
             "2603:1040:b04:5::100/120",
-            "2603:1040:b04:402::280/122"
+            "2603:1040:b04:402::280/122",
+            "2603:1040:b04:c00::4/127"
         ],
         "networkFeatures": null
     }

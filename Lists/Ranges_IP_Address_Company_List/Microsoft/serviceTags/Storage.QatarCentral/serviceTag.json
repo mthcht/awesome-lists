@@ -2,7 +2,7 @@
     "name": "Storage.QatarCentral",
     "id": "Storage.QatarCentral",
     "properties": {
-        "changeNumber": 6,
+        "changeNumber": 7,
         "region": "qatarcentral",
         "regionId": 84,
         "platform": "Azure",
@@ -15,6 +15,7 @@
             "20.209.2.0/23",
             "20.209.54.0/23",
             "20.209.202.0/23",
+            "145.190.131.0/24",
             "2603:1040:1004::/48"
         ],
         "networkFeatures": [

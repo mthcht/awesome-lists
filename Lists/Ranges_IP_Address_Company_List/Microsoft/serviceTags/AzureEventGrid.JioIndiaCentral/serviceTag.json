@@ -2,13 +2,15 @@
     "name": "AzureEventGrid.JioIndiaCentral",
     "id": "AzureEventGrid.JioIndiaCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "jioindiacentral",
         "regionId": 64,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
             "20.192.228.0/25",
+            "20.207.28.0/22",
+            "20.207.32.0/22",
             "2603:1040:1104::280/121"
         ],
         "networkFeatures": null

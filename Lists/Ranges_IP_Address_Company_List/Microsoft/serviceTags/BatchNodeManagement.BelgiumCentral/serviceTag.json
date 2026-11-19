@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.BelgiumCentral",
+    "id": "BatchNodeManagement.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "9.160.41.64/27",
+            "2603:1020:1502::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

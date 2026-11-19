@@ -1,0 +1,16 @@
+{
+    "name": "PowerQueryOnline.DenmarkEast",
+    "id": "PowerQueryOnline.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "PowerQueryOnline",
+        "addressPrefixes": [
+            "9.205.32.40/29",
+            "2603:1020:1602::1c0/123"
+        ],
+        "networkFeatures": null
+    }
+}

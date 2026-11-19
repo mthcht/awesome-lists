@@ -2,7 +2,7 @@
     "name": "PowerPlatformInfra.SwitzerlandWest",
     "id": "PowerPlatformInfra.SwitzerlandWest",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "switzerlandw",
         "regionId": 67,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "20.199.206.120/29",
             "20.199.207.48/28",
+            "20.199.234.128/25",
             "51.107.96.36/32",
             "51.107.96.48/29",
             "51.107.96.104/32",

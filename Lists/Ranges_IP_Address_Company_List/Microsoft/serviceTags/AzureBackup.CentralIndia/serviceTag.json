@@ -2,12 +2,13 @@
     "name": "AzureBackup.CentralIndia",
     "id": "AzureBackup.CentralIndia",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "centralindia",
         "regionId": 21,
         "platform": "Azure",
         "systemService": "AzureBackup",
         "addressPrefixes": [
+            "4.188.125.0/26",
             "20.192.44.128/26",
             "20.192.99.80/28",
             "20.192.99.128/26",

@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.PolandCentral",
+    "id": "AzureSecurityCenter.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "20.215.122.24/30",
+            "20.215.122.32/27",
+            "20.215.122.64/26",
+            "20.215.123.0/24",
+            "20.215.124.0/25",
+            "20.215.124.128/28"
+        ],
+        "networkFeatures": null
+    }
+}

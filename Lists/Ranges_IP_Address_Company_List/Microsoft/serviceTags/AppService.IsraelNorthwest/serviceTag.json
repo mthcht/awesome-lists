@@ -1,0 +1,21 @@
+{
+    "name": "AppService.IsraelNorthwest",
+    "id": "AppService.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "51.4.130.0/24",
+            "2603:1040:1702:1::600/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

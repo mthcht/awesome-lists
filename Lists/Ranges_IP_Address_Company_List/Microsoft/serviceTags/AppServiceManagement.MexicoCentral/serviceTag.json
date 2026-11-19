@@ -2,12 +2,13 @@
     "name": "AppServiceManagement.MexicoCentral",
     "id": "AppServiceManagement.MexicoCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "mexicocentral",
         "regionId": 53,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
+            "68.155.250.0/29",
             "158.23.114.64/26",
             "2603:1030:702:2::7c0/123"
         ],

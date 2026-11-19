@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.SouthwestUS",
+    "id": "AzureDigitalTwins.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "48.219.195.192/27",
+            "48.219.208.240/29",
+            "2603:1030:1202::580/121"
+        ],
+        "networkFeatures": null
+    }
+}

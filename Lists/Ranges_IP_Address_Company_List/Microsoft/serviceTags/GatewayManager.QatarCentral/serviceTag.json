@@ -2,13 +2,14 @@
     "name": "GatewayManager.QatarCentral",
     "id": "GatewayManager.QatarCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "qatarcentral",
         "regionId": 84,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "20.21.32.64/26",
+            "20.173.62.208/28",
             "2603:1040:1002::80/122"
         ],
         "networkFeatures": [

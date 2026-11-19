@@ -2,7 +2,7 @@
     "name": "AzureContainerRegistry.MalaysiaSouth",
     "id": "AzureContainerRegistry.MalaysiaSouth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "malaysiasouth",
         "regionId": 98,
         "platform": "Azure",
@@ -14,6 +14,7 @@
             "20.17.192.128/26",
             "2603:1040:1503::540/125",
             "2603:1040:1503:3::4c0/122",
+            "2603:1040:1503:6::/121",
             "2603:1040:1503:400::48/125",
             "2603:1040:1503:400::280/121"
         ],

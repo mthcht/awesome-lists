@@ -1,0 +1,21 @@
+{
+    "name": "AppService.EastUS3",
+    "id": "AppService.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "134.138.77.0/24",
+            "2603:1030:1402:2::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

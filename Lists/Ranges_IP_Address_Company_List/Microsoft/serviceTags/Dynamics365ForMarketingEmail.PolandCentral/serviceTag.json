@@ -1,0 +1,20 @@
+{
+    "name": "Dynamics365ForMarketingEmail.PolandCentral",
+    "id": "Dynamics365ForMarketingEmail.PolandCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "polandcentral",
+        "regionId": 52,
+        "platform": "Azure",
+        "systemService": "Dynamics365ForMarketingEmail",
+        "addressPrefixes": [
+            "74.153.1.160/27"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

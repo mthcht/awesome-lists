@@ -1,0 +1,18 @@
+{
+    "name": "AzureDevOps.UKWest",
+    "id": "AzureDevOps.UKWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "ukwest",
+        "regionId": 28,
+        "platform": "Azure",
+        "systemService": "AzureDevOps",
+        "addressPrefixes": [
+            "172.186.108.192/26",
+            "172.187.17.104/31",
+            "2603:1020:605:c::100/125",
+            "2603:1020:605:800::a/128"
+        ],
+        "networkFeatures": null
+    }
+}

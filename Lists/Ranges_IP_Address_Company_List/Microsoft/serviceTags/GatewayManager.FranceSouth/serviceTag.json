@@ -2,13 +2,14 @@
     "name": "GatewayManager.FranceSouth",
     "id": "GatewayManager.FranceSouth",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "southfrance",
         "regionId": 20,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "40.79.178.88/29",
+            "40.80.105.224/27",
             "40.82.236.2/32",
             "40.82.236.13/32",
             "51.105.88.72/29",

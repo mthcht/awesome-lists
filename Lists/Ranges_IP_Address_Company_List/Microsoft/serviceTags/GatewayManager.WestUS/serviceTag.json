@@ -2,7 +2,7 @@
     "name": "GatewayManager.WestUS",
     "id": "GatewayManager.WestUS",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "westus",
         "regionId": 37,
         "platform": "Azure",
@@ -13,6 +13,7 @@
             "20.189.181.8/32",
             "40.82.248.240/29",
             "40.112.242.168/29",
+            "48.195.69.64/26",
             "2603:1030:a07::40/122"
         ],
         "networkFeatures": [

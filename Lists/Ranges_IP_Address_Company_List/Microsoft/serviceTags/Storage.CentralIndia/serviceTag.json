@@ -2,7 +2,7 @@
     "name": "Storage.CentralIndia",
     "id": "Storage.CentralIndia",
     "properties": {
-        "changeNumber": 11,
+        "changeNumber": 13,
         "region": "centralindia",
         "regionId": 21,
         "platform": "Azure",
@@ -28,6 +28,8 @@
             "104.211.109.32/27",
             "104.211.109.80/28",
             "104.211.109.96/28",
+            "135.130.174.0/23",
+            "145.190.158.0/24",
             "2603:1040:a07::/48"
         ],
         "networkFeatures": [

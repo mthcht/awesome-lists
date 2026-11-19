@@ -1,0 +1,23 @@
+{
+    "name": "MicrosoftContainerRegistry.NortheastUS5",
+    "id": "MicrosoftContainerRegistry.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "172.194.86.160/29",
+            "172.194.112.104/29",
+            "2603:1030:1602:3::3b8/125",
+            "2603:1030:1602:400::10/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

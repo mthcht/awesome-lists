@@ -1,0 +1,21 @@
+{
+    "name": "EventHub.EastUS3",
+    "id": "EventHub.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "134.138.72.0/24",
+            "2603:1030:1402:1::200/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

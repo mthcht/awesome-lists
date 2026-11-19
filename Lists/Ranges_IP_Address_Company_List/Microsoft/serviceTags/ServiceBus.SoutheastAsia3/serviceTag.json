@@ -1,0 +1,19 @@
+{
+    "name": "ServiceBus.SoutheastAsia3",
+    "id": "ServiceBus.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "48.198.89.0/25",
+            "2603:1040:1b02:1::180/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "ServiceFabric.NortheastUS5",
+    "id": "ServiceFabric.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "172.194.86.224/29",
+            "172.194.112.240/30",
+            "2603:1030:1602:3::618/125",
+            "2603:1030:1602:400::18/125"
+        ],
+        "networkFeatures": null
+    }
+}

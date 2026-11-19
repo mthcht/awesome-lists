@@ -1,0 +1,16 @@
+{
+    "name": "ServiceFabric.SouthwestUS",
+    "id": "ServiceFabric.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "48.219.232.12/30",
+            "2603:1030:1202:400::18/125"
+        ],
+        "networkFeatures": null
+    }
+}

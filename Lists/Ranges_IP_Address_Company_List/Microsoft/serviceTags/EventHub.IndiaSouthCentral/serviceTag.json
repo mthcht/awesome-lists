@@ -1,0 +1,21 @@
+{
+    "name": "EventHub.IndiaSouthCentral",
+    "id": "EventHub.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "172.198.88.0/24",
+            "2603:1040:1904:1::200/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

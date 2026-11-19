@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.EastUS3",
+    "id": "AzureCosmosDB.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "134.138.68.32/27",
+            "134.138.68.64/26",
+            "2603:1030:1402::5c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

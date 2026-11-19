@@ -2,7 +2,7 @@
     "name": "GatewayManager.UKWest",
     "id": "GatewayManager.UKWest",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "ukwest",
         "regionId": 28,
         "platform": "Azure",
@@ -13,6 +13,7 @@
             "51.140.210.200/29",
             "52.142.152.114/32",
             "52.142.154.100/32",
+            "172.186.108.128/27",
             "2603:1020:605::40/122"
         ],
         "networkFeatures": [

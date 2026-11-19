@@ -1,0 +1,19 @@
+{
+    "name": "ServiceBus.NortheastUS5",
+    "id": "ServiceBus.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "172.194.71.128/25",
+            "2603:1030:1602:1::180/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

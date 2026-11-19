@@ -2,13 +2,14 @@
     "name": "GatewayManager.SpainCentral",
     "id": "GatewayManager.SpainCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "spaincentral",
         "regionId": 88,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "68.221.80.64/26",
+            "158.158.133.112/28",
             "2603:1020:1403::40/122"
         ],
         "networkFeatures": [

@@ -1,0 +1,16 @@
+{
+    "name": "AzureMachineLearning.EastUS3",
+    "id": "AzureMachineLearning.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "134.138.65.64/27",
+            "2603:1030:1402::400/122"
+        ],
+        "networkFeatures": null
+    }
+}

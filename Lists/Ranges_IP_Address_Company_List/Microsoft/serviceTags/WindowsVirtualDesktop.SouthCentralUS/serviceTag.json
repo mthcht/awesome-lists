@@ -2,13 +2,14 @@
     "name": "WindowsVirtualDesktop.SouthCentralUS",
     "id": "WindowsVirtualDesktop.SouthCentralUS",
     "properties": {
-        "changeNumber": 9,
+        "changeNumber": 10,
         "region": "southcentralus",
         "regionId": 35,
         "platform": "Azure",
         "systemService": "WindowsVirtualDesktop",
         "addressPrefixes": [
             "40.64.144.0/27",
+            "40.64.145.48/28",
             "2603:1061:2010:13::/117"
         ],
         "networkFeatures": null

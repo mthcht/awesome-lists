@@ -2,7 +2,7 @@
     "name": "Storage.KoreaCentral",
     "id": "Storage.KoreaCentral",
     "properties": {
-        "changeNumber": 10,
+        "changeNumber": 12,
         "region": "koreacentral",
         "regionId": 26,
         "platform": "Azure",
@@ -24,6 +24,8 @@
             "52.239.148.0/27",
             "52.239.164.192/26",
             "52.239.190.128/26",
+            "135.130.106.0/23",
+            "145.190.195.0/24",
             "2603:1040:f06::/48"
         ],
         "networkFeatures": [

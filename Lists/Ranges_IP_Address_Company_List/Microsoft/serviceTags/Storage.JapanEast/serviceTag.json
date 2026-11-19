@@ -2,7 +2,7 @@
     "name": "Storage.JapanEast",
     "id": "Storage.JapanEast",
     "properties": {
-        "changeNumber": 14,
+        "changeNumber": 15,
         "region": "japaneast",
         "regionId": 24,
         "platform": "Azure",
@@ -38,6 +38,7 @@
             "52.239.144.0/23",
             "57.150.138.0/23",
             "57.150.170.0/23",
+            "145.190.165.0/24",
             "2603:1040:408::/48"
         ],
         "networkFeatures": [

@@ -2,7 +2,7 @@
     "name": "AzureDigitalTwins.EastUS2",
     "id": "AzureDigitalTwins.EastUS2",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "eastus2",
         "regionId": 33,
         "platform": "Azure",
@@ -22,7 +22,8 @@
             "52.247.77.26/32",
             "104.208.203.238/31",
             "104.208.203.240/29",
-            "2603:1030:40c:e::5d4/126"
+            "2603:1030:40c:e::5d4/126",
+            "2603:1030:40c:2a::/121"
         ],
         "networkFeatures": null
     }

@@ -2,13 +2,14 @@
     "name": "ApiManagement.IsraelCentral",
     "id": "ApiManagement.IsraelCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "israelcentral",
         "regionId": 85,
         "platform": "Azure",
         "systemService": "AzureApiManagement",
         "addressPrefixes": [
             "20.217.43.224/28",
+            "51.58.2.96/30",
             "2603:1040:1402::600/124"
         ],
         "networkFeatures": [

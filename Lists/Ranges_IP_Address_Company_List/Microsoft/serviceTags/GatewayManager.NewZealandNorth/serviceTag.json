@@ -2,12 +2,13 @@
     "name": "GatewayManager.NewZealandNorth",
     "id": "GatewayManager.NewZealandNorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "newzealandnorth",
         "regionId": 91,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "172.196.72.160/28",
             "172.204.152.64/26",
             "2603:1010:502::40/122"
         ],

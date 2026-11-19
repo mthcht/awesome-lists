@@ -1,0 +1,32 @@
+{
+    "name": "Storage.NortheastUS5",
+    "id": "Storage.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.153.103.0/24",
+            "57.163.0.0/23",
+            "57.163.4.0/23",
+            "135.130.98.0/23",
+            "135.130.100.0/24",
+            "135.130.190.0/23",
+            "135.130.192.0/23",
+            "135.130.198.0/23",
+            "145.190.136.0/24",
+            "145.190.138.0/23",
+            "145.190.160.0/24",
+            "145.190.166.0/24",
+            "2603:1030:1603::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

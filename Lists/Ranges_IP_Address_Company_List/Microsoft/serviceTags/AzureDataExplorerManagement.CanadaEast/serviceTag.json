@@ -2,7 +2,7 @@
     "name": "AzureDataExplorerManagement.CanadaEast",
     "id": "AzureDataExplorerManagement.CanadaEast",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -13,6 +13,7 @@
             "40.80.255.12/32",
             "52.242.47.128/28",
             "2603:1030:1005:1::380/121",
+            "2603:1030:1005:13::300/123",
             "2603:1030:1005:402::150/124"
         ],
         "networkFeatures": null

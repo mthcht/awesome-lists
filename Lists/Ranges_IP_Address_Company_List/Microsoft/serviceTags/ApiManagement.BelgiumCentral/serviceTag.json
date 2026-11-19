@@ -1,0 +1,22 @@
+{
+    "name": "ApiManagement.BelgiumCentral",
+    "id": "ApiManagement.BelgiumCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "9.160.17.12/30",
+            "9.160.43.176/28",
+            "2603:1020:1502::520/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

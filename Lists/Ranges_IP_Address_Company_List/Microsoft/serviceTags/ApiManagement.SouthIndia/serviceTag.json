@@ -2,12 +2,15 @@
     "name": "ApiManagement.SouthIndia",
     "id": "ApiManagement.SouthIndia",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "southindia",
         "regionId": 22,
         "platform": "Azure",
         "systemService": "AzureApiManagement",
         "addressPrefixes": [
+            "4.247.39.148/30",
+            "4.247.39.152/29",
+            "4.247.40.32/31",
             "20.44.33.246/32",
             "40.78.194.68/31",
             "40.78.195.224/28",

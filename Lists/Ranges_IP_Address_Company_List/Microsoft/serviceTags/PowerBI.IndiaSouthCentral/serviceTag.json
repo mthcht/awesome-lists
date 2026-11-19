@@ -1,0 +1,25 @@
+{
+    "name": "PowerBI.IndiaSouthCentral",
+    "id": "PowerBI.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "172.198.95.142/31",
+            "172.198.95.152/30",
+            "172.198.96.208/29",
+            "172.198.109.160/27",
+            "2603:1040:1904:2::700/122",
+            "2603:1040:1904:2::740/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

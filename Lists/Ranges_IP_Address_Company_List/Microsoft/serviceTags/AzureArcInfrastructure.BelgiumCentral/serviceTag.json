@@ -1,0 +1,18 @@
+{
+    "name": "AzureArcInfrastructure.BelgiumCentral",
+    "id": "AzureArcInfrastructure.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "9.160.51.208/30",
+            "9.160.60.95/32",
+            "9.160.80.56/32",
+            "2603:1020:1502:2::20/124"
+        ],
+        "networkFeatures": null
+    }
+}

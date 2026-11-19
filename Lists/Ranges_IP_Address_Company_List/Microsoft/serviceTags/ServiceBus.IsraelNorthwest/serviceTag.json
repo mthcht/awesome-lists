@@ -1,0 +1,21 @@
+{
+    "name": "ServiceBus.IsraelNorthwest",
+    "id": "ServiceBus.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "20.217.254.0/25",
+            "51.4.160.16/29",
+            "51.4.160.32/28",
+            "2603:1040:1702::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

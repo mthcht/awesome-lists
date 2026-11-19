@@ -2,14 +2,18 @@
     "name": "AzureAttestation.SouthCentralUS2",
     "id": "AzureAttestation.SouthCentralUS2",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "southcentralus2",
         "regionId": 102,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
             "48.216.16.20/30",
-            "2603:1030:1102::540/124"
+            "48.219.13.192/29",
+            "48.219.46.208/29",
+            "48.219.46.216/30",
+            "2603:1030:1102::540/124",
+            "2603:1030:1102:6::2d0/124"
         ],
         "networkFeatures": null
     }

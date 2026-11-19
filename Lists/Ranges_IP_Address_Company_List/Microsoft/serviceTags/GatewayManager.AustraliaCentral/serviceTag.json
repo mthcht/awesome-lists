@@ -2,12 +2,13 @@
     "name": "GatewayManager.AustraliaCentral",
     "id": "GatewayManager.AustraliaCentral",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "australiacentral",
         "regionId": 58,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "4.199.211.0/27",
             "20.36.106.72/29",
             "20.37.53.66/32",
             "20.37.53.76/32",

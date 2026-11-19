@@ -2,12 +2,15 @@
     "name": "Sql.GermanyWestCentral",
     "id": "Sql.GermanyWestCentral",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "germanywc",
         "regionId": 71,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.185.33.128/26",
+            "4.185.33.192/27",
+            "4.185.33.224/30",
             "20.52.65.0/26",
             "20.218.188.0/25",
             "51.116.149.32/27",

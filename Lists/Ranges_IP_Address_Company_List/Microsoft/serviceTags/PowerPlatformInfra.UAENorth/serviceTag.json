@@ -2,12 +2,13 @@
     "name": "PowerPlatformInfra.UAENorth",
     "id": "PowerPlatformInfra.UAENorth",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "uaenorth",
         "regionId": 60,
         "platform": "Azure",
         "systemService": "PowerPlatformInfra",
         "addressPrefixes": [
+            "4.161.190.128/25",
             "20.38.140.32/27",
             "20.38.140.64/26",
             "20.38.142.120/29",

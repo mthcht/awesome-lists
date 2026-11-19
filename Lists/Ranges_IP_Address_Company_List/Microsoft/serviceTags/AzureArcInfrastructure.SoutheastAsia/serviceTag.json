@@ -2,20 +2,24 @@
     "name": "AzureArcInfrastructure.SoutheastAsia",
     "id": "AzureArcInfrastructure.SoutheastAsia",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 6,
         "region": "southeastasia",
         "regionId": 2,
         "platform": "Azure",
         "systemService": "AzureArcInfrastructure",
         "addressPrefixes": [
+            "4.145.20.102/32",
             "4.145.72.0/29",
             "4.145.72.8/31",
+            "4.146.109.20/30",
             "13.67.15.1/32",
             "13.67.15.124/30",
             "23.98.86.58/31",
             "23.98.104.12/30",
             "23.98.108.32/30",
-            "40.78.239.96/31"
+            "40.78.239.96/31",
+            "2603:1040:5:16::42e/128",
+            "2603:1040:5:24::2e4/126"
         ],
         "networkFeatures": null
     }

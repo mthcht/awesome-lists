@@ -2,12 +2,13 @@
     "name": "GatewayManager.AustriaEast",
     "id": "GatewayManager.AustriaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "austriaeast",
         "regionId": 95,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "68.210.62.16/28",
             "68.210.160.64/26",
             "2603:1020:104:3::680/122"
         ],

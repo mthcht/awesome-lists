@@ -2,18 +2,22 @@
     "name": "AzureArcInfrastructure.UAENorth",
     "id": "AzureArcInfrastructure.UAENorth",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 5,
         "region": "uaenorth",
         "regionId": 60,
         "platform": "Azure",
         "systemService": "AzureArcInfrastructure",
         "addressPrefixes": [
+            "4.161.12.132/32",
+            "4.161.190.120/30",
             "20.38.138.56/30",
             "20.38.141.8/30",
             "20.38.157.132/31",
             "40.120.75.58/32",
             "40.120.77.176/30",
-            "65.52.252.250/31"
+            "65.52.252.250/31",
+            "2603:1040:904:8::743/128",
+            "2603:1040:904:11::50/126"
         ],
         "networkFeatures": null
     }

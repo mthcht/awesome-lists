@@ -1,0 +1,21 @@
+{
+    "name": "DataFactory.IndiaSouthCentral",
+    "id": "DataFactory.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "DataFactory",
+        "addressPrefixes": [
+            "172.198.96.192/28",
+            "172.198.96.224/27",
+            "172.198.97.0/24",
+            "2603:1040:1904:2::600/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

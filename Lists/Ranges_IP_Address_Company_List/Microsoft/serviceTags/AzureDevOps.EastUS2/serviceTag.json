@@ -2,13 +2,17 @@
     "name": "AzureDevOps.EastUS2",
     "id": "AzureDevOps.EastUS2",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "eastus2",
         "regionId": 33,
         "platform": "Azure",
         "systemService": "AzureDevOps",
         "addressPrefixes": [
-            "20.41.6.0/23"
+            "20.41.6.0/23",
+            "57.167.224.40/29",
+            "57.167.224.64/26",
+            "2603:1030:40c:22::200/119",
+            "2603:1030:40c:1800::2/128"
         ],
         "networkFeatures": null
     }

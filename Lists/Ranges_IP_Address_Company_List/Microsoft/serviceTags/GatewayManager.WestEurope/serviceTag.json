@@ -2,7 +2,7 @@
     "name": "GatewayManager.WestEurope",
     "id": "GatewayManager.WestEurope",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "westeurope",
         "regionId": 18,
         "platform": "Azure",
@@ -13,6 +13,7 @@
             "20.71.77.160/32",
             "20.105.210.128/27",
             "40.74.24.72/29",
+            "48.199.250.192/27",
             "2603:1020:206:1::40/122"
         ],
         "networkFeatures": [

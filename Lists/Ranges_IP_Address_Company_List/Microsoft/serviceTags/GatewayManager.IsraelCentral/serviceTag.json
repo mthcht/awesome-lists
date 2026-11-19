@@ -2,13 +2,14 @@
     "name": "GatewayManager.IsraelCentral",
     "id": "GatewayManager.IsraelCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "israelcentral",
         "regionId": 85,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "20.217.40.64/26",
+            "51.58.60.144/28",
             "2603:1040:1402::40/122"
         ],
         "networkFeatures": [

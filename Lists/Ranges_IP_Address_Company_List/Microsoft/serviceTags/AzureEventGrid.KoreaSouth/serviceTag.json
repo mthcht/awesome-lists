@@ -2,12 +2,15 @@
     "name": "AzureEventGrid.KoreaSouth",
     "id": "AzureEventGrid.KoreaSouth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "koreasouth",
         "regionId": 50,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
+            "4.243.0.0/23",
+            "4.243.170.0/23",
+            "4.243.172.0/22",
             "40.80.170.0/25",
             "40.80.236.192/27",
             "2603:1040:e05:1::700/121"

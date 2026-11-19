@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.JapanWest",
     "id": "PowerPlatformPlex.JapanWest",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 7,
         "region": "japanwest",
         "regionId": 25,
         "platform": "Azure",
@@ -16,6 +16,11 @@
             "20.189.198.88/29",
             "20.189.198.136/29",
             "20.189.199.32/30",
+            "135.149.216.128/25",
+            "135.149.217.0/26",
+            "172.192.222.184/29",
+            "172.192.222.224/28",
+            "172.192.223.0/26",
             "2603:1061:2004:3100::/57"
         ],
         "networkFeatures": [

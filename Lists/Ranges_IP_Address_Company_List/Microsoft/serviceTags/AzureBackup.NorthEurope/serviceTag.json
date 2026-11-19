@@ -2,7 +2,7 @@
     "name": "AzureBackup.NorthEurope",
     "id": "AzureBackup.NorthEurope",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "northeurope",
         "regionId": 17,
         "platform": "Azure",
@@ -16,6 +16,7 @@
             "52.138.227.0/25",
             "52.146.136.64/26",
             "52.146.136.128/25",
+            "2603:1020:5:1c::80/121",
             "2603:1020:5:402::200/121",
             "2603:1020:5:802::180/121",
             "2603:1020:5:c02::180/121"

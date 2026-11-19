@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.WestUS3",
     "id": "AzureResourceManager.WestUS3",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "westus3",
         "regionId": 79,
         "platform": "Azure",
@@ -13,8 +13,10 @@
             "20.135.226.149/32",
             "20.150.225.128/26",
             "20.150.242.0/23",
+            "172.182.17.150/31",
             "2603:1030:504::400/120",
-            "2603:1030:504:402::180/122"
+            "2603:1030:504:402::180/122",
+            "2603:1030:504:1400::12/127"
         ],
         "networkFeatures": null
     }

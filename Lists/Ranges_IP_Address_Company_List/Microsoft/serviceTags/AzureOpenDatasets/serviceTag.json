@@ -2,13 +2,14 @@
     "name": "AzureOpenDatasets",
     "id": "AzureOpenDatasets",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "",
         "regionId": 0,
         "platform": "Azure",
         "systemService": "AzureOpenDatasets",
         "addressPrefixes": [
             "13.73.248.32/28",
+            "13.87.32.29/32",
             "20.36.120.192/28",
             "20.37.64.192/28",
             "20.37.156.224/28",
@@ -50,7 +51,6 @@
             "51.120.40.192/28",
             "51.120.224.192/28",
             "51.137.161.144/28",
-            "51.143.192.192/28",
             "52.136.48.192/28",
             "52.140.105.128/28",
             "52.150.139.80/28",

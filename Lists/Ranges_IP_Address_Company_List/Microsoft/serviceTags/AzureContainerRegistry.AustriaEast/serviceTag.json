@@ -2,7 +2,7 @@
     "name": "AzureContainerRegistry.AustriaEast",
     "id": "AzureContainerRegistry.AustriaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "austriaeast",
         "regionId": 95,
         "platform": "Azure",
@@ -16,6 +16,9 @@
             "68.210.208.64/26",
             "68.210.210.0/25",
             "2603:1020:104:3::368/125",
+            "2603:1020:104:6::588/125",
+            "2603:1020:104:6::590/124",
+            "2603:1020:104:6::5a0/123",
             "2603:1020:104:403::8/125",
             "2603:1020:104:403::80/121",
             "2603:1020:104:800::8/125",

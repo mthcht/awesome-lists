@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.IsraelNorthwest",
+    "id": "ActionGroup.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "51.4.160.24/30",
+            "51.4.224.16/30",
+            "2603:1040:1702:5::2d8/125",
+            "2603:1040:1702:400::40/125"
+        ],
+        "networkFeatures": null
+    }
+}

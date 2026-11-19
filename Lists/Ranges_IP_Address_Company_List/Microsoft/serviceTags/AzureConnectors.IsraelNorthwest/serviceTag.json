@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.IsraelNorthwest",
+    "id": "AzureConnectors.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "51.4.131.0/26",
+            "2603:1040:1702:1::5c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

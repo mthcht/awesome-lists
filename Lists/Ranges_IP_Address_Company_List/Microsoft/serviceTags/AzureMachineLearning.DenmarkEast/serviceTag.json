@@ -1,0 +1,16 @@
+{
+    "name": "AzureMachineLearning.DenmarkEast",
+    "id": "AzureMachineLearning.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "9.205.33.0/27",
+            "2603:1020:1602::200/122"
+        ],
+        "networkFeatures": null
+    }
+}

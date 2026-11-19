@@ -1,0 +1,16 @@
+{
+    "name": "AzureBackup.IsraelNorthwest",
+    "id": "AzureBackup.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "20.217.252.0/26",
+            "2603:1040:1702::600/121"
+        ],
+        "networkFeatures": null
+    }
+}

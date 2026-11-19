@@ -2,12 +2,13 @@
     "name": "AzureBackup.UAENorth",
     "id": "AzureBackup.UAENorth",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "uaenorth",
         "regionId": 60,
         "platform": "Azure",
         "systemService": "AzureBackup",
         "addressPrefixes": [
+            "4.161.180.64/26",
             "20.38.155.64/26",
             "40.120.74.192/26",
             "40.120.75.0/27",

@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.SoutheastUS3",
+    "id": "AzureCosmosDB.SoutheastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus3",
+        "regionId": 105,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "74.7.43.0/27",
+            "74.7.43.64/26",
+            "2603:1030:1302::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

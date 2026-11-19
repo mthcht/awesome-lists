@@ -1,0 +1,19 @@
+{
+    "name": "ServiceBus.SaudiArabiaEast",
+    "id": "ServiceBus.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "48.197.81.0/25",
+            "2603:1040:1a02:1::180/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

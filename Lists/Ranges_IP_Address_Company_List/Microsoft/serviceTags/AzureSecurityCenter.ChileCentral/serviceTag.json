@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.ChileCentral",
+    "id": "AzureSecurityCenter.ChileCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "chilec",
+        "regionId": 10,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "57.156.1.176/28",
+            "57.156.1.192/26",
+            "57.156.2.0/24",
+            "57.156.3.0/25",
+            "57.156.3.128/27",
+            "68.211.31.220/30"
+        ],
+        "networkFeatures": null
+    }
+}

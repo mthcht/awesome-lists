@@ -2,13 +2,17 @@
     "name": "AzureEventGrid.CentralUSEUAP",
     "id": "AzureEventGrid.CentralUSEUAP",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "centraluseuap",
         "regionId": 48,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
             "20.45.195.0/25",
+            "20.111.136.0/25",
+            "20.111.139.0/24",
+            "20.111.140.0/22",
+            "57.173.0.0/23",
             "2603:1030:f:1::380/121"
         ],
         "networkFeatures": null

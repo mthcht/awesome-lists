@@ -2,7 +2,7 @@
     "name": "AppService.CanadaEast",
     "id": "AppService.CanadaEast",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -19,6 +19,7 @@
             "52.242.41.0/24",
             "52.242.42.0/23",
             "2603:1030:1005:2::400/118",
+            "2603:1030:1005:13::400/120",
             "2603:1030:1005:402::a0/123"
         ],
         "networkFeatures": [

@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.SouthAfricaWest",
     "id": "PowerPlatformPlex.SouthAfricaWest",
     "properties": {
-        "changeNumber": 7,
+        "changeNumber": 8,
         "region": "southafricawest",
         "regionId": 83,
         "platform": "Azure",
@@ -15,6 +15,8 @@
             "102.133.78.96/28",
             "172.209.8.32/29",
             "172.209.15.8/29",
+            "172.209.84.192/26",
+            "172.209.87.128/26",
             "2603:1061:2004:2100::/57"
         ],
         "networkFeatures": [

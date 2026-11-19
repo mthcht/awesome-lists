@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.ItalyNorth",
     "id": "PowerPlatformPlex.ItalyNorth",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "italynorth",
         "regionId": 93,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "4.232.50.144/28",
             "4.232.53.136/29",
+            "9.235.18.0/26",
             "2603:1061:2004:a800::/57"
         ],
         "networkFeatures": [

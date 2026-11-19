@@ -2,7 +2,7 @@
     "name": "AzureContainerRegistry.NewZealandNorth",
     "id": "AzureContainerRegistry.NewZealandNorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "newzealandnorth",
         "regionId": 91,
         "platform": "Azure",
@@ -17,6 +17,9 @@
             "172.204.208.64/26",
             "172.204.210.0/25",
             "2603:1010:502::560/125",
+            "2603:1010:502:5::418/125",
+            "2603:1010:502:5::430/124",
+            "2603:1010:502:5::460/123",
             "2603:1010:502:400::48/125",
             "2603:1010:502:400::100/121",
             "2603:1010:502:800::8/125",

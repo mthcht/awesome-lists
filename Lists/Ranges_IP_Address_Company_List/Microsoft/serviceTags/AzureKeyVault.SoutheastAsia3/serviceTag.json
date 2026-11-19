@@ -1,0 +1,22 @@
+{
+    "name": "AzureKeyVault.SoutheastAsia3",
+    "id": "AzureKeyVault.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "48.198.89.224/30",
+            "48.198.89.232/29",
+            "2603:1040:1b02:1::4e0/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

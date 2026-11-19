@@ -2,7 +2,7 @@
     "name": "EventHub.TaiwanNorth",
     "id": "EventHub.TaiwanNorth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "taiwannorth",
         "regionId": 8,
         "platform": "Azure",
@@ -10,8 +10,6 @@
         "addressPrefixes": [
             "51.53.29.0/24",
             "51.53.107.128/26",
-            "70.157.88.128/26",
-            "167.105.104.128/26",
             "2603:1040:1302:1::300/120"
         ],
         "networkFeatures": [

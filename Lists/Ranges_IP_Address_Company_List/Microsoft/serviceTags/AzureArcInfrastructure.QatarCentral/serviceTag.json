@@ -2,7 +2,7 @@
     "name": "AzureArcInfrastructure.QatarCentral",
     "id": "AzureArcInfrastructure.QatarCentral",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 5,
         "region": "qatarcentral",
         "regionId": 84,
         "platform": "Azure",
@@ -13,7 +13,11 @@
             "20.21.46.136/31",
             "20.21.69.176/31",
             "20.21.77.184/31",
-            "2603:1040:1002:5::420/124"
+            "20.173.62.144/32",
+            "20.173.222.206/31",
+            "2603:1040:1002:5::420/124",
+            "2603:1040:1002:8::4c3/128",
+            "2603:1040:1002:e::e4/127"
         ],
         "networkFeatures": null
     }

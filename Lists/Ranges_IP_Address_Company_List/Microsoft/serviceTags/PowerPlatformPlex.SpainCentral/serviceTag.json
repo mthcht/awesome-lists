@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.SpainCentral",
+    "id": "PowerPlatformPlex.SpainCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "spaincentral",
+        "regionId": 88,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "158.158.139.128/25",
+            "2603:1061:2004:b000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

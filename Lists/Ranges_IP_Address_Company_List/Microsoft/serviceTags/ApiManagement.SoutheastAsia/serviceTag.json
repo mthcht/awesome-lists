@@ -2,12 +2,16 @@
     "name": "ApiManagement.SoutheastAsia",
     "id": "ApiManagement.SoutheastAsia",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 6,
         "region": "southeastasia",
         "regionId": 2,
         "platform": "Azure",
         "systemService": "AzureApiManagement",
         "addressPrefixes": [
+            "4.145.226.12/30",
+            "4.146.0.14/31",
+            "4.146.0.232/29",
+            "4.146.0.240/30",
             "13.67.8.108/31",
             "13.67.9.208/28",
             "20.212.226.151/32",

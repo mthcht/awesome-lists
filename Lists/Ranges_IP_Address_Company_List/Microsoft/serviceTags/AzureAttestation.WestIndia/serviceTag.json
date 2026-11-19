@@ -2,7 +2,7 @@
     "name": "AzureAttestation.WestIndia",
     "id": "AzureAttestation.WestIndia",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 6,
         "region": "westindia",
         "regionId": 23,
         "platform": "Azure",
@@ -10,7 +10,13 @@
         "addressPrefixes": [
             "20.38.132.24/30",
             "52.136.53.132/30",
-            "2603:1040:806:3::1f0/124"
+            "57.159.150.128/29",
+            "57.159.158.32/29",
+            "57.159.172.4/30",
+            "57.159.197.100/30",
+            "57.159.197.104/29",
+            "2603:1040:806:3::1f0/124",
+            "2603:1040:806:a::500/124"
         ],
         "networkFeatures": null
     }

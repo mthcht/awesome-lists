@@ -1,0 +1,16 @@
+{
+    "name": "ActionGroup.SouthwestUS",
+    "id": "ActionGroup.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "48.219.232.24/30",
+            "2603:1030:1202:400::40/125"
+        ],
+        "networkFeatures": null
+    }
+}

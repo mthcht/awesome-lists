@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.NortheastUS5",
+    "id": "AzurePortal.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "172.194.81.60/30",
+            "172.194.82.192/27",
+            "2603:1030:1602:3::180/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.CanadaCentral",
     "id": "PowerPlatformPlex.CanadaCentral",
     "properties": {
-        "changeNumber": 6,
+        "changeNumber": 7,
         "region": "canadacentral",
         "regionId": 11,
         "platform": "Azure",
@@ -18,6 +18,9 @@
             "20.116.47.64/30",
             "20.151.60.0/26",
             "20.175.243.64/26",
+            "145.191.36.64/26",
+            "145.191.36.128/25",
+            "145.191.38.0/25",
             "2603:1061:2004:8900::/57"
         ],
         "networkFeatures": [

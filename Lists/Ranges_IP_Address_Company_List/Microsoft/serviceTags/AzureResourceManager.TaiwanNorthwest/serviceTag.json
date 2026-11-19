@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.TaiwanNorthwest",
     "id": "AzureResourceManager.TaiwanNorthwest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "taiwannorthwest",
         "regionId": 96,
         "platform": "Azure",
@@ -10,8 +10,10 @@
         "addressPrefixes": [
             "51.53.180.0/23",
             "51.53.188.0/26",
+            "167.105.228.32/31",
             "2603:1040:1202:1::500/120",
-            "2603:1040:1202:400::1c0/122"
+            "2603:1040:1202:400::1c0/122",
+            "2603:1040:1202:800::a/127"
         ],
         "networkFeatures": null
     }

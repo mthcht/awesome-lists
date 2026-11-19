@@ -2,7 +2,7 @@
     "name": "AzureMonitor.EastUSSTG",
     "id": "AzureMonitor.EastUSSTG",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 5,
         "region": "usstagee",
         "regionId": 68,
         "platform": "Azure",
@@ -25,6 +25,8 @@
             "2603:1030:104:1::280/122",
             "2603:1030:104:3::180/123",
             "2603:1030:104:3::1c0/122",
+            "2603:1030:104:6::400/119",
+            "2603:1030:104:7::400/119",
             "2603:1030:104:402::500/121"
         ],
         "networkFeatures": [

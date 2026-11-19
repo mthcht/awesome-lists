@@ -1,0 +1,19 @@
+{
+    "name": "AzureEventGrid.SaudiArabiaEast",
+    "id": "AzureEventGrid.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "48.197.73.128/25",
+            "48.197.102.0/23",
+            "48.197.128.0/22",
+            "48.197.132.0/23",
+            "2603:1040:1a02::480/121"
+        ],
+        "networkFeatures": null
+    }
+}

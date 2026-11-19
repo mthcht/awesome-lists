@@ -1,0 +1,32 @@
+{
+    "name": "AzureContainerRegistry.IndiaSouthCentral",
+    "id": "AzureContainerRegistry.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "172.198.84.192/26",
+            "172.198.96.128/26",
+            "172.198.112.64/26",
+            "172.198.144.64/26",
+            "172.198.168.64/26",
+            "2603:1040:1904::700/125",
+            "2603:1040:1904:2::580/121",
+            "2603:1040:1904:4::188/125",
+            "2603:1040:1904:4::300/123",
+            "2603:1040:1904:4::320/124",
+            "2603:1040:1904:400::8/125",
+            "2603:1040:1904:800::8/125",
+            "2603:1040:1904:c00::8/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

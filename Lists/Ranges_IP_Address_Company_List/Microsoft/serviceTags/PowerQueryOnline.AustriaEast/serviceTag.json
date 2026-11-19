@@ -2,14 +2,17 @@
     "name": "PowerQueryOnline.AustriaEast",
     "id": "PowerQueryOnline.AustriaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "austriaeast",
         "regionId": 95,
         "platform": "Azure",
         "systemService": "PowerQueryOnline",
         "addressPrefixes": [
+            "68.210.30.96/27",
             "68.210.160.40/29",
-            "2603:1020:104:4::20/123"
+            "2603:1020:104:4::20/123",
+            "2603:1020:104:6::430/124",
+            "2603:1020:104:6::4a0/123"
         ],
         "networkFeatures": null
     }

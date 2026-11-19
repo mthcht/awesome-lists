@@ -2,12 +2,13 @@
     "name": "AppServiceManagement.SouthAfricaWest",
     "id": "AppServiceManagement.SouthAfricaWest",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "southafricawest",
         "regionId": 83,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
+            "40.117.3.0/29",
             "102.37.85.224/28",
             "102.133.26.192/26",
             "102.133.64.41/32",

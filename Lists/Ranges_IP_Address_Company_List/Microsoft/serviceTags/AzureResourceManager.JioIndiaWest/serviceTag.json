@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.JioIndiaWest",
     "id": "AzureResourceManager.JioIndiaWest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "jioindiawest",
         "regionId": 65,
         "platform": "Azure",
@@ -10,8 +10,10 @@
         "addressPrefixes": [
             "20.193.196.0/23",
             "20.193.204.0/26",
+            "20.244.251.20/31",
             "2603:1040:d04:1::400/120",
-            "2603:1040:d04:400::180/122"
+            "2603:1040:d04:400::180/122",
+            "2603:1040:d04:1000::2/127"
         ],
         "networkFeatures": null
     }

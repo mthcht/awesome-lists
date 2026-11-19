@@ -1,0 +1,21 @@
+{
+    "name": "AppService.DenmarkEast",
+    "id": "AppService.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "9.205.42.0/24",
+            "2603:1020:1602:1::600/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

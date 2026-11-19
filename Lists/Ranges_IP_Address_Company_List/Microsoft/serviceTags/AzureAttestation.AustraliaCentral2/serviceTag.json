@@ -2,15 +2,21 @@
     "name": "AzureAttestation.AustraliaCentral2",
     "id": "AzureAttestation.AustraliaCentral2",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 6,
         "region": "australiacentral2",
         "regionId": 59,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
             "20.53.56.4/30",
+            "20.167.183.152/29",
+            "20.167.225.164/30",
+            "20.167.225.168/29",
+            "20.167.247.88/29",
+            "20.167.247.128/30",
             "20.193.96.12/30",
-            "2603:1010:404:2::740/124"
+            "2603:1010:404:2::740/124",
+            "2603:1010:404:a::200/124"
         ],
         "networkFeatures": null
     }

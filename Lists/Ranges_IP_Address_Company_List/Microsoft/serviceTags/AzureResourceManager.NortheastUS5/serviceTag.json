@@ -1,0 +1,16 @@
+{
+    "name": "AzureResourceManager.NortheastUS5",
+    "id": "AzureResourceManager.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "172.194.74.0/23",
+            "2603:1030:1602:1::500/120"
+        ],
+        "networkFeatures": null
+    }
+}

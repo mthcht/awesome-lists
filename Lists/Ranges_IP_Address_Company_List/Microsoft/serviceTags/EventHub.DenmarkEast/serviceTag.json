@@ -1,0 +1,22 @@
+{
+    "name": "EventHub.DenmarkEast",
+    "id": "EventHub.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "9.205.37.0/24",
+            "9.205.96.128/26",
+            "2603:1020:1602:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

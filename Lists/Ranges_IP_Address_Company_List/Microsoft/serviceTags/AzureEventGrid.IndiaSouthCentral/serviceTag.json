@@ -1,0 +1,17 @@
+{
+    "name": "AzureEventGrid.IndiaSouthCentral",
+    "id": "AzureEventGrid.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureEventGrid",
+        "addressPrefixes": [
+            "172.198.81.128/25",
+            "172.198.216.0/21",
+            "2603:1040:1904::480/121"
+        ],
+        "networkFeatures": null
+    }
+}

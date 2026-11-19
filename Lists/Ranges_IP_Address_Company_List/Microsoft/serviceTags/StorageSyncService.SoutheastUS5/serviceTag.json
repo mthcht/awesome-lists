@@ -1,0 +1,18 @@
+{
+    "name": "StorageSyncService.SoutheastUS5",
+    "id": "StorageSyncService.SoutheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus5",
+        "regionId": 106,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "74.7.194.224/29",
+            "74.7.216.48/29",
+            "2603:1030:1502:3::2c0/123",
+            "2603:1030:1502:400::120/123"
+        ],
+        "networkFeatures": null
+    }
+}

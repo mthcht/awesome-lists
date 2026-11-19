@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.DenmarkEast",
+    "id": "PowerPlatformPlex.DenmarkEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "9.205.179.128/25",
+            "2603:1061:2004:d000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

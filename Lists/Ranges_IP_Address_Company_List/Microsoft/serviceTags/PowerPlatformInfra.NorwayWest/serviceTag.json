@@ -2,7 +2,7 @@
     "name": "PowerPlatformInfra.NorwayWest",
     "id": "PowerPlatformInfra.NorwayWest",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "norwayw",
         "regionId": 74,
         "platform": "Azure",
@@ -19,6 +19,7 @@
             "51.120.228.48/28",
             "51.120.228.64/26",
             "51.120.228.128/28",
+            "74.240.18.128/25",
             "2603:1061:2002:1900::/57"
         ],
         "networkFeatures": [

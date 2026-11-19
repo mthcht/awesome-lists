@@ -1,0 +1,19 @@
+{
+    "name": "ServiceBus.IndiaSouthCentral",
+    "id": "ServiceBus.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "172.198.89.0/25",
+            "2603:1040:1904:1::180/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

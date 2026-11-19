@@ -1,0 +1,19 @@
+{
+    "name": "ServiceBus.DenmarkEast",
+    "id": "ServiceBus.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "9.205.38.0/25",
+            "2603:1020:1602::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

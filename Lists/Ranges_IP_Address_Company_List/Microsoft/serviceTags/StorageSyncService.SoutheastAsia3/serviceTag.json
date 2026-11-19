@@ -1,0 +1,17 @@
+{
+    "name": "StorageSyncService.SoutheastAsia3",
+    "id": "StorageSyncService.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "StorageSyncService",
+        "addressPrefixes": [
+            "48.198.95.152/29",
+            "48.198.210.192/29",
+            "2603:1040:1b02:2::480/123"
+        ],
+        "networkFeatures": null
+    }
+}

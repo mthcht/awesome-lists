@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.IndiaSouthCentral",
+    "id": "AzureBackup.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "172.198.86.80/28",
+            "172.198.86.128/26",
+            "2603:1040:1904:1::/121"
+        ],
+        "networkFeatures": null
+    }
+}

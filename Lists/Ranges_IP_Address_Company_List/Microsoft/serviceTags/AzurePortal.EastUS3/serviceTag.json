@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.EastUS3",
+    "id": "AzurePortal.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "134.138.82.8/30",
+            "134.138.82.160/27",
+            "2603:1030:1402:2::680/121"
+        ],
+        "networkFeatures": null
+    }
+}

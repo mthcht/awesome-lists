@@ -2,12 +2,13 @@
     "name": "PowerBI.UAENorth",
     "id": "PowerBI.UAENorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "uaenorth",
         "regionId": 60,
         "platform": "Azure",
         "systemService": "PowerBI",
         "addressPrefixes": [
+            "4.161.21.112/29",
             "20.38.136.70/31",
             "20.38.136.208/30",
             "20.38.136.216/29",

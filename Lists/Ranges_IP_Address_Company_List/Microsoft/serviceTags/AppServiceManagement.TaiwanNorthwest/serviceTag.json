@@ -2,13 +2,14 @@
     "name": "AppServiceManagement.TaiwanNorthwest",
     "id": "AppServiceManagement.TaiwanNorthwest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "taiwannorthwest",
         "regionId": 96,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
             "51.53.139.0/26",
+            "167.105.228.0/29",
             "2603:1040:1202:2::6a0/123"
         ],
         "networkFeatures": [

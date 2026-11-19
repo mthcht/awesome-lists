@@ -2,12 +2,15 @@
     "name": "Sql.CanadaEast",
     "id": "Sql.CanadaEast",
     "properties": {
-        "changeNumber": 6,
+        "changeNumber": 7,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.239.76.68/30",
+            "4.239.76.96/27",
+            "4.239.76.128/26",
             "20.175.4.128/25",
             "40.69.104.0/27",
             "40.69.105.0/27",

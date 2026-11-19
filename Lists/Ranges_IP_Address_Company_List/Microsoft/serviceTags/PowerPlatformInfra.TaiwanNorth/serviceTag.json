@@ -1,0 +1,22 @@
+{
+    "name": "PowerPlatformInfra.TaiwanNorth",
+    "id": "PowerPlatformInfra.TaiwanNorth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "taiwannorth",
+        "regionId": 8,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "70.157.171.128/25",
+            "70.157.172.0/24",
+            "2603:1061:2002:e000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

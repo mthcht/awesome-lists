@@ -2,12 +2,15 @@
     "name": "Sql.JapanEast",
     "id": "Sql.JapanEast",
     "properties": {
-        "changeNumber": 13,
+        "changeNumber": 14,
         "region": "japaneast",
         "regionId": 24,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.189.200.100/30",
+            "4.189.202.0/26",
+            "4.189.202.64/27",
             "13.78.61.196/32",
             "13.78.104.0/27",
             "13.78.104.32/29",

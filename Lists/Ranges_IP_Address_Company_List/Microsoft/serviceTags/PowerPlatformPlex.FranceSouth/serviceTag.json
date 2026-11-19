@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.FranceSouth",
     "id": "PowerPlatformPlex.FranceSouth",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 7,
         "region": "southfrance",
         "regionId": 20,
         "platform": "Azure",
@@ -11,10 +11,12 @@
             "4.251.224.160/29",
             "20.111.76.168/29",
             "20.111.76.176/29",
+            "20.111.114.128/25",
             "40.80.96.36/30",
             "40.80.96.192/30",
             "52.136.140.96/28",
             "52.136.191.248/29",
+            "98.66.43.0/25",
             "2603:1061:2004:4100::/57"
         ],
         "networkFeatures": [

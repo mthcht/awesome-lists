@@ -2,12 +2,13 @@
     "name": "PowerPlatformInfra.FranceCentral",
     "id": "PowerPlatformInfra.FranceCentral",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "centralfrance",
         "regionId": 19,
         "platform": "Azure",
         "systemService": "PowerPlatformInfra",
         "addressPrefixes": [
+            "4.211.125.128/25",
             "20.43.44.240/28",
             "20.43.45.128/26",
             "20.43.45.192/27",

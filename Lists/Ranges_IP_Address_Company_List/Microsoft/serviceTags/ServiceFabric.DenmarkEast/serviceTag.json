@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.DenmarkEast",
+    "id": "ServiceFabric.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "9.205.72.8/30",
+            "9.205.96.8/30",
+            "9.205.112.8/30",
+            "2603:1020:1602:400::10/125",
+            "2603:1020:1602:800::10/125",
+            "2603:1020:1602:c00::10/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -2,12 +2,14 @@
     "name": "PowerBI.SouthAfricaNorth",
     "id": "PowerBI.SouthAfricaNorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "southafricanorth",
         "regionId": 82,
         "platform": "Azure",
         "systemService": "PowerBI",
         "addressPrefixes": [
+            "4.222.15.174/31",
+            "4.222.15.192/28",
             "20.87.80.8/29",
             "20.164.154.16/28",
             "20.164.154.56/29",

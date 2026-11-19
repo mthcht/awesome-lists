@@ -2,12 +2,15 @@
     "name": "PowerPlatformInfra.JapanEast",
     "id": "PowerPlatformInfra.JapanEast",
     "properties": {
-        "changeNumber": 7,
+        "changeNumber": 8,
         "region": "japaneast",
         "regionId": 24,
         "platform": "Azure",
         "systemService": "PowerPlatformInfra",
         "addressPrefixes": [
+            "4.215.16.0/24",
+            "4.216.21.120/29",
+            "4.216.22.128/26",
             "20.18.7.104/29",
             "20.18.7.112/28",
             "20.43.70.206/31",

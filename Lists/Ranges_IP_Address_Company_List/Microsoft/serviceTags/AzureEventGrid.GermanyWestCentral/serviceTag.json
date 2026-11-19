@@ -2,13 +2,15 @@
     "name": "AzureEventGrid.GermanyWestCentral",
     "id": "AzureEventGrid.GermanyWestCentral",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "germanywc",
         "regionId": 71,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
             "20.52.90.128/25",
+            "48.203.132.0/22",
+            "48.203.136.0/22",
             "51.116.100.208/28",
             "51.116.100.224/28",
             "2603:1020:c04:1::380/121"

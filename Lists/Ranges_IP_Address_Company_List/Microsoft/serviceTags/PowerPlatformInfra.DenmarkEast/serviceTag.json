@@ -1,0 +1,22 @@
+{
+    "name": "PowerPlatformInfra.DenmarkEast",
+    "id": "PowerPlatformInfra.DenmarkEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "9.205.180.128/25",
+            "9.205.181.0/24",
+            "2603:1061:2002:d400::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

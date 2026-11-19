@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.IndonesiaCentral",
+    "id": "PowerPlatformPlex.IndonesiaCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "indonesiacentral",
+        "regionId": 6,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "70.153.66.0/26",
+            "2603:1061:2004:c000::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

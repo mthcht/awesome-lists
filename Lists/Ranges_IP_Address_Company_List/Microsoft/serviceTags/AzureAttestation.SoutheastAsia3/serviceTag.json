@@ -1,0 +1,23 @@
+{
+    "name": "AzureAttestation.SoutheastAsia3",
+    "id": "AzureAttestation.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "48.198.80.20/30",
+            "48.198.106.192/29",
+            "48.198.106.200/30",
+            "48.198.153.240/29",
+            "48.198.153.248/30",
+            "2603:1040:1b02::760/124",
+            "2603:1040:1b02:5::320/124",
+            "2603:1040:1b02:6::570/126",
+            "2603:1040:1b02:6::578/125"
+        ],
+        "networkFeatures": null
+    }
+}

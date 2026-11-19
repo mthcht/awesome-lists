@@ -2,7 +2,7 @@
     "name": "AzureEventGrid.FranceSouth",
     "id": "AzureEventGrid.FranceSouth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "southfrance",
         "regionId": 20,
         "platform": "Azure",
@@ -11,6 +11,8 @@
             "20.39.80.112/28",
             "20.39.80.128/28",
             "51.105.89.0/25",
+            "98.66.12.0/22",
+            "98.66.16.0/22",
             "2603:1020:905::380/121"
         ],
         "networkFeatures": null

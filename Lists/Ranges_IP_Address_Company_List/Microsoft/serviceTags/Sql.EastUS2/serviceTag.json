@@ -2,12 +2,15 @@
     "name": "Sql.EastUS2",
     "id": "Sql.EastUS2",
     "properties": {
-        "changeNumber": 18,
+        "changeNumber": 19,
         "region": "eastus2",
         "regionId": 33,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.153.236.44/30",
+            "4.153.237.192/26",
+            "4.153.238.0/27",
             "20.15.10.0/25",
             "20.15.12.0/24",
             "20.36.144.128/27",

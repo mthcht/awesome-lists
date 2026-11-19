@@ -2,7 +2,7 @@
     "name": "PowerPlatformInfra.SwitzerlandNorth",
     "id": "PowerPlatformInfra.SwitzerlandNorth",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "switzerlandn",
         "regionId": 66,
         "platform": "Azure",
@@ -29,6 +29,7 @@
             "74.242.149.192/26",
             "74.242.150.0/25",
             "74.242.150.128/26",
+            "172.161.114.128/25",
             "2603:1061:2002:5800::/57"
         ],
         "networkFeatures": [

@@ -1,0 +1,21 @@
+{
+    "name": "AzureAttestation.IsraelNorthwest",
+    "id": "AzureAttestation.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 3,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "20.217.248.20/30",
+            "51.4.158.244/30",
+            "51.4.158.248/29",
+            "51.58.166.96/29",
+            "51.58.166.104/30",
+            "2603:1040:1702::540/124",
+            "2603:1040:1702:7::410/124"
+        ],
+        "networkFeatures": null
+    }
+}

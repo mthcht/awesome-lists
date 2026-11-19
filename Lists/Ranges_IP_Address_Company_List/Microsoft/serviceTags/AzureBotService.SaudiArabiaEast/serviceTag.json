@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.SaudiArabiaEast",
+    "id": "AzureBotService.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "48.197.72.16/30",
+            "2603:1040:1a02::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

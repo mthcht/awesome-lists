@@ -2,13 +2,14 @@
     "name": "AzureContainerRegistry.SoutheastAsia",
     "id": "AzureContainerRegistry.SoutheastAsia",
     "properties": {
-        "changeNumber": 10,
+        "changeNumber": 11,
         "region": "southeastasia",
         "regionId": 2,
         "platform": "Azure",
         "systemService": "AzureContainerRegistry",
         "addressPrefixes": [
             "4.145.75.128/25",
+            "4.145.224.0/25",
             "13.67.8.120/29",
             "13.67.14.0/25",
             "13.67.14.128/25",

@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.SwedenCentral",
     "id": "AzureResourceManager.SwedenCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "swedencentral",
         "regionId": 76,
         "platform": "Azure",
@@ -10,8 +10,10 @@
         "addressPrefixes": [
             "51.12.44.0/23",
             "51.12.101.64/26",
+            "172.160.160.138/31",
             "2603:1020:1004:1::400/120",
-            "2603:1020:1004:400::180/122"
+            "2603:1020:1004:400::180/122",
+            "2603:1020:1004:1000::36/127"
         ],
         "networkFeatures": null
     }

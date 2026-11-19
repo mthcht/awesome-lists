@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.DenmarkEast",
+    "id": "AzureConnectors.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "9.205.43.0/26",
+            "2603:1020:1602:1::5c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

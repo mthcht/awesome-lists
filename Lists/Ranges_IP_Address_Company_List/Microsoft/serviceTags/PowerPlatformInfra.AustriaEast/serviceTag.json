@@ -1,0 +1,22 @@
+{
+    "name": "PowerPlatformInfra.AustriaEast",
+    "id": "PowerPlatformInfra.AustriaEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "austriaeast",
+        "regionId": 95,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "68.210.247.0/24",
+            "68.210.248.0/25",
+            "2603:1061:2002:c800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "ServiceFabric.SoutheastAsia3",
+    "id": "ServiceFabric.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "48.198.97.168/29",
+            "2603:1040:1b02:2::710/125"
+        ],
+        "networkFeatures": null
+    }
+}

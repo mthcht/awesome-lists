@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.BelgiumCentral",
+    "id": "AzurePortal.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "9.160.53.224/27",
+            "9.160.58.128/30",
+            "2603:1020:1502:2::400/121"
+        ],
+        "networkFeatures": null
+    }
+}

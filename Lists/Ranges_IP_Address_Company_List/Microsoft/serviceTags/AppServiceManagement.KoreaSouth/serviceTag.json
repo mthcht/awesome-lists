@@ -2,12 +2,13 @@
     "name": "AppServiceManagement.KoreaSouth",
     "id": "AppServiceManagement.KoreaSouth",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "koreasouth",
         "regionId": 50,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
+            "4.243.130.64/29",
             "52.147.119.32/28",
             "52.231.146.128/26",
             "52.231.200.177/32",

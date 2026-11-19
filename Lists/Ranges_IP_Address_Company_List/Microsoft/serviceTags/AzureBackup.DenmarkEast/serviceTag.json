@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.DenmarkEast",
+    "id": "AzureBackup.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "9.205.36.0/26",
+            "9.205.50.80/28",
+            "2603:1020:1602::600/121"
+        ],
+        "networkFeatures": null
+    }
+}

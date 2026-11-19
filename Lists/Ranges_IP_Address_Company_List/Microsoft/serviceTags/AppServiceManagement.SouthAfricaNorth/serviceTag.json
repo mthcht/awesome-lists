@@ -2,7 +2,7 @@
     "name": "AppServiceManagement.SouthAfricaNorth",
     "id": "AppServiceManagement.SouthAfricaNorth",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "southafricanorth",
         "regionId": 82,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "20.87.80.32/28",
             "40.127.3.19/32",
+            "172.209.182.64/29",
             "2603:1000:104:3::20/123",
             "2603:1000:104:402::100/122",
             "2603:1000:104:802::100/122",

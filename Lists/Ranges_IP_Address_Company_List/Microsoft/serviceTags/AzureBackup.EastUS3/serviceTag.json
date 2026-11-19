@@ -1,0 +1,17 @@
+{
+    "name": "AzureBackup.EastUS3",
+    "id": "AzureBackup.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureBackup",
+        "addressPrefixes": [
+            "134.138.70.80/28",
+            "134.138.70.128/26",
+            "2603:1030:1402:1::/121"
+        ],
+        "networkFeatures": null
+    }
+}

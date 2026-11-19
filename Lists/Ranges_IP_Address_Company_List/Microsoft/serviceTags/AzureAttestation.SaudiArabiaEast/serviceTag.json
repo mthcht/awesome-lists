@@ -1,0 +1,23 @@
+{
+    "name": "AzureAttestation.SaudiArabiaEast",
+    "id": "AzureAttestation.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "48.197.72.20/30",
+            "48.197.100.72/29",
+            "48.197.100.80/30",
+            "48.197.139.168/29",
+            "48.197.139.176/30",
+            "2603:1040:1a02::760/124",
+            "2603:1040:1a02:5::6d0/124",
+            "2603:1040:1a02:7::394/126",
+            "2603:1040:1a02:7::3a0/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -2,13 +2,17 @@
     "name": "AzureDevOps.WestCentralUS",
     "id": "AzureDevOps.WestCentralUS",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "westcentralus",
         "regionId": 36,
         "platform": "Azure",
         "systemService": "AzureDevOps",
         "addressPrefixes": [
-            "52.150.138.0/24"
+            "52.150.138.0/24",
+            "128.24.232.40/29",
+            "128.24.235.32/27",
+            "2603:1030:b04:d::200/120",
+            "2603:1030:b04:1000::a/128"
         ],
         "networkFeatures": null
     }

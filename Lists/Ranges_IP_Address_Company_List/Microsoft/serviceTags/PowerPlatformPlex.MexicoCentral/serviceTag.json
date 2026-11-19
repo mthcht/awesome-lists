@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.MexicoCentral",
+    "id": "PowerPlatformPlex.MexicoCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "172.195.121.128/25",
+            "2603:1061:2004:d800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "AzureDigitalTwins.NortheastUS5",
+    "id": "AzureDigitalTwins.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureDigitalTwins",
+        "addressPrefixes": [
+            "172.194.70.0/29",
+            "172.194.70.32/27",
+            "2603:1030:1602::700/121"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -2,7 +2,7 @@
     "name": "ApiManagement.AustraliaEast",
     "id": "ApiManagement.AustraliaEast",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 6,
         "region": "australiaeast",
         "regionId": 3,
         "platform": "Azure",
@@ -15,6 +15,10 @@
             "13.75.221.78/32",
             "20.40.125.155/32",
             "20.70.220.182/31",
+            "51.56.172.36/30",
+            "51.56.213.240/29",
+            "51.56.213.248/30",
+            "51.56.213.252/31",
             "2603:1010:6:402::140/124"
         ],
         "networkFeatures": [

@@ -2,12 +2,13 @@
     "name": "GatewayManager.ChileCentral",
     "id": "GatewayManager.ChileCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "chilec",
         "regionId": 10,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "57.156.76.16/28",
             "68.211.19.192/26",
             "2603:1050:301::40/122"
         ],

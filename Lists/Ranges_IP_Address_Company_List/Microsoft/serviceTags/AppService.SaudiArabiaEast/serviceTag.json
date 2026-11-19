@@ -1,0 +1,21 @@
+{
+    "name": "AppService.SaudiArabiaEast",
+    "id": "AppService.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "48.197.85.0/24",
+            "2603:1040:1a02:2::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

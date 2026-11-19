@@ -1,0 +1,22 @@
+{
+    "name": "EventHub.SoutheastUS5",
+    "id": "EventHub.SoutheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus5",
+        "regionId": 106,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "74.7.182.0/24",
+            "74.7.216.128/26",
+            "2603:1030:1502:1::200/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

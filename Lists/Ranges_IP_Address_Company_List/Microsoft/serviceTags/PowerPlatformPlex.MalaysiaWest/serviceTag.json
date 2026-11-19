@@ -1,0 +1,19 @@
+{
+    "name": "PowerPlatformPlex.MalaysiaWest",
+    "id": "PowerPlatformPlex.MalaysiaWest",
+    "properties": {
+        "changeNumber": 2,
+        "region": "malaysiawest",
+        "regionId": 92,
+        "platform": "Azure",
+        "systemService": "PowerPlatformPlex",
+        "addressPrefixes": [
+            "172.197.133.128/25",
+            "2603:1061:2004:d480::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

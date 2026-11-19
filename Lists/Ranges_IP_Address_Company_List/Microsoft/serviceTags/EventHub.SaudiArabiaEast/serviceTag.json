@@ -1,0 +1,21 @@
+{
+    "name": "EventHub.SaudiArabiaEast",
+    "id": "EventHub.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "48.197.80.0/24",
+            "2603:1040:1a02:1::200/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

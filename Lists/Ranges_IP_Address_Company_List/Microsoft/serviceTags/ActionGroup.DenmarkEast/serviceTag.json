@@ -1,0 +1,16 @@
+{
+    "name": "ActionGroup.DenmarkEast",
+    "id": "ActionGroup.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "9.205.75.32/30",
+            "2603:1020:1602:400::1c8/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "AzureConnectors.SoutheastAsia3",
+    "id": "AzureConnectors.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureConnectors",
+        "addressPrefixes": [
+            "48.198.92.192/26",
+            "2603:1040:1b02:2::140/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

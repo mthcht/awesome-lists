@@ -2,13 +2,15 @@
     "name": "PowerBI.KoreaSouth",
     "id": "PowerBI.KoreaSouth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 4,
         "region": "koreasouth",
         "regionId": 50,
         "platform": "Azure",
         "systemService": "PowerBI",
         "addressPrefixes": [
             "4.243.117.16/29",
+            "4.243.139.160/28",
+            "4.243.188.240/28",
             "20.200.166.224/28",
             "40.80.168.122/31",
             "40.80.168.124/30",

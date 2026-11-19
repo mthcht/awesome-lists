@@ -1,0 +1,21 @@
+{
+    "name": "ApiManagement.SaudiArabiaEast",
+    "id": "ApiManagement.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "48.197.78.16/28",
+            "2603:1040:1a02::740/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

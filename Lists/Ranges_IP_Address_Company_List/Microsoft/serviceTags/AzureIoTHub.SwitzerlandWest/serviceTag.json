@@ -2,7 +2,7 @@
     "name": "AzureIoTHub.SwitzerlandWest",
     "id": "AzureIoTHub.SwitzerlandWest",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "switzerlandw",
         "regionId": 67,
         "platform": "Azure",
@@ -11,6 +11,12 @@
             "51.107.147.64/27",
             "51.107.147.128/25",
             "51.107.156.96/27",
+            "57.160.12.136/30",
+            "57.160.12.160/27",
+            "57.160.12.192/26",
+            "2603:1020:b04:9::55c/126",
+            "2603:1020:b04:9::740/122",
+            "2603:1020:b04:9::780/123",
             "2603:1020:b04:402::300/123"
         ],
         "networkFeatures": null

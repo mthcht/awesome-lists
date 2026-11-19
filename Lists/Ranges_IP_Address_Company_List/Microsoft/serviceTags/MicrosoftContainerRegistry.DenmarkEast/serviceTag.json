@@ -1,0 +1,25 @@
+{
+    "name": "MicrosoftContainerRegistry.DenmarkEast",
+    "id": "MicrosoftContainerRegistry.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "MicrosoftContainerRegistry",
+        "addressPrefixes": [
+            "9.205.72.0/29",
+            "9.205.96.0/29",
+            "9.205.112.0/29",
+            "2603:1020:1602:400::/125",
+            "2603:1020:1602:800::/125",
+            "2603:1020:1602:c00::/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

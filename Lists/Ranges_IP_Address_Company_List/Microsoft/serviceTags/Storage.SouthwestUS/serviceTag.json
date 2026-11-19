@@ -1,0 +1,30 @@
+{
+    "name": "Storage.SouthwestUS",
+    "id": "Storage.SouthwestUS",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.153.11.0/24",
+            "20.153.45.0/24",
+            "57.150.174.0/23",
+            "57.150.176.0/24",
+            "57.150.254.0/23",
+            "57.163.62.0/23",
+            "57.163.88.0/23",
+            "135.130.210.0/23",
+            "145.190.146.0/23",
+            "145.190.196.0/24",
+            "2603:1030:1203::/48"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

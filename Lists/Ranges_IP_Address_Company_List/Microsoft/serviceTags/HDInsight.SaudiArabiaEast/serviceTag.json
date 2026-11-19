@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.SaudiArabiaEast",
+    "id": "HDInsight.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "48.197.81.208/29",
+            "2603:1040:1a02:1::4d0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

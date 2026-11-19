@@ -2,12 +2,13 @@
     "name": "GatewayManager.SwedenCentral",
     "id": "GatewayManager.SwedenCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "swedencentral",
         "regionId": 76,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "4.166.32.64/28",
             "51.12.40.192/26",
             "2603:1020:1004::40/122"
         ],

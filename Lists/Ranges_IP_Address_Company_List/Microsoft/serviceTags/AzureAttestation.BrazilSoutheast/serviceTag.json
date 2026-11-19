@@ -2,14 +2,20 @@
     "name": "AzureAttestation.BrazilSoutheast",
     "id": "AzureAttestation.BrazilSoutheast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 5,
         "region": "brazilse",
         "regionId": 77,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
+            "4.238.11.112/29",
+            "4.238.27.136/30",
+            "4.238.27.192/27",
+            "4.238.32.4/30",
+            "4.238.32.8/29",
             "20.195.146.64/30",
-            "191.233.51.220/30"
+            "191.233.51.220/30",
+            "2603:1050:403:9::4c0/124"
         ],
         "networkFeatures": null
     }

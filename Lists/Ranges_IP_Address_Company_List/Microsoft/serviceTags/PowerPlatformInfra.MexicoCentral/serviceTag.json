@@ -1,0 +1,22 @@
+{
+    "name": "PowerPlatformInfra.MexicoCentral",
+    "id": "PowerPlatformInfra.MexicoCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "172.195.122.128/25",
+            "172.195.123.0/24",
+            "2603:1061:2002:dc00::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

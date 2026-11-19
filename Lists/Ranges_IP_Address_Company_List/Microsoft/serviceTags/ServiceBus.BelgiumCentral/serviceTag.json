@@ -1,0 +1,20 @@
+{
+    "name": "ServiceBus.BelgiumCentral",
+    "id": "ServiceBus.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureServiceBus",
+        "addressPrefixes": [
+            "9.160.46.0/25",
+            "9.160.80.16/29",
+            "2603:1020:1502::780/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

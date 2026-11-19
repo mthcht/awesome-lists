@@ -2,7 +2,7 @@
     "name": "AzureContainerRegistry.SpainCentral",
     "id": "AzureContainerRegistry.SpainCentral",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "spaincentral",
         "regionId": 88,
         "platform": "Azure",
@@ -17,6 +17,9 @@
             "68.221.154.128/26",
             "68.221.155.128/25",
             "2603:1020:1403::580/125",
+            "2603:1020:1403:7::160/123",
+            "2603:1020:1403:7::200/124",
+            "2603:1020:1403:7::210/125",
             "2603:1020:1403:400::8/125",
             "2603:1020:1403:400::200/121",
             "2603:1020:1403:800::8/125",

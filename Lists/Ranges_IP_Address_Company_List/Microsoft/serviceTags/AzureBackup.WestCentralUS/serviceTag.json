@@ -2,7 +2,7 @@
     "name": "AzureBackup.WestCentralUS",
     "id": "AzureBackup.WestCentralUS",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "westcentralus",
         "regionId": 36,
         "platform": "Azure",
@@ -11,6 +11,7 @@
             "13.71.195.64/26",
             "13.71.195.128/27",
             "20.69.1.0/26",
+            "2603:1030:b04:f::700/121",
             "2603:1030:b04:402::200/121"
         ],
         "networkFeatures": null

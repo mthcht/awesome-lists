@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.SouthwestUS",
+    "id": "AzurePortal.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "48.219.205.224/27",
+            "48.219.209.212/30",
+            "2603:1030:1202:2::400/121"
+        ],
+        "networkFeatures": null
+    }
+}

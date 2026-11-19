@@ -1,0 +1,30 @@
+{
+    "name": "Sql.DenmarkEast",
+    "id": "Sql.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "9.205.48.96/27",
+            "9.205.48.128/26",
+            "9.205.50.96/27",
+            "9.205.72.48/29",
+            "9.205.72.224/27",
+            "9.205.96.48/29",
+            "9.205.96.224/27",
+            "9.205.112.48/29",
+            "9.205.112.224/27",
+            "2603:1020:1602:2::620/123",
+            "2603:1020:1602:2::680/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

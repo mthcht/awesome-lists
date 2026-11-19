@@ -2,7 +2,7 @@
     "name": "AzureResourceManager.NorthEurope",
     "id": "AzureResourceManager.NorthEurope",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "northeurope",
         "regionId": 17,
         "platform": "Azure",
@@ -15,8 +15,10 @@
             "20.135.136.30/32",
             "20.135.138.85/32",
             "52.146.134.0/23",
+            "74.144.43.100/30",
             "2603:1020:5::180/122",
-            "2603:1020:5:402::280/122"
+            "2603:1020:5:402::280/122",
+            "2603:1020:5:1000::cc/126"
         ],
         "networkFeatures": null
     }

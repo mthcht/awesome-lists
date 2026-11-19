@@ -2,12 +2,13 @@
     "name": "StorageSyncService.ChileCentral",
     "id": "StorageSyncService.ChileCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "chilec",
         "regionId": 10,
         "platform": "Azure",
         "systemService": "StorageSyncService",
         "addressPrefixes": [
+            "57.156.75.168/29",
             "68.211.152.48/29",
             "2603:1050:301:400::120/123"
         ],

@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.KoreaCentral",
     "id": "PowerPlatformPlex.KoreaCentral",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 7,
         "region": "koreacentral",
         "regionId": 26,
         "platform": "Azure",
@@ -10,8 +10,11 @@
         "addressPrefixes": [
             "4.181.26.80/29",
             "4.218.236.128/28",
+            "4.230.161.128/25",
             "20.200.198.200/29",
             "20.200.199.88/29",
+            "72.155.105.192/26",
+            "72.155.106.0/26",
             "2603:1061:2004:1800::/57"
         ],
         "networkFeatures": [

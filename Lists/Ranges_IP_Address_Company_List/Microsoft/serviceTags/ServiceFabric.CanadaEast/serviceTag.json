@@ -2,7 +2,7 @@
     "name": "ServiceFabric.CanadaEast",
     "id": "ServiceFabric.CanadaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -10,6 +10,8 @@
         "addressPrefixes": [
             "40.69.107.0/29",
             "40.86.230.174/32",
+            "145.191.175.104/29",
+            "2603:1030:1005:12::658/125",
             "2603:1030:1005:402::98/125"
         ],
         "networkFeatures": null

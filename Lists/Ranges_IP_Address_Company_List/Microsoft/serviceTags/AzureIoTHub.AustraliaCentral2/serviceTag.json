@@ -2,7 +2,7 @@
     "name": "AzureIoTHub.AustraliaCentral2",
     "id": "AzureIoTHub.AustraliaCentral2",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "australiacentral2",
         "regionId": 59,
         "platform": "Azure",
@@ -11,6 +11,12 @@
             "20.36.117.64/27",
             "20.36.123.32/27",
             "20.36.123.128/25",
+            "20.167.229.28/30",
+            "20.167.229.224/27",
+            "20.167.239.64/26",
+            "2603:1010:404:8::578/126",
+            "2603:1010:404:9::100/122",
+            "2603:1010:404:9::140/123",
             "2603:1010:404:402::300/123"
         ],
         "networkFeatures": null

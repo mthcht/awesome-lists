@@ -1,0 +1,26 @@
+{
+    "name": "Sql.SouthwestUS",
+    "id": "Sql.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "AzureSQL",
+        "addressPrefixes": [
+            "48.219.208.96/27",
+            "48.219.208.128/26",
+            "48.219.210.32/27",
+            "48.219.234.136/29",
+            "48.219.234.160/27",
+            "2603:1030:1202:2::620/123",
+            "2603:1030:1202:2::680/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -2,12 +2,13 @@
     "name": "AppServiceManagement.AustraliaEast",
     "id": "AppServiceManagement.AustraliaEast",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "australiaeast",
         "regionId": 3,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
+            "4.198.222.96/29",
             "13.70.73.128/26",
             "20.70.222.64/28",
             "104.210.90.65/32",

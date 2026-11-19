@@ -1,0 +1,25 @@
+{
+    "name": "PowerBI.SaudiArabiaEast",
+    "id": "PowerBI.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "48.197.84.96/27",
+            "48.197.87.142/31",
+            "48.197.89.192/30",
+            "48.197.89.200/29",
+            "2603:1040:1a02:2::740/122",
+            "2603:1040:1a02:3::100/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -2,12 +2,13 @@
     "name": "AzureCosmosDB.EastUS2",
     "id": "AzureCosmosDB.EastUS2",
     "properties": {
-        "changeNumber": 15,
+        "changeNumber": 16,
         "region": "eastus2",
         "regionId": 33,
         "platform": "Azure",
         "systemService": "AzureCosmosDB",
         "addressPrefixes": [
+            "4.153.238.128/25",
             "13.68.28.135/32",
             "20.15.9.64/26",
             "20.15.13.128/25",

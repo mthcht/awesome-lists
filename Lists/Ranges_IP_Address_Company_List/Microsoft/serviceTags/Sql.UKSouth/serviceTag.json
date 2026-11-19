@@ -2,12 +2,15 @@
     "name": "Sql.UKSouth",
     "id": "Sql.UKSouth",
     "properties": {
-        "changeNumber": 9,
+        "changeNumber": 10,
         "region": "uksouth",
         "regionId": 27,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.158.130.8/30",
+            "4.158.130.96/27",
+            "4.158.130.128/26",
             "20.26.23.0/25",
             "51.104.10.0/26",
             "51.105.64.0/27",

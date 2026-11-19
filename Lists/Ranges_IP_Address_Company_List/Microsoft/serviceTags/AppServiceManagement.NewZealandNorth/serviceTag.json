@@ -2,12 +2,13 @@
     "name": "AppServiceManagement.NewZealandNorth",
     "id": "AppServiceManagement.NewZealandNorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "newzealandnorth",
         "regionId": 91,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
+            "172.204.108.32/29",
             "172.204.166.0/26",
             "2603:1010:502:2::240/122"
         ],

@@ -1,0 +1,22 @@
+{
+    "name": "ApiManagement.EastUS3",
+    "id": "ApiManagement.EastUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "134.138.1.20/30",
+            "134.138.70.16/28",
+            "2603:1030:1402::740/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

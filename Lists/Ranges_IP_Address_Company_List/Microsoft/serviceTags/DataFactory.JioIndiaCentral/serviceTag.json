@@ -2,15 +2,21 @@
     "name": "DataFactory.JioIndiaCentral",
     "id": "DataFactory.JioIndiaCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "jioindiacentral",
         "regionId": 64,
         "platform": "Azure",
         "systemService": "DataFactory",
         "addressPrefixes": [
+            "4.240.138.0/28",
+            "4.240.203.0/25",
+            "4.240.203.128/26",
+            "4.240.203.224/27",
             "20.192.226.0/23",
             "20.192.238.96/28",
             "2603:1040:1104::600/121",
+            "2603:1040:1104:a::7d8/125",
+            "2603:1040:1104:a::7e0/124",
             "2603:1040:1104:400::500/124"
         ],
         "networkFeatures": [

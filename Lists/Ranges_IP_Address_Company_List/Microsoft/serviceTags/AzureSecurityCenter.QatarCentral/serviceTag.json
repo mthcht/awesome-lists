@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.QatarCentral",
+    "id": "AzureSecurityCenter.QatarCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "qatarcentral",
+        "regionId": 84,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "20.173.57.8/30",
+            "20.173.57.16/28",
+            "20.173.57.32/27",
+            "20.173.57.64/26",
+            "20.173.57.128/25",
+            "20.173.58.0/24"
+        ],
+        "networkFeatures": null
+    }
+}

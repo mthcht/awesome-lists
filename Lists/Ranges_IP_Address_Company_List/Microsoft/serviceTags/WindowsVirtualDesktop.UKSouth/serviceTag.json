@@ -2,7 +2,7 @@
     "name": "WindowsVirtualDesktop.UKSouth",
     "id": "WindowsVirtualDesktop.UKSouth",
     "properties": {
-        "changeNumber": 9,
+        "changeNumber": 10,
         "region": "uksouth",
         "regionId": 27,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "40.64.144.200/29",
             "40.64.145.16/28",
+            "40.64.148.64/27",
             "2603:1061:2010:16::/117"
         ],
         "networkFeatures": null

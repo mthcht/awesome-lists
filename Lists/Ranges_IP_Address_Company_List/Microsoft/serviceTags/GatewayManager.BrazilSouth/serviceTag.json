@@ -2,12 +2,13 @@
     "name": "GatewayManager.BrazilSouth",
     "id": "GatewayManager.BrazilSouth",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "brazilsouth",
         "regionId": 9,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "4.201.244.192/27",
             "191.233.203.208/29",
             "191.233.245.75/32",
             "191.233.245.118/32",

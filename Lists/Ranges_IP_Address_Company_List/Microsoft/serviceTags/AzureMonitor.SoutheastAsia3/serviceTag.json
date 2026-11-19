@@ -1,0 +1,28 @@
+{
+    "name": "AzureMonitor.SoutheastAsia3",
+    "id": "AzureMonitor.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureMonitor",
+        "addressPrefixes": [
+            "48.198.101.192/28",
+            "48.198.101.208/31",
+            "48.198.101.224/27",
+            "48.198.102.0/27",
+            "48.198.154.128/26",
+            "48.198.194.192/26",
+            "2603:1040:1b02:3::2c0/122",
+            "2603:1040:1b02:3::380/122",
+            "2603:1040:1b02:3::400/120",
+            "2603:1040:1b02:5::/119",
+            "2603:1040:1b02:5::340/122",
+            "2603:1040:1b02:5::400/119"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

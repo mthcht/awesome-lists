@@ -1,0 +1,19 @@
+{
+    "name": "GatewayManager.SouthwestUS",
+    "id": "GatewayManager.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "48.219.192.64/26",
+            "48.219.222.96/28",
+            "2603:1030:1202::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

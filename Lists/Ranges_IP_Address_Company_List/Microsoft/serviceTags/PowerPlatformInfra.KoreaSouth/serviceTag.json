@@ -2,7 +2,7 @@
     "name": "PowerPlatformInfra.KoreaSouth",
     "id": "PowerPlatformInfra.KoreaSouth",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "koreasouth",
         "regionId": 50,
         "platform": "Azure",
@@ -23,6 +23,7 @@
             "52.231.143.171/32",
             "52.231.164.79/32",
             "52.231.185.0/32",
+            "52.231.238.0/25",
             "2603:1061:2002:2100::/57"
         ],
         "networkFeatures": [

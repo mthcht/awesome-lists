@@ -2,14 +2,20 @@
     "name": "AzureAttestation.NorthEurope",
     "id": "AzureAttestation.NorthEurope",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 6,
         "region": "northeurope",
         "regionId": 17,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
+            "4.209.98.40/29",
+            "4.209.98.48/30",
+            "4.209.250.176/29",
             "13.69.233.128/30",
-            "52.146.132.244/30"
+            "52.146.132.244/30",
+            "74.144.85.112/29",
+            "74.144.85.120/30",
+            "2603:1020:5:25::7b0/124"
         ],
         "networkFeatures": null
     }

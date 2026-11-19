@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.SaudiArabiaEast",
+    "id": "BatchNodeManagement.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "48.197.76.0/27",
+            "2603:1040:1a02::500/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "ActionGroup.NortheastUS5",
+    "id": "ActionGroup.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "ActionGroup",
+        "addressPrefixes": [
+            "172.194.86.168/30",
+            "172.194.112.244/30",
+            "2603:1030:1602:3::610/125",
+            "2603:1030:1602:400::210/125"
+        ],
+        "networkFeatures": null
+    }
+}

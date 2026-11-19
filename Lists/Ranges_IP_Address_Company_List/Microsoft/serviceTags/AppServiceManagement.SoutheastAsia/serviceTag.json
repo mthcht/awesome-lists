@@ -2,12 +2,13 @@
     "name": "AppServiceManagement.SoutheastAsia",
     "id": "AppServiceManagement.SoutheastAsia",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "southeastasia",
         "regionId": 2,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
+            "4.145.0.64/29",
             "13.67.8.128/26",
             "20.195.85.128/28",
             "20.205.192.0/26",

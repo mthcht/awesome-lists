@@ -2,7 +2,7 @@
     "name": "AzureArcInfrastructure.UAECentral",
     "id": "AzureArcInfrastructure.UAECentral",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "uaecentral",
         "regionId": 61,
         "platform": "Azure",
@@ -11,7 +11,9 @@
             "20.37.66.52/30",
             "20.203.93.28/31",
             "20.203.93.80/29",
-            "40.120.8.184/30"
+            "20.216.93.140/32",
+            "40.120.8.184/30",
+            "2603:1040:b04:8::4f6/128"
         ],
         "networkFeatures": null
     }

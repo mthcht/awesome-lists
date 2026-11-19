@@ -2,12 +2,13 @@
     "name": "ApiManagement.NorwayEast",
     "id": "ApiManagement.NorwayEast",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "norwaye",
         "regionId": 63,
         "platform": "Azure",
         "systemService": "AzureApiManagement",
         "addressPrefixes": [
+            "4.177.48.40/30",
             "51.120.2.185/32",
             "51.120.98.176/28",
             "51.120.234.240/28",

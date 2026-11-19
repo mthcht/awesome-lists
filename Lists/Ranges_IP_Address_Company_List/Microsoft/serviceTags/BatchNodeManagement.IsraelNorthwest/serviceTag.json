@@ -1,0 +1,19 @@
+{
+    "name": "BatchNodeManagement.IsraelNorthwest",
+    "id": "BatchNodeManagement.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "BatchNodeManagement",
+        "addressPrefixes": [
+            "20.217.249.64/27",
+            "2603:1040:1702::300/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG"
+        ]
+    }
+}

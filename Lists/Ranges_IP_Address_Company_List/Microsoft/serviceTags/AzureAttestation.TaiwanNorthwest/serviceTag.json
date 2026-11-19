@@ -2,14 +2,20 @@
     "name": "AzureAttestation.TaiwanNorthwest",
     "id": "AzureAttestation.TaiwanNorthwest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 4,
         "region": "taiwannorthwest",
         "regionId": 96,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
             "51.53.171.240/30",
-            "2603:1040:1202::600/124"
+            "57.170.0.64/30",
+            "57.170.14.240/29",
+            "57.170.14.248/30",
+            "167.105.220.112/29",
+            "167.105.254.248/29",
+            "2603:1040:1202::600/124",
+            "2603:1040:1202:7::3a0/124"
         ],
         "networkFeatures": null
     }

@@ -1,0 +1,20 @@
+{
+    "name": "ServiceFabric.IndiaSouthCentral",
+    "id": "ServiceFabric.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "ServiceFabric",
+        "addressPrefixes": [
+            "172.198.112.8/30",
+            "172.198.144.8/30",
+            "172.198.168.8/30",
+            "2603:1040:1904:400::10/125",
+            "2603:1040:1904:800::10/125",
+            "2603:1040:1904:c00::10/125"
+        ],
+        "networkFeatures": null
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "AzureResourceManager.SaudiArabiaEast",
+    "id": "AzureResourceManager.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureResourceManager",
+        "addressPrefixes": [
+            "48.197.82.0/23",
+            "2603:1040:1a02:1::500/120"
+        ],
+        "networkFeatures": null
+    }
+}

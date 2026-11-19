@@ -1,0 +1,19 @@
+{
+    "name": "GatewayManager.SoutheastUS3",
+    "id": "GatewayManager.SoutheastUS3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southeastus3",
+        "regionId": 105,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "74.7.40.64/26",
+            "74.7.67.192/28",
+            "2603:1030:1302::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

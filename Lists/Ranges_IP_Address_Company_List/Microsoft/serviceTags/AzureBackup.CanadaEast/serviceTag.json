@@ -2,7 +2,7 @@
     "name": "AzureBackup.CanadaEast",
     "id": "AzureBackup.CanadaEast",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "canadaeast",
         "regionId": 12,
         "platform": "Azure",
@@ -11,6 +11,7 @@
             "40.69.107.32/27",
             "40.69.107.64/26",
             "52.139.107.128/26",
+            "145.191.182.96/28",
             "2603:1030:1005:3::280/121",
             "2603:1030:1005:402::200/121"
         ],

@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.DenmarkEast",
+    "id": "AzureCosmosDB.DenmarkEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "9.205.35.0/26",
+            "9.205.49.224/27",
+            "2603:1020:1602::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

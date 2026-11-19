@@ -2,15 +2,21 @@
     "name": "AzureAttestation.SouthIndia",
     "id": "AzureAttestation.SouthIndia",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 6,
         "region": "southindia",
         "regionId": 22,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
+            "4.247.40.40/29",
+            "4.247.40.64/30",
             "20.192.184.116/30",
             "52.172.116.0/30",
-            "2603:1040:c06:3::390/124"
+            "74.224.224.208/29",
+            "74.224.224.216/30",
+            "74.225.41.64/29",
+            "2603:1040:c06:3::390/124",
+            "2603:1040:c06:e::2f0/124"
         ],
         "networkFeatures": null
     }

@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.SaudiArabiaEast",
+    "id": "AzureCosmosDB.SaudiArabiaEast",
+    "properties": {
+        "changeNumber": 1,
+        "region": "saudiarabiaeast",
+        "regionId": 107,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "48.197.76.32/27",
+            "48.197.76.64/26",
+            "2603:1040:1a02::5c0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

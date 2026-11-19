@@ -1,0 +1,24 @@
+{
+    "name": "AzureKeyVault.EastUS3",
+    "id": "AzureKeyVault.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureKeyVault",
+        "addressPrefixes": [
+            "134.138.71.124/30",
+            "134.138.73.160/29",
+            "134.138.96.12/30",
+            "2603:1030:1402:1::3e8/125",
+            "2603:1030:1402:400::48/125"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -2,12 +2,15 @@
     "name": "Sql.AustraliaCentral",
     "id": "Sql.AustraliaCentral",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "australiacentral",
         "regionId": 58,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.199.196.32/27",
+            "4.199.196.64/26",
+            "4.199.196.128/30",
             "20.36.104.0/27",
             "20.36.105.0/27",
             "20.36.105.32/29",

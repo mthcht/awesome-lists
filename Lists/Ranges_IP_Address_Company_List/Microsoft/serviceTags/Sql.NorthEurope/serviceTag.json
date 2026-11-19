@@ -2,12 +2,15 @@
     "name": "Sql.NorthEurope",
     "id": "Sql.NorthEurope",
     "properties": {
-        "changeNumber": 16,
+        "changeNumber": 17,
         "region": "northeurope",
         "regionId": 17,
         "platform": "Azure",
         "systemService": "AzureSQL",
         "addressPrefixes": [
+            "4.207.59.172/30",
+            "4.207.61.224/27",
+            "4.207.62.0/26",
             "13.69.224.0/26",
             "13.69.224.192/26",
             "13.69.225.0/26",

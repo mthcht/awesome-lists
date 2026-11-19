@@ -2,13 +2,14 @@
     "name": "GatewayManager.PolandCentral",
     "id": "GatewayManager.PolandCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "polandcentral",
         "regionId": 52,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "20.215.0.64/26",
+            "134.112.169.240/28",
             "2603:1020:1302::40/122"
         ],
         "networkFeatures": [

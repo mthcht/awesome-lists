@@ -1,0 +1,21 @@
+{
+    "name": "AzureAttestation.DenmarkEast",
+    "id": "AzureAttestation.DenmarkEast",
+    "properties": {
+        "changeNumber": 4,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "AzureAttestation",
+        "addressPrefixes": [
+            "9.205.32.20/30",
+            "9.205.179.72/29",
+            "9.205.179.80/30",
+            "9.205.217.12/30",
+            "9.205.217.48/29",
+            "2603:1020:1602::540/124",
+            "2603:1020:1602:7::440/124"
+        ],
+        "networkFeatures": null
+    }
+}

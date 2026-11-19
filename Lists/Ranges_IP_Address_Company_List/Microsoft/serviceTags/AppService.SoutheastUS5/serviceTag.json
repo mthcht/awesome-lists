@@ -1,0 +1,21 @@
+{
+    "name": "AppService.SoutheastUS5",
+    "id": "AppService.SoutheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus5",
+        "regionId": 106,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "74.7.187.0/24",
+            "2603:1030:1502:2::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

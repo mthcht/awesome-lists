@@ -1,0 +1,23 @@
+{
+    "name": "AzureContainerRegistry.SoutheastAsia3",
+    "id": "AzureContainerRegistry.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureContainerRegistry",
+        "addressPrefixes": [
+            "48.198.84.192/26",
+            "48.198.96.128/26",
+            "2603:1040:1b02::700/125",
+            "2603:1040:1b02:2::580/121"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

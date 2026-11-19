@@ -2,12 +2,13 @@
     "name": "SCCservice.BrazilSouth",
     "id": "SCCservice.BrazilSouth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "brazilsouth",
         "regionId": 9,
         "platform": "Azure",
         "systemService": "SCCservice",
         "addressPrefixes": [
+            "51.59.58.192/27",
             "191.233.207.192/29"
         ],
         "networkFeatures": null

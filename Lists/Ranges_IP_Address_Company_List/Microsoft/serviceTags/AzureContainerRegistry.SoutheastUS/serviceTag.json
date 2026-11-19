@@ -2,7 +2,7 @@
     "name": "AzureContainerRegistry.SoutheastUS",
     "id": "AzureContainerRegistry.SoutheastUS",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "southeastus",
         "regionId": 101,
         "platform": "Azure",
@@ -14,6 +14,9 @@
             "68.154.145.64/26",
             "2603:1030:902::560/125",
             "2603:1030:902:4::180/121",
+            "2603:1030:902:4::660/123",
+            "2603:1030:902:4::700/124",
+            "2603:1030:902:4::710/125",
             "2603:1030:902:400::8/125",
             "2603:1030:902:400::100/121"
         ],

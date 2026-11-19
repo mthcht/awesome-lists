@@ -2,16 +2,20 @@
     "name": "ApiManagement.SouthAfricaNorth",
     "id": "ApiManagement.SouthAfricaNorth",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 6,
         "region": "southafricanorth",
         "regionId": 82,
         "platform": "Azure",
         "systemService": "AzureApiManagement",
         "addressPrefixes": [
+            "4.222.0.38/31",
+            "4.222.1.20/30",
+            "4.222.1.24/29",
             "102.37.166.220/31",
             "102.133.130.197/32",
             "102.133.154.4/31",
             "102.133.156.0/28",
+            "172.209.182.104/30",
             "172.209.191.124/31",
             "2603:1000:104:402::140/124"
         ],

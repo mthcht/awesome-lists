@@ -1,0 +1,22 @@
+{
+    "name": "EventHub.BelgiumCentral",
+    "id": "EventHub.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureEventHub",
+        "addressPrefixes": [
+            "9.160.45.0/24",
+            "9.160.80.128/26",
+            "2603:1020:1502:1::/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

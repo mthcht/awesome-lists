@@ -2,14 +2,20 @@
     "name": "AzureAttestation.SwedenCentral",
     "id": "AzureAttestation.SwedenCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 5,
         "region": "swedencentral",
         "regionId": 76,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
+            "4.223.182.184/29",
+            "4.223.199.84/30",
+            "4.223.199.88/29",
             "51.12.46.224/30",
-            "2603:1020:1004:1::720/123"
+            "57.174.126.24/29",
+            "57.174.126.32/30",
+            "2603:1020:1004:1::720/123",
+            "2603:1020:1004:14::110/124"
         ],
         "networkFeatures": null
     }

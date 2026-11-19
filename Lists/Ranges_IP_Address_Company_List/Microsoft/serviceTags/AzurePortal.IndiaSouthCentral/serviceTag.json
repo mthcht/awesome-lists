@@ -1,0 +1,17 @@
+{
+    "name": "AzurePortal.IndiaSouthCentral",
+    "id": "AzurePortal.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzurePortal",
+        "addressPrefixes": [
+            "172.198.95.156/30",
+            "172.198.98.128/27",
+            "2603:1040:1904:3::80/121"
+        ],
+        "networkFeatures": null
+    }
+}

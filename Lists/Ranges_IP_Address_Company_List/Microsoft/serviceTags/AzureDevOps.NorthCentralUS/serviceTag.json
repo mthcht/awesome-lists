@@ -2,13 +2,16 @@
     "name": "AzureDevOps.NorthCentralUS",
     "id": "AzureDevOps.NorthCentralUS",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "northcentralus",
         "regionId": 34,
         "platform": "Azure",
         "systemService": "AzureDevOps",
         "addressPrefixes": [
-            "40.80.187.0/24"
+            "40.80.187.0/24",
+            "130.213.112.120/30",
+            "2603:1030:608:12::600/120",
+            "2603:1030:608:1000::a/128"
         ],
         "networkFeatures": null
     }

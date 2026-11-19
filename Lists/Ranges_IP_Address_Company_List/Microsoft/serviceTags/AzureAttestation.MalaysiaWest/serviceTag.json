@@ -2,14 +2,19 @@
     "name": "AzureAttestation.MalaysiaWest",
     "id": "AzureAttestation.MalaysiaWest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 4,
         "region": "malaysiawest",
         "regionId": 92,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
             "20.17.112.20/30",
-            "2603:1040:1602::5c0/124"
+            "172.197.132.136/29",
+            "172.197.132.144/30",
+            "172.197.225.148/30",
+            "172.197.225.224/29",
+            "2603:1040:1602::5c0/124",
+            "2603:1040:1602:7::220/124"
         ],
         "networkFeatures": null
     }

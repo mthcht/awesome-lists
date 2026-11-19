@@ -2,7 +2,7 @@
     "name": "AzureArcInfrastructure.EastUS2EUAP",
     "id": "AzureArcInfrastructure.EastUS2EUAP",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 6,
         "region": "eastus2euap",
         "regionId": 49,
         "platform": "Azure",
@@ -15,7 +15,15 @@
             "40.74.150.116/30",
             "40.74.150.120/32",
             "40.89.121.188/31",
-            "52.138.90.54/31"
+            "48.223.58.80/32",
+            "52.138.90.54/31",
+            "74.151.95.145/32",
+            "74.151.95.146/31",
+            "74.151.95.148/30",
+            "2603:1030:40b:10::755/128",
+            "2603:1030:40b:18::2a5/128",
+            "2603:1030:40b:18::3a4/126",
+            "2603:1030:40b:18::3a8/127"
         ],
         "networkFeatures": null
     }

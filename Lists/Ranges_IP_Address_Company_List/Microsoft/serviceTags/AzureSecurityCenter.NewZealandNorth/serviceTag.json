@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.NewZealandNorth",
+    "id": "AzureSecurityCenter.NewZealandNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "newzealandnorth",
+        "regionId": 91,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "172.196.57.128/25",
+            "172.196.58.0/24",
+            "172.196.59.0/26",
+            "172.196.59.64/27",
+            "172.196.59.96/28",
+            "172.204.255.248/30"
+        ],
+        "networkFeatures": null
+    }
+}

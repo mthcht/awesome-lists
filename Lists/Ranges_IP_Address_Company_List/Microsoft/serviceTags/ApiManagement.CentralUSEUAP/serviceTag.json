@@ -2,7 +2,7 @@
     "name": "ApiManagement.CentralUSEUAP",
     "id": "ApiManagement.CentralUSEUAP",
     "properties": {
-        "changeNumber": 3,
+        "changeNumber": 4,
         "region": "centraluseuap",
         "regionId": 48,
         "platform": "Azure",
@@ -12,6 +12,9 @@
             "40.78.202.128/31",
             "40.78.203.160/28",
             "52.253.159.160/32",
+            "57.173.52.2/31",
+            "57.173.52.64/29",
+            "57.173.52.72/30",
             "2603:1030:f:2::490/124",
             "2603:1030:f:400::940/124"
         ],

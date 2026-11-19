@@ -2,13 +2,14 @@
     "name": "Storage.TaiwanNorth",
     "id": "Storage.TaiwanNorth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "taiwannorth",
         "regionId": 8,
         "platform": "Azure",
         "systemService": "AzureStorage",
         "addressPrefixes": [
             "20.60.113.0/24",
+            "20.153.96.0/24",
             "20.157.173.0/24",
             "20.157.187.0/24",
             "20.209.42.0/23",

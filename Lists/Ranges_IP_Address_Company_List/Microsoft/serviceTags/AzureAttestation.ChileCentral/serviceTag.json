@@ -2,14 +2,20 @@
     "name": "AzureAttestation.ChileCentral",
     "id": "AzureAttestation.ChileCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 5,
         "region": "chilec",
         "regionId": 10,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
+            "57.156.97.52/30",
+            "57.156.97.192/29",
             "68.211.19.184/30",
-            "2603:1050:301::540/124"
+            "68.211.31.176/29",
+            "68.211.204.36/30",
+            "68.211.204.40/29",
+            "2603:1050:301::540/124",
+            "2603:1050:301:7::430/124"
         ],
         "networkFeatures": null
     }

@@ -2,12 +2,13 @@
     "name": "GatewayManager.SoutheastAsia",
     "id": "GatewayManager.SoutheastAsia",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "southeastasia",
         "regionId": 2,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
+            "4.145.21.64/27",
             "13.67.9.128/29",
             "20.43.128.72/29",
             "20.195.37.65/32",

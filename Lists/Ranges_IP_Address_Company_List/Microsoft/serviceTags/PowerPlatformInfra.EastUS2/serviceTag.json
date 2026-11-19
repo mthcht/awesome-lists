@@ -2,7 +2,7 @@
     "name": "PowerPlatformInfra.EastUS2",
     "id": "PowerPlatformInfra.EastUS2",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "eastus2",
         "regionId": 33,
         "platform": "Azure",
@@ -11,6 +11,7 @@
             "40.84.87.192/26",
             "40.84.88.0/23",
             "40.84.90.0/26",
+            "57.162.15.128/25",
             "2603:1061:2002:300::/57"
         ],
         "networkFeatures": [

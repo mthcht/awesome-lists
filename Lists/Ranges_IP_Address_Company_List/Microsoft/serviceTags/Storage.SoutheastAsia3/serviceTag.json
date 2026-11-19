@@ -1,0 +1,28 @@
+{
+    "name": "Storage.SoutheastAsia3",
+    "id": "Storage.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "AzureStorage",
+        "addressPrefixes": [
+            "20.153.122.0/24",
+            "57.163.38.0/23",
+            "135.130.148.0/23",
+            "135.130.150.0/24",
+            "135.130.153.0/24",
+            "135.130.154.0/24",
+            "145.190.150.0/24",
+            "145.190.181.0/24",
+            "2603:1040:1b03::/49"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -209,19 +209,6 @@
         "required": true
     },
     {
-        "id": 18,
-        "serviceArea": "Skype",
-        "serviceAreaDisplayName": "Microsoft Teams",
-        "urls": [
-            "*.users.storage.live.com"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Federation with Skype and public IM connectivity: Contact picture retrieval"
-    },
-    {
         "id": 19,
         "serviceArea": "Skype",
         "serviceAreaDisplayName": "Microsoft Teams",
@@ -233,19 +220,6 @@
         "category": "Default",
         "required": false,
         "notes": "For end user and customer owned device updates"
-    },
-    {
-        "id": 27,
-        "serviceArea": "Skype",
-        "serviceAreaDisplayName": "Microsoft Teams",
-        "urls": [
-            "join.secure.skypeassets.com",
-            "mlccdnprod.azureedge.net"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": true
     },
     {
         "id": 31,
@@ -277,7 +251,6 @@
         "serviceArea": "SharePoint",
         "serviceAreaDisplayName": "SharePoint Online and OneDrive for Business",
         "urls": [
-            "ssw.live.com",
             "storage.live.com"
         ],
         "tcpPorts": "443",
@@ -285,21 +258,6 @@
         "category": "Default",
         "required": false,
         "notes": "OneDrive for Business: supportability, telemetry, APIs, and embedded email links"
-    },
-    {
-        "id": 33,
-        "serviceArea": "SharePoint",
-        "serviceAreaDisplayName": "SharePoint Online and OneDrive for Business",
-        "urls": [
-            "*.search.production.apac.trafficmanager.net",
-            "*.search.production.emea.trafficmanager.net",
-            "*.search.production.us.trafficmanager.net"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "SharePoint Hybrid Search - Endpoint to SearchContentService where the hybrid crawler feeds documents"
     },
     {
         "id": 35,
@@ -461,13 +419,11 @@
         "urls": [
             "*.auth.microsoft.com",
             "*.msftidentity.com",
-            "*.msidentity.com",
             "account.activedirectory.windowsazure.com",
             "accounts.accesscontrol.windows.net",
             "adminwebservice.microsoftonline.com",
             "api.passwordreset.microsoftonline.com",
             "autologon.microsoftazuread-sso.com",
-            "becws.microsoftonline.com",
             "ccs.login.microsoftonline.com",
             "clientconfig.microsoftonline-p.net",
             "companymanager.microsoftonline.com",
@@ -482,8 +438,7 @@
             "logincert.microsoftonline.com",
             "loginex.microsoftonline.com",
             "nexus.microsoftonline-p.com",
-            "passwordreset.microsoftonline.com",
-            "provisioningapi.microsoftonline.com"
+            "passwordreset.microsoftonline.com"
         ],
         "ips": [
             "20.20.32.0/19",
@@ -586,16 +541,13 @@
             "*.o365weve.com",
             "amp.azure.net",
             "appsforoffice.microsoft.com",
-            "assets.onestore.ms",
             "auth.gfx.ms",
             "c1.microsoft.com",
             "dgps.support.microsoft.com",
             "docs.microsoft.com",
             "msdn.microsoft.com",
             "platform.linkedin.com",
-            "prod.msocdn.com",
             "shellprod.msocdn.com",
-            "support.microsoft.com",
             "technet.microsoft.com"
         ],
         "tcpPorts": "443",
@@ -744,7 +696,6 @@
         "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
         "urls": [
             "officecdn.microsoft.com",
-            "officecdn.microsoft.com.edgesuite.net",
             "otelrules.azureedge.net"
         ],
         "tcpPorts": "80,443",
@@ -811,19 +762,6 @@
         "notes": "Outlook for Android and iOS: Consumer Outlook.com and OneDrive integration"
     },
     {
-        "id": 105,
-        "serviceArea": "Common",
-        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
-        "urls": [
-            "www.acompli.com"
-        ],
-        "tcpPorts": "443",
-        "expressRoute": false,
-        "category": "Default",
-        "required": false,
-        "notes": "Outlook for Android and iOS: Outlook Privacy"
-    },
-    {
         "id": 114,
         "serviceArea": "Common",
         "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
@@ -832,8 +770,6 @@
             "*.appex.bing.com",
             "c.bing.com",
             "c.live.com",
-            "d.docs.live.net",
-            "docs.live.net",
             "partnerservices.getmicrosoftkey.com",
             "signup.live.com"
         ],
@@ -948,11 +884,9 @@
             "crl.identrust.com",
             "crl3.digicert.com",
             "crl4.digicert.com",
-            "isrg.trustid.ocsp.identrust.com",
             "mscrl.microsoft.com",
             "ocsp.digicert.com",
             "ocsp.globalsign.com",
-            "ocsp.msocsp.com",
             "ocsp2.globalsign.com",
             "ocspx.digicert.com",
             "oneocsp.microsoft.com",
@@ -1082,23 +1016,23 @@
         "required": true
     },
     {
-        "id": 180,
-        "serviceArea": "Skype",
-        "serviceAreaDisplayName": "Microsoft Teams",
+        "id": 184,
+        "serviceArea": "Common",
+        "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
         "urls": [
-            "compass-ssl.microsoft.com"
+            "*.cloud.microsoft"
         ],
         "tcpPorts": "443",
+        "udpPorts": "443",
         "expressRoute": false,
         "category": "Default",
         "required": true
     },
     {
-        "id": 184,
+        "id": 193,
         "serviceArea": "Common",
         "serviceAreaDisplayName": "Microsoft 365 Common and Office Online",
         "urls": [
-            "*.cloud.microsoft",
             "*.static.microsoft",
             "*.usercontent.microsoft"
         ],
@@ -1106,6 +1040,7 @@
         "udpPorts": "443",
         "expressRoute": false,
         "category": "Default",
-        "required": true
+        "required": true,
+        "notes": ""
     }
 ]

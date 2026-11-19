@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.IndiaSouthCentral",
+    "id": "AzureBotService.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "172.198.80.16/30",
+            "2603:1040:1904::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

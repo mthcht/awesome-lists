@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.SouthwestUS",
+    "id": "AzureBotService.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "48.219.192.16/30",
+            "2603:1030:1202::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

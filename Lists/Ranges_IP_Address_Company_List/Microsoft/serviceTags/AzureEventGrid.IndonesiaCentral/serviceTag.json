@@ -2,12 +2,15 @@
     "name": "AzureEventGrid.IndonesiaCentral",
     "id": "AzureEventGrid.IndonesiaCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "indonesiacentral",
         "regionId": 6,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
+            "48.193.82.0/23",
+            "48.193.84.0/22",
+            "48.193.88.0/23",
             "70.153.153.128/25",
             "2603:1040:1802:3::180/121"
         ],

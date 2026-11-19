@@ -2,7 +2,7 @@
     "name": "PowerPlatformPlex.PolandCentral",
     "id": "PowerPlatformPlex.PolandCentral",
     "properties": {
-        "changeNumber": 4,
+        "changeNumber": 5,
         "region": "polandcentral",
         "regionId": 52,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "20.215.74.80/28",
             "20.215.78.96/29",
+            "134.112.73.0/26",
             "2603:1061:2004:9800::/57"
         ],
         "networkFeatures": [

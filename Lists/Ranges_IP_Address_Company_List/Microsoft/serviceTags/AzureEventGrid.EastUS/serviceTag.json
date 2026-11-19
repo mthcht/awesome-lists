@@ -2,7 +2,7 @@
     "name": "AzureEventGrid.EastUS",
     "id": "AzureEventGrid.EastUS",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 5,
         "region": "eastus",
         "regionId": 32,
         "platform": "Azure",
@@ -19,6 +19,11 @@
             "52.186.36.16/28",
             "57.152.109.80/28",
             "57.152.110.64/26",
+            "57.162.209.128/25",
+            "57.162.214.0/25",
+            "57.162.220.64/26",
+            "57.162.222.0/23",
+            "57.169.136.0/22",
             "2603:1030:210:1::380/121"
         ],
         "networkFeatures": null

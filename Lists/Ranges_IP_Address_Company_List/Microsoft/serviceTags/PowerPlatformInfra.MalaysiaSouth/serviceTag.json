@@ -1,0 +1,22 @@
+{
+    "name": "PowerPlatformInfra.MalaysiaSouth",
+    "id": "PowerPlatformInfra.MalaysiaSouth",
+    "properties": {
+        "changeNumber": 2,
+        "region": "malaysiasouth",
+        "regionId": 98,
+        "platform": "Azure",
+        "systemService": "PowerPlatformInfra",
+        "addressPrefixes": [
+            "172.197.31.0/24",
+            "172.197.32.0/25",
+            "2603:1061:2002:d800::/57"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

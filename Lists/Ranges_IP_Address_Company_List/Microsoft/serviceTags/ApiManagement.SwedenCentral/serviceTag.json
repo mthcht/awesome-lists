@@ -2,7 +2,7 @@
     "name": "ApiManagement.SwedenCentral",
     "id": "ApiManagement.SwedenCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "swedencentral",
         "regionId": 76,
         "platform": "Azure",
@@ -10,6 +10,7 @@
         "addressPrefixes": [
             "51.12.25.16/28",
             "51.12.98.224/28",
+            "172.160.160.140/30",
             "2603:1020:1004:1::700/124",
             "2603:1020:1004:800::c0/124"
         ],

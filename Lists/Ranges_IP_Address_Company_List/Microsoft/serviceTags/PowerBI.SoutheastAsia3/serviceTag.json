@@ -1,0 +1,26 @@
+{
+    "name": "PowerBI.SoutheastAsia3",
+    "id": "PowerBI.SoutheastAsia3",
+    "properties": {
+        "changeNumber": 2,
+        "region": "southeastasia3",
+        "regionId": 110,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "48.198.92.112/28",
+            "48.198.95.150/31",
+            "48.198.97.240/30",
+            "48.198.97.248/29",
+            "48.198.203.96/28",
+            "2603:1040:1b02:2::760/123",
+            "2603:1040:1b02:2::7c0/122"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

@@ -2,14 +2,16 @@
     "name": "AzureResourceManager.MalaysiaWest",
     "id": "AzureResourceManager.MalaysiaWest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "malaysiawest",
         "regionId": 92,
         "platform": "Azure",
         "systemService": "AzureResourceManager",
         "addressPrefixes": [
             "20.17.122.0/23",
-            "2603:1040:1602:1::400/120"
+            "85.211.145.128/31",
+            "2603:1040:1602:1::400/120",
+            "2603:1040:1602:1000::2/127"
         ],
         "networkFeatures": null
     }

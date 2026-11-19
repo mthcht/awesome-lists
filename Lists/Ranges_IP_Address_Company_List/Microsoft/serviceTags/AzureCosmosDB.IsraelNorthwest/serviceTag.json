@@ -1,0 +1,21 @@
+{
+    "name": "AzureCosmosDB.IsraelNorthwest",
+    "id": "AzureCosmosDB.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "20.217.251.0/26",
+            "2603:1040:1702::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

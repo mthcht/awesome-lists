@@ -1,0 +1,21 @@
+{
+    "name": "AppService.SouthwestUS",
+    "id": "AppService.SouthwestUS",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southwestus",
+        "regionId": 103,
+        "platform": "Azure",
+        "systemService": "AzureAppService",
+        "addressPrefixes": [
+            "48.219.202.0/24",
+            "2603:1030:1202:1::600/120"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

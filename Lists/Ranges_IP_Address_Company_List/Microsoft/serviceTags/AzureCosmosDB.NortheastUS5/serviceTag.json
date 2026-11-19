@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.NortheastUS5",
+    "id": "AzureCosmosDB.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "172.194.68.32/27",
+            "172.194.68.64/26",
+            "2603:1030:1602::580/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

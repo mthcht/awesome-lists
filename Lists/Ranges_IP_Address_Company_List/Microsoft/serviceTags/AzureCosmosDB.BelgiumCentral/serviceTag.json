@@ -1,0 +1,22 @@
+{
+    "name": "AzureCosmosDB.BelgiumCentral",
+    "id": "AzureCosmosDB.BelgiumCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "belgiumcentral",
+        "regionId": 97,
+        "platform": "Azure",
+        "systemService": "AzureCosmosDB",
+        "addressPrefixes": [
+            "9.160.43.0/26",
+            "9.160.58.64/27",
+            "2603:1020:1502::1e0/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

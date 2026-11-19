@@ -2,7 +2,7 @@
     "name": "AzureArcInfrastructure.CentralUS",
     "id": "AzureArcInfrastructure.CentralUS",
     "properties": {
-        "changeNumber": 5,
+        "changeNumber": 6,
         "region": "centralus",
         "regionId": 31,
         "platform": "Azure",
@@ -16,7 +16,9 @@
             "52.182.141.60/31",
             "74.249.138.70/31",
             "74.249.138.88/29",
+            "172.134.133.0/30",
             "172.202.64.0/22",
+            "2603:1030:10:30::77c/126",
             "2603:1030:13:200::/62"
         ],
         "networkFeatures": null

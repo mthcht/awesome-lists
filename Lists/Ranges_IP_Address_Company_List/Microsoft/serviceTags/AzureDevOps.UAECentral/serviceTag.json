@@ -1,0 +1,16 @@
+{
+    "name": "AzureDevOps.UAECentral",
+    "id": "AzureDevOps.UAECentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "uaecentral",
+        "regionId": 61,
+        "platform": "Azure",
+        "systemService": "AzureDevOps",
+        "addressPrefixes": [
+            "20.216.121.80/31",
+            "2603:1040:b04:c00::2/128"
+        ],
+        "networkFeatures": null
+    }
+}

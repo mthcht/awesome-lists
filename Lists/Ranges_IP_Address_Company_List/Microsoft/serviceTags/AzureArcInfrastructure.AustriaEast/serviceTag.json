@@ -2,12 +2,13 @@
     "name": "AzureArcInfrastructure.AustriaEast",
     "id": "AzureArcInfrastructure.AustriaEast",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "austriaeast",
         "regionId": 95,
         "platform": "Azure",
         "systemService": "AzureArcInfrastructure",
         "addressPrefixes": [
+            "68.210.29.64/32",
             "68.210.152.56/32",
             "68.210.172.144/30",
             "2603:1020:104:6::80/124"

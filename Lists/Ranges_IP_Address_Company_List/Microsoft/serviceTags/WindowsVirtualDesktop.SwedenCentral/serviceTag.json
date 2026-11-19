@@ -2,13 +2,14 @@
     "name": "WindowsVirtualDesktop.SwedenCentral",
     "id": "WindowsVirtualDesktop.SwedenCentral",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "swedencentral",
         "regionId": 76,
         "platform": "Azure",
         "systemService": "WindowsVirtualDesktop",
         "addressPrefixes": [
             "40.64.144.136/29",
+            "40.64.153.64/27",
             "2603:1061:2010:2e::/117"
         ],
         "networkFeatures": null

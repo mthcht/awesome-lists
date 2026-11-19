@@ -2,12 +2,13 @@
     "name": "AzureKeyVault.WestUS3",
     "id": "AzureKeyVault.WestUS3",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "westus3",
         "regionId": 79,
         "platform": "Azure",
         "systemService": "AzureKeyVault",
         "addressPrefixes": [
+            "4.236.112.12/30",
             "20.150.170.0/30",
             "20.150.181.28/30",
             "20.150.181.164/30",
@@ -19,7 +20,8 @@
             "2603:1030:504:1::108/126",
             "2603:1030:504:402::80/125",
             "2603:1030:504:402::2f8/125",
-            "2603:1030:504:802::140/125"
+            "2603:1030:504:802::140/125",
+            "2603:1030:504:1000::18/125"
         ],
         "networkFeatures": [
             "API",

@@ -2,13 +2,14 @@
     "name": "AppServiceManagement.SpainCentral",
     "id": "AppServiceManagement.SpainCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "spaincentral",
         "regionId": 88,
         "platform": "Azure",
         "systemService": "AzureAppServiceManagement",
         "addressPrefixes": [
             "68.221.43.0/26",
+            "70.156.216.0/29",
             "2603:1020:1403:2::7c0/123"
         ],
         "networkFeatures": [

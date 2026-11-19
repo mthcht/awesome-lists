@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.NortheastUS5",
+    "id": "HDInsight.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "172.194.73.200/29",
+            "2603:1030:1602:1::490/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

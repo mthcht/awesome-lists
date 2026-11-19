@@ -2,14 +2,20 @@
     "name": "AzureAttestation.PolandCentral",
     "id": "AzureAttestation.PolandCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 5,
         "region": "polandcentral",
         "regionId": 52,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
             "20.215.0.44/30",
-            "2603:1020:1302::620/124"
+            "20.215.120.112/29",
+            "74.153.1.244/30",
+            "74.153.1.248/29",
+            "134.112.195.40/29",
+            "134.112.195.48/30",
+            "2603:1020:1302::620/124",
+            "2603:1020:1302:b::780/124"
         ],
         "networkFeatures": null
     }

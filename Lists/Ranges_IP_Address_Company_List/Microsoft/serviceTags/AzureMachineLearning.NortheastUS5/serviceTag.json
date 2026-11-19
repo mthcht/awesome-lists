@@ -1,0 +1,16 @@
+{
+    "name": "AzureMachineLearning.NortheastUS5",
+    "id": "AzureMachineLearning.NortheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "northeastus5",
+        "regionId": 109,
+        "platform": "Azure",
+        "systemService": "AzureMachineLearning",
+        "addressPrefixes": [
+            "172.194.65.64/27",
+            "2603:1030:1602::400/122"
+        ],
+        "networkFeatures": null
+    }
+}

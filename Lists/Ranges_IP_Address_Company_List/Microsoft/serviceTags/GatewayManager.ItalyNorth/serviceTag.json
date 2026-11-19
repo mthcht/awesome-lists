@@ -2,13 +2,14 @@
     "name": "GatewayManager.ItalyNorth",
     "id": "GatewayManager.ItalyNorth",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "italynorth",
         "regionId": 93,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "4.232.24.64/26",
+            "9.235.174.32/28",
             "2603:1020:1204::40/122"
         ],
         "networkFeatures": [

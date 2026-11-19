@@ -2,7 +2,7 @@
     "name": "AzureBackup.SouthAfricaWest",
     "id": "AzureBackup.SouthAfricaWest",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "southafricawest",
         "regionId": 83,
         "platform": "Azure",
@@ -11,6 +11,7 @@
             "102.37.81.0/26",
             "102.133.27.64/26",
             "102.133.27.128/27",
+            "2603:1000:4:7::580/121",
             "2603:1000:4:402::200/121"
         ],
         "networkFeatures": null

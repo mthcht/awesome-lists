@@ -1,0 +1,18 @@
+{
+    "name": "AzureArcInfrastructure.EastUS3",
+    "id": "AzureArcInfrastructure.EastUS3",
+    "properties": {
+        "changeNumber": 1,
+        "region": "eastus3",
+        "regionId": 104,
+        "platform": "Azure",
+        "systemService": "AzureArcInfrastructure",
+        "addressPrefixes": [
+            "134.138.76.120/30",
+            "134.138.88.84/32",
+            "134.138.99.12/32",
+            "2603:1030:1402:2::240/124"
+        ],
+        "networkFeatures": null
+    }
+}

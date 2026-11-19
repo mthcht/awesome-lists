@@ -1,0 +1,22 @@
+{
+    "name": "ApiManagement.IndiaSouthCentral",
+    "id": "ApiManagement.IndiaSouthCentral",
+    "properties": {
+        "changeNumber": 2,
+        "region": "indiasouthcentral",
+        "regionId": 99,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+            "172.198.37.64/30",
+            "172.198.86.16/28",
+            "2603:1040:1904::740/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

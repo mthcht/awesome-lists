@@ -1,0 +1,24 @@
+{
+    "name": "PowerBI.SoutheastUS5",
+    "id": "PowerBI.SoutheastUS5",
+    "properties": {
+        "changeNumber": 1,
+        "region": "southeastus5",
+        "regionId": 106,
+        "platform": "Azure",
+        "systemService": "PowerBI",
+        "addressPrefixes": [
+            "74.7.188.74/31",
+            "74.7.188.112/30",
+            "74.7.188.120/29",
+            "2603:1030:1502:2::3c0/122",
+            "2603:1030:1502:2::500/123"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

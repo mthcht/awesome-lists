@@ -2,13 +2,14 @@
     "name": "GatewayManager.JioIndiaWest",
     "id": "GatewayManager.JioIndiaWest",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "jioindiawest",
         "regionId": 65,
         "platform": "Azure",
         "systemService": "GatewayManager",
         "addressPrefixes": [
             "20.192.160.64/26",
+            "20.244.210.144/28",
             "2603:1040:d04::40/122"
         ],
         "networkFeatures": [

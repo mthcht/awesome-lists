@@ -2,12 +2,15 @@
     "name": "AzureEventGrid.EastAsia",
     "id": "AzureEventGrid.EastAsia",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "eastasia",
         "regionId": 1,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
+            "4.191.98.128/25",
+            "4.191.100.0/22",
+            "4.191.104.0/23",
             "20.6.143.0/24",
             "20.189.108.128/25",
             "20.189.115.80/28",

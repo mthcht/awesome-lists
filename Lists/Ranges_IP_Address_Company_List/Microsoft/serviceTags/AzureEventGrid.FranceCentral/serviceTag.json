@@ -2,12 +2,14 @@
     "name": "AzureEventGrid.FranceCentral",
     "id": "AzureEventGrid.FranceCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "centralfrance",
         "regionId": 19,
         "platform": "Azure",
         "systemService": "AzureEventGrid",
         "addressPrefixes": [
+            "4.211.88.0/22",
+            "4.211.164.0/22",
             "20.40.152.128/27",
             "20.43.42.128/25",
             "2603:1020:805:1::380/121"

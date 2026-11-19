@@ -2,13 +2,18 @@
     "name": "AzureDevOps.CentralUS",
     "id": "AzureDevOps.CentralUS",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 3,
         "region": "centralus",
         "regionId": 31,
         "platform": "Azure",
         "systemService": "AzureDevOps",
         "addressPrefixes": [
-            "20.37.158.0/23"
+            "20.37.158.0/23",
+            "57.175.72.64/26",
+            "57.175.72.128/27",
+            "172.169.145.104/30",
+            "2603:1030:10:1c::600/119",
+            "2603:1030:10:1000::2/128"
         ],
         "networkFeatures": null
     }

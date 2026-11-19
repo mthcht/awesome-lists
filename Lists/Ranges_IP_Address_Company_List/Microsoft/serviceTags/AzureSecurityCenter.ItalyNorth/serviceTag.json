@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.ItalyNorth",
+    "id": "AzureSecurityCenter.ItalyNorth",
+    "properties": {
+        "changeNumber": 1,
+        "region": "italynorth",
+        "regionId": 93,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "9.235.70.152/30",
+            "9.235.70.160/27",
+            "9.235.70.192/26",
+            "9.235.71.0/24",
+            "9.235.168.0/25",
+            "9.235.168.128/28"
+        ],
+        "networkFeatures": null
+    }
+}

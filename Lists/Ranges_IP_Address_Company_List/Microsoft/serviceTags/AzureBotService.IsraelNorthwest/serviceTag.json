@@ -1,0 +1,16 @@
+{
+    "name": "AzureBotService.IsraelNorthwest",
+    "id": "AzureBotService.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "AzureBotService",
+        "addressPrefixes": [
+            "20.217.248.16/30",
+            "2603:1040:1702::20/123"
+        ],
+        "networkFeatures": null
+    }
+}

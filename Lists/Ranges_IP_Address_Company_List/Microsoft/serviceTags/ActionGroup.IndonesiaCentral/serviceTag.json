@@ -2,13 +2,15 @@
     "name": "ActionGroup.IndonesiaCentral",
     "id": "ActionGroup.IndonesiaCentral",
     "properties": {
-        "changeNumber": 1,
+        "changeNumber": 2,
         "region": "indonesiacentral",
         "regionId": 6,
         "platform": "Azure",
         "systemService": "ActionGroup",
         "addressPrefixes": [
+            "48.193.50.96/30",
             "70.153.176.24/30",
+            "2603:1040:1802:5::5a0/125",
             "2603:1040:1802:400::40/125"
         ],
         "networkFeatures": null

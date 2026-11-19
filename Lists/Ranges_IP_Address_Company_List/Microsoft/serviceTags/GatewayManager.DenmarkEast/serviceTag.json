@@ -1,0 +1,19 @@
+{
+    "name": "GatewayManager.DenmarkEast",
+    "id": "GatewayManager.DenmarkEast",
+    "properties": {
+        "changeNumber": 2,
+        "region": "denmarkeast",
+        "regionId": 100,
+        "platform": "Azure",
+        "systemService": "GatewayManager",
+        "addressPrefixes": [
+            "9.205.32.64/26",
+            "9.205.67.96/28",
+            "2603:1020:1602::40/122"
+        ],
+        "networkFeatures": [
+            "NSG"
+        ]
+    }
+}

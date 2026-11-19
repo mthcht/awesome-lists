@@ -2,19 +2,29 @@
     "name": "AzureMachineLearning.KoreaCentral",
     "id": "AzureMachineLearning.KoreaCentral",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "koreacentral",
         "regionId": 26,
         "platform": "Azure",
         "systemService": "AzureMachineLearning",
         "addressPrefixes": [
+            "4.230.126.142/31",
+            "4.230.126.240/28",
+            "4.230.160.128/27",
+            "4.230.160.160/30",
+            "4.230.160.164/32",
             "20.41.64.80/28",
             "20.44.26.224/28",
             "20.200.192.16/28",
             "52.141.25.58/32",
             "52.141.26.97/32",
             "52.231.18.192/28",
-            "2603:1040:f05:1::2c0/122"
+            "2603:1040:f05:1::2c0/122",
+            "2603:1040:f05:c::415/128",
+            "2603:1040:f05:c::416/127",
+            "2603:1040:f05:c::418/126",
+            "2603:1040:f05:c::450/124",
+            "2603:1040:f05:c::460/123"
         ],
         "networkFeatures": null
     }

@@ -2,7 +2,7 @@
     "name": "GatewayManager.SouthCentralUSSTG",
     "id": "GatewayManager.SouthCentralUSSTG",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "usstagec",
         "regionId": 69,
         "platform": "Azure",
@@ -10,7 +10,8 @@
         "addressPrefixes": [
             "20.44.3.16/29",
             "20.45.112.72/29",
-            "23.100.217.32/27"
+            "23.100.217.32/27",
+            "57.152.146.144/28"
         ],
         "networkFeatures": [
             "NSG"

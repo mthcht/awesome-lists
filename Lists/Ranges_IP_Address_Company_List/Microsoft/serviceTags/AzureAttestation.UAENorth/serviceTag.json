@@ -2,15 +2,21 @@
     "name": "AzureAttestation.UAENorth",
     "id": "AzureAttestation.UAENorth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 6,
         "region": "uaenorth",
         "regionId": 60,
         "platform": "Azure",
         "systemService": "AzureAttestation",
         "addressPrefixes": [
+            "4.161.21.108/30",
+            "4.161.21.176/29",
+            "4.161.165.40/29",
+            "4.161.165.80/30",
             "20.38.143.40/30",
+            "20.174.245.112/29",
             "40.120.75.60/30",
-            "2603:1040:904:2::6b0/124"
+            "2603:1040:904:2::6b0/124",
+            "2603:1040:904:c::630/124"
         ],
         "networkFeatures": null
     }

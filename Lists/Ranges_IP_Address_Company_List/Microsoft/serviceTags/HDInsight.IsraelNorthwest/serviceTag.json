@@ -1,0 +1,21 @@
+{
+    "name": "HDInsight.IsraelNorthwest",
+    "id": "HDInsight.IsraelNorthwest",
+    "properties": {
+        "changeNumber": 1,
+        "region": "israelnorthwest",
+        "regionId": 86,
+        "platform": "Azure",
+        "systemService": "HDInsight",
+        "addressPrefixes": [
+            "20.217.255.16/29",
+            "2603:1040:1702:1::2c0/124"
+        ],
+        "networkFeatures": [
+            "API",
+            "NSG",
+            "UDR",
+            "FW"
+        ]
+    }
+}

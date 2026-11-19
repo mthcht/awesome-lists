@@ -2,13 +2,14 @@
     "name": "WindowsVirtualDesktop.FranceSouth",
     "id": "WindowsVirtualDesktop.FranceSouth",
     "properties": {
-        "changeNumber": 2,
+        "changeNumber": 3,
         "region": "southfrance",
         "regionId": 20,
         "platform": "Azure",
         "systemService": "WindowsVirtualDesktop",
         "addressPrefixes": [
             "40.64.147.192/29",
+            "40.64.153.128/27",
             "2603:1061:2010:c::/117"
         ],
         "networkFeatures": null

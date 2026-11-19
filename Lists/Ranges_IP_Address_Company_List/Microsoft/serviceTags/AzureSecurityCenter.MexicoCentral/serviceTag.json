@@ -1,0 +1,20 @@
+{
+    "name": "AzureSecurityCenter.MexicoCentral",
+    "id": "AzureSecurityCenter.MexicoCentral",
+    "properties": {
+        "changeNumber": 1,
+        "region": "mexicocentral",
+        "regionId": 53,
+        "platform": "Azure",
+        "systemService": "AzureSecurityCenter",
+        "addressPrefixes": [
+            "172.195.50.60/30",
+            "172.195.50.64/26",
+            "172.195.50.128/25",
+            "172.195.51.0/24",
+            "172.195.52.0/27",
+            "172.195.52.32/28"
+        ],
+        "networkFeatures": null
+    }
+}
