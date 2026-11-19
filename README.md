@@ -911,6 +911,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [SandBox - CAPEv2](https://github.com/kevoreilly/CAPEv2)
 - [SandBox - Malice (Virustotal self hosted clone)](https://github.com/maliceio/malice)
 - [Detection platform - wazuh](https://github.com/wazuh/wazuh)
+- [Detection platform - wazuh alert manager plugin (alert triage, cases, automation rules)](https://github.com/xrisbarney/Wazuh-alert-manager)
 - [Detection platform - securityonion](https://github.com/Security-Onion-Solutions/securityonion)
 - [Detection platform - Splunk](https://www.splunk.com/en_us/download.html)
 - [Detection platform - Elastic](https://www.elastic.co/downloads/elasticsearch)
