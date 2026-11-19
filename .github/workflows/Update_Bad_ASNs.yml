@@ -1,3 +1,4 @@
+
 name: weekly Bad ASN Update
 
 on:
@@ -19,6 +20,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -40,37 +44,45 @@ jobs:
       - name: Show resulting files
         run: |
           ls -lh Lists/ASNs/
-          ls -lh Lists/ASNs/ASN_IP_Ranges/ | head -30
+
+          echo "Generated ASN IP range files:"
+          find Lists/ASNs/ASN_IP_Ranges \
+            -maxdepth 1 -type f -name '*.csv' | wc -l
 
       - name: Commit and Push results
         run: |
+          # Configure Git commit identity
           git config user.name "mthcht"
           git config user.email "75267080+mthcht@users.noreply.github.com"
 
-          # Remove previously tracked logs from the Git index.
-          # Files on disk are preserved.
+          # Remove previously tracked logs from Git index.
+          # Local files are preserved.
           git rm -f --cached --ignore-unmatch -- \
             Lists/ASNs/get_ip_range_debug.log \
             Lists/ASNs/get_ip_range_debug.log.1 \
             Lists/ASNs/ASN_FETCH_DONE.log
 
-          # Stage generated data, excluding diagnostic logs.
-          git add -A -- Lists/ASNs \
-            ':!Lists/ASNs/get_ip_range_debug.log*' \
-            ':!Lists/ASNs/ASN_FETCH_DONE.log'
+          # Stage ASN datasets.
+          # Untracked log files are excluded by .gitignore.
+          git add -A -- Lists/ASNs/
 
+          # Check for changes
           if git diff --cached --quiet; then
             echo "No ASN data changes"
             exit 0
           fi
 
+          # Commit changes
           git commit -m "Update bad ASN lists"
 
-          # Retry pushes if concurrent workflows update main.
+          # Retry pushes if other workflows update main
           for i in {1..8}; do
+            echo "Push attempt $i/8"
+
             git fetch origin main
 
             git rebase origin/main || {
+              echo "Rebase conflict detected"
               git rebase --abort
               exit 1
             }
@@ -80,8 +92,9 @@ jobs:
               exit 0
             fi
 
+            echo "Push rejected. Retrying..."
             sleep $((i * 3 + RANDOM % 5))
           done
 
-          echo "Failed to push ASN updates"
+          echo "Failed to push ASN updates after 8 attempts"
           exit 1
