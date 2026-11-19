@@ -1,9 +1,17 @@
+
 name: Proxy proxmint free-proxy-list Update
 
 on:
   schedule:
-    - cron: '35 * * * *'  # Runs every hour (the list is republished at 25 and 55 past the hour)
+    - cron: '35 */2 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: proxmint-proxy-update
+  cancel-in-progress: false
 
 jobs:
   fetch-proxmint-files:
@@ -11,39 +19,88 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
-      - name: Download all.txt File from proxmint/free-proxy-list
+      - name: Download all.txt from proxmint
         run: |
-          # Define the target directory
-          TARGET_DIR=Lists/PROXY/proxmint_free-proxy-list
-          mkdir -p $TARGET_DIR
+          TARGET_DIR="Lists/PROXY/proxmint_free-proxy-list"
+          mkdir -p "$TARGET_DIR"
 
-          # Every entry relayed a real HTTP request in the last few hours; dead entries are dropped every 30 minutes
           URL="https://raw.githubusercontent.com/proxmint/free-proxy-list/refs/heads/main/proxies/all.txt"
-          echo "Downloading all.txt from $URL"
-          curl -fL -o "$TARGET_DIR/all.txt" "$URL" || echo "Failed to download all.txt"
 
-      - name: create lookup
+          echo "Downloading proxy list from $URL"
+
+          curl -fL \
+            --retry 5 \
+            --retry-delay 3 \
+            --retry-connrefused \
+            --connect-timeout 20 \
+            --max-time 120 \
+            -o "$TARGET_DIR/all.txt.tmp" \
+            "$URL"
+
+          # Validate downloaded file
+          if [ ! -s "$TARGET_DIR/all.txt.tmp" ]; then
+            echo "ERROR: Downloaded proxy list is empty"
+            exit 1
+          fi
+
+          # Replace only after successful download
+          mv "$TARGET_DIR/all.txt.tmp" "$TARGET_DIR/all.txt"
+
+          echo "Proxy list downloaded successfully"
+          wc -l "$TARGET_DIR/all.txt"
+
+      - name: Create proxy lookup
         run: |
           cd Lists/PROXY/proxmint_free-proxy-list
           python3 create_lookup_file.py
 
-      - name: List files in the target directory
-        run: ls -la Lists/PROXY/proxmint_free-proxy-list
+      - name: List resulting files
+        run: |
+          ls -lh Lists/PROXY/proxmint_free-proxy-list/
 
       - name: Commit and Push results
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git pull
-          git add Lists/PROXY/proxmint_free-proxy-list/*
-          git commit -m "Update hourly proxmint free-proxy-list files" --allow-empty
-          # Many workflows push to main on overlapping schedules; retry if rejected
-          for i in 1 2 3 4 5; do
-            if git push; then break; fi
-            if [ "$i" -eq 5 ]; then echo "Push failed after 5 attempts"; exit 1; fi
-            echo "Push rejected (attempt $i), rebasing and retrying..."
-            sleep $((RANDOM % 20 + 10))
-            git pull --rebase --autostash || { git rebase --abort 2>/dev/null; true; }
+          # Configure Git identity
+          git config user.name "mthcht"
+          git config user.email "75267080+mthcht@users.noreply.github.com"
+
+          # Stage generated proxy files
+          git add -A -- Lists/PROXY/proxmint_free-proxy-list/
+
+          # Do not create empty commits
+          if git diff --cached --quiet; then
+            echo "No proxy list changes detected"
+            exit 0
+          fi
+
+          # Commit changes before rebasing
+          git commit -m "Update hourly proxmint free-proxy-list files"
+
+          # Handle concurrent pushes to main
+          for i in {1..8}; do
+            echo "Push attempt $i/8"
+
+            git fetch origin main
+
+            git rebase origin/main || {
+              echo "ERROR: Git rebase conflict"
+              git rebase --abort
+              exit 1
+            }
+
+            if git push origin HEAD:main; then
+              echo "Successfully pushed proxy list updates"
+              exit 0
+            fi
+
+            echo "Push rejected. Retrying..."
+            sleep $((i * 3 + RANDOM % 5))
           done
+
+          echo "ERROR: Failed to push after 8 attempts"
+          exit 1
