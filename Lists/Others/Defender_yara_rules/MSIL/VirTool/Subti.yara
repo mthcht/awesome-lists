@@ -116,34 +116,6 @@ rule VirTool_MSIL_Subti_B_2147696039_1
         (7 of ($x*))
 }
 
-rule VirTool_MSIL_Subti_C_2147696131_0
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "VirTool:MSIL/Subti.C"
-        threat_id = "2147696131"
-        type = "VirTool"
-        platform = "MSIL: .NET intermediate language scripts"
-        family = "Subti"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "4"
-        strings_accuracy = "High"
-    strings:
-        $x_1_1 = ":Zone.Identifier" wide //weight: 1
-        $x_1_2 = "Fuck AVs" wide //weight: 1
-        $x_1_3 = "InjectionPersistence" ascii //weight: 1
-        $x_1_4 = "RemoveZoneIdentifier" ascii //weight: 1
-        $x_1_5 = "TryInject" ascii //weight: 1
-        $x_1_6 = "AddToStartup" ascii //weight: 1
-        $x_1_7 = "RunPE" ascii //weight: 1
-        $x_1_8 = "Decrypt" ascii //weight: 1
-        $x_1_9 = "echo DONT CLOSE THIS WINDOW!" wide //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (4 of ($x*))
-}
-
 rule VirTool_MSIL_Subti_D_2147696132_0
 {
     meta:

@@ -32,6 +32,27 @@ rule Trojan_Win64_FakeUpdate_ARAZ_2147982394_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = {41 8d 49 01 44 0f b6 c9 0f b6 c9 44 0f b6 1c 08 43 8d 14 13 44 0f b6 d2 0f b6 d2 0f b6 1c 10 88 1c 08 44 88 1c 10 43 8d 14 11 0f b6 d2 0f b6 14 10 41 30 10 49 83 c0 01 4d 39 c7 75 c3}  //weight: 4, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_FakeUpdate_ARAZ_2147982394_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FakeUpdate.ARAZ!MTB"
+        threat_id = "2147982394"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FakeUpdate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:
