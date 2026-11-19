@@ -2024,3 +2024,26 @@ rule Trojan_Win64_ValleyRat_D_2147982092_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_DS_2147982419_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.DS!MTB"
+        threat_id = "2147982419"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DiskDump Driver Installing..." ascii //weight: 1
+        $x_1_2 = "U2hlbGxfVHJheVduZA==" ascii //weight: 1
+        $x_1_3 = "U29mdHdhcmVcXE1pY3Jvc29mdFxcV2luZG93c1xcQ3VycmVudFZlcnNpb25cXFBvbGljaWVzXFxTeXN0ZW0=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

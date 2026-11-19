@@ -1604,3 +1604,26 @@ rule Trojan_Win64_Midie_LR_2147981841_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Midie_C_2147982421_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Midie.C!MTB"
+        threat_id = "2147982421"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Midie"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b7 c3 48 8d 0c 80 48 8d 34 cd 00 00 00 00 42 81 7c 2e 18 2e 74 65 78 75 08 42 80 7c 2e 1c 74 74 0a}  //weight: 10, accuracy: High
+        $x_5_2 = {0f 11 84 24 50 05 00 00 c7 84 24 f0 04 00 00 70 00 00 00 48 8d 05 ?? ?? ?? ?? 48 89 84 24 00 05 00 00 48 8d 84 24 f0 05 00 00 48 89 84 24 08 05 00 00 89 bc 24 20 05 00 00 48 8d 8c 24 f0 04 00 00 ff 15}  //weight: 5, accuracy: Low
+        $x_10_3 = "rivator rat" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

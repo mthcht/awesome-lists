@@ -292,6 +292,38 @@ rule Trojan_Win64_Yogi_D_2147981056_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_D_2147981056_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.D!MTB"
+        threat_id = "2147981056"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "OlympicProject\\ModuleAutostart" ascii //weight: 1
+        $x_1_2 = "Microsoft\\OneDrive" ascii //weight: 1
+        $x_1_3 = "Mozilla Firefox\\firefox.exe" ascii //weight: 1
+        $x_1_4 = "Brave-Browser\\Application\\brave.exe" ascii //weight: 1
+        $x_1_5 = "Chromium\\Application\\chrome.exe" ascii //weight: 1
+        $x_1_6 = "Application\\msedge.exe" ascii //weight: 1
+        $x_1_7 = "taskkill /pid " ascii //weight: 1
+        $x_1_8 = "browserInventory\":" ascii //weight: 1
+        $x_1_9 = "input-logger-outbox." ascii //weight: 1
+        $x_1_10 = "module-event\",\"payload" ascii //weight: 1
+        $x_1_11 = "username\":" ascii //weight: 1
+        $x_1_12 = "computer_name\":" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (10 of ($x*))
+}
+
 rule Trojan_Win64_Yogi_E_2147981156_0
 {
     meta:

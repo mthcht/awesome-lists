@@ -17172,3 +17172,27 @@ rule Trojan_Win32_ClickFix_DLZ_2147982332_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_JH5_2147982422_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JH5"
+        threat_id = "2147982422"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "46"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "cmd" wide //weight: 5
+        $x_20_2 = "/K for /f" wide //weight: 20
+        $x_1_3 = "do @%" wide //weight: 1
+        $x_10_4 = "in (',echo f" wide //weight: 10
+        $x_10_5 = "r,,,,,,,,,,,,,,," wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

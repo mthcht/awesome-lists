@@ -106,6 +106,31 @@ rule TrojanDownloader_Win64_Lazy_MK_2147969956_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {bb 87 a9 2e 77 be ?? ?? ?? ?? b9 f0 69 00 00 4e 8a 06 30 d8 88 06 c1 c3 08 49}  //weight: 15, accuracy: Low
+        $x_10_2 = {39 e7 b4 d2 20 cb f4 6b ad e9 32 7b 56 2e 77 87 6e 2b d3 5b e9 2e 76 87 a9 2e 9f ab a9 2e}  //weight: 10, accuracy: High
+        $x_5_3 = "[1/4] installed (no execution). Starts at next sign-in." wide //weight: 5
+        $x_3_4 = "[3/4] download bin: FAIL" wide //weight: 3
+        $x_2_5 = "[2/4] main role, delay done" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_Win64_Lazy_MK_2147969956_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/Lazy.MK!MTB"
+        threat_id = "2147969956"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
         strings_accuracy = "High"
     strings:
         $x_15_1 = "'cmd.exe /k powershell -ep bypass -file \"' + ps1path + '\"', \"REG_SZ\")" ascii //weight: 15

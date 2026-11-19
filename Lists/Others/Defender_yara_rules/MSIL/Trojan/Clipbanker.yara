@@ -37,6 +37,31 @@ rule Trojan_MSIL_Clipbanker_MK_2147810335_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "<ClipboardOp>b__7_0" ascii //weight: 15
+        $x_10_2 = "<Wallets>b__44_1" ascii //weight: 10
+        $x_5_3 = "<FirefoxPasswords>g__Decrypt" ascii //weight: 5
+        $x_3_4 = "<TopProcesses>b__19_0" ascii //weight: 3
+        $x_2_5 = "<Capture>b__43_0" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Clipbanker_MK_2147810335_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Clipbanker.MK!MTB"
+        threat_id = "2147810335"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Clipbanker"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:
