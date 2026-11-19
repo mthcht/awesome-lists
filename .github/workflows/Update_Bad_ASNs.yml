@@ -5,9 +5,17 @@ on:
     - cron: '0 0 */1 * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: bad-asn-update
+  cancel-in-progress: false
+
 jobs:
   fetch-ip-ranges:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
@@ -15,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12' 
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -28,25 +36,52 @@ jobs:
           python fetch_cybercrimeinfocenter_phishing_asn_stats.py
           python fetch_IP_ranges_of_bad_ASN.py
           python create_combined_ALL_BAD_ASN_List.py
-    
-      - name: List files
-        run: ls -la
 
-      - name: List files in the Lists/ASNs directory
-        run: ls -la Lists/ASNs
+      - name: Show resulting files
+        run: |
+          ls -lh Lists/ASNs/
+          ls -lh Lists/ASNs/ASN_IP_Ranges/ | head -30
 
       - name: Commit and Push results
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git pull
-          git add Lists/ASNs/*
-          git commit -m "Update weekly bad ASN" --allow-empty
-          # Many workflows push to main on overlapping schedules; retry if rejected
-          for i in 1 2 3 4 5; do
-            if git push; then break; fi
-            if [ "$i" -eq 5 ]; then echo "Push failed after 5 attempts"; exit 1; fi
-            echo "Push rejected (attempt $i), rebasing and retrying..."
-            sleep $((RANDOM % 20 + 10))
-            git pull --rebase --autostash || { git rebase --abort 2>/dev/null; true; }
+          git config user.name "mthcht"
+          git config user.email "75267080+mthcht@users.noreply.github.com"
+
+          # Remove previously tracked logs from the Git index.
+          # Files on disk are preserved.
+          git rm -f --cached --ignore-unmatch -- \
+            Lists/ASNs/get_ip_range_debug.log \
+            Lists/ASNs/get_ip_range_debug.log.1 \
+            Lists/ASNs/ASN_FETCH_DONE.log
+
+          # Stage generated data, excluding diagnostic logs.
+          git add -A -- Lists/ASNs \
+            ':!Lists/ASNs/get_ip_range_debug.log*' \
+            ':!Lists/ASNs/ASN_FETCH_DONE.log'
+
+          if git diff --cached --quiet; then
+            echo "No ASN data changes"
+            exit 0
+          fi
+
+          git commit -m "Update bad ASN lists"
+
+          # Retry pushes if concurrent workflows update main.
+          for i in {1..8}; do
+            git fetch origin main
+
+            git rebase origin/main || {
+              git rebase --abort
+              exit 1
+            }
+
+            if git push origin HEAD:main; then
+              echo "Successfully pushed ASN updates"
+              exit 0
+            fi
+
+            sleep $((i * 3 + RANDOM % 5))
           done
+
+          echo "Failed to push ASN updates"
+          exit 1
