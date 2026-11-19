@@ -1,8 +1,10 @@
+
 name: Build TOR Node History
 
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 */8 * * *"
+
   workflow_dispatch:
     inputs:
       full_rebuild:
@@ -27,47 +29,215 @@ jobs:
     timeout-minutes: 120
 
     steps:
-      - name: Checkout with FULL history
-        uses: actions/checkout@v4
+      # Download only the current TOR directory.
+      - name: Checkout TOR files
+        uses: actions/checkout@v5
+        timeout-minutes: 20
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          fetch-tags: false
+          persist-credentials: true
+          sparse-checkout: |
+            Lists/TOR
+
+      # Preserve all historical commits while avoiding
+      # unnecessary historical blob downloads.
+      - name: Fetch complete Git history efficiently
+        timeout-minutes: 60
+        run: |
+          set -euo pipefail
+
+          git config remote.origin.promisor true
+          git config remote.origin.partialclonefilter blob:none
+
+          if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+            echo "Retrieving complete Git history..."
+
+            git fetch \
+              --no-tags \
+              --filter=blob:none \
+              --unshallow \
+              origin main
+          fi
+
+          # Never build history from an incomplete commit graph.
+          if [ "$(git rev-parse --is-shallow-repository)" != "false" ]; then
+            echo "ERROR: Git history is incomplete"
+            exit 1
+          fi
+
+          echo "Complete Git history available"
+          echo "Commits reachable from HEAD:"
+          git rev-list --count HEAD
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Build history
+      # Keep the original historical processing logic.
+      - name: Build TOR history
+        env:
+          FULL_REBUILD: ${{ inputs.full_rebuild || 'false' }}
         run: |
-          ARGS="--output Lists/TOR/tor_nodes_history.json --state Lists/TOR/.tor_history_state.json"
-          if [ "${{ inputs.full_rebuild }}" = "true" ]; then
-            ARGS="$ARGS --full"
+          set -euo pipefail
+
+          ARGS=(
+            --output Lists/TOR/tor_nodes_history.json
+            --state Lists/TOR/.tor_history_state.json
+          )
+
+          if [ "$FULL_REBUILD" = "true" ]; then
+            echo "Running full historical rebuild"
+            ARGS+=(--full)
+          else
+            echo "Running incremental historical update"
           fi
-          python Lists/TOR/build_tor_history.py $ARGS
+
+          python Lists/TOR/build_tor_history.py "${ARGS[@]}" \
+            2>&1 | tee "$RUNNER_TEMP/tor-history-build.log"
+
+          # The existing Python script catches some errors
+          # without returning a nonzero exit code.
+          # Do not publish if a snapshot failed.
+          if grep -q "ERROR:" "$RUNNER_TEMP/tor-history-build.log"; then
+            echo "ERROR: Historical snapshot processing failed"
+            exit 1
+          fi
+
+      # Verify that historical data has not been lost.
+      - name: Validate TOR history integrity
+        run: |
+          set -euo pipefail
+
+          python3 - <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          path = "Lists/TOR/tor_nodes_history.json"
+          output = Path(path)
+
+          if not output.is_file() or output.stat().st_size == 0:
+              sys.exit("ERROR: TOR history JSON is missing or empty")
+
+          with output.open(encoding="utf-8") as f:
+              new = json.load(f)
+
+          required = {
+              "updated", "source", "total_ips",
+              "range", "roles", "top_countries", "ips"
+          }
+
+          if not required.issubset(new):
+              sys.exit("ERROR: Missing required JSON fields")
+
+          ips = new["ips"]
+
+          if not isinstance(ips, dict) or not ips:
+              sys.exit("ERROR: No TOR IP records found")
+
+          if new["total_ips"] != len(ips):
+              sys.exit("ERROR: Total IP count mismatch")
+
+          for ip, record in ips.items():
+              if not isinstance(record, dict):
+                  sys.exit(f"ERROR: Invalid record for {ip}")
+
+              if not isinstance(record.get("p"), list):
+                  sys.exit(f"ERROR: Missing periods for {ip}")
+
+              if not isinstance(record.get("m"), dict):
+                  sys.exit(f"ERROR: Missing metadata for {ip}")
+
+          # Load the currently published dataset from Git.
+          previous = subprocess.run(
+              ["git", "show", f"HEAD:{path}"],
+              capture_output=True,
+              check=True
+          )
+
+          old = json.loads(previous.stdout)
+          old_ips = old.get("ips", {})
+
+          # A historical archive must never lose known IPs.
+          missing = old_ips.keys() - ips.keys()
+
+          if missing:
+              sample = list(missing)[:10]
+              sys.exit(
+                  f"ERROR: {len(missing)} historical IPs disappeared. "
+                  f"Examples: {sample}"
+              )
+
+          # Existing historical periods must remain covered.
+          # New periods may extend or merge older periods.
+          for ip, old_record in old_ips.items():
+              old_periods = old_record.get("p", [])
+              new_periods = ips[ip]["p"]
+
+              for start, end in old_periods:
+                  preserved = any(
+                      new_start <= start and new_end >= end
+                      for new_start, new_end in new_periods
+                  )
+
+                  if not preserved:
+                      sys.exit(
+                          f"ERROR: Historical period lost for {ip}: "
+                          f"{start} -> {end}"
+                      )
+
+          print("TOR history integrity verified")
+          print(f"Previous unique IPs: {len(old_ips):,}")
+          print(f"Current unique IPs:  {len(ips):,}")
+          print(f"New unique IPs:      {len(ips) - len(old_ips):,}")
+          print("Existing historical periods preserved")
+          PY
 
       - name: Commit and push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          set -euo pipefail
 
-          git add Lists/TOR/tor_nodes_history.json Lists/TOR/.tor_history_state.json
+          git config user.name "mthcht"
+          git config user.email "75267080+mthcht@users.noreply.github.com"
+
+          # Stage only the generated history and state files.
+          git add -- \
+            Lists/TOR/tor_nodes_history.json \
+            Lists/TOR/.tor_history_state.json
+
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "No TOR history changes"
             exit 0
           fi
 
-          TOTAL=$(python3 -c 'import json; print(json.load(open("Lists/TOR/tor_nodes_history.json"))["total_ips"])')
+          TOTAL=$(python3 -c \
+            'import json; print(json.load(open("Lists/TOR/tor_nodes_history.json"))["total_ips"])')
+
           git commit -m "tor history: ${TOTAL} unique IPs [skip ci]"
 
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            git pull --rebase origin main
-            if git push origin main; then
-              echo "Pushed on attempt $i"
+          # Retry if another workflow updates main.
+          for i in {1..10}; do
+            echo "Push attempt $i/10"
+
+            git fetch --no-tags origin main
+
+            git rebase origin/main || {
+              echo "ERROR: Rebase failed"
+              git rebase --abort
+              exit 1
+            }
+
+            if git push origin HEAD:main; then
+              echo "TOR history successfully updated"
               exit 0
             fi
-            echo "Attempt $i failed, retrying in 5s..."
+
+            echo "Push rejected, retrying..."
             sleep 5
           done
 
-          echo "Failed after 10 attempts"
+          echo "ERROR: Failed to push TOR history"
           exit 1
