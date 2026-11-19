@@ -4,7 +4,9 @@ on:
   schedule:
     - cron: '8 * * * *'  # Runs every hour at minute 08
   workflow_dispatch:
-
+permissions:
+  contents: write
+  
 jobs:
   fetch-Microsoft-IP-From-Microsoft-list:
     runs-on: ubuntu-latest
