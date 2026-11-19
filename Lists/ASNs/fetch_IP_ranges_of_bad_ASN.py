@@ -1,111 +1,127 @@
+
 import csv
 import subprocess
 import os
+import sys
 import json
 import requests
-import time
 
-# Paths to the CSV files
+# Input CSV files
 latest_csv_file_path = 'latest_bad_asn_phishing_list.csv'
 static_csv_file_path = 'bad_asn_static_list.csv'
 spamhaus_csv_file_path = 'spamhaus_asn_list.csv'
 
-# Path to the script to be executed using relative path
-script_path = os.path.join('..', 'Ranges_IP_Address_Company_List', 'bgp.he.net', 'get_ip_range.py')
+# ASN retrieval script
+script_path = os.path.join(
+    '..', 'Ranges_IP_Address_Company_List',
+    'bgp.he.net', 'get_ip_range.py'
+)
 
-# URL for fetching data
 spamhaus_url = 'https://www.spamhaus.org/drop/asndrop.json'
 
-# Function to read AS numbers from a CSV file
+
 def read_as_numbers(csv_file_path, column_name='as_number'):
     as_numbers = []
-    with open(csv_file_path, mode='r', encoding='utf-8') as file:
+
+    with open(csv_file_path, encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            as_numbers.append('AS' + row[column_name].strip())
+            asn = row[column_name].strip().upper().removeprefix('AS')
+            if asn.isdigit():
+                as_numbers.append(f'AS{asn}')
+
     return as_numbers
 
-# Function to fetch and save Spamhaus ASN data
+
 def fetch_spamhaus_asn_data():
-    response = requests.get(spamhaus_url)
+    response = requests.get(spamhaus_url, timeout=60)
     response.raise_for_status()
-    
+
     spamhaus_data = []
+
     for line in response.text.splitlines():
         try:
             entry = json.loads(line)
             if 'asn' in entry:
                 spamhaus_data.append(entry)
         except json.JSONDecodeError:
-            print(f"Failed to decode line: {line}")
+            print(f"Skipping invalid JSON line: {line[:100]}")
 
-    # Save Spamhaus data to a CSV file
-    with open(spamhaus_csv_file_path, mode='w', encoding='utf-8', newline='') as file:
+    with open(
+        spamhaus_csv_file_path, 'w',
+        encoding='utf-8', newline=''
+    ) as file:
         writer = csv.writer(file)
         writer.writerow(['as_number', 'rir', 'domain', 'cc', 'asname'])
+
         for entry in spamhaus_data:
-            writer.writerow([entry['asn'], entry['rir'], entry['domain'], entry['cc'], entry['asname']])
+            writer.writerow([
+                entry.get('asn', ''),
+                entry.get('rir', ''),
+                entry.get('domain', ''),
+                entry.get('cc', ''),
+                entry.get('asname', '')
+            ])
 
-    return ['AS' + str(entry['asn']) for entry in spamhaus_data]
+    return [
+        f"AS{str(entry['asn']).upper().removeprefix('AS')}"
+        for entry in spamhaus_data
+    ]
 
-# Fetch Spamhaus AS numbers
-spamhaus_drop_as_numbers = fetch_spamhaus_asn_data()
 
-# Read AS numbers from other CSV files
+# Collect and deduplicate ASNs
+spamhaus_as_numbers = fetch_spamhaus_asn_data()
 latest_as_numbers = read_as_numbers(latest_csv_file_path)
 static_as_numbers = read_as_numbers(static_csv_file_path)
 
-# Combine AS numbers from all sources
-combined_as_numbers = list(set(latest_as_numbers + static_as_numbers + spamhaus_drop_as_numbers))
+combined_as_numbers = sorted(set(
+    latest_as_numbers + static_as_numbers + spamhaus_as_numbers
+))
 
-# Join the AS numbers into a single string separated by commas
+if not combined_as_numbers:
+    raise RuntimeError("No ASNs found. Refusing to overwrite existing data.")
+
 as_numbers_str = ','.join(combined_as_numbers)
+print(f"Fetching IP ranges for {len(combined_as_numbers)} unique ASNs")
 
-# Construct the command
-command = f'python {script_path} -list {as_numbers_str} -format csv'
-
-# Execute the command
-subprocess.run(command, shell=True)
-
-print(f"Command executed: {command}")
-
-
-# Construct the command
-command = f'python {script_path} -list {as_numbers_str} -format csv'
-
-# Execute the command
-subprocess.run(command, shell=True, check=True)
-
-# Wait for sentinel log file to confirm completion
+# Remove stale completion marker
 sentinel_file = 'ASN_FETCH_DONE.log'
-timeout_seconds = 1000
-poll_interval = 6
-elapsed = 0
 
-while not os.path.exists(sentinel_file):
-    if elapsed >= timeout_seconds:
-        raise TimeoutError(f"Timeout: {sentinel_file} not found after {timeout_seconds} seconds")
-    print(f"Waiting for {sentinel_file}... ({elapsed}s)")
-    time.sleep(poll_interval)
-    elapsed += poll_interval
+if os.path.exists(sentinel_file):
+    os.remove(sentinel_file)
 
-# Move output CSVs to subfolder
+# Execute the retrieval script exactly once
+subprocess.run(
+    [sys.executable, script_path, '-list', as_numbers_str, '-format', 'csv'],
+    check=True
+)
+
+# Confirm successful completion
+if not os.path.isfile(sentinel_file):
+    raise RuntimeError("ASN retrieval did not create its completion marker")
+
+# Collect generated files before replacing previous data
+generated_files = [
+    file for file in os.listdir('.')
+    if file.startswith('AS') and file.endswith('_IP_Ranges.csv')
+]
+
+if not generated_files:
+    raise RuntimeError("No ASN IP range CSVs generated. Existing data preserved.")
+
 output_folder = 'ASN_IP_Ranges'
 os.makedirs(output_folder, exist_ok=True)
 
-# Empty the output folder before new files are moved
+# Remove previous generated CSVs
 for file in os.listdir(output_folder):
     file_path = os.path.join(output_folder, file)
-    if os.path.isfile(file_path):
+    if os.path.isfile(file_path) and file.endswith('_IP_Ranges.csv'):
         os.remove(file_path)
 
-moved = 0
-for file in os.listdir('.'):
-    if file.startswith('AS') and file.endswith('_IP_Ranges.csv'):
-        os.rename(file, os.path.join(output_folder, file))
-        moved += 1
+# Move updated CSVs into output directory
+for file in generated_files:
+    os.replace(file, os.path.join(output_folder, file))
 
-# Cleanup the sentinel file
 os.remove(sentinel_file)
 
-print(f"Moved {moved} CSV files to {output_folder}/ after confirming completion.")
+print(f"Updated {len(generated_files)} ASN IP range CSV files")
