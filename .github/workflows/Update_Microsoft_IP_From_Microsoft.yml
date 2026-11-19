@@ -32,16 +32,31 @@ jobs:
 
       - name: Commit and Push results
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git pull --rebase
-          git add Lists/Ranges_IP_Address_Company_List/Microsoft/*
-          git commit -m "Update Microsoft IP ranges List Daily" --allow-empty
-          # Many workflows push to main on overlapping schedules; retry if rejected
-          for i in 1 2 3 4 5; do
-            if git push; then break; fi
-            if [ "$i" -eq 5 ]; then echo "Push failed after 5 attempts"; exit 1; fi
-            echo "Push rejected (attempt $i), rebasing and retrying..."
-            sleep $((RANDOM % 20 + 10))
-            git pull --rebase --autostash || { git rebase --abort 2>/dev/null; true; }
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+      
+          git add -A -- Lists/Ranges_IP_Address_Company_List/Microsoft
+      
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+      
+          git commit -m "Update Microsoft IP ranges"
+      
+          for i in {1..8}; do
+            git fetch origin main
+            git rebase origin/main || {
+              git rebase --abort
+              exit 1
+            }
+      
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+      
+            sleep $((i * 3 + RANDOM % 5))
           done
+      
+          exit 1
+
