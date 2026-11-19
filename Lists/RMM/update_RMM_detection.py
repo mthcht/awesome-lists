@@ -78,9 +78,18 @@ for tool in unique_tools:
     for file_name, file_url in additional_files.items():
         additional_df = download_csv_to_df(file_url)
         
-        # Check for matches for each search term
-        matched_rows = additional_df[additional_df.apply(lambda row: any(term in ' '.join(row.astype(str)) for term in search_terms), axis=1)]
+        # Normalize CSV values to strings and handle missing values
+        searchable = additional_df.apply(
+            lambda row: " ".join(str(v) for v in row.dropna()).casefold(),
+            axis=1
+        )
         
+        terms = [str(term).casefold() for term in search_terms]
+        
+        matched_rows = additional_df[
+            searchable.apply(lambda text: any(term in text for term in terms))
+        ]
+
         if not matched_rows.empty:
             clean_file_name = file_name.replace("suspicious_", "")
             matched_file_path = os.path.join(tool, f"{tool}_{clean_file_name}.csv")
