@@ -20,9 +20,14 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
+        timeout-minutes: 10
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          fetch-tags: false
           persist-credentials: true
+          sparse-checkout: |
+            Lists/ASNs
+            Lists/Ranges_IP_Address_Company_List/bgp.he.net
 
       - name: Set up Python
         uses: actions/setup-python@v6
