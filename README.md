@@ -967,7 +967,6 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Epoch time converter](https://www.epochconverter.com/)
 - [cyberchef](https://cyberchef.org/)
 - [Chrome Addon for TI checks](https://chromewebstore.google.com/detail/osintlytics/kfpbbegdghffnakhgcbonaglepgoedmm)
-- [DecodeBox](https://decodebox.owasp.org/)
 - [sms verification](textverified.com)
 - [temp mail](https://temp-mail.org)
 - [10 minute mail](https://10minutemail.com/)
