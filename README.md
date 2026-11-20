@@ -417,6 +417,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 <details>
 
 - [CyberChef](https://gchq.github.io/CyberChef/)
+- [DecodeBox](https://decodebox.owasp.org/)
 - [jsoncrack](https://jsoncrack.com/editor)
 - [Grok debugger](https://grokdebugger.com/)
 - [JS deobfuscator](https://lelinhtinh.github.io/de4js/)
@@ -966,6 +967,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Epoch time converter](https://www.epochconverter.com/)
 - [cyberchef](https://cyberchef.org/)
 - [Chrome Addon for TI checks](https://chromewebstore.google.com/detail/osintlytics/kfpbbegdghffnakhgcbonaglepgoedmm)
+- [DecodeBox](https://decodebox.owasp.org/)
 - [sms verification](textverified.com)
 - [temp mail](https://temp-mail.org)
 - [10 minute mail](https://10minutemail.com/)
