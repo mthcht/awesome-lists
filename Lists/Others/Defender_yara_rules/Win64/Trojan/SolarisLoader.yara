@@ -65,3 +65,28 @@ rule Trojan_Win64_SolarisLoader_MK_2147982110_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SolarisLoader_AN_2147982535_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SolarisLoader.AN!MTB"
+        threat_id = "2147982535"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SolarisLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "SHGetFolderPathWNtReadVirtualMem" ascii //weight: 1
+        $x_1_2 = "UpdateProcThreadDeleteProcThreadInitializeProcThNtQueryInformatireadAttributeLis" ascii //weight: 1
+        $x_1_3 = {00 1f 34 0d 00 1f 52 1b f0 19 e0}  //weight: 1, accuracy: High
+        $x_1_4 = {28 0b 00 28 34 4b 01 28 01 42 01 1a f0 18 e0}  //weight: 1, accuracy: High
+        $x_2_5 = {04 20 0f b6 c8 66 83 ea 41 41 0f b6 02 66 83 fa 19 4d 8d 52 02 0f 47 c8 41 6b c3 21}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -56,10 +56,8 @@ rule Trojan_Win64_CastleRat_DA_2147982435_0
         strings_accuracy = "High"
     strings:
         $x_10_1 = "$archpath = \"C:\\ProgramData\\Krutyak.zip\"; $unpackpath = \"C:\\ProgramData\";Expand-Archive" ascii //weight: 10
-        $x_10_2 = {22 68 6f 73 74 6e 61 6d 65 22 3a 22 28 5b 5e 22 5d 2b 29 22 00 00 00 00 22 65 6e 63 72 79 70 74 65 64 55 73 65 72 6e 61 6d 65 22 3a 22 28 5b 5e 22 5d 2b 29 22 00 00 00 22 65 6e 63 72 79 70 74 65 64 50 61 73 73 77 6f 72 64 22 3a 22 28 5b 5e 22 5d 2b 29}  //weight: 10, accuracy: High
-        $x_10_3 = "Get-ScheduledJob; Add-MpPreference -ExclusionPath '%ws'" ascii //weight: 10
     condition:
         (filesize < 20MB) and
-        (1 of ($x*))
+        (all of ($x*))
 }
 

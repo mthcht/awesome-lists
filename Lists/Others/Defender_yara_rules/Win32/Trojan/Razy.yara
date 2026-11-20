@@ -1722,3 +1722,25 @@ rule Trojan_Win32_Razy_GPJ_2147966089_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Razy_AT_2147982529_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Razy.AT!MTB"
+        threat_id = "2147982529"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b d6 d3 ea 83 c1 08 30 54 05 ?? 40 83 f9 20 72}  //weight: 5, accuracy: Low
+        $x_5_2 = {03 f0 8a 16 02 f2 0f b6 c6 03 c8 0f b6 01 88 06 88 11 0f b6 06 02 c2 0f b6 c0 0f b6 84 05 ec fe ff ff 30 87 10 f0 75 00 47 3b 7d fc 72}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -154,3 +154,37 @@ rule Trojan_Win32_KillAV_MK_2147974237_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_KillAV_HAE_2147982526_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/KillAV.HAE!MTB"
+        threat_id = "2147982526"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "KillAV"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "find count:%x, %p" ascii //weight: 10
+        $x_1_2 = "MsMpEng.exe" ascii //weight: 1
+        $x_1_3 = "MpDefenderCoreService.exe" ascii //weight: 1
+        $x_1_4 = "esmartscreen.exe" ascii //weight: 1
+        $x_1_5 = "ecysandbox.exe" ascii //weight: 1
+        $x_1_6 = "eSophosAV.exe" ascii //weight: 1
+        $x_1_7 = "eSophosHealth.exe" ascii //weight: 1
+        $x_1_8 = "eNortonSecurity.exe" ascii //weight: 1
+        $x_1_9 = "eSentinelUI.exe" ascii //weight: 1
+        $x_1_10 = "eAvastSvc.exe" ascii //weight: 1
+        $x_1_11 = "eklnagent.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 6 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+
