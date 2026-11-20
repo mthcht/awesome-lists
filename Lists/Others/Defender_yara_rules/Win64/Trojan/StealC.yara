@@ -1237,3 +1237,27 @@ rule Trojan_Win64_StealC_CX_2147982093_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_StealC_DS_2147982499_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/StealC.DS!MTB"
+        threat_id = "2147982499"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "StealC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "discord" ascii //weight: 1
+        $x_1_2 = "app_bound_encrypted_key" ascii //weight: 1
+        $x_1_3 = "Google\\Chrome\\User Data\\Local State" ascii //weight: 1
+        $x_1_4 = "LdrGetProcedureAddress" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

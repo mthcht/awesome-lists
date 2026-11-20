@@ -62,3 +62,28 @@ rule Trojan_MSIL_Shellcode_ARR_2147965798_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Shellcode_MCY_2147982507_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Shellcode.MCY!MTB"
+        threat_id = "2147982507"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Shellcode"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DotNetBeacon.exe" ascii //weight: 1
+        $x_1_2 = {fc 48 83 e4 f0 e8 cc 00 00 00 41 51 41 50 52 48}  //weight: 1, accuracy: High
+        $x_1_3 = "Allocating memory" wide //weight: 1
+        $x_1_4 = "Copying shellcode" wide //weight: 1
+        $x_1_5 = "Executing thread" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

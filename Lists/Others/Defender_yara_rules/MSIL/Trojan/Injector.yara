@@ -3269,3 +3269,27 @@ rule Trojan_MSIL_Injector_H_2147981688_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Injector_MCY_2147982506_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Injector.MCY!MTB"
+        threat_id = "2147982506"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "fsdgsrxd.Resources.resource" ascii //weight: 1
+        $x_1_2 = "System.Windows.Application" wide //weight: 1
+        $x_1_3 = "31bf3856ad364e35" wide //weight: 1
+        $x_1_4 = "Shutdown" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -1403,3 +1403,25 @@ rule Trojan_Win64_Injector_AR_2147982461_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Injector_AA_2147982500_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Injector.AA!MTB"
+        threat_id = "2147982500"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Injector"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_16_1 = {66 44 8b d0 66 45 33 14 10 44 8b 1d ?? ?? ?? ?? 65 4c 8b 0c 25 ?? ?? ?? ?? 4f 8b 1c d9 66 47 89 94 03}  //weight: 16, accuracy: Low
+        $x_4_2 = {4f 8b 04 c2 44 0f b6 14 11 41 30 c2 45 88 94 08 ?? ?? ?? ?? 04 a1 48 ff c1 83 f9}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

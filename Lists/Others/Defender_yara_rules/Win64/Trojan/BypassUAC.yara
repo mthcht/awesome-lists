@@ -372,3 +372,29 @@ rule Trojan_Win64_BypassUAC_AB_2147980398_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BypassUAC_AA_2147982501_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BypassUAC.AA!MTB"
+        threat_id = "2147982501"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BypassUAC"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "fc-m4.exe" ascii //weight: 2
+        $x_8_2 = "cmd.exe /c schtasks /Create /TN FleetComputeM4Agent /SC ONSTART /RU SYSTEM /RL HIGHEST /F /TR" ascii //weight: 8
+        $x_3_3 = "/download/fc-split.exe" ascii //weight: 3
+        $x_7_4 = "cmd.exe /c schtasks /Delete /TN FleetComputeM4Boot /F >nul 2>&1" ascii //weight: 7
+        $x_6_5 = "%s\\logs\\agent.log" ascii //weight: 6
+        $x_4_6 = "/download/miner.exe" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

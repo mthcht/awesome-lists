@@ -832,6 +832,29 @@ rule Trojan_MSIL_Agenttesla_MCX_2147977231_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {4c 00 00 07 6f 00 61 00 64}  //weight: 1, accuracy: High
+        $x_1_2 = {44 00 61 00 6e 00 75 00 62 00 65 00 4d 00 69}  //weight: 1, accuracy: High
+        $x_1_3 = "72D71DAD9" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_Agenttesla_MCX_2147977231_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Agenttesla.MCX!MTB"
+        threat_id = "2147977231"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Agenttesla"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "5"
         strings_accuracy = "High"
     strings:
