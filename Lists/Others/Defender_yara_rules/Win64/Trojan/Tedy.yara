@@ -8021,6 +8021,33 @@ rule Trojan_Win64_Tedy_CAM_2147972784_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SU_2147972789_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SU!MTB"
+        threat_id = "2147972789"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "https://bsc.blockrazor.xyz" ascii //weight: 2
+        $x_1_2 = "Executor: wrote %u bytes to %s" ascii //weight: 1
+        $x_1_3 = "Keccak-256 self-test FAILED" ascii //weight: 1
+        $x_1_4 = "Endpoint: T_URL override" ascii //weight: 1
+        $x_1_5 = "discovery payloads will be wrong" ascii //weight: 1
+        $x_1_6 = "TerminalTelemetryServices" ascii //weight: 1
+        $x_1_7 = "cmd.exe /c taskkill /f /im TelemetryMainUpdate.exe 2>nul" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_ABTY_2147972953_0
 {
     meta:

@@ -40,3 +40,24 @@ rule Trojan_Win64_ShellCodeMarte_FG_2147981605_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ShellCodeMarte_DS_2147982488_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellCodeMarte.DS!MTB"
+        threat_id = "2147982488"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellCodeMarte"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {0f b6 14 01 83 f2 5a 41 88 14 07 48 83 c0 01 48 83 f8 0b 75 eb}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

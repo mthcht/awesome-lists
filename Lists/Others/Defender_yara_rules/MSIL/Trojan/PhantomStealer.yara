@@ -323,3 +323,26 @@ rule Trojan_MSIL_PhantomStealer_ABGN_2147976579_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_PhantomStealer_DX_2147982492_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/PhantomStealer.DX!MTB"
+        threat_id = "2147982492"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "PhantomStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {06 0a 06 02 7d ?? 00 00 04 00 06 06 7b ?? 00 00 04 6f ?? 00 00 0a 7d ?? 00 00 04 06 7b ?? 00 00 04 6f ?? 00 00 0a 06 7b ?? 00 00 04 5a 19 5a 03 28 ?? 00 00 0a 0b 16 07 18 58 19 5b 28 ?? 00 00 0a 06 fe ?? ?? 00 00 06 73 ?? 00 00 0a 28 ?? 00 00 2b 7e ?? 00 00 04 25 3a ?? 00 00 00 26 7e ?? 00 00 04 fe ?? ?? 00 00 06 73 ?? 00 00 0a 25 80 ?? 00 00 04 28 ?? 00 00 2b 07 28 ?? 00 00 2b 28 ?? 00 00 2b 0c 38 ?? 00 00 00 08 2a}  //weight: 5, accuracy: Low
+        $x_2_2 = {04 03 02 7b ?? 00 00 04 5b 03 02 7b ?? 00 00 04 5d 6f ?? 00 00 0a 2a}  //weight: 2, accuracy: Low
+        $x_2_3 = {01 25 16 0f 01 28 ?? 00 00 0a 9c 25 17 0f 01 28 ?? 00 00 0a 9c 25 18 0f 01 28 ?? 00 00 0a 9c 2a}  //weight: 2, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
