@@ -2902,7 +2902,7 @@ rule Trojan_Win32_ICLoader_GP_2147977769_2
         threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 5f 84 1b bd d3 6b 6c}  //weight: 4, accuracy: Low
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 4a 61 f0 30 95 da 6c}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -2923,13 +2923,34 @@ rule Trojan_Win32_ICLoader_GP_2147977769_3
         threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 fb b6 ae 02 12 9a 6c}  //weight: 4, accuracy: Low
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 5f 84 1b bd d3 6b 6c}  //weight: 4, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win32_ICLoader_GP_2147977769_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ICLoader.GP!MTB"
+        threat_id = "2147977769"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ICLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {72 44 6c 50 74 53 cd e6 d7 7b 0b 2a 01 00 00 00 ?? ?? ?? 00 ?? ?? ?? 00 00 be 0a 00 fb b6 ae 02 12 9a 6c}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ICLoader_GP_2147977769_5
 {
     meta:
         author = "defender2yara"
@@ -2951,7 +2972,7 @@ rule Trojan_Win32_ICLoader_GP_2147977769_4
         (1 of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_GP_2147977769_5
+rule Trojan_Win32_ICLoader_GP_2147977769_6
 {
     meta:
         author = "defender2yara"
@@ -2973,7 +2994,7 @@ rule Trojan_Win32_ICLoader_GP_2147977769_5
         (1 of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_GP_2147977769_6
+rule Trojan_Win32_ICLoader_GP_2147977769_7
 {
     meta:
         author = "defender2yara"
@@ -2995,7 +3016,7 @@ rule Trojan_Win32_ICLoader_GP_2147977769_6
         (1 of ($x*))
 }
 
-rule Trojan_Win32_ICLoader_GP_2147977769_7
+rule Trojan_Win32_ICLoader_GP_2147977769_8
 {
     meta:
         author = "defender2yara"

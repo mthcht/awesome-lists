@@ -78,10 +78,34 @@ rule VirTool_Win32_BruterShell_A_2147899112_3
         family = "BruterShell"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {48 83 c1 01 48 39 c8 74 ?? 80 39 0f 75 ?? 80 79 01 05 75 ?? 80 79 02 c3 75}  //weight: 1, accuracy: Low
+        $x_1_2 = {80 79 01 8b 75 ?? 80 79 02 d1 75 ?? 41 80 f8 b8 75 ?? 80 79 06 00 75}  //weight: 1, accuracy: Low
+        $x_1_3 = {ba b1 fc 2d 57 [0-8] e8 ?? ?? ?? 00}  //weight: 1, accuracy: Low
+        $x_1_4 = {ba 75 bd e2 55 [0-8] e8 ?? ?? ?? 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {ba ba e5 99 42 [0-8] e8 ?? ?? ?? 00}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win32_BruterShell_A_2147899112_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/BruterShell.A"
+        threat_id = "2147899112"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BruterShell"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f b6 50 02}  //weight: 1, accuracy: Low
+        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f ?? 50}  //weight: 1, accuracy: Low
         $x_1_2 = {c7 44 24 04 89 4d 39 8c 89 44 24 08 e8}  //weight: 1, accuracy: High
         $x_1_3 = {89 14 24 c7 44 24 ?? 50 4f 53 54 c6 44 24 ?? 00 c7 44 24 ?? 7b 22 61 72 c7 44 24 ?? 63 68 22 3a}  //weight: 1, accuracy: Low
         $x_1_4 = {c7 44 24 04 aa fc 0d 7c [0-128] c7 44 24 04 bd ca 3b d3}  //weight: 1, accuracy: Low
@@ -90,7 +114,7 @@ rule VirTool_Win32_BruterShell_A_2147899112_3
         (all of ($x*))
 }
 
-rule VirTool_Win32_BruterShell_A_2147899112_4
+rule VirTool_Win32_BruterShell_A_2147899112_5
 {
     meta:
         author = "defender2yara"
@@ -113,7 +137,7 @@ rule VirTool_Win32_BruterShell_A_2147899112_4
         (all of ($x*))
 }
 
-rule VirTool_Win32_BruterShell_A_2147899112_5
+rule VirTool_Win32_BruterShell_A_2147899112_6
 {
     meta:
         author = "defender2yara"
@@ -127,35 +151,10 @@ rule VirTool_Win32_BruterShell_A_2147899112_5
         threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f b6 50 02}  //weight: 1, accuracy: Low
+        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f ?? 50}  //weight: 1, accuracy: Low
         $x_1_2 = {83 c0 01 39 c2 74 ?? 80 38 0f 75 ?? 80 78 01 34 75 ?? 80 78 02 c3 75}  //weight: 1, accuracy: Low
         $x_1_3 = {89 14 24 c7 44 24 ?? 50 4f 53 54 c6 44 24 ?? 00 c7 44 24 ?? ?? ?? ?? ?? c7 44 24 ?? ?? ?? ?? ?? c7 44 24}  //weight: 1, accuracy: Low
         $x_1_4 = {b9 63 72 00 00 ba 77 69 00 00 bd 32 2e 00 00 57 56 53 bb 74 2e 00 00}  //weight: 1, accuracy: High
-    condition:
-        (filesize < 20MB) and
-        (all of ($x*))
-}
-
-rule VirTool_Win32_BruterShell_A_2147899112_6
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "VirTool:Win32/BruterShell.A"
-        threat_id = "2147899112"
-        type = "VirTool"
-        platform = "Win32: Windows 32-bit platform"
-        family = "BruterShell"
-        severity = "Critical"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "6"
-        strings_accuracy = "Low"
-    strings:
-        $x_1_1 = {c7 44 24 04 26 25 19 3e 89 44 24 08 c7 04 24 00 00 00 00 e8}  //weight: 1, accuracy: High
-        $x_1_2 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f b6 50 02}  //weight: 1, accuracy: Low
-        $x_1_3 = {c7 44 24 04 bd ca 3b d3 89 44 24 08 8b 84 24 ?? 00 00 00 89 04 24 e8}  //weight: 1, accuracy: Low
-        $x_1_4 = {89 44 24 08 c7 44 24 04 ff ff ff ff 89 3c 24 e8}  //weight: 1, accuracy: High
-        $x_1_5 = {c7 44 24 04 b8 0a 4c 53 89 44 24 08 e8}  //weight: 1, accuracy: High
-        $x_1_6 = {c7 44 24 04 89 4d 39 8c 89 44 24 08 e8}  //weight: 1, accuracy: High
     condition:
         (filesize < 20MB) and
         (all of ($x*))
@@ -172,10 +171,59 @@ rule VirTool_Win32_BruterShell_A_2147899112_7
         family = "BruterShell"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f ?? 50}  //weight: 1, accuracy: Low
+        $x_1_2 = {83 c0 01 39 c2 74 ?? 80 38 0f 75 ?? 80 78 01 34 75 ?? 80 78 02 c3 75}  //weight: 1, accuracy: Low
+        $x_1_3 = {c7 44 24 04 b1 fc 2d 57 89 [0-3] 89 [0-3] e8}  //weight: 1, accuracy: Low
+        $x_1_4 = {c7 44 24 04 b5 cd e9 e1 89 [0-3] 89 [0-3] e8}  //weight: 1, accuracy: Low
+        $x_1_5 = {c7 44 24 04 ba e5 99 42 89 [0-3] 89 [0-3] e8}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win32_BruterShell_A_2147899112_8
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/BruterShell.A"
+        threat_id = "2147899112"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BruterShell"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = {c7 44 24 04 26 25 19 3e 89 44 24 08 c7 04 24 00 00 00 00 e8}  //weight: 1, accuracy: High
+        $x_1_2 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f ?? 50}  //weight: 1, accuracy: Low
+        $x_1_3 = {c7 44 24 04 bd ca 3b d3 89 44 24 08 8b 84 24 ?? 00 00 00 89 04 24 e8}  //weight: 1, accuracy: Low
+        $x_1_4 = {89 44 24 08 c7 44 24 04 ff ff ff ff 89 3c 24 e8}  //weight: 1, accuracy: High
+        $x_1_5 = {c7 44 24 04 b8 0a 4c 53 89 44 24 08 e8}  //weight: 1, accuracy: High
+        $x_1_6 = {c7 44 24 04 89 4d 39 8c 89 44 24 08 e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule VirTool_Win32_BruterShell_A_2147899112_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win32/BruterShell.A"
+        threat_id = "2147899112"
+        type = "VirTool"
+        platform = "Win32: Windows 32-bit platform"
+        family = "BruterShell"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "4"
         strings_accuracy = "Low"
     strings:
-        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f b6 50 02}  //weight: 1, accuracy: Low
+        $x_1_1 = {80 78 05 e8 75 ?? 80 78 06 03 75 ?? 80 78 0d 8b 75 ?? 80 78 0e d4 75 ?? 0f ?? 50}  //weight: 1, accuracy: Low
         $x_1_2 = {83 c0 01 39 c2 74 ?? 80 38 0f 75 ?? 80 78 01 34 75 ?? 80 78 02 c3 75}  //weight: 1, accuracy: Low
         $x_1_3 = {bd 33 32 00 00 c7 44 24 08 00 00 00 00 c7 44 24 04 00 00 00 00 89 3c 24 c7 44 24 ?? 77 73 32 5f 66 89 6c 24 ?? c6 44 24 ?? 00 e8}  //weight: 1, accuracy: Low
         $x_1_4 = {89 3c 24 c7 84 24 ?? ?? ?? ?? 61 64 76 61 c7 84 24 ?? ?? ?? ?? 70 69 33 32 c6 84 24 ?? ?? ?? ?? 00 e8}  //weight: 1, accuracy: Low
@@ -184,7 +232,7 @@ rule VirTool_Win32_BruterShell_A_2147899112_7
         (all of ($x*))
 }
 
-rule VirTool_Win32_BruterShell_A_2147899112_8
+rule VirTool_Win32_BruterShell_A_2147899112_10
 {
     meta:
         author = "defender2yara"
@@ -208,7 +256,7 @@ rule VirTool_Win32_BruterShell_A_2147899112_8
         (4 of ($x*))
 }
 
-rule VirTool_Win32_BruterShell_A_2147899112_9
+rule VirTool_Win32_BruterShell_A_2147899112_11
 {
     meta:
         author = "defender2yara"

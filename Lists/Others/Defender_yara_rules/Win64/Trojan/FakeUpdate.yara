@@ -63,3 +63,25 @@ rule Trojan_Win64_FakeUpdate_ARAZ_2147982394_1
         (all of ($x*))
 }
 
+rule Trojan_Win64_FakeUpdate_GK_2147982540_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/FakeUpdate.GK!MTB"
+        threat_id = "2147982540"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "FakeUpdate"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ba 00 00 00 00 48 8b 4d b8 48 01 d1 48 8d 55 8c 49 89 d1 41 b8 04 00 00 00 48 89 c2 48 8b 05 ?? ?? ?? ?? ff d0}  //weight: 5, accuracy: Low
+        $x_5_2 = {48 89 55 98 c6 45 ?? e2 c6 45 ?? 03 c6 45 ?? 04 c6 45 ?? 06 c7 45 ?? 01 00 00 00 c6 45 ?? 00 eb 2e 0f b6 55 fb 48 8b 45 b8 48 01 d0 0f b6 10 0f b6 45 fb 48 98 0f b6 44 05 ?? 38 c2 0f 94 c0 0f b6 c0 21 45 fc 0f b6 45 fb 83 c0 01 88 45 fb 0f b6 45 fb 3a 45 b7}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

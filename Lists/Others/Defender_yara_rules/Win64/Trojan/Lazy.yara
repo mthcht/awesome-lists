@@ -8477,3 +8477,25 @@ rule Trojan_Win64_Lazy_ZN_2147982075_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_MCV_2147982545_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.MCV!MTB"
+        threat_id = "2147982545"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {e9 3f d3 03 00 48 83 ec 28 48 8b 51 08 48 c7 44 24 20 08 00 00 00 41 b9 08 00 00 00 41 b8 01}  //weight: 1, accuracy: High
+        $x_1_2 = {05 10 00 00 34 10 00 00 68 d0 08 00 34 10 00 00 72 10 00 00 70 d0 08 00 4b 11 00 00 93}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
