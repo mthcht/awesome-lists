@@ -142,3 +142,28 @@ rule Trojan_Win32_QuasarRAT_GV_2147977785_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_QuasarRAT_2147982570_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/QuasarRAT!atmn"
+        threat_id = "2147982570"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "QuasarRAT"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "34"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/rl HIGHEST /f" wide //weight: 5
+        $x_7_3 = "Microsoft Edge" wide //weight: 7
+        $x_10_4 = "\\AppData\\Roaming\\SubDir\\Edge.exe" wide //weight: 10
+        $x_7_5 = "/sc ONLOGON" wide //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -39,8 +39,10 @@ rule Trojan_Win32_Goptaju_D_2147959420_0
         $x_1_2 = "new-object system.net.webclient" wide //weight: 1
         $x_1_3 = ".downloadstring(" wide //weight: 1
         $x_1_4 = ".ps1" wide //weight: 1
+        $n_20_5 = "https://community.chocolatey.org/install.ps1" wide //weight: -20
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 

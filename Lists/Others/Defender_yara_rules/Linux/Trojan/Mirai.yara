@@ -1177,6 +1177,29 @@ rule Trojan_Linux_Mirai_AT_2147981641_0
         threshold = "20"
         strings_accuracy = "High"
     strings:
+        $x_10_1 = "/tmp/log_de.log" ascii //weight: 10
+        $x_4_2 = "p=%d HTTP/1.1" ascii //weight: 4
+        $x_6_3 = "Host: %s:%d" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_Mirai_AT_2147981641_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/Mirai.AT!MTB"
+        threat_id = "2147981641"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "Mirai"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
         $x_3_1 = "[bot] ejecutando: %s" ascii //weight: 3
         $x_2_2 = "[bot] EXEC payload vac" ascii //weight: 2
         $x_5_3 = "cmd\":\"ATTACK_RESULT\",\"payload\":\"%ld" ascii //weight: 5

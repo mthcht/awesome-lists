@@ -51,6 +51,31 @@ rule Trojan_Win32_RustyStealer_2147978812_0
         family = "RustyStealer"
         severity = "Critical"
         info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "32"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/rl HIGHEST /f" wide //weight: 5
+        $x_10_3 = "\\AppData\\Local\\WinDefender\\WinDefenderUpdate.exe" wide //weight: 10
+        $x_7_4 = "/sc ONSTART" wide //weight: 7
+        $x_5_5 = "/ru SYSTEM" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_RustyStealer_2147978812_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RustyStealer!atmn"
+        threat_id = "2147978812"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RustyStealer"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "2"
         strings_accuracy = "High"
@@ -62,7 +87,7 @@ rule Trojan_Win32_RustyStealer_2147978812_0
         (all of ($x*))
 }
 
-rule Trojan_Win32_RustyStealer_2147978812_1
+rule Trojan_Win32_RustyStealer_2147978812_2
 {
     meta:
         author = "defender2yara"

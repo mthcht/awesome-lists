@@ -270,3 +270,56 @@ rule Trojan_Win32_Tasker_ARA_2147980149_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Tasker_2147982572_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tasker!atmn"
+        threat_id = "2147982572"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "39"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/Create /F" wide //weight: 5
+        $x_7_3 = "StorageHealth_Logon_Init" wide //weight: 7
+        $x_10_4 = "\\AppData\\Local\\Microsoft\\Windows\\StorageHealth\\storagehealth.exe" wide //weight: 10
+        $x_7_5 = "/SC ONLOGON" wide //weight: 7
+        $x_5_6 = "/RL HIGHEST" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Tasker_2147982572_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Tasker!atmn"
+        threat_id = "2147982572"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Tasker"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "44"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/Create /F" wide //weight: 5
+        $x_7_3 = "StorageHealth_Health_Audit" wide //weight: 7
+        $x_10_4 = "\\AppData\\Local\\Microsoft\\Windows\\StorageHealth\\storagehealth.exe" wide //weight: 10
+        $x_7_5 = "/SC MINUTE" wide //weight: 7
+        $x_5_6 = "/MO 5" wide //weight: 5
+        $x_5_7 = "/RL HIGHEST" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

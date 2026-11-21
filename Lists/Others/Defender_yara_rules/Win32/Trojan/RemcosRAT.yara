@@ -528,6 +528,56 @@ rule Trojan_Win32_RemcosRAT_2147982336_0
         severity = "Critical"
         info = "atmn: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "29"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_7_2 = "/tn DiagTrack" wide //weight: 7
+        $x_10_3 = "\\AppData\\Roaming\\Microsoft\\Windows\\DiagTrack\\DiagTrack.exe" wide //weight: 10
+        $x_7_4 = "/sc minute /mo 10" wide //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_RemcosRAT_2147982336_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT!atmn"
+        threat_id = "2147982336"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "39"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "schtasks" wide //weight: 5
+        $x_5_2 = "/Create /F" wide //weight: 5
+        $x_7_3 = "DiskDiagnostic_Logon_Init" wide //weight: 7
+        $x_10_4 = "\\AppData\\Local\\Microsoft\\Windows\\DiskDiagnostic\\diskdiag.exe" wide //weight: 10
+        $x_7_5 = "/SC ONLOGON" wide //weight: 7
+        $x_5_6 = "/RL HIGHEST" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_RemcosRAT_2147982336_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/RemcosRAT!atmn"
+        threat_id = "2147982336"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "RemcosRAT"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
         threshold = "44"
         strings_accuracy = "High"
     strings:

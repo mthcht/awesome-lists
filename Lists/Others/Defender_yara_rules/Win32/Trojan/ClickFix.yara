@@ -17196,3 +17196,33 @@ rule Trojan_Win32_ClickFix_JH5_2147982422_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_JH4_2147982565_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JH4"
+        threat_id = "2147982565"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "41"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "cmd" wide //weight: 10
+        $x_10_2 = "curl -ks" wide //weight: 10
+        $x_1_3 = "http" wide //weight: 1
+        $x_5_4 = "$input|&" wide //weight: 5
+        $x_10_5 = "'{0}' -f 'ex'" wide //weight: 10
+        $x_5_6 = "|powershell" wide //weight: 5
+        $x_5_7 = "| powershell" wide //weight: 5
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_10_*) and 2 of ($x_5_*) and 1 of ($x_1_*))) or
+            ((3 of ($x_10_*) and 3 of ($x_5_*))) or
+            (all of ($x*))
+        )
+}
+
