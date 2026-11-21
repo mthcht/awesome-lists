@@ -936,31 +936,6 @@ rule HackTool_Win32_Mimikatz_NPTT_2147787347_1
         family = "Mimikatz"
         severity = "High"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
-        threshold = "11"
-        strings_accuracy = "High"
-    strings:
-        $x_10_1 = "kerberos::golden" ascii //weight: 10
-        $x_1_2 = "/user" ascii //weight: 1
-        $x_1_3 = "/domain" ascii //weight: 1
-    condition:
-        (filesize < 20MB) and
-        (
-            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
-            (all of ($x*))
-        )
-}
-
-rule HackTool_Win32_Mimikatz_NPTT_2147787347_2
-{
-    meta:
-        author = "defender2yara"
-        detection_name = "HackTool:Win32/Mimikatz.NPTT"
-        threat_id = "2147787347"
-        type = "HackTool"
-        platform = "Win32: Windows 32-bit platform"
-        family = "Mimikatz"
-        severity = "High"
-        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
         strings_accuracy = "High"
     strings:
@@ -972,7 +947,7 @@ rule HackTool_Win32_Mimikatz_NPTT_2147787347_2
         (all of ($x*))
 }
 
-rule HackTool_Win32_Mimikatz_NPTT_2147787347_3
+rule HackTool_Win32_Mimikatz_NPTT_2147787347_2
 {
     meta:
         author = "defender2yara"
