@@ -774,3 +774,28 @@ rule Trojan_Win32_Grandoreiro_GM_2147981756_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Grandoreiro_GQ_2147982590_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Grandoreiro.GQ!MTB"
+        threat_id = "2147982590"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Grandoreiro"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {8b c0 55 8b ec 33 c0 55 68 ?? ?? ?? ?? 64 ff 30 64 89 20 83 2d ?? ?? ?? ?? 01 73 05 e8 ?? ?? ?? ?? 33 c0 5a 59 59 64 89 10 68 ?? ?? ?? ?? 58 ff e0}  //weight: 5, accuracy: Low
+        $x_5_2 = {c3 8b c0 83 2d ?? ?? ?? ?? 01 73 ?? 68 ?? ?? ?? ?? e8 ?? ?? ?? ?? c3 83 2d ?? ?? ?? ?? 01 c3 55 8b ec 83 c4 c0 b8 ?? ?? ?? ?? e8 ?? ?? ?? ?? b8 ?? ?? ?? ?? a3 ?? ?? ?? ?? 33 c9 ba 01 00 00 00 a1 ?? ?? ?? ?? e8 ?? ?? ?? ?? e8}  //weight: 5, accuracy: Low
+        $x_1_3 = "GetKeyNameText" ascii //weight: 1
+        $x_1_4 = "GetKeyboardState" ascii //weight: 1
+        $x_1_5 = "GetClipboardData" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
