@@ -536,6 +536,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [Cloudfare security feed](https://blog.cloudflare.com/tag/security/rss)
 - [Clément Notin Feed](https://clement.notin.org/feed.xml)
 - [crowdstrike counter adversary operations blog](https://www.crowdstrike.com/en-us/blog/category.counter-adversary-operations/)
+- [CVE Tools latest vulnerabilities feed](https://cve.tools/feed.xml)
 - [deepinstinct blog](https://www.deepinstinct.com/blog)
 - [detect.fyi](https://detect.fyi/)
 - [Detection engineering weekly](https://www.detectionengineering.net/)
