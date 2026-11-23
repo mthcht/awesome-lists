@@ -656,6 +656,30 @@ rule Trojan_Win64_Doina_MK_2147981370_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "Worm: no /24 subnet found" ascii //weight: 10
+        $x_5_2 = "Worm: sweep complete" ascii //weight: 5
+        $x_3_3 = "ETW patched (EtwEventWrite blinded)" ascii //weight: 3
+        $x_2_4 = "SMB worm started" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Doina_MK_2147981370_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Doina.MK!MTB"
+        threat_id = "2147981370"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Doina"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "High"
     strings:

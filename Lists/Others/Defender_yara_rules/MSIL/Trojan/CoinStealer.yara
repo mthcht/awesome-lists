@@ -44,3 +44,27 @@ rule Trojan_MSIL_CoinStealer_SK_2147891913_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_CoinStealer_MDA_2147982613_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/CoinStealer.MDA!MTB"
+        threat_id = "2147982613"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "CoinStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {6a 59 1a 6a 59 13 06 07 06 11 05 11 06 11 04}  //weight: 1, accuracy: High
+        $x_1_2 = "stub.exe" wide //weight: 1
+        $x_1_3 = "ConfusedByAttribut" ascii //weight: 1
+        $x_1_4 = {57 9d a2 3d 09 0f 00 00 00 fa 25 33 00 16 00 00 01}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
