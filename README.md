@@ -487,6 +487,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 - [mdecrevoisier Sigma-Rules](https://github.com/mdecrevoisier/SIGMA-detection-rules)
 - [P4T12ICK Sigma-Rules](https://github.com/P4T12ICK/Sigma-Rule-Repository)
 - [tsale Sigma-Rules](https://github.com/tsale/Sigma_rules)
+- [Agentic attack frameworks detection rules (Sigma, KQL, Suricata, Zeek, YARA, IOC feeds)](https://github.com/ThreatDefence/agentic-attack-detections)
 - [list of detections resources](https://github.com/jatrost/awesome-detection-rules)
 - [KQL Hunting Queries](https://github.com/Bert-JanP/Hunting-Queries-Detection-Rules)
 - [detection engineering resources](https://github.com/infosecB/awesome-detection-engineering)
