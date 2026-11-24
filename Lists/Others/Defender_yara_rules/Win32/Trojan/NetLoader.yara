@@ -305,3 +305,30 @@ rule Trojan_Win32_NetLoader_AHB_2147965620_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_NetLoader_SK_2147982646_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/NetLoader.SK!MTB"
+        threat_id = "2147982646"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "NetLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = {8b 54 01 20 33 10 33 14 01 89 10 83 c0 04 4b}  //weight: 2, accuracy: High
+        $x_1_2 = "Magnet Wire v2 client proof" ascii //weight: 1
+        $x_1_3 = "Magnet Wire v2 s2c key" ascii //weight: 1
+        $x_1_4 = "InternetOpenUrl" ascii //weight: 1
+        $x_1_5 = "InternetReadFile" ascii //weight: 1
+        $x_1_6 = "DM_Start" ascii //weight: 1
+        $x_1_7 = "DM_Stop" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

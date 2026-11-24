@@ -2070,3 +2070,31 @@ rule Trojan_Win64_ValleyRat_E_2147982476_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRat_YX_2147982480_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRat.YX!MTB"
+        threat_id = "2147982480"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "ekrn.exe" ascii //weight: 1
+        $x_1_2 = "RunCodeTask" ascii //weight: 1
+        $x_1_3 = "MSDRIVER1005" ascii //weight: 1
+        $x_1_4 = "EraseCode.dat" ascii //weight: 1
+        $x_1_5 = "dXNlck1vbml0b3I6ODE3" ascii //weight: 1
+        $x_1_6 = "SVA6MjAyLjYxLjE1Ny4zMw==" ascii //weight: 1
+        $x_1_7 = "UG9ydDE6MjEzNTc=" ascii //weight: 1
+        $x_1_8 = "RemoteController_Inbound_Rule" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

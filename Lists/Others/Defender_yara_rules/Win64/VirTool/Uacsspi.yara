@@ -25,3 +25,36 @@ rule VirTool_Win64_Uacsspi_A_2147893556_0
         (all of ($x*))
 }
 
+rule VirTool_Win64_Uacsspi_AMTB_2147982655_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "VirTool:Win64/Uacsspi!AMTB"
+        threat_id = "2147982655"
+        type = "VirTool"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Uacsspi"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Executing '%s' as SYSTEM user..." ascii //weight: 3
+        $x_2_2 = "CreateService error: %u" ascii //weight: 2
+        $x_2_3 = "StartService error: %u" ascii //weight: 2
+        $x_2_4 = "OpenSCManager error: %u" ascii //weight: 2
+        $x_2_5 = "DeleteService error: %u" ascii //weight: 2
+        $x_2_6 = "Svc_%u" ascii //weight: 2
+        $x_2_7 = "ntsvcs" ascii //weight: 2
+        $x_1_8 = "cmd /c start %s" ascii //weight: 1
+        $x_1_9 = "ImpersonateLoggedOnUser" ascii //weight: 1
+        $x_1_10 = "QuerySecurityContextToken" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_3_*) and 5 of ($x_2_*) and 3 of ($x_1_*))) or
+            ((1 of ($x_3_*) and 6 of ($x_2_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

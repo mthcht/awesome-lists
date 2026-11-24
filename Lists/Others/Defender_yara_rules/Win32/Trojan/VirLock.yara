@@ -329,3 +329,24 @@ rule Trojan_Win32_VirLock_SK_2147908941_1
         (1 of ($x*))
 }
 
+rule Trojan_Win32_VirLock_ARAZ_2147982623_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/VirLock.ARAZ!MTB"
+        threat_id = "2147982623"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "VirLock"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "Low"
+    strings:
+        $x_4_1 = {8a 06 32 c2 ?? 88 07 e9 da ff ff ff}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

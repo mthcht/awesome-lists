@@ -304,6 +304,29 @@ rule Trojan_Win64_Yogi_D_2147981056_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "{\"type\":\"grabber_progress\",\"category\":\"*\",\"message\":\"working\",\"count\":0,\"ok\":true}" ascii //weight: 30
+        $x_20_2 = "startDiscordTokenWatchR10AgentState" ascii //weight: 20
+        $x_10_3 = "handleMessageR10AgentState" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_D_2147981056_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.D!MTB"
+        threat_id = "2147981056"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "10"
         strings_accuracy = "High"
     strings:
@@ -737,6 +760,33 @@ rule Trojan_Win64_Yogi_AR_2147982462_0
     strings:
         $x_15_1 = {43 8d 04 90 48 63 d0 43 8d 04 13 48 63 c8 41 ff c2 41 8b 04 8c 41 8b c9 d3 e8 42 30 04 32 41 83 fa}  //weight: 15, accuracy: High
         $x_5_2 = {43 8b 14 94 43 8d 04 91 d3 ea 41 ff c2 4c 63 c0 43 30 14 30 41 83 fa}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_H_2147982653_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.H!MTB"
+        threat_id = "2147982653"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "press D to destruct" ascii //weight: 1
+        $x_1_2 = "loading driver..." ascii //weight: 1
+        $x_1_3 = "journal cleared" ascii //weight: 1
+        $x_1_4 = "csrss handles cleaned" ascii //weight: 1
+        $x_1_5 = "memory strings cleared" ascii //weight: 1
+        $x_1_6 = "[+] %s" ascii //weight: 1
+        $x_1_7 = "driver_Release" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

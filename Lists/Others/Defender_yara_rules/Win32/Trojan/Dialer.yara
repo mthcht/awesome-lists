@@ -133,3 +133,27 @@ rule Trojan_Win32_Dialer_SGB_2147910972_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Dialer_ARAZ_2147982624_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Dialer.ARAZ!MTB"
+        threat_id = "2147982624"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Dialer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "telephone 1900 premium" ascii //weight: 2
+        $x_2_2 = "$5.50 per min" ascii //weight: 2
+        $x_2_3 = ":\\tmp.ini" ascii //weight: 2
+        $x_2_4 = "Start Menu" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

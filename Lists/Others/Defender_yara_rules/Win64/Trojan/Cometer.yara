@@ -67,3 +67,26 @@ rule Trojan_Win64_Cometer_PGCO_2147967570_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Cometer_A_2147982626_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Cometer.A!MTB"
+        threat_id = "2147982626"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Cometer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "[+Payload written to reg]" ascii //weight: 30
+        $x_20_2 = "[-Payload not written to reg]" ascii //weight: 20
+        $x_10_3 = "ZQB0AGgAbwBkACgAJwBWAGkAcgB0AHUAYQBsAFAAcgBvAHQAZQBjAHQAJwAsACA" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

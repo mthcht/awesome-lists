@@ -8499,3 +8499,31 @@ rule Trojan_Win64_Lazy_MCV_2147982545_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_DN_2147982644_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.DN!MTB"
+        threat_id = "2147982644"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run" ascii //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce" ascii //weight: 1
+        $x_1_3 = "Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run" ascii //weight: 1
+        $x_2_4 = "remote_dl_" ascii //weight: 2
+        $x_1_5 = "ChainingModeGCM" ascii //weight: 1
+        $x_1_6 = "image/png" ascii //weight: 1
+        $x_1_7 = "IsProcessorFeaturePresent" ascii //weight: 1
+        $x_1_8 = "GetKeyboardType" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -293,6 +293,29 @@ rule Trojan_Win64_AgentB_A_2147979779_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AgentB_A_2147979779_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AgentB.A!MTB"
+        threat_id = "2147979779"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AgentB"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {48 8b 11 48 b9 ?? ?? ?? ?? ?? ?? ?? ?? 48 33 02 48 33 4a ?? 48 09 c8 0f 94 c0 09 c6 e9}  //weight: 30, accuracy: Low
+        $x_20_2 = "KControl.exe --selftest" ascii //weight: 20
+        $x_10_3 = "KControl.exe --check-telegram" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_AgentB_B_2147980109_0
 {
     meta:

@@ -9094,6 +9094,27 @@ rule Trojan_Win64_Tedy_G_2147981773_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {48 29 d1 41 d3 e1 45 09 c8 44 88 44 24 ?? 0f b6 44 24 ?? 0f b6 4c 24 ?? 31 c1 88 4c 24 ?? 8a 44 24}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_G_2147981773_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.G!MTB"
+        threat_id = "2147981773"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "50"
         strings_accuracy = "Low"
     strings:
@@ -9256,6 +9277,28 @@ rule Trojan_Win64_Tedy_F_2147982397_0
         strings_accuracy = "High"
     strings:
         $x_5_1 = {0f b6 14 06 31 ea 88 14 03 48 83 c0 01 49 39 c0 75}  //weight: 5, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_H_2147982661_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.H!MTB"
+        threat_id = "2147982661"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 ff c0 48 83 f8 ?? 75 ?? b8 ?? 00 00 00 8a 4c 05 ?? 30 4c 05 ?? 48 ff c0 48 83 f8 ?? 75 ?? b8 ?? 00 00 00 8a 4c 05 ?? 30 4c 05 ?? 48 ff c0 48 83 f8 ?? 75}  //weight: 10, accuracy: Low
+        $x_1_2 = "src\\loadpe_child.rs" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

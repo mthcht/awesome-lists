@@ -449,6 +449,31 @@ rule Trojan_Win32_AsyncRAT_AMTB_2147947469_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_AsyncRAT_AMTB_2147947469_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AsyncRAT!AMTB"
+        threat_id = "2147947469"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "13"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "\\winintSV\\winintSV\\obj\\Release\\winintSV.pdb" ascii //weight: 3
+        $x_3_2 = "C:\\Documents and Settings\\JohnDoe\\Desktop\\BrowserUpdate.lnk" ascii //weight: 3
+        $x_2_3 = "\\CryptServiceMessage\\Message.txt" ascii //weight: 2
+        $x_2_4 = "ApiCryptServiceMessage.exe" ascii //weight: 2
+        $x_2_5 = "WinCryptService.exe" ascii //weight: 2
+        $x_1_6 = "winintSV.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win32_AsyncRAT_PTB_2147949671_0
 {
     meta:

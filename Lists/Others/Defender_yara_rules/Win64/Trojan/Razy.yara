@@ -231,3 +231,27 @@ rule Trojan_Win64_Razy_BA_2147981662_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Razy_B_2147982628_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Razy.B!MTB"
+        threat_id = "2147982628"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Razy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "%keylogger is not runningnative keyboard hook" ascii //weight: 40
+        $x_30_2 = "keylogger hook install null=" ascii //weight: 30
+        $x_20_3 = "#phantom desktop created (no shell:" ascii //weight: 20
+        $x_10_4 = "Phantomexplorer.exe&phantom desktop created (explorer pid" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

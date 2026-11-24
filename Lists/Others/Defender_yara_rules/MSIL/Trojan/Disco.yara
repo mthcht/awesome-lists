@@ -546,3 +546,27 @@ rule Trojan_MSIL_Disco_LRA_2147977421_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Disco_A_2147982627_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Disco.A!MTB"
+        threat_id = "2147982627"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "<CreateShadowDeviceObject>b_" ascii //weight: 40
+        $x_30_2 = "<CollectBrowserWalletExtensions>b_" ascii //weight: 30
+        $x_20_3 = "<CollectDesktopWalletPaths>b_" ascii //weight: 20
+        $x_10_4 = "<ExtractProfileEmails>b_" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
