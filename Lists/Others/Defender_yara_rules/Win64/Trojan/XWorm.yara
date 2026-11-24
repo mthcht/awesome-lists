@@ -999,3 +999,24 @@ rule Trojan_Win64_XWorm_AL_2147979856_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_XWorm_AK_2147982703_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/XWorm.AK!MTB"
+        threat_id = "2147982703"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {44 0f b6 14 01 41 89 c3 41 83 e3 ?? 45 32 14 13 41 80 f2 ?? 45 0f b6 d2 45 0f b6 d9 45 31 d3 45 89 da 41 c1 e2 ?? 41 c1 eb ?? 45 09 d3 44 88 1c 01 48 ff c0 41 83 c1 ?? 49 39 c0 75}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

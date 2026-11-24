@@ -485,3 +485,25 @@ rule Trojan_Win64_SalatStealer_AT_2147982527_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_AK_2147982693_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.AK!MTB"
+        threat_id = "2147982693"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {49 39 c0 74 ?? 48 0f af cb 48 01 f1 4c 39 c8 72 ?? 49 89 ca 49 c1 ea 12 49 31 ca 4d 89 d3 49 c1 eb 1b 45 31 da 44 88 14 02 48 ff c0 eb d2}  //weight: 6, accuracy: Low
+        $x_4_2 = {48 39 d8 74 ?? 41 8a 14 04 30 14 06 48 ff c0 eb}  //weight: 4, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

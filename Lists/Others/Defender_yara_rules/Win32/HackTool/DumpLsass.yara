@@ -14,8 +14,10 @@ rule HackTool_Win32_DumpLsass_A_2147766333_0
     strings:
         $x_1_1 = "procdump" wide //weight: 1
         $x_1_2 = "lsass.exe" wide //weight: 1
+        $n_100_3 = "/.claude/shell-snapshots/" wide //weight: -100
     condition:
         (filesize < 20MB) and
+        (not (any of ($n*))) and
         (all of ($x*))
 }
 
