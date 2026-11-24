@@ -59,6 +59,7 @@ rule Trojan_Win32_SuspWmic_Z_2147768890_0
         $x_1_6 = {2d 00 71 00 75 00 65 00 72 00 79 00 [0-48] 73 00 65 00 6c 00 65 00 63 00 74 00 [0-48] 2a 00 [0-48] 66 00 72 00 6f 00 6d 00}  //weight: 1, accuracy: Low
         $n_10_7 = "ltsvc\\ps.exe" wide //weight: -10
         $n_10_8 = ").licensingtype" wide //weight: -10
+        $n_10_9 = ").servicepackmajorversion" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

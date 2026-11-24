@@ -47,3 +47,27 @@ rule Ransom_Win64_Inc_AIN_2147974341_0
         (all of ($x*))
 }
 
+rule Ransom_Win64_Inc_C_2147982677_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Ransom:Win64/Inc.C"
+        threat_id = "2147982677"
+        type = "Ransom"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Inc"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "INC-README.txt" ascii //weight: 1
+        $x_1_2 = "Successfully added file to queue:" ascii //weight: 1
+        $x_1_3 = "Successfully killed services by mask" ascii //weight: 1
+        $x_1_4 = "Encryption directory(ies) (e.g. C:\\,D:\\,E:\\)" ascii //weight: 1
+        $x_1_5 = "Encryption mode (fast, medium, slow)" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (4 of ($x*))
+}
+

@@ -17226,3 +17226,54 @@ rule Trojan_Win32_ClickFix_JH4_2147982565_0
         )
 }
 
+rule Trojan_Win32_ClickFix_JH6_2147982680_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JH6"
+        threat_id = "2147982680"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "46"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "f^i^n^d^s^t^r" wide //weight: 20
+        $x_10_2 = "|lsSZA4B6|" wide //weight: 10
+        $x_5_3 = "cmd" wide //weight: 5
+        $x_5_4 = "tokens=2* " wide //weight: 5
+        $x_5_5 = "delims=|" wide //weight: 5
+        $x_1_6 = "for /f" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_JH7_2147982681_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.JH7"
+        threat_id = "2147982681"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "52"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = "report-ftp.wiki" wide //weight: 20
+        $x_10_2 = "cmd" wide //weight: 10
+        $x_10_3 = "ftp" wide //weight: 10
+        $x_5_4 = "&set" wide //weight: 5
+        $x_5_5 = "dir" wide //weight: 5
+        $x_1_6 = "/b" wide //weight: 1
+        $x_1_7 = "/s" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -582,6 +582,32 @@ rule Trojan_Win64_Stealer_AMTB_2147951636_0
         family = "Stealer"
         severity = "Critical"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "ChromeRAT.pdb" ascii //weight: 3
+        $x_3_2 = "ChromeRAT.Program+<SendToTelegramFile>" ascii //weight: 3
+        $x_1_3 = "ChromeRAT.Program+<DeleteTempDatabaseFiles>" ascii //weight: 1
+        $x_1_4 = "ChromeRAT_Task" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((2 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
+rule Trojan_Win64_Stealer_AMTB_2147951636_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Stealer!AMTB"
+        threat_id = "2147951636"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Stealer"
+        severity = "Critical"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
