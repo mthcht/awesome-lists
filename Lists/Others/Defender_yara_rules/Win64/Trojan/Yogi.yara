@@ -108,6 +108,27 @@ rule Trojan_Win64_Yogi_AC_2147977127_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {8a 14 1f 8a 4d f0 32 c8 32 ca 88 0c 1f 0f b6 ca 8a 54 1f 01 03 c1 8b c8 c1 e9 08 32 4d ec 32 ca 88 4c 1f 01 0f b6 ca 8a 54 1f 02 03 c1 8b c8 c1 e9 10 32 4d e8 32 ca 88 4c 1f 02 0f b6 ca 8a 54 1f 03 03 c1 8b c8 c1 e9 18 32 4d e4 32 ca 88 4c 1f 03 83 c7 04 0f b6 ca 03 c1 83 ee 01 75 a1}  //weight: 6, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_AC_2147977127_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.AC!MTB"
+        threat_id = "2147977127"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "8"
         strings_accuracy = "High"
     strings:

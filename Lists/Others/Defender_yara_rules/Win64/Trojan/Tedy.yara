@@ -3199,6 +3199,34 @@ rule Trojan_Win64_Tedy_SX_2147949163_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_SX_2147949163_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.SX!MTB"
+        threat_id = "2147949163"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "\\builds\\ioctl-injector.pdb" ascii //weight: 2
+        $x_2_2 = ".?AV?$_Ref_count_obj2@Vc_injector@injector@@@std@@" ascii //weight: 2
+        $x_1_3 = "ORELIA_TARGET" ascii //weight: 1
+        $x_1_4 = "\\\\.\\Steam64" ascii //weight: 1
+        $x_1_5 = "ORELIA_MODULE_LOG" ascii //weight: 1
+        $x_1_6 = "graphics-hook64.dll" ascii //weight: 1
+        $x_1_7 = "ORELIA_PRESENT_RVA" ascii //weight: 1
+        $x_1_8 = "@ROB RUN.exe" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_GXB_2147949517_0
 {
     meta:
@@ -6127,6 +6155,28 @@ rule Trojan_Win64_Tedy_LR_2147964862_3
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 81 33 be ba fe ca 49 83 c3 04 48 83 e8 01 75 ?? 8b 06 48 8d 56 08 b9 04 01 00 00 41 89 45 00 8b 46 04 48 2b d3}  //weight: 20, accuracy: Low
+        $x_10_2 = {41 8b 08 8b c1 41 33 c1 44 8b c9 41 89 00 49 83 c0 04 48 83 ea 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LR_2147964862_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LR!MTB"
+        threat_id = "2147964862"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
         strings_accuracy = "High"
     strings:
         $x_20_1 = {4d 8b 04 c8 4d 8b 88 90 00 00 00 8a 44 24 57 41 30 c1 4c 89 d8 41 c0 c9 02 41 80 c1 53 41 80 c1 9d 41 0f b6 c9 4c 8d 04 0c 49 81 c0 90 00 00 00 4c 89 84 24 88 00 00 00 4d 8d b3 18 01 00 00 49 8b 4b 20}  //weight: 20, accuracy: High
@@ -6136,7 +6186,7 @@ rule Trojan_Win64_Tedy_LR_2147964862_3
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_LR_2147964862_4
+rule Trojan_Win64_Tedy_LR_2147964862_5
 {
     meta:
         author = "defender2yara"
@@ -6158,7 +6208,7 @@ rule Trojan_Win64_Tedy_LR_2147964862_4
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_LR_2147964862_5
+rule Trojan_Win64_Tedy_LR_2147964862_6
 {
     meta:
         author = "defender2yara"
@@ -6180,7 +6230,7 @@ rule Trojan_Win64_Tedy_LR_2147964862_5
         (all of ($x*))
 }
 
-rule Trojan_Win64_Tedy_LR_2147964862_6
+rule Trojan_Win64_Tedy_LR_2147964862_7
 {
     meta:
         author = "defender2yara"
@@ -9352,5 +9402,32 @@ rule Trojan_Win64_Tedy_LH_2147982737_0
     condition:
         (filesize < 20MB) and
         (1 of ($x*))
+}
+
+rule Trojan_Win64_Tedy_PA_2147982799_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.PA!MTB"
+        threat_id = "2147982799"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "gnfxzte.rkr" ascii //weight: 1
+        $x_1_2 = "cebprffunpxre.rkr" ascii //weight: 1
+        $x_1_3 = "cebprkc.rkr" ascii //weight: 1
+        $x_1_4 = "cebprkc64.rkr" ascii //weight: 1
+        $x_1_5 = "cebprkchv.rkr" ascii //weight: 1
+        $x_1_6 = "pbervasb.rkr" ascii //weight: 1
+        $x_1_7 = "tchivrj.rkr" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
 }
 

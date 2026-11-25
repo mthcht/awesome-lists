@@ -351,3 +351,49 @@ rule Trojan_Win64_AcrStealer_JM_2147982714_0
         )
 }
 
+rule Trojan_Win64_AcrStealer_KM_2147982782_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AcrStealer.KM!MTB"
+        threat_id = "2147982782"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AcrStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff d5 ba 00 00 01 00 48 89 d9 41 89 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {31 45 fc 48 83 45 f0 01 48 8b 45 f0 48 3b 45 18}  //weight: 1, accuracy: High
+        $x_2_3 = {83 f0 24 88 05}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_AcrStealer_NM_2147982793_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AcrStealer.NM!MTB"
+        threat_id = "2147982793"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AcrStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "4"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {ff d5 ba 00 00 01 00 48 89 d9 41 89 c0}  //weight: 1, accuracy: High
+        $x_1_2 = {31 45 f8 48 83 45 e8 01 48 8b 45 e8 48 3b 45 18}  //weight: 1, accuracy: High
+        $x_2_3 = {83 f0 24 88 05}  //weight: 2, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

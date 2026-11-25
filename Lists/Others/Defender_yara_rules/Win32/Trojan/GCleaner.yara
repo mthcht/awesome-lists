@@ -2474,3 +2474,24 @@ rule Trojan_Win32_GCleaner_PN_2147982436_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GCleaner_PO_2147982778_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GCleaner.PO!MTB"
+        threat_id = "2147982778"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GCleaner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {bf 12 16 05 00 6a 00 e8 [0-15] 8b 13 03 d6 03 c2 89 03 6a 00 e8 ?? ?? ?? ?? 8b 55 cc 81 c2 8a a5 08 00 03 d6 03 fa 81 ef 12 16 05 00 03 c7 8b f8 6a 00 e8 56 e1 f7 ff 6a 00 [0-63] 03 f8 31 3b 83 c6 04 83 c3 04 3b 75 d0 72}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -55,16 +55,14 @@ rule Trojan_Win32_SuspWmic_Z_2147768890_0
         $x_2_2 = "gwmi " wide //weight: 2
         $x_1_3 = {2d 00 6e 00 61 00 6d 00 65 00 73 00 70 00 61 00 63 00 65 00 [0-48] 72 00 6f 00 6f 00 74 00 5c 00 63 00 69 00 6d 00 76 00 32 00}  //weight: 1, accuracy: Low
         $x_1_4 = {2d 00 6e 00 61 00 6d 00 65 00 73 00 70 00 61 00 63 00 65 00 [0-48] 72 00 6f 00 6f 00 74 00 5c 00 73 00 65 00 63 00 75 00 72 00 69 00 74 00 79 00 63 00 65 00 6e 00 74 00 65 00 72 00}  //weight: 1, accuracy: Low
-        $x_1_5 = {2d 00 71 00 75 00 65 00 72 00 79 00 [0-48] 73 00 65 00 6c 00 65 00 63 00 74 00 [0-48] 66 00 72 00 6f 00 6d 00 [0-48] 77 00 69 00 6e 00 33 00 32 00 5f 00}  //weight: 1, accuracy: Low
-        $x_1_6 = {2d 00 71 00 75 00 65 00 72 00 79 00 [0-48] 73 00 65 00 6c 00 65 00 63 00 74 00 [0-48] 2a 00 [0-48] 66 00 72 00 6f 00 6d 00}  //weight: 1, accuracy: Low
+        $x_1_5 = {2d 00 71 00 75 00 65 00 72 00 79 00 [0-48] 73 00 65 00 6c 00 65 00 63 00 74 00 [0-48] 2a 00 [0-48] 66 00 72 00 6f 00 6d 00}  //weight: 1, accuracy: Low
+        $n_10_6 = "[console]::inputencoding" wide //weight: -10
         $n_10_7 = "ltsvc\\ps.exe" wide //weight: -10
         $n_10_8 = ").licensingtype" wide //weight: -10
-        $n_10_9 = ").servicepackmajorversion" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and
         (
-            ((4 of ($x_1_*))) or
             ((1 of ($x_2_*) and 2 of ($x_1_*))) or
             ((2 of ($x_2_*))) or
             (all of ($x*))

@@ -3128,3 +3128,45 @@ rule Trojan_MSIL_Tedy_SG_2147981931_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Tedy_P_2147982800_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Tedy.P!MTB"
+        threat_id = "2147982800"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "22"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "DisableAntiSpyware" wide //weight: 1
+        $x_1_2 = "DisableAntiVirus" wide //weight: 1
+        $x_1_3 = "DisableRealtimeMonitoring" wide //weight: 1
+        $x_1_4 = "DisableTaskMgr" wide //weight: 1
+        $x_1_5 = "DisableRegistryTools" wide //weight: 1
+        $x_1_6 = "DisableCMD" wide //weight: 1
+        $x_1_7 = "procexp.exe" wide //weight: 1
+        $x_1_8 = "procmon.exe" wide //weight: 1
+        $x_1_9 = "wireshark.exe" wide //weight: 1
+        $x_1_10 = "x64dbg.exe" wide //weight: 1
+        $x_1_11 = "x32dbg.exe" wide //weight: 1
+        $x_1_12 = "ida.exe" wide //weight: 1
+        $x_1_13 = "ollydbg.exe" wide //weight: 1
+        $x_1_14 = "vssadmin.exe" wide //weight: 1
+        $x_1_15 = "delete shadows /for=C: /all /quiet" wide //weight: 1
+        $x_1_16 = "bcdedit.exe" wide //weight: 1
+        $x_1_17 = "/set {default} recoveryenabled No" wide //weight: 1
+        $x_1_18 = "/set {default} bootstatuspolicy ignoreallfailures" wide //weight: 1
+        $x_1_19 = "evtx wiped" wide //weight: 1
+        $x_1_20 = "/Create /F /SC ONLOGON /TN \"" wide //weight: 1
+        $x_1_21 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_22 = "ifeo" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
