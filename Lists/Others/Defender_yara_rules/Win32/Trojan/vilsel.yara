@@ -25,3 +25,24 @@ rule Trojan_Win32_vilsel_EM_2147981853_0
         )
 }
 
+rule Trojan_Win32_vilsel_EK_2147982733_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/vilsel.EK!MTB"
+        threat_id = "2147982733"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "vilsel"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {ff 30 8d 45 f4 ba 03 00 00 00 e8 ?? ?? ?? ?? 8d 45 c8 8b 4d f4 ba ?? ?? ?? ?? e8 ?? ?? ?? ?? 8b 45 c8 e8 ?? ?? ?? ?? 8d 45 c4 50 33 c9 8b 55 f4 a1 ?? ?? ?? ?? e8 26 c0 f9 ff 8b 55 c4 8b 45 e4 8b 08 ff 51 2c e9 c5 06 00 00}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -6016,3 +6016,25 @@ rule Trojan_Win64_Vidar_VB_2147982546_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Vidar_JH_2147982713_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.JH!MTB"
+        threat_id = "2147982713"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "2"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Go build ID: \"7JWJ6xmyj4AUDtecR2KQ/" ascii //weight: 1
+        $x_1_2 = {42 2a 14 d2 ba a5 73 4b d2 66 30 08 93 5d 91 a3 03 2b a2 89 ae e2 f0 4b 78 9a da 62 2c 26 fc cb 53 e6 bb 88 10 fd 32 92 d8 a9 31 fe 37 85 2c c9 70 8a 5b e2 76 0c 2d 61 b1 19 d8 60 2a 5b 29 13 20 a8 97 7f b3 c2}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

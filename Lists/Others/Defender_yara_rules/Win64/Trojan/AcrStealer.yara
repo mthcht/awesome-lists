@@ -325,3 +325,29 @@ rule Trojan_Win64_AcrStealer_HM_2147982539_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AcrStealer_JM_2147982714_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AcrStealer.JM!MTB"
+        threat_id = "2147982714"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AcrStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {83 f0 24 88 05}  //weight: 5, accuracy: High
+        $x_1_2 = {31 45 f4 48 83 45 f8 01 48 8b 45 f8 48 3b 45 18}  //weight: 1, accuracy: High
+        $x_1_3 = {31 45 f4 48 83 45 e8 01 48 8b 45 e8 48 3b 45 18}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_5_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

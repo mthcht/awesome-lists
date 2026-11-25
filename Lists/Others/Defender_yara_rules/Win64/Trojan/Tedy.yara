@@ -2742,6 +2742,34 @@ rule Trojan_Win64_Tedy_WL_2147940255_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_WL_2147940255_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.WL!MTB"
+        threat_id = "2147940255"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WRL_LOG" ascii //weight: 1
+        $x_1_2 = "endico" ascii //weight: 1
+        $x_1_3 = "RdiEntry off" ascii //weight: 1
+        $x_1_4 = "WinRateLoader" ascii //weight: 1
+        $x_1_5 = "CreateThread" ascii //weight: 1
+        $x_1_6 = "[stage] key accepted" ascii //weight: 1
+        $x_1_7 = "[stage] payload mapped in-process" ascii //weight: 1
+        $x_1_8 = "LeyJ0eXBlIjoienp6In0=" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Tedy_STAE_2147940713_0
 {
     meta:
@@ -9302,5 +9330,27 @@ rule Trojan_Win64_Tedy_H_2147982661_0
     condition:
         (filesize < 20MB) and
         (all of ($x*))
+}
+
+rule Trojan_Win64_Tedy_LH_2147982737_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.LH!MTB"
+        threat_id = "2147982737"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b d0 83 e2 07 8a 94 14 88 00 00 00 30 14 07 48 ff c0 48 3b c5 75}  //weight: 1, accuracy: High
+        $x_1_2 = {89 c2 83 e2 07 8a 94 14 88 00 00 00 41 30 14 06 48 ff c0 49 3b c5 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
 }
 

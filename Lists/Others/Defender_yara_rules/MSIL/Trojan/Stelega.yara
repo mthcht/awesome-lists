@@ -298,3 +298,25 @@ rule Trojan_MSIL_Stelega_DA_2147899381_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Stelega_EA_2147982734_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Stelega.EA!MTB"
+        threat_id = "2147982734"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Stelega"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "6"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {0a 0d 09 1f 20 6f ?? ?? 00 0a 13 04 09 1f 10 6f ?? ?? 00 0a 13 05 00 28 ?? ?? 00 0a 13 06 11 06 11 04 6f ?? ?? 00 0a 00 11 06 11 05 6f ?? ?? 00 0a 00 11 06 17 6f ?? ?? 00 0a 00 11 06 18 6f ?? ?? 00 0a 00 00 11 06 6f ?? ?? 00 0a 13 07 11 07 02 16 02 8e 69 6f ?? ?? 00 0a 0a de 28}  //weight: 5, accuracy: Low
+        $x_1_2 = "CreateDecryptor" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

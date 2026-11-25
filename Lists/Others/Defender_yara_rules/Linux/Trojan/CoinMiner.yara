@@ -202,6 +202,30 @@ rule Trojan_Linux_CoinMiner_AT_2147904543_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "/sys/fs/cgroup/.miner" ascii //weight: 10
+        $x_3_2 = "/work/xmrig-src/build/xmrig" ascii //weight: 3
+        $x_5_3 = "/tmp/miner.json" ascii //weight: 5
+        $x_2_4 = "dl-load.c" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Linux_CoinMiner_AT_2147904543_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Linux/CoinMiner.AT!MTB"
+        threat_id = "2147904543"
+        type = "Trojan"
+        platform = "Linux: Linux platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_ELFHSTR_EXT"
         threshold = "4"
         strings_accuracy = "High"
     strings:

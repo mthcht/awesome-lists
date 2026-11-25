@@ -17277,3 +17277,48 @@ rule Trojan_Win32_ClickFix_JH7_2147982681_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ClickFix_NK_2147982725_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.NK!MTB"
+        threat_id = "2147982725"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_2_1 = "| IEX" wide //weight: 2
+        $x_3_2 = {49 00 52 00 4d 00 20 00 66 00 61 00 73 00 74 00 6c 00 79 00 2e 00 6a 00 73 00 64 00 65 00 6c 00 69 00 76 00 72 00 2e 00 6e 00 65 00 74 00}  //weight: 3, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClickFix_NL_2147982726_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClickFix.NL!MTB"
+        threat_id = "2147982726"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClickFix"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "-NoProfile -ExecutionPolicy" wide //weight: 1
+        $x_2_2 = "| & (gcm i*x)" wide //weight: 2
+        $x_2_3 = "Bypass -Command & (gcm ir*m)" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

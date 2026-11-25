@@ -33,6 +33,27 @@ rule Trojan_Win64_DllSideLoading_PI_2147976124_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 83 c6 1a 48 03 d2 48 c1 c2 20 49 8b c4 48 0f af d8 48 c1 c3 1f 48 03 d3 48 c1 c2 21 8a 06 32 c2 88 07 48 ff c6 48 ff c7 ff c9 75}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllSideLoading_PI_2147976124_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllSideLoading.PI!MTB"
+        threat_id = "2147976124"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllSideLoading"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
         strings_accuracy = "Low"
     strings:
         $x_1_1 = {48 b8 93 9b 83 9e 87 89 9e cc 48 89 44 24 ?? 48 b8 9f 99 83 81 85 93 9b 83 48 89 44 24 ?? 31 c0 48 83 f8 0d 74 0a 80 74 04 ?? cc 48 ff c0 eb}  //weight: 1, accuracy: Low

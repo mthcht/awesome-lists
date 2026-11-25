@@ -96,6 +96,29 @@ rule Trojan_Win64_Yogi_AB_2147977126_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_AC_2147977127_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.AC!MTB"
+        threat_id = "2147977127"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {ff 15 54 2f 00 00 8d 8e b8 0b 00 00 2b c8 85 c9 0f 8e db 01 00 00 4c 8d 45 c8 48 83 7d e0 07 4c 0f 47 45 c8 33 d2 b9 1f 00 0f 00 ff 15 31 2f 00 00 48 8b f8 48 85 c0 75 14 8b cb ff 15 f9 2e 00 00 81 fb c8 00 00 00 73 b7 03 db eb b3}  //weight: 6, accuracy: High
+        $x_1_2 = "DecryptData" wide //weight: 1
+        $x_1_3 = "PdfExt" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Yogi_A_2147977949_0
 {
     meta:
@@ -777,6 +800,28 @@ rule Trojan_Win64_Yogi_H_2147982653_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {41 8b c7 41 8b 0c 80 80 3c 31 72 75 31 80 7c 31 01 72 75 2a 80 7c 31 02 5f 75 23 80 7c 31 03 6d 75 1c 80 7c 31 04 61 75 15 80 7c 31 05 70 75 0e 80 7c 31 06 70 75 07 80 7c 31 07 65}  //weight: 20, accuracy: High
+        $x_10_2 = {41 b9 04 00 00 00 8b d8 41 b8 00 30 00 00 ff 15 ?? ?? ?? ?? 4c 8d 4c 24 44 4c 89 7c 24 20 48 8b d0 44 8b c3 48 8b cf 4c 8b e8 ff 15}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_H_2147982653_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.H!MTB"
+        threat_id = "2147982653"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "7"
         strings_accuracy = "High"
     strings:
@@ -787,6 +832,29 @@ rule Trojan_Win64_Yogi_H_2147982653_0
         $x_1_5 = "memory strings cleared" ascii //weight: 1
         $x_1_6 = "[+] %s" ascii //weight: 1
         $x_1_7 = "driver_Release" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_SJ_2147982736_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.SJ!MTB"
+        threat_id = "2147982736"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "https://dpaste.com/CV57VCUBW.txt" ascii //weight: 1
+        $x_1_2 = "%ssafnote.tmp" ascii //weight: 1
+        $x_1_3 = "hostinject.bin" ascii //weight: 1
     condition:
         (filesize < 20MB) and
         (all of ($x*))

@@ -1682,3 +1682,25 @@ rule Trojan_Win64_DllHijack_MZM_2147982060_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DllHijack_AA_2147982741_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.AA!MTB"
+        threat_id = "2147982741"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {44 8d 40 fc 42 81 34 01 ?? ?? ?? ?? 41 89 c0 83 c0 04 39 c2 73}  //weight: 11, accuracy: Low
+        $x_9_2 = {49 89 c0 41 83 e0 ?? 47 0f b6 04 01 44 30 04 ?? 48 83 c0 01 39 d0 72}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
