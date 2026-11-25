@@ -417,6 +417,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
 <details>
 
 - [CyberChef](https://gchq.github.io/CyberChef/)
+- [DecodeBox](https://decodebox.owasp.org/)
 - [jsoncrack](https://jsoncrack.com/editor)
 - [Grok debugger](https://grokdebugger.com/)
 - [JS deobfuscator](https://lelinhtinh.github.io/de4js/)
