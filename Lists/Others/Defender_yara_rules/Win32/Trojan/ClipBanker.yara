@@ -3074,6 +3074,32 @@ rule Trojan_Win32_ClipBanker_2147976555_0
         family = "ClipBanker"
         severity = "Critical"
         info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "powershell.exe" wide //weight: 10
+        $x_10_2 = "-NoProfile" wide //weight: 10
+        $x_10_3 = "-NonInteractive" wide //weight: 10
+        $x_10_4 = "-ExecutionPolicy Bypass" wide //weight: 10
+        $x_10_5 = "-WindowStyle Hidden" wide //weight: 10
+        $x_10_6 = "-EncodedCommand JABpAGQAPQAnACcAOwBmAG8AcgAoACQAaQA9ADAAOwAkAGkAIAAtAGwAdAAgADYAOwAkAGkAKwArACkAewAk" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ClipBanker_2147976555_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ClipBanker!atmn"
+        threat_id = "2147976555"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ClipBanker"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "11"
         strings_accuracy = "High"

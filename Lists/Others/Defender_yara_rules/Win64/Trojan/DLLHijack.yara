@@ -1357,3 +1357,48 @@ rule Trojan_Win64_DLLHijack_DAX_2147982687_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_DAZ_2147982755_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DAZ!MTB"
+        threat_id = "2147982755"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {33 d2 b9 02 00 00 00 33 f6 ff 15 ?? ?? ?? ?? 48 8b f8 48 83 f8 ff 75 04 33 c0 eb ?? 48 8d 54 24 20 c7 44 24 20 38 02 00 00 48 8b cf ff 15 ?? ?? ?? ?? 85 c0 74 ?? 0f 1f 00 48 83 7b 18 07 48 8b d3 76 03 48 8b 13 48 8d 4c 24 4c e8 ?? ?? ?? ?? 85 c0 74 ?? 48 8d 54 24 20 48 8b cf ff 15 ?? ?? ?? ?? 85 c0 75}  //weight: 10, accuracy: Low
+        $x_10_2 = {49 b9 15 ae 47 e1 7a 14 ae 47 4c 8d 15 ?? ?? ?? ?? 0f 1f 40 00 66 0f 1f 84 00 00 00 00 00 49 8b c1 48 f7 e1 48 8b c1 48 2b c2 48 d1 e8 48 03 c2 48 8b d1 48 c1 e8 06 48 6b c0 64 48 2b d0 42 0f b6 04 12 30 04 0f 48 ff c1 49 3b c8 72 d0}  //weight: 10, accuracy: Low
+        $x_10_3 = {48 8b 4c 24 70 48 8d 45 98 4c 89 64 24 48 45 33 c9 48 89 44 24 40 45 33 c0 48 8b 45 88 33 d2 4c 89 64 24 38 48 89 44 24 30 44 89 64 24 28 44 89 64 24 20 4c 89 65 98 ff 15}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DLLHijack_DBA_2147982756_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DBA!MTB"
+        threat_id = "2147982756"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 89 55 10 48 8b 4d 10 e8 ?? ?? ?? ?? 48 89 c1 4c 89 fa 49 89 f0 ff 15 ?? ?? ?? ?? 85 c0 0f 88 ?? ?? ?? ?? 48 83 c6 06 48 83 c7 01 4c 39 e7 0f 85}  //weight: 10, accuracy: Low
+        $x_10_2 = {48 8d 45 5c 48 89 44 24 20 48 8d 95 ?? ?? ?? ?? 4c 8d 45 38 48 c7 c1 ff ff ff ff 41 b9 20 00 00 00 e8}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

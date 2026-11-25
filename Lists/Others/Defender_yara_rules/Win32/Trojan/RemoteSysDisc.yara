@@ -84,8 +84,8 @@ rule Trojan_Win32_RemoteSysDisc_B_2147769389_0
     strings:
         $x_1_1 = {6e 00 6c 00 74 00 65 00 73 00 74 00 2e 00 65 00 78 00 65 00 00 00}  //weight: 1, accuracy: High
         $x_1_2 = "nltest " wide //weight: 1
-        $n_1_3 = " /dc" wide //weight: -1
-        $n_1_4 = "/dsgetdc" wide //weight: -1
+        $n_10_3 = " /dc" wide //weight: -10
+        $n_10_4 = "/dsgetdc" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

@@ -346,3 +346,33 @@ rule Trojan_Win32_Coinminer_CCJU_2147933253_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Coinminer_2147982760_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Coinminer!atmn"
+        threat_id = "2147982760"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Coinminer"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_CMDHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "/tn WSearchHostWatchdog" wide //weight: 10
+        $x_10_2 = "/sc minute" wide //weight: 10
+        $x_10_3 = "-WindowStyle" wide //weight: 10
+        $x_10_4 = "-NonInteractive" wide //weight: 10
+        $x_10_5 = "Get-Process" wide //weight: 10
+        $x_10_6 = "-ErrorAction" wide //weight: 10
+        $x_10_7 = "SilentlyContinue" wide //weight: 10
+        $x_10_8 = "Start-Process" wide //weight: 10
+        $x_10_9 = "C:\\ProgramData\\Microsoft\\WSearch\\Host\\WSearchHost.exe" wide //weight: 10
+        $x_10_10 = "/rl HIGHEST" wide //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
