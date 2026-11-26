@@ -11787,6 +11787,32 @@ rule Trojan_MSIL_Heracles_AA_2147977488_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Heracles_AA_2147977488_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Heracles.AA!MTB"
+        threat_id = "2147977488"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Heracles"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = "[X] Failed to delete temp notes database at '{0}'" ascii //weight: 6
+        $x_4_2 = "[i] Temporary DB at '{0}' has been deleted." ascii //weight: 4
+        $x_7_3 = "*** in database %s ***" ascii //weight: 7
+        $x_3_4 = "[!] Sticky Notes DB file:" ascii //weight: 3
+        $x_8_5 = "[X] Stick Notes DB not found." ascii //weight: 8
+        $x_2_6 = "[i] Created temporary DB at:" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Heracles_B_2147978416_0
 {
     meta:

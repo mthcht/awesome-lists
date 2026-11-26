@@ -3802,6 +3802,32 @@ rule Trojan_Win64_Lazy_AP_2147945990_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Lazy_AP_2147945990_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Lazy.AP!MTB"
+        threat_id = "2147945990"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Lazy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_8_1 = {c6 44 24 3e ?? 48 8d 44 24 ?? ?? ?? ?? ?? ?? 48 89 d9 e8 ?? ?? ?? ?? 0f b6 4c 24 3e 83 e1 ?? 48 89 4c 24 40 48 83 c1 ?? 48 89 4c 24 50 48 8d 05}  //weight: 8, accuracy: Low
+        $x_2_2 = {48 89 de 48 c1 e6 04 48 8b 3d ?? ?? ?? ?? 4c 8b 04 37 48 8b 74 37 ?? 49 89 30 48 ff cb 48 85 db}  //weight: 2, accuracy: Low
+        $x_6_3 = "main.hideThread" ascii //weight: 6
+        $x_4_4 = "main.spoofedSleep" ascii //weight: 4
+        $x_7_5 = "main.removeGuardPage" ascii //weight: 7
+        $x_3_6 = "main.clearHWBP" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Lazy_AHC_2147946023_0
 {
     meta:

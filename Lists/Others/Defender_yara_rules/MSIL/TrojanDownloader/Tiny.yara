@@ -150,6 +150,27 @@ rule TrojanDownloader_MSIL_Tiny_AP_2147780095_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {0a 06 02 17 9a 02 16 9a 6f ?? ?? ?? 0a 00 06 6f}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule TrojanDownloader_MSIL_Tiny_AP_2147780095_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:MSIL/Tiny.AP!MTB"
+        threat_id = "2147780095"
+        type = "TrojanDownloader"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Tiny"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "14"
         strings_accuracy = "Low"
     strings:

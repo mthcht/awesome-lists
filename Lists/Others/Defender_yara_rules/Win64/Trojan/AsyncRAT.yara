@@ -329,6 +329,31 @@ rule Trojan_Win64_AsyncRAT_AB_2147951430_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_AsyncRAT_AB_2147951430_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/AsyncRAT.AB!MTB"
+        threat_id = "2147951430"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "AsyncRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "31"
+        strings_accuracy = "Low"
+    strings:
+        $x_15_1 = {89 c6 8d 43 ?? 83 c3 04 e8 ?? ?? ?? ?? 8a 8c 0f ?? ?? ?? ?? d3 c0 31 f0 89 44 95 a4 42 83 fa}  //weight: 15, accuracy: Low
+        $x_5_2 = {89 54 9d 98 8b 44 85 a4 2d ?? ?? ?? ?? 31 d0 89 44 9d 98 43 83 fb}  //weight: 5, accuracy: Low
+        $x_2_3 = "Corrupt decrypted payload size." ascii //weight: 2
+        $x_3_4 = "Decrypted buffer is not a valid PE image." ascii //weight: 3
+        $x_6_5 = "Invalid DOS/NT PE headers in decrypted payload." ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_AsyncRAT_PGAR_2147955111_0
 {
     meta:

@@ -67,3 +67,26 @@ rule Trojan_Win32_Disco_GAA_2147898278_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Disco_CVN_2147982832_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Disco.CVN!MTB"
+        threat_id = "2147982832"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Disco"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "16"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0f b6 04 0a 34 ?? 88 44 0c ?? 48 ff c1 48 83 f9 ?? 75}  //weight: 10, accuracy: Low
+        $x_3_2 = "?StartPatchThread@@YAXXZ" ascii //weight: 3
+        $x_3_3 = "?StopPatchThread@@YAXXZ" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

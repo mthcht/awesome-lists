@@ -7584,3 +7584,33 @@ rule Trojan_Win32_Vidar_NM_2147981704_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Vidar_2147982848_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Vidar!atmn"
+        threat_id = "2147982848"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "[send roundA \"/ward/./intake\" \"quick bedside checks\"]" ascii //weight: 3
+        $x_3_2 = "[send roundB \"/ward/intake\" \"slow careful discussion\"]" ascii //weight: 3
+        $x_3_3 = "[send roundC \"/ward/briefing\" \"careful medication review\"]" ascii //weight: 3
+        $x_1_4 = "[\"/ward/intake\" \"arrival triage\"]" ascii //weight: 1
+        $x_1_5 = "[\"/ward/review\" \"careful medication review\"]" ascii //weight: 1
+        $x_1_6 = "[\"/ward/briefing\" \"/ward/review\"]" ascii //weight: 1
+        $x_1_7 = "[\"/ward/review\" \"/ward/handoff\"]" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_3_*) and 2 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

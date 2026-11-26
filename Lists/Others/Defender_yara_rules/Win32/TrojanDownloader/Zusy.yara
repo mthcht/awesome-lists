@@ -150,3 +150,27 @@ rule TrojanDownloader_Win32_Zusy_KK_2147970711_1
         (all of ($x*))
 }
 
+rule TrojanDownloader_Win32_Zusy_KK_2147970711_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win32/Zusy.KK!MTB"
+        threat_id = "2147970711"
+        type = "TrojanDownloader"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {4e 8a 06 30 d8 88 06 c1 c3 08 49 75}  //weight: 20, accuracy: High
+        $x_3_2 = "[1/4] installed (no execution). Starts at next sign-in." wide //weight: 3
+        $x_2_3 = "[3/4] download bin: OK" wide //weight: 2
+        $x_1_4 = "[4/4] exec done" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

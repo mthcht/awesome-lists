@@ -516,3 +516,25 @@ rule Trojan_Win32_Barys_SN_2147973844_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Barys_KK_2147982836_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Barys.KK!MTB"
+        threat_id = "2147982836"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {8b 07 09 c0 74 ?? 8b 5f 04 8d 84 30 ec 44 12 00 01 f3 50 83 c7 08 ff 96 58 45 12 00 95 8a 07 47 08 c0 74}  //weight: 20, accuracy: Low
+        $x_10_2 = {8a 07 47 08 c0 74 ?? 89 f9 57 48 f2 ae 55 ff 96 60 45 12 00 09 c0 74 ?? 89 03 83 c3 04 eb}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

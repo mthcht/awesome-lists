@@ -1402,3 +1402,27 @@ rule Trojan_Win64_DLLHijack_DBA_2147982756_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_DBB_2147982847_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.DBB!MTB"
+        threat_id = "2147982847"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {0c 3f 3d f1 b5 79 5e a2 89 91 76 79 e7 70 4b b4 4f 68 47 b3 16 fc c7 41 8a 9f 7e 3a 8b 36 6d f4 6c 89 0f 1f 34 e6 d2 73 5e ac 43 fa 89 51 8b 27 f3 ba 38 eb 7c 9e 57 85 09 4b bb c4 e2 ce 22 85 0d e1 69 22 a6 ad 42 e7 ed 99 0c 3f 21 f1 b0 79 54 a2 8b 91 63 79 fa 70 4d b4 4e 68 75 b3 29 fc c2 41 8b 9f 74 3a 82 36 6f f4 27 89 44 1f 29 e6 cf 73 3b ac 83 04 4c fa 92 51 89 27 f7 ba 32 eb 5c 9e 57 85 09 4b bb c4 c9 ce 06 85 1b e1 6b 22 9f ad 5c e7 de 99 1d 3f 27 f1 b9 79 10 a2 aa 91 70 79 e1 70}  //weight: 10, accuracy: High
+        $x_10_2 = {fa 99 51 9c 27 e9 ba 38 eb 61 9e 38 85 3f ca d0 61 d8 17 b1 8a 57 4f fa b0 51 b8 27 c5 ba 16 eb 5b 9e 79 85 6f 4b 68 fa 8f 51 86 27 f5 ba 34 eb 6e 9e 5b 85 07 4b aa c4 e1 ce 0a 85 1a e1 0e 22 52 fa df 51 d7 27 dd ba 14 eb 35 9e 64 85 6f 4b 6f fa 84 51 85 27 e8 ba 39 eb 0f 9e 45 fa ac 51 a7 27 cf ba 12}  //weight: 10, accuracy: High
+        $x_10_3 = {fa 99 51 9b 27 f5 ba 32 eb 62 9e 6a 85 00 4b a0 c4 ca ce 67 85 5d fa 99 51 9b 27 f5 ba 32 eb 62 9e 0b 85 5d 4b 93 c4 cd ce 0a 85 08 e1 7c 22 b7 ad 6d e7 cf 99 0e 3f 34 f1 b9 79 53 a2 c6 91 67 79 f6 70 41 b4 21 68 5d fa 99 51 9b 27 f5 ba 32 eb 62 9e 0b 85 5d 4b 93 c4 dd ce 13 85 0f e1 63 22 ac ad}  //weight: 10, accuracy: High
+        $x_10_4 = {78 35 c8 7f e4 82 35 db 98 a4 e6 51 06 75 0c b3 0e db e0 10 ac e1 ad 14 d2 f0 07 fd 22 65 53 c7 35 51 3c 26 cd c4 6b b3 51 d1 c7 a3 c7 20 fa 5c 7b 0a e3 f3 76 1a 8f 6a d3 37 52 8c 62 59 a4 f0 94 ef 44 6f 22 2d 49 04 35 a0 4a 37 4b cd d1 fb 79 e8 a8 6f 44 8b 22 9a 86 d1 e9 19 c6 dd f6 cc 47}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

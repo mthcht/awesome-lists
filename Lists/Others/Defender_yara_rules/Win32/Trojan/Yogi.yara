@@ -84,3 +84,31 @@ rule Trojan_Win32_Yogi_C_2147982305_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Yogi_2147982854_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Yogi!atmn"
+        threat_id = "2147982854"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "Failed to allocate XMRig payload buffer." ascii //weight: 3
+        $x_3_2 = "Failed to allocate WildRig payload buffer." ascii //weight: 3
+        $x_3_3 = "\"mining_url\": \"stratum+tcp://rvn.2miners.com:16060\"," ascii //weight: 3
+        $x_1_4 = "\"wallet\": \"RWZ66gYzdqfdpzGnQP5o8HjVwDjmKHWHP1\"," ascii //weight: 1
+        $x_1_5 = "\"wallet\": \"46pZ7PWeGSnjNq6iY3QnpNKL5E7B3S2ixjQngjMu5RiPJQkPiPdLyH8h1YTsty6ZqDE4qVtGYkWs8Y9auPnsEL1QGECSbK5\"," ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (
+            ((3 of ($x_3_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

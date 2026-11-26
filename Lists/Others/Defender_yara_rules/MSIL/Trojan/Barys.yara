@@ -1039,6 +1039,30 @@ rule Trojan_MSIL_Barys_A_2147945978_1
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Barys_A_2147945978_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Barys.A!MTB"
+        threat_id = "2147945978"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Barys"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "StealerAgent.Native" ascii //weight: 40
+        $x_30_2 = "BuildWhatsAppZip" ascii //weight: 30
+        $x_20_3 = "BuildBrowserZip" ascii //weight: 20
+        $x_10_4 = "ProcessOtherBrowsers" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Barys_AXBB_2147948708_0
 {
     meta:

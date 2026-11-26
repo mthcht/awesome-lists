@@ -168,6 +168,29 @@ rule Trojan_MSIL_DCRat_A_2147825238_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "60"
+        strings_accuracy = "High"
+    strings:
+        $x_30_1 = "OnStealerWorkResult" ascii //weight: 30
+        $x_20_2 = "OnAPIDelegatesCreate" ascii //weight: 20
+        $x_10_3 = "CryptoStealer.dclib" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_DCRat_A_2147825238_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/DCRat.A!MTB"
+        threat_id = "2147825238"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "DCRat"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "35"
         strings_accuracy = "High"
     strings:

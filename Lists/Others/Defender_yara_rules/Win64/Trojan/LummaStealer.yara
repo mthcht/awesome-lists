@@ -3212,3 +3212,27 @@ rule Trojan_Win64_LummaStealer_AN_2147981127_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_LummaStealer_A_2147982873_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/LummaStealer.A!MTB"
+        threat_id = "2147982873"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "calling run_payload" ascii //weight: 40
+        $x_30_2 = "run_payload returned" ascii //weight: 30
+        $x_20_3 = "PikoMain reason=%lu res=%p" ascii //weight: 20
+        $x_10_4 = "piko_dll.log" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

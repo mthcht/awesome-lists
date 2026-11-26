@@ -109,3 +109,28 @@ rule Trojan_Win64_DBadur_AQ_2147981346_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_DBadur_AS_2147982838_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DBadur.AS!MTB"
+        threat_id = "2147982838"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DBadur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "26"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {48 8d 15 9c 9e 4d 00 48 89 94 24 ?? ?? ?? ?? 48 c7 84 24 ?? ?? ?? ?? ?? ?? ?? ?? 48 8d 94 24 ?? ?? ?? ?? 48 89 94 24 ?? ?? ?? ?? 48 c7 84 24 ?? ?? ?? ?? ?? ?? ?? ?? 48 89 84 24}  //weight: 10, accuracy: Low
+        $x_5_2 = {66 89 0c b8 49 83 f8 ?? 0f 97 c1 66 89 74 b8 ?? 41 08 cc 31 ff 41 80 fc}  //weight: 5, accuracy: Low
+        $x_3_3 = {49 89 74 03 ?? 4d 89 7c 03 ?? 4d 89 44 03 ?? 49 89 6c 03 ?? 4d 89 74 03 ?? 4d 89 6c 03 ?? 48 8b 4c 24 ?? 49 89 4c 03 ?? 49 89 5c 03 ?? 48 8b 4c 24}  //weight: 3, accuracy: Low
+        $x_6_4 = "md.exe /e:ON /v:OFF /d /c " ascii //weight: 6
+        $x_2_5 = "h2::hpack::decodermessagelenremaining" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

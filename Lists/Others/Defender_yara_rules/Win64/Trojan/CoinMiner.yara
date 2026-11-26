@@ -1652,3 +1652,25 @@ rule Trojan_Win64_CoinMiner_AJ_2147981205_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_CoinMiner_AS_2147982837_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/CoinMiner.AS!MTB"
+        threat_id = "2147982837"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "CoinMiner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_11_1 = {44 21 e8 81 f2 ?? ?? ?? ?? 21 ca 0f af d0 89 c8 44 21 e8 41 09 cd 44 0f af e8 41 8d 84 15}  //weight: 11, accuracy: Low
+        $x_9_2 = {31 ca 09 c2 89 d0 25 ?? ?? ?? ?? 01 c0 29 c2 69 c2}  //weight: 9, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

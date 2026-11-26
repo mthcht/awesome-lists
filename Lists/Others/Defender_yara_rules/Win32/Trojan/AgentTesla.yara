@@ -2393,6 +2393,31 @@ rule Trojan_Win32_AgentTesla_2147976550_0
         severity = "Critical"
         info = "atmn: an internal category used to refer to some threats"
         signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "+CathedralYard.FormYard+<ReadPixelBytes>d__7" ascii //weight: 3
+        $x_3_2 = "DartaCanvasPanel" ascii //weight: 3
+        $x_2_3 = "FormQuarry" ascii //weight: 2
+        $x_2_4 = "FormSeason" ascii //weight: 2
+        $x_2_5 = "SharedZabna" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_AgentTesla_2147976550_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/AgentTesla!atmn"
+        threat_id = "2147976550"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "AgentTesla"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
         threshold = "4"
         strings_accuracy = "High"
     strings:

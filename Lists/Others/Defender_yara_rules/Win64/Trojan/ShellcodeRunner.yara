@@ -4071,13 +4071,35 @@ rule Trojan_Win64_ShellcodeRunner_AA_2147977753_0
         threshold = "20"
         strings_accuracy = "Low"
     strings:
-        $x_20_1 = {f3 41 0f 6f 04 01 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 00 8d 42 ?? f3 41 0f 6f 04 01 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 00 83 c2}  //weight: 20, accuracy: Low
+        $x_5_1 = {f3 0f 7e 44 04 20 0f 57 c8 66 0f d6 8c 30 ?? ?? ?? ?? 83 c0 08 3b c2 72}  //weight: 5, accuracy: Low
+        $x_15_2 = {8a 4c 04 20 30 8c 30 ?? ?? ?? ?? 40 3b c3 72}  //weight: 15, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
 }
 
 rule Trojan_Win64_ShellcodeRunner_AA_2147977753_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AA!MTB"
+        threat_id = "2147977753"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {f3 41 0f 6f 04 01 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 00 8d 42 ?? f3 41 0f 6f 04 01 66 0f 6f ca 0f 57 c8 f3 42 0f 7f 0c 00 83 c2}  //weight: 20, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AA_2147977753_2
 {
     meta:
         author = "defender2yara"
