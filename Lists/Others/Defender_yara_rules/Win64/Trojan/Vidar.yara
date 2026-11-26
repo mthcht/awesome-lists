@@ -742,6 +742,28 @@ rule Trojan_Win64_Vidar_MK_2147955286_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {8b 45 bb 41 8b c8 83 e1 07 41 ff c0 d3 e8 0f b6 c0 33 c2 69 d0 47 a0 8a be 41 83 f8 05}  //weight: 20, accuracy: High
+        $x_15_2 = {c7 45 fb a0 57 8f 3f c7 45 ff d0 cd 45 5b c7 45 03 3d cd e7 30 c7 45 07 e8 99 3b 6f c7 45 0b 88 50 5a c0}  //weight: 15, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Vidar_MK_2147955286_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Vidar.MK!MTB"
+        threat_id = "2147955286"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Vidar"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "40"
         strings_accuracy = "High"
     strings:
