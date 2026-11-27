@@ -531,3 +531,24 @@ rule Trojan_Win64_SalatStealer_AU_2147982883_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_LMX_2147982922_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.LMX!MTB"
+        threat_id = "2147982922"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {48 c7 81 c0 03 00 00 02 00 00 00 48 8d 54 24 20 48 89 91 c8 03 00 00 48 8b 44 24 18 45 0f 57 ff 4c 8b 35 b6 33 1e 00 65 4d 8b 36}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

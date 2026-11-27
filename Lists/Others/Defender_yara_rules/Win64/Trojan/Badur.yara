@@ -21,3 +21,27 @@ rule Trojan_Win64_Badur_NB_2147980224_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Badur_MK_2147982916_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Badur.MK!MTB"
+        threat_id = "2147982916"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Badur"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = "/i \"%s\" /qn TRANSFORMS=\"%s\" ENABLESILENT=yes REBOOT=ReallySuppress INSTALLSOURCE=Manual SERVER_ROOT_CRT=\"%s\" DS_ROOT_CRT=\"%s\" /l*v \"%s\"" ascii //weight: 10
+        $x_5_2 = "\\UEMSAgent.mst" ascii //weight: 5
+        $x_3_3 = "\\agent.log" ascii //weight: 3
+        $x_2_4 = "-NoProfile -WindowStyle Hidden -Command \"Expand-Archive -LiteralPath '" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

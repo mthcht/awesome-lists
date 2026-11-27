@@ -1098,6 +1098,53 @@ rule Trojan_Win64_ValleyRAT_GH_2147982260_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_ValleyRAT_GI_2147982396_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.GI!MTB"
+        threat_id = "2147982396"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "Low"
+    strings:
+        $x_7_1 = {48 89 44 24 28 45 33 c9 33 d2 89 44 24 20 33 c9 ff 15 ?? ?? 01 00 48 8b c8 48 89 05 ?? ?? 02 00 ba ff ff ff ff ff 15 ?? ?? 01 00 b8 01 00 00 00 48 83 c4 38}  //weight: 7, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_GJ_2147982400_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.GJ!MTB"
+        threat_id = "2147982400"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_4_1 = "codemark" ascii //weight: 4
+        $x_3_2 = "xiugaishiyong" ascii //weight: 3
+        $x_3_3 = {64 00 62 00 7c 00 30 00 3a 00 6c 00 6b 00 7c 00 30 00 3a 00 68 00 73 00 7c 00 30 00 3a 00 6c 00 64 00 7c 00 30 00 3a 00 6c 00 6c 00 7c 00 30 00 3a 00 68 00 62 00 7c 00 30}  //weight: 3, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_4_*) and 1 of ($x_3_*))) or
+            (all of ($x*))
+        )
+}
+
 rule Trojan_Win64_ValleyRAT_GL_2147982789_0
 {
     meta:
@@ -1114,6 +1161,28 @@ rule Trojan_Win64_ValleyRAT_GL_2147982789_0
         strings_accuracy = "High"
     strings:
         $x_7_1 = "D:\\a\\_work\\1\\s\\src\\vctools\\VC7Libs\\Ship\\ATLMFC\\Src\\MFC\\MSEdgeWebView\\Release\\MSEdgeWebView.pdb" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ValleyRAT_CG_2147982926_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ValleyRAT.CG!MTB"
+        threat_id = "2147982926"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "7"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {33 00 30 00 6e 00 66 00 53 00 64 00 39 00 4a 00 33 00 30 00 6e 00 66 00 53 00 64 00 39 00 4a 00 33 00 30 00 6e 00 66 00 53 00 64 00 39 00 4a 00 33 00 30 00 6e 00 66 00 53 00 64 00 39 00 4a}  //weight: 5, accuracy: High
+        $x_2_2 = "[+] Shellcode" ascii //weight: 2
     condition:
         (filesize < 20MB) and
         (all of ($x*))

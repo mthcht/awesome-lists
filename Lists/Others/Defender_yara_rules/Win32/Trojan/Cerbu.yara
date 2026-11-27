@@ -281,3 +281,24 @@ rule Trojan_Win32_Cerbu_JN_2147980574_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_Cerbu_MX_2147982921_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Cerbu.MX!MTB"
+        threat_id = "2147982921"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Cerbu"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {f7 75 14 8b 4d 10 0f b6 14 11 8b 45 08 03 45 ec 0f b6 08 33 ca 8b 55 08 03 55 ec 88 0a}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

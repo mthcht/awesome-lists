@@ -20,3 +20,26 @@ rule Trojan_Win64_Crypt_SXA_2147948337_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Crypt_NMX_2147982923_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Crypt.NMX!MTB"
+        threat_id = "2147982923"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Crypt"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR"
+        threshold = "3"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "WinSvcGuard" wide //weight: 1
+        $x_1_2 = "Software\\Microsoft\\Windows\\CurrentVersion\\Run" wide //weight: 1
+        $x_1_3 = "\\svc%06X.exe" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

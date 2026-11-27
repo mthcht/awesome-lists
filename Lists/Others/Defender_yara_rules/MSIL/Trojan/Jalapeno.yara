@@ -4390,3 +4390,26 @@ rule Trojan_MSIL_Jalapeno_ALN_2147980443_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Jalapeno_AA_2147982918_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Jalapeno.AA!MTB"
+        threat_id = "2147982918"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Jalapeno"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "20"
+        strings_accuracy = "Low"
+    strings:
+        $x_6_1 = {0a 06 8e 69 28 ?? ?? ?? ?? 0b 06 16 07 06 8e 69 28 ?? ?? ?? ?? 07 06 8e 69 1f 40 12 02}  //weight: 6, accuracy: Low
+        $x_10_2 = "Install.exe - System Error" ascii //weight: 10
+        $x_4_3 = "The code execution cannot proceed because VCRUNTIME140.dll was not found. Reinstalling the program may fix this problem." ascii //weight: 4
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -9431,3 +9431,27 @@ rule Trojan_Win64_Tedy_PA_2147982799_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Tedy_BN_2147982920_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Tedy.BN!MTB"
+        threat_id = "2147982920"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Tedy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "Low"
+    strings:
+        $x_1_1 = "ChromeUpdateState.dat" ascii //weight: 1
+        $x_2_2 = "\"version\":\"131.0.6778.%d\",\"state\":\"idle\",\"last_check\":%lld,\"checks\":%lu,\"cpu\":%d" ascii //weight: 2
+        $x_1_3 = {89 c1 81 e1 ?? ?? 00 00 01 c9 f7 d9 01 c8 05}  //weight: 1, accuracy: Low
+        $x_1_4 = {89 c1 80 e1 ?? 00 c9 28 c8 04}  //weight: 1, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

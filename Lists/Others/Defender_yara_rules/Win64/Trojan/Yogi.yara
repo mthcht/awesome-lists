@@ -568,6 +568,31 @@ rule Trojan_Win64_Yogi_MK_2147981552_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_MK_2147981552_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.MK!MTB"
+        threat_id = "2147981552"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_15_1 = "main: phantom ntdll set" ascii //weight: 15
+        $x_10_2 = "main: after bypassAMSI" ascii //weight: 10
+        $x_5_3 = "main: after bypassETW" ascii //weight: 5
+        $x_3_4 = "main: after executeAPTChain" ascii //weight: 3
+        $x_2_5 = "main: after obfuscateImports" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Yogi_YBC_2147981620_0
 {
     meta:
