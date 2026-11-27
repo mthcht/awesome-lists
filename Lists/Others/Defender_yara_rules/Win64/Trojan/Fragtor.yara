@@ -175,3 +175,26 @@ rule Trojan_Win64_Fragtor_NZA_2147975790_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Fragtor_BV_2147982909_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Fragtor.BV!MTB"
+        threat_id = "2147982909"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Fragtor"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = "paradoxiaPID:%s" ascii //weight: 5
+        $x_4_2 = "DLL_OK:%ld" ascii //weight: 4
+        $x_2_3 = "WANIP:%s" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

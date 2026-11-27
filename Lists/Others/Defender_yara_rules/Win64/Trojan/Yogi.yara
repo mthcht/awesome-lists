@@ -881,3 +881,45 @@ rule Trojan_Win64_Yogi_SJ_2147982736_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_OR_2147982907_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.OR!MTB"
+        threat_id = "2147982907"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {65 48 8b 04 25 60 00 00 00 8b f9 48 8b 58 18 48 85 db 74 3b 4c 8b 5b 10 48 83 c3 10 4c 3b db 74 2e 0f 1f 44 00 00 49 8b 4b 60 48 85 c9 74 18 41 0f b7 43 58 66 85 c0 74 0e 8b d0 48 d1 ea e8}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Yogi_GB_2147982908_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.GB!MTB"
+        threat_id = "2147982908"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "1"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = {8b 8c 24 80 02 00 00 48 8d 40 04 69 d1 0d 66 19 00 81 c2 5f f3 6e 3c 33 50 fc 89 94 24 80 02 00 00 49 83 e8 01 75 d9}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
