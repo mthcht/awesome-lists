@@ -1426,3 +1426,24 @@ rule Trojan_Win64_DLLHijack_DBB_2147982847_0
         (1 of ($x*))
 }
 
+rule Trojan_Win64_DLLHijack_GQ_2147982884_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DLLHijack.GQ!MTB"
+        threat_id = "2147982884"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DLLHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {66 0f 1f 44 00 00 41 0f b6 0c 12 69 c0 ?? ?? ?? ?? 05 ?? ?? ?? ?? 41 89 c0 41 c1 e8 10 44 31 c1 41 88 0c 11 48 83 c2 01 48 83 fa 0e}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

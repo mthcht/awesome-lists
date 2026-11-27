@@ -507,3 +507,27 @@ rule Trojan_Win64_SalatStealer_AK_2147982693_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_SalatStealer_AU_2147982883_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/SalatStealer.AU!MTB"
+        threat_id = "2147982883"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "SalatStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_30_1 = {41 0f b6 c2 45 8d 42 f8 6b d0 7d 41 8b c0 83 e0 1f 41 0f b6 0c 04 80 ea e8 2a ca 42 30 0c 07 41 83 c2 f8 41 83 fa 08 0f}  //weight: 30, accuracy: High
+        $x_30_2 = {0f b6 c8 81 c2 6f f2 00 00 89 54 24 38 6b d1 7d 41 8b c9 83 e1 1f 46 0f b6 04 29 44 2a c2 41 80 e8 7d 46 30 04 0f 83 c0 02 41 8d 4f 04 41 3b cc 0f 86}  //weight: 30, accuracy: High
+        $x_30_3 = {0f b6 c8 45 8d 4b ?? 44 6b c1 ?? 8d 48 ?? 83 e1 ?? 41 0f b6 14 0c 41 80 c0 ?? 41 2a d0 42 30 14 0e 8b 4c 24 ?? 83 c0 04 83 c1 08 41 3b cd 0f 86 ac fe ff ff}  //weight: 30, accuracy: Low
+        $x_30_4 = {0f b6 c8 44 6b c1 7d 8d 48 03 83 e1 1f 81 c2 f7 dc 00 00 89 54 24 40 42 0f b6 14 29 41 80 c0 77 41 2a d0 43 30 14 0f 8b 4c 24 48 83 c0 04 83 c1 08 41 3b cc 0f}  //weight: 30, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+

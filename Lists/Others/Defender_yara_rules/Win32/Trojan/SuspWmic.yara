@@ -58,7 +58,8 @@ rule Trojan_Win32_SuspWmic_Z_2147768890_0
         $x_1_5 = {2d 00 71 00 75 00 65 00 72 00 79 00 [0-48] 73 00 65 00 6c 00 65 00 63 00 74 00 [0-48] 2a 00 [0-48] 66 00 72 00 6f 00 6d 00}  //weight: 1, accuracy: Low
         $n_10_6 = "[console]::inputencoding" wide //weight: -10
         $n_10_7 = "ltsvc\\ps.exe" wide //weight: -10
-        $n_10_8 = ").licensingtype" wide //weight: -10
+        $n_10_8 = {24 00 65 00 78 00 65 00 63 00 5f 00 77 00 72 00 61 00 70 00 70 00 65 00 72 00 5f 00 73 00 74 00 72 00 2e 00 73 00 70 00 6c 00 69 00 74 00 28 00 [0-60] 73 00 74 00 72 00 69 00 6e 00 67 00 73 00 70 00 6c 00 69 00 74 00 6f 00 70 00 74 00 69 00 6f 00 6e 00 73 00 5d 00 3a 00 3a 00 72 00 65 00 6d 00 6f 00 76 00 65 00 65 00 6d 00 70 00 74 00 79 00 65 00 6e 00 74 00 72 00 69 00 65 00 73 00}  //weight: -10, accuracy: Low
+        $n_10_9 = ").licensingtype" wide //weight: -10
     condition:
         (filesize < 20MB) and
         (not (any of ($n*))) and

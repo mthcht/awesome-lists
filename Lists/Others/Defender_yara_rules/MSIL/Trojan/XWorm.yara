@@ -7143,3 +7143,37 @@ rule Trojan_MSIL_XWorm_VDC_2147982629_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_KN_2147982896_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.KN!MTB"
+        threat_id = "2147982896"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "PING!" ascii //weight: 1
+        $x_1_2 = "pong" ascii //weight: 1
+        $x_1_3 = "Xchat" ascii //weight: 1
+        $x_1_4 = "injRun" ascii //weight: 1
+        $x_1_5 = "UACFunc" ascii //weight: 1
+        $x_1_6 = "Urlhide" ascii //weight: 1
+        $x_1_7 = "PCShutdown" ascii //weight: 1
+        $x_1_8 = "RunRecovery" ascii //weight: 1
+        $x_1_9 = "StartDDos" ascii //weight: 1
+        $x_1_10 = "StartReport" ascii //weight: 1
+        $x_1_11 = "RemovePlugins" ascii //weight: 1
+        $x_1_12 = "[XWorm V5.6]" ascii //weight: 1
+        $x_1_13 = "sendMessage?chat_id=" ascii //weight: 1
+        $x_1_14 = "Select * from AntivirusProduct" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

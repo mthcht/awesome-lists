@@ -642,6 +642,28 @@ rule Trojan_Win64_ShellcodeRunner_AH_2147911299_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_6_1 = {8b 43 fc 85 c0 74 1f 44 8b 03 44 8b c8 8b 53 f8 4d 03 c6 49 03 d4 48 8b ce e8 02 fc ff ff 85 c0 0f 84 c2 00 00 00 41 0f b7 45 06 ff c7 48 83 c3 28 3b f8 75 cb}  //weight: 6, accuracy: High
+        $x_2_2 = "Can't write shellcode 0x%X" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_AH_2147911299_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.AH!MTB"
+        threat_id = "2147911299"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "6"
         strings_accuracy = "Low"
     strings:
@@ -4362,6 +4384,27 @@ rule Trojan_Win64_ShellcodeRunner_SV_2147981551_0
     strings:
         $x_10_1 = {48 89 44 24 20 4c 8d 44 24 48 48 89 54 24 40 48 8d 54 24 40 e8}  //weight: 10, accuracy: High
         $x_10_2 = {0f b6 14 01 66 89 14 47 48 ff c0 48 83 f8 ?? 75}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_ShellcodeRunner_YBK_2147982901_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/ShellcodeRunner.YBK!MTB"
+        threat_id = "2147982901"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "ShellcodeRunner"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {41 f7 f9 41 8a 04 10 42 30 04 19 49 ff c3 4c 3b 5c 24 20 b8 ?? ?? ?? ?? 0f 44 c6 48}  //weight: 10, accuracy: Low
     condition:
         (filesize < 20MB) and
         (all of ($x*))
