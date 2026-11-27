@@ -1,13 +1,13 @@
 {
-  "generated_utc": "2026-11-27T16:20:55+00:00",
-  "total_records": 2781,
-  "total_malicious": 2709,
+  "generated_utc": "2026-11-27T17:19:42+00:00",
+  "total_records": 2793,
+  "total_malicious": 2721,
   "total_risky": 72,
   "severity_counts": {
-    "critical": 950,
+    "critical": 952,
     "high": 1246,
     "low": 22,
-    "medium": 563
+    "medium": 573
   },
   "category_counts": {
     "copyright-violation": 15,
@@ -15,7 +15,7 @@
     "expired-domain": 1,
     "impersonation": 1227,
     "impersonation-malware": 5,
-    "malware": 950,
+    "malware": 952,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
@@ -31,10 +31,10 @@
     "risky-infrastructure": 4,
     "risky-remote-access": 15,
     "risky-tunnel": 5,
-    "spam": 149,
+    "spam": 157,
     "spam-malware": 5,
     "typo-squatting": 1,
-    "untrustworthy": 339
+    "untrustworthy": 341
   },
   "malicious_category_counts": {
     "copyright-violation": 15,
@@ -42,14 +42,14 @@
     "expired-domain": 1,
     "impersonation": 1227,
     "impersonation-malware": 5,
-    "malware": 950,
+    "malware": 952,
     "owner-request": 8,
     "potentially-malicious": 4,
     "publisher-requested": 3,
-    "spam": 149,
+    "spam": 157,
     "spam-malware": 5,
     "typo-squatting": 1,
-    "untrustworthy": 339
+    "untrustworthy": 341
   },
   "risky_category_counts": {
     "risky-ai-code-access": 9,
@@ -65,7 +65,7 @@
     "risky-remote-access": 15,
     "risky-tunnel": 5
   },
-  "total_publishers": 2159,
+  "total_publishers": 2162,
   "top_publishers": [
     [
       "pit00",
@@ -120,6 +120,10 @@
       10
     ],
     [
+      "devartsoftware",
+      9
+    ],
+    [
       "okok909090",
       8
     ],
@@ -161,10 +165,6 @@
     ],
     [
       "SadiqShuaibu",
-      6
-    ],
-    [
-      "VSAnalysistest",
       6
     ]
   ]
