@@ -43,6 +43,28 @@ rule Trojan_Win64_BadIIS_MK_2147971034_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_BadIIS_MK_2147971034_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/BadIIS.MK!MTB"
+        threat_id = "2147971034"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "BadIIS"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "35"
+        strings_accuracy = "High"
+    strings:
+        $x_35_1 = {45 33 c9 41 b8 01 00 00 20 48 8b d0 48 89 08 48 8b cb 4c 8b 13 48 83 c4 20}  //weight: 35, accuracy: High
+        $x_35_2 = {45 33 c9 41 b8 01 00 00 20 48 8b d0 48 89 08 48 8b 0b 4c 8b 51 10 48 8b cb 48 83 c4 20}  //weight: 35, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (1 of ($x*))
+}
+
 rule Trojan_Win64_BadIIS_GVA_2147975748_0
 {
     meta:

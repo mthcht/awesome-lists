@@ -26,3 +26,37 @@ rule TrojanDownloader_Win64_LummaStealer_CCJX_2147940447_0
         )
 }
 
+rule TrojanDownloader_Win64_LummaStealer_RS_2147982979_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "TrojanDownloader:Win64/LummaStealer.RS!MTB"
+        threat_id = "2147982979"
+        type = "TrojanDownloader"
+        platform = "Win64: Windows 64-bit platform"
+        family = "LummaStealer"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "14"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "main: start" ascii //weight: 1
+        $x_1_2 = "main: unpack" ascii //weight: 1
+        $x_1_3 = "main: payload len" ascii //weight: 1
+        $x_1_4 = "spawn: begin" ascii //weight: 1
+        $x_1_5 = "spawn: staged" ascii //weight: 1
+        $x_1_6 = "disk drop" ascii //weight: 1
+        $x_1_7 = "drop written" ascii //weight: 1
+        $x_1_8 = "disk shell failed" ascii //weight: 1
+        $x_1_9 = "loadpedisk blocked" ascii //weight: 1
+        $x_1_10 = "pe_stub_spawn.log" ascii //weight: 1
+        $x_1_11 = "ShellExecuteEx failed" ascii //weight: 1
+        $x_1_12 = "CreateProcess failed" ascii //weight: 1
+        $x_1_13 = "loadpe (self-hollow, no drop)" ascii //weight: 1
+        $x_1_14 = "NtUnmapViewOfSection" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

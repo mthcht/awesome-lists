@@ -7143,6 +7143,35 @@ rule Trojan_MSIL_XWorm_VDC_2147982629_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_BY_2147982721_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.BY!MTB"
+        threat_id = "2147982721"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "10"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "XClient.exe" ascii //weight: 2
+        $x_1_2 = "set_UserAgent" ascii //weight: 1
+        $x_1_3 = "DownloadFile" ascii //weight: 1
+        $x_1_4 = "SetWindowsHookEx" ascii //weight: 1
+        $x_1_5 = "GetForegroundWindow" ascii //weight: 1
+        $x_1_6 = "GetKeyState" ascii //weight: 1
+        $x_1_7 = "MapVirtualKey" ascii //weight: 1
+        $x_1_8 = "CopyFromScreen" ascii //weight: 1
+        $x_1_9 = "get_StartupPath" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_XWorm_KN_2147982896_0
 {
     meta:
