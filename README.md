@@ -372,6 +372,7 @@ I regularly update most of these lists after each tool i analyze in my [detectio
   - [dnshistory](https://dnshistory.org/)
   - [asnlookup](https://asnlookup.com/)
   - [Browser extension checker - CRXaminer](https://crxaminer.tech/)
+  - [Browser extension owner checker - Extension Guardian](https://app.extensionguardian.workers.dev/)
   - [ipinfo.io](https://ipinfo.io)
   - [fofa.info](https://fofa.info/)
   - [SecurityTrail](https://securitytrails.com/)
