@@ -948,3 +948,26 @@ rule Trojan_Win64_Yogi_GB_2147982908_0
         (all of ($x*))
 }
 
+rule Trojan_Win64_Yogi_GQ_2147982994_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Yogi.GQ!MTB"
+        threat_id = "2147982994"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Yogi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "12"
+        strings_accuracy = "High"
+    strings:
+        $x_10_1 = {4d 33 ff 49 8b c7 49 97 49 97 0f 01 f9 48 c1 e2 20 48 0b c2 4c 8b f0 49 c7 c4 00 00 00 00 49 83 c4 01 49 83 ec 01 49 bd 00 28 6b ee 00 00 00 00 53 d9 fc 5b 0f 01 f9 48 c1 e2 20 48 0b c2 49 2b c6 49 3b c5 72}  //weight: 10, accuracy: High
+        $x_1_2 = "CreateBuglyAgent" ascii //weight: 1
+        $x_1_3 = "client_extension.dll" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
