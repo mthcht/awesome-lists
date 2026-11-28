@@ -107,6 +107,30 @@ rule Trojan_Win64_Coins_A_2147977095_0
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "100"
+        strings_accuracy = "High"
+    strings:
+        $x_40_1 = "<DiscoverChromiumRoots>d" ascii //weight: 40
+        $x_30_2 = "StealerPackage" ascii //weight: 30
+        $x_20_3 = "Slather.Agent.Stealer" ascii //weight: 20
+        $x_10_4 = "DetectInstalledBrowsers" ascii //weight: 10
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Coins_A_2147977095_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Coins.A!MTB"
+        threat_id = "2147977095"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Coins"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "55"
         strings_accuracy = "High"
     strings:

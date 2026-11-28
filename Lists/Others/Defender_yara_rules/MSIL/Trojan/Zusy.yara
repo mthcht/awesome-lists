@@ -3700,6 +3700,32 @@ rule Trojan_MSIL_Zusy_AI_2147945014_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Zusy_AI_2147945014_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Zusy.AI!MTB"
+        threat_id = "2147945014"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "23"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0a 16 0b 2b 16 06 07 7e ?? 00 00 04 07 91 1d 07 1d 5a 58 d2 61 d2 9c 07 17 58 0b 07 06 8e 69 32 e4}  //weight: 10, accuracy: Low
+        $x_2_2 = "drivers\\VBoxMouse.sys" ascii //weight: 2
+        $x_2_3 = "drivers\\vmhgfs.sys" ascii //weight: 2
+        $x_3_4 = "drivers\\vmmouse.sys" ascii //weight: 3
+        $x_4_5 = "RobloxCookies" ascii //weight: 4
+        $x_2_6 = "Discord token" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_MSIL_Zusy_GAF_2147945554_0
 {
     meta:

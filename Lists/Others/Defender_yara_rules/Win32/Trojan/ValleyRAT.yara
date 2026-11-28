@@ -595,3 +595,53 @@ rule Trojan_Win32_ValleyRAT_BG_2147982790_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_ValleyRAT_PAHY_2147982933_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.PAHY!MTB"
+        threat_id = "2147982933"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "8"
+        strings_accuracy = "High"
+    strings:
+        $x_5_1 = {8a 06 30 d8 88 06 c1 cb 08 46 49 75}  //weight: 5, accuracy: High
+        $x_1_2 = "[2/4] diag role, delay done" wide //weight: 1
+        $x_1_3 = "[3/4] download bin: OK" wide //weight: 1
+        $x_1_4 = "[4/4] exec done" wide //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_ValleyRAT_LR_2147982950_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/ValleyRAT.LR!MTB"
+        threat_id = "2147982950"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "ValleyRAT"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "%scopilot_overlay_X64_153.0.%s.%s_154.0.%s.%s.exe" ascii //weight: 1
+        $x_2_2 = "\"%s\\bitsadmin.exe\" /transfer myJob_%u /download /priority foreground \"%s\" \"%s\"" ascii //weight: 2
+        $x_3_3 = "%s%u.bat" ascii //weight: 3
+        $x_4_4 = "\"%s\\%s\" /i \"%s\" %s" ascii //weight: 4
+        $x_5_5 = "\"%s\\curl.exe\" %s \"%s\" \"%s\"" ascii //weight: 5
+        $x_6_6 = "\"%s\\certutil.exe\" -urlcache -split -f \"%s\" \"%s\"" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

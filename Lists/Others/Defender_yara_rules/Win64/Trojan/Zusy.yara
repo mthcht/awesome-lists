@@ -5273,6 +5273,33 @@ rule Trojan_Win64_Zusy_LR_2147976672_4
         (all of ($x*))
 }
 
+rule Trojan_Win64_Zusy_LR_2147976672_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Zusy.LR!MTB"
+        threat_id = "2147976672"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Zusy"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "28"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "Failed to decode decrypted password as UTF-8" ascii //weight: 1
+        $x_2_2 = "Password: [NSS_ENCRYPTED]" ascii //weight: 2
+        $x_3_3 = "[DEBUG] Processing Telegram:" ascii //weight: 3
+        $x_4_4 = "Clipboard.txtClipboard Content" ascii //weight: 4
+        $x_5_5 = "Downloads.txtDownloads History" ascii //weight: 5
+        $x_6_6 = "LEFT JOIN urls u ON duc.chain_index = 0 AND u.id = duc.url_id" ascii //weight: 6
+        $x_7_7 = "ORDER BY d.start_time DESC" ascii //weight: 7
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
 rule Trojan_Win64_Zusy_MKJ_2147977155_0
 {
     meta:

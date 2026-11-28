@@ -848,6 +848,32 @@ rule Trojan_Win64_DllHijack_LR_2147964863_4
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "21"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "# apc_inject_ps.ps1" ascii //weight: 1
+        $x_2_2 = "$taskCommand = \"C:\\path\\to\\BlizzardBrowser.exe\"" ascii //weight: 2
+        $x_3_3 = "Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue" ascii //weight: 3
+        $x_4_4 = "# ========== Scheduled task (kept as-is) ==========" ascii //weight: 4
+        $x_5_5 = "$taskName    = \"BlizzardBrowser\"" ascii //weight: 5
+        $x_6_6 = "    Write-Host \"[+] Task '$taskName' created successfully\"" ascii //weight: 6
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_DllHijack_LR_2147964863_5
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/DllHijack.LR!MTB"
+        threat_id = "2147964863"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "DllHijack"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "28"
         strings_accuracy = "High"
     strings:
@@ -863,7 +889,7 @@ rule Trojan_Win64_DllHijack_LR_2147964863_4
         (all of ($x*))
 }
 
-rule Trojan_Win64_DllHijack_LR_2147964863_5
+rule Trojan_Win64_DllHijack_LR_2147964863_6
 {
     meta:
         author = "defender2yara"

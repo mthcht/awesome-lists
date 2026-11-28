@@ -7198,3 +7198,34 @@ rule Trojan_MSIL_XWorm_VL_2147982924_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_XWorm_D_2147982940_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/XWorm.D!MTB"
+        threat_id = "2147982940"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "XWorm"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "High"
+    strings:
+        $x_1_1 = "<XWormmm>" ascii //weight: 1
+        $x_1_2 = "ETH_Address" ascii //weight: 1
+        $x_1_3 = "[ File Encrypt ]" ascii //weight: 1
+        $x_1_4 = "[ Chrome ]" ascii //weight: 1
+        $x_1_5 = "[ Keylogger ]" ascii //weight: 1
+        $x_1_6 = "[ WebCam ]" ascii //weight: 1
+        $x_1_7 = "[ UAC ]" ascii //weight: 1
+        $x_1_8 = "[ Ransomware ]" ascii //weight: 1
+        $x_1_9 = "[ Antivirus ]" ascii //weight: 1
+        $x_1_10 = "Passwords Was Saved @ ClientsFolder" ascii //weight: 1
+        $x_1_11 = "HKEY_CURRENT_USER\\Software\\xXWorm" ascii //weight: 1
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

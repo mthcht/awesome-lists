@@ -5066,3 +5066,29 @@ rule Trojan_MSIL_Bladabindi_XG_2147980313_0
         (all of ($x*))
 }
 
+rule Trojan_MSIL_Bladabindi_D_2147982948_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:MSIL/Bladabindi.D!MTB"
+        threat_id = "2147982948"
+        type = "Trojan"
+        platform = "MSIL: .NET intermediate language scripts"
+        family = "Bladabindi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "11"
+        strings_accuracy = "Low"
+    strings:
+        $x_10_1 = {0b 02 03 8e b7 28 ?? 00 00 0a 72 ?? 00 00 70 28 ?? 00 00 0a 0c 12 02 6f ?? ?? ?? ?? 0d 07 09 16 09 8e b7 6f ?? ?? ?? ?? 07 03 16 03 8e b7 6f ?? ?? ?? ?? 02 7b ?? 00 00 04 6f ?? 00 00 0a 07 6f ?? 00 00 0a 16 07 6f ?? 00 00 0a b7 16 6f}  //weight: 10, accuracy: Low
+        $x_1_2 = {44 00 61 00 72 00 6b 00 4e 00 45 00 54 00 00 01 00 03 7e 00 00 07 4d 00 49 00 43}  //weight: 1, accuracy: High
+        $x_1_3 = {76 00 65 00 6e 00 6f 00 6d 00 00 01 00 03 7e 00 00 07 4d 00 49 00 43}  //weight: 1, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (
+            ((1 of ($x_10_*) and 1 of ($x_1_*))) or
+            (all of ($x*))
+        )
+}
+

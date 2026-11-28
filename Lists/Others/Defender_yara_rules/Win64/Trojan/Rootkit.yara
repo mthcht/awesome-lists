@@ -253,6 +253,28 @@ rule Trojan_Win64_Rootkit_LR_2147964865_0
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 ff c2 c1 c8 0d 0f be c9 03 c1 8a 0a 84 c9 75 ?? 48 8b 8c 24 a0 00 00 00 48 33 cc}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 8d 96 08 02 00 00 4c 2b f2 0f b7 02 66 41 89 04 16 48 8d 52 02 66 85 c0 75 ?? b3 01}  //weight: 10, accuracy: Low
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Rootkit_LR_2147964865_1
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Rootkit.LR!MTB"
+        threat_id = "2147964865"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Rootkit"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
         strings_accuracy = "High"
     strings:
         $x_20_1 = {8b 0b 48 8b 43 08 44 89 3c 88 ff 03 41 ff c6 44 3b b5 80 00 00 00}  //weight: 20, accuracy: High

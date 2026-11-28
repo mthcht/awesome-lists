@@ -9560,3 +9560,26 @@ rule Trojan_Win32_GuLoader_XI_2147980188_0
         (all of ($x*))
 }
 
+rule Trojan_Win32_GuLoader_TA_2147982947_0
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/GuLoader.TA!MTB"
+        threat_id = "2147982947"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "GuLoader"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "5"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "pontificator unbarbarized stereophony" ascii //weight: 2
+        $x_1_2 = "stemmelben slingrefises" ascii //weight: 1
+        $x_2_3 = "discoursing coracoprocoracoid.exe" ascii //weight: 2
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+

@@ -2195,6 +2195,29 @@ rule Trojan_Win64_Mikey_LR_2147964559_1
         severity = "Critical"
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "25"
+        strings_accuracy = "High"
+    strings:
+        $x_2_1 = "TEMPss_dbg.txt[]" ascii //weight: 2
+        $x_3_2 = "PayloadMM1" ascii //weight: 3
+        $x_20_3 = {41 89 ca 41 83 e2 1f 46 0f b6 14 14 47 8d 1c d2 47 8d 14 9a 44 02 54 0c e1 41 80 f2 a9 45 0f b6 d2 44 88 54 0c e1 47 8d 1c d2 47 8d 14 9a}  //weight: 20, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_LR_2147964559_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LR!MTB"
+        threat_id = "2147964559"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
         strings_accuracy = "High"
     strings:
@@ -2205,7 +2228,29 @@ rule Trojan_Win64_Mikey_LR_2147964559_1
         (all of ($x*))
 }
 
-rule Trojan_Win64_Mikey_LR_2147964559_2
+rule Trojan_Win64_Mikey_LR_2147964559_3
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win64/Mikey.LR!MTB"
+        threat_id = "2147964559"
+        type = "Trojan"
+        platform = "Win64: Windows 64-bit platform"
+        family = "Mikey"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
+        strings_accuracy = "Low"
+    strings:
+        $x_20_1 = {48 89 44 24 30 b8 04 00 00 00 48 6b c0 00 c7 44 04 28 c8 2c 01 00 83 7c 24 20 14 74 ?? b8 04 00 00 00 48 6b c0 00 8b 44 04 28 05 5d 03 37 58 b9 04 00 00 00 48 6b c9 00 89 44 0c 28}  //weight: 20, accuracy: Low
+        $x_10_2 = {48 89 44 24 70 b8 01 00 00 00 48 6b c0 00 b9 01 00 00 00 48 6b c9 00 48 8b 54 24 70 0f b6 04 02 88 44 0c 50 b8 01 00 00 00 48 6b c0 01}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win64_Mikey_LR_2147964559_4
 {
     meta:
         author = "defender2yara"
@@ -2227,7 +2272,7 @@ rule Trojan_Win64_Mikey_LR_2147964559_2
         (all of ($x*))
 }
 
-rule Trojan_Win64_Mikey_LR_2147964559_3
+rule Trojan_Win64_Mikey_LR_2147964559_5
 {
     meta:
         author = "defender2yara"

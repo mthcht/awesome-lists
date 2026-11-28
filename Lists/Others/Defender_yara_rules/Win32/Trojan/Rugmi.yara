@@ -602,6 +602,28 @@ rule Trojan_Win32_Rugmi_C_2147980490_1
         info = "MTB: Microsoft Threat Behavior"
         signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
         threshold = "30"
+        strings_accuracy = "High"
+    strings:
+        $x_20_1 = {69 4d f0 b1 79 37 9e 03 c1 8b 55 dc 33 d0 89 55 dc 69 45 fc 0d 66 19 00}  //weight: 20, accuracy: High
+        $x_10_2 = {8b 55 f4 c1 e2 05 8d 84 15 8c f7 ff ff 8b 4d ec 8b 14 88 89 55 e8}  //weight: 10, accuracy: High
+    condition:
+        (filesize < 20MB) and
+        (all of ($x*))
+}
+
+rule Trojan_Win32_Rugmi_C_2147980490_2
+{
+    meta:
+        author = "defender2yara"
+        detection_name = "Trojan:Win32/Rugmi.C!MTB"
+        threat_id = "2147980490"
+        type = "Trojan"
+        platform = "Win32: Windows 32-bit platform"
+        family = "Rugmi"
+        severity = "Critical"
+        info = "MTB: Microsoft Threat Behavior"
+        signature_type = "SIGNATURE_TYPE_PEHSTR_EXT"
+        threshold = "30"
         strings_accuracy = "Low"
     strings:
         $x_30_1 = {89 4c 05 bc b9 ?? 00 00 00 6b d1 ?? b8 ?? 00 00 00 6b c8 ?? 8b 44 0d bc 03 45 f8 33 44 15 dc b9 ?? 00 00 00 6b d1 ?? 89 44 15 dc}  //weight: 30, accuracy: Low
